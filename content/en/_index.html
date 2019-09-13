@@ -1,0 +1,124 @@
++++
+title = "Butler SOS"
+linkTitle = "Butler SOS"
+
++++
+
+{{< blocks/cover title="Butler SOS: DevOps monitoring for Qlik Sense" image_anchor="top" height="full" color="orange" >}}
+<div class="mx-auto">
+	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "/docs" >}}">
+		Learn More <i class="fas fa-arrow-alt-circle-right ml-2"></i>
+	</a>
+	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/ptarmiganlabs/butler-sos">
+		Download <i class="fab fa-github ml-2 "></i>
+	</a>
+	<p class="lead mt-5">If you don't measure it, you can't improve it!</p>
+	<div class="mx-auto mt-5">
+		{{< blocks/link-down color="info" >}}
+	</div>
+</div>
+{{< /blocks/cover >}}
+
+
+{{% blocks/lead color="primary" %}}
+Butler SOS is an open source (free!!) tool that provides real-time monitoring of Qlik Sense environments.
+
+Runs on Windows, Linux, Mac OS, in Docker or as a Kubernetes service.
+
+Eager to try it out? The [getting started](docs/getting started/_index.md) pages will tell you everything you need.
+{{% /blocks/lead %}}
+
+
+{{% blocks/lead color="dark" %}}
+**--- Why is monitoring important? ---**
+
+Good question!
+
+For starters, if you are responsible for a Sense environment and hear about issues from your end users - that's a bad position to be in.
+You should be the first to know when something breaks. Only then are you able to fix things quickly, ideally even before end users realise there has been an incident.
+
+Additionally, having access to real-time metrics makes it hugely easier to incrementally tweak and tune your Sense environment. 
+{{% /blocks/lead %}}
+
+
+
+{{% blocks/lead color="orange" %}}
+**--- Can I get alerts when some metric go out of bounds? ---**
+
+Yes! Butler SOS stores all data in an InfluxDB database, from where it is visualised using Grafana.
+
+Both are best-in-class, open source products for storing and visualising time-series data.
+
+Grafana is increadibly feature rich, including a powerful alerting feature that can send alerts to email, IM tools (Slack etc), PagerDuty and more.
+{{% /blocks/lead %}}
+
+
+
+{{% blocks/lead color="primary" %}}
+**--- We use system \<*our-preferred-monitoring–tool*\> for monitoring. Can it be used with Butler SOS? ---**
+
+Yes, most likely. Butler SOS stores all metrics in InfluxDB, but also optionally sends metrics as MQTT messages.  
+If your main monitoring tool can use either of these as a data source, it can read data extracted by Butler SOS.
+
+If not natively supporting InfluxDB or MQTT, it is usually pretty easy to create a small tool that acts as a bridge between InfluxDB/MQTT and other systems.
+
+{{% /blocks/lead %}}
+
+
+
+<!-- {{< blocks/section >}}
+<div class="col">
+<h1 class="text-center">This is the second Section</h1>
+</div>
+{{< /blocks/section >}} -->
+
+
+{{< blocks/section >}}
+
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 5.0" %}}
+
+Track what users are connected to which virtual proxies, store data in authenticated InfluxDB databases and more.
+
+Available on [GitHub](https://github.com/ptarmiganlabs/butler-sos/releases).
+
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fab fa-github" title="Contributions welcome!"%}}
+We use a [Pull Request](https://github.com/ptarmiganlabs/butler-sos/pulls) contributions workflow on **GitHub**. New developers are always welcome!
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fab fa-twitter" title="Follow us on Twitter!" url="https://twitter.com/ptarmiganlabs" %}}
+For announcement of latest features etc.
+{{% /blocks/feature %}}
+
+
+{{< /blocks/section >}}
+
+
+
+
+
+<!-- {{< blocks/section >}}
+{{% blocks/feature icon="fab fa-app-store-ios" title="Download **from AppStore**" %}}
+Get the Goldydocs app!
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fab fa-github" title="Contributions welcome!" url="https://github.com/gohugoio/hugo" %}}
+We do a [Pull Request](https://github.com/gohugoio/hugo/pulls) contributions workflow on **GitHub**. New users are always welcome!
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fab fa-twitter" title="Follow us on Twitter!" url="https://twitter.com/GoHugoIO" %}}
+For announcement of latest features etc.
+{{% /blocks/feature %}}
+
+{{< /blocks/section >}} -->
+
+<!-- {{< blocks/section >}}
+<div class="col-12">
+<h1 class="text-center">This is another Section</h1>
+</div>
+{{< /blocks/section >}} -->

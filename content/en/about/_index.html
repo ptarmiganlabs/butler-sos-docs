@@ -1,0 +1,104 @@
+---
+title: About Butler SOS
+linkTitle: About
+menu:
+  main:
+    weight: 10
+
+---
+
+
+{{< blocks/cover title="About Butler SOS" image_anchor="bottom" height="min" >}}
+
+<p class="lead mt-5">Qlik Sense + DevOps = SenseOps
+</p>
+
+{{< /blocks/cover >}}
+
+
+
+{{< blocks/lead>}}
+
+Anyone responsible for an IT system - large or small - can testify how frustrating it can be, **NOT** to be confident about the system's current status.
+
+Butler SOS was born out of that frustration.
+
+As sysadmin, shouldn't *you* be the first to know when something breaks - rather than be told about it by stressed-out end users?
+
+{{< /blocks/lead>}}
+
+
+
+{{< blocks/lead color="dark">}}
+
+[Qlik Sense Enterprise](https://www.qlik.com/us) is an awesome analytics platform.
+
+In addition to being powerful - yet easy to use for end users - it also provides great APIs that make it possible to create all kinds of add-on tools that solve specific challenges.
+
+Butler SOS is such a tool, aiming to provide best-in-class operational monitoring of Qlik Sense environments.
+
+{{< /blocks/lead >}}
+
+
+
+
+{{% blocks/lead %}}
+Butler SOS extracts more than 30 metrics on both server health (CPU load, free memory) and Qlik Sense specifics (session, users, log entries, cache status etc).
+
+These metrics are stored in a time-series database ([InfluxDB](https://www.influxdata.com/products/influxdb-overview/)) and optionally also sent to other systems as MQTT messages.
+
+Once the metrics are stored in InfluxDB, [Grafana](https://grafana.com/) can be used to create real-time visualisations. 
+{{% /blocks/lead %}}
+
+
+{{< blocks/section >}}
+
+{{% blocks/feature icon="fa-server" title="Scalability?" %}}
+Butler SOS is designed to handle very large Sense clusters - or just a single node.
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fa-bell" title="Alerts and notifications?" %}}
+Built into Grafana. Email, Slack, Teams, PagerDuty and more.
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fa-users" title="Who, when, where?" %}}
+Detailed info is available about what users are (and were!) connected to which endpoints.<br>
+
+Example: Easy to see which users will be affectd by a server restart. Connect this data to your IM tool and notify users before restarts happen.
+{{% /blocks/feature %}}
+
+
+{{< /blocks/section >}}
+
+
+
+{{< blocks/section >}}
+<div class="col-12">
+<h1 class="text-center">
+    <b><i>Scalability?</i></b>
+  <br>Butler SOS is designed to handle very large Sense clusters - or just a single node.</h1>
+</div>
+{{< /blocks/section >}}
+
+
+{{< blocks/section >}}
+<div class="col-12">
+<h1 class="text-center">
+    <b><i>Alerts and notifications?</i></b>
+  <br>Built into Grafana. Email, Slack, Teams, PagerDuty and more.</h1>
+</div>
+{{< /blocks/section >}}
+
+
+{{< blocks/section >}}
+<div class="col-12">
+<h1 class="text-center">
+  <b><i>We need to restart a server. What users will be affected?</i></b>
+  <br>This info is available on a real-time basis.<br>Connect to your IM tool and notify users before restarts happen. </h1>
+</div>
+{{< /blocks/section >}}
+
+
+
