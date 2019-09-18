@@ -1,7 +1,6 @@
 ---
-title: "Getting started"
-linkTitle: "Getting started"
-weight: 2
+title: "Windows"
+linkTitle: "Windows"
 description: >
   What does your user need to know to try your project?
 ---

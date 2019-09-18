@@ -1,13 +1,9 @@
 ---
-title: "Getting started"
-linkTitle: "Getting started"
-weight: 2
+title: "Docker"
+linkTitle: "Docker"
 description: >
   What does your user need to know to try your project?
 ---
-
-
-
 {{% pageinfo %}}
 This is a placeholder page. Replace it with your own content.
 {{% /pageinfo %}}
