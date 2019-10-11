@@ -1,8 +1,9 @@
 ---
 title: "Configure"
 linkTitle: "Configure"
+weight: 3
 description: >
-  What does your user need to know to try your project?
+  Configuring Butler SOS when running as a native Node.js app under Windows.
 ---
 {{% pageinfo %}}
 This is a placeholder page. Replace it with your own content.

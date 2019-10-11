@@ -1,13 +1,13 @@
 ---
-title: "Install"
+title: "Installing using Docker"
 linkTitle: "Install"
+weight: 2
 description: >
-  What does your user need to know to try your project?
+  Installing Butler SOS using Docker.
 ---
+
 {{% pageinfo %}}
-This is a placeholder page. Replace it with your own content.
+You are assumed to have a working knowledge of Docker in order to properly install and run Butler SOS as a Docker container, either in a standalone Docker environment, or in a Kubernetes cluster.
 {{% /pageinfo %}}
 
-
-This is the section landing page.
 

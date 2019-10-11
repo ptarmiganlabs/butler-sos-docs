@@ -15,17 +15,17 @@ This is a placeholder page that shows you how to use this template site.
 
 ## Qlik Sense + DevOps = SenseOps
 
-Butler SenseOps Stats ("Butler SOS") is a DevOps monitoring tool for [Qlik Sense](https://www.qlik.com/us/products/qlik-sense).
+Butler SenseOps Stats ("Butler SOS") is a monitoring tool for [Qlik Sense](https://www.qlik.com/us/products/qlik-sense), built with DevOps workflows in mind.
 
 
-It publishes operational, close to real-time Qlik Sense Enterprise metrics to [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/) and  [MQTT](https://en.wikipedia.org/wiki/MQTT), from where it can be charted using tools like Grafana or acted on by downstream systems that listen to the MQTT topics used by Butler SOS.
+It publishes operational, close to real-time Qlik Sense Enterprise metrics to [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/) and  [MQTT](https://en.wikipedia.org/wiki/MQTT), from where it can be charted using tools like [Grafana](https://grafana.com/) or acted on by downstream systems that listen to the MQTT topics used by Butler SOS.
 
 Butler SOS gathers operational metrics from several sources, including the [Sense healthcheck API](https://help.qlik.com/en-US/sense-developer/June2019/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm) and [Session API](https://help.qlik.com/en-US/sense-developer/June2019/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm).  
 It also pulls log events from [Sense's Postgres logging database](https://help.qlik.com/en-US/sense/June2019/Subsystems/PlanningQlikSenseDeployments/Content/Sense_Deployment/Qlik-Logging-Service.htm), and forwards these to InfluxDB and MQTT.
 
 ## Do I really need a tool like this?
 
-Let's say you are somehow involved in (or maybe even responsible for!) your company's Qlik Sense environemnt.
+Let's say you are somehow involved in (or maybe even responsible for) your company's Qlik Sense environemnt.
 
 Let's also assume you have more than 5-10 users in your Sense environment. Maybe you even have business critical data in your Sense apps.
 
@@ -53,6 +53,7 @@ Things can always be improved, of course. Here are some ideas on things for futu
 
 - The MQTT messages are kind of basic, at least when it comes to data from the Sense logs and for detailed user sessions. In both those cases a single text string is sent to MQTT. That's fine, but assumes the downstream consumer of the MQTT message can parse the string and extract the information of interest.  
   A better approach would be to send more detailed MQTT messages. Those would be easier to consume and act upon for downstream systems, but it would on the other mean  **lots** more MQTT messages being sent. 
+- Send data as Kafka messages. Same basic idea as for MQTT messages, but having the Sense operational data in Kafka would make it easier to process/use it in (big) data pipelines.
 - Expose metrics via Promoetheus. This would mainly be an alternative to using InfluxDB as a datastore, as Grafana is commonly used as a frontend for Prometheus.
 
 

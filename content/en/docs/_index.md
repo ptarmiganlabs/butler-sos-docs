@@ -8,14 +8,15 @@ menu:
     weight: 20
 ---
 
-<!-- {{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
-{{% /pageinfo %}} -->
+{{% pageinfo %}}
+### What's new in version 5.0
 
-This section is where the user documentation for your project lives - all the information your users need to understand and successfully use your project. 
+* Extract **detailed user session data** for specific virtual proxies. Previously it was only possible to see how many users/sessions were using Sense in total - no info on what specific users or what virtual proxies they use were extracted.  
+  The new features make it possible to see exactly what users are connected right now, how many sessions each user has open, and what virtual proxies they are connected via.
+* Data extracted by Butler SOS can now be stored in **password protected** InfluxDB databases.
+* All data stored in InfluxDB is accompanied by a **InfluxDB retention policy**. This means there is now a way to make sure that the InfluxDB database does not grow beyond reasonable limits. Put differently: You can save detailed, fine-grained Sense metrics and specify that it should only be kept for (for example) 4 weeks. Any data older than the threshold is automatically purged from InfluxDB. 
+* **Improved logging** throughout the app makes it easier to debug and solve configuration issues that may arise.
 
-For large documentation sets we recommend adding content under the headings in this section, though if some or all of them don’t apply to your project feel free to remove them or add your own. You can see an example of a smaller Docsy documentation site in the [Docsy User Guide](https://docsy.dev/docs/), which lives in the [Docsy theme repo](https://github.com/google/docsy/tree/master/userguide) if you'd like to copy its docs section. 
+Thes new features mean that Butler SOS' configuration file has a slightly new format. When upgrading to v5.0 from earlier versions you must ensure that your YAML config file meets the v5.0 format.
 
-Other content such as marketing material, case studies, and community updates should live in the [About](/about/) and [Community](/community/) pages.
-
-Find out how to use the Docsy theme in the [Docsy User Guide](https://docsy.dev/docs/). You can learn more about how to organize your documentation (and how we organized this site) in [Organizing Your Content](https://docsy.dev/docs/best-practices/organizing-content/).
+{{% /pageinfo %}}
