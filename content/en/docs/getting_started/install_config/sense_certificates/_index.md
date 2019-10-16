@@ -1,7 +1,7 @@
 ---
-title: "Windows"
-linkTitle: "Windows"
-weight: 5
+title: "Export Sense certificates"
+linkTitle: "Get certificates"
+weight: 2
 description: >
   Running Butler SOS in Windows. Installation and configuration.
 ---
@@ -30,7 +30,7 @@ From d:\tools\butler-sos\src, run `npm i` to install the various Node.js modules
 
 The configuration file is used the same way as when Butler SOS runs on Docker, with one exception:
 
-The path to the certificates used to authenticate with Sense must be specified in the config file. With Docker the certificate path is fixed, but with Windows you need to specify it.
+The path to the certificates used to authenticate with Sense must be specified in the config file. With Docker the certificate path is fixed, but with Windows you need to specify it. 
 
 For example, if the certificate files exported from Sense are stored in d:\secrets\sensecert, the config file would look like this when used on Windows:
 
@@ -45,12 +45,13 @@ For example, if the certificate files exported from Sense are stored in d:\secre
 
 ```
 
+
 ## Running
 
 A tool like Butler SOS should of course start automatically when the server it runs on is restarted. This can be achieved in at least a couple of ways:
 
-1. A Node process monitor such as [PM2](http://pm2.keymetrics.io/) can be used to monitor the Butler SOS process, and restart it if it for some reason crashes.
+1. A Node process monitor such as [pm2]() can be used to monitor the Butler SOS process, and restart it if it for some reason crashes.
 
-2. Use a tool to wrap Butler SOS into a Windows service. There are various tools for doing this, with [NSSM](https://nssm.cc/) being one of the better ones.
+2. Use a tool to wrap Butler SOS into a Windows service. There are various tools for doing this, with [nssm] being one of the better ones.
 
 The second option is usually preferred, as you then manage Butler SOS the same way as other system critical Windows services.

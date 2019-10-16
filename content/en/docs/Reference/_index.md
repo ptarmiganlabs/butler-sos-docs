@@ -3,20 +3,21 @@ title: "Reference"
 linkTitle: "Reference"
 weight: 9
 description: >
-  Low level reference docs for your project.
+  Technical reference docs that might be useful.
 ---
-
-{{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
-{{% /pageinfo %}}
-
-If your project has an API, configuration, or other reference - anything that users need to look up that’s at an even lower level than a single task - put (or link to it) here. You can serve and link to generated reference docs created using Doxygen,
-Javadoc, or other doc generation tools by putting them in your `static/` directory. Find out more in [Adding static content](https://docsy.dev/docs/adding-content/content/#adding-static-content).
 
 ## Qlik Sense APIs
 
+QLik's API documentation is found [here](https://help.qlik.com/en-US/sense-developer/September2019/Content/Sense_Helpsites/APIs-and-SDKs.htm).
+
 ## InfluxDB
+
+InfluxDB docs [here](https://docs.influxdata.com/influxdb/v1.7/).
 
 ## Grafana
 
+Grafana docs [here](https://grafana.com/docs/).
+
 ## MQTT
+
+Docs for the [Mosquitto](https://mosquitto.org/) MQTT broker [here](https://mosquitto.org/man/mosquitto-8.html).

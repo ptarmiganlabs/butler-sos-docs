@@ -1,7 +1,7 @@
 ---
 title: "Docker"
 linkTitle: "Docker"
-weight: 3
+weight: 4
 description: >
   Running Butler SOS in Docker. Installation and configuration.
 ---

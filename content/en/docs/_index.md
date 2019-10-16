@@ -15,7 +15,7 @@ menu:
   The new features make it possible to see exactly what users are connected right now, how many sessions each user has open, and what virtual proxies they are connected via.
 * Data extracted by Butler SOS can now be stored in **password protected** InfluxDB databases.
 * All data stored in InfluxDB is accompanied by a **InfluxDB retention policy**. This means there is now a way to make sure that the InfluxDB database does not grow beyond reasonable limits. Put differently: You can save detailed, fine-grained Sense metrics and specify that it should only be kept for (for example) 4 weeks. Any data older than the threshold is automatically purged from InfluxDB. 
-* **Improved logging** throughout the app makes it easier to debug and solve configuration issues that may arise.
+* **Improved logging** throughout the app makes it easier to debug and solve for example configuration issues.
 
 Thes new features mean that Butler SOS' configuration file has a slightly new format. When upgrading to v5.0 from earlier versions you must ensure that your YAML config file meets the v5.0 format.
 
