@@ -16,6 +16,16 @@ Once again, same thing as [on Windows](/butler-sos/docs/getting_started/install_
 
 ## Running
 
+### Environment variables
+
+There is a dependency between the name of the YAML configuration file and the NODE_ENV environment variable. 
+
+The `production.yaml` file can be named anything, as long as it matches the value of the `NODE_ENV` environment variable.  
+For example, if the config file is called `production.yaml`, the NODE_ENV environment variable should be set to 'production'.
+
+In Linux you do this by `export NODE_ENV=production` in a shell prompt, or even better as a server wide setting.
+
+### Stayin' alive
 A Node process monitor can be used on Linux or Mac OS, just a on Windows.
 Tools like [PM2](http://pm2.keymetrics.io/) in fact usually work better on Linux/Mac OS than on Windows..
 

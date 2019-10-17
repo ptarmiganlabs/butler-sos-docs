@@ -47,6 +47,17 @@ For example, if the certificate files exported from Sense are stored in d:\secre
 
 ## Running
 
+### Environment variables
+
+There is a dependency between the name of the YAML configuration file and the NODE_ENV environment variable. 
+
+The `production.yaml` file can be named anything, as long as it matches the value of the `NODE_ENV` environment variable.  
+For example, if the config file is called `production.yaml`, the NODE_ENV environment variable should be set to 'production'.
+
+In Windows you do this by `set NODE_ENV=production` in a command prompt, or even better as a server wide setting.
+
+### Stayin' alive
+
 A tool like Butler SOS should of course start automatically when the server it runs on is restarted. This can be achieved in at least a couple of ways:
 
 1. A Node process monitor such as [PM2](http://pm2.keymetrics.io/) can be used to monitor the Butler SOS process, and restart it if it for some reason crashes.

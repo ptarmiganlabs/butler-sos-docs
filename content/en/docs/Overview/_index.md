@@ -64,9 +64,9 @@ Ready to move on?
 
 Great! Here are some good starting points
 
-* [Getting Started](/butler-sos/docs/getting_started/): Get started with Butler SOS
+* [Getting Started](/docs/getting_started/): Get started with Butler SOS
 
-* [Examples](/butler-sos/docs/examples/): Check out some example monitoring dashboards!
+* [Examples](/docs/examples/): Check out some example monitoring dashboards!
 
 
 ## I have a question or want to report an issue
