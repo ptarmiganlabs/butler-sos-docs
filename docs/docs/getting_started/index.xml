@@ -1,0 +1,149 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler SOS – Getting started</title>
+    <link>ptarmiganlabs.github.io/butler-sos/docs/getting_started/</link>
+    <description>Recent content in Getting started on Butler SOS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Choosing a platform - what are the options?</title>
+      <link>ptarmiganlabs.github.io/butler-sos/docs/getting_started/choose_platform/</link>
+      <pubDate>Mon, 16 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>ptarmiganlabs.github.io/butler-sos/docs/getting_started/choose_platform/</guid>
+      <description>
+        
+        
+        &lt;!-- 
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;This is a placeholder page. Replace it with your own content.&lt;/p&gt;
+
+&lt;/div&gt;
+ --&gt;
+
+&lt;p&gt;As Butler SOS is written in Node.js, the tool in theory runs on all platforms where Node.js is available.
+The tool is also available as a &lt;a href=&#34;https://hub.docker.com/r/ptarmiganlabs/butler-sos&#34; target=&#34;_blank&#34;&gt;Docker image&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;
+Docker is &lt;strong&gt;by far&lt;/strong&gt; the preferred way of running Butler SOS, mainly because it gives you a very nice, production grade (stable, scalable, monitorable etc) execution environment.&lt;/p&gt;
+
+&lt;p&gt;Other platforms can be used too, of course - let&amp;rsquo;s look at the pros and cons of some of the more commonly used platforms:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Platform&lt;/th&gt;
+&lt;th&gt;Pros&lt;/th&gt;
+&lt;th&gt;Cons&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Docker&lt;/td&gt;
+&lt;td&gt;- Easy to set up Butler SOS in Docker &lt;br&gt;- Easy to test new versions of Butler SOS &lt;br&gt;- Use existing Docker infrastructure&lt;br&gt;- Monitoring, restarts etc built into Docker&lt;br&gt; - Runs on low cost hardware&lt;/td&gt;
+&lt;td&gt;- Docker environment needed (if not already available). Setting up and running Docker is not hard, but does require somewhat other skills than those needed to run a Sense environment&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Windows server&lt;/td&gt;
+&lt;td&gt;- Butler SOS can run on same server as Qlik Sense, saving hardware/server costs&lt;/td&gt;
+&lt;td&gt;- Running Butler SOS natively on the Sense server is a potential risk (usually a good idea to isolate systems to their own servers/environments whenever possible)&lt;br&gt;- More difficult (compared to Docker) to production grade setup (auto restarts etc)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Linux&lt;/td&gt;
+&lt;td&gt;- No cost for operating system (at least not for most Linux versions)&lt;br&gt;- Runs on low cost hardware&lt;/td&gt;
+&lt;td&gt;- More difficult (compared to Docker) to production grade setup (auto restarts etc)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Mac OS&lt;/td&gt;
+&lt;td&gt;- For development, if you want to extend or modify Butler SOS&lt;/td&gt;
+&lt;td&gt;- Not a server grade operating system, i.e. not for production use&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Windows (desktop)&lt;/td&gt;
+&lt;td&gt;- For development, if you want to extend or modify Butler SOS&lt;/td&gt;
+&lt;td&gt;- Not a server grade operating system, i.e. not for production use&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Install &amp; Configure</title>
+      <link>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;If in doubt on how to install Butler SOS, please consider Docker as the first alternative.&lt;br /&gt;
+Why? Several reasons:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Very quick to get started. Usually it takes just a few minutes to set up a Butler SOS instance in Docker.&lt;/li&gt;
+&lt;li&gt;Using Docker is a great way to test new tools without having to install the tool on one of your actual servers. If you decide the tool in question is not for you - just delete the Docker container. Your servers remain 100% the same as before the test.&lt;/li&gt;
+&lt;li&gt;The previous point is true not only for Butler SOS, but also its companion tools InfluxDB, Grafana and MQTT (via for example the Mosquitto MQTT broker). You can run all of these tools in their own Docker containers, and not install a single piece of new, native applications during your evaluation of Butler SOS.&lt;/li&gt;
+&lt;li&gt;No need to install Node.js on your server(s). Less security, performance and maintenance concerns.&lt;/li&gt;
+&lt;li&gt;Make use of your existing Docker runtime environments, or use those offered by Amazon, Google, Microsoft etc.&lt;/li&gt;
+&lt;li&gt;Benefit from the extremely comprehensive tools ecosystem (monitoring, deployment etc) that is available for Docker.&lt;/li&gt;
+&lt;li&gt;Updating Butler SOS to the latest version (assuming no config file changes are needed for that particular upgrade) is as easy as stopping the container, doing a &amp;ldquo;docker pull ptarmiganlabs/butler-sos:latest&amp;rdquo;, and finally starting the container again.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+
+
+&lt;p&gt;&lt;br&gt;
+But even with the above Docker recommendation, Butler SOS &lt;em&gt;can&lt;/em&gt; be deployed in lots of different configurations.&lt;br /&gt;
+It is therefore difficult to give precise instructions that will work for all configurations. Especially the fact that Butler SOS uses certificates to authenticate with Sense is a complicating factor. Certificates are (when correctly used) great for securing systems, but they can alse cause headaches.&lt;/p&gt;
+
+&lt;p&gt;First we must recognize that Sense uses &lt;a href=&#34;https://en.wikipedia.org/wiki/Self-signed_certificate&#34; target=&#34;_blank&#34;&gt;self signed certificates&lt;/a&gt;. This is fine, and as long as you work on a server where Sense Enterprise is installed, that server will have the Sense-provided Certificate Authority (CA) certificate installed.&lt;/p&gt;
+
+&lt;p&gt;This means that the easiest option for getting Butler SOS up and running is usually to install it on one of your Sense servers.&lt;/p&gt;
+
+&lt;p&gt;That said, it is probably better system design to run Butler SOS (and maybe other members of the &lt;a href=&#34;https://github.com/ptarmiganlabs&#34; target=&#34;_blank&#34;&gt;Butler family&lt;/a&gt;) on their own server, maybe using some flavour of Linux (lower cost compared to Windows).&lt;br /&gt;
+In this case you might want to consider exporting the Sense CA certificate from one of your Sense servers, and then install it on the Linux server.
+This &lt;em&gt;should&lt;/em&gt; technically not be needed for Butler SOS to work correctly - as long as you specify the correct root.pem file in the Butler SOS config file, you should be ok.&lt;/p&gt;
+
+&lt;p&gt;If you specify an incorrect root CA certificate file in the &lt;code&gt;clientCertCA&lt;/code&gt; config option, you will get an error like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2018&lt;/span&gt;-05-23T20:36:44.393Z - error: Error: Error: unable to verify the first certificate
+    at TLSSocket.&amp;lt;anonymous&amp;gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;_tls_wrap.js:1105:38&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    at emitNone &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;events.js:106:13&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    at TLSSocket.emit &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;events.js:208:7&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    at TLSSocket._finishInit &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;_tls_wrap.js:639:8&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    at TLSWrap.ssl.onhandshakedone &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;_tls_wrap.js:469:38&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2018&lt;/span&gt;-05-23T20:36:49.164Z - verbose: Event started: Query log db
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2018&lt;/span&gt;-05-23T20:36:49.180Z - verbose: Event started: Statistics collection&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A general note on host names is also relevant.&lt;br /&gt;
+If you specify a server name of &amp;ldquo;myserver.company.com&amp;rdquo; while exporting certificates from the QMC, you should use that same server name in the Butler SOS config file.  Failing to do so will (most likely) result in an error:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2018&lt;/span&gt;-05-23T19:51:03.087Z - error: Error: Error: Hostname/IP doesn&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;t match certificate&amp;#39;&lt;/span&gt;s altnames: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Host: serveralias.company.net. is not in the cert&amp;#39;s altnames: DNS:myserver.company.com&amp;#34;&lt;/span&gt;
+    at Object.checkServerIdentity &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;tls.js:223:17&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    at TLSSocket.&amp;lt;anonymous&amp;gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;_tls_wrap.js:1111:29&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    at emitNone &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;events.js:106:13&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    at TLSSocket.emit &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;events.js:208:7&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    at TLSSocket._finishInit &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;_tls_wrap.js:639:8&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    at TLSWrap.ssl.onhandshakedone &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;_tls_wrap.js:469:38&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2018&lt;/span&gt;-05-23T19:51:07.701Z - verbose: Event started: Statistics collection&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1046 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.58.2" />
+
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+<link rel="alternate" type="application/rss&#43;xml" href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/config_file_format/index.xml">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/ptarmiganlabs.github.io/butler-sos/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/ptarmiganlabs.github.io/butler-sos/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/ptarmiganlabs.github.io/butler-sos/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/ptarmiganlabs.github.io/butler-sos/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/ptarmiganlabs.github.io/butler-sos/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/ptarmiganlabs.github.io/butler-sos/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/ptarmiganlabs.github.io/butler-sos/favicons/android-96x196.png" sizes="96x196">
+<link rel="icon" type="image/png" href="/ptarmiganlabs.github.io/butler-sos/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/ptarmiganlabs.github.io/butler-sos/favicons/android-192x192.png"sizes="192x192">
+
+<title>Config file format | Butler SOS</title><meta property="og:title" content="Config file format" />
+<meta property="og:description" content="Everything you ever wanted to know about the Butler SOS configuration file.
+" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/config_file_format/" />
+<meta property="og:site_name" content="Butler SOS" />
+<meta itemprop="name" content="Config file format">
+<meta itemprop="description" content="Everything you ever wanted to know about the Butler SOS configuration file.
+">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Config file format"/>
+<meta name="twitter:description" content="Everything you ever wanted to know about the Butler SOS configuration file.
+"/>
+
+
+
+
+
+<link rel="preload" href="/ptarmiganlabs.github.io/butler-sos/scss/main.min.9aeffc9e83359f1f6c567fea8e2076603d4e37a6b64417981024b11fe9769455.css" as="style">
+<link href="/ptarmiganlabs.github.io/butler-sos/scss/main.min.9aeffc9e83359f1f6c567fea8e2076603d4e37a6b64417981024b11fe9769455.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+
+    <title>Config file format | Butler SOS</title>
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="ptarmiganlabs.github.io/butler-sos/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">Butler SOS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="ptarmiganlabs.github.io/butler-sos/about/" ><span>About</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="ptarmiganlabs.github.io/butler-sos/docs/" ><span class="active">Documentation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="ptarmiganlabs.github.io/butler-sos/community/" ><span>Community</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav pt-2 pl-4" id="td-section-nav">
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="ptarmiganlabs-github-io-butler-sos-docs">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Overview</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-overview">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Getting started</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="ptarmiganlabs-github-io-butler-sos-docs-getting-started">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/choose_platform/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Choose a platform</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-getting-started-choose-platform">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Install &amp; Configure</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="ptarmiganlabs-github-io-butler-sos-docs-getting-started-install-config">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/sense_certificates/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Get certificates</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-getting-started-install-config-sense-certificates">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/config_file_format/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Config file format</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="ptarmiganlabs-github-io-butler-sos-docs-getting-started-install-config-config-file-format">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/docker/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Docker</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-getting-started-install-config-docker">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/windows/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Windows</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-getting-started-install-config-windows">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/linux_macos/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Linux, Mac OS</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-getting-started-install-config-linux-macos">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/influxdb_grafana/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">InfluxDB &amp; Grafana</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-getting-started-install-config-influxdb-grafana">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/examples/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Examples</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-examples">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/reference/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reference</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-reference">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/version_history/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Version history</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-version-history">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/contribution-guidelines/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Contribution guidelines</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-contribution-guidelines">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+
+
+
+
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+
+
+
+
+
+<a href="https://github.com/ptarmiganlabs/butler-sos-docs/edit/master/content/en/docs/getting_started/install_config/config_file_format/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/ptarmiganlabs/butler-sos-docs/issues/new?title=Config%20file%20format" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+
+
+<a href="https://github.com/ptarmiganlabs/butler-sos/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+
+</div>
+
+
+
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="ptarmiganlabs.github.io/butler-sos/docs/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/">Getting started</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/">Install &amp; Configure</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/config_file_format/">Config file format</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Config file format</h1>
+	<div class="lead">Everything you ever wanted to know about the Butler SOS configuration file.</div>
+	
+
+<div class="pageinfo pageinfo-primary">
+<p>Either JSON or YAML notation can be used to create the configuration file, with file extensions of .json and .yaml/.yml, respectively.</p>
+
+<p>YAML is strongly recommended, as it is easier to edit/read/understand compared to JSON.</p>
+
+</div>
+
+
+<p>The parameters in the config file are described below.
+All parameters must be defined in the config file - run time errors are likely to occur otherwise.
+The <a href="https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml" target="_blank">sample config file</a> looks like this:</p>
+
+<p><img src="./configfile1.png" alt="Sample config file" title="Sample Butler SOS config file" /></p>
+
+<p><br></p>
+
+<p>A few things to keep in mind:</p>
+
+<ul>
+<li>Topic names (e.g. &ldquo;Butler-SOS.logdb&rdquo;) are case sensitive.</li>
+<li>First time Butler SOS is started, a new InfluxDB database will be created, together with a default InfluxDB retention policy</li>
+</ul>
+
+<p><br></p>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>Butler-SOS</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td>logLevel</td>
+<td>The level of details in the logs. Possible values are silly, debug, verbose, info, warn, error (in order of decreasing level of detail).</td>
+</tr>
+
+<tr>
+<td>fileLogging</td>
+<td>true/false to enable/disable logging to disk file</td>
+</tr>
+
+<tr>
+<td>logDirectory</td>
+<td>Subdirectory where log files are stored</td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Butler-SOS.logdb</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td>enableLogDb</td>
+<td>Should Sense log db be queried for warnings/errors/info messages? true/false</td>
+</tr>
+
+<tr>
+<td>pollingInterval</td>
+<td>How often to query log db. Milliseconds</td>
+</tr>
+
+<tr>
+<td>queryPeriod</td>
+<td>How far back should log db be queried? Human readable, e.g. &ldquo;5 minutes&rdquo; (which is also the default value)</td>
+</tr>
+
+<tr>
+<td>host</td>
+<td>IP or FQDN of server where Sense log db is running</td>
+</tr>
+
+<tr>
+<td>port</td>
+<td>Port used by log db. 4432 unless changed during installation of Sense</td>
+</tr>
+
+<tr>
+<td>qlogsReaderUser</td>
+<td>User to connect to log db as. &ldquo;qlogs_reader&rdquo; unless changed during installation of Sense</td>
+</tr>
+
+<tr>
+<td>qlogsReaderPwd</td>
+<td>Password of above user</td>
+</tr>
+
+<tr>
+<td>extractErrors</td>
+<td>Should error entries be extracted from log db? true/false</td>
+</tr>
+
+<tr>
+<td>extractWarnings</td>
+<td>Should warning entries be extracted from log db? true/false</td>
+</tr>
+
+<tr>
+<td>extractInfo</td>
+<td>Should info entries be extracted from log db? true/false. <br><strong>NOTE:</strong> If info level logging is enabled, this will result in lots of messages being stored in Influxdb (at least for a busy Sense cluster).</td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Butler-SOS.cert</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td>clientCert</td>
+<td>Certificate file. Exported from QMC</td>
+</tr>
+
+<tr>
+<td>clientCertKey</td>
+<td>Certificate key file. Exported from QMC</td>
+</tr>
+
+<tr>
+<td>clientCertCA</td>
+<td>Root certificate for above certificate files. Exported from QMC</td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Butler-SOS.mqttConfig</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td>enableMQTT</td>
+<td>Should health metrics be sent to MQTT? true/false</td>
+</tr>
+
+<tr>
+<td>brokerHost</td>
+<td>IP or FQDN of MQTT broker</td>
+</tr>
+
+<tr>
+<td>brokerPort</td>
+<td>Broker port</td>
+</tr>
+
+<tr>
+<td>baseTopic</td>
+<td>The topic to which messages will be posted. Should end with /. For example butler-sos/</td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Butler-SOS.influxdbConfig</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td>enableInfluxdb</td>
+<td>Should health metrics be stored in Influxdb? true/false</td>
+</tr>
+
+<tr>
+<td>hostIP</td>
+<td>IP or FQDN of Influxdb server</td>
+</tr>
+
+<tr>
+<td>hostPort</td>
+<td>Port where Influxdb server is listening. Useful if Influxdb for some reason is not using its standard port of 8086</td>
+</tr>
+
+<tr>
+<td>auth.enable</td>
+<td>Enable if data is to be stored in a password protected Influxdb database</td>
+</tr>
+
+<tr>
+<td>auth.username</td>
+<td>Influxdb username</td>
+</tr>
+
+<tr>
+<td>auth.password</td>
+<td>Influxdb password</td>
+</tr>
+
+<tr>
+<td>dbName</td>
+<td>Database namne in Influxdb to which health metrics will be stored. Database will be created if it does not already exist when Butler SOS is started</td>
+</tr>
+
+<tr>
+<td>retentionPolicy.<br>name</td>
+<td>Name of default retention policy that will be created in InfluxDB database, when that database is created during first execution of Butler SOS</td>
+</tr>
+
+<tr>
+<td>retentionPolicy.<br>duration</td>
+<td>Duration during which metrics are kept in InfluxDB. After the duration has passed, InfluxDB will purge all data older than duration from the database. See <a href="https://docs.influxdata.com/influxdb/v1.7/query_language/database_management/#retention-policy-management" target="_blank">InfluxDB docs</a> for details on syntax.</td>
+</tr>
+
+<tr>
+<td>includeFields.<br>activeDocs</td>
+<td>Should a list of currently active Sense apps be stored in Influxdb? true/false</td>
+</tr>
+
+<tr>
+<td>includeFields.<br>loadedDocs</td>
+<td>Should a list of Sense apps opened in a user session be stored in Influxdb? true/false</td>
+</tr>
+
+<tr>
+<td>includeFields.<br>activeDocs</td>
+<td>Should a list of Sense apps loaded into memory (some apps might not currently be associated with a user session) be stored in Influxdb? true/false</td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Butler-SOS.userSessions</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td>enableSessionExtract</td>
+<td>Influxdb password</td>
+</tr>
+
+<tr>
+<td>pollingInterval</td>
+<td>Influxdb password</td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Butler-SOS.serversToMonitor</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td>pollingInterval</td>
+<td>How often to query the Sense healthcheck API</td>
+</tr>
+
+<tr>
+<td>serverTagsDefinition</td>
+<td>List of tags to add to each server when storing the data in Influxdb. All tags defined here MUST be present in each server&rsquo;s definition section further down in the config file!</td>
+</tr>
+
+<tr>
+<td>servers</td>
+<td>List of what servers to monitor. For each server a set of properties MUST be defined.</td>
+</tr>
+
+<tr>
+<td>servers.<br>host</td>
+<td>FQDN of server. Domain should match that of the certificate exported from QMC - otherwise certificate warnings may appear</td>
+</tr>
+
+<tr>
+<td>servers.<br>serverName</td>
+<td>Human friendly server name</td>
+</tr>
+
+<tr>
+<td>servers.<br>serverDescription</td>
+<td>Human friendly server description</td>
+</tr>
+
+<tr>
+<td>servers.<br>logDbHost</td>
+<td>Server&rsquo;s name as it appears in the <code>process_host</code> field log db. This is needed in order to link entries in logdb to the specific server at hand. See note below too!</td>
+</tr>
+
+<tr>
+<td>servers.<br>userSessions.<br>enable</td>
+<td>Control whether user session data should be retrieved for this server</td>
+</tr>
+
+<tr>
+<td>servers.<br>userSessions.<br>host</td>
+<td>Host and port from which to retrieve user session data. Usually on the form servername.mydomain.net:4243</td>
+</tr>
+
+<tr>
+<td>servers.<br>userSessions.<br>virtualProxies</td>
+<td>A list of key-value pairs. Use to specify for which virtual proxies on this server user session data should be retrieved.</td>
+</tr>
+
+<tr>
+<td>serverTags</td>
+<td>A list of key-value pairs. Use to provide more metadata for servers. Can then (among other things) be used to created more advanced Grafana dashboards.</td>
+</tr>
+</tbody>
+</table>
+
+<p>The <code>Butler-SOS.serversToMonitor.servers.logDbHost</code> property can be tricky to get right. Easiest way to get the correct value is to look in the Nodes section in the QMC. In the <code>Host name</code> column you find the host names of the various nodes. <code>logDbHost</code> should be set to the first part of each host name:</p>
+
+<p><img src="./logdb-host-name-1.png" alt="Log db host name" title="Getting the log db host name property from QMC" /></p>
+
+        <div class="section-index">
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</div>
+
+	
+		<style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="feedback--answer feedback--answer-yes">Yes</button>
+<button class="feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it! Please <a href="https://github.com/ptarmiganlabs/butler-sos/issues/new">tell us how we can improve</a>.
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butler-sos/issues/new">tell us how Butler SOS can be improved</a>.
+</p>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+		<br />
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified October 16, 2019: <a  href="https://github.com/ptarmiganlabs/butler-sos-docs/commit/01db4905a973eff2d448b9a7aad58935e74cf422">wip (01db490)</a>
+</div>
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" href="https://github.com/ptarmiganlabs/butler-sos">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Get in touch with Ptarmigan Labs" aria-label="Get in touch with Ptarmigan Labs">
+    <a class="text-white" target="_blank" href="mailto://info@ptarmiganlabs.com">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2019 Ptarmigan Labs All Rights Reserved</small>
+        
+	
+		<p class="mt-2"><a href="ptarmiganlabs.github.io/butler-sos/about/">About Butler SOS</a></p>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+<script src="/ptarmiganlabs.github.io/butler-sos/js/main.min.65f0e2d3c179104c6717e021312635b8300ea88a4521a1b99cf54e0eda0fa196.js" integrity="sha256-ZfDi08F5EExnF&#43;AhMSY1uDAOqIpFIaG5nPVODtoPoZY=" crossorigin="anonymous"></script>
+
+
+
+  </body>
+</html>

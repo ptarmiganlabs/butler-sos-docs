@@ -64,9 +64,9 @@ Ready to move on?
 
 Great! Here are some good starting points
 
-* [Getting Started](/docs/getting_started/): Get started with Butler SOS
+* [Getting Started](/butler-sos/docs/getting_started/): Get started with Butler SOS
 
-* [Examples](/docs/examples/): Check out some example monitoring dashboards!
+* [Examples](/butler-sos/docs/examples/): Check out some example monitoring dashboards!
 
 
 ## I have a question or want to report an issue
@@ -83,4 +83,4 @@ If you discover any important bug with Butler SOS that may pose a security probl
 
 Butler SOS is an open source project sponsored by [Ptarmigan Labs](https://ptarmiganlabs.com), an IT consulting company in Stockholm, Sweden. The main contributor to the tool is (so far) [Göran Sander](https://www.linkedin.com/in/gorsan) from same company. 
 
-Please refer to the [Contribution guidelines](/docs/contribution-guidelines/) page for details on how to contribute, suggest features etc to the tool.
+Please refer to the [Contribution guidelines](/butler-sos/docs/contribution-guidelines/) page for details on how to contribute, suggest features etc to the tool.

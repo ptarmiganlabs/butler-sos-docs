@@ -8,11 +8,11 @@ description: >
 
 ## Installation
 
-This scenario is identical to the [Windows scenario](windows/), please refer to that page for details. Keep in mind that the format of file systems paths differ between Windows and Linxu/Mac OS.
+This scenario is identical to the [Windows scenario](/butler-sos/docs/getting_started/install_config/windows/), please refer to that page for details. Keep in mind that the format of file systems paths differ between Windows and Linxu/Mac OS.
 
 ## Configuration
 
-Once again, same thing as [on Windows](../windows/).
+Once again, same thing as [on Windows](/butler-sos/docs/getting_started/install_config/windows/).
 
 ## Running
 

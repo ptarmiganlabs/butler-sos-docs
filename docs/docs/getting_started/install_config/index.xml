@@ -1,0 +1,901 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler SOS – Install &amp; Configure</title>
+    <link>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/</link>
+    <description>Recent content in Install &amp; Configure on Butler SOS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Export Sense certificates</title>
+      <link>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/sense_certificates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/sense_certificates/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Butler SOS uses certificates to authenticate with Qlik Sense.&lt;br /&gt;
+These certificates must be exported from the Qlik Management Console (QMC).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;qmc-certexport-1.png&#34; alt=&#34;Qlik Sense certificate export&#34; title=&#34;Exporting certificates from Qlik&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To export certificates you need to provide a few pieces of information:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Name of the server where the certificate will be used (i.e. where Butler SOS will be running). You can also create a wild-card certificate (that should work on all servers) by writing &lt;code&gt;*&lt;/code&gt;. Note that this is considered less secure!&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Leave password fields empty.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Check the &amp;ldquo;Include secret key&amp;rdquo; check box.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Export certificates in PEM format.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&#34;qmc-certexport-2.png&#34; alt=&#34;Qlik Sense certificate export&#34; title=&#34;Exporting certificates from Qlik, step 2&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then click the &amp;ldquo;Export certificates&amp;rdquo; button. If all goes well the certificates are now exported to a folder on the Sense server to which you are connected (i.e. the server hosting the virtual proxy you are connected to):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;qmc-certexport-3.png&#34; alt=&#34;Qlik Sense certificate export&#34; title=&#34;Exporting certificates from Qlik - all done!&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The exported certificate files will be used when &lt;a href=&#34;ptarmiganlabs.github.io/butler-sos/butler-sos/docs/getting_started/install_config/config_file_format/&#34;&gt;configuring Butler SOS&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Config file format</title>
+      <link>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/config_file_format/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/config_file_format/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;Either JSON or YAML notation can be used to create the configuration file, with file extensions of .json and .yaml/.yml, respectively.&lt;/p&gt;
+
+&lt;p&gt;YAML is strongly recommended, as it is easier to edit/read/understand compared to JSON.&lt;/p&gt;
+
+&lt;/div&gt;
+
+
+&lt;p&gt;The parameters in the config file are described below.
+All parameters must be defined in the config file - run time errors are likely to occur otherwise.
+The &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml&#34; target=&#34;_blank&#34;&gt;sample config file&lt;/a&gt; looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./configfile1.png&#34; alt=&#34;Sample config file&#34; title=&#34;Sample Butler SOS config file&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;A few things to keep in mind:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Topic names (e.g. &amp;ldquo;Butler-SOS.logdb&amp;rdquo;) are case sensitive.&lt;/li&gt;
+&lt;li&gt;First time Butler SOS is started, a new InfluxDB database will be created, together with a default InfluxDB retention policy&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Butler-SOS&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logLevel&lt;/td&gt;
+&lt;td&gt;The level of details in the logs. Possible values are silly, debug, verbose, info, warn, error (in order of decreasing level of detail).&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;fileLogging&lt;/td&gt;
+&lt;td&gt;true/false to enable/disable logging to disk file&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logDirectory&lt;/td&gt;
+&lt;td&gt;Subdirectory where log files are stored&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Butler-SOS.logdb&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;enableLogDb&lt;/td&gt;
+&lt;td&gt;Should Sense log db be queried for warnings/errors/info messages? true/false&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pollingInterval&lt;/td&gt;
+&lt;td&gt;How often to query log db. Milliseconds&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;queryPeriod&lt;/td&gt;
+&lt;td&gt;How far back should log db be queried? Human readable, e.g. &amp;ldquo;5 minutes&amp;rdquo; (which is also the default value)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;host&lt;/td&gt;
+&lt;td&gt;IP or FQDN of server where Sense log db is running&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;port&lt;/td&gt;
+&lt;td&gt;Port used by log db. 4432 unless changed during installation of Sense&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;qlogsReaderUser&lt;/td&gt;
+&lt;td&gt;User to connect to log db as. &amp;ldquo;qlogs_reader&amp;rdquo; unless changed during installation of Sense&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;qlogsReaderPwd&lt;/td&gt;
+&lt;td&gt;Password of above user&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;extractErrors&lt;/td&gt;
+&lt;td&gt;Should error entries be extracted from log db? true/false&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;extractWarnings&lt;/td&gt;
+&lt;td&gt;Should warning entries be extracted from log db? true/false&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;extractInfo&lt;/td&gt;
+&lt;td&gt;Should info entries be extracted from log db? true/false. &lt;br&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; If info level logging is enabled, this will result in lots of messages being stored in Influxdb (at least for a busy Sense cluster).&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Butler-SOS.cert&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;clientCert&lt;/td&gt;
+&lt;td&gt;Certificate file. Exported from QMC&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;clientCertKey&lt;/td&gt;
+&lt;td&gt;Certificate key file. Exported from QMC&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;clientCertCA&lt;/td&gt;
+&lt;td&gt;Root certificate for above certificate files. Exported from QMC&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Butler-SOS.mqttConfig&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;enableMQTT&lt;/td&gt;
+&lt;td&gt;Should health metrics be sent to MQTT? true/false&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;brokerHost&lt;/td&gt;
+&lt;td&gt;IP or FQDN of MQTT broker&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;brokerPort&lt;/td&gt;
+&lt;td&gt;Broker port&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;baseTopic&lt;/td&gt;
+&lt;td&gt;The topic to which messages will be posted. Should end with /. For example butler-sos/&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Butler-SOS.influxdbConfig&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;enableInfluxdb&lt;/td&gt;
+&lt;td&gt;Should health metrics be stored in Influxdb? true/false&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;hostIP&lt;/td&gt;
+&lt;td&gt;IP or FQDN of Influxdb server&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;hostPort&lt;/td&gt;
+&lt;td&gt;Port where Influxdb server is listening. Useful if Influxdb for some reason is not using its standard port of 8086&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;auth.enable&lt;/td&gt;
+&lt;td&gt;Enable if data is to be stored in a password protected Influxdb database&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;auth.username&lt;/td&gt;
+&lt;td&gt;Influxdb username&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;auth.password&lt;/td&gt;
+&lt;td&gt;Influxdb password&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;dbName&lt;/td&gt;
+&lt;td&gt;Database namne in Influxdb to which health metrics will be stored. Database will be created if it does not already exist when Butler SOS is started&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;retentionPolicy.&lt;br&gt;name&lt;/td&gt;
+&lt;td&gt;Name of default retention policy that will be created in InfluxDB database, when that database is created during first execution of Butler SOS&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;retentionPolicy.&lt;br&gt;duration&lt;/td&gt;
+&lt;td&gt;Duration during which metrics are kept in InfluxDB. After the duration has passed, InfluxDB will purge all data older than duration from the database. See &lt;a href=&#34;https://docs.influxdata.com/influxdb/v1.7/query_language/database_management/#retention-policy-management&#34; target=&#34;_blank&#34;&gt;InfluxDB docs&lt;/a&gt; for details on syntax.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;includeFields.&lt;br&gt;activeDocs&lt;/td&gt;
+&lt;td&gt;Should a list of currently active Sense apps be stored in Influxdb? true/false&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;includeFields.&lt;br&gt;loadedDocs&lt;/td&gt;
+&lt;td&gt;Should a list of Sense apps opened in a user session be stored in Influxdb? true/false&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;includeFields.&lt;br&gt;activeDocs&lt;/td&gt;
+&lt;td&gt;Should a list of Sense apps loaded into memory (some apps might not currently be associated with a user session) be stored in Influxdb? true/false&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Butler-SOS.userSessions&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;enableSessionExtract&lt;/td&gt;
+&lt;td&gt;Influxdb password&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pollingInterval&lt;/td&gt;
+&lt;td&gt;Influxdb password&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Butler-SOS.serversToMonitor&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pollingInterval&lt;/td&gt;
+&lt;td&gt;How often to query the Sense healthcheck API&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;serverTagsDefinition&lt;/td&gt;
+&lt;td&gt;List of tags to add to each server when storing the data in Influxdb. All tags defined here MUST be present in each server&amp;rsquo;s definition section further down in the config file!&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servers&lt;/td&gt;
+&lt;td&gt;List of what servers to monitor. For each server a set of properties MUST be defined.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servers.&lt;br&gt;host&lt;/td&gt;
+&lt;td&gt;FQDN of server. Domain should match that of the certificate exported from QMC - otherwise certificate warnings may appear&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servers.&lt;br&gt;serverName&lt;/td&gt;
+&lt;td&gt;Human friendly server name&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servers.&lt;br&gt;serverDescription&lt;/td&gt;
+&lt;td&gt;Human friendly server description&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servers.&lt;br&gt;logDbHost&lt;/td&gt;
+&lt;td&gt;Server&amp;rsquo;s name as it appears in the &lt;code&gt;process_host&lt;/code&gt; field log db. This is needed in order to link entries in logdb to the specific server at hand. See note below too!&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servers.&lt;br&gt;userSessions.&lt;br&gt;enable&lt;/td&gt;
+&lt;td&gt;Control whether user session data should be retrieved for this server&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servers.&lt;br&gt;userSessions.&lt;br&gt;host&lt;/td&gt;
+&lt;td&gt;Host and port from which to retrieve user session data. Usually on the form servername.mydomain.net:4243&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servers.&lt;br&gt;userSessions.&lt;br&gt;virtualProxies&lt;/td&gt;
+&lt;td&gt;A list of key-value pairs. Use to specify for which virtual proxies on this server user session data should be retrieved.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;serverTags&lt;/td&gt;
+&lt;td&gt;A list of key-value pairs. Use to provide more metadata for servers. Can then (among other things) be used to created more advanced Grafana dashboards.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The &lt;code&gt;Butler-SOS.serversToMonitor.servers.logDbHost&lt;/code&gt; property can be tricky to get right. Easiest way to get the correct value is to look in the Nodes section in the QMC. In the &lt;code&gt;Host name&lt;/code&gt; column you find the host names of the various nodes. &lt;code&gt;logDbHost&lt;/code&gt; should be set to the first part of each host name:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./logdb-host-name-1.png&#34; alt=&#34;Log db host name&#34; title=&#34;Getting the log db host name property from QMC&#34; /&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Docker</title>
+      <link>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/docker/</guid>
+      <description>
+        
+        
+        
+
+&lt;p&gt;Docker is great in that it runs on many different platforms.
+This means that as long as the Docker runtime environment is installed, you can run Butler SOS on your Mac laptop, on a Linux server or on a Windows server.&lt;/p&gt;
+
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+
+&lt;h3 id=&#34;docker-runtime&#34;&gt;Docker runtime&lt;/h3&gt;
+
+&lt;p&gt;Installing Docker is beyond the scope of this document, but there are plenty of online tutorials covering this.&lt;/p&gt;
+
+&lt;h3 id=&#34;butler-sos-installation-and-configuration&#34;&gt;Butler SOS installation and configuration&lt;/h3&gt;
+
+&lt;p&gt;When using Docker there is no installation in the traditional sense.&lt;br /&gt;
+Instead we (in this case) use a docker-compose file to define how Butler SOS should be executed within a Docker container.&lt;/p&gt;
+
+&lt;p&gt;Configuration of Butler specific settings is then done using a YAML file.&lt;/p&gt;
+
+&lt;h3 id=&#34;install-configure-walkthrough&#34;&gt;Install &amp;amp; configure - walkthrough&lt;/h3&gt;
+
+&lt;p&gt;Create a directory for Butler SOS. Config files and logs will be stored here.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:code goran$ mkdir -p butler-sos-docker/config/certificate
+proton:code goran$ mkdir -p butler-sos-docker/logs
+proton:code goran$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; butler-sos-docker
+proton:butler-sos-docker goran$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Copy &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/blob/master/src/docker-compose.yml&#34; target=&#34;_blank&#34;&gt;docker-compose.yml&lt;/a&gt; from the GitHub repository to the main Butler SOS directory. The directory where the docker-compose file is stored is the &amp;lsquo;root&amp;rsquo; directory of Butler SOS - everything else is relative to this directory.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Adapt the docker-compose file as needed (usually no changes are needed if you want to run the latest version of Butler SOS).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Copy the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml&#34; target=&#34;_blank&#34;&gt;YAML config file&lt;/a&gt; from the GitHub repository into the ./config directory, rename it to &lt;code&gt;production.yaml&lt;/code&gt; (or something else, as long as it matches the NODE_ENV environment variable) and edit it as needed. Note that for the Docker setup the path to certificates (as specified in the YAML config file) should be &lt;code&gt;/nodeapp/config/certificate/&lt;/code&gt; (this is the Docker container&amp;rsquo;s internal path to the certificate directory).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Edit the config file above as needed, with respect to your local Sense environment, folder paths etc. The provided template file has reasonable defualt settings where possible, but there are also a number of paths, passwords etc that must be configured.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Export certifiates from the QMC in Qlik Sense Enterprise, place them in the &lt;code&gt;./config/certificate&lt;/code&gt; directory (i.e. in a subdirectory to the directory where the docker-comspose file is stored). The certificates can in theory be placed anywhere, as long as they are made available to the Docker container via a volume mount in the docker-compose.yaml file (e.g. &lt;code&gt;- &amp;quot;./config:/nodeapp/config&amp;quot;&lt;/code&gt;).&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Let&amp;rsquo;s do this one step at a time.&lt;br /&gt;
+What files are there?&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:butler-sos-docker goran$ ls -la
+total &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8&lt;/span&gt;
+drwxr-xr-x   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Oct &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;17&lt;/span&gt;:10 .
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;51&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1632&lt;/span&gt; Oct &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;17&lt;/span&gt;:08 ..
+drwxr-xr-x   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt; goran  staff    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;96&lt;/span&gt; Oct &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;17&lt;/span&gt;:08 config
+-rw-r--r--@  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;357&lt;/span&gt; Oct &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;17&lt;/span&gt;:10 docker-compose.yml
+proton:butler-sos-docker goran$
+proton:butler-sos-docker goran$ ls -la config/
+total &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8&lt;/span&gt;
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Oct &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;17&lt;/span&gt;:11 .
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Oct &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;17&lt;/span&gt;:10 ..
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt; goran  staff    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;64&lt;/span&gt; Oct &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;17&lt;/span&gt;:08 certificate
+-rw-r--r--@ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1335&lt;/span&gt; Oct &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;17&lt;/span&gt;:11 production.yaml
+proton:butler-sos-docker goran$
+proton:butler-sos-docker goran$ ls -la config/certificate/
+total &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;24&lt;/span&gt;
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;160&lt;/span&gt; Oct &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;17&lt;/span&gt;:13 .
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Oct &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;17&lt;/span&gt;:11 ..
+-rw-r--r--@ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1166&lt;/span&gt; Oct &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;17&lt;/span&gt;:13 client.pem
+-rw-r--r--@ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1702&lt;/span&gt; Oct &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;17&lt;/span&gt;:13 client_key.pem
+-rw-r--r--@ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1192&lt;/span&gt; Oct &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;17&lt;/span&gt;:13 root.pem
+proton:butler-sos-docker goran$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;What does the config file look like?&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:butler-sos-docker goran$ cat config/production.yaml
+Butler-SOS:
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# All configuration items are mandatory, unless otherwise noted.&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Logging configuration&lt;/span&gt;
+  logLevel: info          &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Log level. Possible log levels are silly, debug, verbose, info, warn, error&lt;/span&gt;
+  fileLogging: &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;       &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# true/false to enable/disable logging to disk file&lt;/span&gt;
+  logDirectory: logs      &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Subdirectory where log files are stored&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Qlik Sense logging db config parameters&lt;/span&gt;
+  logdb:
+    enableLogDb: &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Items below are mandatory if enableLogDb=true&lt;/span&gt;
+    pollingInterval: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;60000&lt;/span&gt;    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# How often (milliseconds) should Postgres log db be queried for warnings and errors?&lt;/span&gt;
+    queryPeriod: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt; minutes    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# How far back should Butler SOS query for log entries? Default is 5 min&lt;/span&gt;
+    host: &amp;lt;IP or FQDN of Qlik Sense logging db&amp;gt;
+    port: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4432&lt;/span&gt;
+    qlogsReaderUser: qlogs_reader
+    qlogsReaderPwd: &amp;lt;pwd&amp;gt;
+    extractErrors: &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;       &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Should error level entries be extracted from log db into Influxdb?&lt;/span&gt;
+    extractWarnings: &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Should warn level entries be extracted from log db into Influxdb?&lt;/span&gt;
+    extractInfo: &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;         &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Should info level entries be extracted from log db into Influxdb? Warning! Seting this to true will result in LOTS of log messages being retrrieved by Butler SOS!&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Certificates to use when querying Sense for healthcheck data. Get these from the Certificate Export in QMC.&lt;/span&gt;
+  cert:
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# If running Butler SOS in a Docker container, the cert paths MUST be the following&lt;/span&gt;
+    clientCert: /nodeapp/config/certificate/client.pem
+    clientCertKey: /nodeapp/config/certificate/client_key.pem
+    clientCertCA: /nodeapp/config/certificate/root.pem
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# MQTT config parameters&lt;/span&gt;
+  mqttConfig:
+    enableMQTT: &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Items below are mandatory if enableMQTT=true&lt;/span&gt;
+    brokerHost: &amp;lt;IP of MQTT server&amp;gt;
+    brokerPort: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1883&lt;/span&gt;
+    baseTopic: butler-sos/          &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Topic should end with /&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Influx db config parameters&lt;/span&gt;
+  influxdbConfig:
+    enableInfluxdb: &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Items below are mandatory if enableInfluxdb=true&lt;/span&gt;
+    hostIP: &amp;lt;IP or FQDN of Influxdb server&amp;gt;
+    hostPort: &amp;lt;Port where Influxdb is listening&amp;gt;    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Optional. Default value=8086&lt;/span&gt;
+    auth:
+      enable: &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;                 &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Does influxdb instance require authentication (true/false)?&lt;/span&gt;
+      username: &amp;lt;username&amp;gt;          &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Username for Influxdb authentication. Mandatory if auth.enable=true&lt;/span&gt;
+      password: &amp;lt;password&amp;gt;          &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Password for Influxdb authentication. Mandatory if auth.enable=true&lt;/span&gt;
+    dbName: SenseOps
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Default retention policy that should be created in InfluxDB when Butler SOS creates a new database there.&lt;/span&gt; 
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Any data older than retention policy threshold will be purged from InfluxDB.&lt;/span&gt;
+    retentionPolicy:
+      name: 4weeks
+      duration: 4w
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Control whether certain fields are stored in InfluxDB or not&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Use with caution! Enabling activeDocs, loadedDocs or inMemoryDocs may result in lots of data sent to InfluxDB.&lt;/span&gt;
+    includeFields:
+      activeDocs: &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;              &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Should data on what docs are active be stored in Influxdb (true/false)?&lt;/span&gt; 
+      loadedDocs: &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;              &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Should data on what docs are loaded be stored in Influxdb (true/false)?&lt;/span&gt;
+      inMemoryDocs: &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;            &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Should data on what docs are in memory be stored in Influxdb (true/false)?&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Sessions per virtual proxy&lt;/span&gt;
+  userSessions:
+    enableSessionExtract: &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Query unique user IDs of what users have sessions open (true/false)?&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Items below are mandatory if enableSessionExtract=true&lt;/span&gt;    
+    pollingInterval: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15000&lt;/span&gt;        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# How often (milliseconds) should detailed session data be polled?&lt;/span&gt;
+
+  serversToMonitor:
+    pollingInterval: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;30000&lt;/span&gt;        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# How often (milliseconds) should the healthcheck API be polled?&lt;/span&gt;
+
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# List of extra tags for each server. Useful for creating more advanced Grafana dashboards.&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Each server below MUST include these tags in its serverTags property.&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# The tags below are just examples - define your own as needed&lt;/span&gt;
+    serverTagsDefinition: 
+      - server_group
+      - serverLocation
+      - server-type
+      - serverBrand
+
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Sense Servers that should be queried for healthcheck data&lt;/span&gt; 
+    servers:
+      - host: &amp;lt;server1.my.domain&amp;gt;
+        serverName: &amp;lt;server1&amp;gt;
+        serverDescription: &amp;lt;description&amp;gt;
+        logDbHost: &amp;lt;host name as used in QLogs db&amp;gt;
+        userSessions:
+          enable: &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;
+          &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Items below are mandatory if userSessions.enable=true&lt;/span&gt;
+          host: &amp;lt;server1.my.domain&amp;gt;:4243
+          virtualProxies:
+            - virtualProxy: /                 &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Default virtual proxy&lt;/span&gt;
+            - virtualProxy: /hdr              &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# &amp;#34;hdr&amp;#34; virtual proxy&lt;/span&gt;
+        serverTags:
+          server_group: DEV
+          serverLocation: Asia
+          server-type: virtual
+          serverBrand: Dell
+      - host: &amp;lt;server2.my.domain&amp;gt;
+        serverName: &amp;lt;server2&amp;gt;
+        serverDescription: &amp;lt;description&amp;gt;
+        logDbHost: &amp;lt;host name as used in QLogs db&amp;gt;
+        userSessions:
+          enable: &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;
+          &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Items below are mandatory if userSessions.enable=true&lt;/span&gt;
+          host: &amp;lt;server2.my.domain&amp;gt;:4243
+          virtualProxies:
+            - virtualProxy: /finance          &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# &amp;#34;finance&amp;#34; virtual proxy&lt;/span&gt;
+        serverTags:
+          server_group: PROD
+          serverLocation: Europe
+          server-type: physical
+          serverBrand: HP
+  
+proton:butler-sos-docker goran$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;What does the docker-compose.yml file look like?&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:butler-sos-docker goran$ cat docker-compose.yml
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# docker-compose.yml&lt;/span&gt;
+version: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;3.3&amp;#39;&lt;/span&gt;
+services:
+  butler-sos:
+    image: ptarmiganlabs/butler-sos:5.0.0
+    container_name: butler-sos
+    restart: always
+    volumes:
+      &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Make config file accessible outside of container&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./config:/nodeapp/config&amp;#34;&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./logs:/nodeapp/logs&amp;#34;&lt;/span&gt;
+    environment:
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;NODE_ENV=production&amp;#34;&lt;/span&gt;         &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Means that Butler SOS will read config data from production.yaml&lt;/span&gt; 
+    logging:
+      driver: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;json-file&amp;#34;&lt;/span&gt;
+      options:
+        max-file: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5&amp;#34;&lt;/span&gt;
+        max-size: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5m&amp;#34;&lt;/span&gt;
+proton:butler-sos-docker goran$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ok, all good. Let&amp;rsquo;s start Butler SOS using docker-compose:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:butler-sos-docker goran$ docker-compose up
+➜ docker-compose up
+Creating butler-sos ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
+Attaching to butler-sos
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-12T20:14:21.814Z debug: CONFIG: Setting up new Influx database: Found server tag : server_group
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-12T20:14:21.824Z debug: CONFIG: Setting up new Influx database: Found server tag : serverLocation
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-12T20:14:21.826Z debug: CONFIG: Setting up new Influx database: Found server tag : server-type
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-12T20:14:21.829Z debug: CONFIG: Setting up new Influx database: Found server tag : serverBrand
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-12T20:14:21.831Z info: CONFIG: Influxdb enabled: &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-12T20:14:21.832Z info: CONFIG: Influxdb host IP: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;192&lt;/span&gt;.168.100.20
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-12T20:14:21.833Z info: CONFIG: Influxdb host port: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8086&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-12T20:14:21.834Z info: CONFIG: Influxdb db name: SenseOps
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-12T20:14:22.006Z info: --------------------------------------
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-12T20:14:22.006Z info: Starting Butler SOS
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-12T20:14:22.009Z info: Log level is: debug
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-12T20:14:22.010Z info: App version is: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt;.0.0
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-12T20:14:22.011Z info: --------------------------------------
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-12T20:14:22.012Z debug: Client cert: /nodeapp/config/certificate/client.pem
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-12T20:14:22.013Z debug: Client cert key: /nodeapp/config/certificate/client_key.pem
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-12T20:14:22.014Z debug: CA cert: /nodeapp/config/certificate/root.pem
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-12T20:14:22.018Z debug: USER SESSIONS: Monitor user sessions &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; these servers/virtual proxies: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;host&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;pro2-win1.ptarmiganlabs.net:4747&amp;#34;&lt;/span&gt;,
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;serverName&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;sense1&amp;#34;&lt;/span&gt;,
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;serverDescription&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Central&amp;#34;&lt;/span&gt;,
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;logDbHost&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;pro2-win1&amp;#34;&lt;/span&gt;,
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;userSessions&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;enable&amp;#34;&lt;/span&gt;: true,
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;host&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;pro2-win1.ptarmiganlabs.net:4243&amp;#34;&lt;/span&gt;,
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;virtualProxies&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;         &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;           &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;virtualProxy&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;         &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;         &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;           &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;virtualProxy&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/hdr&amp;#34;&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;         &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;       &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;     &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;serverTags&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;server_group&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;CENTRAL&amp;#34;&lt;/span&gt;,
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;serverLocation&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Europe&amp;#34;&lt;/span&gt;,
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;server-type&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;virtual&amp;#34;&lt;/span&gt;,
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;serverBrand&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;HP&amp;#34;&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;     &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-12T20:14:22.028Z info: MAIN: Docker healthcheck server now listening
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-12T20:14:22.075Z info: CONFIG: Found InfluxDB database: SenseOps
+...
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Once everything everything looks good you can stop the container (ctrl-C), then start it again in daemon mode (i.e. running unattended in the background):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:butler-sos-docker goran$ docker-compose up -d
+Starting butler-sos ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
+proton:butler-sos-docker goran$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Setting the log level to info in the config file will reduce log output.&lt;/p&gt;
+
+&lt;p&gt;The Docker container implements Docker healthchecks, which means you can run &lt;code&gt;docker ps&lt;/code&gt; to see whether the container is healthy or not:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜ docker ps
+CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS                    PORTS               NAMES
+905f21443f97        mountaindude/butler-sos:5.0.0   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;docker-entrypoint.s…&amp;#34;&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt; minutes ago       Up &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22&lt;/span&gt; seconds &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;healthy&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;                       butler-sos&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Windows</title>
+      <link>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/windows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/windows/</guid>
+      <description>
+        
+        
+        
+
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+
+&lt;p&gt;In this scenario, Butler SOS will run as a Node.js app on the Windows server itself.&lt;/p&gt;
+
+&lt;h3 id=&#34;1-install-node-js&#34;&gt;1. Install Node.js&lt;/h3&gt;
+
+&lt;p&gt;Any recent Node version should work fine, but if in doubt the &lt;a href=&#34;https://nodejs.org/en/download/&#34; target=&#34;_blank&#34;&gt;latest LTS version&lt;/a&gt; is usually a good idea.&lt;/p&gt;
+
+&lt;h3 id=&#34;2-select-a-directory-from-which-butler-sos-will-be-run&#34;&gt;2. Select a directory from which Butler SOS will be run&lt;/h3&gt;
+
+&lt;p&gt;This can be pretty much anywhere, in this example d:\tools\butler-sos will be used.&lt;/p&gt;
+
+&lt;h3 id=&#34;3-get-butler-sos&#34;&gt;3. Get Butler SOS&lt;/h3&gt;
+
+&lt;p&gt;Get the desired &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/releases&#34; target=&#34;_blank&#34;&gt;Butler SOS version&lt;/a&gt; and extract it into the directory above.&lt;/p&gt;
+
+&lt;h3 id=&#34;4-install-node-js-dependencies&#34;&gt;4. Install Node.js dependencies&lt;/h3&gt;
+
+&lt;p&gt;From d:\tools\butler-sos\src, run &lt;code&gt;npm i&lt;/code&gt; to install the various Node.js modules used by Butler SOS. Depending on your server configuration you may get some warnings about (for example) Python not being installed, these can usually be ignored.&lt;/p&gt;
+
+&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+
+&lt;p&gt;The configuration file is used the same way as when Butler SOS runs on Docker, with one exception:&lt;/p&gt;
+
+&lt;p&gt;The path to the certificates used to authenticate with Sense must be specified in the config file. With Docker the certificate path is fixed, but with Windows you need to specify it.&lt;/p&gt;
+
+&lt;p&gt;For example, if the certificate files exported from Sense are stored in d:\secrets\sensecert, the config file would look like this when used on Windows:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;...&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Certificates to use when querying Sense for healthcheck data. Get these from the Certificate Export in QMC.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;cert&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;clientCert&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;d&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;\secrets\sensecert\client.pem&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;clientCertKey&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;d&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;\secrets\sensecert\client_key.pem&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;clientCertCA&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;d&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;\secrets\sensecert\root.pem&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&#34;running&#34;&gt;Running&lt;/h2&gt;
+
+&lt;p&gt;A tool like Butler SOS should of course start automatically when the server it runs on is restarted. This can be achieved in at least a couple of ways:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;A Node process monitor such as &lt;a href=&#34;http://pm2.keymetrics.io/&#34; target=&#34;_blank&#34;&gt;PM2&lt;/a&gt; can be used to monitor the Butler SOS process, and restart it if it for some reason crashes.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Use a tool to wrap Butler SOS into a Windows service. There are various tools for doing this, with &lt;a href=&#34;https://nssm.cc/&#34; target=&#34;_blank&#34;&gt;NSSM&lt;/a&gt; being one of the better ones.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The second option is usually preferred, as you then manage Butler SOS the same way as other system critical Windows services.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Linux and Mac OS</title>
+      <link>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/linux_macos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/linux_macos/</guid>
+      <description>
+        
+        
+        
+
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+
+&lt;p&gt;This scenario is identical to the &lt;a href=&#34;ptarmiganlabs.github.io/butler-sos/butler-sos/docs/getting_started/install_config/windows/&#34;&gt;Windows scenario&lt;/a&gt;, please refer to that page for details. Keep in mind that the format of file systems paths differ between Windows and Linxu/Mac OS.&lt;/p&gt;
+
+&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+
+&lt;p&gt;Once again, same thing as &lt;a href=&#34;ptarmiganlabs.github.io/butler-sos/butler-sos/docs/getting_started/install_config/windows/&#34;&gt;on Windows&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;running&#34;&gt;Running&lt;/h2&gt;
+
+&lt;p&gt;A Node process monitor can be used on Linux or Mac OS, just a on Windows.
+Tools like &lt;a href=&#34;http://pm2.keymetrics.io/&#34; target=&#34;_blank&#34;&gt;PM2&lt;/a&gt; in fact usually work better on Linux/Mac OS than on Windows..&lt;/p&gt;
+
+&lt;p&gt;You can probably also use Linux&amp;rsquo; standard service layer to start Butler SOS, that has not been tested though.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: InfluxDB &amp; Grafana</title>
+      <link>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/influxdb_grafana/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/influxdb_grafana/</guid>
+      <description>
+        
+        
+        
+
+&lt;p&gt;If you already have InfluxDB and/or Grafana running you can skip this section.&lt;/p&gt;
+
+&lt;h2 id=&#34;running-in-docker-using-docker-compose&#34;&gt;Running in Docker using docker-compose&lt;/h2&gt;
+
+&lt;p&gt;The easiest (and arguably the best) way is to run these tools in Docker containers, controlled by docker-compose files.&lt;/p&gt;
+
+&lt;p&gt;You can use a single docker-compose file for Butler SOS, InfluxDB and Grafana - or several files for more granular control.&lt;/p&gt;
+
+&lt;p&gt;The advantage of using a single docker-compose file is that the entire stack of tools will be launched in unison. You can create dependencies between the tools if needed etc - very convenient.
+On the other hand, having separate docker-compose files makes it easier to restart (or upgrade or in other ways change) a single service without affecting other services.&lt;/p&gt;
+
+&lt;h3 id=&#34;full-stack-docker-compose-file&#34;&gt;Full stack docker-compose file&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start Butler SOS, InfluxDB and Grafana from a single docker-compose.yaml file:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# docker-compose.yml&lt;/span&gt;
+version: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;3.3&amp;#39;&lt;/span&gt;
+services:
+  butler-sos:
+    image: mountaindude/butler-sos:5.0.0
+    container_name: butler-sos
+    restart: always
+    volumes:
+      &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Make config file accessible outside of container&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./config:/nodeapp/config&amp;#34;&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./logs:/nodeapp/logs&amp;#34;&lt;/span&gt;
+    environment:
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;NODE_ENV=production&amp;#34;&lt;/span&gt;         &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Means that Butler SOS will read config data from production.yaml&lt;/span&gt; 
+    logging:
+      driver: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;json-file&amp;#34;&lt;/span&gt;
+      options:
+        max-file: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5&amp;#34;&lt;/span&gt;
+        max-size: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5m&amp;#34;&lt;/span&gt;
+    networks:
+      - senseops
+
+  influxdb:
+    image: influxdb:latest
+    container_name: influxdb
+    restart: always
+    volumes:
+      &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Mount for influxdb data directory&lt;/span&gt;
+      - ./influxdb/data:/var/lib/influxdb
+      &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Mount for influxdb configuration&lt;/span&gt;
+      - ./influxdb/config/:/etc/influxdb/
+    ports:
+      &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# The API for InfluxDB is served on port 8086&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;8086:8086&amp;#34;&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;8082:8082&amp;#34;&lt;/span&gt;
+    environment:
+      &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Disable usage reporting&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;INFLUXDB_REPORTING_DISABLED=true&amp;#34;&lt;/span&gt;
+    networks:
+      - senseops
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: always
+    ports:
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;3000:3000&amp;#34;&lt;/span&gt;
+    volumes:
+      - ./grafana/data:/var/lib/grafana
+    networks:
+      - senseops
+
+
+networks:
+  senseops:
+    driver: bridge&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This results in something like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;~/code/butler-sos_fullstack
+➜ docker-compose -f docker-compose_fullstack.yaml up
+
+Creating network &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;butler-sos_fullstack_senseops&amp;#34;&lt;/span&gt; with driver &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;bridge&amp;#34;&lt;/span&gt;
+Pulling influxdb &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;influxdb:latest&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;...
+latest: Pulling from library/influxdb
+092586df9206: Already exists
+ef599477fae0: Already exists
+4530c6472b5d: Already exists
+894a5f7b9fb5: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+54457be0a97c: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+217dafcc764f: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+30c228ee47d0: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+5a7d00e87e5e: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+Digest: sha256:f0b7acde2d7fa215576a9f83abbf363b6f5641896535a01dbaf62299ab2272f9
+Status: Downloaded newer image &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; influxdb:latest
+Pulling grafana &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;grafana/grafana:latest&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;...
+latest: Pulling from grafana/grafana
+9d48c3bd43c5: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+df58635243b1: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+09b2e1de003c: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+f21b6d64aaf0: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+719d3f6b4656: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+d18fca935678: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+7c7f1ccbce63: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+Digest: sha256:a10521576058f40427306fcb5be48138c77ea7c55ede24327381211e653f478a
+Status: Downloaded newer image &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; grafana/grafana:latest
+Creating butler-sos ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
+Creating grafana    ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
+Creating influxdb   ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
+Attaching to butler-sos, grafana, influxdb
+grafana       &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-17T04:32:23+0000 &lt;span style=&#34;color:#000&#34;&gt;lvl&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;info &lt;span style=&#34;color:#000&#34;&gt;msg&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Starting Grafana&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;logger&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;server &lt;span style=&#34;color:#000&#34;&gt;version&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt;.4.3 &lt;span style=&#34;color:#000&#34;&gt;commit&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;3a2bfb7 &lt;span style=&#34;color:#000&#34;&gt;branch&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;HEAD &lt;span style=&#34;color:#000&#34;&gt;compiled&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-16T09:32:09+0000
+grafana       &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-17T04:32:23+0000 &lt;span style=&#34;color:#000&#34;&gt;lvl&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;info &lt;span style=&#34;color:#000&#34;&gt;msg&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Config loaded from&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;logger&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;settings &lt;span style=&#34;color:#000&#34;&gt;file&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/usr/share/grafana/conf/defaults.ini
+grafana       &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-17T04:32:23+0000 &lt;span style=&#34;color:#000&#34;&gt;lvl&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;info &lt;span style=&#34;color:#000&#34;&gt;msg&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Config loaded from&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;logger&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;settings &lt;span style=&#34;color:#000&#34;&gt;file&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/etc/grafana/grafana.ini
+grafana       &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-17T04:32:23+0000 &lt;span style=&#34;color:#000&#34;&gt;lvl&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;info &lt;span style=&#34;color:#000&#34;&gt;msg&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Config overridden from command line&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;logger&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;settings &lt;span style=&#34;color:#000&#34;&gt;arg&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;default.paths.data=/var/lib/grafana&amp;#34;&lt;/span&gt;
+grafana       &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-10-17T04:32:23+0000 &lt;span style=&#34;color:#000&#34;&gt;lvl&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;info &lt;span style=&#34;color:#000&#34;&gt;msg&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Config overridden from command line&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;logger&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;settings &lt;span style=&#34;color:#000&#34;&gt;arg&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;default.paths.logs=/var/log/grafana&amp;#34;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;From a separate shell we can then ensure that the expected Docker containers are running:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;~/code/butler-sos_fullstack
+➜ docker ps
+CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS                    PORTS                                            NAMES
+5e59e89d3185        grafana/grafana:latest          &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/run.sh&amp;#34;&lt;/span&gt;                &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7&lt;/span&gt; minutes ago       Up &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;37&lt;/span&gt; seconds             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;.0.0.0:3000-&amp;gt;3000/tcp                           grafana
+5b8ce73b20e6        influxdb:latest                 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/entrypoint.sh infl…&amp;#34;&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7&lt;/span&gt; minutes ago       Up &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;36&lt;/span&gt; seconds             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;.0.0.0:8082-&amp;gt;8082/tcp, &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;.0.0.0:8086-&amp;gt;8086/tcp   influxdb
+73b0bb526261        mountaindude/butler-sos:5.0.0   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;docker-entrypoint.s…&amp;#34;&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7&lt;/span&gt; minutes ago       Up &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;37&lt;/span&gt; seconds &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;healthy&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;                                                    butler-sos
+
+~/code/butler-sos_fullstack&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;That&amp;rsquo;s great, you now have a single command (&lt;code&gt;docker-compose -f docker-compose_fullstack.yaml up -d&lt;/code&gt; for background/daemon mode) to bring up all the tools needed to monitor a Qlik Sense cluster!&lt;/p&gt;
+
+&lt;p&gt;Need to stop the entire stack of tools?&lt;br /&gt;
+Easy - just run &lt;code&gt;docker-compose -f docker-compose_fullstack.yaml down&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;~/code/butler-sos_fullstack
+➜ docker-compose -f docker-compose_fullstack.yaml down
+Stopping grafana    ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
+Stopping influxdb   ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
+Stopping butler-sos ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
+Removing grafana    ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
+Removing influxdb   ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
+Removing butler-sos ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
+Removing network butler-sos_fullstack_senseops
+
+~/code/butler-sos_fullstack
+➜&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

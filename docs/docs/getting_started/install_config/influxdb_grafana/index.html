@@ -1,0 +1,861 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.58.2" />
+
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+<link rel="alternate" type="application/rss&#43;xml" href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/influxdb_grafana/index.xml">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/ptarmiganlabs.github.io/butler-sos/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/ptarmiganlabs.github.io/butler-sos/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/ptarmiganlabs.github.io/butler-sos/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/ptarmiganlabs.github.io/butler-sos/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/ptarmiganlabs.github.io/butler-sos/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/ptarmiganlabs.github.io/butler-sos/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/ptarmiganlabs.github.io/butler-sos/favicons/android-96x196.png" sizes="96x196">
+<link rel="icon" type="image/png" href="/ptarmiganlabs.github.io/butler-sos/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/ptarmiganlabs.github.io/butler-sos/favicons/android-192x192.png"sizes="192x192">
+
+<title>InfluxDB &amp; Grafana | Butler SOS</title><meta property="og:title" content="InfluxDB &amp; Grafana" />
+<meta property="og:description" content="How to run InfluxDB and Grafana using Docker.
+" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/influxdb_grafana/" />
+<meta property="og:site_name" content="Butler SOS" />
+<meta itemprop="name" content="InfluxDB &amp; Grafana">
+<meta itemprop="description" content="How to run InfluxDB and Grafana using Docker.
+">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="InfluxDB &amp; Grafana"/>
+<meta name="twitter:description" content="How to run InfluxDB and Grafana using Docker.
+"/>
+
+
+
+
+
+<link rel="preload" href="/ptarmiganlabs.github.io/butler-sos/scss/main.min.9aeffc9e83359f1f6c567fea8e2076603d4e37a6b64417981024b11fe9769455.css" as="style">
+<link href="/ptarmiganlabs.github.io/butler-sos/scss/main.min.9aeffc9e83359f1f6c567fea8e2076603d4e37a6b64417981024b11fe9769455.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+
+    <title>InfluxDB &amp; Grafana | Butler SOS</title>
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="ptarmiganlabs.github.io/butler-sos/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">Butler SOS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="ptarmiganlabs.github.io/butler-sos/about/" ><span>About</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="ptarmiganlabs.github.io/butler-sos/docs/" ><span class="active">Documentation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="ptarmiganlabs.github.io/butler-sos/community/" ><span>Community</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav pt-2 pl-4" id="td-section-nav">
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="ptarmiganlabs-github-io-butler-sos-docs">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Overview</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-overview">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Getting started</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="ptarmiganlabs-github-io-butler-sos-docs-getting-started">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/choose_platform/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Choose a platform</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-getting-started-choose-platform">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Install &amp; Configure</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="ptarmiganlabs-github-io-butler-sos-docs-getting-started-install-config">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/sense_certificates/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Get certificates</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-getting-started-install-config-sense-certificates">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/config_file_format/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Config file format</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-getting-started-install-config-config-file-format">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/docker/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Docker</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-getting-started-install-config-docker">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/windows/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Windows</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-getting-started-install-config-windows">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/linux_macos/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Linux, Mac OS</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-getting-started-install-config-linux-macos">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/influxdb_grafana/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">InfluxDB &amp; Grafana</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="ptarmiganlabs-github-io-butler-sos-docs-getting-started-install-config-influxdb-grafana">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/examples/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Examples</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-examples">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/reference/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reference</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-reference">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/version_history/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Version history</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-version-history">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="ptarmiganlabs.github.io/butler-sos/docs/contribution-guidelines/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Contribution guidelines</a>
+  </li>
+  <ul>
+    <li class="collapse " id="ptarmiganlabs-github-io-butler-sos-docs-contribution-guidelines">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+
+
+
+
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+
+
+
+
+
+<a href="https://github.com/ptarmiganlabs/butler-sos-docs/edit/master/content/en/docs/getting_started/install_config/influxdb_grafana/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/ptarmiganlabs/butler-sos-docs/issues/new?title=InfluxDB%20&amp;amp;%20Grafana" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+
+
+<a href="https://github.com/ptarmiganlabs/butler-sos/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+
+</div>
+
+
+
+
+
+
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#running-in-docker-using-docker-compose">Running in Docker using docker-compose</a>
+<ul>
+<li><a href="#full-stack-docker-compose-file">Full stack docker-compose file</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="ptarmiganlabs.github.io/butler-sos/docs/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/">Getting started</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/">Install &amp; Configure</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/influxdb_grafana/">InfluxDB &amp; Grafana</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>InfluxDB &amp; Grafana</h1>
+	<div class="lead">How to run InfluxDB and Grafana using Docker.</div>
+	
+
+<p>If you already have InfluxDB and/or Grafana running you can skip this section.</p>
+
+<h2 id="running-in-docker-using-docker-compose">Running in Docker using docker-compose</h2>
+
+<p>The easiest (and arguably the best) way is to run these tools in Docker containers, controlled by docker-compose files.</p>
+
+<p>You can use a single docker-compose file for Butler SOS, InfluxDB and Grafana - or several files for more granular control.</p>
+
+<p>The advantage of using a single docker-compose file is that the entire stack of tools will be launched in unison. You can create dependencies between the tools if needed etc - very convenient.
+On the other hand, having separate docker-compose files makes it easier to restart (or upgrade or in other ways change) a single service without affecting other services.</p>
+
+<h3 id="full-stack-docker-compose-file">Full stack docker-compose file</h3>
+
+<p>Let&rsquo;s start Butler SOS, InfluxDB and Grafana from a single docker-compose.yaml file:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># docker-compose.yml</span>
+version: <span style="color:#4e9a06">&#39;3.3&#39;</span>
+services:
+  butler-sos:
+    image: mountaindude/butler-sos:5.0.0
+    container_name: butler-sos
+    restart: always
+    volumes:
+      <span style="color:#8f5902;font-style:italic"># Make config file accessible outside of container</span>
+      - <span style="color:#4e9a06">&#34;./config:/nodeapp/config&#34;</span>
+      - <span style="color:#4e9a06">&#34;./logs:/nodeapp/logs&#34;</span>
+    environment:
+      - <span style="color:#4e9a06">&#34;NODE_ENV=production&#34;</span>         <span style="color:#8f5902;font-style:italic"># Means that Butler SOS will read config data from production.yaml</span> 
+    logging:
+      driver: <span style="color:#4e9a06">&#34;json-file&#34;</span>
+      options:
+        max-file: <span style="color:#4e9a06">&#34;5&#34;</span>
+        max-size: <span style="color:#4e9a06">&#34;5m&#34;</span>
+    networks:
+      - senseops
+
+  influxdb:
+    image: influxdb:latest
+    container_name: influxdb
+    restart: always
+    volumes:
+      <span style="color:#8f5902;font-style:italic"># Mount for influxdb data directory</span>
+      - ./influxdb/data:/var/lib/influxdb
+      <span style="color:#8f5902;font-style:italic"># Mount for influxdb configuration</span>
+      - ./influxdb/config/:/etc/influxdb/
+    ports:
+      <span style="color:#8f5902;font-style:italic"># The API for InfluxDB is served on port 8086</span>
+      - <span style="color:#4e9a06">&#34;8086:8086&#34;</span>
+      - <span style="color:#4e9a06">&#34;8082:8082&#34;</span>
+    environment:
+      <span style="color:#8f5902;font-style:italic"># Disable usage reporting</span>
+      - <span style="color:#4e9a06">&#34;INFLUXDB_REPORTING_DISABLED=true&#34;</span>
+    networks:
+      - senseops
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: always
+    ports:
+      - <span style="color:#4e9a06">&#34;3000:3000&#34;</span>
+    volumes:
+      - ./grafana/data:/var/lib/grafana
+    networks:
+      - senseops
+
+
+networks:
+  senseops:
+    driver: bridge</code></pre></div>
+<p>This results in something like this:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">~/code/butler-sos_fullstack
+➜ docker-compose -f docker-compose_fullstack.yaml up
+
+Creating network <span style="color:#4e9a06">&#34;butler-sos_fullstack_senseops&#34;</span> with driver <span style="color:#4e9a06">&#34;bridge&#34;</span>
+Pulling influxdb <span style="color:#ce5c00;font-weight:bold">(</span>influxdb:latest<span style="color:#ce5c00;font-weight:bold">)</span>...
+latest: Pulling from library/influxdb
+092586df9206: Already exists
+ef599477fae0: Already exists
+4530c6472b5d: Already exists
+894a5f7b9fb5: Pull <span style="color:#204a87">complete</span>
+54457be0a97c: Pull <span style="color:#204a87">complete</span>
+217dafcc764f: Pull <span style="color:#204a87">complete</span>
+30c228ee47d0: Pull <span style="color:#204a87">complete</span>
+5a7d00e87e5e: Pull <span style="color:#204a87">complete</span>
+Digest: sha256:f0b7acde2d7fa215576a9f83abbf363b6f5641896535a01dbaf62299ab2272f9
+Status: Downloaded newer image <span style="color:#204a87;font-weight:bold">for</span> influxdb:latest
+Pulling grafana <span style="color:#ce5c00;font-weight:bold">(</span>grafana/grafana:latest<span style="color:#ce5c00;font-weight:bold">)</span>...
+latest: Pulling from grafana/grafana
+9d48c3bd43c5: Pull <span style="color:#204a87">complete</span>
+df58635243b1: Pull <span style="color:#204a87">complete</span>
+09b2e1de003c: Pull <span style="color:#204a87">complete</span>
+f21b6d64aaf0: Pull <span style="color:#204a87">complete</span>
+719d3f6b4656: Pull <span style="color:#204a87">complete</span>
+d18fca935678: Pull <span style="color:#204a87">complete</span>
+7c7f1ccbce63: Pull <span style="color:#204a87">complete</span>
+Digest: sha256:a10521576058f40427306fcb5be48138c77ea7c55ede24327381211e653f478a
+Status: Downloaded newer image <span style="color:#204a87;font-weight:bold">for</span> grafana/grafana:latest
+Creating butler-sos ... <span style="color:#204a87;font-weight:bold">done</span>
+Creating grafana    ... <span style="color:#204a87;font-weight:bold">done</span>
+Creating influxdb   ... <span style="color:#204a87;font-weight:bold">done</span>
+Attaching to butler-sos, grafana, influxdb
+grafana       <span style="color:#000;font-weight:bold">|</span> <span style="color:#000">t</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">2019</span>-10-17T04:32:23+0000 <span style="color:#000">lvl</span><span style="color:#ce5c00;font-weight:bold">=</span>info <span style="color:#000">msg</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;Starting Grafana&#34;</span> <span style="color:#000">logger</span><span style="color:#ce5c00;font-weight:bold">=</span>server <span style="color:#000">version</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">6</span>.4.3 <span style="color:#000">commit</span><span style="color:#ce5c00;font-weight:bold">=</span>3a2bfb7 <span style="color:#000">branch</span><span style="color:#ce5c00;font-weight:bold">=</span>HEAD <span style="color:#000">compiled</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">2019</span>-10-16T09:32:09+0000
+grafana       <span style="color:#000;font-weight:bold">|</span> <span style="color:#000">t</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">2019</span>-10-17T04:32:23+0000 <span style="color:#000">lvl</span><span style="color:#ce5c00;font-weight:bold">=</span>info <span style="color:#000">msg</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;Config loaded from&#34;</span> <span style="color:#000">logger</span><span style="color:#ce5c00;font-weight:bold">=</span>settings <span style="color:#000">file</span><span style="color:#ce5c00;font-weight:bold">=</span>/usr/share/grafana/conf/defaults.ini
+grafana       <span style="color:#000;font-weight:bold">|</span> <span style="color:#000">t</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">2019</span>-10-17T04:32:23+0000 <span style="color:#000">lvl</span><span style="color:#ce5c00;font-weight:bold">=</span>info <span style="color:#000">msg</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;Config loaded from&#34;</span> <span style="color:#000">logger</span><span style="color:#ce5c00;font-weight:bold">=</span>settings <span style="color:#000">file</span><span style="color:#ce5c00;font-weight:bold">=</span>/etc/grafana/grafana.ini
+grafana       <span style="color:#000;font-weight:bold">|</span> <span style="color:#000">t</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">2019</span>-10-17T04:32:23+0000 <span style="color:#000">lvl</span><span style="color:#ce5c00;font-weight:bold">=</span>info <span style="color:#000">msg</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;Config overridden from command line&#34;</span> <span style="color:#000">logger</span><span style="color:#ce5c00;font-weight:bold">=</span>settings <span style="color:#000">arg</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;default.paths.data=/var/lib/grafana&#34;</span>
+grafana       <span style="color:#000;font-weight:bold">|</span> <span style="color:#000">t</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">2019</span>-10-17T04:32:23+0000 <span style="color:#000">lvl</span><span style="color:#ce5c00;font-weight:bold">=</span>info <span style="color:#000">msg</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;Config overridden from command line&#34;</span> <span style="color:#000">logger</span><span style="color:#ce5c00;font-weight:bold">=</span>settings <span style="color:#000">arg</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;default.paths.logs=/var/log/grafana&#34;</span></code></pre></div>
+<p>From a separate shell we can then ensure that the expected Docker containers are running:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">~/code/butler-sos_fullstack
+➜ docker ps
+CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS                    PORTS                                            NAMES
+5e59e89d3185        grafana/grafana:latest          <span style="color:#4e9a06">&#34;/run.sh&#34;</span>                <span style="color:#0000cf;font-weight:bold">7</span> minutes ago       Up <span style="color:#0000cf;font-weight:bold">37</span> seconds             <span style="color:#0000cf;font-weight:bold">0</span>.0.0.0:3000-&gt;3000/tcp                           grafana
+5b8ce73b20e6        influxdb:latest                 <span style="color:#4e9a06">&#34;/entrypoint.sh infl…&#34;</span>   <span style="color:#0000cf;font-weight:bold">7</span> minutes ago       Up <span style="color:#0000cf;font-weight:bold">36</span> seconds             <span style="color:#0000cf;font-weight:bold">0</span>.0.0.0:8082-&gt;8082/tcp, <span style="color:#0000cf;font-weight:bold">0</span>.0.0.0:8086-&gt;8086/tcp   influxdb
+73b0bb526261        mountaindude/butler-sos:5.0.0   <span style="color:#4e9a06">&#34;docker-entrypoint.s…&#34;</span>   <span style="color:#0000cf;font-weight:bold">7</span> minutes ago       Up <span style="color:#0000cf;font-weight:bold">37</span> seconds <span style="color:#ce5c00;font-weight:bold">(</span>healthy<span style="color:#ce5c00;font-weight:bold">)</span>                                                    butler-sos
+
+~/code/butler-sos_fullstack</code></pre></div>
+<p>That&rsquo;s great, you now have a single command (<code>docker-compose -f docker-compose_fullstack.yaml up -d</code> for background/daemon mode) to bring up all the tools needed to monitor a Qlik Sense cluster!</p>
+
+<p>Need to stop the entire stack of tools?<br />
+Easy - just run <code>docker-compose -f docker-compose_fullstack.yaml down</code>:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">~/code/butler-sos_fullstack
+➜ docker-compose -f docker-compose_fullstack.yaml down
+Stopping grafana    ... <span style="color:#204a87;font-weight:bold">done</span>
+Stopping influxdb   ... <span style="color:#204a87;font-weight:bold">done</span>
+Stopping butler-sos ... <span style="color:#204a87;font-weight:bold">done</span>
+Removing grafana    ... <span style="color:#204a87;font-weight:bold">done</span>
+Removing influxdb   ... <span style="color:#204a87;font-weight:bold">done</span>
+Removing butler-sos ... <span style="color:#204a87;font-weight:bold">done</span>
+Removing network butler-sos_fullstack_senseops
+
+~/code/butler-sos_fullstack
+➜</code></pre></div>
+        <div class="section-index">
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</div>
+
+	
+		<style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="feedback--answer feedback--answer-yes">Yes</button>
+<button class="feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it! Please <a href="https://github.com/ptarmiganlabs/butler-sos/issues/new">tell us how we can improve</a>.
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butler-sos/issues/new">tell us how Butler SOS can be improved</a>.
+</p>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+		<br />
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified October 17, 2019: <a  href="https://github.com/ptarmiganlabs/butler-sos-docs/commit/31c94e4e46ac85a8bd7c69f042695507151b7db8">5.0 RC1 (31c94e4)</a>
+</div>
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" href="https://github.com/ptarmiganlabs/butler-sos">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Get in touch with Ptarmigan Labs" aria-label="Get in touch with Ptarmigan Labs">
+    <a class="text-white" target="_blank" href="mailto://info@ptarmiganlabs.com">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2019 Ptarmigan Labs All Rights Reserved</small>
+        
+	
+		<p class="mt-2"><a href="ptarmiganlabs.github.io/butler-sos/about/">About Butler SOS</a></p>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+<script src="/ptarmiganlabs.github.io/butler-sos/js/main.min.65f0e2d3c179104c6717e021312635b8300ea88a4521a1b99cf54e0eda0fa196.js" integrity="sha256-ZfDi08F5EExnF&#43;AhMSY1uDAOqIpFIaG5nPVODtoPoZY=" crossorigin="anonymous"></script>
+
+
+
+  </body>
+</html>
