@@ -122,6 +122,16 @@ no = 'Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butle
 
 [params.links]
 # End user relevant links. These will show up on left side of footer and in the community page if you have one.
+[[params.links.user]]
+	name = "Ptarmigan Labs on Twitter"
+	url = "https://twitter.com/ptarmiganlabs"
+	icon = "fab fa-twitter"
+        desc = "Follow us here for latest news"
+[[params.links.user]]
+	name = "LinkedIn"
+	url = "https://www.linkedin.com/in/gorsan/"
+	icon = "fab fa-linkedin"
+        desc = "Reach out to Ptarmigan Labs via LinkedIn"
 # [[params.links.user]]
 # 	name = "User mailing list"
 # 	url = "https://example.org/mail"
