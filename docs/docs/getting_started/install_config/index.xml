@@ -45,7 +45,7 @@ These certificates must be exported from the Qlik Management Console (QMC).&lt;/
 
 &lt;p&gt;&lt;img src=&#34;qmc-certexport-3.png&#34; alt=&#34;Qlik Sense certificate export&#34; title=&#34;Exporting certificates from Qlik - all done!&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;The exported certificate files will be used when &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/butler-sos/docs/getting_started/install_config/config_file_format/&#34;&gt;configuring Butler SOS&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The exported certificate files will be used when &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/getting_started/install_config/config_file_format/&#34;&gt;configuring Butler SOS&lt;/a&gt;.&lt;/p&gt;
 
       </description>
     </item>
@@ -747,11 +747,11 @@ For example, if the config file is called &lt;code&gt;production.yaml&lt;/code&g
 
 &lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
 
-&lt;p&gt;This scenario is identical to the &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/butler-sos/docs/getting_started/install_config/windows/&#34;&gt;Windows scenario&lt;/a&gt;, please refer to that page for details. Keep in mind that the format of file systems paths differ between Windows and Linxu/Mac OS.&lt;/p&gt;
+&lt;p&gt;This scenario is identical to the &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/getting_started/install_config/windows/&#34;&gt;Windows scenario&lt;/a&gt;, please refer to that page for details. Keep in mind that the format of file systems paths differ between Windows and Linxu/Mac OS.&lt;/p&gt;
 
 &lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
 
-&lt;p&gt;Once again, same thing as &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/butler-sos/docs/getting_started/install_config/windows/&#34;&gt;on Windows&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Once again, same thing as &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/getting_started/install_config/windows/&#34;&gt;on Windows&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;running&#34;&gt;Running&lt;/h2&gt;
 

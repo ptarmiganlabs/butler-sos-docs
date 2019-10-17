@@ -29,4 +29,4 @@ Then click the "Export certificates" button. If all goes well the certificates a
 
 ![Qlik Sense certificate export](qmc-certexport-3.png "Exporting certificates from Qlik - all done!")
 
-The exported certificate files will be used when [configuring Butler SOS](/butler-sos/docs/getting_started/install_config/config_file_format/).
+The exported certificate files will be used when [configuring Butler SOS](/docs/getting_started/install_config/config_file_format/).
