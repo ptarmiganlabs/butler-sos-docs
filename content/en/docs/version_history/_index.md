@@ -22,3 +22,12 @@ Note 1: Major and minor updates usually include bug fixes too.
 Note 2: If a version of 5.2 is mentioned, this implicitly means 5.2.0.
 {{% /pageinfo %}}
 
+
+## Documentation updates
+
+An informal, best effort list of documentation updates follow. Most recent changes are listed first.  
+<br>
+
+| Date | Change description |
+| ---- | ------------------ |
+| 2019-Oct | First version of new documentation site, covering Butler SOS 5.0. |
