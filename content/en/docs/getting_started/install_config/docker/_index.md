@@ -9,7 +9,20 @@ description: >
 Docker is great in that it runs on many different platforms. 
 This means that as long as the Docker runtime environment is installed, you can run Butler SOS on your Mac laptop, on a Linux server or on a Windows server.
 
-Installing and getting started with Butler SOS in Docker can look something like this:
+## Installation
+
+### Docker runtime
+
+Installing Docker is beyond the scope of this document, but there are plenty of online tutorials covering this.
+
+### Butler SOS installation and configuration
+
+When using Docker there is no installation in the traditional sense.  
+Instead we (in this case) use a docker-compose file to define how Butler SOS should be executed within a Docker container.  
+
+Configuration of Butler specific settings is then done using a YAML file.
+
+### Install & configure - walkthrough
 
 Create a directory for Butler SOS. Config files and logs will be stored here.
 
@@ -22,9 +35,15 @@ proton:butler-sos-docker goran$
 
 ```
 
-* Copy the [YAML config file](https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml) from the GitHub repository into the ./config directory, rename it to `production.yaml` (or something else, as long as it matches the NODE_ENV environment variable) and edit it as needed. Note that for the Docker setup the path to certificates (as specified in the YAML config file) should be `/nodeapp/config/certificate/` (this is the Docker container's internal path to the certificate directory).
-* Copy [docker-compose.yml](https://github.com/ptarmiganlabs/butler-sos/blob/master/src/docker-compose.yml) from the GitHub repository to the main Butler SOS directory.
-* Export certifiates from the QMC in Qlik Sense Enterprise, place them in the `./config/certificate` directory.
+1. Copy [docker-compose.yml](https://github.com/ptarmiganlabs/butler-sos/blob/master/src/docker-compose.yml) from the GitHub repository to the main Butler SOS directory. The directory where the docker-compose file is stored is the 'root' directory of Butler SOS - everything else is relative to this directory.
+
+2. Adapt the docker-compose file as needed (usually no changes are needed if you want to run the latest version of Butler SOS).
+
+3. Copy the [YAML config file](https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml) from the GitHub repository into the ./config directory, rename it to `production.yaml` (or something else, as long as it matches the NODE_ENV environment variable) and edit it as needed. Note that for the Docker setup the path to certificates (as specified in the YAML config file) should be `/nodeapp/config/certificate/` (this is the Docker container's internal path to the certificate directory).
+
+4. Edit the config file above as needed, with respect to your local Sense environment, folder paths etc. The provided template file has reasonable defualt settings where possible, but there are also a number of paths, passwords etc that must be configured. 
+
+5. Export certifiates from the QMC in Qlik Sense Enterprise, place them in the `./config/certificate` directory (i.e. in a subdirectory to the directory where the docker-comspose file is stored). The certificates can in theory be placed anywhere, as long as they are made available to the Docker container via a volume mount in the docker-compose.yaml file (e.g. ```- "./config:/nodeapp/config"```).  
 
 Let's do this one step at a time.  
 What files are there?
@@ -56,7 +75,7 @@ proton:butler-sos-docker goran$
 
 ```
 
-What des the config file look like?
+What does the config file look like?
 
 ```bash
 

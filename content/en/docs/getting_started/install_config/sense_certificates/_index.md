@@ -3,55 +3,30 @@ title: "Export Sense certificates"
 linkTitle: "Get certificates"
 weight: 2
 description: >
-  Running Butler SOS in Windows. Installation and configuration.
+  How to export certificates from Qlik Sense.
 ---
 
-## Installation
+Butler SOS uses certificates to authenticate with Qlik Sense.  
+These certificates must be exported from the Qlik Management Console (QMC).
 
-In this scenario, Butler SOS will run as a Node.js app on the Windows server itself.  
+![Qlik Sense certificate export](qmc-certexport-1.png "Exporting certificates from Qlik")
 
-### 1. Install Node.js
+To export certificates you need to provide a few pieces of information: 
 
-Any recent Node version should work fine, but if in doubt the [latest LTS version](https://nodejs.org/en/download/) is usually a good idea.
+1. Name of the server where the certificate will be used (i.e. where Butler SOS will be running). You can also create a wild-card certificate (that should work on all servers) by writing `*`. Note that this is considered less secure!
 
-### 2. Select a directory from which Butler SOS will be run
+2. Leave password fields empty.
 
-This can be pretty much anywhere, in this example d:\tools\butler-sos will be used.
+3. Check the "Include secret key" check box.
 
-### 3. Get Butler SOS
-
-Get the desired [Butler SOS version](https://github.com/ptarmiganlabs/butler-sos/releases) and extract it into the directory above.
-
-### 4. Install Node.js dependencies
-
-From d:\tools\butler-sos\src, run `npm i` to install the various Node.js modules used by Butler SOS. Depending on your server configuration you may get some warnings about (for example) Python not being installed, these can usually be ignored.
-
-## Configuration
-
-The configuration file is used the same way as when Butler SOS runs on Docker, with one exception:
-
-The path to the certificates used to authenticate with Sense must be specified in the config file. With Docker the certificate path is fixed, but with Windows you need to specify it. 
-
-For example, if the certificate files exported from Sense are stored in d:\secrets\sensecert, the config file would look like this when used on Windows:
+4. Export certificates in PEM format.
 
 
-```yaml
-  ...
-  # Certificates to use when querying Sense for healthcheck data. Get these from the Certificate Export in QMC.
-  cert:
-    clientCert: d:\secrets\sensecert\client.pem
-    clientCertKey: d:\secrets\sensecert\client_key.pem
-    clientCertCA: d:\secrets\sensecert\root.pem
-
-```
+![Qlik Sense certificate export](qmc-certexport-2.png "Exporting certificates from Qlik, step 2")
 
 
-## Running
+Then click the "Export certificates" button. If all goes well the certificates are now exported to a folder on the Sense server to which you are connected (i.e. the server hosting the virtual proxy you are connected to):
 
-A tool like Butler SOS should of course start automatically when the server it runs on is restarted. This can be achieved in at least a couple of ways:
+![Qlik Sense certificate export](qmc-certexport-3.png "Exporting certificates from Qlik - all done!")
 
-1. A Node process monitor such as [pm2]() can be used to monitor the Butler SOS process, and restart it if it for some reason crashes.
-
-2. Use a tool to wrap Butler SOS into a Windows service. There are various tools for doing this, with [nssm] being one of the better ones.
-
-The second option is usually preferred, as you then manage Butler SOS the same way as other system critical Windows services.
+The exported certificate files will be used when [configuring Butler SOS](/docs/getting_started/install_config/config_file_format/).

@@ -23,6 +23,7 @@ It publishes operational, close to real-time Qlik Sense Enterprise metrics to [I
 Butler SOS gathers operational metrics from several sources, including the [Sense healthcheck API](https://help.qlik.com/en-US/sense-developer/June2019/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm) and [Session API](https://help.qlik.com/en-US/sense-developer/June2019/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm).  
 It also pulls log events from [Sense's Postgres logging database](https://help.qlik.com/en-US/sense/June2019/Subsystems/PlanningQlikSenseDeployments/Content/Sense_Deployment/Qlik-Logging-Service.htm), and forwards these to InfluxDB and MQTT.
 
+
 ## Do I really need a tool like this?
 
 Let's say you are somehow involved in (or maybe even responsible for) your company's Qlik Sense environemnt.
@@ -47,7 +48,7 @@ Sample screen shots of [Grafana](https://grafana.com/) dashboards created using 
 
 As mentioned above, Butler SOS can also send data to [MQTT](https://en.wikipedia.org/wiki/MQTT), for use in any MQTT enabled tool or system.
 
-## Known limitations
+## Known limitations & improvement ideas
 
 Things can always be improved, of course. Here are some ideas on things for future versions:
 
@@ -63,8 +64,9 @@ Ready to move on?
 
 Great! Here are some good starting points
 
-* [Getting Started](/getting-started/): Get started with Butler SOS
-* [Examples](/examples/): Check out some example code!
+* [Getting Started](/docs/getting_started/): Get started with Butler SOS
+
+* [Examples](/docs/examples/): Check out some example monitoring dashboards!
 
 
 ## I have a question or want to report an issue
@@ -75,3 +77,10 @@ Feel free to reach out via a [GitHub issue](https://github.com/ptarmiganlabs/but
 ## Security / Disclosure
 
 If you discover any important bug with Butler SOS that may pose a security problem, please disclose it confidentially to [security@ptarmiganlabs.com](mailto://security@ptarmiganlabs.com) first, so that it can be assessed and hopefully fixed prior to being exploited. Please do not raise GitHub issues for security-related doubts or problems.
+
+
+## Who's behind Butler SOS?
+
+Butler SOS is an open source project sponsored by [Ptarmigan Labs](https://ptarmiganlabs.com), an IT consulting company in Stockholm, Sweden. The main contributor to the tool is (so far) [Göran Sander](https://www.linkedin.com/in/gorsan) from same company. 
+
+Please refer to the [Contribution guidelines](/docs/contribution-guidelines/) page for details on how to contribute, suggest features etc to the tool.
