@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler SOS – Install &amp; Configure</title>
-    <link>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/</link>
+    <link>/butler-sos/docs/getting_started/install_config/</link>
     <description>Recent content in Install &amp; Configure on Butler SOS</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	  <atom:link href="ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="/butler-sos/docs/getting_started/install_config/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -15,10 +15,10 @@
     
     <item>
       <title>Docs: Export Sense certificates</title>
-      <link>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/sense_certificates/</link>
+      <link>/butler-sos/docs/getting_started/install_config/sense_certificates/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/sense_certificates/</guid>
+      <guid>/butler-sos/docs/getting_started/install_config/sense_certificates/</guid>
       <description>
         
         
@@ -45,17 +45,17 @@ These certificates must be exported from the Qlik Management Console (QMC).&lt;/
 
 &lt;p&gt;&lt;img src=&#34;qmc-certexport-3.png&#34; alt=&#34;Qlik Sense certificate export&#34; title=&#34;Exporting certificates from Qlik - all done!&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;The exported certificate files will be used when &lt;a href=&#34;ptarmiganlabs.github.io/butler-sos/butler-sos/docs/getting_started/install_config/config_file_format/&#34;&gt;configuring Butler SOS&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The exported certificate files will be used when &lt;a href=&#34;/butler-sos/butler-sos/docs/getting_started/install_config/config_file_format/&#34;&gt;configuring Butler SOS&lt;/a&gt;.&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
       <title>Docs: Config file format</title>
-      <link>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/config_file_format/</link>
+      <link>/butler-sos/docs/getting_started/install_config/config_file_format/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/config_file_format/</guid>
+      <guid>/butler-sos/docs/getting_started/install_config/config_file_format/</guid>
       <description>
         
         
@@ -396,10 +396,10 @@ The &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/blob/master/src/
     
     <item>
       <title>Docs: Docker</title>
-      <link>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/docker/</link>
+      <link>/butler-sos/docs/getting_started/install_config/docker/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/docker/</guid>
+      <guid>/butler-sos/docs/getting_started/install_config/docker/</guid>
       <description>
         
         
@@ -666,10 +666,10 @@ CONTAINER ID        IMAGE                           COMMAND                  CRE
     
     <item>
       <title>Docs: Windows</title>
-      <link>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/windows/</link>
+      <link>/butler-sos/docs/getting_started/install_config/windows/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/windows/</guid>
+      <guid>/butler-sos/docs/getting_started/install_config/windows/</guid>
       <description>
         
         
@@ -725,10 +725,10 @@ CONTAINER ID        IMAGE                           COMMAND                  CRE
     
     <item>
       <title>Docs: Linux and Mac OS</title>
-      <link>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/linux_macos/</link>
+      <link>/butler-sos/docs/getting_started/install_config/linux_macos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/linux_macos/</guid>
+      <guid>/butler-sos/docs/getting_started/install_config/linux_macos/</guid>
       <description>
         
         
@@ -736,11 +736,11 @@ CONTAINER ID        IMAGE                           COMMAND                  CRE
 
 &lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
 
-&lt;p&gt;This scenario is identical to the &lt;a href=&#34;ptarmiganlabs.github.io/butler-sos/butler-sos/docs/getting_started/install_config/windows/&#34;&gt;Windows scenario&lt;/a&gt;, please refer to that page for details. Keep in mind that the format of file systems paths differ between Windows and Linxu/Mac OS.&lt;/p&gt;
+&lt;p&gt;This scenario is identical to the &lt;a href=&#34;/butler-sos/butler-sos/docs/getting_started/install_config/windows/&#34;&gt;Windows scenario&lt;/a&gt;, please refer to that page for details. Keep in mind that the format of file systems paths differ between Windows and Linxu/Mac OS.&lt;/p&gt;
 
 &lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
 
-&lt;p&gt;Once again, same thing as &lt;a href=&#34;ptarmiganlabs.github.io/butler-sos/butler-sos/docs/getting_started/install_config/windows/&#34;&gt;on Windows&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Once again, same thing as &lt;a href=&#34;/butler-sos/butler-sos/docs/getting_started/install_config/windows/&#34;&gt;on Windows&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;running&#34;&gt;Running&lt;/h2&gt;
 
@@ -754,10 +754,10 @@ Tools like &lt;a href=&#34;http://pm2.keymetrics.io/&#34; target=&#34;_blank&#34
     
     <item>
       <title>Docs: InfluxDB &amp; Grafana</title>
-      <link>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/influxdb_grafana/</link>
+      <link>/butler-sos/docs/getting_started/install_config/influxdb_grafana/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>ptarmiganlabs.github.io/butler-sos/docs/getting_started/install_config/influxdb_grafana/</guid>
+      <guid>/butler-sos/docs/getting_started/install_config/influxdb_grafana/</guid>
       <description>
         
         

@@ -1,5 +1,5 @@
 # baseURL = "/"
-baseURL = "ptarmiganlabs.github.io/butler-sos/"
+baseURL = "/butler-sos/"
 title = "Butler SOS"
 
 # Added to support publishing to GitHub Pages, as per https://gohugo.io/hosting-and-deployment/hosting-on-github/
