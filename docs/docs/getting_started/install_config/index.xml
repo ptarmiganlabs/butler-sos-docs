@@ -710,6 +710,17 @@ CONTAINER ID        IMAGE                           COMMAND                  CRE
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;clientCertCA&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;d&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;\secrets\sensecert\root.pem&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&#34;running&#34;&gt;Running&lt;/h2&gt;
 
+&lt;h3 id=&#34;environment-variables&#34;&gt;Environment variables&lt;/h3&gt;
+
+&lt;p&gt;There is a dependency between the name of the YAML configuration file and the NODE_ENV environment variable.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;production.yaml&lt;/code&gt; file can be named anything, as long as it matches the value of the &lt;code&gt;NODE_ENV&lt;/code&gt; environment variable.&lt;br /&gt;
+For example, if the config file is called &lt;code&gt;production.yaml&lt;/code&gt;, the NODE_ENV environment variable should be set to &amp;lsquo;production&amp;rsquo;.&lt;/p&gt;
+
+&lt;p&gt;In Windows you do this by &lt;code&gt;set NODE_ENV=production&lt;/code&gt; in a command prompt, or even better as a server wide setting.&lt;/p&gt;
+
+&lt;h3 id=&#34;stayin-alive&#34;&gt;Stayin&amp;rsquo; alive&lt;/h3&gt;
+
 &lt;p&gt;A tool like Butler SOS should of course start automatically when the server it runs on is restarted. This can be achieved in at least a couple of ways:&lt;/p&gt;
 
 &lt;ol&gt;
@@ -743,6 +754,17 @@ CONTAINER ID        IMAGE                           COMMAND                  CRE
 &lt;p&gt;Once again, same thing as &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/butler-sos/docs/getting_started/install_config/windows/&#34;&gt;on Windows&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;running&#34;&gt;Running&lt;/h2&gt;
+
+&lt;h3 id=&#34;environment-variables&#34;&gt;Environment variables&lt;/h3&gt;
+
+&lt;p&gt;There is a dependency between the name of the YAML configuration file and the NODE_ENV environment variable.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;production.yaml&lt;/code&gt; file can be named anything, as long as it matches the value of the &lt;code&gt;NODE_ENV&lt;/code&gt; environment variable.&lt;br /&gt;
+For example, if the config file is called &lt;code&gt;production.yaml&lt;/code&gt;, the NODE_ENV environment variable should be set to &amp;lsquo;production&amp;rsquo;.&lt;/p&gt;
+
+&lt;p&gt;In Linux you do this by &lt;code&gt;export NODE_ENV=production&lt;/code&gt; in a shell prompt, or even better as a server wide setting.&lt;/p&gt;
+
+&lt;h3 id=&#34;stayin-alive&#34;&gt;Stayin&amp;rsquo; alive&lt;/h3&gt;
 
 &lt;p&gt;A Node process monitor can be used on Linux or Mac OS, just a on Windows.
 Tools like &lt;a href=&#34;http://pm2.keymetrics.io/&#34; target=&#34;_blank&#34;&gt;PM2&lt;/a&gt; in fact usually work better on Linux/Mac OS than on Windows..&lt;/p&gt;

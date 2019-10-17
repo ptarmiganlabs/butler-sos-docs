@@ -499,7 +499,11 @@
 <ul>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#configuration">Configuration</a></li>
-<li><a href="#running">Running</a></li>
+<li><a href="#running">Running</a>
+<ul>
+<li><a href="#environment-variables">Environment variables</a></li>
+<li><a href="#stayin-alive">Stayin&rsquo; alive</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -567,6 +571,17 @@
 <p>Once again, same thing as <a href="/butler-sos/docs/getting_started/install_config/windows/">on Windows</a>.</p>
 
 <h2 id="running">Running</h2>
+
+<h3 id="environment-variables">Environment variables</h3>
+
+<p>There is a dependency between the name of the YAML configuration file and the NODE_ENV environment variable.</p>
+
+<p>The <code>production.yaml</code> file can be named anything, as long as it matches the value of the <code>NODE_ENV</code> environment variable.<br />
+For example, if the config file is called <code>production.yaml</code>, the NODE_ENV environment variable should be set to &lsquo;production&rsquo;.</p>
+
+<p>In Linux you do this by <code>export NODE_ENV=production</code> in a shell prompt, or even better as a server wide setting.</p>
+
+<h3 id="stayin-alive">Stayin&rsquo; alive</h3>
 
 <p>A Node process monitor can be used on Linux or Mac OS, just a on Windows.
 Tools like <a href="http://pm2.keymetrics.io/" target="_blank">PM2</a> in fact usually work better on Linux/Mac OS than on Windows..</p>
@@ -675,7 +690,7 @@ Tools like <a href="http://pm2.keymetrics.io/" target="_blank">PM2</a> in fact u
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified October 17, 2019: <a  href="https://github.com/ptarmiganlabs/butler-sos-docs/commit/add031d3330d540b90b401a4a61a996c834e4ad6">5.0 RC1 (add031d)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified October 17, 2019: <a  href="https://github.com/ptarmiganlabs/butler-sos-docs/commit/b3cbe2cbbbf2bd35e99ebfa0074bc1aa20ddd184">Fix broken links (b3cbe2c)</a>
 </div>
 </div>
 
