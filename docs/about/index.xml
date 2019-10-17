@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler SOS – About Butler SOS</title>
-    <link>/butler-sos/about/</link>
+    <link>https://ptarmiganlabs.github.io/butler-sos-docs/about/</link>
     <description>Recent content in About Butler SOS on Butler SOS</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	  <atom:link href="/butler-sos/about/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://ptarmiganlabs.github.io/butler-sos-docs/about/index.xml" rel="self" type="application/rss+xml" />
     
     
       
