@@ -29,7 +29,7 @@ You can create dashboards that combine metrics from several servers, or break ou
 
 ![Grafana dashboard](senseOps_dashboard_4.png "SenseOps dashboard showing Qlik Sense metrics, using Grafana")
 
-Note how a lowe-RAM alert has been set (using Grafana's alert feature), and is also triggered in the dashboard above. Such alerts can be sent (using features built into Grafana) as notifications to Slack, Teams, Pager Duty, as email etc.
+Note how a low-RAM alert has been set (using Grafana's alert feature) and is also triggered in the dashboard above. Such alerts can be sent (using features built into Grafana) as notifications to Slack, Teams, Pager Duty, as email etc.
 
 ## Qlik Sense warnings and errors
 

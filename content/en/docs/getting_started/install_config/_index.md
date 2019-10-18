@@ -1,6 +1,7 @@
 ---
 title: "Install & Configure"
 linkTitle: "Install & Configure"
+weight: 3
 description: >
   The steps needed for installing and configuring vary slightly depending on what platform you use. The details are found here.
 ---
