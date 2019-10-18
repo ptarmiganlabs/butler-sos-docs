@@ -34,7 +34,9 @@ Given the above, the answer is almost certainly "yes" : You can simplify your wo
 
 ## Why a separate tool for this?
 
-Good question. While Qlik Sense ships with a great Operations Monitor application, it is not useful or intended for real-time operational monitoring.  
+Good question.  
+
+While Qlik Sense ships with a great Operations Monitor application, it is not useful or intended for real-time operational monitoring.  
 The Ops Monitor app is great for retrospective analysis of what happened in a Qlik Sense environment, but for a real-time understanding of what's going on in a Sense environment something else is needed - enter Butler SOS.
 
 The most common way of using Butler SOS is for creating real-time dashboards based on the data in the InfluxDB database, showing operational metrics for a Qlik Sense Enterprise environment.  

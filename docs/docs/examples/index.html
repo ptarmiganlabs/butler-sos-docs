@@ -415,6 +415,29 @@
       
       
       
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/general_sense_monitoring/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">General monitoring</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docs-examples-general-sense-monitoring">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
     </li>
   </ul>
 </ul>
@@ -526,19 +549,6 @@
 
 
 
-<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#qlik-sense-server-metrics">Qlik Sense server metrics</a></li>
-<li><a href="#qlik-sense-warnings-and-errors">Qlik Sense warnings and errors</a></li>
-<li><a href="#user-level-session-monitoring">User level session monitoring</a></li>
-</ul></li>
-</ul>
-</nav>
-
-
-
           </div>
           <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
             <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
@@ -571,8 +581,6 @@
 	<div class="lead">See Butler SOS in action!</div>
 	
 
-
-
 <div class="pageinfo pageinfo-primary">
 <p>The whole SenseOps (Butler family of tools, together with support tools like InfluxDB, Grafana etc) stack is really a platform that can be configured and used in lots of different ways.</p>
 
@@ -581,37 +589,6 @@ And when doing so - please consider sharing your successes (and failures..) with
 
 </div>
 
-
-<h2 id="qlik-sense-server-metrics">Qlik Sense server metrics</h2>
-
-<p>This is a top use case for Butler SOS.<br />
-These kind of dashboards give you detailed insights into several important metrics for your Sense servers:</p>
-
-<ul>
-<li>CPU load</li>
-<li>Amount of free RAM memory</li>
-<li>Number of sessions in total</li>
-<li>Success rate of the Qlik engine&rsquo;s cache</li>
-<li>Number of loaded apps in the Qlik engine</li>
-</ul>
-
-<p>You can create dashboards that combine metrics from several servers, or break out the metrics for each server:</p>
-
-<p><img src="senseOps_dashboard_4.png" alt="Grafana dashboard" title="SenseOps dashboard showing Qlik Sense metrics, using Grafana" /></p>
-
-<p>Note how a low-RAM alert has been set (using Grafana&rsquo;s alert feature) and is also triggered in the dashboard above. Such alerts can be sent (using features built into Grafana) as notifications to Slack, Teams, Pager Duty, as email etc.</p>
-
-<h2 id="qlik-sense-warnings-and-errors">Qlik Sense warnings and errors</h2>
-
-<p>When something breaks in a Qlik Sense environment the logs immediately fill up with warning and/or error messages. By keeping track of these it&rsquo;s easy to quickly spot (and get notified) issues when they first occur:</p>
-
-<p><img src="senseOps_dashboard_3.png" alt="Grafana dashboard" title="SenseOps dashboard showing errors and warnings, using Grafana" /></p>
-
-<h2 id="user-level-session-monitoring">User level session monitoring</h2>
-
-<p>As of version 5 of Butler SOS, metrics can be extracted about what individual users have open sessions with each Sense virtual proxy. This allows for very detailed monitoring of what users are connected, how many sessions they have open etc.</p>
-
-<p>One possible use case for this information is to see what users will be affected by a pending server reboot. You could even use this information to send a chat message to these users, informing them that their connection to Sense will be lost in x minutes. This feature is not available in Butler SOS out of the box, but is quite possible to implement if needed.</p>
 
         <div class="section-index">
     
@@ -622,6 +599,16 @@ These kind of dashboards give you detailed insights into several important metri
         
             
         
+            
+        
+            
+                <div class="entry">
+                    <h5>
+                        <a href="/docs/examples/general_sense_monitoring/">General Qlik Sense monitoring</a>
+                    </h5>
+                    <p>Probably the most obvious and common use case for Butler SOS. View Qlik Sense and Windows operational metrics in great looking Grafana dashboards.
+</p>
+                </div>
             
         
             
@@ -717,7 +704,7 @@ These kind of dashboards give you detailed insights into several important metri
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified October 17, 2019: <a  href="https://github.com/ptarmiganlabs/butler-sos-docs/commit/31c94e4e46ac85a8bd7c69f042695507151b7db8">5.0 RC1 (31c94e4)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified October 18, 2019: <a  href="https://github.com/ptarmiganlabs/butler-sos-docs/commit/9935e954fd811b73bbf4eff0d4a3e3b56190193f">Added description of data in InfluxDB (9935e95)</a>
 </div>
 </div>
 
