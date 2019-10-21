@@ -79,7 +79,7 @@ A few things to keep in mind:
 | pollingInterval | How often to query the Sense healthcheck API |
 | serverTagsDefinition | List of tags to add to each server when storing the data in Influxdb. All tags defined here MUST be present in each server's definition section further down in the config file! |
 | servers | List of what servers to monitor. For each server a set of properties MUST be defined. |
-| servers.<br>host | FQDN of server. Domain should match that of the certificate exported from QMC - otherwise certificate warnings may appear |
+| servers.<br>host:4747 | FQDN of server. Domain should match that of the certificate exported from QMC - otherwise certificate warnings may appear. NOTE: You need to specify the port too - should be :4747 unless it's been changed from default value (*very* unusual to change this). |
 | servers.<br>serverName | Human friendly server name |
 | servers.<br>serverDescription | Human friendly server description |
 | servers.<br>logDbHost | Server's name as it appears in the ```process_host``` field log db. This is needed in order to link entries in logdb to the specific server at hand. See note below too! |
