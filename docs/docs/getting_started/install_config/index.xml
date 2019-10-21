@@ -346,8 +346,8 @@ The &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/blob/master/src/
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;servers.&lt;br&gt;host&lt;/td&gt;
-&lt;td&gt;FQDN of server. Domain should match that of the certificate exported from QMC - otherwise certificate warnings may appear&lt;/td&gt;
+&lt;td&gt;servers.&lt;br&gt;host:4747&lt;/td&gt;
+&lt;td&gt;FQDN of server. Domain should match that of the certificate exported from QMC - otherwise certificate warnings may appear. NOTE: You need to specify the port too - should be :4747 unless it&amp;rsquo;s been changed from default value (&lt;em&gt;very&lt;/em&gt; unusual to change this).&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
