@@ -50,6 +50,8 @@ You can also get very detailed sessions metrics, down to the level of individual
 
 One possible use case for this information is to see what users will be affected by a pending server reboot. You could even use this information to send a chat message to these users, informing them that their connection to Sense will be lost in x minutes. This feature is not available in Butler SOS out of the box, but is quite possible to implement if needed.
 
+As of Butler SOS v5.0.0, detailed user session metrics stored in a fairly comprehensive way in InfluxDB. The visualisation of these metrics is still kind of rough though. The charts below can serve as inspiration, but can surely be improved upon..
+
 ![Grafana dashboard](senseops_detailed_sessions.png "Detailed sessions info in Grafana dashboard")
 *Detailed user sessions info per server and virtual proxy*
 
