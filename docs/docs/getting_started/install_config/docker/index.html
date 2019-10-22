@@ -758,7 +758,7 @@ Butler-SOS:
 
     <span style="color:#8f5902;font-style:italic"># Sense Servers that should be queried for healthcheck data</span> 
     servers:
-      - host: &lt;server1.my.domain&gt;
+      - host: &lt;server1.my.domain&gt;:4747
         serverName: &lt;server1&gt;
         serverDescription: &lt;description&gt;
         logDbHost: &lt;host name as used in QLogs db&gt;
@@ -774,7 +774,7 @@ Butler-SOS:
           serverLocation: Asia
           server-type: virtual
           serverBrand: Dell
-      - host: &lt;server2.my.domain&gt;
+      - host: &lt;server2.my.domain&gt;:4747
         serverName: &lt;server2&gt;
         serverDescription: &lt;description&gt;
         logDbHost: &lt;host name as used in QLogs db&gt;
@@ -872,7 +872,7 @@ proton:butler-sos-docker goran$</code></pre></div>
 <p>The Docker container implements Docker healthchecks, which means you can run <code>docker ps</code> to see whether the container is healthy or not:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜ docker ps
 CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS                    PORTS               NAMES
-905f21443f97        mountaindude/butler-sos:5.0.0   <span style="color:#4e9a06">&#34;docker-entrypoint.s…&#34;</span>   <span style="color:#0000cf;font-weight:bold">6</span> minutes ago       Up <span style="color:#0000cf;font-weight:bold">22</span> seconds <span style="color:#ce5c00;font-weight:bold">(</span>healthy<span style="color:#ce5c00;font-weight:bold">)</span>                       butler-sos</code></pre></div>
+905f21443f97        ptarmiganlabs/butler-sos:5.0.0   <span style="color:#4e9a06">&#34;docker-entrypoint.s…&#34;</span>   <span style="color:#0000cf;font-weight:bold">6</span> minutes ago       Up <span style="color:#0000cf;font-weight:bold">22</span> seconds <span style="color:#ce5c00;font-weight:bold">(</span>healthy<span style="color:#ce5c00;font-weight:bold">)</span>                       butler-sos</code></pre></div>
         <div class="section-index">
     
     
@@ -979,7 +979,7 @@ CONTAINER ID        IMAGE                           COMMAND                  CRE
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified October 17, 2019: <a  href="https://github.com/ptarmiganlabs/butler-sos-docs/commit/31c94e4e46ac85a8bd7c69f042695507151b7db8">5.0 RC1 (31c94e4)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified October 22, 2019: <a  href="https://github.com/ptarmiganlabs/butler-sos-docs/commit/d44ab4081b795bfd47b9dc76a23b8e81304fb78c">Add missing port 4747 in docs (d44ab40)</a>
 </div>
 </div>
 

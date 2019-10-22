@@ -546,7 +546,7 @@ Butler-SOS:
 
     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Sense Servers that should be queried for healthcheck data&lt;/span&gt; 
     servers:
-      - host: &amp;lt;server1.my.domain&amp;gt;
+      - host: &amp;lt;server1.my.domain&amp;gt;:4747
         serverName: &amp;lt;server1&amp;gt;
         serverDescription: &amp;lt;description&amp;gt;
         logDbHost: &amp;lt;host name as used in QLogs db&amp;gt;
@@ -562,7 +562,7 @@ Butler-SOS:
           serverLocation: Asia
           server-type: virtual
           serverBrand: Dell
-      - host: &amp;lt;server2.my.domain&amp;gt;
+      - host: &amp;lt;server2.my.domain&amp;gt;:4747
         serverName: &amp;lt;server2&amp;gt;
         serverDescription: &amp;lt;description&amp;gt;
         logDbHost: &amp;lt;host name as used in QLogs db&amp;gt;
@@ -660,7 +660,7 @@ proton:butler-sos-docker goran$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The Docker container implements Docker healthchecks, which means you can run &lt;code&gt;docker ps&lt;/code&gt; to see whether the container is healthy or not:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜ docker ps
 CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS                    PORTS               NAMES
-905f21443f97        mountaindude/butler-sos:5.0.0   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;docker-entrypoint.s…&amp;#34;&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt; minutes ago       Up &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22&lt;/span&gt; seconds &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;healthy&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;                       butler-sos&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+905f21443f97        ptarmiganlabs/butler-sos:5.0.0   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;docker-entrypoint.s…&amp;#34;&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt; minutes ago       Up &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22&lt;/span&gt; seconds &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;healthy&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;                       butler-sos&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
       </description>
     </item>
     
