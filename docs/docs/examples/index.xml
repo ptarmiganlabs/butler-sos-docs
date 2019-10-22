@@ -70,6 +70,8 @@ Before importing these to Grafana you should create a Grafana data source called
 
 &lt;p&gt;One possible use case for this information is to see what users will be affected by a pending server reboot. You could even use this information to send a chat message to these users, informing them that their connection to Sense will be lost in x minutes. This feature is not available in Butler SOS out of the box, but is quite possible to implement if needed.&lt;/p&gt;
 
+&lt;p&gt;As of Butler SOS v5.0.0, detailed user session metrics stored in a fairly comprehensive way in InfluxDB. The visualisation of these metrics is still kind of rough though. The charts below can serve as inspiration, but can surely be improved upon..&lt;/p&gt;
+
 &lt;p&gt;&lt;img src=&#34;senseops_detailed_sessions.png&#34; alt=&#34;Grafana dashboard&#34; title=&#34;Detailed sessions info in Grafana dashboard&#34; /&gt;
 &lt;em&gt;Detailed user sessions info per server and virtual proxy&lt;/em&gt;&lt;/p&gt;
 
