@@ -160,7 +160,7 @@ Butler-SOS:
 
     # Sense Servers that should be queried for healthcheck data 
     servers:
-      - host: <server1.my.domain>
+      - host: <server1.my.domain>:4747
         serverName: <server1>
         serverDescription: <description>
         logDbHost: <host name as used in QLogs db>
@@ -176,7 +176,7 @@ Butler-SOS:
           serverLocation: Asia
           server-type: virtual
           serverBrand: Dell
-      - host: <server2.my.domain>
+      - host: <server2.my.domain>:4747
         serverName: <server2>
         serverDescription: <description>
         logDbHost: <host name as used in QLogs db>
@@ -298,6 +298,6 @@ The Docker container implements Docker healthchecks, which means you can run `do
 
 ➜ docker ps
 CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS                    PORTS               NAMES
-905f21443f97        mountaindude/butler-sos:5.0.0   "docker-entrypoint.s…"   6 minutes ago       Up 22 seconds (healthy)                       butler-sos
+905f21443f97        ptarmiganlabs/butler-sos:5.0.0   "docker-entrypoint.s…"   6 minutes ago       Up 22 seconds (healthy)                       butler-sos
 
 ```
