@@ -14,6 +14,29 @@
     
     
     <item>
+      <title>Blog: v5.0.1: Fixing a few typos, clarifying a few things</title>
+      <link>https://butler-sos.ptarmiganlabs.com/blog/2019/10/22/v5.0.1-fixing-a-few-typos-clarifying-a-few-things/</link>
+      <pubDate>Tue, 22 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-sos.ptarmiganlabs.com/blog/2019/10/22/v5.0.1-fixing-a-few-typos-clarifying-a-few-things/</guid>
+      <description>
+        
+        
+        &lt;p&gt;A few typos and minor mistakes were identified in 5.0.0.&lt;br /&gt;
+These are fixed in 5.0.1:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;#73 Incorrect Docker image name in docker-compose file.&lt;/li&gt;
+&lt;li&gt;#77 Make sure Grafana sample dashboards include charts for granular session data.&lt;/li&gt;
+&lt;li&gt;#74 Main health metrics should use port 4747 in config file.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Doc site at &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34; target=&#34;_blank&#34;&gt;butler-sos.ptarmiganlabs.com&lt;/a&gt; has also been updated with respect to the above.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Blog: v5.0.0: User sessions, InfluxDB logs and more</title>
       <link>https://butler-sos.ptarmiganlabs.com/blog/2019/10/17/v5.0.0-user-sessions-influxdb-logs-and-more/</link>
       <pubDate>Thu, 17 Oct 2019 00:00:00 +0000</pubDate>

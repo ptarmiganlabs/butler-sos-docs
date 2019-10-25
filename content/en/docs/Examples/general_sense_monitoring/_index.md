@@ -13,6 +13,7 @@ Grafana is an increadibly capable tool for showing time series data.
 
 The dashboards shown here are thus just examples and inspiration - feel free to extend and adapt these to meet your particular needs. There are also plenty of sample Grafana dashboards out there to get inspiration from.
 
+If you experience issues with the Grafana dashboards included in the GitHub package, you might want to try upgrading to a later/latest Grafana version.
 {{% /pageinfo %}}
 
 
