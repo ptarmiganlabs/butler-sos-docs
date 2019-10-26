@@ -34,13 +34,17 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-## Cookies and data gathering
+## Data collection
 
-This documentation site consists of static web pages, meaning that is no underlying web server, 
-and thus no web server logs where user information can be stored.
+This documentation site was built using [Hugo](https://gohugo.io/) and consists of static web pages hosted on [GitHub Pages](https://pages.github.com/).  
 
-Google Analytics is however used to track general site usage.
+GitHub probably keep log files for GitHub Pages, your visit to this documentation site is thus likely to be recorded there. I do not have any access to those logs though.
 
-Aggregated Google Analytics data may be used to communicate general metrics on how many users have visited the site, from where in the world they accessed the site etc.  
+## Google Analytics
 
-No detailed Google Analytics data for the documentation site will be shared with any third parties.
+Google Analytics is used to track general site usage.
+
+Aggregated Google Analytics data may be used to determine, and in some cases publicly communicate, how popular the site is.  
+Examples of aggregated metrics are how many users have visited the site, from where in the world they accessed the site etc.  
+
+No detailed Google Analytics data for this site will be shared with any third parties.
