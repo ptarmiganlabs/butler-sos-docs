@@ -56,16 +56,19 @@ Let's take a look at what field keys the apps measurement contains:
 ```
 > show field keys from apps
 name: apps
-fieldKey		fieldType
---------		---------
-active_docs		string
-active_docs_count	integer
-calls			integer
-in_memory_docs		string
-in_memory_docs_count	integer
-loaded_docs		string
-loaded_docs_count	integer
-selections		integer
+fieldKey             fieldType
+--------             ---------
+active_docs          string
+active_docs_count    integer
+active_docs_names    string
+calls                integer
+in_memory_docs       string
+in_memory_docs_count integer
+in_memory_docs_names string
+loaded_docs          string
+loaded_docs_count    integer
+loaded_docs_names    string
+selections           integer
 
 >
 ```
@@ -110,10 +113,13 @@ Source: [Health check API](https://help.qlik.com/en-US/sense-developer/September
 | ----------| -----| ----------- |
 | active_docs | string | An array of GUIDs of active apps. Empty if no apps are active. An app is active when a user is currently performing some action on it. |
 | active_docs_count | integer | Number of currently active apps |
+| active_docs_names | string | Names of currently active apps |
 | in_memory_docs | string | An array ofthe GUIDs of all apps currently loaded into the memory, even if they do not have any open sessions or connections to it. The apps disappear from the list when the engine has purged them out from memory.	|
 | in_memory_docs_count | integer | Numer of apps currently in memory |
+| in_memory_docs_names | string | Names of apps currently in memory |
 | loaded_docs | string | An array of the GUIDs of apps currently loaded into memory and that have open sessions or connections. Empty if no apps are loaded. |
 | loaded_docs_count | integer | Number of currently loaded apps |
+| loaded_docs_names | string | Names of currently loaded apps |
 |  |  |  |
 | calls | integer | Number of calls to the Qlik associative engine since it started |
 | selections | integer | Numer of selections made in Qlik associative engine since it started |

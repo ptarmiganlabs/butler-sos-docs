@@ -22,16 +22,14 @@
       <description>
         
         
-        &lt;p&gt;A few typos and minor mistakes were identified in 5.0.0.&lt;br /&gt;
+        &lt;p&gt;A few typos and minor mistakes were identified in 5.0.0.&lt;br&gt;
 These are fixed in 5.0.1:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;#73 Incorrect Docker image name in docker-compose file.&lt;/li&gt;
 &lt;li&gt;#77 Make sure Grafana sample dashboards include charts for granular session data.&lt;/li&gt;
 &lt;li&gt;#74 Main health metrics should use port 4747 in config file.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;Doc site at &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34; target=&#34;_blank&#34;&gt;butler-sos.ptarmiganlabs.com&lt;/a&gt; has also been updated with respect to the above.&lt;/p&gt;
+&lt;p&gt;Doc site at &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;butler-sos.ptarmiganlabs.com&lt;/a&gt; has also been updated with respect to the above.&lt;/p&gt;
 
       </description>
     </item>
@@ -45,29 +43,20 @@ These are fixed in 5.0.1:&lt;/p&gt;
       <description>
         
         
-        
-
-&lt;p&gt;Time for another major update to Butler SOS.&lt;/p&gt;
-
+        &lt;p&gt;Time for another major update to Butler SOS.&lt;/p&gt;
 &lt;h2 id=&#34;new-doc-site&#34;&gt;New doc site&lt;/h2&gt;
-
-&lt;p&gt;There is a new, dedicated doc site at &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34; target=&#34;_blank&#34;&gt;https://butler-sos.ptarmiganlabs.com&lt;/a&gt;.
+&lt;p&gt;There is a new, dedicated doc site at &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;https://butler-sos.ptarmiganlabs.com&lt;/a&gt;.
 Going forward all docs, examples, tutorials etc will be kept there.&lt;/p&gt;
-
 &lt;h2 id=&#34;new-features&#34;&gt;New features&lt;/h2&gt;
-
 &lt;p&gt;This version adds several interesting features that probably will be of interest for those running large Qlik Sense environments, and want to closely and proactively monitor which users are accessing what servers.&lt;/p&gt;
-
 &lt;p&gt;&lt;em&gt;New features:&lt;/em&gt;&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;Extract &lt;strong&gt;detailed user session data&lt;/strong&gt; for specific virtual proxies. Previously it was only possible to see how many users/sessions were using Sense in total - no info on what specific users or what virtual proxies they use were extracted.&lt;br /&gt;
+&lt;li&gt;Extract &lt;strong&gt;detailed user session data&lt;/strong&gt; for specific virtual proxies. Previously it was only possible to see how many users/sessions were using Sense in total - no info on what specific users or what virtual proxies they use were extracted.&lt;br&gt;
 The new features make it possible to see exactly what users are connected right now, how many sessions each user has open, and what virtual proxies they are connected via.&lt;/li&gt;
 &lt;li&gt;Data extracted by Butler SOS can now be stored in &lt;strong&gt;password protected&lt;/strong&gt; InfluxDB databases.&lt;/li&gt;
 &lt;li&gt;All data stored in InfluxDB is accompanied by a &lt;strong&gt;InfluxDB retention policy&lt;/strong&gt;. This means there is now a way to make sure that the InfluxDB database does not grow beyond reasonable limits. Put differently: You can save detailed, fine-grained Sense metrics and specify that it should only be kept for (for example) 4 weeks. Any data older than the threshold is automatically purged from InfluxDB.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Improved logging&lt;/strong&gt; throughout the app makes it easier to debug and solve for example configuration issues.&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;Thes new features mean that Butler SOS&amp;rsquo; configuration file has a slightly new format. When upgrading to v5.0 from earlier versions you must ensure that your YAML config file meets the v5.0 format.&lt;/p&gt;
 
       </description>

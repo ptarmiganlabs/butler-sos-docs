@@ -27,7 +27,7 @@ Let's start Butler SOS, InfluxDB and Grafana from a single docker-compose.yaml f
 version: '3.3'
 services:
   butler-sos:
-    image: mountaindude/butler-sos:5.0.0
+    image: mountaindude/butler-sos:latest
     container_name: butler-sos
     restart: always
     volumes:
@@ -134,7 +134,7 @@ From a separate shell we can then ensure that the expected Docker containers are
 CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS                    PORTS                                            NAMES
 5e59e89d3185        grafana/grafana:latest          "/run.sh"                7 minutes ago       Up 37 seconds             0.0.0.0:3000->3000/tcp                           grafana
 5b8ce73b20e6        influxdb:latest                 "/entrypoint.sh infl…"   7 minutes ago       Up 36 seconds             0.0.0.0:8082->8082/tcp, 0.0.0.0:8086->8086/tcp   influxdb
-73b0bb526261        mountaindude/butler-sos:5.0.0   "docker-entrypoint.s…"   7 minutes ago       Up 37 seconds (healthy)                                                    butler-sos
+73b0bb526261        mountaindude/butler-sos:5.2.0   "docker-entrypoint.s…"   7 minutes ago       Up 37 seconds (healthy)                                                    butler-sos
 
 ~/code/butler-sos_fullstack
 

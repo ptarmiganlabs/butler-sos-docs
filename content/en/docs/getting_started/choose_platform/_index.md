@@ -13,12 +13,9 @@ description: >
 This is a placeholder page. Replace it with your own content.
 {{% /pageinfo %}} -->
 
-
-
 As Butler SOS is written in Node.js, the tool in theory runs on all platforms where Node.js is available.
 The tool is also available as a [Docker image](https://hub.docker.com/r/ptarmiganlabs/butler-sos).
 
-<br>
 Docker is **by far** the preferred way of running Butler SOS, mainly because it gives you a very nice, production grade (stable, scalable, monitorable etc) execution environment.  
 
 Other platforms can be used too, of course - let's look at the pros and cons of some of the more commonly used platforms:
@@ -30,4 +27,3 @@ Other platforms can be used too, of course - let's look at the pros and cons of 
 | Linux | - No cost for operating system (at least not for most Linux versions)<br>- Runs on low cost hardware | - More difficult (compared to Docker) to production grade setup (auto restarts etc) |
 | Mac OS | - For development, if you want to extend or modify Butler SOS | - Not a server grade operating system, i.e. not for production use |
 | Windows (desktop) | - For development, if you want to extend or modify Butler SOS | - Not a server grade operating system, i.e. not for production use |
-

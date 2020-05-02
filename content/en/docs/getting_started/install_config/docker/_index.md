@@ -79,9 +79,17 @@ What does the config file look like?
 
 ```bash
 
-proton:butler-sos-docker goran$ cat config/production.yaml
+proton:butler-sos-docker goran$ cat config/production_template.yaml
 Butler-SOS:
   # All configuration items are mandatory, unless otherwise noted.
+
+  # Heartbeats can be used to send "I'm alive" messages to some other tool, e.g. an infrastructure monitoring tool
+  # The concept is simple: The remoteURL will be called at the specified frequency. The receiving tool will then know
+  # that Butler SOS is alive.
+  heartbeat:
+    enabled: false
+    remoteURL: http://my.monitoring.server/some/path/
+    frequency: every 1 hour         # https://bunkat.github.io/later/parsers.html
 
   # Logging configuration
   logLevel: info          # Log level. Possible log levels are silly, debug, verbose, info, warn, error
@@ -92,6 +100,8 @@ Butler-SOS:
   logdb:
     enableLogDb: true
     # Items below are mandatory if enableLogDb=true
+    influxDbRetentionPolicy: DEFAULT  # Name of Influxdb policy used to determine how long
+                                      #   log db data should be kept in Influxdb
     pollingInterval: 60000    # How often (milliseconds) should Postgres log db be queried for warnings and errors?
     queryPeriod: 5 minutes    # How far back should Butler SOS query for log entries? Default is 5 min
     host: <IP or FQDN of Qlik Sense logging db>
@@ -100,14 +110,21 @@ Butler-SOS:
     qlogsReaderPwd: <pwd>
     extractErrors: true       # Should error level entries be extracted from log db into Influxdb?
     extractWarnings: true     # Should warn level entries be extracted from log db into Influxdb?
-    extractInfo: true         # Should info level entries be extracted from log db into Influxdb? Warning! Seting this to true will result in LOTS of log messages being retrrieved by Butler SOS!
+    extractInfo: true         # Should info level entries be extracted from log db into Influxdb?
+                              # Warning! Seting this to true will result in LOTS of log messages
+                              # being retrrieved by Butler SOS!
 
   # Certificates to use when querying Sense for healthcheck data. Get these from the Certificate Export in QMC.
   cert:
+    clientCert: <path/to/cert/client.pem>
+    clientCertKey: <path/to/cert/client_key.pem>
+    clientCertCA: <path/to/cert/root.pem>
+    clientCertPassphrase:
     # If running Butler SOS in a Docker container, the cert paths MUST be the following
-    clientCert: /nodeapp/config/certificate/client.pem
-    clientCertKey: /nodeapp/config/certificate/client_key.pem
-    clientCertCA: /nodeapp/config/certificate/root.pem
+    # clientCert: /nodeapp/config/certificate/client.pem
+    # clientCertKey: /nodeapp/config/certificate/client_key.pem
+    # clientCertCA: /nodeapp/config/certificate/root.pem
+    # clientCertPassphrase:
 
   # MQTT config parameters
   mqttConfig:
@@ -128,37 +145,45 @@ Butler-SOS:
       username: <username>          # Username for Influxdb authentication. Mandatory if auth.enable=true
       password: <password>          # Password for Influxdb authentication. Mandatory if auth.enable=true
     dbName: SenseOps
-    # Default retention policy that should be created in InfluxDB when Butler SOS creates a new database there. 
+
+    # Default retention policy that should be created in InfluxDB when Butler SOS creates a new database there.
     # Any data older than retention policy threshold will be purged from InfluxDB.
     retentionPolicy:
-      name: 4weeks
-      duration: 4w
+      name: 2_weeks
+      duration: 2w
+
     # Control whether certain fields are stored in InfluxDB or not
     # Use with caution! Enabling activeDocs, loadedDocs or inMemoryDocs may result in lots of data sent to InfluxDB.
     includeFields:
-      activeDocs: false              # Should data on what docs are active be stored in Influxdb (true/false)? 
+      activeDocs: false              # Should data on what docs are active be stored in Influxdb (true/false)?
       loadedDocs: false              # Should data on what docs are loaded be stored in Influxdb (true/false)?
       inMemoryDocs: false            # Should data on what docs are in memory be stored in Influxdb (true/false)?
 
+  # Extract app names
+  appNames:
+    enableAppNameExtract: true    # Extract app names in addition to app IDs (tue/false)?
+    extractInterval: 60000        # How often (milliseconds) should app names be extracted?
+    hostIP: <IP or FQDN>          # What Sense server should be queried for app names?
+
   # Sessions per virtual proxy
   userSessions:
-    enableSessionExtract: true    # Query unique user IDs of what users have sessions open (true/false)?
-    # Items below are mandatory if enableSessionExtract=true    
-    pollingInterval: 15000        # How often (milliseconds) should detailed session data be polled?
+    enableSessionExtract: true      # Query unique user IDs of what users have sessions open (true/false)?
+    # Items below are mandatory if enableSessionExtract=true
+    pollingInterval: 30000          # How often (milliseconds) should detailed session data be polled?
 
   serversToMonitor:
-    pollingInterval: 30000        # How often (milliseconds) should the healthcheck API be polled?
+    pollingInterval: 15000          # How often (milliseconds) should the healthcheck API be polled?
 
     # List of extra tags for each server. Useful for creating more advanced Grafana dashboards.
     # Each server below MUST include these tags in its serverTags property.
     # The tags below are just examples - define your own as needed
-    serverTagsDefinition: 
+    serverTagsDefinition:
       - server_group
       - serverLocation
       - server-type
       - serverBrand
 
-    # Sense Servers that should be queried for healthcheck data 
+    # Sense Servers that should be queried for healthcheck data
     servers:
       - host: <server1.my.domain>:4747
         serverName: <server1>
@@ -191,7 +216,7 @@ Butler-SOS:
           serverLocation: Europe
           server-type: physical
           serverBrand: HP
-  
+
 proton:butler-sos-docker goran$
 
 ```
@@ -205,7 +230,7 @@ proton:butler-sos-docker goran$ cat docker-compose.yml
 version: '3.3'
 services:
   butler-sos:
-    image: ptarmiganlabs/butler-sos:5.0.0
+    image: ptarmiganlabs/butler-sos:latest
     container_name: butler-sos
     restart: always
     volumes:
@@ -223,7 +248,7 @@ proton:butler-sos-docker goran$
 
 ```
 
-Ok, all good. Let's start Butler SOS using docker-compose:
+Ok, all good. Let's start Butler SOS using docker-compose (the exact output will depend on what version of Butler SOS you are using):
 
 ```bash
 

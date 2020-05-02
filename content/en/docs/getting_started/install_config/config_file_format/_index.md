@@ -29,10 +29,15 @@ A few things to keep in mind:
 
 | Parameter | Description |
 | --------- | ----------- |
-| **Butler-SOS** |  |
+|  |  |
 | logLevel | The level of details in the logs. Possible values are silly, debug, verbose, info, warn, error (in order of decreasing level of detail). |
 | fileLogging | true/false to enable/disable logging to disk file |
 | logDirectory | Subdirectory where log files are stored |
+|  |  |
+| **Butler-SOS.heartbeat** |  |
+| enabled | Should heartbeats be sent to some URL, indicating that Butler SOS is alive and well? true/false |
+| remoteURL | URL that will be called for heartbeats |
+| frequency | How often should heartbeats be sent? Format according to https://bunkat.github.io/later/parsers.html |
 |  |  |
 | **Butler-SOS.logdb** |  |
 | enableLogDb | Should Sense log db be queried for warnings/errors/info messages? true/false |
@@ -50,6 +55,7 @@ A few things to keep in mind:
 | clientCert | Certificate file. Exported from QMC |
 | clientCertKey | Certificate key file. Exported from QMC |
 | clientCertCA | Root certificate for above certificate files. Exported from QMC |
+| clientCertPassphrase | Password used to protect the certificate (as set when exporting cert from QMC) |
 |  |  |
 | **Butler-SOS.mqttConfig** |  |
 | enableMQTT | Should health metrics be sent to MQTT? true/false |

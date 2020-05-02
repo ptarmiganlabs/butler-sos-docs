@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.58.2" />
+<meta name="generator" content="Hugo 0.65.3" />
 
 <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
@@ -25,11 +25,10 @@
 <meta property="og:description" content="Butler SOS documentation" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://butler-sos.ptarmiganlabs.com/" />
+<meta property="og:image" content="https://butler-sos.ptarmiganlabs.com/featured-background.png"/>
 <meta property="og:site_name" content="Butler SOS" />
 <meta itemprop="name" content="Butler SOS">
-<meta itemprop="description" content="Butler SOS documentation">
-
-<meta name="twitter:card" content="summary_large_image"/>
+<meta itemprop="description" content="Butler SOS documentation"><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://butler-sos.ptarmiganlabs.com/featured-background.png"/>
 <meta name="twitter:title" content="Butler SOS"/>
 <meta name="twitter:description" content="Butler SOS documentation"/>
@@ -51,8 +50,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.9aeffc9e83359f1f6c567fea8e2076603d4e37a6b64417981024b11fe9769455.css" as="style">
-<link href="/scss/main.min.9aeffc9e83359f1f6c567fea8e2076603d4e37a6b64417981024b11fe9769455.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.818a933df0186c907f1faea6730835dd5fa01c3b53af36bb68396dc80a2d3c45.css" as="style">
+<link href="/scss/main.min.818a933df0186c907f1faea6730835dd5fa01c3b53af36bb68396dc80a2d3c45.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -159,21 +158,19 @@ if (!doNotTrack) {
           
           <div class="pt-3 lead">
             <div class="mx-auto">
-    <a class="btn btn-lg btn-primary mr-3 mb-4" href="/docs/">
-        Learn More <i class="fas fa-arrow-alt-circle-right ml-2"></i>
-    </a>
-    <a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/ptarmiganlabs/butler-sos">
-        Download <i class="fab fa-github ml-2 "></i>
-    </a>
-    <p class="lead mt-5">If you don't measure it, you can't improve it.</p>
-    <div class="mx-auto mt-5">
-        
-
-
-<a class="btn btn-link text-info" href="#td-block-1"><i class="fa fa-chevron-circle-down" style="font-size: 400%"></i></a>
-
-    </div>
+	<a class="btn btn-lg btn-primary mr-3 mb-4" href="/docs/">
+		Learn More <i class="fas fa-arrow-alt-circle-right ml-2"></i>
+	</a>
+	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/ptarmiganlabs/butler-sos/releases" target="_blank">
+		Download <i class="fab fa-github ml-2 "></i>
+	</a>
+	<p class="lead mt-5">If you don't measure it, you can't improve it.</p>
+	<div class="mx-auto mt-5">
+<p><a class="btn btn-link text-info" href="#td-block-1"><i class="fa fa-chevron-circle-down" style="font-size: 400%"></i></a></p>
+<pre><code>&lt;/div&gt;
+</code></pre>
 </div>
+
           </div>
         </div>
       </div>
@@ -192,10 +189,8 @@ if (!doNotTrack) {
 	<div class="container text-center td-arrow-down">
 		<span class="h4 mb-0">
 			<p>Butler SOS is an open source (free!!) tool that provides real-time monitoring of Qlik Sense environments.</p>
-
 <p>Runs on Windows, Linux, Mac OS, in Docker or as a Kubernetes service.</p>
-
-<p>Eager to try it out? The <a href="docs/getting_started/" target="_blank">getting started</a> pages will tell you everything you need.</p>
+<p>Eager to try it out? The <a href="docs/getting_started/">getting started</a> pages will tell you everything you need.</p>
 
 		</span>
 	</div>
@@ -212,12 +207,9 @@ if (!doNotTrack) {
 	<div class="container text-center td-arrow-down">
 		<span class="h4 mb-0">
 			<p><strong>&mdash; Why is monitoring important? &mdash;</strong></p>
-
 <p>Good question!</p>
-
 <p>For starters, if you are responsible for a Sense environment and hear about issues from your end users - that&rsquo;s a bad position to be in.
 You should be the first to know when something breaks. Only then are you able to fix things quickly, ideally even before end users realise there has been an incident.</p>
-
 <p>Additionally, having access to real-time metrics makes it hugely easier to incrementally tweak and tune your Sense environment.</p>
 
 		</span>
@@ -236,11 +228,8 @@ You should be the first to know when something breaks. Only then are you able to
 	<div class="container text-center td-arrow-down">
 		<span class="h4 mb-0">
 			<p><strong>&mdash; Can I get alerts when some metric go out of bounds? &mdash;</strong></p>
-
 <p>Yes! Butler SOS stores all data in an InfluxDB database, from where it is visualised using Grafana.</p>
-
 <p>Both are best-in-class, open source products for storing and visualising time-series data.</p>
-
 <p>Grafana is increadibly feature rich, including a powerful alerting feature that can send alerts to email, IM tools (Slack etc), PagerDuty and more.</p>
 
 		</span>
@@ -259,10 +248,8 @@ You should be the first to know when something breaks. Only then are you able to
 	<div class="container text-center td-arrow-down">
 		<span class="h4 mb-0">
 			<p><strong>&mdash; We use system &lt;<em>our-preferred-monitoring–tool</em>&gt; for monitoring. Can it be used with Butler SOS? &mdash;</strong></p>
-
-<p>Yes, most likely. Butler SOS stores all metrics in InfluxDB, but also optionally sends metrics as MQTT messages.<br />
+<p>Yes, most likely. Butler SOS stores all metrics in InfluxDB, but also optionally sends metrics as MQTT messages.<br>
 If your main monitoring tool can use either of these as a data source, it can read data extracted by Butler SOS.</p>
-
 <p>If not natively supporting InfluxDB or MQTT, it is usually pretty easy to create a small tool that acts as a bridge between InfluxDB/MQTT and other systems.</p>
 
 		</span>
@@ -301,24 +288,19 @@ If your main monitoring tool can use either of these as a data source, it can re
   <div class="mb-4 h1">
     <i class="fas fa-lightbulb"></i>
   </div>
-  <h4 class="h3">Latest release: 5.0</h4>
-  <p class="mb-0"><p>Track what users are connected to which virtual proxies, store data in authenticated InfluxDB databases and more.</p>
-
-<p>Available on <a href="https://github.com/ptarmiganlabs/butler-sos/releases" target="_blank">GitHub</a>.</p>
+  <h4 class="h3">Latest release: 5.2</h4>
+  <p class="mb-0"><p>App names &amp; heartbeats.</p>
+<p>Available on <a href="https://github.com/ptarmiganlabs/butler-sos/releases">GitHub</a>.</p>
 </p>
-  
 </div>
-
 <div class="col-lg-4 mb-5 mb-lg-0 text-center ">
   <div class="mb-4 h1">
     <i class="fab fa-github"></i>
   </div>
   <h4 class="h3">Contributions welcome!</h4>
-  <p class="mb-0"><p>We use a <a href="https://github.com/ptarmiganlabs/butler-sos/pulls" target="_blank">Pull Request</a> contributions workflow on <strong>GitHub</strong>. New developers are always welcome!</p>
+  <p class="mb-0"><p>We use a <a href="https://github.com/ptarmiganlabs/butler-sos/pulls">Pull Request</a> contributions workflow on <strong>GitHub</strong>. New developers are always welcome!</p>
 </p>
-  
 </div>
-
 <div class="col-lg-4 mb-5 mb-lg-0 text-center ">
   <div class="mb-4 h1">
     <i class="fab fa-twitter"></i>
@@ -353,19 +335,16 @@ If your main monitoring tool can use either of these as a data source, it can re
   <h4 class="h3">Download <strong>from AppStore</strong></h4>
   <p class="mb-0"><p>Get the Goldydocs app!</p>
 </p>
-  
 </div>
-
 <div class="col-lg-4 mb-5 mb-lg-0 text-center ">
   <div class="mb-4 h1">
     <i class="fab fa-github"></i>
   </div>
   <h4 class="h3">Contributions welcome!</h4>
-  <p class="mb-0"><p>We do a <a href="https://github.com/gohugoio/hugo/pulls" target="_blank">Pull Request</a> contributions workflow on <strong>GitHub</strong>. New users are always welcome!</p>
+  <p class="mb-0"><p>We do a <a href="https://github.com/gohugoio/hugo/pulls">Pull Request</a> contributions workflow on <strong>GitHub</strong>. New users are always welcome!</p>
 </p>
   <p><a href="https://github.com/gohugoio/hugo">Read more …</a></p>
 </div>
-
 <div class="col-lg-4 mb-5 mb-lg-0 text-center ">
   <div class="mb-4 h1">
     <i class="fab fa-twitter"></i>
@@ -451,7 +430,7 @@ If your main monitoring tool can use either of these as a data source, it can re
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2019 Ptarmigan Labs All Rights Reserved</small>
+        <small class="text-white">&copy; 2020 Ptarmigan Labs AB All Rights Reserved</small>
         
 	
 		<p class="mt-2"><a href="/about/">About Butler SOS</a></p>

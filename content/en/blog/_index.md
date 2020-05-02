@@ -1,5 +1,5 @@
 ---
-title: "Butler SOS Blog"
+title: "Butler SOS blog"
 linkTitle: "Blog"
 menu:
   main:

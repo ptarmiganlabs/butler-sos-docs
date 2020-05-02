@@ -1,2 +1,7 @@
 # Dependency directories
-node_modules
+themes/
+public/
+resources/
+node_modules/
+tech-doc-hugo
+

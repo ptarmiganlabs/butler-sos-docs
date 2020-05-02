@@ -8,14 +8,14 @@ menu:
 ---
 
 {{% pageinfo %}}
-### What's new in version 5.0
 
-* Extract **detailed user session data** for specific virtual proxies. Previously it was only possible to see how many users/sessions were using Sense in total - no info on what specific users or what virtual proxies they use were extracted.  
-  The new features make it possible to see exactly what users are connected right now, how many sessions each user has open, and what virtual proxies they are connected via.
-* Data extracted by Butler SOS can now be stored in **password protected** InfluxDB databases.
-* All data stored in InfluxDB is accompanied by a **InfluxDB retention policy**. This means there is now a way to make sure that the InfluxDB database does not grow beyond reasonable limits. Put differently: You can save detailed, fine-grained Sense metrics and specify that it should only be kept for (for example) 4 weeks. Any data older than the threshold is automatically purged from InfluxDB. 
-* **Improved logging** throughout the app makes it easier to debug and solve for example configuration issues.
+### What's new in version 5.2
 
-Thes new features mean that Butler SOS' configuration file has a slightly new format. When upgrading to v5.0 from earlier versions you must ensure that your YAML config file meets the v5.0 format.
+* **Extract app names** for all apps currently loaded in the Qlik Sense server's memory. This is probably the single most requested feature over the past couple of years. Being able to look at a list of what apps are currently loaded into RAM (showing the actual app names!) makes it a lot easier to understand what might be causing high server load or RAM usage.
+* When setting the log level to debug or silly, Butler SOS will now **log its own RAM usage** to the log files. This is useful when you want to understand how much memory Butler SOS itself uses, and to make sure its memory usage doesn't increase over time (i.e. to ensure there are no memory leaks).
+* When setting the log level to verbose, debug or silly, Butler SOS will nog **log its current uptime** to the log files. I.e. tell in human readable form that Butler SOS has been running for "x days, y hours, z minutes". Useful to determine if there have been any unexpected restarts.
+* Butler SOS can now (optionally) **send heartbeat messages to infrastructure monitoring tools**. This is a key feature when it comes to making Butler SOS enterprise grade: It's now possible to alert when Butler SOS for some reason goes offline.
+* **Replace the Request Node.js library with Axios**. Request was sunset, while Axios is a more modern option for getting stuff from http APIs.
+* **Update all dependencies** to latest versions, to ensure security concerns are adressed.
 
 {{% /pageinfo %}}

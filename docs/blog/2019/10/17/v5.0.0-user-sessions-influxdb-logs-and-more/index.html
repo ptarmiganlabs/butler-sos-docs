@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.58.2" />
+<meta name="generator" content="Hugo 0.65.3" />
 
 <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
@@ -30,16 +30,13 @@
 <meta itemprop="name" content="v5.0.0: User sessions, InfluxDB logs and more">
 <meta itemprop="description" content="Version 5.0.0 has been relased on GitHub.
 ">
-
-
 <meta itemprop="datePublished" content="2019-10-17T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-10-17T17:06:54&#43;02:00" />
 <meta itemprop="wordCount" content="264">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="v5.0.0: User sessions, InfluxDB logs and more"/>
 <meta name="twitter:description" content="Version 5.0.0 has been relased on GitHub.
 "/>
@@ -61,8 +58,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.9aeffc9e83359f1f6c567fea8e2076603d4e37a6b64417981024b11fe9769455.css" as="style">
-<link href="/scss/main.min.9aeffc9e83359f1f6c567fea8e2076603d4e37a6b64417981024b11fe9769455.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.818a933df0186c907f1faea6730835dd5fa01c3b53af36bb68396dc80a2d3c45.css" as="style">
+<link href="/scss/main.min.818a933df0186c907f1faea6730835dd5fa01c3b53af36bb68396dc80a2d3c45.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -179,14 +176,14 @@ if (!doNotTrack) {
     <a  href="/blog/news/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">News</a>
   </li>
   <ul>
-    <li class="collapse " id="blog-news">
+    <li class="collapse " id="blognews">
       
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog-2019-10-17-new-documentation-site-for-butler-sos" href="/blog/2019/10/17/new-documentation-site-for-butler-sos/">New doc site</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20191017new-documentation-site-for-butler-sos" href="/blog/2019/10/17/new-documentation-site-for-butler-sos/">New doc site</a>
       
       
     </li>
@@ -208,20 +205,20 @@ if (!doNotTrack) {
     <a  href="/blog/releases/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Releases</a>
   </li>
   <ul>
-    <li class="collapse show" id="blog-releases">
+    <li class="collapse show" id="blogreleases">
       
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog-2019-10-22-v5-0-1-fixing-a-few-typos-clarifying-a-few-things" href="/blog/2019/10/22/v5.0.1-fixing-a-few-typos-clarifying-a-few-things/">v5.0.1</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blog20191022v501-fixing-a-few-typos-clarifying-a-few-things" href="/blog/2019/10/22/v5.0.1-fixing-a-few-typos-clarifying-a-few-things/">v5.0.1</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-blog-2019-10-17-v5-0-0-user-sessions-influxdb-logs-and-more" href="/blog/2019/10/17/v5.0.0-user-sessions-influxdb-logs-and-more/">v5.0.0</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-blog20191017v500-user-sessions-influxdb-logs-and-more" href="/blog/2019/10/17/v5.0.0-user-sessions-influxdb-logs-and-more/">v5.0.0</a>
       
       
     </li>
@@ -278,32 +275,23 @@ if (!doNotTrack) {
 	<h1>v5.0.0: User sessions, InfluxDB logs and more</h1>
 	<div class="lead">Version 5.0.0 has been relased on GitHub.</div>
 	<div class="td-byline mb-4">
-		By <b>Göran Sander (<a href="https://twitter.com/themountaindude" target="_blank">@themountaindude</a>)</b> |
+		By <b>Göran Sander (<a href="https://twitter.com/themountaindude">@themountaindude</a>)</b> |
 		<time datetime="2019-10-17" class="text-muted">Thursday, October 17, 2019</time>
 	</div>
-	
-
-<p>Time for another major update to Butler SOS.</p>
-
+	<p>Time for another major update to Butler SOS.</p>
 <h2 id="new-doc-site">New doc site</h2>
-
-<p>There is a new, dedicated doc site at <a href="https://butler-sos.ptarmiganlabs.com" target="_blank">https://butler-sos.ptarmiganlabs.com</a>.
+<p>There is a new, dedicated doc site at <a href="https://butler-sos.ptarmiganlabs.com">https://butler-sos.ptarmiganlabs.com</a>.
 Going forward all docs, examples, tutorials etc will be kept there.</p>
-
 <h2 id="new-features">New features</h2>
-
 <p>This version adds several interesting features that probably will be of interest for those running large Qlik Sense environments, and want to closely and proactively monitor which users are accessing what servers.</p>
-
 <p><em>New features:</em></p>
-
 <ul>
-<li>Extract <strong>detailed user session data</strong> for specific virtual proxies. Previously it was only possible to see how many users/sessions were using Sense in total - no info on what specific users or what virtual proxies they use were extracted.<br />
+<li>Extract <strong>detailed user session data</strong> for specific virtual proxies. Previously it was only possible to see how many users/sessions were using Sense in total - no info on what specific users or what virtual proxies they use were extracted.<br>
 The new features make it possible to see exactly what users are connected right now, how many sessions each user has open, and what virtual proxies they are connected via.</li>
 <li>Data extracted by Butler SOS can now be stored in <strong>password protected</strong> InfluxDB databases.</li>
 <li>All data stored in InfluxDB is accompanied by a <strong>InfluxDB retention policy</strong>. This means there is now a way to make sure that the InfluxDB database does not grow beyond reasonable limits. Put differently: You can save detailed, fine-grained Sense metrics and specify that it should only be kept for (for example) 4 weeks. Any data older than the threshold is automatically purged from InfluxDB.</li>
 <li><strong>Improved logging</strong> throughout the app makes it easier to debug and solve for example configuration issues.</li>
 </ul>
-
 <p>Thes new features mean that Butler SOS&rsquo; configuration file has a slightly new format. When upgrading to v5.0 from earlier versions you must ensure that your YAML config file meets the v5.0 format.</p>
 
 	
@@ -373,7 +361,7 @@ The new features make it possible to see exactly what users are connected right 
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2019 Ptarmigan Labs All Rights Reserved</small>
+        <small class="text-white">&copy; 2020 Ptarmigan Labs AB All Rights Reserved</small>
         
 	
 		<p class="mt-2"><a href="/about/">About Butler SOS</a></p>

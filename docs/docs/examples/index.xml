@@ -24,21 +24,15 @@
         
         
 
-
-
 &lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
 &lt;p&gt;Grafana is an increadibly capable tool for showing time series data.&lt;/p&gt;
-
 &lt;p&gt;The dashboards shown here are thus just examples and inspiration - feel free to extend and adapt these to meet your particular needs. There are also plenty of sample Grafana dashboards out there to get inspiration from.&lt;/p&gt;
-
 &lt;p&gt;If you experience issues with the Grafana dashboards included in the GitHub package, you might want to try upgrading to a later/latest Grafana version.&lt;/p&gt;
 
 &lt;/div&gt;
 
-
-&lt;p&gt;This is a top use case for Butler SOS.&lt;br /&gt;
+&lt;p&gt;This is a top use case for Butler SOS.&lt;br&gt;
 These kind of dashboards give you detailed insights into several important metrics for your Sense servers:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;CPU load&lt;/li&gt;
 &lt;li&gt;Amount of free RAM memory&lt;/li&gt;
@@ -46,47 +40,29 @@ These kind of dashboards give you detailed insights into several important metri
 &lt;li&gt;Success rate of the Qlik engine&amp;rsquo;s cache&lt;/li&gt;
 &lt;li&gt;Number of loaded apps in the Qlik engine&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;A concept that has proven useful many times is to use an overview dashboard to monitors high-level metrics for the entire Sense cluster. A separate, parameterised dashboard then drill into the details for each server.&lt;/p&gt;
-
-&lt;p&gt;Sample dashboards are available in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/tree/master/grafana&#34; target=&#34;_blank&#34;&gt;Git repository&lt;/a&gt;.
+&lt;p&gt;Sample dashboards are available in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/tree/master/grafana&#34;&gt;Git repository&lt;/a&gt;.
 Before importing these to Grafana you should create a Grafana data source called &amp;ldquo;SenseOps&amp;rdquo;, and point it to your InfluxDB database. When you then import the dashboards they should find your database straight away.&lt;/p&gt;
-
 &lt;h2 id=&#34;overview-dashboard&#34;&gt;Overview dashboard&lt;/h2&gt;
-
 &lt;p&gt;An overview dashboard could look something like this:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;senseops_overview_ram_usage.png&#34; alt=&#34;Grafana dashboard&#34; title=&#34;RAM usage in Grafana dashboard&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;senseops_overview_ram_usage.png&#34; alt=&#34;Grafana dashboard&#34; title=&#34;RAM usage in Grafana dashboard&#34;&gt;
 &lt;em&gt;RAM usage for each server&lt;/em&gt;&lt;/p&gt;
-
 &lt;p&gt;Low memory alerts can be set (using Grafana&amp;rsquo;s alert feature). Such alerts can be sent (using features built into Grafana) as notifications to Slack, Teams, Pager Duty, as email etc.&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;senseops_overview_sessions_general.png&#34; alt=&#34;Grafana dashboard&#34; title=&#34;General sessions info in Grafana dashboard&#34; /&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;img src=&#34;senseops_overview_sessions_general.png&#34; alt=&#34;Grafana dashboard&#34; title=&#34;General sessions info in Grafana dashboard&#34;&gt;
 &lt;em&gt;General/high level user sessions info for both whole system and each server&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-
+&lt;br&gt;
 &lt;p&gt;You can also get very detailed sessions metrics, down to the level of individual sessions per server and virtual proxy.&lt;/p&gt;
-
 &lt;p&gt;One possible use case for this information is to see what users will be affected by a pending server reboot. You could even use this information to send a chat message to these users, informing them that their connection to Sense will be lost in x minutes. This feature is not available in Butler SOS out of the box, but is quite possible to implement if needed.&lt;/p&gt;
-
 &lt;p&gt;As of Butler SOS v5.0.0, detailed user session metrics stored in a fairly comprehensive way in InfluxDB. The visualisation of these metrics is still kind of rough though. The charts below can serve as inspiration, but can surely be improved upon..&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;senseops_detailed_sessions.png&#34; alt=&#34;Grafana dashboard&#34; title=&#34;Detailed sessions info in Grafana dashboard&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;senseops_detailed_sessions.png&#34; alt=&#34;Grafana dashboard&#34; title=&#34;Detailed sessions info in Grafana dashboard&#34;&gt;
 &lt;em&gt;Detailed user sessions info per server and virtual proxy&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-
+&lt;br&gt;
 &lt;p&gt;When something breaks in a Qlik Sense environment the logs immediately fill up with warning and/or error messages. By keeping track of these it&amp;rsquo;s easy to quickly spot (and get notified) issues when they first occur:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;senseops_logs.png&#34; alt=&#34;Grafana dashboard&#34; title=&#34;SenseOps dashboard showing errors and warnings, using Grafana&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;senseops_logs.png&#34; alt=&#34;Grafana dashboard&#34; title=&#34;SenseOps dashboard showing errors and warnings, using Grafana&#34;&gt;
 &lt;em&gt;Detailed user sessions info per server and virtual proxy&lt;/em&gt;&lt;/p&gt;
-
 &lt;p&gt;Note how there are &lt;strong&gt;lots&lt;/strong&gt; of INFO level messages generated (note the y axis scales in the diagram above!).
 In a production setting it&amp;rsquo;s usually a good idea to turn off extraction of INFO level log messages into InfluxDB.&lt;/p&gt;
-
 &lt;p&gt;This is controlled in the &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/getting_started/install_config/config_file_format/&#34;&gt;YAML config file&lt;/a&gt;.&lt;/p&gt;
 
       </description>

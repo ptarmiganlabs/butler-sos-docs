@@ -21,7 +21,6 @@ Why? Several reasons:
 - Updating Butler SOS to the latest version (assuming no config file changes are needed for that particular upgrade) is as easy as stopping the container, doing a "docker pull ptarmiganlabs/butler-sos:latest", and finally starting the container again.
 {{% /pageinfo %}}
 
-
 <br>
 But even with the above Docker recommendation, Butler SOS *can* be deployed in lots of different configurations.  
 It is therefore difficult to give precise instructions that will work for all configurations. Especially the fact that Butler SOS uses certificates to authenticate with Sense is a complicating factor. Certificates are (when correctly used) great for securing systems, but they can alse cause headaches.
