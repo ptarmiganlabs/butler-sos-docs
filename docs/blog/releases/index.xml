@@ -14,6 +14,50 @@
     
     
     <item>
+      <title>Blog: v5.3.0: Sorted out some issues with app names</title>
+      <link>https://butler-sos.ptarmiganlabs.com/blog/2020/05/05/v5.3.0-sorted-out-some-issues-with-app-names/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-sos.ptarmiganlabs.com/blog/2020/05/05/v5.3.0-sorted-out-some-issues-with-app-names/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This is a minor release. The names of loaded/in-memory/active apps are now sorted alphabetically before they are stored in Influxdb. Makes it easier to scan through the list when its presented in for example a Grafana dashboard.&lt;/p&gt;
+&lt;p&gt;List of changes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/issues/101&#34;&gt;#101&lt;/a&gt; Session data not correctly extracted in 5.2.0.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/issues/102&#34;&gt;#102&lt;/a&gt; Sort app names.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: v5.2.0: App names &amp; heartbeats</title>
+      <link>https://butler-sos.ptarmiganlabs.com/blog/2020/05/04/v5.2.0-app-names-heartbeats/</link>
+      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-sos.ptarmiganlabs.com/blog/2020/05/04/v5.2.0-app-names-heartbeats/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The most requested feature over the past few years has probably been to have app names stored in Influxdb, so they can be include in Grafanaa dashboards. This feature has been added, and several others:&lt;/p&gt;
+&lt;p&gt;These issues are fixed in 5.2.0:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;#87 Add heartbeat feature for monitoring of butler-sos.&lt;/li&gt;
+&lt;li&gt;#88 Add logging of uptime.&lt;/li&gt;
+&lt;li&gt;#89 Log memory usage of Butler SOS itself.&lt;/li&gt;
+&lt;li&gt;#91 Replace Request with Axios.&lt;/li&gt;
+&lt;li&gt;#92 Support password protected certificates exported from Qlik Sense.&lt;/li&gt;
+&lt;li&gt;#94 Switch from Travis to Drone CI/CD.&lt;/li&gt;
+&lt;li&gt;#67 Show App names in addition to app ids.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Doc site at &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;butler-sos.ptarmiganlabs.com&lt;/a&gt; has also been updated with respect to the above.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Blog: v5.0.1: Fixing a few typos, clarifying a few things</title>
       <link>https://butler-sos.ptarmiganlabs.com/blog/2019/10/22/v5.0.1-fixing-a-few-typos-clarifying-a-few-things/</link>
       <pubDate>Tue, 22 Oct 2019 00:00:00 +0000</pubDate>
