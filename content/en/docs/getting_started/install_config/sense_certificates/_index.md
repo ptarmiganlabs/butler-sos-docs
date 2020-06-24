@@ -11,9 +11,9 @@ These certificates must be exported from the Qlik Management Console (QMC).
 
 ![Qlik Sense certificate export](qmc-certexport-1.png "Exporting certificates from Qlik")
 
-To export certificates you need to provide a few pieces of information: 
+To export certificates you need to provide a few pieces of information:  
 
-1. Name of the server where the certificate will be used (i.e. where Butler SOS will be running). You can also create a wild-card certificate (that should work on all servers) by writing `*`. Note that this is considered less secure!
+1. Name of the server where the certificate will be used (i.e. where Butler SOS will be running).
 
 2. Butler SOS can handle certificates with or without password protection. If you choose to use a password, you must enter that password in the Butler SOS config file.
 

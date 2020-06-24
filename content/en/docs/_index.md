@@ -9,13 +9,17 @@ menu:
 
 {{% pageinfo %}}
 
-### What's new in version 5.2
+### What's new in version 5.4
 
-* **Extract app names** for all apps currently loaded in the Qlik Sense server's memory. This is probably the single most requested feature over the past couple of years. Being able to look at a list of what apps are currently loaded into RAM (showing the actual app names!) makes it a lot easier to understand what might be causing high server load or RAM usage.
-* When setting the log level to debug or silly, Butler SOS will now **log its own RAM usage** to the log files. This is useful when you want to understand how much memory Butler SOS itself uses, and to make sure its memory usage doesn't increase over time (i.e. to ensure there are no memory leaks).
-* When setting the log level to verbose, debug or silly, Butler SOS will nog **log its current uptime** to the log files. I.e. tell in human readable form that Butler SOS has been running for "x days, y hours, z minutes". Useful to determine if there have been any unexpected restarts.
-* Butler SOS can now (optionally) **send heartbeat messages to infrastructure monitoring tools**. This is a key feature when it comes to making Butler SOS enterprise grade: It's now possible to alert when Butler SOS for some reason goes offline.
-* **Replace the Request Node.js library with Axios**. Request was sunset, while Axios is a more modern option for getting stuff from http APIs.
+* **Sample dashboards** are now built using the brand new, shiny and all together awesome Grafana 7. Did we mention that Grafana 7 is awesome?
+* Ever wondered how long Butler SOS has been running or how much memory it uses? The new **uptime messages** have you covered. 
+* You are properly impressed with the uptime messages - good. Why not store them to Influxdb, so you can also **visualize Butler SOS' own memory use**? It's just a couple of changes in the config file away.
+* Don't want to use the **Docker healthchecks**? No reason to if you don't user Docker. You can now turn it off in the config file.
+* Ah, you are a serious Sense user and have separate DEV and PROD environments? Good - now Butler SOS tags its own memory use so you can **monitor each Butler SOS instance separately**.
+* Who will monitor the monitor? Butler SOS can now **send heartbeats** to customizable URLs at desired intervals. Perfect if you want to monitor Butler SOS using for example [healthchecks.io](https://healthchecks.io). Very, very cool actually.
+* **Bugs, bugs and bugs**. The known ones have been fixed. Keep reporting new ones!
 * **Update all dependencies** to latest versions, to ensure security concerns are adressed.
+
+Releases are [available on Github](https://github.com/ptarmiganlabs/butler-sos/releases).
 
 {{% /pageinfo %}}

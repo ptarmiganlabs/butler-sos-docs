@@ -18,8 +18,8 @@ Butler SenseOps Stats ("Butler SOS") is a monitoring tool for [Qlik Sense](https
 
 It publishes operational, close to real-time Qlik Sense Enterprise metrics to [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/) and  [MQTT](https://en.wikipedia.org/wiki/MQTT), from where it can be charted using tools like [Grafana](https://grafana.com/) or acted on by downstream systems that listen to the MQTT topics used by Butler SOS.
 
-Butler SOS gathers operational metrics from several sources, including the [Sense healthcheck API](https://help.qlik.com/en-US/sense-developer/June2019/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm) and [Session API](https://help.qlik.com/en-US/sense-developer/June2019/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm).  
-It also pulls log events from [Sense's Postgres logging database](https://help.qlik.com/en-US/sense/June2019/Subsystems/PlanningQlikSenseDeployments/Content/Sense_Deployment/Qlik-Logging-Service.htm), and forwards these to InfluxDB and MQTT.
+Butler SOS gathers operational metrics from several sources, including the [Sense healthcheck API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm) and [Session API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm).  
+It also pulls log events from [Sense's Postgres logging database](https://help.qlik.com/en-US/sense-admin/June2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Qlik-Logging-Service.htm), and forwards these to InfluxDB and MQTT.
 
 ## Do I really need a tool like this?
 
@@ -37,13 +37,14 @@ While Qlik Sense ships with a great Operations Monitor application, it is not us
 The Ops Monitor app is great for retrospective analysis of what happened in a Qlik Sense environment, but for a real-time understanding of what's going on in a Sense environment something else is needed - enter Butler SOS.
 
 The most common way of using Butler SOS is for creating real-time dashboards based on the data in the InfluxDB database, showing operational metrics for a Qlik Sense Enterprise environment.  
-A basic but fully interactive demo dashboard is available [here](https://snapshot.raintank.io/dashboard/snapshot/1hNwAmi50lykKYXr6mswhKmll9myrH20?orgId=2).  
   
 Sample screen shots of [Grafana](https://grafana.com/) dashboards created using data extracted by Butler SOS:
 
-![Grafana dashboard](senseOps_dashboard_3.png "SenseOps dashboard showing errors and warnings, using Grafana")
+![Grafana dashboard](butlersos_5_4_main_metrics.png "SenseOps dashboard showing errors and warnings, using Grafana 7")
 
-![Grafana dashboard](senseOps_dashboard_4.png "SenseOps dashboard showing Qlik Sense metrics, using Grafana")
+![Grafana dashboard](senseOps_dashboard_3.png "SenseOps dashboard showing errors and warnings, using Grafana 6")
+
+![Grafana dashboard](senseOps_dashboard_4.png "SenseOps dashboard showing Qlik Sense metrics, using Grafana 6")
 
 As mentioned above, Butler SOS can also send data to [MQTT](https://en.wikipedia.org/wiki/MQTT), for use in any MQTT enabled tool or system.
 
@@ -55,6 +56,8 @@ Things can always be improved, of course. Here are some ideas on things for futu
   A better approach would be to send more detailed MQTT messages. Those would be easier to consume and act upon for downstream systems, but it would on the other mean  **lots** more MQTT messages being sent. 
 - Send data as Kafka messages. Same basic idea as for MQTT messages, but having the Sense operational data in Kafka would make it easier to process/use it in (big) data pipelines.
 - Expose metrics via Prometheus. This would mainly be an alternative to using InfluxDB as a datastore, as Grafana is commonly used as a frontend for Prometheus.
+
+If you have ideas or suggestions on new features, please feel free to add them in the [Butler SOS Github project](https://github.com/ptarmiganlabs/butler-sos/issues/new/choose).
 
 ## Where should I go next?
 

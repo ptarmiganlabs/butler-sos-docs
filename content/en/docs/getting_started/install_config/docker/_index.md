@@ -18,9 +18,9 @@ Installing Docker is beyond the scope of this document, but there are plenty of 
 ### Butler SOS installation and configuration
 
 When using Docker there is no installation in the traditional sense.  
-Instead we (in this case) use a docker-compose file to define how Butler SOS should be executed within a Docker container.  
+Instead we (in this case) use a docker-compose file to define how Butler SOS should be executed within a Docker container. There are also other ways to start Docker containers, but docker-compose is usually a good and robust starting point.  
 
-Configuration of Butler specific settings is then done using a YAML file.
+Configuration of Butler specific settings is then done using Butler's own JSON/YAML config file.
 
 ### Install & configure - walkthrough
 
@@ -39,7 +39,7 @@ proton:butler-sos-docker goran$
 
 2. Adapt the docker-compose file as needed (usually no changes are needed if you want to run the latest version of Butler SOS).
 
-3. Copy the [YAML config file](https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml) from the GitHub repository into the ./config directory, rename it to `production.yaml` (or something else, as long as it matches the NODE_ENV environment variable) and edit it as needed. Note that for the Docker setup the path to certificates (as specified in the YAML config file) should be `/nodeapp/config/certificate/` (this is the Docker container's internal path to the certificate directory).
+3. Copy the [YAML config file](https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml) from the GitHub repository into the ./config directory, rename it to `production.yaml` (or something else, as long as it matches the NODE_ENV environment variable set in the `docker-compose.yml` file) and edit it as needed. Note that for the Docker setup the path to certificates (as specified in the YAML config file) should be `/nodeapp/config/certificate/` (this is the Docker container's internal path to the certificate directory).
 
 4. Edit the config file above as needed, with respect to your local Sense environment, folder paths etc. The provided template file has reasonable defualt settings where possible, but there are also a number of paths, passwords etc that must be configured. 
 
@@ -75,152 +75,6 @@ proton:butler-sos-docker goran$
 
 ```
 
-What does the config file look like?
-
-```bash
-
-proton:butler-sos-docker goran$ cat config/production_template.yaml
-Butler-SOS:
-  # All configuration items are mandatory, unless otherwise noted.
-
-  # Heartbeats can be used to send "I'm alive" messages to some other tool, e.g. an infrastructure monitoring tool
-  # The concept is simple: The remoteURL will be called at the specified frequency. The receiving tool will then know
-  # that Butler SOS is alive.
-  heartbeat:
-    enabled: false
-    remoteURL: http://my.monitoring.server/some/path/
-    frequency: every 1 hour         # https://bunkat.github.io/later/parsers.html
-
-  # Logging configuration
-  logLevel: info          # Log level. Possible log levels are silly, debug, verbose, info, warn, error
-  fileLogging: true       # true/false to enable/disable logging to disk file
-  logDirectory: logs      # Subdirectory where log files are stored
-
-  # Qlik Sense logging db config parameters
-  logdb:
-    enableLogDb: true
-    # Items below are mandatory if enableLogDb=true
-    influxDbRetentionPolicy: DEFAULT  # Name of Influxdb policy used to determine how long
-                                      #   log db data should be kept in Influxdb
-    pollingInterval: 60000    # How often (milliseconds) should Postgres log db be queried for warnings and errors?
-    queryPeriod: 5 minutes    # How far back should Butler SOS query for log entries? Default is 5 min
-    host: <IP or FQDN of Qlik Sense logging db>
-    port: 4432
-    qlogsReaderUser: qlogs_reader
-    qlogsReaderPwd: <pwd>
-    extractErrors: true       # Should error level entries be extracted from log db into Influxdb?
-    extractWarnings: true     # Should warn level entries be extracted from log db into Influxdb?
-    extractInfo: true         # Should info level entries be extracted from log db into Influxdb?
-                              # Warning! Seting this to true will result in LOTS of log messages
-                              # being retrrieved by Butler SOS!
-
-  # Certificates to use when querying Sense for healthcheck data. Get these from the Certificate Export in QMC.
-  cert:
-    clientCert: <path/to/cert/client.pem>
-    clientCertKey: <path/to/cert/client_key.pem>
-    clientCertCA: <path/to/cert/root.pem>
-    clientCertPassphrase:
-    # If running Butler SOS in a Docker container, the cert paths MUST be the following
-    # clientCert: /nodeapp/config/certificate/client.pem
-    # clientCertKey: /nodeapp/config/certificate/client_key.pem
-    # clientCertCA: /nodeapp/config/certificate/root.pem
-    # clientCertPassphrase:
-
-  # MQTT config parameters
-  mqttConfig:
-    enableMQTT: false
-    # Items below are mandatory if enableMQTT=true
-    brokerHost: <IP of MQTT server>
-    brokerPort: 1883
-    baseTopic: butler-sos/          # Topic should end with /
-
-  # Influx db config parameters
-  influxdbConfig:
-    enableInfluxdb: true
-    # Items below are mandatory if enableInfluxdb=true
-    hostIP: <IP or FQDN of Influxdb server>
-    hostPort: <Port where Influxdb is listening>    # Optional. Default value=8086
-    auth:
-      enable: false                 # Does influxdb instance require authentication (true/false)?
-      username: <username>          # Username for Influxdb authentication. Mandatory if auth.enable=true
-      password: <password>          # Password for Influxdb authentication. Mandatory if auth.enable=true
-    dbName: SenseOps
-
-    # Default retention policy that should be created in InfluxDB when Butler SOS creates a new database there.
-    # Any data older than retention policy threshold will be purged from InfluxDB.
-    retentionPolicy:
-      name: 2_weeks
-      duration: 2w
-
-    # Control whether certain fields are stored in InfluxDB or not
-    # Use with caution! Enabling activeDocs, loadedDocs or inMemoryDocs may result in lots of data sent to InfluxDB.
-    includeFields:
-      activeDocs: false              # Should data on what docs are active be stored in Influxdb (true/false)?
-      loadedDocs: false              # Should data on what docs are loaded be stored in Influxdb (true/false)?
-      inMemoryDocs: false            # Should data on what docs are in memory be stored in Influxdb (true/false)?
-
-  # Extract app names
-  appNames:
-    enableAppNameExtract: true    # Extract app names in addition to app IDs (tue/false)?
-    extractInterval: 60000        # How often (milliseconds) should app names be extracted?
-    hostIP: <IP or FQDN>          # What Sense server should be queried for app names?
-
-  # Sessions per virtual proxy
-  userSessions:
-    enableSessionExtract: true      # Query unique user IDs of what users have sessions open (true/false)?
-    # Items below are mandatory if enableSessionExtract=true
-    pollingInterval: 30000          # How often (milliseconds) should detailed session data be polled?
-
-  serversToMonitor:
-    pollingInterval: 15000          # How often (milliseconds) should the healthcheck API be polled?
-
-    # List of extra tags for each server. Useful for creating more advanced Grafana dashboards.
-    # Each server below MUST include these tags in its serverTags property.
-    # The tags below are just examples - define your own as needed
-    serverTagsDefinition:
-      - server_group
-      - serverLocation
-      - server-type
-      - serverBrand
-
-    # Sense Servers that should be queried for healthcheck data
-    servers:
-      - host: <server1.my.domain>:4747
-        serverName: <server1>
-        serverDescription: <description>
-        logDbHost: <host name as used in QLogs db>
-        userSessions:
-          enable: true
-          # Items below are mandatory if userSessions.enable=true
-          host: <server1.my.domain>:4243
-          virtualProxies:
-            - virtualProxy: /                 # Default virtual proxy
-            - virtualProxy: /hdr              # "hdr" virtual proxy
-        serverTags:
-          server_group: DEV
-          serverLocation: Asia
-          server-type: virtual
-          serverBrand: Dell
-      - host: <server2.my.domain>:4747
-        serverName: <server2>
-        serverDescription: <description>
-        logDbHost: <host name as used in QLogs db>
-        userSessions:
-          enable: true
-          # Items below are mandatory if userSessions.enable=true
-          host: <server2.my.domain>:4243
-          virtualProxies:
-            - virtualProxy: /finance          # "finance" virtual proxy
-        serverTags:
-          server_group: PROD
-          serverLocation: Europe
-          server-type: physical
-          serverBrand: HP
-
-proton:butler-sos-docker goran$
-
-```
-
 What does the docker-compose.yml file look like?
 
 ```bash
@@ -248,7 +102,7 @@ proton:butler-sos-docker goran$
 
 ```
 
-Ok, all good. Let's start Butler SOS using docker-compose (the exact output will depend on what version of Butler SOS you are using):
+Ok, all good. Let's start Butler SOS using docker-compose (the exact output will depend on what version of Butler SOS you are using and what features you have enabled in the JSON/YAML config file):
 
 ```bash
 
@@ -256,23 +110,24 @@ proton:butler-sos-docker goran$ docker-compose up
 ➜ docker-compose up
 Creating butler-sos ... done
 Attaching to butler-sos
-butler-sos    | 2019-10-12T20:14:21.814Z debug: CONFIG: Setting up new Influx database: Found server tag : server_group
-butler-sos    | 2019-10-12T20:14:21.824Z debug: CONFIG: Setting up new Influx database: Found server tag : serverLocation
-butler-sos    | 2019-10-12T20:14:21.826Z debug: CONFIG: Setting up new Influx database: Found server tag : server-type
-butler-sos    | 2019-10-12T20:14:21.829Z debug: CONFIG: Setting up new Influx database: Found server tag : serverBrand
-butler-sos    | 2019-10-12T20:14:21.831Z info: CONFIG: Influxdb enabled: true
-butler-sos    | 2019-10-12T20:14:21.832Z info: CONFIG: Influxdb host IP: 192.168.100.20
-butler-sos    | 2019-10-12T20:14:21.833Z info: CONFIG: Influxdb host port: 8086
-butler-sos    | 2019-10-12T20:14:21.834Z info: CONFIG: Influxdb db name: SenseOps
-butler-sos    | 2019-10-12T20:14:22.006Z info: --------------------------------------
-butler-sos    | 2019-10-12T20:14:22.006Z info: Starting Butler SOS
-butler-sos    | 2019-10-12T20:14:22.009Z info: Log level is: debug
-butler-sos    | 2019-10-12T20:14:22.010Z info: App version is: 5.0.0
-butler-sos    | 2019-10-12T20:14:22.011Z info: --------------------------------------
-butler-sos    | 2019-10-12T20:14:22.012Z debug: Client cert: /nodeapp/config/certificate/client.pem
-butler-sos    | 2019-10-12T20:14:22.013Z debug: Client cert key: /nodeapp/config/certificate/client_key.pem
-butler-sos    | 2019-10-12T20:14:22.014Z debug: CA cert: /nodeapp/config/certificate/root.pem
-butler-sos    | 2019-10-12T20:14:22.018Z debug: USER SESSIONS: Monitor user sessions for these servers/virtual proxies: [
+butler-sos    | 2020-06-24T21:38:43.386Z debug: CONFIG: Setting up new Influx database: Found server tag : server_group
+butler-sos    | 2020-06-24T21:38:43.388Z debug: CONFIG: Setting up new Influx database: Found server tag : serverLocation
+butler-sos    | 2020-06-24T21:38:43.388Z debug: CONFIG: Setting up new Influx database: Found server tag : server-type
+butler-sos    | 2020-06-24T21:38:43.388Z debug: CONFIG: Setting up new Influx database: Found server tag : serverBrand
+butler-sos    | 2020-06-24T21:38:43.388Z info: CONFIG: Influxdb enabled: true
+butler-sos    | 2020-06-24T21:38:43.389Z info: CONFIG: Influxdb host IP: 192.168.100.20
+butler-sos    | 2020-06-24T21:38:43.389Z info: CONFIG: Influxdb host port: 8086
+butler-sos    | 2020-06-24T21:38:43.389Z info: CONFIG: Influxdb db name: SenseOps
+butler-sos    | 2020-06-24T21:38:43.458Z debug: HEARTBEAT: Setting up heartbeat to remote: http://healthcheck.ptarmiganlabs.net:8000/ping/ddbcfb17-a2bb-42da-849d-d2a6f0cb28a1
+butler-sos    | 2020-06-24T21:38:43.459Z info: --------------------------------------
+butler-sos    | 2020-06-24T21:38:43.459Z info: Starting Butler SOS
+butler-sos    | 2020-06-24T21:38:43.459Z info: Log level: debug
+butler-sos    | 2020-06-24T21:38:43.460Z info: App version: 5.4.0
+butler-sos    | 2020-06-24T21:38:43.460Z info: --------------------------------------
+butler-sos    | 2020-06-24T21:38:43.460Z debug: Client cert: /Users/goran/code/secret/pro2win1-nopwd/client.pem
+butler-sos    | 2020-06-24T21:38:43.460Z debug: Client cert key: /Users/goran/code/secret/pro2win1-nopwd/client_key.pem
+butler-sos    | 2020-06-24T21:38:43.460Z debug: CA cert: /Users/goran/code/secret/pro2win1-nopwd/root.pem
+butler-sos    | 2020-06-24T21:38:43.460Z debug: USER SESSIONS: Monitor user sessions for these servers/virtual proxies: [
 butler-sos    |   {
 butler-sos    |     "host": "pro2-win1.ptarmiganlabs.net:4747",
 butler-sos    |     "serverName": "sense1",
@@ -298,8 +153,18 @@ butler-sos    |       "serverBrand": "HP"
 butler-sos    |     }
 butler-sos    |   }
 butler-sos    | ]
-butler-sos    | 2019-10-12T20:14:22.028Z info: MAIN: Docker healthcheck server now listening
-butler-sos    | 2019-10-12T20:14:22.075Z info: CONFIG: Found InfluxDB database: SenseOps
+butler-sos    | 2020-06-24T21:38:43.648Z info: CONFIG: Created new InfluxDB database: SenseOps
+butler-sos    | 2020-06-24T21:38:43.679Z debug: HEARTBEAT: Sent heartbeat to http://healthcheck.ptarmiganlabs.net:8000/ping/ddbcfb17-a2bb-42da-849d-d2a6f0cb28a1
+butler-sos    | 2020-06-24T21:38:43.771Z info: CONFIG: Created new InfluxDB retention policy: 10d
+butler-sos    | 2020-06-24T21:38:50.459Z verbose: --------------------------------
+butler-sos    | 2020-06-24T21:38:50.460Z verbose: Iteration # 1, Uptime: 7 seconds, Heap used 22.24 MB of total heap 56.43 MB. Memory allocated to process: 68.78 MB.
+butler-sos    | 2020-06-24T21:38:50.461Z debug: MEMORY USAGE: Memory usage {
+  "instanceTag": "DEV",
+  "heapUsed": 22.24,
+  "heapTotal": 56.43,
+  "processMemory": 68.78
+})
+butler-sos    | 2020-06-24T21:38:51.462Z verbose: MEMORY USAGE: Sent Butler SOS memory usage data to InfluxDB
 ...
 ...
 
@@ -317,7 +182,7 @@ proton:butler-sos-docker goran$
 
 Setting the log level to info in the config file will reduce log output.
 
-The Docker container implements Docker healthchecks, which means you can run `docker ps` to see whether the container is healthy or not:
+The Docker container implements Docker healthchecks, which means you can run `docker ps` to see whether the container is healthy or not (assuming Docker healthchecks are enabled in the config file, of course):
 
 ```bash
 

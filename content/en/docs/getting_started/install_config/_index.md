@@ -14,7 +14,7 @@ Why? Several reasons:
 
 - Very quick to get started. Usually it takes just a few minutes to set up a Butler SOS instance in Docker.
 - Using Docker is a great way to test new tools without having to install the tool on one of your actual servers. If you decide the tool in question is not for you - just delete the Docker container. Your servers remain 100% the same as before the test.
-- The previous point is true not only for Butler SOS, but also its companion tools InfluxDB, Grafana and MQTT (via for example the Mosquitto MQTT broker). You can run all of these tools in their own Docker containers, and not install a single piece of new, native applications during your evaluation of Butler SOS.
+- The previous point is true not only for Butler SOS, but also its companion tools [InfluxDB](https://www.influxdata.com/products/influxdb-overview/), [Grafana](https://grafana.com/) and [MQTT](https://en.wikipedia.org/wiki/MQTT) (via for example the [Mosquitto MQTT broker](https://mosquitto.org/)). You can run all of these tools in their own Docker containers, and not install a single piece of new, native applications during your evaluation of Butler SOS.
 - No need to install Node.js on your server(s). Less security, performance and maintenance concerns.
 - Make use of your existing Docker runtime environments, or use those offered by Amazon, Google, Microsoft etc.
 - Benefit from the extremely comprehensive tools ecosystem (monitoring, deployment etc) that is available for Docker.

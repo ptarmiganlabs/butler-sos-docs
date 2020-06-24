@@ -30,7 +30,7 @@ From d:\tools\butler-sos\src, run `npm i` to install the various Node.js modules
 
 The configuration file is used the same way as when Butler SOS runs on Docker, with one exception:
 
-The path to the certificates used to authenticate with Sense must be specified in the config file. With Docker the certificate path is fixed, but with Windows you need to specify it.
+The path to the certificates used to authenticate with Sense must be specified in the config file. With Docker the certificate path is always the same, but with Windows you need to specify where the certificate files are located.
 
 For example, if the certificate files exported from Sense are stored in d:\secrets\sensecert, the config file would look like this when used on Windows:
 
@@ -60,8 +60,6 @@ In Windows you do this by `set NODE_ENV=production` in a command prompt, or even
 
 A tool like Butler SOS should of course start automatically when the server it runs on is restarted. This can be achieved in at least a couple of ways:
 
-1. A Node process monitor such as [PM2](http://pm2.keymetrics.io/) can be used to monitor the Butler SOS process, and restart it if it for some reason crashes.
+1. By far the best option is to turn Butler SOS into a Windows service. That way it will be started on server boot, restarted if it fails etc. There are various tools for doing this, with [NSSM](https://nssm.cc/) being a very, very good one. Butler SOS has been set in lots of Sense clusters this way.
 
-2. Use a tool to wrap Butler SOS into a Windows service. There are various tools for doing this, with [NSSM](https://nssm.cc/) being one of the better ones.
-
-The second option is usually preferred, as you then manage Butler SOS the same way as other system critical Windows services.
+2. You can also use a Node process monitor such as [PM2](http://pm2.keymetrics.io/) to monitor the Butler SOS process, and restart it if it for some reason crashes. PM2 is not entirely easy to use on Windows though.

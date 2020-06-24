@@ -23,7 +23,7 @@ The [sample config file](https://github.com/ptarmiganlabs/butler-sos/blob/master
 A few things to keep in mind:
 
 - Topic names (e.g. "Butler-SOS.logdb") are case sensitive.
-- First time Butler SOS is started, a new InfluxDB database will be created, together with a default InfluxDB retention policy 
+- First time Butler SOS is started, a new InfluxDB database will be created, together with a default InfluxDB retention policy.
 
 <br>
 
@@ -38,6 +38,17 @@ A few things to keep in mind:
 | enabled | Should heartbeats be sent to some URL, indicating that Butler SOS is alive and well? true/false |
 | remoteURL | URL that will be called for heartbeats |
 | frequency | How often should heartbeats be sent? Format according to https://bunkat.github.io/later/parsers.html |
+|  |  |
+| **Butler-SOS.dockerHealthCheck** |  |
+| enabled | Should a Docker healthcheck endpoint be created within Butler SOS? Set to false if *not* running Butler SOS under Docker. true/false |
+| port | Port the healthcheck should use. Usually 12398, but might need be changed if seveal Butler instances run on the same server |
+|  |  |
+| **Butler-SOS.uptimeMonitor** |  |
+| enabled | Should messages with Butler SOS uptime and memory usage be written to console and logs? true/false |
+| frequency | How often should uptime messages be written to console and/or logs? Format according to https://bunkat.github.io/later/parsers.html |
+| logLevel | Starting at what log level should uptime messages be used? Possible values are silly, debug, verbose, info, warn, error. For example, if you specify "verbose" here, uptime messages will appear if you set overall log level to silly, debug or verbose. |
+| storeInInfluxdb.<br>butlerSOSMemoryUsage | Should data on Butler SOS' own memory use be stored in Infludb? true/false |
+| storeInInfluxdb.<br>instanceTag | Tag used to differentiate data from multiple Butler SOS instances. Useful if running different Butler SOS instances against (for example) DEV, TEST and PROD environments |
 |  |  |
 | **Butler-SOS.logdb** |  |
 | enableLogDb | Should Sense log db be queried for warnings/errors/info messages? true/false |
