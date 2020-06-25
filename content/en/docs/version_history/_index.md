@@ -26,5 +26,6 @@ An informal, best effort list of documentation updates follow. Most recent chang
 
 | Date | Change description |
 | ---- | ------------------ |
-| 2019-Oct | First version of new documentation site, covering Butler SOS 5.0. |
+| 2020-June | Update covering version Butler SOS 5.4. |
 | 2020-May | Update covering version 5.2. |
+| 2019-Oct | First version of new documentation site, covering Butler SOS 5.0. |

@@ -30,8 +30,8 @@
 &lt;/div&gt;
  --&gt;
 &lt;p&gt;As Butler SOS is written in Node.js, the tool in theory runs on all platforms where Node.js is available.
-The tool is also available as a &lt;a href=&#34;https://hub.docker.com/r/ptarmiganlabs/butler-sos&#34;&gt;Docker image&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Docker is &lt;strong&gt;by far&lt;/strong&gt; the preferred way of running Butler SOS, mainly because it gives you a very nice, production grade (stable, scalable, monitorable etc) execution environment.&lt;/p&gt;
+It is also available as a &lt;a href=&#34;https://hub.docker.com/r/ptarmiganlabs/butler-sos&#34;&gt;Docker image&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Docker is &lt;strong&gt;by far&lt;/strong&gt; the preferred way of running Butler SOS, mainly because it gives you a very nice, production grade (stable, scalable, monitorable etc) execution environment. If you are really serious about scalability and stability you could even run Butler SOS in Kubernetes.&lt;/p&gt;
 &lt;p&gt;Other platforms can be used too, of course - let&amp;rsquo;s look at the pros and cons of some of the more commonly used platforms:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -44,18 +44,18 @@ The tool is also available as a &lt;a href=&#34;https://hub.docker.com/r/ptarmig
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;Docker&lt;/td&gt;
-&lt;td&gt;- Easy to set up Butler SOS in Docker &lt;br&gt;- Easy to test new versions of Butler SOS &lt;br&gt;- Use existing Docker infrastructure&lt;br&gt;- Monitoring, restarts etc built into Docker&lt;br&gt; - Runs on low cost hardware&lt;/td&gt;
+&lt;td&gt;- Easy to set up Butler SOS in Docker &lt;br&gt;- Easy to test new versions of Butler SOS &lt;br&gt;- Use existing Docker infrastructure&lt;br&gt;- Monitoring, restarts etc built into Docker&lt;br&gt; - Runs on low cost hardware and OSs&lt;/td&gt;
 &lt;td&gt;- Docker environment needed (if not already available). Setting up and running Docker is not hard, but does require somewhat other skills than those needed to run a Sense environment&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Windows server&lt;/td&gt;
 &lt;td&gt;- Butler SOS can run on same server as Qlik Sense, saving hardware/server costs&lt;/td&gt;
-&lt;td&gt;- Running Butler SOS natively on the Sense server is a potential risk (usually a good idea to isolate systems to their own servers/environments whenever possible)&lt;br&gt;- More difficult (compared to Docker) to production grade setup (auto restarts etc)&lt;/td&gt;
+&lt;td&gt;- Running Butler SOS natively on the Sense server is a potential risk (usually a good idea to isolate systems/services to their own servers/environments whenever possible)&lt;br&gt;- More difficult (compared to Docker) to achieve a production grade setup (auto restarts etc)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Linux&lt;/td&gt;
 &lt;td&gt;- No cost for operating system (at least not for most Linux versions)&lt;br&gt;- Runs on low cost hardware&lt;/td&gt;
-&lt;td&gt;- More difficult (compared to Docker) to production grade setup (auto restarts etc)&lt;/td&gt;
+&lt;td&gt;- More difficult (compared to Docker) to achieve a production grade setup (auto restarts etc)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Mac OS&lt;/td&gt;
@@ -90,7 +90,7 @@ Why? Several reasons:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Very quick to get started. Usually it takes just a few minutes to set up a Butler SOS instance in Docker.&lt;/li&gt;
 &lt;li&gt;Using Docker is a great way to test new tools without having to install the tool on one of your actual servers. If you decide the tool in question is not for you - just delete the Docker container. Your servers remain 100% the same as before the test.&lt;/li&gt;
-&lt;li&gt;The previous point is true not only for Butler SOS, but also its companion tools InfluxDB, Grafana and MQTT (via for example the Mosquitto MQTT broker). You can run all of these tools in their own Docker containers, and not install a single piece of new, native applications during your evaluation of Butler SOS.&lt;/li&gt;
+&lt;li&gt;The previous point is true not only for Butler SOS, but also its companion tools &lt;a href=&#34;https://www.influxdata.com/products/influxdb-overview/&#34;&gt;InfluxDB&lt;/a&gt;, &lt;a href=&#34;https://grafana.com/&#34;&gt;Grafana&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/MQTT&#34;&gt;MQTT&lt;/a&gt; (via for example the &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto MQTT broker&lt;/a&gt;). You can run all of these tools in their own Docker containers, and not install a single piece of new, native applications during your evaluation of Butler SOS.&lt;/li&gt;
 &lt;li&gt;No need to install Node.js on your server(s). Less security, performance and maintenance concerns.&lt;/li&gt;
 &lt;li&gt;Make use of your existing Docker runtime environments, or use those offered by Amazon, Google, Microsoft etc.&lt;/li&gt;
 &lt;li&gt;Benefit from the extremely comprehensive tools ecosystem (monitoring, deployment etc) that is available for Docker.&lt;/li&gt;
@@ -132,10 +132,10 @@ If you specify a server name of &amp;ldquo;myserver.company.com&amp;rdquo; while
     
     <item>
       <title>Docs: Available Metrics</title>
-      <link>https://butler-sos.ptarmiganlabs.com/docs/getting_started/influxdb_data_structure/</link>
+      <link>https://butler-sos.ptarmiganlabs.com/docs/getting_started/available_metrics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://butler-sos.ptarmiganlabs.com/docs/getting_started/influxdb_data_structure/</guid>
+      <guid>https://butler-sos.ptarmiganlabs.com/docs/getting_started/available_metrics/</guid>
       <description>
         
         
@@ -165,6 +165,7 @@ name: measurements
 name
 ----
 apps
+butlersos_memory_usage
 cache
 cpu
 log_event
@@ -172,7 +173,6 @@ mem
 saturated
 sense_server
 session
-user_session_details
 user_session_list
 user_session_summary
 users
@@ -181,19 +181,22 @@ users
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let&amp;rsquo;s take a look at what field keys the apps measurement contains:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;gt; show field keys from apps
 name: apps
-fieldKey             fieldType
---------             ---------
-active_docs          string
-active_docs_count    integer
-active_docs_names    string
-calls                integer
-in_memory_docs       string
-in_memory_docs_count integer
-in_memory_docs_names string
-loaded_docs          string
-loaded_docs_count    integer
-loaded_docs_names    string
-selections           integer
+fieldKey                     fieldType
+--------                     ---------
+active_docs                  string
+active_docs_count            integer
+active_docs_names            string
+active_session_docs_names    string
+calls                        integer
+in_memory_docs               string
+in_memory_docs_count         integer
+in_memory_docs_names         string
+in_memory_session_docs_names string
+loaded_docs                  string
+loaded_docs_count            integer
+loaded_docs_names            string
+loaded_session_docs_names    string
+selections                   integer
 
 &amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ok, so the field keys are the actual metrics for which we gather data. Collectively those metrics (again: &lt;em&gt;field keys&lt;/em&gt; in InfluxDB lingo) above are grouped into a &lt;em&gt;measurement&lt;/em&gt; called &amp;lsquo;apps&amp;rsquo;.&lt;/p&gt;
@@ -208,6 +211,7 @@ Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. T
 &lt;li&gt;General health metrics&lt;/li&gt;
 &lt;li&gt;Messages from the log files&lt;/li&gt;
 &lt;li&gt;Detailed metrics about what users are connected to (i.e. have sessions open with) which virtual proxies&lt;/li&gt;
+&lt;li&gt;Metric relating to Butler SOS itself (i.e. not retrieved from Sense).&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id=&#34;general-health-metrics&#34;&gt;General health metrics&lt;/h4&gt;
 &lt;p&gt;A shared set of tag keys are available for all general health metrics:&lt;/p&gt;
@@ -235,7 +239,7 @@ Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. T
 &lt;/table&gt;
 &lt;p&gt;In addition to the above, all tags defined in the YAML config file for the servers will be included as tag keys.&lt;/p&gt;
 &lt;h5 id=&#34;measurement-apps&#34;&gt;Measurement: apps&lt;/h5&gt;
-&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;Health check API&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;Health check API&lt;/a&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -258,7 +262,12 @@ Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. T
 &lt;tr&gt;
 &lt;td&gt;active_docs_names&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Names of currently active apps&lt;/td&gt;
+&lt;td&gt;Names of currently active (non-session) apps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;active_session_docs_names&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Names of currently active session apps&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;in_memory_docs&lt;/td&gt;
@@ -273,7 +282,12 @@ Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. T
 &lt;tr&gt;
 &lt;td&gt;in_memory_docs_names&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Names of apps currently in memory&lt;/td&gt;
+&lt;td&gt;Names of (non-session) apps currently in memory&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;in_memory_session_docs_names&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Names of session apps currently in memory&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;loaded_docs&lt;/td&gt;
@@ -288,7 +302,12 @@ Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. T
 &lt;tr&gt;
 &lt;td&gt;loaded_docs_names&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Names of currently loaded apps&lt;/td&gt;
+&lt;td&gt;Names of currently loaded (non-session) apps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;loaded_session_docs_names&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Names of currently loaded session apps&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -308,7 +327,7 @@ Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. T
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h5 id=&#34;measurement-cache&#34;&gt;Measurement: cache&lt;/h5&gt;
-&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;Health check API&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;Health check API&lt;/a&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -346,7 +365,7 @@ Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. T
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h5 id=&#34;measurement-cpu&#34;&gt;Measurement: cpu&lt;/h5&gt;
-&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;Health check API&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;Health check API&lt;/a&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -364,7 +383,7 @@ Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. T
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h5 id=&#34;measurement-mem&#34;&gt;Measurement: mem&lt;/h5&gt;
-&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;Health check API&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;Health check API&lt;/a&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -392,7 +411,7 @@ Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. T
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h5 id=&#34;measurement-saturated&#34;&gt;Measurement: saturated&lt;/h5&gt;
-&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;Health check API&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;Health check API&lt;/a&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -410,7 +429,7 @@ Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. T
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h5 id=&#34;measurement-sense_server&#34;&gt;Measurement: sense_server&lt;/h5&gt;
-&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;Health check API&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;Health check API&lt;/a&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -438,7 +457,7 @@ Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. T
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h5 id=&#34;measurement-session&#34;&gt;Measurement: session&lt;/h5&gt;
-&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;Health check API&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;Health check API&lt;/a&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -461,7 +480,7 @@ Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. T
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h5 id=&#34;measurement-users&#34;&gt;Measurement: users&lt;/h5&gt;
-&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;Health check API&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;Health check API&lt;/a&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -473,13 +492,13 @@ Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. T
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;active&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
 &lt;td&gt;integer&lt;/td&gt;
+&lt;td&gt;Number of users currently doing something in some app.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;total&lt;/td&gt;
 &lt;td&gt;integer&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Number of users with established sessions to the Sense server.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -516,7 +535,7 @@ Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. T
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h5 id=&#34;measurement-log_event&#34;&gt;Measurement: log_event&lt;/h5&gt;
-&lt;p&gt;Source: More or less &lt;a href=&#34;https://help.qlik.com/en-US/sense-admin/September2019/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Qlik-Logging-Service.htm&#34;&gt;log db&lt;/a&gt;. A query is done to the log db in Postgres, the results are stored in InfluxDB. There is thus no Qlik API call per se.&lt;/p&gt;
+&lt;p&gt;Source: More or less &lt;a href=&#34;https://help.qlik.com/en-US/sense-admin/June2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Qlik-Logging-Service.htm&#34;&gt;log db&lt;/a&gt;. A query is done to the log db in Postgres, the results are stored in InfluxDB. There is thus no Qlik API call per se.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -536,7 +555,7 @@ Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. T
 &lt;h4 id=&#34;user-session-details&#34;&gt;User session details&lt;/h4&gt;
 &lt;p&gt;User session metrics have slightly different tag keys depending on the granularity level of the metric - those metrics are therefore listed under each heading below.&lt;/p&gt;
 &lt;h5 id=&#34;measurement-user_session_summary&#34;&gt;Measurement: user_session_summary&lt;/h5&gt;
-&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm&#34;&gt;Session module API&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm&#34;&gt;Session module API&lt;/a&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -550,6 +569,11 @@ Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. T
 &lt;td&gt;session_count&lt;/td&gt;
 &lt;td&gt;float&lt;/td&gt;
 &lt;td&gt;Total number of sessions, per server and virtual proxy.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;session_user_id_list&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;List of user IDs with sessions, per server and virtual proxy. NOTE: A single user may have more than one session open to a particular server/virtual proxy.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -585,7 +609,7 @@ Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. T
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h5 id=&#34;measurement-user_session_list&#34;&gt;Measurement: user_session_list&lt;/h5&gt;
-&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm&#34;&gt;Session module API&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm&#34;&gt;Session module API&lt;/a&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -634,7 +658,7 @@ Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. T
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h5 id=&#34;measurement-user_session_details&#34;&gt;Measurement: user_session_details&lt;/h5&gt;
-&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm&#34;&gt;Session module API&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Source: &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm&#34;&gt;Session module API&lt;/a&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -701,6 +725,35 @@ Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. T
 &lt;tr&gt;
 &lt;td&gt;user_session_user_id&lt;/td&gt;
 &lt;td&gt;User ID&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;butler-sos-metrics&#34;&gt;Butler SOS metrics&lt;/h4&gt;
+&lt;p&gt;These metrics tell you how much memory Butler SOS itself uses.&lt;br&gt;
+More info on these metrics and what they mean is available &lt;a href=&#34;https://www.valentinog.com/blog/node-usage/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Field key&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;heap_total&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;Total size of the allocated heap.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;heap_used&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;Actual memory used during the execution of Butler SOS.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;process_memory&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;Total memory allocated for the execution of Butler SOS.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

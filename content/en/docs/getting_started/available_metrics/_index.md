@@ -36,6 +36,7 @@ name: measurements
 name
 ----
 apps
+butlersos_memory_usage
 cache
 cpu
 log_event
@@ -43,7 +44,6 @@ mem
 saturated
 sense_server
 session
-user_session_details
 user_session_list
 user_session_summary
 users
@@ -56,19 +56,22 @@ Let's take a look at what field keys the apps measurement contains:
 ```
 > show field keys from apps
 name: apps
-fieldKey             fieldType
---------             ---------
-active_docs          string
-active_docs_count    integer
-active_docs_names    string
-calls                integer
-in_memory_docs       string
-in_memory_docs_count integer
-in_memory_docs_names string
-loaded_docs          string
-loaded_docs_count    integer
-loaded_docs_names    string
-selections           integer
+fieldKey                     fieldType
+--------                     ---------
+active_docs                  string
+active_docs_count            integer
+active_docs_names            string
+active_session_docs_names    string
+calls                        integer
+in_memory_docs               string
+in_memory_docs_count         integer
+in_memory_docs_names         string
+in_memory_session_docs_names string
+loaded_docs                  string
+loaded_docs_count            integer
+loaded_docs_names            string
+loaded_session_docs_names    string
+selections                   integer
 
 >
 ```
@@ -91,6 +94,7 @@ The measurements are grouped based on what part of Sense they are retrieved from
 1. General health metrics
 2. Messages from the log files
 3. Detailed metrics about what users are connected to (i.e. have sessions open with) which virtual proxies
+4. Metric relating to Butler SOS itself (i.e. not retrieved from Sense).
 
 #### General health metrics
 
@@ -107,26 +111,29 @@ In addition to the above, all tags defined in the YAML config file for the serve
 
 ##### Measurement: apps
 
-Source: [Health check API](https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
+Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
 
 | Field key | Type | Description |
 | ----------| -----| ----------- |
 | active_docs | string | An array of GUIDs of active apps. Empty if no apps are active. An app is active when a user is currently performing some action on it. |
 | active_docs_count | integer | Number of currently active apps |
-| active_docs_names | string | Names of currently active apps |
+| active_docs_names | string | Names of currently active (non-session) apps |
+| active_session_docs_names | string | Names of currently active session apps |
 | in_memory_docs | string | An array ofthe GUIDs of all apps currently loaded into the memory, even if they do not have any open sessions or connections to it. The apps disappear from the list when the engine has purged them out from memory.	|
 | in_memory_docs_count | integer | Numer of apps currently in memory |
-| in_memory_docs_names | string | Names of apps currently in memory |
+| in_memory_docs_names | string | Names of (non-session) apps currently in memory |
+| in_memory_session_docs_names | string | Names of session apps currently in memory |
 | loaded_docs | string | An array of the GUIDs of apps currently loaded into memory and that have open sessions or connections. Empty if no apps are loaded. |
 | loaded_docs_count | integer | Number of currently loaded apps |
-| loaded_docs_names | string | Names of currently loaded apps |
+| loaded_docs_names | string | Names of currently loaded (non-session) apps |
+| loaded_session_docs_names | string | Names of currently loaded session apps |
 |  |  |  |
 | calls | integer | Number of calls to the Qlik associative engine since it started |
 | selections | integer | Numer of selections made in Qlik associative engine since it started |
 
 ##### Measurement: cache
 
-Source: [Health check API](https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
+Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
 
 | Field key | Type | Description |
 | ----------| -----| ----------- |
@@ -138,7 +145,7 @@ Source: [Health check API](https://help.qlik.com/en-US/sense-developer/September
 
 ##### Measurement: cpu
 
-Source: [Health check API](https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
+Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
 
 | Field key | Type | Description |
 | ----------| -----| ----------- |
@@ -146,7 +153,7 @@ Source: [Health check API](https://help.qlik.com/en-US/sense-developer/September
 
 ##### Measurement: mem
 
-Source: [Health check API](https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
+Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
 
 | Field key | Type | Description |
 | ----------| -----| ----------- |
@@ -156,7 +163,7 @@ Source: [Health check API](https://help.qlik.com/en-US/sense-developer/September
 
 ##### Measurement: saturated
 
-Source: [Health check API](https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
+Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
 
 | Field key | Type | Description |
 | ----------| -----| ----------- |
@@ -164,7 +171,7 @@ Source: [Health check API](https://help.qlik.com/en-US/sense-developer/September
 
 ##### Measurement: sense_server
 
-Source: [Health check API](https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
+Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
 
 | Field key | Type | Description |
 | ----------| -----| ----------- |
@@ -174,7 +181,7 @@ Source: [Health check API](https://help.qlik.com/en-US/sense-developer/September
 
 ##### Measurement: session
 
-Source: [Health check API](https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
+Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
 
 | Field key | Type | Description |
 | ----------| -----| ----------- |
@@ -183,12 +190,12 @@ Source: [Health check API](https://help.qlik.com/en-US/sense-developer/September
 
 ##### Measurement: users
 
-Source: [Health check API](https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
+Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
 
 | Field key | Type | Description |
 | ----------| -----| ----------- |
-| active |  | integer |
-| total | integer |  |
+| active | integer | Number of users currently doing something in some app. |
+| total | integer | Number of users with established sessions to the Sense server. |
 
 #### Log events
 
@@ -204,7 +211,7 @@ All log data written to InfluxDB share a common set of tag keys:
 
 ##### Measurement: log_event
 
-Source: More or less [log db](https://help.qlik.com/en-US/sense-admin/September2019/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Qlik-Logging-Service.htm). A query is done to the log db in Postgres, the results are stored in InfluxDB. There is thus no Qlik API call per se.
+Source: More or less [log db](https://help.qlik.com/en-US/sense-admin/June2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Qlik-Logging-Service.htm). A query is done to the log db in Postgres, the results are stored in InfluxDB. There is thus no Qlik API call per se.
 
 | Field key | Type | Description |
 | ----------| -----| ----------- |
@@ -216,13 +223,14 @@ User session metrics have slightly different tag keys depending on the granulari
 
 ##### Measurement: user_session_summary
 
-Source: [Session module API](https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm)
+Source: [Session module API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm)
 
 | Field key | Type | Description |
 | ----------| -----| ----------- |
 | session_count | float | Total number of sessions, per server and virtual proxy. |
+| session_user_id_list | string | List of user IDs with sessions, per server and virtual proxy. NOTE: A single user may have more than one session open to a particular server/virtual proxy. |
 
-Tag keys: 
+Tag keys:
 
 | Tag key | Description |
 | --------- | ----------- |
@@ -234,13 +242,13 @@ Tag keys:
 
 ##### Measurement: user_session_list
 
-Source: [Session module API](https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm)
+Source: [Session module API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm)
 
 | Field key | Type | Description |
 | ----------| -----| ----------- |
 | session_user_id_list | string | List of user IDs with sessions, per server and virtual proxy. NOTE: A single user may have more than one session open to a particular server/virtual proxy. |
 
-Tag keys: 
+Tag keys:
 
 | Tag key | Description |
 | --------- | ----------- |
@@ -252,7 +260,7 @@ Tag keys:
 
 ##### Measurement: user_session_details
 
-Source: [Session module API](https://help.qlik.com/en-US/sense-developer/September2019/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm)
+Source: [Session module API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm)
 
 | Field key | Type | Description |
 | ----------| -----| ----------- |
@@ -272,3 +280,14 @@ Tag keys:
 | user_session_id | Session GUID |
 | user_session_user_directory | User's user directory |
 | user_session_user_id | User ID |
+
+#### Butler SOS metrics
+
+These metrics tell you how much memory Butler SOS itself uses.  
+More info on these metrics and what they mean is available [here](https://www.valentinog.com/blog/node-usage/).
+
+| Field key | Type | Description |
+| ----------| -----| ----------- |
+| heap_total | float | Total size of the allocated heap.|
+| heap_used | float | Actual memory used during the execution of Butler SOS. |
+| process_memory | float | Total memory allocated for the execution of Butler SOS. |

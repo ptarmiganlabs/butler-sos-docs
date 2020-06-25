@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.65.3" />
+<meta name="generator" content="Hugo 0.73.0" />
 
 <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
@@ -17,9 +17,9 @@
 <link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
 <link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
 <link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
-<link rel="icon" type="image/png" href="/favicons/android-96x196.png" sizes="96x196">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
-<link rel="icon" type="image/png" href="/favicons/android-192x192.png"sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>Contribution guidelines | Butler SOS</title><meta property="og:title" content="Contribution guidelines" />
 <meta property="og:description" content="How to contribute to Butler SOS
@@ -51,16 +51,17 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.818a933df0186c907f1faea6730835dd5fa01c3b53af36bb68396dc80a2d3c45.css" as="style">
-<link href="/scss/main.min.818a933df0186c907f1faea6730835dd5fa01c3b53af36bb68396dc80a2d3c45.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.4a86db05c25c1e71f688f08d1eaaf82321f5f17abb469dff13680d1b96632d86.css" as="style">
+<link href="/scss/main.min.4a86db05c25c1e71f688f08d1eaaf82321f5f17abb469dff13680d1b96632d86.css" rel="stylesheet" integrity="">
+
 
 <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
 
 
-    <title>Contribution guidelines | Butler SOS</title>
+
   </head>
   <body class="td-section">
     <header>
@@ -117,7 +118,8 @@ if (!doNotTrack) {
 			
 		</ul>
 	</div>
-	<div class="navbar-nav d-none d-lg-block"></div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
 </nav>
 
     </header>
@@ -134,6 +136,7 @@ if (!doNotTrack) {
   
   <form class="td-sidebar__search d-flex align-items-center">
     
+
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
   </form>
@@ -390,10 +393,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/influxdb_data_structure/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Available metrics</a>
+    <a  href="/docs/getting_started/available_metrics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Available metrics</a>
   </li>
   <ul>
-    <li class="collapse " id="docsgetting_startedinfluxdb_data_structure">
+    <li class="collapse " id="docsgetting_startedavailable_metrics">
       
       
       
@@ -436,10 +439,33 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/examples/general_sense_monitoring/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">General monitoring</a>
+    <a  href="/docs/examples/qliksense_monitoring_1/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Grafana 6 dashboard</a>
   </li>
   <ul>
-    <li class="collapse " id="docsexamplesgeneral_sense_monitoring">
+    <li class="collapse " id="docsexamplesqliksense_monitoring_1">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/qliksense_monitoring_grafana7/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Grafana 7 dashboard</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesqliksense_monitoring_grafana7">
       
       
       
@@ -564,6 +590,8 @@ if (!doNotTrack) {
 
 
 
+
+
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
 
 
@@ -587,6 +615,9 @@ if (!doNotTrack) {
 
           </div>
           <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
             <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
 	<ol class="breadcrumb spb-1">
 		
@@ -614,7 +645,8 @@ if (!doNotTrack) {
             
 <div class="td-content">
 	<h1>Contribution guidelines</h1>
-	<div class="lead">How to contribute to Butler SOS</div>
+        <div class="lead">How to contribute to Butler SOS</div>
+	
 	
 
 <div class="pageinfo pageinfo-primary">
@@ -637,6 +669,8 @@ Hugo is an open-source static site generator that provides us with templates, co
     
     
     <hr class="panel-line">
+        
+            
         
             
         
@@ -698,10 +732,10 @@ Hugo is an open-source static site generator that provides us with templates, co
 <button class="feedback--answer feedback--answer-yes">Yes</button>
 <button class="feedback--answer feedback--answer-no">No</button>
 <p class="feedback--response feedback--response-yes">
-  Glad to hear it! Please <a href="https://github.com/ptarmiganlabs/butler-sos/issues/new">tell us how we can improve</a>.
+  Glad to hear it! Please <a href="https://github.com/ptarmiganlabs/butler-sos/issues/new/choose">tell us how we can improve</a>.
 </p>
 <p class="feedback--response feedback--response-no">
-  Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butler-sos/issues/new">tell us how Butler SOS can be improved</a>.
+  Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butler-sos/issues/new/choose">tell us how Butler SOS can be improved</a>.
 </p>
 <script>
   const yesButton = document.querySelector('.feedback--answer-yes');
@@ -812,6 +846,7 @@ Hugo is an open-source static site generator that provides us with templates, co
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 
 
 

@@ -11,12 +11,16 @@ menu:
 
 ### What's new in version 5.4
 
+This video gives a feeling for what Butler SOS is capable of.
 
-This video shows some sample use cases for Butler SOS.  
+{{< youtube id="CCMr8svrJXI" autoplay="true">}}
 
-The highlights of version 5.4 are:
+<br>
+<br>
 
-* **Sample dashboards** are now built using the brand new, shiny and all together awesome Grafana 7. Did we mention that Grafana 7 is awesome?
+Highlights of version 5.4 include:
+
+* **Sample dashboards** are now built using the brand new, shiny and all together awesome Grafana 7. Did we mention that Grafana 7 is awesome? Awesome.
 * Ever wondered how long Butler SOS has been running or how much memory it uses? The new **uptime messages** have you covered. 
 * You are properly impressed with the uptime messages - good. Why not store them to Influxdb, so you can also **visualize Butler SOS' own memory use**? It's just a couple of changes in the config file away.
 * Don't want to use the **Docker healthchecks**? No reason to if you don't user Docker. You can now turn it off in the config file.

@@ -1,6 +1,6 @@
 {
   "name": "butler-sos-docs",
-  "version": "1.0.0",
+  "version": "5.4.0",
   "description": "Butler SOS documentation.",
   "main": "none.js",
   "scripts": {
@@ -11,14 +11,14 @@
     "url": "git+https://github.com/ptarmiganlabs/butler-sos-docs.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ptarmiganlabs/butler-sos-docs/issues"
   },
   "homepage": "hhttps://github.com/ptarmiganlabs/butler-sos-docs#readme",
   "dependencies": {},
   "devDependencies": {
-    "autoprefixer": "^9.7.6",
+    "autoprefixer": "^9.8.4",
     "postcss-cli": "^7.1.1"
   }
 }

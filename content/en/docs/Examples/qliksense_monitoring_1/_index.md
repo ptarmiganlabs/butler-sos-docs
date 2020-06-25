@@ -1,6 +1,6 @@
 ---
-title: "General Qlik Sense monitoring"
-linkTitle: "General monitoring"
+title: "Qlik Sense monitoring using Grafana 6"
+linkTitle: "Grafana 6 dashboard"
 weight: 2
 description: >
   Probably the most obvious and common use case for Butler SOS. View Qlik Sense and Windows operational metrics in great looking Grafana dashboards.
@@ -13,9 +13,8 @@ Grafana is an increadibly capable tool for showing time series data.
 
 The dashboards shown here are thus just examples and inspiration - feel free to extend and adapt these to meet your particular needs. There are also plenty of sample Grafana dashboards out there to get inspiration from.
 
-If you experience issues with the Grafana dashboards included in the GitHub package, you might want to try upgrading to a later/latest Grafana version.
+If you experience issues with the Grafana dashboards included in the Butler SOS release on Github, you might want to try upgrading to a later/latest Grafana version.
 {{% /pageinfo %}}
-
 
 This is a top use case for Butler SOS.  
 These kind of dashboards give you detailed insights into several important metrics for your Sense servers:

@@ -14,6 +14,35 @@
     
     
     <item>
+      <title>Blog: v5.4.0: Sorted out some issues with app names</title>
+      <link>https://butler-sos.ptarmiganlabs.com/blog/2020/05/29/v5.4.0-sorted-out-some-issues-with-app-names/</link>
+      <pubDate>Fri, 29 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-sos.ptarmiganlabs.com/blog/2020/05/29/v5.4.0-sorted-out-some-issues-with-app-names/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This is a significant release.&lt;/p&gt;
+&lt;p&gt;As the config file format has changed, care should be taken when upgrading from previous versions of Butler SOS.&lt;br&gt;
+The current file format of the config file is described &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/getting_started/install_config/config_file_format/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;List of changes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/issues/105&#34;&gt;#105&lt;/a&gt; Choose whether or not to store info about session apps in Influxdb.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/issues/107&#34;&gt;#107&lt;/a&gt; Log Butler SOS&amp;rsquo; own memory use to Influxdb.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/issues/108&#34;&gt;#108&lt;/a&gt; Add user configurable uptime messages.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/issues/110&#34;&gt;#110&lt;/a&gt; User configurable Docker healthcheck service.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/issues/111&#34;&gt;#111&lt;/a&gt; Update docs to explain need for new certs from Feb 2020 and onward.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/issues/112&#34;&gt;#112&lt;/a&gt; Update Grafana demo dashboards.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/issues/113&#34;&gt;#113&lt;/a&gt; Missing committed mem metric.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/issues/115&#34;&gt;#115&lt;/a&gt; Merge overview session measurements in Influxdb a single measurement.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/issues/116&#34;&gt;#116&lt;/a&gt; Use InfluxDB tags when storing ButlerSOS own memory usage.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/issues/117&#34;&gt;#117&lt;/a&gt; Support for healthchecks.io monitoring&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Blog: v5.3.0: Sorted out some issues with app names</title>
       <link>https://butler-sos.ptarmiganlabs.com/blog/2020/05/05/v5.3.0-sorted-out-some-issues-with-app-names/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
