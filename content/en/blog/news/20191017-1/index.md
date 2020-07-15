@@ -17,7 +17,6 @@ resources:
 New docs, blog and news coming to Butler SOS.
 {{< /imgproc >}}
 
-
 While easy to use, GitHub's standard one-page README file has once again proven to work only so far.  
 
 After a fair bit of work we are today releasing a new docs site for Butler SOS.
@@ -26,4 +25,3 @@ Most of the info on the previously used README page has been moved to this new s
 The really good part is however that the new site has plenty of room for structured growth, allowing us to add examples, tutorials etc in a good way.
 
 It's also easy for anyone to provide feedback - just click the "Create issue" link in the upper right corner of each page, and are taken straight to the issues section on GitHub. Easy!
-

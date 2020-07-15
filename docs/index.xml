@@ -13,6 +13,30 @@
     
     
     <item>
+      <title>Blog: v5.5.0: Multi architecture support for Docker images</title>
+      <link>https://butler-sos.ptarmiganlabs.com/blog/2020/07/15/v5.5.0-multi-architecture-support-for-docker-images/</link>
+      <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-sos.ptarmiganlabs.com/blog/2020/07/15/v5.5.0-multi-architecture-support-for-docker-images/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;strong&gt;This is a minor release, yet a milestone.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Arm CPUs are no longer just something used in mobile gadgets, they are quickly becoming a real option also for server workloads.
+For that reason Butler SOS now builds Docker images for the Arm64 and Arm architectures, and publish these on Docker Hub.&lt;/p&gt;
+&lt;p&gt;This might seem like a less than relevant development, but it opens up for running Butler SOS in pretty much any kind of Docker or Kubernetes environment, including Arm based ones.&lt;/p&gt;
+&lt;p&gt;On a more concrete level you can now run Butler SOS on Arm powered AWS EC2 instances. Again - why is this important? Well, these instances offer better price/energy/performance than x86 ditto instances. Money rules.&lt;/p&gt;
+&lt;p&gt;Or on a Raspberry Pi - the newer Raspi 4 is preferred, but even several of the older 32 bit ones are supported.&lt;br&gt;
+No, you should not use Raspberry Pis for production scenarios, but it&amp;rsquo;s a pretty cool demo to use them in a super cheap, low power Kubernetes cluster used to monitor a Qlik Sense environment.&lt;/p&gt;
+&lt;p&gt;List of changes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/issues/121&#34;&gt;#121&lt;/a&gt; Build Docker images for amd64, arm64 and arm.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Blog: v5.4.0: Sorted out some issues with app names</title>
       <link>https://butler-sos.ptarmiganlabs.com/blog/2020/05/29/v5.4.0-sorted-out-some-issues-with-app-names/</link>
       <pubDate>Fri, 29 May 2020 00:00:00 +0000</pubDate>
