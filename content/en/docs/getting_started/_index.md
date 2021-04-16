@@ -1,7 +1,7 @@
 ---
 title: "Getting started"
 linkTitle: "Getting started"
-weight: 2
+weight: 20
 description: >
   Taking your first steps.
 ---

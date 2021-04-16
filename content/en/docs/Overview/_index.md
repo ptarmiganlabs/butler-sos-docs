@@ -1,7 +1,7 @@
 ---
 title: "Overview"
 linkTitle: "Overview"
-weight: 1
+weight: 10
 description: >
   SenseOps monitoring - what's that?
 ---
