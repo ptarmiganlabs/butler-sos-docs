@@ -1,7 +1,7 @@
 ---
 title: "InfluxDB & Grafana"
 linkTitle: "InfluxDB & Grafana"
-weight: 7
+weight: 70
 description: >
   How to run InfluxDB and Grafana using Docker.
 ---
@@ -45,7 +45,7 @@ services:
       - senseops
 
   influxdb:
-    image: influxdb:latest
+    image: influxdb:1.8.4
     container_name: influxdb
     restart: always
     volumes:
@@ -90,8 +90,8 @@ This results in something like this:
 ➜ docker-compose -f docker-compose_fullstack.yaml up
 
 Creating network "butler-sos_fullstack_senseops" with driver "bridge"
-Pulling influxdb (influxdb:latest)...
-latest: Pulling from library/influxdb
+Pulling influxdb (influxdb:1.8.4)...
+1.8.4: Pulling from library/influxdb
 092586df9206: Already exists
 ef599477fae0: Already exists
 4530c6472b5d: Already exists
@@ -101,7 +101,7 @@ ef599477fae0: Already exists
 30c228ee47d0: Pull complete
 5a7d00e87e5e: Pull complete
 Digest: sha256:f0b7acde2d7fa215576a9f83abbf363b6f5641896535a01dbaf62299ab2272f9
-Status: Downloaded newer image for influxdb:latest
+Status: Downloaded newer image for influxdb:1.8.4
 Pulling grafana (grafana/grafana:latest)...
 latest: Pulling from grafana/grafana
 9d48c3bd43c5: Pull complete
@@ -133,7 +133,7 @@ From a separate shell we can then ensure that the expected Docker containers are
 ➜ docker ps
 CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS                    PORTS                                            NAMES
 5e59e89d3185        grafana/grafana:latest          "/run.sh"                7 minutes ago       Up 37 seconds             0.0.0.0:3000->3000/tcp                           grafana
-5b8ce73b20e6        influxdb:latest                 "/entrypoint.sh infl…"   7 minutes ago       Up 36 seconds             0.0.0.0:8082->8082/tcp, 0.0.0.0:8086->8086/tcp   influxdb
+5b8ce73b20e6        influxdb:1.8.4                 "/entrypoint.sh infl…"   7 minutes ago       Up 36 seconds             0.0.0.0:8082->8082/tcp, 0.0.0.0:8086->8086/tcp   influxdb
 73b0bb526261        mountaindude/butler-sos:5.2.0   "docker-entrypoint.s…"   7 minutes ago       Up 37 seconds (healthy)                                                    butler-sos
 
 ~/code/butler-sos_fullstack

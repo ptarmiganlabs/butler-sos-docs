@@ -6,12 +6,13 @@ weight: 10
 aliases: ['/docs/', '/docs/about/', '/docs/butler-sos/']
 ---
 
-The Butler SOS project is about adding best-in-class monitoring to the client-managed version of Qlik Sense Enterprise.  
+The Butler SOS project is about adding best-in-class monitoring to the client-managed Windows version of Qlik Sense Enterprise, also known as QSEoW (Qlik Sense Enterprise on Windows).  
 
 The goal is to provide a close to real-time view into what's happening in a Qlik Sense environment.
 
 At different times different metrics will be of interest.  
-For that reason Butler SOS stores all metrics from Sense in a time-series databse, from which dashboards, reports etc can then be created using tools such as Grafana.
+For that reason Butler SOS stores all metrics from Sense in a time-series databse, from which dashboards, reports etc can then be created using tools such as Grafana.  
+Grafana is an open source, world-class visualisation tool for time series data. It also has great alerting features and integrate with all kinds of alerting solutions and IM tools.
 
 There is also a clear goal that Butler SOS should be very configurable.  
 In practice this means that features can be turned on/off as needed, improving security and lowering memory usage.

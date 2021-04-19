@@ -2,7 +2,7 @@
 title: "Choosing a platform - what are the options?"
 linkTitle: "Choose a platform"
 date: 2019-09-16
-weight: 2
+weight: 20
 description: >
   You can run Butler SOS on several platforms, each with their own pros and cons.
   This section should help you decide which platform is right for you.

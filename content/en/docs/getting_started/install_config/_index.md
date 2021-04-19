@@ -1,12 +1,19 @@
 ---
 title: "Install & Configure"
 linkTitle: "Install & Configure"
-weight: 3
+weight: 30
 description: >
   The steps needed for installing and configuring vary slightly depending on what platform you use. The details are found here.
 ---
 
+{{< notice warning >}}
+Butler SOS was developed with InfluxDB version 1.x in mind.  
 
+InfluxDB is currently available in version 2.x and while this version brings lots of new goodies, it's not out-of-the-box compatible with Butler SOS.  
+For that reason you should use the latest 1.x version of InfluxDB, which at the time of this writing is 1.8.4.
+
+In due time Butler SOS will be updated to support InfluxDB 2.x too.
+{{< /notice >}}
 
 {{% pageinfo %}}
 If in doubt on how to install Butler SOS, please consider Docker as the first alternative.  
@@ -21,7 +28,6 @@ Why? Several reasons:
 - Updating Butler SOS to the latest version (assuming no config file changes are needed for that particular upgrade) is as easy as stopping the container, doing a "docker pull ptarmiganlabs/butler-sos:latest", and finally starting the container again.
 {{% /pageinfo %}}
 
-<br>
 But even with the above Docker recommendation, Butler SOS *can* be deployed in lots of different configurations.  
 It is therefore difficult to give precise instructions that will work for all configurations. Especially the fact that Butler SOS uses certificates to authenticate with Sense is a complicating factor. Certificates are (when correctly used) great for securing systems, but they can alse cause headaches.
 

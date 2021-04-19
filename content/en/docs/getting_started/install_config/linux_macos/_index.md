@@ -1,7 +1,7 @@
 ---
 title: "Linux and Mac OS"
 linkTitle: "Linux, Mac OS"
-weight: 6
+weight: 60
 description: >
   Running Butler SOS in Linux and Mac OS. Installation and configuration.
 ---

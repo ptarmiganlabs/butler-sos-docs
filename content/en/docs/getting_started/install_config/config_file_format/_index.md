@@ -1,7 +1,7 @@
 ---
 title: "Config file format"
 linkTitle: "Config file format"
-weight: 3
+weight: 30
 description: >
   Everything you ever wanted to know about the Butler SOS configuration file.
 ---

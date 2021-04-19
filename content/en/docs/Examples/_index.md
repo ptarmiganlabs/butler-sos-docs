@@ -1,7 +1,7 @@
 ---
 title: "Examples"
 linkTitle: "Examples"
-weight: 30
+weight: 40
 description: >
   See Butler SOS in action!
 ---

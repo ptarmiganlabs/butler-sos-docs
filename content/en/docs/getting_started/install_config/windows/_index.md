@@ -1,7 +1,7 @@
 ---
 title: "Windows"
 linkTitle: "Windows"
-weight: 5
+weight: 50
 description: >
   Running Butler SOS in Windows. Installation and configuration.
 ---

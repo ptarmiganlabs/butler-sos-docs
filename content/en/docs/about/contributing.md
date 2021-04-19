@@ -24,7 +24,7 @@ All submissions, including submissions by project members, require review. We us
 
 ## Creating an issue
 
-If you've found a problem - or have a feature suggestion - with Butler SOS itself or the documentation, but you're not sure how to fix it yourself, please create an issue in the [Butler SOS repo](https://github.com/ptarmiganlabs/butler-sos/issues/new). You can also create an issue about a specific doc page by clicking the **Create Issue** button in the top right hand corner of the page.
+If you've found a problem - or have a feature suggestion - with Butler SOS itself or the documentation, but you're not sure how to fix it yourself, please create an issue in the [Butler SOS repo](https://github.com/ptarmiganlabs/butler-sos/issues/). You can also create an issue about a specific doc page by clicking the **Create Issue** button in the top right hand corner of the page.
 
 {{% alert title="Security/Disclosure" color="warning" %}}
 If you discover a serious bug with Butler that may pose a security problem, please disclose it confidentially to security@ptarmiganlabs.com first, so that it can be assessed and hopefully fixed prior to being exploited. Please do not raise GitHub issues for security-related doubts or problems.

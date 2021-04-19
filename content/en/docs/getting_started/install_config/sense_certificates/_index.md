@@ -1,7 +1,7 @@
 ---
 title: "Export Sense certificates"
 linkTitle: "Get certificates"
-weight: 2
+weight: 20
 description: >
   How to export certificates from Qlik Sense.
 ---

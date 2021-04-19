@@ -80,4 +80,4 @@ If you discover any important bug with Butler SOS that may pose a security probl
 
 Butler SOS is an open source project sponsored by [Ptarmigan Labs](https://ptarmiganlabs.com), an IT consulting company in Stockholm, Sweden. The main contributor to the tool is (so far) [Göran Sander](https://www.linkedin.com/in/gorsan) from same company. 
 
-Please refer to the [Contribution guidelines](/docs/contribution-guidelines/) page for details on how to contribute, suggest features etc to the tool.
+Please refer to the [Contribution guidelines](/docs/about/contributing/) page for details on how to contribute, suggest features etc to the tool.
