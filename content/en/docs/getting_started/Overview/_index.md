@@ -65,8 +65,8 @@ Ready to move on?
 
 Great! Here are some good starting points
 
-- [Getting Started](/docs/getting_started/): Get started with Butler SOS
-- [Examples](/docs/examples/): Check out some example monitoring dashboards!
+- [Examples](/docs/examples/): Check out some Grafana dashboards to get inspiration what can be done!
+- [Installation & setup](/docs/getting_started/install_config/): Learn how to install Butler SOS, then set it up according to your needs.
 
 ## I have a question or want to report an issue
 

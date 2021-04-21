@@ -12,7 +12,7 @@ A complete list of all metrics provided by Butler SOS is found [here](/docs/refe
 
 ## Qlik Sense APIs
 
-QLik's API documentation is found [here](https://help.qlik.com/en-US/sense-developer/September2019/Content/Sense_Helpsites/APIs-and-SDKs.htmhttps://help.qlik.com/en-US/sense-developer/February2021/Content/Sense_Helpsites/APIs-and-SDKs.htm).
+Qlik's API documentation is found [here](https://help.qlik.com/en-US/sense-developer/February2021/Content/Sense_Helpsites/APIs-and-SDKs.htm).
 
 ## InfluxDB
 
@@ -26,6 +26,7 @@ Grafana docs [here](https://grafana.com/docs/).
 
 ## MQTT
 
-There are various MQTT brokers available, both commercial and open source ones.
-
+There are various MQTT brokers available, both commercial and open source.  
 [Mosquitto](https://mosquitto.org/) is an open sourceMQTT broker with a solid track record and available as a Docker container.
+
+There are also plenty of companies offering SaaS MQTT brokers, ranging from small specialised companies to the big cloud providers.

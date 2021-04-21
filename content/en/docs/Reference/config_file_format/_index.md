@@ -1,7 +1,7 @@
 ---
 title: "Config file format"
 linkTitle: "Config file format"
-weight: 30
+weight: 10
 description: >
   Everything you ever wanted to know about the Butler SOS configuration file.
 ---
@@ -33,25 +33,36 @@ A few things to keep in mind:
 | logLevel | The level of details in the logs. Possible values are silly, debug, verbose, info, warn, error (in order of decreasing level of detail). |
 | fileLogging | true/false to enable/disable logging to disk file |
 | logDirectory | Subdirectory where log files are stored |
+| anonTelemetry | Can Butler SOS send anonymous data about what computer it is running on? More info on whata data is collected [here](https://butler-sos.ptarmiganlabs.com/docs/about/telemetry). |
 |  |  |
 | **Butler-SOS.heartbeat** |  |
-| enabled | Should heartbeats be sent to some URL, indicating that Butler SOS is alive and well? true/false |
+| enable  | Should heartbeats be sent to some URL, indicating that Butler SOS is alive and well? true/false |
 | remoteURL | URL that will be called for heartbeats |
 | frequency | How often should heartbeats be sent? Format according to https://bunkat.github.io/later/parsers.html |
 |  |  |
 | **Butler-SOS.dockerHealthCheck** |  |
-| enabled | Should a Docker healthcheck endpoint be created within Butler SOS? Set to false if *not* running Butler SOS under Docker. true/false |
+| enable | Should a Docker healthcheck endpoint be created within Butler SOS? Set to false if *not* running Butler SOS under Docker. true/false |
 | port | Port the healthcheck should use. Usually 12398, but might need be changed if seveal Butler instances run on the same server |
 |  |  |
 | **Butler-SOS.uptimeMonitor** |  |
-| enabled | Should messages with Butler SOS uptime and memory usage be written to console and logs? true/false |
+| enable  | Should messages with Butler SOS uptime and memory usage be written to console and logs? true/false |
 | frequency | How often should uptime messages be written to console and/or logs? Format according to https://bunkat.github.io/later/parsers.html |
 | logLevel | Starting at what log level should uptime messages be used? Possible values are silly, debug, verbose, info, warn, error. For example, if you specify "verbose" here, uptime messages will appear if you set overall log level to silly, debug or verbose. |
 | storeInInfluxdb.<br>butlerSOSMemoryUsage | Should data on Butler SOS' own memory use be stored in Infludb? true/false |
 | storeInInfluxdb.<br>instanceTag | Tag used to differentiate data from multiple Butler SOS instances. Useful if running different Butler SOS instances against (for example) DEV, TEST and PROD environments |
 |  |  |
+| **Butler-SOS.userEvents** |  |
+| enable | Shouls Butler SOS track detailed user events (i.e. session start/stop, connection open/close)? true/false |
+| excludeUser | Array of users (=directory/userId pairs) that should be disregarded when user events arrive from Sense. |
+| udpServerConfig.<br>serverHost | IP/host where Butler SOS is running and the user event UDP server will run. |
+| udpServerConfig.<br>portUserActivityEvents | Port on which the user event UDP server will listen. |
+| tags | Array of tags (tagName/tagValue pairs) that should be added to each user event before sending it to InfluxDB. |
+| sendToMQTT.enable | Should user events be sent to MQTT? true/false |
+| sendToMQTT.topic | MQTT topic which user event data will be posted to. |
+| sendToInfluxdb.enable | Should user events be saved in InfluxDB? true/false |
+|  |  |
 | **Butler-SOS.logdb** |  |
-| enableLogDb | Should Sense log db be queried for warnings/errors/info messages? true/false |
+| enable | Should Sense log db be queried for warnings/errors/info messages? true/false |
 | pollingInterval | How often to query log db. Milliseconds |
 | queryPeriod | How far back should log db be queried? Human readable, e.g. "5 minutes" (which is also the default value)|
 | host | IP or FQDN of server where Sense log db is running |
@@ -69,13 +80,13 @@ A few things to keep in mind:
 | clientCertPassphrase | Password used to protect the certificate (as set when exporting cert from QMC) |
 |  |  |
 | **Butler-SOS.mqttConfig** |  |
-| enableMQTT | Should health metrics be sent to MQTT? true/false |
+| enable | Should health metrics be sent to MQTT? true/false |
 | brokerHost | IP or FQDN of MQTT broker |
 | brokerPort | Broker port |
 | baseTopic | The topic to which messages will be posted. Should end with /. For example butler-sos/ |
 |  |  |
 | **Butler-SOS.influxdbConfig** |  |
-| enableInfluxdb | Should health metrics be stored in Influxdb? true/false |
+| enable | Should health metrics be stored in Influxdb? true/false |
 | hostIP | IP or FQDN of Influxdb server |
 | hostPort | Port where Influxdb server is listening. Useful if Influxdb for some reason is not using its standard port of 8086 |
 | auth.enable | Enable if data is to be stored in a password protected Influxdb database |
@@ -91,6 +102,7 @@ A few things to keep in mind:
 | **Butler-SOS.userSessions** |  |
 | enableSessionExtract | Influxdb password |
 | pollingInterval | Influxdb password |
+| excludeUser | Array of users (=directory/userId pairs) that should be disregarded when user session data arrives from Sense. |
 |  |  |
 | **Butler-SOS.serversToMonitor** |  |
 | pollingInterval | How often to query the Sense healthcheck API |

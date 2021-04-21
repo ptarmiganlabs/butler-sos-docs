@@ -1,6 +1,6 @@
 ---
-title: "Install & Configure"
-linkTitle: "Install & Configure"
+title: "Installing Butler SOS"
+linkTitle: "Installing Butler SOS"
 weight: 30
 description: >
   The steps needed for installing and configuring vary slightly depending on what platform you use. The details are found here.

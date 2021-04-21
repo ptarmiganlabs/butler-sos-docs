@@ -23,6 +23,7 @@ Other platforms can be used too, of course - let's look at the pros and cons of 
 | Platform | Pros  | Cons |
 | -------- | ----- | ---- |
 | Docker | - Easy to set up Butler SOS in Docker <br>- Easy to test new versions of Butler SOS <br>- Use existing Docker infrastructure<br>- Monitoring, restarts etc built into Docker<br> - Runs on low cost hardware and OSs | - Docker environment needed (if not already available). Setting up and running Docker is not hard, but does require somewhat other skills than those needed to run a Sense environment |
+| Kubernetes | - Enterprise grade <br>- Fault tolerant <br>- Deployed alongside other enterprise applications | - More difficult to set up than Docker |
 | Windows server | - Butler SOS can run on same server as Qlik Sense, saving hardware/server costs | - Running Butler SOS natively on the Sense server is a potential risk (usually a good idea to isolate systems/services to their own servers/environments whenever possible)<br>- More difficult (compared to Docker) to achieve a production grade setup (auto restarts etc) |
 | Linux | - No cost for operating system (at least not for most Linux versions)<br>- Runs on low cost hardware | - More difficult (compared to Docker) to achieve a production grade setup (auto restarts etc) |
 | Mac OS | - For development, if you want to extend or modify Butler SOS | - Not a server grade operating system, i.e. not for production use |

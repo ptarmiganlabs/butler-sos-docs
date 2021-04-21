@@ -3,16 +3,16 @@ title: "Windows"
 linkTitle: "Windows"
 weight: 50
 description: >
-  Running Butler SOS in Windows. Installation and configuration.
+  Running Butler SOS in Windows.
 ---
 
 ## Installation
 
-In this scenario, Butler SOS will run as a Node.js app on the Windows server itself.  
+In this scenario, Butler SOS will run as a Node.js app on a Windows server.  
 
 ### 1. Install Node.js
 
-Any recent Node version should work fine, but if in doubt the [latest LTS version](https://nodejs.org/en/download/) is usually a good idea.
+Any recent Node version should work. If in doubt the [latest LTS version](https://nodejs.org/en/download/) is usually a good idea.
 
 ### 2. Select a directory from which Butler SOS will be run
 
@@ -21,6 +21,9 @@ This can be pretty much anywhere, in this example d:\tools\butler-sos will be us
 ### 3. Get Butler SOS
 
 Get the desired [Butler SOS version](https://github.com/ptarmiganlabs/butler-sos/releases) and extract it into the directory above.
+
+Get the latest available version unless you have a *really* good reason to use an older version.  
+New features are added, bugs fixed and security updates are applied in each version - it's simply a good idea to use the latest version.
 
 ### 4. Install Node.js dependencies
 
@@ -45,21 +48,10 @@ For example, if the certificate files exported from Sense are stored in d:\secre
 
 ```
 
-## Running
-
-### Environment variables
-
-There is a dependency between the name of the YAML configuration file and the NODE_ENV environment variable. 
-
-The `production.yaml` file can be named anything, as long as it matches the value of the `NODE_ENV` environment variable.  
-For example, if the config file is called `production.yaml`, the NODE_ENV environment variable should be set to 'production'.
-
-In Windows you do this by `set NODE_ENV=production` in a command prompt, or even better as a server wide setting.
-
-### Stayin' alive
+## Stayin' alive
 
 A tool like Butler SOS should of course start automatically when the server it runs on is restarted. This can be achieved in at least a couple of ways:
 
-1. By far the best option is to turn Butler SOS into a Windows service. That way it will be started on server boot, restarted if it fails etc. There are various tools for doing this, with [NSSM](https://nssm.cc/) being a very, very good one. Butler SOS has been set in lots of Sense clusters this way.
+1. By far the best option is to turn Butler SOS into a Windows service. That way it will be started on server boot, restarted if it fails etc. There are various tools for doing this, with [NSSM](https://nssm.cc/) being a very, very good one. Butler SOS has been installed in lots of Sense clusters this way.
 
 2. You can also use a Node process monitor such as [PM2](http://pm2.keymetrics.io/) to monitor the Butler SOS process, and restart it if it for some reason crashes. PM2 is not entirely easy to use on Windows though.

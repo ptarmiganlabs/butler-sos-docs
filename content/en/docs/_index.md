@@ -13,11 +13,16 @@ menu:
 
 * Added user event monitoring. Up until now this has been a feature of [Butler](https://butler.ptarmiganlabs.com), but as this feature is very much within the domain covered by Butler SOS, it's moving here instead.  
   The events monitored are session start/stop (typically users logging in/out/timeout) and connection open/close (typically an app being opened/closed in a browser tab).
-* Added a blacklist for user sessions. If a user is added to the blacklist, the session detailed session data for that user will not be saved to InfluxDB.  
+* Added a blacklist for user sessions. If a user is added to the blacklist, the detailed session data for that user will not be saved to InfluxDB.  
   The user will still be included in the session summary metrics and count towards the total number of sessions, at any given time.  
   Note: The blacklist only applies to storing detailed session data in InfluxDB, MQTT (if enabled) is not affected by the blacklist.
 * Anonymous telemetry added. Same set of data included in other Butler tools, i.e. only information about what the execution environment of Butler SOS looks like and which features are enabled.
   The rationale for adding telemetry is to give Butler SOS developers a better understanding of on what kinds of servers the software is used. This insight will make it easier to develop future Butler SOS versions.
+* Continuing the journey towards using the same formatting principles in the config files for all the various Butler tools.  
+  In Butler SOS' config file there's been a mix between "enabled", "enable", "enableMqtt" etc to tell whether a certain feature should be enabled or not. Confusing.
+  We're moving towards only using "enable" for this. This release changes this for most config file entries.
+  Rest assured though, the old format will still work - but you are **strongly** recommended to adapt the [current config file format](/docs/getting_started/install_config/config_file_format/) as it incldes settings for other new (as of version 5.6) features too.
+* Major refactoring of the documentation site [butler-sos.ptarmiganlabs.com](https://butler-sos.ptarmiganlabs.com). This site is now more aligned with other Butler sites, for example [butler.ptarmiganlabs.com](https://butler.ptarmiganlabs.com).
 * Various bug fixes, performance improvements and fixed typos.
 
 ### What's new in version 5.5

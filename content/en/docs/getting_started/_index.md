@@ -12,4 +12,3 @@ This means most kinds of computers and servers can be used to run Butler SOS, in
 
 Setting up Butler SOS is pretty straightforward, but you do need a working understanding of Qlik Sense admin tasks. For example, you need to export certificates from the QMC, as well as installing Butler SOS itself.
 {{% /pageinfo %}}
-
