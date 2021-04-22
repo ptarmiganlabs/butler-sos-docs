@@ -1,0 +1,17 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler SOS – Configuring Butler SOS heartbeats</title>
+    <link>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/heartbeats/</link>
+    <description>Recent content in Configuring Butler SOS heartbeats on Butler SOS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/heartbeats/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

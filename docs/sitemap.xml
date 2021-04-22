@@ -1,170 +1,172 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/overview/</loc>
-    <lastmod>2020-06-24T23:49:33+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/choose_platform/</loc>
-    <lastmod>2020-06-24T23:49:33+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install_config/sense_certificates/</loc>
-    <lastmod>2020-06-24T23:49:33+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/</loc>
-    <lastmod>2020-06-24T23:49:33+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/examples/qliksense_monitoring_1/</loc>
-    <lastmod>2020-06-25T11:11:54+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install_config/config_file_format/</loc>
-    <lastmod>2020-06-24T23:49:33+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/examples/</loc>
-    <lastmod>2020-06-25T11:11:54+02:00</lastmod>
-  </url>
-  
-  <url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/about/</loc>
+    <lastmod>2021-04-16T14:13:25+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/about/butler-sos/</loc>
+    <lastmod>2021-04-19T21:46:55+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/reference/config_file_format/</loc>
+  </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/docs/examples/qliksense_monitoring_grafana7/</loc>
-    <lastmod>2020-06-25T11:11:54+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install_config/</loc>
-    <lastmod>2020-06-24T23:49:33+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/available_metrics/</loc>
-    <lastmod>2020-06-25T11:11:54+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install_config/docker/</loc>
-    <lastmod>2020-06-24T23:49:33+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install_config/windows/</loc>
-    <lastmod>2020-06-24T23:49:33+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install_config/linux_macos/</loc>
-    <lastmod>2019-10-17T12:00:27+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install_config/influxdb_grafana/</loc>
-    <lastmod>2020-05-02T21:43:57+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/reference/</loc>
-    <lastmod>2019-10-16T08:59:45+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/version_history/</loc>
-    <lastmod>2020-06-25T11:11:54+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/contribution-guidelines/</loc>
-    <lastmod>2019-10-17T10:04:47+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/legal_stuff/</loc>
-    <lastmod>2020-05-02T21:43:57+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/operations/monitoring-butler-sos/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/overview/</loc>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/concepts/sessions-connections/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/which-config-file/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/choose_platform/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/concepts/apps/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/docs/</loc>
-    <lastmod>2020-06-25T11:11:54+02:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/examples/qliksense_monitoring_grafana6/</loc>
+  </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/blog/news/</loc>
     <lastmod>2019-10-17T17:06:54+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/blog/releases/</loc>
     <lastmod>2020-05-02T21:43:57+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/qlik-sense-server-settings/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/about/butler-family/</loc>
+    <lastmod>2021-04-16T14:13:25+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/concepts/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/examples/</loc>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/about/usecases/</loc>
+    <lastmod>2021-04-19T21:46:55+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/</loc>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/docker/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/concepts/errors-warnings/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/about/versioning/</loc>
+    <lastmod>2021-04-19T21:46:55+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/windows/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/about/contributing/</loc>
+    <lastmod>2021-04-19T21:46:55+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/linux_macos/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/operations/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/influxdb_grafana/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/about/telemetry/</loc>
+    <lastmod>2021-04-19T21:46:55+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/reference/</loc>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/security/</loc>
+    <lastmod>2021-04-19T21:46:55+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/user-events/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/app-names/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/legal_stuff/</loc>
+    <lastmod>2021-04-19T21:46:55+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/user-sessions/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/servers-to-monitor/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/influxdb/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/mqtt/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/heartbeats/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/uptime-monitor/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/docker-health-check/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/telemetry/</loc>
+    <lastmod>2021-04-21T22:36:38+02:00</lastmod>
+  </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/blog/2020/07/15/v5.5.0-multi-architecture-support-for-docker-images/</loc>
     <lastmod>2020-07-16T00:02:19+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/blog/2020/05/29/v5.4.0-sorted-out-some-issues-with-app-names/</loc>
     <lastmod>2020-06-24T23:49:33+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/blog/2020/05/05/v5.3.0-sorted-out-some-issues-with-app-names/</loc>
     <lastmod>2020-05-05T08:43:11+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/blog/2020/05/04/v5.2.0-app-names-heartbeats/</loc>
     <lastmod>2020-05-02T21:43:57+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/blog/2019/10/22/v5.0.1-fixing-a-few-typos-clarifying-a-few-things/</loc>
     <lastmod>2019-10-25T12:31:36+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/blog/2019/10/17/new-documentation-site-for-butler-sos/</loc>
     <lastmod>2020-07-16T00:02:19+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/blog/2019/10/17/v5.0.0-user-sessions-influxdb-logs-and-more/</loc>
     <lastmod>2019-10-17T17:06:54+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/about/</loc>
     <lastmod>2019-10-11T10:39:02+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/blog/</loc>
     <lastmod>2020-05-02T21:43:57+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/</loc>
-    <lastmod>2020-06-25T11:11:54+02:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2020-07-16T01:00:54+02:00</lastmod>
+  </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/community/</loc>
     <lastmod>2019-09-13T22:39:19+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/search/</loc>
     <lastmod>2019-09-13T22:39:19+02:00</lastmod>
   </url>
-  
 </urlset>

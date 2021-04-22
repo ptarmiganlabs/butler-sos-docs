@@ -4,6 +4,7 @@ linkTitle: Contribution guidelines
 weight: 60
 description: >
     How to contribute to Butler SOS.
+aliases: ['/docs/contribution-guidelines']
 ---
 
 {{% pageinfo %}}

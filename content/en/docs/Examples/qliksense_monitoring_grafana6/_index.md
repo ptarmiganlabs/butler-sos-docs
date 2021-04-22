@@ -66,4 +66,4 @@ When something breaks in a Qlik Sense environment the logs immediately fill up w
 Note how there are **lots** of INFO level messages generated (note the y axis scales in the diagram above!). 
 In a production setting it's usually a good idea to turn off extraction of INFO level log messages into InfluxDB.
 
-This is controlled in the [YAML config file](/docs/getting_started/install_config/config_file_format/).
+This is controlled in the [YAML config file](/docs/reference/config_file_format/).

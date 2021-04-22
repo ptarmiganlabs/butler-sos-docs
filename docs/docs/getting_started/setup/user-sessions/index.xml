@@ -1,0 +1,17 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler SOS – Configuring user sessions</title>
+    <link>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/user-sessions/</link>
+    <description>Recent content in Configuring user sessions on Butler SOS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/user-sessions/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

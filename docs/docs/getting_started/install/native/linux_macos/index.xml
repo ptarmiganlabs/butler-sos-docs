@@ -1,0 +1,17 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler SOS – Linux and Mac OS</title>
+    <link>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/linux_macos/</link>
+    <description>Recent content in Linux and Mac OS on Butler SOS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/linux_macos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

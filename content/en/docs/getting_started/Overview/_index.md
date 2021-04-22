@@ -66,7 +66,7 @@ Ready to move on?
 Great! Here are some good starting points
 
 - [Examples](/docs/examples/): Check out some Grafana dashboards to get inspiration what can be done!
-- [Installation & setup](/docs/getting_started/install_config/): Learn how to install Butler SOS, then set it up according to your needs.
+- [Installation & setup](/docs/getting_started/): Learn how to install Butler SOS, then set it up according to your needs.
 
 ## I have a question or want to report an issue
 

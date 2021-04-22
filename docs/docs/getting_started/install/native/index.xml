@@ -1,0 +1,84 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler SOS – Native app</title>
+    <link>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/</link>
+    <description>Recent content in Native app on Butler SOS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Windows</title>
+      <link>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/windows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/windows/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;p&gt;In this scenario, Butler SOS will run as a Node.js app on a Windows server.&lt;/p&gt;
+&lt;h3 id=&#34;1-install-nodejs&#34;&gt;1. Install Node.js&lt;/h3&gt;
+&lt;p&gt;Any recent Node version should work. If in doubt the &lt;a href=&#34;https://nodejs.org/en/download/&#34;&gt;latest LTS version&lt;/a&gt; is usually a good idea.&lt;/p&gt;
+&lt;h3 id=&#34;2-select-a-directory-from-which-butler-sos-will-be-run&#34;&gt;2. Select a directory from which Butler SOS will be run&lt;/h3&gt;
+&lt;p&gt;This can be pretty much anywhere, in this example d:\tools\butler-sos will be used.&lt;/p&gt;
+&lt;h3 id=&#34;3-get-butler-sos&#34;&gt;3. Get Butler SOS&lt;/h3&gt;
+&lt;p&gt;Get the desired &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/releases&#34;&gt;Butler SOS version&lt;/a&gt; and extract it into the directory above.&lt;/p&gt;
+&lt;p&gt;Get the latest available version unless you have a &lt;em&gt;really&lt;/em&gt; good reason to use an older version.&lt;br&gt;
+New features are added, bugs fixed and security updates are applied in each version - it&amp;rsquo;s simply a good idea to use the latest version.&lt;/p&gt;
+&lt;h3 id=&#34;4-install-nodejs-dependencies&#34;&gt;4. Install Node.js dependencies&lt;/h3&gt;
+&lt;p&gt;From d:\tools\butler-sos\src, run &lt;code&gt;npm i&lt;/code&gt; to install the various Node.js modules used by Butler SOS. Depending on your server configuration you may get some warnings about (for example) Python not being installed, these can usually be ignored.&lt;/p&gt;
+&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+&lt;p&gt;The configuration file is used the same way as when Butler SOS runs on Docker, with one exception:&lt;/p&gt;
+&lt;p&gt;The path to the certificates used to authenticate with Sense must be specified in the config file. With Docker the certificate path is always the same, but with Windows you need to specify where the certificate files are located.&lt;/p&gt;
+&lt;p&gt;For example, if the certificate files exported from Sense are stored in d:\secrets\sensecert, the config file would look like this when used on Windows:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;...&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Certificates to use when querying Sense for healthcheck data. Get these from the Certificate Export in QMC.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;cert&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;clientCert&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;d:\secrets\sensecert\client.pem&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;clientCertKey&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;d:\secrets\sensecert\client_key.pem&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;clientCertCA&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;d:\secrets\sensecert\root.pem&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;stayin-alive&#34;&gt;Stayin&#39; alive&lt;/h2&gt;
+&lt;p&gt;A tool like Butler SOS should of course start automatically when the server it runs on is restarted. This can be achieved in at least a couple of ways:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;By far the best option is to turn Butler SOS into a Windows service. That way it will be started on server boot, restarted if it fails etc. There are various tools for doing this, with &lt;a href=&#34;https://nssm.cc/&#34;&gt;NSSM&lt;/a&gt; being a very, very good one. Butler SOS has been installed in lots of Sense clusters this way.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can also use a Node process monitor such as &lt;a href=&#34;http://pm2.keymetrics.io/&#34;&gt;PM2&lt;/a&gt; to monitor the Butler SOS process, and restart it if it for some reason crashes. PM2 is not entirely easy to use on Windows though.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Linux and Mac OS</title>
+      <link>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/linux_macos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/linux_macos/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;p&gt;This scenario is identical to the &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/windows/&#34;&gt;Windows scenario&lt;/a&gt;, please refer to that page for details. Keep in mind that the format of file systems paths differ between Windows and Linxu/Mac OS.&lt;/p&gt;
+&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+&lt;p&gt;Once again, same thing as &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/windows/&#34;&gt;on Windows&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;stayin-alive&#34;&gt;Stayin&#39; alive&lt;/h2&gt;
+&lt;p&gt;A Node process monitor can be used on Linux or Mac OS, just a on Windows.
+Tools like &lt;a href=&#34;http://pm2.keymetrics.io/&#34;&gt;PM2&lt;/a&gt; in fact usually work better on Linux/Mac OS than on Windows..&lt;/p&gt;
+&lt;p&gt;You can probably also use Linux&#39; standard service layer to start Butler SOS, that has not been tested though.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -9,7 +9,7 @@ description: >
 ---
 
 {{< notice tip >}}
-The [use cases](docs/about/usecases/) page contains related information that may be of interest. 
+The [use cases](/docs/about/usecases/) page contains related information that may be of interest. 
 {{< /notice >}}
 
 ## App metrics

@@ -19,7 +19,7 @@ This is fine as the ID is guaranteed to be unique, but the downside is that the 
 Butler SOS therefor pulls an app ID-to-app name mapping with a configurable interval.  
 The `Butler-SOS.appNames` section of the config file controls if this mapping should be done at all, how often and which Sense server should be used to get it.
 
-A more comprehensive description of Butler SOS' strategy for getting correct names of Sense apps is available in the [Concepts section](docs/concepts/apps/#app-names-are-tricky).
+A more comprehensive description of Butler SOS' strategy for getting correct names of Sense apps is available in the [Concepts section](/docs/concepts/apps/#app-names-are-tricky).
 
 ## Settings in main config file
 

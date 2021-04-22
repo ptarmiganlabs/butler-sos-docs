@@ -33,7 +33,7 @@ A few things to keep in mind:
 | logLevel | The level of details in the logs. Possible values are silly, debug, verbose, info, warn, error (in order of decreasing level of detail). |
 | fileLogging | true/false to enable/disable logging to disk file |
 | logDirectory | Subdirectory where log files are stored |
-| anonTelemetry | Can Butler SOS send anonymous data about what computer it is running on? More info on whata data is collected [here](https://butler-sos.ptarmiganlabs.com/docs/about/telemetry). |
+| anonTelemetry | Can Butler SOS send anonymous data about what computer it is running on? More info on whata data is collected [here](/docs/about/telemetry/#where-is-telemetry-data-sent). |
 |  |  |
 | **Butler-SOS.heartbeat** |  |
 | enable  | Should heartbeats be sent to some URL, indicating that Butler SOS is alive and well? true/false |

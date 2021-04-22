@@ -57,8 +57,7 @@ On the other hand - **with** access to telemetry data a lot of possibilities ope
 
 ### Configuring Butler SOS' telemetry
 
-Instructions [here](/docs/getting-started/setup/telemetry/).
-TODO
+Instructions [here](/docs/getting_started/setup/telemetry/).
 
 ## The details
 
@@ -87,7 +86,7 @@ The telemetry data is sent to an Azure server and then stored in a database oper
 
 Even though no-one (not even Ptarmigan Labs who runs the telemetry database!) has any way of ever connecting the data sent by _your_ Butler SOS instance to _you_ (it's all anonymized, remember?), there can be cases where telemetry data must be deleted.
 
-The [legal page](/docs/legal-stuff/#telemetry-data) has more information about this. TODO
+The [legal page](/docs/legal_stuff/#telemetry-data) has more information about this.
 
 ### Field level description of telemetry data
 

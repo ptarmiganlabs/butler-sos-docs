@@ -25,7 +25,7 @@ In due time Butler SOS will be updated to support InfluxDB 2.x too.
 
 ## What's this?
 
-[InfluxDB](influxdb) is a time series database. This means it is optimised for storing data that's somehow linked to a timestamp.  
+[InfluxDB](https://www.influxdata.com/get-influxdb/) is a time series database. This means it is optimised for storing data that's somehow linked to a timestamp.  
 Measurements and metrics are some of the most obvious kinds of data for which InfluxDB was created.
 
 Butler SOS stores data in InfluxDB in full detail, i.e. Butler SOS doesn't do any aggregation of older data points.  

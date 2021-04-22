@@ -48,3 +48,22 @@ Aggregated Google Analytics data may be used to determine, and in some cases pub
 Examples of aggregated metrics are how many users have visited the site, from where in the world they accessed the site etc.  
 
 No detailed Google Analytics data for this site will be shared with any third parties.
+
+## Telemetry data
+
+If enabled in the config file, Butler SOS will send anonymous telemetry data to servers operated by Ptarmigan Labs AB.  
+A detailed description of what's included in the telemetry datais found [here](/docs/about/telemetry/).
+
+Ptarmigan Labs collects this information to better understand
+
+1. what the execution environment looks like for Butler SOS out there, and
+2. which Butler SOS features are used/not used
+
+The purpose of the telemetry data is ultimately to aid in future development of Butler SOS, focusing on the most used features and execution environments.
+
+If you want your historical telemetry data to be deleted, you must provide Ptarmigan Labs with the system ID mentioned in the logs when Butler SOS is starting.  
+This ID is what identifies your specific instance of Butler SOS.  
+
+Until you tell Ptarmigan Labs what your ID is there is no link between you and that ID.  
+No storage of IP addresses, geocoding lookups or other techniques are used to identify where an incoming telemetry message originates from.  
+The idea is simply that the anonymous telemetry should be just that: anonymous.

@@ -21,7 +21,7 @@ menu:
 * Continuing the journey towards using the same formatting principles in the config files for all the various Butler tools.  
   In Butler SOS' config file there's been a mix between "enabled", "enable", "enableMqtt" etc to tell whether a certain feature should be enabled or not. Confusing.
   We're moving towards only using "enable" for this. This release changes this for most config file entries.
-  Rest assured though, the old format will still work - but you are **strongly** recommended to adapt the [current config file format](/docs/getting_started/install_config/config_file_format/) as it incldes settings for other new (as of version 5.6) features too.
+  Rest assured though, the old format will still work - but you are **strongly** recommended to adapt the [current config file format](/docs/reference/config_file_format/) as it incldes settings for other new (as of version 5.6) features too.
 * Major refactoring of the documentation site [butler-sos.ptarmiganlabs.com](https://butler-sos.ptarmiganlabs.com). This site is now more aligned with other Butler sites, for example [butler.ptarmiganlabs.com](https://butler.ptarmiganlabs.com).
 * Various bug fixes, performance improvements and fixed typos.
 

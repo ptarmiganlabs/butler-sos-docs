@@ -48,4 +48,4 @@ Mac OS or Linux
 
     export NODE_ENV=production
 
-If using Docker, the NODE_ENV environment varible is set in the docker-compose.yml file (as already done in the [template docker-compose file](https://github.com/ptarmiganlabs/butler/blob/master/src/docker-compose.yml).)
+If using Docker, the NODE_ENV environment varible is set in the docker-compose.yml file (as already done in the [template docker-compose file](https://github.com/ptarmiganlabs/butler-sos/blob/master/src/docker-compose.yml).)

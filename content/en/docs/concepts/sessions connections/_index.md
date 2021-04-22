@@ -53,7 +53,7 @@ This is done by Butler SOS hooking into the logging framework of Qlik Sense, whi
 A blacklist in the main config file provides a way to exlcude some users (e.g. system accounts) from the user event monitoring.
 
 Configuration of user events monitoring is done in the main config file's `Butler-SOS.userEvents` section.  
-A step-by-step instruction for setting up user event monitoring is available in the [Getting started](TODO) section.
+A step-by-step instruction for setting up user event monitoring is available in the [Getting started section](/docs/getting_started/).
 More info about the config file is available [here](/docs/reference/config_file_format/).
 
 On an aggregated level this information is useful to understand how often users log in/out, when peak ours are etc.
