@@ -44,9 +44,9 @@ Butler SOS is such a tool, aiming to provide best-in-class operational monitorin
 {{% blocks/lead %}}
 Butler SOS extracts more than 30 metrics on both server health (CPU load, free memory) and Qlik Sense specifics (session, users, log entries, cache status etc).
 
-These metrics are stored in a time-series database ([InfluxDB](https://www.influxdata.com/products/influxdb-overview/) and [Prometheus](https://prometheus.io) both supported) and optionally also sent to other systems as MQTT messages.
+These metrics are stored in a time-series database ([InfluxDB](https://www.influxdata.com/products/influxdb-overview/)) and optionally also sent to other systems as MQTT messages.
 
-Once the metrics are stored in the database, [Grafana](https://grafana.com/) can be used to create real-time visualisations. 
+Once the metrics are stored in InfluxDB, [Grafana](https://grafana.com/) can be used to create real-time visualisations. 
 {{% /blocks/lead %}}
 
 
@@ -58,8 +58,7 @@ Butler SOS handles very large Sense clusters - or just a single node.
 
 
 {{% blocks/feature icon="fa-bell" title="Alerts and notifications?" %}}
-Built into Grafana. Email, Slack, Teams, PagerDuty and more.  
-Prometheus offers even more integrations with various alerting tools.
+Built into Grafana. Email, Slack, Teams, PagerDuty and more.
 {{% /blocks/feature %}}
 
 
@@ -71,3 +70,34 @@ Example: Easy to see which users will be affectd by a server restart. Connect th
 
 
 {{< /blocks/section >}}
+
+
+
+{{< blocks/section >}}
+<div class="col-12">
+<h1 class="text-center">
+    <b><i>Scalability?</i></b>
+  <br>Butler SOS is designed to handle very large Sense clusters - or just a single node.</h1>
+</div>
+{{< /blocks/section >}}
+
+
+{{< blocks/section >}}
+<div class="col-12">
+<h1 class="text-center">
+    <b><i>Alerts and notifications?</i></b>
+  <br>Built into Grafana. Email, Slack, Teams, PagerDuty and more.</h1>
+</div>
+{{< /blocks/section >}}
+
+
+{{< blocks/section >}}
+<div class="col-12">
+<h1 class="text-center">
+  <b><i>We need to restart a server. What users will be affected?</i></b>
+  <br>This info is available on a real-time basis.<br>Connect to your IM tool and notify users before restarts happen. </h1>
+</div>
+{{< /blocks/section >}}
+
+
+

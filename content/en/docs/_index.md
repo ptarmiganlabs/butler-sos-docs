@@ -9,14 +9,6 @@ menu:
 
 {{% pageinfo %}}
 
-### What's new in version 5.7
-
-* Added Prometheus support.  
-  Most Butler SOS metrics are now exposed on a Prometheus-friendly endpoint. They can thus easily be scraped by and ingested into Prometheus.  
-  Once in Prometheus the Qlik Sense metrics can be visualised using Grafana (just as before when using InfluxDB), but also used in very capable alerting scenarios. Prometheus has great integrations with many incident management tools.
-* Switched process for doing releases of Butler SOS.  
-  Things are now more automated which should result in more predictable and consistent [version numbers](/docs/about/versioning/), for example. The changelog file will be auto-generated going forward (it will start from version 5.6.0, older version still available as `changelog_old.md`).
-
 ### What's new in version 5.6
 
 * Added user event monitoring. Up until now this has been a feature of [Butler](https://butler.ptarmiganlabs.com), but as this feature is very much within the domain covered by Butler SOS, it's moving here instead.  

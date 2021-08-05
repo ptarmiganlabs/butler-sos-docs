@@ -47,7 +47,7 @@ Additionally, having access to real-time metrics makes it hugely easier to incre
 {{% blocks/lead color="orange" %}}
 **--- Can I get alerts when some metric go out of bounds? ---**
 
-Yes! Butler SOS stores all data in an InfluxDB and/or Prometheus database, from where it is visualised using Grafana.
+Yes! Butler SOS stores all data in an InfluxDB database, from where it is visualised using Grafana.
 
 Both are best-in-class, open source products for storing and visualising time-series data.
 
@@ -59,28 +59,34 @@ Grafana is increadibly feature rich, including a powerful alerting feature that 
 {{% blocks/lead color="primary" %}}
 **--- We use system \<*our-preferred-monitoring–tool*\> for monitoring. Can it be used with Butler SOS? ---**
 
-Yes, most likely. Butler SOS supports both InfluxDB and Prometheus, but also optionally sends metrics as MQTT messages.  
+Yes, most likely. Butler SOS stores all metrics in InfluxDB, but also optionally sends metrics as MQTT messages.  
 If your main monitoring tool can use either of these as a data source, it can read data extracted by Butler SOS.
 
-If not natively supporting InfluxDB, Prometheus or MQTT, it is usually pretty easy to create a small tool that acts as a bridge to other systems.
+If not natively supporting InfluxDB or MQTT, it is usually pretty easy to create a small tool that acts as a bridge between InfluxDB/MQTT and other systems.
 
 {{% /blocks/lead %}}
 
 
+
+<!-- {{< blocks/section >}}
+<div class="col">
+<h1 class="text-center">This is the second Section</h1>
+</div>
+{{< /blocks/section >}} -->
+
+
 {{< blocks/section >}}
 
-{{% blocks/feature icon="fa-lightbulb" title="Latest release: 5.7" %}}
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 5.5" %}}
 
-Hello Prometheus!  
-Qlik Sense metrics exported to Prometheus.  
+An armful of images.  
 Available on [GitHub](https://github.com/ptarmiganlabs/butler-sos/releases).
 
 {{% /blocks/feature %}}
 
 
 {{% blocks/feature icon="fab fa-github" title="Contributions welcome!"%}}
-We use a [Pull Request](https://github.com/ptarmiganlabs/butler-sos/pulls) contributions workflow on **GitHub**.  
-New developers are always welcome!
+We use a [Pull Request](https://github.com/ptarmiganlabs/butler-sos/pulls) contributions workflow on **GitHub**. New developers are always welcome!
 {{% /blocks/feature %}}
 
 
