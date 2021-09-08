@@ -1,7 +1,7 @@
 ---
 title: "Configuring Butler SOS uptime monitor"
 linkTitle: "Uptime monitor"
-weight: 210
+weight: 40
 description: >
   Butler SOS can optionally log how long it's been running and how much memory it uses. 
 

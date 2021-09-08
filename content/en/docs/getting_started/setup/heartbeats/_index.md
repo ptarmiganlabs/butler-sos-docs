@@ -1,7 +1,7 @@
 ---
 title: "Configuring Butler SOS heartbeats"
 linkTitle: "Heartbeats"
-weight: 200
+weight: 20
 description: >
   Heartbeats provide a way to monitor that Butler SOS is running and working as intended.  
 

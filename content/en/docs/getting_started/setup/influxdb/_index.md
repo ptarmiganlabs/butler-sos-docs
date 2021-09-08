@@ -1,9 +1,9 @@
 ---
 title: "Setting up InfluxDB time series database"
 linkTitle: "InfluxDB"
-weight: 180
+weight: 90
 description: >
-  Butler SOS stores all metrics in InfluxDB.
+  Butler SOS can store metrics in InfluxDB.
 ---
 
 {{% alert title="Optional" color="primary" %}}

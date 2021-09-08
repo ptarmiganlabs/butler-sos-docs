@@ -38,14 +38,14 @@ SOFTWARE.
 
 This documentation site was built using [Hugo](https://gohugo.io/) and consists of static web pages hosted on [GitHub Pages](https://pages.github.com/).  
 
-GitHub probably keep log files for GitHub Pages, your visit to this documentation site is thus likely to be recorded there. I do not have any access to those logs though.
+GitHub probably keep log files for GitHub Pages, your visit to this documentation site is thus likely to be recorded there. For questions about such logs you should contact GitHub.
 
 ## Google Analytics
 
 Google Analytics is used to track general site usage.
 
 Aggregated Google Analytics data may be used to determine, and in some cases publicly communicate, how popular the site is.  
-Examples of aggregated metrics are how many users have visited the site, from where in the world they accessed the site etc.  
+Examples of aggregated metrics are how many users have visited the site and from where in the world they accessed the site.  
 
 No detailed Google Analytics data for this site will be shared with any third parties.
 

@@ -1,7 +1,7 @@
 ---
 title: "Configuring user sessions"
 linkTitle: "User sessions"
-weight: 120
+weight: 110
 description:
 ---
 

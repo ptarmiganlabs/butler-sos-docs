@@ -6,7 +6,17 @@ description: >
   Running Butler SOS in Docker. Installation and configuration.
 ---
 
-Docker is great in that it runs on many different platforms. 
+{{< notice tip >}}
+Butler SOS Docker images are automatically built for several architectures:
+
+- amd64: This is by far the most common platform - your typical Intel based server use amd64.
+- arm64: Arm servers are now available from most cloud providers and offer very competetive price/performance. Apple's new M1 CPUs also use arm64, as does the newer Raspberry Pi models.
+- arm/v7: An older Arm architecture found in previous-gen Raspberry Pis, for example.
+
+All images are available on [Docker Hub](https://hub.docker.com/r/ptarmiganlabs/butler-sos/tags?page=1&ordering=last_updated).
+{{< /notice >}}
+
+Docker is great in that it runs on many different platforms.  
 This means that as long as the Docker runtime environment is installed, you can run Butler SOS on your Mac laptop, on a Linux server or on a Windows server.
 
 ## Installation
@@ -49,7 +59,6 @@ Let's do this one step at a time.
 What files are there?
 
 ```bash
-
 proton:butler-sos-docker goran$ ls -la
 total 8
 drwxr-xr-x   4 goran  staff   128 Oct 14 17:10 .
@@ -72,13 +81,11 @@ drwxr-xr-x  4 goran  staff   128 Oct 14 17:11 ..
 -rw-r--r--@ 1 goran  staff  1702 Oct 14 17:13 client_key.pem
 -rw-r--r--@ 1 goran  staff  1192 Oct 14 17:13 root.pem
 proton:butler-sos-docker goran$
-
 ```
 
 What does the docker-compose.yml file look like?
 
 ```bash
-
 proton:butler-sos-docker goran$ cat docker-compose.yml
 # docker-compose.yml
 version: '3.3'
@@ -99,85 +106,72 @@ services:
         max-file: "5"
         max-size: "5m"
 proton:butler-sos-docker goran$
-
 ```
 
 Ok, all good. Let's start Butler SOS using docker-compose (the exact output will depend on what version of Butler SOS you are using and what features you have enabled in the JSON/YAML config file):
 
 ```bash
-
-proton:butler-sos-docker goran$ docker-compose up
 ➜ docker-compose up
+Creating network "butler-sos_default" with the default driver
 Creating butler-sos ... done
 Attaching to butler-sos
-butler-sos    | 2020-06-24T21:38:43.386Z debug: CONFIG: Setting up new Influx database: Found server tag : server_group
-butler-sos    | 2020-06-24T21:38:43.388Z debug: CONFIG: Setting up new Influx database: Found server tag : serverLocation
-butler-sos    | 2020-06-24T21:38:43.388Z debug: CONFIG: Setting up new Influx database: Found server tag : server-type
-butler-sos    | 2020-06-24T21:38:43.388Z debug: CONFIG: Setting up new Influx database: Found server tag : serverBrand
-butler-sos    | 2020-06-24T21:38:43.388Z info: CONFIG: Influxdb enabled: true
-butler-sos    | 2020-06-24T21:38:43.389Z info: CONFIG: Influxdb host IP: 192.168.100.20
-butler-sos    | 2020-06-24T21:38:43.389Z info: CONFIG: Influxdb host port: 8086
-butler-sos    | 2020-06-24T21:38:43.389Z info: CONFIG: Influxdb db name: SenseOps
-butler-sos    | 2020-06-24T21:38:43.458Z debug: HEARTBEAT: Setting up heartbeat to remote: http://healthcheck.ptarmiganlabs.net:8000/ping/ddbcfb17-a2bb-42da-849d-d2a6f0cb28a1
-butler-sos    | 2020-06-24T21:38:43.459Z info: --------------------------------------
-butler-sos    | 2020-06-24T21:38:43.459Z info: Starting Butler SOS
-butler-sos    | 2020-06-24T21:38:43.459Z info: Log level: debug
-butler-sos    | 2020-06-24T21:38:43.460Z info: App version: 5.4.0
-butler-sos    | 2020-06-24T21:38:43.460Z info: --------------------------------------
-butler-sos    | 2020-06-24T21:38:43.460Z debug: Client cert: /Users/goran/code/secret/pro2win1-nopwd/client.pem
-butler-sos    | 2020-06-24T21:38:43.460Z debug: Client cert key: /Users/goran/code/secret/pro2win1-nopwd/client_key.pem
-butler-sos    | 2020-06-24T21:38:43.460Z debug: CA cert: /Users/goran/code/secret/pro2win1-nopwd/root.pem
-butler-sos    | 2020-06-24T21:38:43.460Z debug: USER SESSIONS: Monitor user sessions for these servers/virtual proxies: [
-butler-sos    |   {
-butler-sos    |     "host": "pro2-win1.ptarmiganlabs.net:4747",
-butler-sos    |     "serverName": "sense1",
-butler-sos    |     "serverDescription": "Central",
-butler-sos    |     "logDbHost": "pro2-win1",
-butler-sos    |     "userSessions": {
-butler-sos    |       "enable": true,
-butler-sos    |       "host": "pro2-win1.ptarmiganlabs.net:4243",
-butler-sos    |       "virtualProxies": [
-butler-sos    |         {
-butler-sos    |           "virtualProxy": "/"
-butler-sos    |         },
-butler-sos    |         {
-butler-sos    |           "virtualProxy": "/hdr"
-butler-sos    |         }
-butler-sos    |       ]
-butler-sos    |     },
-butler-sos    |     "serverTags": {
-butler-sos    |       "server_group": "CENTRAL",
-butler-sos    |       "serverLocation": "Europe",
-butler-sos    |       "server-type": "virtual",
-butler-sos    |       "serverBrand": "HP"
-butler-sos    |     }
-butler-sos    |   }
-butler-sos    | ]
-butler-sos    | 2020-06-24T21:38:43.648Z info: CONFIG: Created new InfluxDB database: SenseOps
-butler-sos    | 2020-06-24T21:38:43.679Z debug: HEARTBEAT: Sent heartbeat to http://healthcheck.ptarmiganlabs.net:8000/ping/ddbcfb17-a2bb-42da-849d-d2a6f0cb28a1
-butler-sos    | 2020-06-24T21:38:43.771Z info: CONFIG: Created new InfluxDB retention policy: 10d
-butler-sos    | 2020-06-24T21:38:50.459Z verbose: --------------------------------
-butler-sos    | 2020-06-24T21:38:50.460Z verbose: Iteration # 1, Uptime: 7 seconds, Heap used 22.24 MB of total heap 56.43 MB. Memory allocated to process: 68.78 MB.
-butler-sos    | 2020-06-24T21:38:50.461Z debug: MEMORY USAGE: Memory usage {
-  "instanceTag": "DEV",
-  "heapUsed": 22.24,
-  "heapTotal": 56.43,
-  "processMemory": 68.78
-})
-butler-sos    | 2020-06-24T21:38:51.462Z verbose: MEMORY USAGE: Sent Butler SOS memory usage data to InfluxDB
+butler-sos    | 2021-08-05T09:16:53.487Z info: CONFIG: Influxdb enabled: true
+butler-sos    | 2021-08-05T09:16:53.490Z info: CONFIG: Influxdb host IP: 192.168.100.20
+butler-sos    | 2021-08-05T09:16:53.491Z info: CONFIG: Influxdb host port: 8086
+butler-sos    | 2021-08-05T09:16:53.491Z info: CONFIG: Influxdb db name: SenseOps
+butler-sos    | 2021-08-05T09:16:53.678Z info: CONFIG: Found InfluxDB database: SenseOps
+butler-sos    | 2021-08-05T09:16:53.783Z info: --------------------------------------
+butler-sos    | 2021-08-05T09:16:53.783Z info: Starting Butler SOS
+butler-sos    | 2021-08-05T09:16:53.784Z info: Log level: verbose
+butler-sos    | 2021-08-05T09:16:53.785Z info: App version: 5.6.2
+butler-sos    | 2021-08-05T09:16:53.786Z info:
+butler-sos    | 2021-08-05T09:16:53.786Z info: Node version   : v14.17.0
+butler-sos    | 2021-08-05T09:16:53.786Z info: Architecture   : x64
+butler-sos    | 2021-08-05T09:16:53.787Z info: Platform       : linux
+butler-sos    | 2021-08-05T09:16:53.787Z info: Release        : 9
+butler-sos    | 2021-08-05T09:16:53.788Z info: Distro         : Debian GNU/Linux
+butler-sos    | 2021-08-05T09:16:53.788Z info: Codename       : stretch
+butler-sos    | 2021-08-05T09:16:53.788Z info: Virtual        : false
+butler-sos    | 2021-08-05T09:16:53.789Z info: Processors     : 4
+butler-sos    | 2021-08-05T09:16:53.789Z info: Physical cores : 4
+butler-sos    | 2021-08-05T09:16:53.789Z info: Cores          : 4
+butler-sos    | 2021-08-05T09:16:53.790Z info: Docker arch.   : undefined
+butler-sos    | 2021-08-05T09:16:53.790Z info: Total memory   : 6235168768
+butler-sos    | 2021-08-05T09:16:53.790Z info: --------------------------------------
+butler-sos    | 2021-08-05T09:16:53.791Z info: Client cert: /nodeapp/config/certificate/client.pem
+butler-sos    | 2021-08-05T09:16:53.791Z info: Client cert key: /nodeapp/config/certificate/client_key.pem
+butler-sos    | 2021-08-05T09:16:53.791Z info: CA cert: /nodeapp/config/certificate/root.pem
+butler-sos    | 2021-08-05T09:16:53.793Z verbose: MAIN: Anonymous telemetry reporting has been set up.
+butler-sos    | 2021-08-05T09:16:53.794Z verbose: MAIN: Starting Docker healthcheck server...
+butler-sos    | 2021-08-05T09:16:53.811Z info: MAIN: Docker healthcheck server now listening
+butler-sos    | 2021-08-05T09:16:58.800Z verbose: APP NAMES: Event started: Get app names
+butler-sos    | 2021-08-05T09:16:59.056Z verbose: APP NAMES: Number of apps: 189
+butler-sos    | 2021-08-05T09:16:59.062Z info: APP NAMES: Done getting app names
+butler-sos    | 2021-08-05T09:17:00.623Z verbose: --------------------------------
+butler-sos    | 2021-08-05T09:17:00.623Z verbose: Iteration # 1, Uptime: 0 months, 0 days, 0 hours, 0 minutes, 7.008 seconds, Heap used 23.34 MB of total heap 58.13 MB. Memory allocated to process: 82.27 MB.
+butler-sos    | 2021-08-05T09:17:00.830Z verbose: MEMORY USAGE: Sent Butler SOS memory usage data to InfluxDB
+butler-sos    | 2021-08-05T09:17:03.798Z verbose: HEALTH: Event started: Statistics collection
+butler-sos    | 2021-08-05T09:17:03.799Z verbose: HEALTH: Getting stats for server: sense1
+butler-sos    | 2021-08-05T09:17:03.807Z verbose: HEALTH: Getting stats for server: sense2
+butler-sos    | 2021-08-05T09:17:03.815Z verbose: APP NAMES: Event started: Get app names
+butler-sos    | 2021-08-05T09:17:03.981Z verbose: HEALTH: Received ok response from pro2-win1.ptarmiganlabs.net
+butler-sos    | 2021-08-05T09:17:03.985Z verbose: HEALTH: Received ok response from pro2-win2.ptarmiganlabs.net
+butler-sos    | 2021-08-05T09:17:03.999Z verbose: APP NAMES: Number of apps: 189
+butler-sos    | 2021-08-05T09:17:04.002Z info: APP NAMES: Done getting app names
+butler-sos    | 2021-08-05T09:17:04.171Z verbose: HEALTH METRICS: Sent health data to Influxdb for server sense1
+butler-sos    | 2021-08-05T09:17:04.297Z verbose: HEALTH METRICS: Sent health data to Influxdb for server sense2
+butler-sos    | 2021-08-05T09:17:05.124Z verbose: MAIN: Docker healthcheck API endpoint called.
 ...
 ...
-
 ```
 
 Once everything everything looks good you can stop the container (ctrl-C), then start it again in daemon mode (i.e. running unattended in the background):
 
 ```bash
-
-proton:butler-sos-docker goran$ docker-compose up -d
-Starting butler-sos ... done
-proton:butler-sos-docker goran$
-
+➜ docker-compose up -d
+Creating network "butler-sos_default" with the default driver
+Creating butler-sos ... done
+➜ 
 ```
 
 Setting the log level to info in the config file will reduce log output.
@@ -185,9 +179,7 @@ Setting the log level to info in the config file will reduce log output.
 The Docker container implements Docker healthchecks, which means you can run `docker ps` to see whether the container is healthy or not (assuming Docker healthchecks are enabled in the config file, of course):
 
 ```bash
-
 ➜ docker ps
-CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS                    PORTS               NAMES
-905f21443f97        ptarmiganlabs/butler-sos:5.0.0   "docker-entrypoint.s…"   6 minutes ago       Up 22 seconds (healthy)                       butler-sos
-
+CONTAINER ID   IMAGE                             COMMAND                  CREATED          STATUS                    PORTS                                                                                                                 NAMES
+6a924aa395e1   ptarmiganlabs/butler-sos:latest   "docker-entrypoint.s…"   39 seconds ago   Up 38 seconds (healthy)                                                                                                                         butler-sos
 ```

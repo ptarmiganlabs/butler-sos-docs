@@ -29,6 +29,13 @@ Butler Cache Warmer. Cache warming is the process of proactively forcing Sense a
 
 [github.com/ptarmiganlabs/butler-cw](https://github.com/ptarmiganlabs/butler-cw).
 
+### Butler Sheet Icons
+
+Qlik Sense developers are often asked to use mini versions ("thumbnails") of the Sense app's sheets instead of the generic icons provided by Qlik Sense.  
+Butler Sheet Icons automates the process of creating sheet icons for individual apps (or all apps in a Sense site!).  
+The tool can be used stand-along or as part of an automated release process.
+
+[https://github.com/ptarmiganlabs/butler-sheet-icons](https://github.com/ptarmiganlabs/butler-sheet-icons).
 ### Butler App Duplicator
 
 No matter if you are a single developer creating Sense apps, or have lots of developers doing this, having app templates is a good idea:

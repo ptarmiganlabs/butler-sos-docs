@@ -1,7 +1,7 @@
 ---
 title: "Configuring user events"
 linkTitle: "User events"
-weight: 100
+weight: 50
 description:
 ---
 

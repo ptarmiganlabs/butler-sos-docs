@@ -1,7 +1,7 @@
 ---
 title: "Configuring extraction of app names from Qlik Sense"
 linkTitle: "App names"
-weight: 110
+weight: 100
 description:
 ---
 

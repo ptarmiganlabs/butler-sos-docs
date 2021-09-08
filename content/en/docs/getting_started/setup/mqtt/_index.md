@@ -1,7 +1,7 @@
 ---
 title: "Setting up MQTT messaging"
 linkTitle: "MQTT"
-weight: 190
+weight: 70
 description: >
   Butler SOS can use MQTT as a channel for pub-sub style M2M (machine to machine) messages. This page describes how to configure MQTT in Butler SOS.
 ---

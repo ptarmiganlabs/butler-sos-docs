@@ -10,10 +10,10 @@ A complete list of metrics is available in the [reference section](/docs/referen
 
 ## Monitor server metrics
 
-Some basic server metrics are monitored by Butler SOS. You may have other, dedicated server monitoring tools too - Butler SOS does not replace these.  
+Some basic server metrics (free RAM and CPU load) are monitored by Butler SOS. You may have other, dedicated server monitoring tools too - Butler SOS does not replace these.  
 It's however often convenient to have both server and Sense metrics side by side, thus Butler SOS includes some of the more important server metrics in addition to the Sense ones.
 
-These metrics are only stored in InfluxDB, i.e. not sent as MQTT messages.
+These metrics are only stored in InfluxDB/Prometheus, i.e. not sent as MQTT messages.
 
 ### Available memory/RAM
 
@@ -32,7 +32,7 @@ If a server is heavily loaded it will eventually be seen as slow(er) by end user
 ## Monitor Qlik Sense metrics
 
 This is the main use case for Butler SOS, with a large number of monitored metrics.  
-Butler SOS can be configured to store these metrics in InfluxDB and/or send them as MQTT messages.
+Butler SOS can be configured to store these metrics in InfluxDB/Prometheus and/or send them as MQTT messages.
 
 ### Session count
 
@@ -70,3 +70,5 @@ Butler SOS pulls errors and/or warnings from the log database and store them in 
 This can be increadibly useful information when used in Grafana dashboars: Visuallu seeing lots of errors arriving in a short time period is a strong indication something is not right.  
 
 Add Grafana alerts and you have a very close to real-time error/warning monitoring solution.
+
+NOTE! Errors and warnings are not stored in Prometheus!

@@ -20,6 +20,10 @@ InfluxDB docs [here](https://docs.influxdata.com/influxdb/v1.8/).
 
 Note that Butler SOS was developed with InfluxDB 1.x in mind. It is **not** currently compatible with InfluxDB 2.x.
 
+## Prometheus
+
+Prometheus docs [here](https://prometheus.io).
+
 ## Grafana
 
 Grafana docs [here](https://grafana.com/docs/).

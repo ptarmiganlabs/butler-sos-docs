@@ -9,13 +9,21 @@ menu:
 
 {{% pageinfo %}}
 
-### What's new in version 5.7
+### What's new in version 6.0
+
+First, while the switch to 6.0 indicate there are breaking changes, that's not entirely true.
+
+There are however significant changes to many parts of the code base.  
+
+The code is now better, more modern, scalable and in general better structured.  
+Plenty of testing has been done, but in order to highlight that lots of changes were done, we decided to move to 6.0 rather than 5.7.
 
 * Added Prometheus support.  
   Most Butler SOS metrics are now exposed on a Prometheus-friendly endpoint. They can thus easily be scraped by and ingested into Prometheus.  
-  Once in Prometheus the Qlik Sense metrics can be visualised using Grafana (just as before when using InfluxDB), but also used in very capable alerting scenarios. Prometheus has great integrations with many incident management tools.
+  Once in Prometheus the Qlik Sense metrics can be visualised using Grafana (just as before when using InfluxDB), but also used in very capable alerting scenarios. Prometheus has great integrations with many incident management tools, for example.
+* The Prometheus endpoint also include general Node.js metrics that can be used to monitor Butler SOS itself.
 * Switched process for doing releases of Butler SOS.  
-  Things are now more automated which should result in more predictable and consistent [version numbers](/docs/about/versioning/), for example. The changelog file will be auto-generated going forward (it will start from version 5.6.0, older version still available as `changelog_old.md`).
+  Things are now more automated which should result in more predictable and consistent [version numbers](/docs/about/versioning/). The changelog file will be auto-generated going forward (it will start from version 5.6.0, older version still available as `changelog_old.md`).
 
 ### What's new in version 5.6
 

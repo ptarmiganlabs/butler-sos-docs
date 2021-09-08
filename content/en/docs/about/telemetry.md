@@ -118,6 +118,7 @@ A telemetry message from Butler SOS contains the information below.
         "logdb": true,
         "mqtt": true,
         "influxdb": true,
+        "prometheus": true,
         "appNames": true,
         "userSessions": true
       }

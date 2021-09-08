@@ -15,13 +15,19 @@ For that reason you should use the latest 1.x version of InfluxDB, which at the 
 In due time Butler SOS will be updated to support InfluxDB 2.x too.
 {{< /notice >}}
 
+{{< notice tip >}}
+There is a [Tips & Tricks to get started with Butler SOS](https://github.com/ptarmiganlabs/butler-sos/discussions/201) document on the Butler SOS forums.
+
+It contains description of issues people have faced when installing Butler SOS, as well as solutions to them.
+{{< /notice >}}
+
 {{% pageinfo %}}
 If in doubt on how to install Butler SOS, please consider Docker as the first alternative.  
 Why? Several reasons:
 
 - Very quick to get started. Usually it takes just a few minutes to set up a Butler SOS instance in Docker.
 - Using Docker is a great way to test new tools without having to install the tool on one of your actual servers. If you decide the tool in question is not for you - just delete the Docker container. Your servers remain 100% the same as before the test.
-- The previous point is true not only for Butler SOS, but also its companion tools [InfluxDB](https://www.influxdata.com/products/influxdb-overview/), [Grafana](https://grafana.com/) and [MQTT](https://en.wikipedia.org/wiki/MQTT) (via for example the [Mosquitto MQTT broker](https://mosquitto.org/)). You can run all of these tools in their own Docker containers, and not install a single piece of new, native applications during your evaluation of Butler SOS.
+- The previous point is true not only for Butler SOS, but also its companion tools [InfluxDB](https://www.influxdata.com/products/influxdb-overview/), [Prometheus](https://prometheus.io), [Grafana](https://grafana.com/) and [MQTT](https://en.wikipedia.org/wiki/MQTT) (via for example the [Mosquitto MQTT broker](https://mosquitto.org/)). You can run all of these tools in their own Docker containers, and not install a single piece of new, native applications during your evaluation of Butler SOS.
 - No need to install Node.js on your server(s). Less security, performance and maintenance concerns.
 - Make use of your existing Docker runtime environments, or use those offered by Amazon, Google, Microsoft etc.
 - Benefit from the extremely comprehensive tools ecosystem (monitoring, deployment etc) that is available for Docker.

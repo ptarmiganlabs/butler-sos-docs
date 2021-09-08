@@ -1,7 +1,7 @@
 ---
 title: "Docker healthcheck"
 linkTitle: "Docker healthcheck"
-weight: 220
+weight: 30
 description: >
   Docker has a concept of "health checks", which is a way for Docker containers to tell the Docker runtime engine that the container is alive and well.
 

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.82.0" />
+<meta name="generator" content="Hugo 0.87.0" />
 
 <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
@@ -49,8 +49,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.4b9a9a2626023a391fdab5abf0d56c43359432e2c7851668d7ed2289197b4f0d.css" as="style">
-<link href="/scss/main.min.4b9a9a2626023a391fdab5abf0d56c43359432e2c7851668d7ed2289197b4f0d.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.ff6b2a070a64a637ab695bd014ea39355251198e42f4e8d69f7d75be2e3fa94e.css" as="style">
+<link href="/scss/main.min.ff6b2a070a64a637ab695bd014ea39355251198e42f4e8d69f7d75be2e3fa94e.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -139,15 +139,15 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" as="image" href="/featured-background_hu5067c584f471b6c3bb350a9200aa2120_477310_960x540_fill_catmullrom_top_2.png" media="(max-width: 1200px)">
-<link rel="preload" as="image" href="/featured-background_hu5067c584f471b6c3bb350a9200aa2120_477310_1920x1080_fill_catmullrom_top_2.png" media="(min-width: 1200px)">
+<link rel="preload" as="image" href="/featured-background_hu5067c584f471b6c3bb350a9200aa2120_477310_960x540_fill_catmullrom_top_3.png" media="(max-width: 1200px)">
+<link rel="preload" as="image" href="/featured-background_hu5067c584f471b6c3bb350a9200aa2120_477310_1920x1080_fill_catmullrom_top_3.png" media="(min-width: 1200px)">
 <style>
 #td-cover-block-0 {
-    background-image: url(/featured-background_hu5067c584f471b6c3bb350a9200aa2120_477310_960x540_fill_catmullrom_top_2.png); 
+    background-image: url(/featured-background_hu5067c584f471b6c3bb350a9200aa2120_477310_960x540_fill_catmullrom_top_3.png); 
 }
 @media only screen and (min-width: 1200px) {
     #td-cover-block-0 {
-        background-image: url(/featured-background_hu5067c584f471b6c3bb350a9200aa2120_477310_1920x1080_fill_catmullrom_top_2.png); 
+        background-image: url(/featured-background_hu5067c584f471b6c3bb350a9200aa2120_477310_1920x1080_fill_catmullrom_top_3.png); 
     }
 }
 </style>
@@ -234,7 +234,7 @@ You should be the first to know when something breaks. Only then are you able to
 	<div class="container text-center td-arrow-down">
 		<span class="h4 mb-0">
 			<p><strong>&mdash; Can I get alerts when some metric go out of bounds? &mdash;</strong></p>
-<p>Yes! Butler SOS stores all data in an InfluxDB database, from where it is visualised using Grafana.</p>
+<p>Yes! Butler SOS stores all data in an InfluxDB and/or Prometheus database, from where it is visualised using Grafana.</p>
 <p>Both are best-in-class, open source products for storing and visualising time-series data.</p>
 <p>Grafana is increadibly feature rich, including a powerful alerting feature that can send alerts to email, IM tools (Slack etc), PagerDuty and more.</p>
 
@@ -254,9 +254,9 @@ You should be the first to know when something breaks. Only then are you able to
 	<div class="container text-center td-arrow-down">
 		<span class="h4 mb-0">
 			<p><strong>&mdash; We use system &lt;<em>our-preferred-monitoring–tool</em>&gt; for monitoring. Can it be used with Butler SOS? &mdash;</strong></p>
-<p>Yes, most likely. Butler SOS stores all metrics in InfluxDB, but also optionally sends metrics as MQTT messages.<br>
+<p>Yes, most likely. Butler SOS supports both InfluxDB and Prometheus, but also optionally sends metrics as MQTT messages.<br>
 If your main monitoring tool can use either of these as a data source, it can read data extracted by Butler SOS.</p>
-<p>If not natively supporting InfluxDB or MQTT, it is usually pretty easy to create a small tool that acts as a bridge between InfluxDB/MQTT and other systems.</p>
+<p>If not natively supporting InfluxDB, Prometheus or MQTT, it is usually pretty easy to create a small tool that acts as a bridge to other systems.</p>
 
 		</span>
 	</div>
@@ -265,7 +265,6 @@ If your main monitoring tool can use either of these as a data source, it can re
 
 
 
-<!-- 
 
 
  
@@ -273,30 +272,13 @@ If your main monitoring tool can use either of these as a data source, it can re
 <section class="row td-box td-box--5 td-box--gradient td-box--height-auto">
 	<div class="col">
 		<div class="row ">
-			<div class="col">
-<h1 class="text-center">This is the second Section</h1>
-</div>
-
-		</div>
-	</div>
-</section>
- -->
-
-
-
-
-
- 
-<a id="td-block-6" class="td-offset-anchor"></a>
-<section class="row td-box td-box--6 td-box--gradient td-box--height-auto">
-	<div class="col">
-		<div class="row ">
 			<div class="col-lg-4 mb-5 mb-lg-0 text-center ">
   <div class="mb-4 h1">
     <i class="fas fa-lightbulb"></i>
   </div>
-  <h4 class="h3">Latest release: 5.5</h4>
-  <p class="mb-0"><p>An armful of images.<br>
+  <h4 class="h3">Latest release: 6.0</h4>
+  <p class="mb-0"><p>Hello Prometheus!<br>
+Qlik Sense metrics exported to Prometheus.<br>
 Available on <a href="https://github.com/ptarmiganlabs/butler-sos/releases">GitHub</a>.</p>
 </p>
 </div>
@@ -305,7 +287,8 @@ Available on <a href="https://github.com/ptarmiganlabs/butler-sos/releases">GitH
     <i class="fab fa-github"></i>
   </div>
   <h4 class="h3">Contributions welcome!</h4>
-  <p class="mb-0"><p>We use a <a href="https://github.com/ptarmiganlabs/butler-sos/pulls">Pull Request</a> contributions workflow on <strong>GitHub</strong>. New developers are always welcome!</p>
+  <p class="mb-0"><p>We use a <a href="https://github.com/ptarmiganlabs/butler-sos/pulls">Pull Request</a> contributions workflow on <strong>GitHub</strong>.<br>
+New developers are always welcome!</p>
 </p>
 </div>
 <div class="col-lg-4 mb-5 mb-lg-0 text-center ">
@@ -331,8 +314,8 @@ Available on <a href="https://github.com/ptarmiganlabs/butler-sos/releases">GitH
 
 
  
-<a id="td-block-7" class="td-offset-anchor"></a>
-<section class="row td-box td-box--7 td-box--gradient td-box--height-auto">
+<a id="td-block-6" class="td-offset-anchor"></a>
+<section class="row td-box td-box--6 td-box--gradient td-box--height-auto">
 	<div class="col">
 		<div class="row ">
 			<div class="col-lg-4 mb-5 mb-lg-0 text-center ">
@@ -371,8 +354,8 @@ Available on <a href="https://github.com/ptarmiganlabs/butler-sos/releases">GitH
 
 
  
-<a id="td-block-8" class="td-offset-anchor"></a>
-<section class="row td-box td-box--8 td-box--gradient td-box--height-auto">
+<a id="td-block-7" class="td-offset-anchor"></a>
+<section class="row td-box td-box--7 td-box--gradient td-box--height-auto">
 	<div class="col">
 		<div class="row ">
 			<div class="col-12">

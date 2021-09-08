@@ -1,7 +1,7 @@
 ---
 title: "Connecting to a Qlik Sense server"
 linkTitle: "Sense server settings"
-weight: 20
+weight: 60
 description: >
   Details on how to configure the connection from Butler SOS to Qlik Sense Enterprise on Windows.
 ---
@@ -40,6 +40,8 @@ Butler-SOS:
 
 # Certificates to use when connecting to Sense. Get these from the Certificate Export in QMC.
   cert:
+    rejectUnauthorized: false           # Set to false to ignore warnings/errors caused by Qlik Sense's self-signed certificates.
+                                        # Set to true if the Qlik Sense root CA is available on the computer where Butler SOS is running.
     clientCert: <path/to/cert/client.pem>
     clientCertKey: <path/to/cert/client_key.pem>
     clientCertCA: <path/to/cert/root.pem>

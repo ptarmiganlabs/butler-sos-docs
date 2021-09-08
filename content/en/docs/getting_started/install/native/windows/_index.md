@@ -12,7 +12,7 @@ In this scenario, Butler SOS will run as a Node.js app on a Windows server.
 
 ### 1. Install Node.js
 
-Any recent Node version should work. If in doubt the [latest LTS version](https://nodejs.org/en/download/) is usually a good idea.
+Any recent Node version should work. If in doubt the [latest LTS version](https://nodejs.org/en/download/) is usually a good choice.
 
 ### 2. Select a directory from which Butler SOS will be run
 

@@ -74,6 +74,7 @@ A few things to keep in mind:
 | extractInfo | Should info entries be extracted from log db? true/false. <br>**NOTE:** If info level logging is enabled, this will result in lots of messages being stored in Influxdb (at least for a busy Sense cluster).  |
 |  |  |
 | **Butler-SOS.cert** |  |
+| rejectUnauthorized | Set to false to ignore warnings/errors caused by Qlik Sense's self-signed certificates. <br> Set to true if the Qlik Sense root CA is available on the computer where Butler SOS is running. |
 | clientCert | Certificate file. Exported from QMC |
 | clientCertKey | Certificate key file. Exported from QMC |
 | clientCertCA | Root certificate for above certificate files. Exported from QMC |
@@ -84,6 +85,11 @@ A few things to keep in mind:
 | brokerHost | IP or FQDN of MQTT broker |
 | brokerPort | Broker port |
 | baseTopic | The topic to which messages will be posted. Should end with /. For example butler-sos/ |
+|  |  |
+| **Butler-SOS.prometheus** |  |
+| enable | Should health metrics be made available for scraping on a Prometheus compatible API http endpoint? true/false |
+| host | IP on which the Prometheus compatible endpoint should be available. Using 0.0.0.0 will cause Butler SOS to listen on all available IPs.  |
+| port | Port on which the Prometheus compatible endpoint will be made available. |
 |  |  |
 | **Butler-SOS.influxdbConfig** |  |
 | enable | Should health metrics be stored in Influxdb? true/false |
@@ -99,6 +105,11 @@ A few things to keep in mind:
 | includeFields.<br>loadedDocs | Should a list of Sense apps opened in a user session be stored in Influxdb? true/false |
 | includeFields.<br>activeDocs | Should a list of Sense apps loaded into memory (some apps might not currently be associated with a user session) be stored in Influxdb? true/false |
 |  |  |
+| **Butler-SOS.appNames** |  |
+| enableAppNameExtract | Should app names be extracted from Qlik Sense server? true/false |
+| extractInterval | How often (milliseconds) should app names be extracted from Sense server? |
+| hostIP | IP or FQDN of Sense server from which app names should be extracted |
+|  |  |
 | **Butler-SOS.userSessions** |  |
 | enableSessionExtract | Influxdb password |
 | pollingInterval | Influxdb password |
@@ -106,6 +117,7 @@ A few things to keep in mind:
 |  |  |
 | **Butler-SOS.serversToMonitor** |  |
 | pollingInterval | How often to query the Sense healthcheck API |
+| rejectUnauthorized | Set to false to ignore warnings/errors caused by Qlik Sense's self-signed certificates. <br> Set to true if the Qlik Sense root CA is available on the computer where Butler SOS is running. |
 | serverTagsDefinition | List of tags to add to each server when storing the data in Influxdb. All tags defined here MUST be present in each server's definition section further down in the config file! |
 | servers | List of what servers to monitor. For each server a set of properties MUST be defined. |
 | servers.<br>host:4747 | FQDN of server. Domain should match that of the certificate exported from QMC - otherwise certificate warnings may appear. NOTE: You need to specify the port too - should be :4747 unless it's been changed from default value (*very* unusual to change this). |

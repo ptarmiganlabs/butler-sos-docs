@@ -1,7 +1,7 @@
 ---
 title: "Configure which Sense servers to monitor"
 linkTitle: "Servers to monitor"
-weight: 130
+weight: 120
 description:
 ---
 

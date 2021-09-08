@@ -25,7 +25,7 @@
         &lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
 &lt;p&gt;In this scenario, Butler SOS will run as a Node.js app on a Windows server.&lt;/p&gt;
 &lt;h3 id=&#34;1-install-nodejs&#34;&gt;1. Install Node.js&lt;/h3&gt;
-&lt;p&gt;Any recent Node version should work. If in doubt the &lt;a href=&#34;https://nodejs.org/en/download/&#34;&gt;latest LTS version&lt;/a&gt; is usually a good idea.&lt;/p&gt;
+&lt;p&gt;Any recent Node version should work. If in doubt the &lt;a href=&#34;https://nodejs.org/en/download/&#34;&gt;latest LTS version&lt;/a&gt; is usually a good choice.&lt;/p&gt;
 &lt;h3 id=&#34;2-select-a-directory-from-which-butler-sos-will-be-run&#34;&gt;2. Select a directory from which Butler SOS will be run&lt;/h3&gt;
 &lt;p&gt;This can be pretty much anywhere, in this example d:\tools\butler-sos will be used.&lt;/p&gt;
 &lt;h3 id=&#34;3-get-butler-sos&#34;&gt;3. Get Butler SOS&lt;/h3&gt;
@@ -38,7 +38,7 @@ New features are added, bugs fixed and security updates are applied in each vers
 &lt;p&gt;The configuration file is used the same way as when Butler SOS runs on Docker, with one exception:&lt;/p&gt;
 &lt;p&gt;The path to the certificates used to authenticate with Sense must be specified in the config file. With Docker the certificate path is always the same, but with Windows you need to specify where the certificate files are located.&lt;/p&gt;
 &lt;p&gt;For example, if the certificate files exported from Sense are stored in d:\secrets\sensecert, the config file would look like this when used on Windows:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;...&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;...&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Certificates to use when querying Sense for healthcheck data. Get these from the Certificate Export in QMC.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;cert&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;clientCert&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;d:\secrets\sensecert\client.pem&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
