@@ -97,7 +97,7 @@ services:
     volumes:
       # Make config file accessible outside of container
       - "./config:/nodeapp/config"
-      - "./logs:/nodeapp/logs"
+      - "./log:/nodeapp/log"
     environment:
       - "NODE_ENV=production"         # Means that Butler SOS will read config data from production.yaml 
     logging:
@@ -111,57 +111,39 @@ proton:butler-sos-docker goran$
 Ok, all good. Let's start Butler SOS using docker-compose (the exact output will depend on what version of Butler SOS you are using and what features you have enabled in the JSON/YAML config file):
 
 ```bash
-➜ docker-compose up
-Creating network "butler-sos_default" with the default driver
-Creating butler-sos ... done
+➜  butler-sos docker-compose up
+Recreating butler-sos ... done
 Attaching to butler-sos
-butler-sos    | 2021-08-05T09:16:53.487Z info: CONFIG: Influxdb enabled: true
-butler-sos    | 2021-08-05T09:16:53.490Z info: CONFIG: Influxdb host IP: 192.168.100.20
-butler-sos    | 2021-08-05T09:16:53.491Z info: CONFIG: Influxdb host port: 8086
-butler-sos    | 2021-08-05T09:16:53.491Z info: CONFIG: Influxdb db name: SenseOps
-butler-sos    | 2021-08-05T09:16:53.678Z info: CONFIG: Found InfluxDB database: SenseOps
-butler-sos    | 2021-08-05T09:16:53.783Z info: --------------------------------------
-butler-sos    | 2021-08-05T09:16:53.783Z info: Starting Butler SOS
-butler-sos    | 2021-08-05T09:16:53.784Z info: Log level: verbose
-butler-sos    | 2021-08-05T09:16:53.785Z info: App version: 5.6.2
-butler-sos    | 2021-08-05T09:16:53.786Z info:
-butler-sos    | 2021-08-05T09:16:53.786Z info: Node version   : v14.17.0
-butler-sos    | 2021-08-05T09:16:53.786Z info: Architecture   : x64
-butler-sos    | 2021-08-05T09:16:53.787Z info: Platform       : linux
-butler-sos    | 2021-08-05T09:16:53.787Z info: Release        : 9
-butler-sos    | 2021-08-05T09:16:53.788Z info: Distro         : Debian GNU/Linux
-butler-sos    | 2021-08-05T09:16:53.788Z info: Codename       : stretch
-butler-sos    | 2021-08-05T09:16:53.788Z info: Virtual        : false
-butler-sos    | 2021-08-05T09:16:53.789Z info: Processors     : 4
-butler-sos    | 2021-08-05T09:16:53.789Z info: Physical cores : 4
-butler-sos    | 2021-08-05T09:16:53.789Z info: Cores          : 4
-butler-sos    | 2021-08-05T09:16:53.790Z info: Docker arch.   : undefined
-butler-sos    | 2021-08-05T09:16:53.790Z info: Total memory   : 6235168768
-butler-sos    | 2021-08-05T09:16:53.790Z info: --------------------------------------
-butler-sos    | 2021-08-05T09:16:53.791Z info: Client cert: /nodeapp/config/certificate/client.pem
-butler-sos    | 2021-08-05T09:16:53.791Z info: Client cert key: /nodeapp/config/certificate/client_key.pem
-butler-sos    | 2021-08-05T09:16:53.791Z info: CA cert: /nodeapp/config/certificate/root.pem
-butler-sos    | 2021-08-05T09:16:53.793Z verbose: MAIN: Anonymous telemetry reporting has been set up.
-butler-sos    | 2021-08-05T09:16:53.794Z verbose: MAIN: Starting Docker healthcheck server...
-butler-sos    | 2021-08-05T09:16:53.811Z info: MAIN: Docker healthcheck server now listening
-butler-sos    | 2021-08-05T09:16:58.800Z verbose: APP NAMES: Event started: Get app names
-butler-sos    | 2021-08-05T09:16:59.056Z verbose: APP NAMES: Number of apps: 189
-butler-sos    | 2021-08-05T09:16:59.062Z info: APP NAMES: Done getting app names
-butler-sos    | 2021-08-05T09:17:00.623Z verbose: --------------------------------
-butler-sos    | 2021-08-05T09:17:00.623Z verbose: Iteration # 1, Uptime: 0 months, 0 days, 0 hours, 0 minutes, 7.008 seconds, Heap used 23.34 MB of total heap 58.13 MB. Memory allocated to process: 82.27 MB.
-butler-sos    | 2021-08-05T09:17:00.830Z verbose: MEMORY USAGE: Sent Butler SOS memory usage data to InfluxDB
-butler-sos    | 2021-08-05T09:17:03.798Z verbose: HEALTH: Event started: Statistics collection
-butler-sos    | 2021-08-05T09:17:03.799Z verbose: HEALTH: Getting stats for server: sense1
-butler-sos    | 2021-08-05T09:17:03.807Z verbose: HEALTH: Getting stats for server: sense2
-butler-sos    | 2021-08-05T09:17:03.815Z verbose: APP NAMES: Event started: Get app names
-butler-sos    | 2021-08-05T09:17:03.981Z verbose: HEALTH: Received ok response from pro2-win1.ptarmiganlabs.net
-butler-sos    | 2021-08-05T09:17:03.985Z verbose: HEALTH: Received ok response from pro2-win2.ptarmiganlabs.net
-butler-sos    | 2021-08-05T09:17:03.999Z verbose: APP NAMES: Number of apps: 189
-butler-sos    | 2021-08-05T09:17:04.002Z info: APP NAMES: Done getting app names
-butler-sos    | 2021-08-05T09:17:04.171Z verbose: HEALTH METRICS: Sent health data to Influxdb for server sense1
-butler-sos    | 2021-08-05T09:17:04.297Z verbose: HEALTH METRICS: Sent health data to Influxdb for server sense2
-butler-sos    | 2021-08-05T09:17:05.124Z verbose: MAIN: Docker healthcheck API endpoint called.
-...
+butler-sos    | 2021-09-08T06:43:27.890Z info: CONFIG: Influxdb enabled: true
+butler-sos    | 2021-09-08T06:43:27.892Z info: CONFIG: Influxdb host IP: 192.168.100.20
+butler-sos    | 2021-09-08T06:43:27.892Z info: CONFIG: Influxdb host port: 8086
+butler-sos    | 2021-09-08T06:43:27.892Z info: CONFIG: Influxdb db name: senseops
+butler-sos    | 2021-09-08T06:43:28.127Z info: --------------------------------------
+butler-sos    | 2021-09-08T06:43:28.127Z info: Starting Butler SOS
+butler-sos    | 2021-09-08T06:43:28.128Z info: Log level: info
+butler-sos    | 2021-09-08T06:43:28.128Z info: App version: 6.0.1
+butler-sos    | 2021-09-08T06:43:28.129Z info:
+butler-sos    | 2021-09-08T06:43:28.129Z info: Node version   : v14.17.6
+butler-sos    | 2021-09-08T06:43:28.129Z info: Architecture   : x64
+butler-sos    | 2021-09-08T06:43:28.130Z info: Platform       : linux
+butler-sos    | 2021-09-08T06:43:28.130Z info: Release        : 9
+butler-sos    | 2021-09-08T06:43:28.131Z info: Distro         : Debian GNU/Linux
+butler-sos    | 2021-09-08T06:43:28.131Z info: Codename       : stretch
+butler-sos    | 2021-09-08T06:43:28.131Z info: Virtual        : false
+butler-sos    | 2021-09-08T06:43:28.131Z info: Processors     : 4
+butler-sos    | 2021-09-08T06:43:28.131Z info: Physical cores : 4
+butler-sos    | 2021-09-08T06:43:28.132Z info: Cores          : 4
+butler-sos    | 2021-09-08T06:43:28.132Z info: Docker arch.   : undefined
+butler-sos    | 2021-09-08T06:43:28.132Z info: Total memory   : 6233116672
+butler-sos    | 2021-09-08T06:43:28.132Z info: --------------------------------------
+butler-sos    | 2021-09-08T06:43:28.133Z info: Client cert: /nodeapp/config/certificate/client.pem
+butler-sos    | 2021-09-08T06:43:28.133Z info: Client cert key: /nodeapp/config/certificate/client_key.pem
+butler-sos    | 2021-09-08T06:43:28.133Z info: CA cert: /nodeapp/config/certificate/root.pem
+butler-sos    | 2021-09-08T06:43:28.138Z info: USER ACTIVITY: UDP server listening on 0.0.0.0:9997
+butler-sos    | 2021-09-08T06:43:28.151Z info: MAIN: Started Docker healthcheck server on port 12398.
+butler-sos    | 2021-09-08T06:43:28.152Z info: MAIN: Starting Prometheus Butler SOS endpoint on 0.0.0.0:9842.
+butler-sos    | 2021-09-08T06:43:28.160Z info: PROM: Prometheus Butler SOS metrics server now listening on port 9842
+butler-sos    | 2021-09-08T06:43:28.161Z info: PROM: Prometheus Node.js metrics server now listening on port 0.0.0.0:9001...
 ...
 ```
 

@@ -180,7 +180,7 @@ services:
     volumes:
       &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Make config file accessible outside of container&lt;/span&gt;
       - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./config:/nodeapp/config&amp;#34;&lt;/span&gt;
-      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./logs:/nodeapp/logs&amp;#34;&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./log:/nodeapp/log&amp;#34;&lt;/span&gt;
     environment:
       - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;NODE_ENV=production&amp;#34;&lt;/span&gt;         &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Means that Butler SOS will read config data from production.yaml &lt;/span&gt;
     logging:
@@ -190,57 +190,39 @@ services:
         max-size: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5m&amp;#34;&lt;/span&gt;
 proton:butler-sos-docker goran$
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ok, all good. Let&amp;rsquo;s start Butler SOS using docker-compose (the exact output will depend on what version of Butler SOS you are using and what features you have enabled in the JSON/YAML config file):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜ docker-compose up
-Creating network &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;butler-sos_default&amp;#34;&lt;/span&gt; with the default driver
-Creating butler-sos ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  butler-sos docker-compose up
+Recreating butler-sos ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
 Attaching to butler-sos
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.487Z info: CONFIG: Influxdb enabled: &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.490Z info: CONFIG: Influxdb host IP: 192.168.100.20
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.491Z info: CONFIG: Influxdb host port: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8086&lt;/span&gt;
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.491Z info: CONFIG: Influxdb db name: SenseOps
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.678Z info: CONFIG: Found InfluxDB database: SenseOps
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.783Z info: --------------------------------------
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.783Z info: Starting Butler SOS
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.784Z info: Log level: verbose
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.785Z info: App version: 5.6.2
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.786Z info:
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.786Z info: Node version   : v14.17.0
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.786Z info: Architecture   : x64
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.787Z info: Platform       : linux
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.787Z info: Release        : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.788Z info: Distro         : Debian GNU/Linux
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.788Z info: Codename       : stretch
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.788Z info: Virtual        : &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.789Z info: Processors     : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.789Z info: Physical cores : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.789Z info: Cores          : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.790Z info: Docker arch.   : undefined
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.790Z info: Total memory   : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6235168768&lt;/span&gt;
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.790Z info: --------------------------------------
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.791Z info: Client cert: /nodeapp/config/certificate/client.pem
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.791Z info: Client cert key: /nodeapp/config/certificate/client_key.pem
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.791Z info: CA cert: /nodeapp/config/certificate/root.pem
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.793Z verbose: MAIN: Anonymous telemetry reporting has been &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; up.
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.794Z verbose: MAIN: Starting Docker healthcheck server...
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:53.811Z info: MAIN: Docker healthcheck server now listening
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:58.800Z verbose: APP NAMES: Event started: Get app names
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:59.056Z verbose: APP NAMES: Number of apps: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;189&lt;/span&gt;
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:16:59.062Z info: APP NAMES: Done getting app names
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:17:00.623Z verbose: --------------------------------
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:17:00.623Z verbose: Iteration &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 1, Uptime: 0 months, 0 days, 0 hours, 0 minutes, 7.008 seconds, Heap used 23.34 MB of total heap 58.13 MB. Memory allocated to process: 82.27 MB.&lt;/span&gt;
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:17:00.830Z verbose: MEMORY USAGE: Sent Butler SOS memory usage data to InfluxDB
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:17:03.798Z verbose: HEALTH: Event started: Statistics collection
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:17:03.799Z verbose: HEALTH: Getting stats &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; server: sense1
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:17:03.807Z verbose: HEALTH: Getting stats &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; server: sense2
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:17:03.815Z verbose: APP NAMES: Event started: Get app names
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:17:03.981Z verbose: HEALTH: Received ok response from pro2-win1.ptarmiganlabs.net
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:17:03.985Z verbose: HEALTH: Received ok response from pro2-win2.ptarmiganlabs.net
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:17:03.999Z verbose: APP NAMES: Number of apps: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;189&lt;/span&gt;
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:17:04.002Z info: APP NAMES: Done getting app names
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:17:04.171Z verbose: HEALTH METRICS: Sent health data to Influxdb &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; server sense1
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:17:04.297Z verbose: HEALTH METRICS: Sent health data to Influxdb &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; server sense2
-butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-08-05T09:17:05.124Z verbose: MAIN: Docker healthcheck API endpoint called.
-...
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:27.890Z info: CONFIG: Influxdb enabled: &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:27.892Z info: CONFIG: Influxdb host IP: 192.168.100.20
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:27.892Z info: CONFIG: Influxdb host port: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8086&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:27.892Z info: CONFIG: Influxdb db name: senseops
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.127Z info: --------------------------------------
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.127Z info: Starting Butler SOS
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.128Z info: Log level: info
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.128Z info: App version: 6.0.1
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.129Z info:
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.129Z info: Node version   : v14.17.6
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.129Z info: Architecture   : x64
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.130Z info: Platform       : linux
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.130Z info: Release        : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.131Z info: Distro         : Debian GNU/Linux
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.131Z info: Codename       : stretch
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.131Z info: Virtual        : &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.131Z info: Processors     : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.131Z info: Physical cores : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.132Z info: Cores          : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.132Z info: Docker arch.   : undefined
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.132Z info: Total memory   : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6233116672&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.132Z info: --------------------------------------
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.133Z info: Client cert: /nodeapp/config/certificate/client.pem
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.133Z info: Client cert key: /nodeapp/config/certificate/client_key.pem
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.133Z info: CA cert: /nodeapp/config/certificate/root.pem
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.138Z info: USER ACTIVITY: UDP server listening on 0.0.0.0:9997
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.151Z info: MAIN: Started Docker healthcheck server on port 12398.
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.152Z info: MAIN: Starting Prometheus Butler SOS endpoint on 0.0.0.0:9842.
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.160Z info: PROM: Prometheus Butler SOS metrics server now listening on port &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9842&lt;/span&gt;
+butler-sos    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-09-08T06:43:28.161Z info: PROM: Prometheus Node.js metrics server now listening on port 0.0.0.0:9001...
 ...
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once everything everything looks good you can stop the container (ctrl-C), then start it again in daemon mode (i.e. running unattended in the background):&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜ docker-compose up -d
