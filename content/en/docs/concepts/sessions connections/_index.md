@@ -10,19 +10,20 @@ Who are using the Sense environment right now?
 
 This is a very basic question a sysadmin will ask over and over again.  
 This question is answered in great detail by the excellent Operations Monitor app that comes with Qlik Sense out of the box.  
-But that app give a retrospective view of the data - it does not provide real-time insights.
+But that app gives a retrospective view of the data - it does not provide real-time insights.
 
 Butler SOS focus on the opposite: Give as close to real-time insights as possible into what's happening in the Sense environment.
 
 User behaviour is then an important metrics to track, more on this below.
 
-## Sessions
+## Proxy sessions
 
-A *session* starts when a user logs into Sense and ends when the user logs out or the session timeout is reached.  
+A *session*, or more precicely a *proxy session* starts when a user logs into Sense and ends when the user logs out or the session timeout is reached.  
 There may be some additional corner-case variants, but the above is the basic, high-level definition of a session.
 
 {{< notice tip >}}
-Some useful lingo: The events that can happen for sessions are that they can *start* and *stop*.  
+Some useful lingo: The events that can happen for sessions are that they can *start* and *stop*.
+
 They can also *timeout* if the user is inactive long enough (the exact time depends on settings in the QMC).
 {{< /notice >}}
 
@@ -32,6 +33,18 @@ On the other hand: If a user uses different browsers, incognito mode or similar,
 Mashups and similar scenarios where Sense objects are embedded into web apps may result in multiple sessions being created. Whether or not this happens largely depends on how the mashup was created.
 
 A good overview of what constitutes a session is found [here](https://community.qlik.com/t5/Knowledge-Base/How-to-count-sessions-in-Qlik-Sense/ta-p/1714209).
+
+### Proxy session vs engine sessions
+
+The proxy service is responsible for handling users connecting to Qlik Sense.
+
+When a user connects a *proxy session* is created - assuming the user has permissions to access Sense.  
+
+When interacting with individual charts in a Sense app, *engine sessions* are used to interact with the engine service.
+
+A user typically thus have one (or a few) proxy session and then a larger number of transient engine sessions.
+
+More info [here](https://help.qlik.com/en-US/sense-developer/November2021/Subsystems/Platform/Content/Sense_PlatformOverview/Concepts/sessions.htm).
 
 ## Connections
 

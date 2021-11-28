@@ -25,6 +25,9 @@ Get the desired [Butler SOS version](https://github.com/ptarmiganlabs/butler-sos
 Get the latest available version unless you have a *really* good reason to use an older version.  
 New features are added, bugs fixed and security updates are applied in each version - it's simply a good idea to use the latest version.
 
+Do not just clone the Butler SOS repository as that will give you the latest development version, which may not yet be fully tested and packaged.  
+The exception is of course if you want to contribute to Butler SOS development - then forking and cloning the repository is the right thing to do.
+
 ### 4. Install Node.js dependencies
 
 From d:\tools\butler-sos\src, run `npm i` to install the various Node.js modules used by Butler SOS. Depending on your server configuration you may get some warnings about (for example) Python not being installed, these can usually be ignored.

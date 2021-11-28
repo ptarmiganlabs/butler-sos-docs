@@ -9,6 +9,37 @@ menu:
 
 {{% pageinfo %}}
 
+### What's new in version 7.0
+
+This is a major release including features that have been on the roadmap for years, but never really graduated from the concept phase.  
+Until now, that is.
+
+The big thing in v7.0 is the addition of a generic way to handle QSEoW warning and error events.  
+These used to be written to both log files and the Sense log database, but with log db gone those events only exist in the log files.  
+
+Butler SOS can now handle these events and store them in InfluxDB or re-publish them as MQTT messages.  
+Grafana dashboards attached to InfluxDB gives you close to a real-time view into Sense errors and warnings.
+
+Or simply:  
+**Get the most important messages from the Sense log files sent in real-time to Butler SOS - and from there out into the world as needed.**
+
+⚠️ NOTE: Because of the significant nature of the changes below, this version includes some breaking changes.
+
+* ⚠️ Added support for dealing with individual QSEoW log events.  
+  Initially warning and error events from the proxy, scheduler and repository services are sent to Butler SOS.
+* MQTT topics matching the QSEoW subsystem where log events originated.  
+  When sending log events to MQTT, there's an option to send each log event to a MQTT subtopic corresponding to the QSEoW subsystem the event originated from. This is useful for 3rd party systems that want to detect (and probably take action based on) very specific QSEoW log events.  
+  For example, a log event from the `Service.Scheduler.Scheduler.Master.Task.TaskSession` subsystem in QSEoW would be posted to the topic `<some root topic>/service/scheduler/scheduler/master/task/tasksession`.
+* ⚠️ Improved handling of user activity events.  
+  These can now be sent to zero or more different MQTT topics, each covering a specific kind of user activity (start/stop session, open/close connection etc).
+* ⚠️ Take the first step towards removing support for QSEoW log db in Butler SOS.  
+  There is no date set yet when log db support will be removed, but at some point that's likely to happen.  
+  * In this release the previously existing InfluxDB measure `log_event` has been renamed to `log_event_logdb`.  
+  * The new log events introduced in v7.0 will be stored in the `log_event` message going forward.
+* The [later](https://github.com/bunkat/later) library is no longer maintained and has been replaced by [@breejs/later](https://github.com/breejs/later).
+* All libraries used by Butler SOS updated to latest versions.
+* Documentation site updated with respect to v7.0.
+
 ### What's new in version 6.0
 
 First, while the switch to 6.0 indicate there are breaking changes, that's not entirely true.
@@ -37,7 +68,7 @@ Plenty of testing has been done, but in order to highlight that lots of changes 
 * Continuing the journey towards using the same formatting principles in the config files for all the various Butler tools.  
   In Butler SOS' config file there's been a mix between "enabled", "enable", "enableMqtt" etc to tell whether a certain feature should be enabled or not. Confusing.
   We're moving towards only using "enable" for this. This release changes this for most config file entries.
-  Rest assured though, the old format will still work - but you are **strongly** recommended to adapt the [current config file format](/docs/reference/config_file_format/) as it incldes settings for other new (as of version 5.6) features too.
+  Rest assured though, the old format will still work - but you are **strongly** recommended to adapt the [current config file format](/docs/reference/config_file_format/) as it includes settings for other new (as of version 5.6) features too.
 * Major refactoring of the documentation site [butler-sos.ptarmiganlabs.com](https://butler-sos.ptarmiganlabs.com). This site is now more aligned with other Butler sites, for example [butler.ptarmiganlabs.com](https://butler.ptarmiganlabs.com).
 * Various bug fixes, performance improvements and fixed typos.
 

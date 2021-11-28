@@ -87,7 +87,45 @@ It is also available as a &lt;a href=&#34;https://hub.docker.com/r/ptarmiganlabs
       <description>
         
         
-        
+        &lt;h2 id=&#34;selecting-an-os&#34;&gt;Selecting an OS&lt;/h2&gt;
+&lt;p&gt;While Qlik Sense Enterprise is a Windows only system, Butler SOS should be able to run on any OS where Node.js is available.&lt;br&gt;
+Butler SOS has been succesfully used as a native Node.js app - during development and production - on Windows, Linux (Debian and Ubuntu tested) and mac OS.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;What&lt;/th&gt;
+&lt;th&gt;Comment&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Qlik Sense Enterprise on Windows&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler SOS is developed with Qlik Sense Enterprise on Windows (QSEoW) in mind. &lt;br&gt;Butler SOS is simply not intended to work with Sense Desktop or Sense cloud.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Node.js&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler SOS is written in Node - which is thus a firm requirement.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MQTT broker&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; MQTT is used for outbound pub-sub messaging. Butler SOS assumes a working MQTT broker is available, the IP of which is defined in the Butler SOS config file. &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; is a great open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&amp;hellip; instance is enough, if you want a dedicated MQTT server. If you don&amp;rsquo;t care about the pubsub features of Butler SOS, you don&amp;rsquo;t need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.influxdata.com/time-series-platform/&#34;&gt;InfluxDB&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Use at least one of InfluxDB and Prometheus.&lt;/em&gt; An open source database for realtime information, used to store metrics around Butler&amp;rsquo;s own memory usage over time (if this feature is enabled).&lt;br&gt; At this point more metrics and events are sent to InfluxDB, compared to Prometheus.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://prometheus.io&#34;&gt;Prometheus&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Use at least one of InfluxDB and Prometheus.&lt;/em&gt; The de-facto standard open source tool for metrics gathering in large-scale systems, including Kubernetes. A bit more complex to set up and configure compared to InfluxDB, but also more focused on providing observability features.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://grafana.com&#34;&gt;Grafana&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; The de-facto open source standard for showing real-time metrics. In order to visualise Sense realtime metrics in Grafana you must enable at least one of InfluxDB or Prometheus.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
       </description>
     </item>
     

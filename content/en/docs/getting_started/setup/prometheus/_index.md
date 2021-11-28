@@ -1,7 +1,7 @@
 ---
 title: "Setting up Prometheus"
 linkTitle: "Prometheus"
-weight: 80
+weight: 140
 description: >
   Butler SOS can store metrics in Prometheus.
 ---
@@ -16,11 +16,11 @@ Do note though that Butler expects the configuration properties below to exist i
 
 ## What's this?
 
-[Prometheus](https://prometheus.io) is the de-facto standard, open source tool-set for achieving observability of small and large scale IT systems.
+[Prometheus](https://prometheus.io) is the de-facto standard, open source tool for achieving observability of both small, large and huge IT systems.
 
 At its heart Prometheus contains a time-series databas optimized for storing various kinds of measurements. It has strong support for doing dimensional queries, great integrations with incident managament tools and more.
 
-Looking at the visualisation side of things, Prometheus is Grafana's preferred source for time-series data.
+Looking at the visualisation side of things, Prometheus is Grafana's preferred source for time-series data. Put differently, Prometheus has some query features that InfluxDB lack, thus making some Grafana diagrams easier to create using Prometheus vs InfluxDB. The difference is minor though.
 
 ## Settings in main config file
 

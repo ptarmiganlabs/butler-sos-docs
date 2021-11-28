@@ -4,30 +4,7 @@ description = "How can Butler SOS be used?"
 weight = 30
 +++
 
-Below follow an overview of what Butler SOS can be used for.
-
 A complete list of metrics is available in the [reference section](/docs/reference/available_metrics/).
-
-## Monitor server metrics
-
-Some basic server metrics (free RAM and CPU load) are monitored by Butler SOS. You may have other, dedicated server monitoring tools too - Butler SOS does not replace these.  
-It's however often convenient to have both server and Sense metrics side by side, thus Butler SOS includes some of the more important server metrics in addition to the Sense ones.
-
-These metrics are only stored in InfluxDB/Prometheus, i.e. not sent as MQTT messages.
-
-### Available memory/RAM
-
-As Qlik Sense is an in-memory analytics tool you *really* want to ensure that there is always available memory for users' apps.  
-If your Sense server runs out of memory it's basically game over.
-Now, Sense is usually does a very good job to reclaim unused memory, but it's still critically important to monitor memory usage.  
-
-One error scenario that's hard or impossible to catch without Butler SOS style monitoring is that of apps with cartesian products in them.  
-They can easily consume tens of hundreds GByte of RAM within seconds, bringing a Sense server to a halt.  
-Butler SOS has more than once proven its value when debugging this specific issue.
-
-### CPU load
-
-If a server is heavily loaded it will eventually be seen as slow(er) by end users, with associated badwill accumulating.  
 
 ## Monitor Qlik Sense metrics
 
@@ -36,7 +13,8 @@ Butler SOS can be configured to store these metrics in InfluxDB/Prometheus and/o
 
 ### Session count
 
-A session is essentially a user logging into Sense.  
+A session (or more specifically, a "proxy session") is created when a user logs into Sense.  
+The session is typically reused when a user opens additional apps.  
 Knowing how many users are logged at any given time gives a Sense admin an understanding of when peak hours are, when service windows should be planed, whether the server(s) is too small or too big etc.
 
 The session metrics are arguably among the most important ones provided by Butler SOS
@@ -50,11 +28,9 @@ These metrics provide useful insights into the degree to which loaded apps are a
 
 A couple of bonus metrics are also included: Number of calls made to the Qlik associative engine and number of selections done by users in the engine. Not really useful as such, but they do serve as a good relative measurement of how active users are between days/weeks/months. 
 
-### User events
-
 ### Cache status
 
-The cachine of applications in RAM is one of Qlik's classic selling points. But is it really working?
+The caching of applications in RAM is one of Qlik's classic selling points. But is it really working?
 
 Butler SOS provides a set of metrics (bytes added to cache, lookups, cache hits/misses etc) that give hard numbers to the question of whether the cache is working or not.
 
@@ -62,13 +38,83 @@ While this is probably not as interesting from an operational perspective as use
 
 For example, if the cache hit ration goes down over weeks or months, that could mean a poorer user experience over that same time period.
 
-## Qlik Sense errors & warning
+## Monitor server metrics
 
-The Sense logs are always available on the Sense servers, the problem is that they are hard to reach there - at least in real time.
+Some basic server metrics (free RAM and CPU load) are monitored by Butler SOS. You may have other, dedicated server monitoring tools too - Butler SOS does not replace these.  
+It's however often convenient to have both server and Sense metrics side by side, thus Butler SOS includes some of the more important server metrics in addition to the Sense ones.
+
+These metrics are only stored in InfluxDB/Prometheus, i.e. not sent as MQTT messages.
+
+### Available memory/RAM
+
+As Qlik Sense is an in-memory analytics tool you *really* want to ensure that there is always available memory for users' apps.  
+If your Sense server runs out of memory it's basically game over.
+Now, Sense usually does a very good job reclaiming unused memory, but it's still critically important to monitor memory usage.  
+
+One error scenario that's hard or impossible to catch without Butler SOS style monitoring is that of apps with cartesian products in them.  
+They can easily consume tens of hundreds GByte of RAM within seconds, bringing a Sense server to a halt.  
+Butler SOS has more than once proven its value when debugging this specific issue.
+
+### CPU load
+
+If a server is heavily loaded it will eventually be seen as slow(er) by end users, with associated badwill accumulating.  
+
+## Log events: Qlik Sense errors & warning
+
+The Sense logs are always available on the Sense servers, the problem is that they are hard to reach there - at least in real time.  
+Retrospective analysis is also cumbersome, you basically have to manually dig up the specific log files of interest and then search them for the information of interest.
+
+Butler SOS simplifies this greatly by having select log events (warnings, errors and fatals by default) sent from the Sense servers to Butler SOS.  
+Once such a log event message arrives, Butler SOS will store it in its database (for example InfluxDB), from where the log event can be visualised using Grafana.  
+
+Log events are also re-published as MQTT messages. This makes it trivial for 3rd party systems to trigger actions when certain log events occur in Qlik Sense.  
 
 Butler SOS pulls errors and/or warnings from the log database and store them in InfluxDB.  
 This can be increadibly useful information when used in Grafana dashboars: Visuallu seeing lots of errors arriving in a short time period is a strong indication something is not right.  
 
-Add Grafana alerts and you have a very close to real-time error/warning monitoring solution.
+Add Grafana or Prometheus alerts and you have a very capable, close to real-time error/warning monitoring solution.
 
-NOTE! Errors and warnings are not stored in Prometheus!
+## The log database
+
+The log database in Qlik Sense Enterprise on Windows is deprecated as of late 2021.  
+Butler SOS still maintains support for older QSEoW versions. At some point in the future this support is however likely to be removed.
+
+This feature relies on Butler SOS querying log db with certain intervals (typically every few minutes).  
+A list of recent log events are returned to Butler SOS. The events are de-duplicated before stored in InfluxDB.
+
+This essentially achieve the same thing as the more modern log event feature of Butler SOS - but with longer delays.
+The log event model is almost instantaneous whereas the log db polling will be its very nature result in non real-time data.
+
+## User activity events
+
+Detailed events are avilable for all users:  
+
+* Session start
+* Session stop
+* Connection open
+* Connection close
+
+These events are both stored in InfluxDB and re-published as MQTT messages.  
+
+Usually it's enough to track how many users are currently using the Qlik Sense system.  
+Exactly *what* users are usually of less interest.
+
+At times you may want more detailed insights though. Then these events are increadibly useful.
+
+For example:  
+
+* Sometimes network issues cause some users' browsers to start many new sessions instead of re-using existing sessions.  
+  This can result in the proxy service overloading and making access to Sense slow for all users.  
+  Butler SOS makes it easy to detect this. Just create a Grafana chart that shows number of `session start` events over time, attach an alert that goes off if number of new sessions per minute is too high.
+* Let's say a specific user has troubles using Sense apps as intended, or a user is suspected of causing excessive RAM/CPU usage.  
+  Subscribe to the MQTT user activity messages coming from Butler SOS, filtering out just the user(s) of interest.  
+  Get a notification the very moment the user connects to Sense after which you can follow in real time what happens with the system. Does CPU go up? Free RAM goes down? Which apps are loaded?
+
+You can also use the MQTT message to create your personal disco light, controlled by your Sense users connecting and dropping off the Sense server...
+
+Green = User opening a connection to Sense  
+Red = User closing connection to Sense
+
+From [YouTube](https://www.youtube.com/watch?v=T_IxQYdoqJA).
+
+{{< youtube id="T_IxQYdoqJA" modestbranding=true color="red">}}

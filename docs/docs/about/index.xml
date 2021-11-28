@@ -27,6 +27,10 @@
 &lt;p&gt;At different times different metrics will be of interest.&lt;br&gt;
 For that reason Butler SOS stores all metrics from Sense in a time-series databse (InfluxDB and Prometheus both supported), from which dashboards, reports etc can then be created using tools such as Grafana.&lt;br&gt;
 Grafana is an open source, world-class visualisation tool for time series data. It also has great alerting features and integrate with all kinds of alerting solutions and IM tools.&lt;/p&gt;
+&lt;p&gt;Metrics are a major component of operational monitoring, but it&amp;rsquo;s also important to keep on top of what errors and warning occur in the system.&lt;br&gt;
+As of late 2021 the log database is no longer part of QSEoW, with the log files the only place where you can find those errors and warnings.&lt;br&gt;
+Butler SOS address this by sending log events in real-time from QSEoW to Butler SOS, which then stores them in its database and/or re-publish them as MQTT messages.&lt;br&gt;
+This basically means you will very rarely have to plow through endless log files to find information about warnings and errors that have occured.&lt;/p&gt;
 &lt;p&gt;There is also a clear goal that Butler SOS should be very configurable.&lt;br&gt;
 In practice this means that features can be turned on/off as needed, improving security and lowering memory usage.&lt;/p&gt;
 &lt;p&gt;Butler SOS is written in &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; and runs on most modern operating systems.&lt;/p&gt;
@@ -46,23 +50,28 @@ In practice this means that features can be turned on/off as needed, improving s
         
         
         &lt;p&gt;Butler started out with a very specific need to start Sense reloads from outside systems.&lt;br&gt;
-Over the years a couple of projects have spun off from Butler (for example Butler SOS), and still other projects have been created to solve specific challenges around developing Sense apps (for example the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-app-duplicator&#34;&gt;Butler App Duplicator&lt;/a&gt;) or simplifying day 2 operations ([&lt;a href=&#34;https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html&#34;&gt;1&lt;/a&gt;], [&lt;a href=&#34;https://dzone.com/articles/defining-day-2-operations&#34;&gt;2&lt;/a&gt;]) in the form of &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;Butler SOS&lt;/a&gt;.&lt;/p&gt;
+Over the years a few projects (for example Butler SOS, which simplifies day 2 operations ([&lt;a href=&#34;https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html&#34;&gt;1&lt;/a&gt;], [&lt;a href=&#34;https://dzone.com/articles/defining-day-2-operations&#34;&gt;2&lt;/a&gt;]) have spun off from the original Butler project, and still other projects have been created from scratch to solve specific challenges around developing Sense apps and running Qlik Sense server environments.&lt;/p&gt;
 &lt;p&gt;All members of the Butler family are available on &lt;a href=&#34;https://github.com/ptarmiganlabs&#34;&gt;Ptarmigan Labs&#39; GitHub page&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Projects with production grade release status are (as of this writing):&lt;/p&gt;
 &lt;h3 id=&#34;butler&#34;&gt;Butler&lt;/h3&gt;
 &lt;p&gt;The original Butler. Offers various utilities that make it easier to develop Sense apps, as well as simplifying day 2 operations.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https:/butler.ptarmiganlabs.com&#34;&gt;butler.ptarmiganlabs.com&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;butler-sos&#34;&gt;Butler SOS&lt;/h3&gt;
-&lt;p&gt;Real-time operational metrics for Qlik Sense. A must-have if you are responsible for a Sense environment with more than a dozen or so users. Butler SOS makes it possible to detect and alert on issues as they happen, rather than in retrospect much later.&lt;/p&gt;
+&lt;p&gt;Real-time operational metrics for Qlik Sense. A must-have if you are responsible for a Sense environment with more than a dozen or so users.&lt;/p&gt;
+&lt;p&gt;Butler SOS makes it possible to detect and alert on issues as they happen, rather than in retrospect much later.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;butler-sos.ptarmiganlabs.com&lt;/a&gt;. (This site!)&lt;/p&gt;
-&lt;h3 id=&#34;butler-cw&#34;&gt;Butler CW&lt;/h3&gt;
-&lt;p&gt;Butler Cache Warmer. Cache warming is the process of proactively forcing Sense apps to be loaded into RAM, so they are readily available when users open them. Once again - if your Sense environment serve more than a dozen users, you should consider a cache warming tool.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-cw&#34;&gt;github.com/ptarmiganlabs/butler-cw&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;butler-sheet-icons&#34;&gt;Butler Sheet Icons&lt;/h3&gt;
-&lt;p&gt;Qlik Sense developers are often asked to use mini versions (&amp;ldquo;thumbnails&amp;rdquo;) of the Sense app&amp;rsquo;s sheets instead of the generic icons provided by Qlik Sense.&lt;br&gt;
-Butler Sheet Icons automates the process of creating sheet icons for individual apps (or all apps in a Sense site!).&lt;br&gt;
-The tool can be used stand-along or as part of an automated release process.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sheet-icons&#34;&gt;https://github.com/ptarmiganlabs/butler-sheet-icons&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Automates the creation of sheet icons for Qlik Sense Enterprise on Windows (QSEoW) applications.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s a cross platform command line tool which given the correct Sense credentials will take screen shots of all sheets in a Sense app (or all apps on a Sense server!), then create thumbnail versions of those screenshots.&lt;br&gt;
+Finally those thumbnails will be set as sheet icons.&lt;/p&gt;
+&lt;p&gt;No more manual screenshot taking, resizing images, navigating hundreds of sheets in dozens of apps.&lt;br&gt;
+Start Butler Sheet Icons instead and go get a nice &lt;a href=&#34;https://www.swedishfood.com/fika&#34;&gt;fika&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The tool can be used stand-along or as part of an automated release process.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sheet-icons&#34;&gt;https://github.com/ptarmiganlabs/butler-sheet-icons&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-cw&#34;&gt;Butler CW&lt;/h3&gt;
+&lt;p&gt;Butler Cache Warmer. Cache warming is the process of proactively forcing Sense apps to be loaded into RAM, so they are readily available when users open them.&lt;br&gt;
+Using Butler CW is an easy way to make your end users&#39; experience of Sense a little better.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-cw&#34;&gt;github.com/ptarmiganlabs/butler-cw&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;butler-app-duplicator&#34;&gt;Butler App Duplicator&lt;/h3&gt;
 &lt;p&gt;No matter if you are a single developer creating Sense apps, or have lots of developers doing this, having app templates is a good idea:&lt;/p&gt;
 &lt;ul&gt;
@@ -79,9 +88,8 @@ The tool can be used stand-along or as part of an automated release process.&lt;
 &lt;p&gt;This tool makes it easy to tap into the Qlik Sense notification API. From there you can get all kinds of notifications, including task reload failures and changes in session state (user login/logout etc).&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-notifier&#34;&gt;github.com/ptarmiganlabs/butler-notifier&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;butler-icon-uploader&#34;&gt;Butler Icon Uploader&lt;/h3&gt;
-&lt;p&gt;Visual looks is important when it comes to analytics, and this holds true also for Sense apps.
-The Butler Icon Uploader makes it easy to upload icon libraries (for example Font Awesome) to Qlik Sense Enterprise.&lt;br&gt;
-With such icons available it is then easy for app developers to use professional quality sheet and app icons in their Sense apps.&lt;/p&gt;
+&lt;p&gt;Visual looks is important when it comes to analytics, and this holds true also for Sense apps.&lt;/p&gt;
+&lt;p&gt;The Butler Icon Uploader makes it easy to upload icon libraries (for example Font Awesome) to Qlik Sense Enterprise. With such icons available it is then easy for app developers to use professional quality sheet and app icons in their Sense apps.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-icon-upload&#34;&gt;github.com/ptarmiganlabs/butler-icon-upload&lt;/a&gt;&lt;/p&gt;
 
       </description>
@@ -96,26 +104,13 @@ With such icons available it is then easy for app developers to use professional
       <description>
         
         
-        &lt;p&gt;Below follow an overview of what Butler SOS can be used for.&lt;/p&gt;
-&lt;p&gt;A complete list of metrics is available in the &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/&#34;&gt;reference section&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;monitor-server-metrics&#34;&gt;Monitor server metrics&lt;/h2&gt;
-&lt;p&gt;Some basic server metrics (free RAM and CPU load) are monitored by Butler SOS. You may have other, dedicated server monitoring tools too - Butler SOS does not replace these.&lt;br&gt;
-It&amp;rsquo;s however often convenient to have both server and Sense metrics side by side, thus Butler SOS includes some of the more important server metrics in addition to the Sense ones.&lt;/p&gt;
-&lt;p&gt;These metrics are only stored in InfluxDB/Prometheus, i.e. not sent as MQTT messages.&lt;/p&gt;
-&lt;h3 id=&#34;available-memoryram&#34;&gt;Available memory/RAM&lt;/h3&gt;
-&lt;p&gt;As Qlik Sense is an in-memory analytics tool you &lt;em&gt;really&lt;/em&gt; want to ensure that there is always available memory for users&#39; apps.&lt;br&gt;
-If your Sense server runs out of memory it&amp;rsquo;s basically game over.
-Now, Sense is usually does a very good job to reclaim unused memory, but it&amp;rsquo;s still critically important to monitor memory usage.&lt;/p&gt;
-&lt;p&gt;One error scenario that&amp;rsquo;s hard or impossible to catch without Butler SOS style monitoring is that of apps with cartesian products in them.&lt;br&gt;
-They can easily consume tens of hundreds GByte of RAM within seconds, bringing a Sense server to a halt.&lt;br&gt;
-Butler SOS has more than once proven its value when debugging this specific issue.&lt;/p&gt;
-&lt;h3 id=&#34;cpu-load&#34;&gt;CPU load&lt;/h3&gt;
-&lt;p&gt;If a server is heavily loaded it will eventually be seen as slow(er) by end users, with associated badwill accumulating.&lt;/p&gt;
+        &lt;p&gt;A complete list of metrics is available in the &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/&#34;&gt;reference section&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;monitor-qlik-sense-metrics&#34;&gt;Monitor Qlik Sense metrics&lt;/h2&gt;
 &lt;p&gt;This is the main use case for Butler SOS, with a large number of monitored metrics.&lt;br&gt;
 Butler SOS can be configured to store these metrics in InfluxDB/Prometheus and/or send them as MQTT messages.&lt;/p&gt;
 &lt;h3 id=&#34;session-count&#34;&gt;Session count&lt;/h3&gt;
-&lt;p&gt;A session is essentially a user logging into Sense.&lt;br&gt;
+&lt;p&gt;A session (or more specifically, a &amp;ldquo;proxy session&amp;rdquo;) is created when a user logs into Sense.&lt;br&gt;
+The session is typically reused when a user opens additional apps.&lt;br&gt;
 Knowing how many users are logged at any given time gives a Sense admin an understanding of when peak hours are, when service windows should be planed, whether the server(s) is too small or too big etc.&lt;/p&gt;
 &lt;p&gt;The session metrics are arguably among the most important ones provided by Butler SOS&lt;/p&gt;
 &lt;h3 id=&#34;applications&#34;&gt;Applications&lt;/h3&gt;
@@ -123,18 +118,70 @@ Knowing how many users are logged at any given time gives a Sense admin an under
 In-memory and active applications are also tracked in the same way.&lt;/p&gt;
 &lt;p&gt;These metrics provide useful insights into the degree to which loaded apps are actually used and to what degree caching is in effect.&lt;/p&gt;
 &lt;p&gt;A couple of bonus metrics are also included: Number of calls made to the Qlik associative engine and number of selections done by users in the engine. Not really useful as such, but they do serve as a good relative measurement of how active users are between days/weeks/months.&lt;/p&gt;
-&lt;h3 id=&#34;user-events&#34;&gt;User events&lt;/h3&gt;
 &lt;h3 id=&#34;cache-status&#34;&gt;Cache status&lt;/h3&gt;
-&lt;p&gt;The cachine of applications in RAM is one of Qlik&amp;rsquo;s classic selling points. But is it really working?&lt;/p&gt;
+&lt;p&gt;The caching of applications in RAM is one of Qlik&amp;rsquo;s classic selling points. But is it really working?&lt;/p&gt;
 &lt;p&gt;Butler SOS provides a set of metrics (bytes added to cache, lookups, cache hits/misses etc) that give hard numbers to the question of whether the cache is working or not.&lt;/p&gt;
 &lt;p&gt;While this is probably not as interesting from an operational perspective as user session counts, RAM usage and errors/warnings from the Sense logs, the cache metrics should definitely be monitored over medium timespans.&lt;/p&gt;
 &lt;p&gt;For example, if the cache hit ration goes down over weeks or months, that could mean a poorer user experience over that same time period.&lt;/p&gt;
-&lt;h2 id=&#34;qlik-sense-errors--warning&#34;&gt;Qlik Sense errors &amp;amp; warning&lt;/h2&gt;
-&lt;p&gt;The Sense logs are always available on the Sense servers, the problem is that they are hard to reach there - at least in real time.&lt;/p&gt;
+&lt;h2 id=&#34;monitor-server-metrics&#34;&gt;Monitor server metrics&lt;/h2&gt;
+&lt;p&gt;Some basic server metrics (free RAM and CPU load) are monitored by Butler SOS. You may have other, dedicated server monitoring tools too - Butler SOS does not replace these.&lt;br&gt;
+It&amp;rsquo;s however often convenient to have both server and Sense metrics side by side, thus Butler SOS includes some of the more important server metrics in addition to the Sense ones.&lt;/p&gt;
+&lt;p&gt;These metrics are only stored in InfluxDB/Prometheus, i.e. not sent as MQTT messages.&lt;/p&gt;
+&lt;h3 id=&#34;available-memoryram&#34;&gt;Available memory/RAM&lt;/h3&gt;
+&lt;p&gt;As Qlik Sense is an in-memory analytics tool you &lt;em&gt;really&lt;/em&gt; want to ensure that there is always available memory for users&#39; apps.&lt;br&gt;
+If your Sense server runs out of memory it&amp;rsquo;s basically game over.
+Now, Sense usually does a very good job reclaiming unused memory, but it&amp;rsquo;s still critically important to monitor memory usage.&lt;/p&gt;
+&lt;p&gt;One error scenario that&amp;rsquo;s hard or impossible to catch without Butler SOS style monitoring is that of apps with cartesian products in them.&lt;br&gt;
+They can easily consume tens of hundreds GByte of RAM within seconds, bringing a Sense server to a halt.&lt;br&gt;
+Butler SOS has more than once proven its value when debugging this specific issue.&lt;/p&gt;
+&lt;h3 id=&#34;cpu-load&#34;&gt;CPU load&lt;/h3&gt;
+&lt;p&gt;If a server is heavily loaded it will eventually be seen as slow(er) by end users, with associated badwill accumulating.&lt;/p&gt;
+&lt;h2 id=&#34;log-events-qlik-sense-errors--warning&#34;&gt;Log events: Qlik Sense errors &amp;amp; warning&lt;/h2&gt;
+&lt;p&gt;The Sense logs are always available on the Sense servers, the problem is that they are hard to reach there - at least in real time.&lt;br&gt;
+Retrospective analysis is also cumbersome, you basically have to manually dig up the specific log files of interest and then search them for the information of interest.&lt;/p&gt;
+&lt;p&gt;Butler SOS simplifies this greatly by having select log events (warnings, errors and fatals by default) sent from the Sense servers to Butler SOS.&lt;br&gt;
+Once such a log event message arrives, Butler SOS will store it in its database (for example InfluxDB), from where the log event can be visualised using Grafana.&lt;/p&gt;
+&lt;p&gt;Log events are also re-published as MQTT messages. This makes it trivial for 3rd party systems to trigger actions when certain log events occur in Qlik Sense.&lt;/p&gt;
 &lt;p&gt;Butler SOS pulls errors and/or warnings from the log database and store them in InfluxDB.&lt;br&gt;
 This can be increadibly useful information when used in Grafana dashboars: Visuallu seeing lots of errors arriving in a short time period is a strong indication something is not right.&lt;/p&gt;
-&lt;p&gt;Add Grafana alerts and you have a very close to real-time error/warning monitoring solution.&lt;/p&gt;
-&lt;p&gt;NOTE! Errors and warnings are not stored in Prometheus!&lt;/p&gt;
+&lt;p&gt;Add Grafana or Prometheus alerts and you have a very capable, close to real-time error/warning monitoring solution.&lt;/p&gt;
+&lt;h2 id=&#34;the-log-database&#34;&gt;The log database&lt;/h2&gt;
+&lt;p&gt;The log database in Qlik Sense Enterprise on Windows is deprecated as of late 2021.&lt;br&gt;
+Butler SOS still maintains support for older QSEoW versions. At some point in the future this support is however likely to be removed.&lt;/p&gt;
+&lt;p&gt;This feature relies on Butler SOS querying log db with certain intervals (typically every few minutes).&lt;br&gt;
+A list of recent log events are returned to Butler SOS. The events are de-duplicated before stored in InfluxDB.&lt;/p&gt;
+&lt;p&gt;This essentially achieve the same thing as the more modern log event feature of Butler SOS - but with longer delays.
+The log event model is almost instantaneous whereas the log db polling will be its very nature result in non real-time data.&lt;/p&gt;
+&lt;h2 id=&#34;user-activity-events&#34;&gt;User activity events&lt;/h2&gt;
+&lt;p&gt;Detailed events are avilable for all users:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Session start&lt;/li&gt;
+&lt;li&gt;Session stop&lt;/li&gt;
+&lt;li&gt;Connection open&lt;/li&gt;
+&lt;li&gt;Connection close&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These events are both stored in InfluxDB and re-published as MQTT messages.&lt;/p&gt;
+&lt;p&gt;Usually it&amp;rsquo;s enough to track how many users are currently using the Qlik Sense system.&lt;br&gt;
+Exactly &lt;em&gt;what&lt;/em&gt; users are usually of less interest.&lt;/p&gt;
+&lt;p&gt;At times you may want more detailed insights though. Then these events are increadibly useful.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sometimes network issues cause some users&#39; browsers to start many new sessions instead of re-using existing sessions.&lt;br&gt;
+This can result in the proxy service overloading and making access to Sense slow for all users.&lt;br&gt;
+Butler SOS makes it easy to detect this. Just create a Grafana chart that shows number of &lt;code&gt;session start&lt;/code&gt; events over time, attach an alert that goes off if number of new sessions per minute is too high.&lt;/li&gt;
+&lt;li&gt;Let&amp;rsquo;s say a specific user has troubles using Sense apps as intended, or a user is suspected of causing excessive RAM/CPU usage.&lt;br&gt;
+Subscribe to the MQTT user activity messages coming from Butler SOS, filtering out just the user(s) of interest.&lt;br&gt;
+Get a notification the very moment the user connects to Sense after which you can follow in real time what happens with the system. Does CPU go up? Free RAM goes down? Which apps are loaded?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can also use the MQTT message to create your personal disco light, controlled by your Sense users connecting and dropping off the Sense server&amp;hellip;&lt;/p&gt;
+&lt;p&gt;Green = User opening a connection to Sense&lt;br&gt;
+Red = User closing connection to Sense&lt;/p&gt;
+&lt;p&gt;From &lt;a href=&#34;https://www.youtube.com/watch?v=T_IxQYdoqJA&#34;&gt;YouTube&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/T_IxQYdoqJA&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
 
       </description>
     </item>
@@ -194,7 +241,9 @@ Hugo is an open-source static site generator that provides us with templates, co
 
 &lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Security/Disclosure&lt;/h4&gt;
-If you discover a serious bug with Butler that may pose a security problem, please disclose it confidentially to &lt;a href=&#34;mailto:security@ptarmiganlabs.com&#34;&gt;security@ptarmiganlabs.com&lt;/a&gt; first, so that it can be assessed and hopefully fixed prior to being exploited. Please do not raise GitHub issues for security-related doubts or problems.
+
+    If you discover a serious bug with Butler that may pose a security problem, please disclose it confidentially to &lt;a href=&#34;mailto:security@ptarmiganlabs.com&#34;&gt;security@ptarmiganlabs.com&lt;/a&gt; first, so that it can be assessed and hopefully fixed prior to being exploited. Please do not raise GitHub issues for security-related doubts or problems.
+
 &lt;/div&gt;
 
 &lt;h2 id=&#34;development-concepts&#34;&gt;Development concepts&lt;/h2&gt;
@@ -299,7 +348,7 @@ lib/udp_handlers.js 18ms
 &lt;p&gt;Sharing telemetry data from Butler SOS is optional.&lt;br&gt;
 You can use all Butler SOS features without sharing telemetry data.&lt;/p&gt;
 &lt;p&gt;That said, if you find the Butler SOS tool useful you are &lt;strong&gt;strongly encouraged&lt;/strong&gt; to leave the telemetry feature turned on.&lt;br&gt;
-Having access to this data greatly helps the Butler developers when they design new features, fix bugs etc.&lt;/p&gt;
+Having access to this data greatly helps the Butler SOS developers when they design new features, fix bugs etc.&lt;/p&gt;
 &lt;p&gt;The Butler SOS developers care about you - sharing telemetry data is your way of showing you care about them.&lt;/p&gt;
 &lt;p&gt;Sharing is caring!&lt;/p&gt;
 
@@ -341,13 +390,16 @@ Or the fact that Qlik released some new feature in Sense and Butler SOS was a wa
 
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;What&#39;s shared&lt;/h4&gt;
-&lt;p&gt;The telemetry data includes the following:&lt;/p&gt;
+
+    &lt;p&gt;The telemetry data includes the following:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Information about what features are enabled and which are disabled.&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;Why: This tells the Butler SOS developers which features are used and which aren&amp;rsquo;t. This is critical information when it comes to planning where to focus future development efforts.&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Information about Butler&amp;rsquo;s execution environment&lt;/strong&gt; (operating system, hardware architecture, Node.js version etc).&lt;br&gt;
+&lt;em&gt;Why: This tells the Butler SOS developers which features are used and which aren&amp;rsquo;t.&lt;br&gt;
+This is critical information when it comes to planning where to focus future development efforts.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Information about Butler SOS&amp;rsquo;s execution environment&lt;/strong&gt; (operating system, hardware architecture, Node.js version etc).&lt;br&gt;
 &lt;em&gt;Why: Ideally the Butler SOS developers want to use as modern versions of Node.js as possible. But if telemetry shows that lots os Butler SOS instances use old Node.js versions or run on some (yet) untested/unverified Linux version - then maybe those older Node.js/Linux versions must be supported for yet some time.&lt;/em&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
 
 &lt;/div&gt;
 
@@ -355,12 +407,14 @@ Or the fact that Qlik released some new feature in Sense and Butler SOS was a wa
 
 &lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;What&#39;s not shared&lt;/h4&gt;
-&lt;p&gt;The telemetry data will never include:&lt;/p&gt;
+
+    &lt;p&gt;The telemetry data will never include:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Data that can identify your Sense environment or the server on which Butler SOS runs. This includes IP/MAC addresses or other network information, server names, Docker container metadata or similar.&lt;/li&gt;
 &lt;li&gt;Any actual data handled by Butler SOS (user IDs, app names, number of users in your system etc).&lt;/li&gt;
 &lt;li&gt;Qlik Sense or other certificates in any shape or form.&lt;/li&gt;
 &lt;/ol&gt;
+
 
 &lt;/div&gt;
 

@@ -14,6 +14,11 @@ At different times different metrics will be of interest.
 For that reason Butler SOS stores all metrics from Sense in a time-series databse (InfluxDB and Prometheus both supported), from which dashboards, reports etc can then be created using tools such as Grafana.  
 Grafana is an open source, world-class visualisation tool for time series data. It also has great alerting features and integrate with all kinds of alerting solutions and IM tools.
 
+Metrics are a major component of operational monitoring, but it's also important to keep on top of what errors and warning occur in the system.  
+As of late 2021 the log database is no longer part of QSEoW, with the log files the only place where you can find those errors and warnings.  
+Butler SOS address this by sending log events in real-time from QSEoW to Butler SOS, which then stores them in its database and/or re-publish them as MQTT messages.  
+This basically means you will very rarely have to plow through endless log files to find information about warnings and errors that have occured.
+
 There is also a clear goal that Butler SOS should be very configurable.  
 In practice this means that features can be turned on/off as needed, improving security and lowering memory usage.
 

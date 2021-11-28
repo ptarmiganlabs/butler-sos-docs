@@ -1,6 +1,6 @@
 {
   "name": "butler-sos-docs",
-  "version": "5.6.0",
+  "version": "7.0",
   "description": "Butler SOS documentation.",
   "main": "none.js",
   "scripts": {
@@ -17,7 +17,8 @@
   },
   "homepage": "hhttps://github.com/ptarmiganlabs/butler-sos-docs#readme",
   "devDependencies": {
-    "autoprefixer": "10.2.5",
-    "postcss-cli": "8.3.1"
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.3.11",
+    "postcss-cli": "^9.0.2"
   }
 }

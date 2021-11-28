@@ -1,7 +1,7 @@
 ---
 title: "Configuring Butler SOS uptime monitor"
 linkTitle: "Uptime monitor"
-weight: 40
+weight: 50
 description: >
   Butler SOS can optionally log how long it's been running and how much memory it uses. 
 
@@ -38,8 +38,8 @@ Butler-SOS:
   ...
   # Uptime monitor
   uptimeMonitor:
-    enable: true                   # Should uptime messages be written to the console and log files?
-    frequency: every 15 minutes     # https://bunkat.github.io/later/parsers.html
+    enable: true                    # Should uptime messages be written to the console and log files?
+    frequency: every 15 minutes     # https://bunkat.github.io/later/parsers.html#text
     logLevel: verbose               # Starting at what log level should uptime messages be shown?
     storeInInfluxdb: 
       butlerSOSMemoryUsage: true    # Should data on Butler SOS' own memory use be stored in Infludb?

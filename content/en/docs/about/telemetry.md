@@ -11,7 +11,7 @@ Sharing telemetry data from Butler SOS is optional.
 You can use all Butler SOS features without sharing telemetry data.
 
 That said, if you find the Butler SOS tool useful you are **strongly encouraged** to leave the telemetry feature turned on.  
-Having access to this data greatly helps the Butler developers when they design new features, fix bugs etc.
+Having access to this data greatly helps the Butler SOS developers when they design new features, fix bugs etc.
 
 The Butler SOS developers care about you - sharing telemetry data is your way of showing you care about them.
 
@@ -65,8 +65,9 @@ Instructions [here](/docs/getting_started/setup/telemetry/).
 The telemetry data includes the following:
 
 1. **Information about what features are enabled and which are disabled.**  
-   _Why: This tells the Butler SOS developers which features are used and which aren't. This is critical information when it comes to planning where to focus future development efforts._
-2. **Information about Butler's execution environment** (operating system, hardware architecture, Node.js version etc).  
+   _Why: This tells the Butler SOS developers which features are used and which aren't.  
+   This is critical information when it comes to planning where to focus future development efforts._
+2. **Information about Butler SOS's execution environment** (operating system, hardware architecture, Node.js version etc).  
     _Why: Ideally the Butler SOS developers want to use as modern versions of Node.js as possible. But if telemetry shows that lots os Butler SOS instances use old Node.js versions or run on some (yet) untested/unverified Linux version - then maybe those older Node.js/Linux versions must be supported for yet some time._
    {{% /alert %}}
 

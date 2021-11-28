@@ -1,7 +1,7 @@
 ---
 title: "Configuring Butler SOS logging"
 linkTitle: "Log files"
-weight: 11
+weight: 20
 description: >
   Heartbeats provide a way to monitor that Butler SOS is running and working as intended.  
 

@@ -35,6 +35,6 @@ If you discover a serious bug with Butler SOS that may pose a security problem, 
 
     Butler SOS is continuously checked for security vulnerabilities by using GitHub security audit, [Snyk](https://snyk.io/), npm audit and other tools.
 
-## Butler talking to Qlik Sense
+## Butler SOS talking to Qlik Sense
 
-Butler uses https for all communication with Sense, using Sense's certificates for authentication.
+Butler SOS uses https for all communication with Sense, using Sense's certificates for authentication.

@@ -6,26 +6,25 @@ description: >
   Everything you ever wanted to know about the Butler SOS configuration file.
 ---
 
-{{% pageinfo %}}
+{{< notice tip >}}
 Either JSON or YAML notation can be used to create the configuration file, with file extensions of .json and .yaml/.yml, respectively.
 
 YAML is strongly recommended, as it is easier to edit/read/understand compared to JSON.
-{{% /pageinfo %}}
+{{< /notice >}}
 
 The parameters in the config file are described below.
 All parameters must be defined in the config file - run time errors are likely to occur otherwise.
 The [sample config file](https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml) looks like this:
 
-![Sample config file](./configfile1.png "Sample Butler SOS config file")
-
-<br>
+![Sample config file](./configfile_7_0.png "Sample Butler SOS config file")
 
 A few things to keep in mind:
 
 - Topic names (e.g. "Butler-SOS.logdb") are case sensitive.
-- First time Butler SOS is started, a new InfluxDB database will be created, together with a default InfluxDB retention policy.
+- First time Butler SOS is started, a new check is done if the specified InfluxDB database already exists.
+  If it doesn't exist it will be created together with a default InfluxDB retention policy. The retention policy is based on the time period set in the config file.
 
-<br>
+#### Top level
 
 | Parameter | Description |
 | --------- | ----------- |
@@ -33,35 +32,102 @@ A few things to keep in mind:
 | logLevel | The level of details in the logs. Possible values are silly, debug, verbose, info, warn, error (in order of decreasing level of detail). |
 | fileLogging | true/false to enable/disable logging to disk file |
 | logDirectory | Subdirectory where log files are stored |
-| anonTelemetry | Can Butler SOS send anonymous data about what computer it is running on? More info on whata data is collected [here](/docs/about/telemetry/#where-is-telemetry-data-sent). |
+| anonTelemetry | Can Butler SOS share anonymous data about itself with the Butler SOS project? More info on whata data is collected [here](/docs/about/telemetry). |
 |  |  |
-| **Butler-SOS.heartbeat** |  |
+
+#### Butler-SOS.heartbeat
+
+Heartbeats can be used to send "I'm alive" messages to some other tool, e.g. an infrastructure monitoring tool.  
+The concept is simple: The remoteURL will be called at the specified frequency. The receiving tool will then know that Butler SOS is alive.
+
+| Parameter | Description |
+| --------- | ----------- |
 | enable  | Should heartbeats be sent to some URL, indicating that Butler SOS is alive and well? true/false |
 | remoteURL | URL that will be called for heartbeats |
-| frequency | How often should heartbeats be sent? Format according to https://bunkat.github.io/later/parsers.html |
+| frequency | How often should heartbeats be sent? Format according to https://bunkat.github.io/later/parsers.html#text |
 |  |  |
-| **Butler-SOS.dockerHealthCheck** |  |
+
+#### Butler-SOS.dockerHealthCheck
+
+Docker health checks are used when running Butler SOS as a Docker container.
+
+The Docker engine will call the container's health check REST endpoint with a set interval to determine whether the container is alive/well or not.  
+If you are *not* running Butler SOS in Docker you can disable this feature.
+
+| Parameter | Description |
+| --------- | ----------- |
 | enable | Should a Docker healthcheck endpoint be created within Butler SOS? Set to false if *not* running Butler SOS under Docker. true/false |
 | port | Port the healthcheck should use. Usually 12398, but might need be changed if seveal Butler instances run on the same server |
 |  |  |
-| **Butler-SOS.uptimeMonitor** |  |
+
+#### Butler-SOS.uptimeMonitor
+
+| Parameter | Description |
+| --------- | ----------- |
 | enable  | Should messages with Butler SOS uptime and memory usage be written to console and logs? true/false |
-| frequency | How often should uptime messages be written to console and/or logs? Format according to https://bunkat.github.io/later/parsers.html |
+| frequency | How often should uptime messages be written to console and/or logs? Format according to https://bunkat.github.io/later/parsers.html#text |
 | logLevel | Starting at what log level should uptime messages be used? Possible values are silly, debug, verbose, info, warn, error. For example, if you specify "verbose" here, uptime messages will appear if you set overall log level to silly, debug or verbose. |
 | storeInInfluxdb.<br>butlerSOSMemoryUsage | Should data on Butler SOS' own memory use be stored in Infludb? true/false |
 | storeInInfluxdb.<br>instanceTag | Tag used to differentiate data from multiple Butler SOS instances. Useful if running different Butler SOS instances against (for example) DEV, TEST and PROD environments |
 |  |  |
-| **Butler-SOS.userEvents** |  |
-| enable | Shouls Butler SOS track detailed user events (i.e. session start/stop, connection open/close)? true/false |
-| excludeUser | Array of users (=directory/userId pairs) that should be disregarded when user events arrive from Sense. |
-| udpServerConfig.<br>serverHost | IP/host where Butler SOS is running and the user event UDP server will run. |
-| udpServerConfig.<br>portUserActivityEvents | Port on which the user event UDP server will listen. |
-| tags | Array of tags (tagName/tagValue pairs) that should be added to each user event before sending it to InfluxDB. |
+
+#### Butler-SOS.userEvents
+
+Track individual users opening/closing apps and starting/stopping sessions.  
+Requires log appender XML file(s) to be added to Sense server(s).
+
+| Parameter | Description |
+| --------- | ----------- |
+| enable | Should Butler SOS track detailed user events (i.e. session start/stop, connection open/close)? true/false |
+| excludeUser | Array of users (=directory/userId pairs) that should be disregarded when user events arrive from Sense. Remove sample users before deploying Butler SOS. |
+| udpServerConfig.<br>serverHost | IP/host where the user event UDP server should listen for incoming connections. Usually the same IP/host as where Butler SOS is running. Using 0.0.0.0 will cause Butler SOS to listen on all available IPs. |
+| udpServerConfig.<br>portUserActivityEvents | Port on which the user event UDP server will listen. Should match the port specified in the log appender. |
+| tags | Array of tags (tagName/tagValue pairs) that should be added to each user event before sending it to InfluxDB. Remove sample tags before deploying Butler SOS. |
 | sendToMQTT.enable | Should user events be sent to MQTT? true/false |
-| sendToMQTT.topic | MQTT topic which user event data will be posted to. |
+| sendToMQTT.postTo.<br>everythingTopic.enable | Should **all** user event messages be sent to an MQTT topic? true/false |
+| sendToMQTT.postTo.<br>everythingTopic.topic | MQTT topic to which **all** user event messages will be sent. |
+| sendToMQTT.postTo.<br>sessionStartTopic.enable | Should **session start** user event messages be sent to an MQTT topic? true/false |
+| sendToMQTT.postTo.<br>sessionStartTopic.topic | MQTT topic to which **session start** user event messages will be sent. |
+| sendToMQTT.postTo.<br>sessionStopTopic.enable | Should **session stop** user event messages be sent to an MQTT topic? true/false |
+| sendToMQTT.postTo.<br>sessionStopTopic.topic | MQTT topic to which **session stop** user event messages will be sent. |
+| sendToMQTT.postTo.<br>connectionOpenTopic.enable | Should **connection open** user event messages be sent to an MQTT topic? true/false |
+| sendToMQTT.postTo.<br>connectionOpenTopic.topic | MQTT topic to which **connection open** user event messages will be sent. |
+| sendToMQTT.postTo.<br>connectionCloseTopic.enable | Should **connection close** user event messages be sent to an MQTT topic? true/false |
+| sendToMQTT.postTo.<br>connectionCloseTopic.topic | MQTT topic to which **connection close** user event messages will be sent. |
 | sendToInfluxdb.enable | Should user events be saved in InfluxDB? true/false |
 |  |  |
-| **Butler-SOS.logdb** |  |
+
+#### Butler-SOS.logEvents
+
+Log events are used to capture Sense warnings, errors and fatals in real time.
+Requires log appender XML file(s) to be added to Sense server(s).
+
+Note that log events can be enabled/disabled per source (repository, proxy, scheduler etc).
+
+| Parameter | Description |
+| --------- | ----------- |
+| udpServerConfig.<br>serverHost | IP/host where the log event UDP server should listen for incoming connections. Usually the same IP/host as where Butler SOS is running. Using 0.0.0.0 will cause Butler SOS to listen on all available IPs. |
+| udpServerConfig.<br>portLogEvents | Port on which the log event UDP server will listen. Should match the port specified in the log appender. |
+| tags | Array of tags (tagName/tagValue pairs) that should be added to each log event before sending it to InfluxDB. Remove sample tags before deploying Butler SOS. |
+| source.<br>proxy.enable | Should log events from the proxy service be handled by Butler SOS? true/false |
+| source.<br>repository.enable | Should log events from the repository service be handled by Butler SOS? true/false |
+| source.<br>scheduler.enable | Should log events from the scheduler service be handled by Butler SOS? true/false |
+| sendToMQTT.enable | Should log events be sent to MQTT? true/false |
+| sendToMQTT.baseTopic | Root MQTT topic. All log events MQTT messages will be posted in this topic or subtopics of it. |
+| sendToMQTT.postTo<br>.baseTopic | Should all log events be posted to the root topic? true/false |
+| sendToMQTT.postTo<br>.subsystemTopics | All log events originate from a specific subsystem in a Sense server. These subsystems are organised in a hierarchical tree that can be directly mapped to MQTT topics. Should log events be posted as MQTT messages to such topics? true/false |
+| sendToInfluxdb.enable | Should log events be saved in InfluxDB? true/false |
+|  |  |
+
+#### Butler-SOS.logdb
+
+As of August 2021 log db has been deprecated in Qlik Sense.  
+It is no longer installed when doing fresh QSEoW installs.
+
+To support older QSEoW clusters out there Butler SOS will for now keep log db support intact.
+
+| Parameter | Description |
+| --------- | ----------- |
 | enable | Should Sense log db be queried for warnings/errors/info messages? true/false |
 | pollingInterval | How often to query log db. Milliseconds |
 | queryPeriod | How far back should log db be queried? Human readable, e.g. "5 minutes" (which is also the default value)|
@@ -73,49 +139,86 @@ A few things to keep in mind:
 | extractWarnings | Should warning entries be extracted from log db? true/false |
 | extractInfo | Should info entries be extracted from log db? true/false. <br>**NOTE:** If info level logging is enabled, this will result in lots of messages being stored in Influxdb (at least for a busy Sense cluster).  |
 |  |  |
-| **Butler-SOS.cert** |  |
-| rejectUnauthorized | Set to false to ignore warnings/errors caused by Qlik Sense's self-signed certificates. <br> Set to true if the Qlik Sense root CA is available on the computer where Butler SOS is running. |
+
+#### Butler-SOS.cert
+
+Certificates to use when connecting to Sense. Get these from the Certificate Export in QMC.
+
+| Parameter | Description |
+| --------- | ----------- |
 | clientCert | Certificate file. Exported from QMC |
 | clientCertKey | Certificate key file. Exported from QMC |
 | clientCertCA | Root certificate for above certificate files. Exported from QMC |
 | clientCertPassphrase | Password used to protect the certificate (as set when exporting cert from QMC) |
 |  |  |
-| **Butler-SOS.mqttConfig** |  |
+
+#### Butler-SOS.mqttConfig
+
+MQTT config parameters. These must be correctly defined for any other MQTT features in Butler SOS to work.
+
+| Parameter | Description |
+| --------- | ----------- |
 | enable | Should health metrics be sent to MQTT? true/false |
 | brokerHost | IP or FQDN of MQTT broker |
 | brokerPort | Broker port |
-| baseTopic | The topic to which messages will be posted. Should end with /. For example butler-sos/ |
+| baseTopic | Default topic used if not not oherwise specified elsewhere. Should end with /. For example butler-sos/ |
 |  |  |
-| **Butler-SOS.prometheus** |  |
+
+#### Butler-SOS.prometheus
+
+If enabled, select Butler SOS metrics will be exposed on a Prometheus compatible URL from where they can be scraped by Prometheus.
+
+| Parameter | Description |
+| --------- | ----------- |
 | enable | Should health metrics be made available for scraping on a Prometheus compatible API http endpoint? true/false |
 | host | IP on which the Prometheus compatible endpoint should be available. Using 0.0.0.0 will cause Butler SOS to listen on all available IPs.  |
-| port | Port on which the Prometheus compatible endpoint will be made available. |
+| port | Port on which the Prometheus compatible endpoint will be made available. Default 9842. |
 |  |  |
-| **Butler-SOS.influxdbConfig** |  |
+
+#### Butler-SOS.influxdbConfig
+
+InfluxDB config parameters. These must be correctly defined for any other InfluxDB features in Butler SOS to work.
+
+| Parameter | Description |
+| --------- | ----------- |
 | enable | Should health metrics be stored in Influxdb? true/false |
-| hostIP | IP or FQDN of Influxdb server |
-| hostPort | Port where Influxdb server is listening. Useful if Influxdb for some reason is not using its standard port of 8086 |
-| auth.enable | Enable if data is to be stored in a password protected Influxdb database |
-| auth.username | Influxdb username |
-| auth.password | Influxdb password |
-| dbName | Database namne in Influxdb to which health metrics will be stored. Database will be created if it does not already exist when Butler SOS is started |
-| retentionPolicy.<br>name | Name of default retention policy that will be created in InfluxDB database, when that database is created during first execution of Butler SOS |
-| retentionPolicy.<br>duration | Duration during which metrics are kept in InfluxDB. After the duration has passed, InfluxDB will purge all data older than duration from the database. See [InfluxDB docs](https://docs.influxdata.com/influxdb/v1.7/query_language/database_management/#retention-policy-management) for details on syntax. |
+| hostIP | IP or FQDN of Influxdb server. |
+| hostPort | Port where Influxdb server is listening. Useful if Influxdb for some reason is not using its standard port of 8086. |
+| auth.enable | Enable if data is to be stored in a password protected Influxdb database. |
+| auth.username | Influxdb username. |
+| auth.password | Influxdb password. |
+| dbName | Database namne in Influxdb to which health metrics will be stored. Database will be created if it does not already exist when Butler SOS is started. |
+| retentionPolicy.<br>name | Name of default retention policy that will be created in InfluxDB database when that database is created during first execution of Butler SOS. |
+| retentionPolicy.<br>duration | Duration during which metrics are kept in InfluxDB. After the duration has passed, InfluxDB will purge all data older than duration from the database. See [InfluxDB docs](https://docs.influxdata.com/influxdb/v1.8/query_language/spec/#durations) for details on syntax. |
 | includeFields.<br>activeDocs | Should a list of currently active Sense apps be stored in Influxdb? true/false |
 | includeFields.<br>loadedDocs | Should a list of Sense apps opened in a user session be stored in Influxdb? true/false |
 | includeFields.<br>activeDocs | Should a list of Sense apps loaded into memory (some apps might not currently be associated with a user session) be stored in Influxdb? true/false |
 |  |  |
-| **Butler-SOS.appNames** |  |
+
+#### Butler-SOS.appNames
+
+| Parameter | Description |
+| --------- | ----------- |
 | enableAppNameExtract | Should app names be extracted from Qlik Sense server? true/false |
 | extractInterval | How often (milliseconds) should app names be extracted from Sense server? |
 | hostIP | IP or FQDN of Sense server from which app names should be extracted |
 |  |  |
-| **Butler-SOS.userSessions** |  |
+
+#### Butler-SOS.userSessions
+
+Extract user session data per virtual proxy.
+
+| Parameter | Description |
+| --------- | ----------- |
 | enableSessionExtract | Influxdb password |
 | pollingInterval | Influxdb password |
 | excludeUser | Array of users (=directory/userId pairs) that should be disregarded when user session data arrives from Sense. |
 |  |  |
-| **Butler-SOS.serversToMonitor** |  |
+
+#### Butler-SOS.serversToMonitor
+
+| Parameter | Description |
+| --------- | ----------- |
 | pollingInterval | How often to query the Sense healthcheck API |
 | rejectUnauthorized | Set to false to ignore warnings/errors caused by Qlik Sense's self-signed certificates. <br> Set to true if the Qlik Sense root CA is available on the computer where Butler SOS is running. |
 | serverTagsDefinition | List of tags to add to each server when storing the data in Influxdb. All tags defined here MUST be present in each server's definition section further down in the config file! |

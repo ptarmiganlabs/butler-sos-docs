@@ -1,7 +1,7 @@
 ---
 title: "Configuring user sessions"
 linkTitle: "User sessions"
-weight: 110
+weight: 200
 description:
 ---
 
@@ -35,6 +35,13 @@ You will only get user session info if you configure both the points above.
 
 ## Settings in main config file
 
+{{< notice tip >}}
+The config snippet below comes from the [production_template.yaml](https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml) file.
+
+Being a template, it contains examples on how configuration *may* be done - not necessarily how it *should* be done.  
+For example, the `LAB/testuser1` and `LAB/testuser2` user are optional and can be changed to something else, or removed all together if not used.  
+{{< /notice >}}
+
 ```yaml
 Butler-SOS:
   ...
@@ -50,25 +57,6 @@ Butler-SOS:
         userId: testuser1
       - directory: LAB
         userId: testuser2
-  ...
-  ...
-  serversToMonitor:
-    ...
-    ...
-    # Sense Servers that should be queried for healthcheck data 
-    servers:
-      - host: <server1.my.domain>:4747
-        serverName: <server1>
-        serverDescription: <description>
-        logDbHost: <host name as used in QLogs db>
-        userSessions:
-          enable: true
-          # Items below are mandatory if userSessions.enable=true
-          host: <server1.my.domain>:4243
-          virtualProxies:
-            - virtualProxy: /                 # Default virtual proxy
-            - virtualProxy: /hdr              # "hdr" virtual proxy
-            - virtualProxy: /sales            # "sales" virtual proxy
   ...
   ...
 ```

@@ -29,7 +29,7 @@
 
 &lt;/div&gt;
  --&gt;
-&lt;p&gt;&lt;img src=&#34;butler-sos-small.png&#34; alt=&#34;Butler SOS&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://butler-sos.ptarmiganlabs.com/butler-sos-overview-1.png&#34; alt=&#34;Butler SOS&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;qlik-sense--devops--senseops&#34;&gt;Qlik Sense + DevOps = SenseOps&lt;/h2&gt;
 &lt;p&gt;Butler SenseOps Stats (&amp;ldquo;Butler SOS&amp;rdquo;) is a monitoring tool for &lt;a href=&#34;https://www.qlik.com/us/products/qlik-sense&#34;&gt;Qlik Sense&lt;/a&gt;, built with DevOps workflows in mind.&lt;/p&gt;
 &lt;p&gt;It publishes operational, close to real-time Qlik Sense Enterprise metrics to &lt;a href=&#34;https://www.influxdata.com/time-series-platform/influxdb/&#34;&gt;InfluxDB&lt;/a&gt;, &lt;a href=&#34;https://prometheus.io&#34;&gt;Prometheus&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/MQTT&#34;&gt;MQTT&lt;/a&gt;. From there it can be visualised using tools like &lt;a href=&#34;https://grafana.com/&#34;&gt;Grafana&lt;/a&gt; or acted on by downstream systems that listen to the MQTT topics used by Butler SOS.&lt;/p&gt;
@@ -116,8 +116,8 @@ Why? Several reasons:&lt;/p&gt;
 It is therefore difficult to give precise instructions that will work for all configurations. Especially the fact that Butler SOS uses certificates to authenticate with Sense is a complicating factor. Certificates are (when correctly used) great for securing systems, but they can alse cause headaches.&lt;/p&gt;
 &lt;p&gt;First we must recognize that Sense uses &lt;a href=&#34;https://en.wikipedia.org/wiki/Self-signed_certificate&#34;&gt;self signed certificates&lt;/a&gt;. This is fine, and as long as you work on a server where Sense Enterprise is installed, that server will have the Sense-provided Certificate Authority (CA) certificate installed.&lt;/p&gt;
 &lt;p&gt;This means that the easiest option for getting Butler SOS up and running is usually to install it on one of your Sense servers.&lt;/p&gt;
-&lt;p&gt;That said, it is probably better system design to run Butler SOS (and maybe other members of the &lt;a href=&#34;https://github.com/ptarmiganlabs&#34;&gt;Butler family&lt;/a&gt;) on their own server, maybe using some flavour of Linux (lower cost compared to Windows).&lt;br&gt;
-In this case you might want to consider exporting the Sense CA certificate from one of your Sense servers, and then install it on the Linux server.
+&lt;p&gt;That said, it is probably better system design to run Butler SOS (and maybe other members of the &lt;a href=&#34;https://github.com/ptarmiganlabs&#34;&gt;Butler family&lt;/a&gt;) on their own server, maybe using some flavour of Linux (lower cost compared to Windows). Windows servers work equally well though.&lt;/p&gt;
+&lt;p&gt;In this case you might want to consider exporting the Sense CA certificate from one of your Sense servers, and then install it on the Linux server.
 This &lt;em&gt;should&lt;/em&gt; technically not be needed for Butler SOS to work correctly - as long as you specify the correct root.pem file in the Butler SOS config file, you should be ok.&lt;/p&gt;
 &lt;p&gt;If you specify an incorrect root CA certificate file in the &lt;code&gt;clientCertCA&lt;/code&gt; config option, you will get an error like this:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;2018-05-23T20:36:44.393Z - error: Error: Error: unable to verify the first certificate
@@ -166,40 +166,6 @@ If you specify a server name of &amp;ldquo;myserver.company.com&amp;rdquo; while
         
         &lt;h2 id=&#34;running-butler-sos&#34;&gt;Running Butler SOS&lt;/h2&gt;
 &lt;p&gt;How to start and keep Butler SOS running varies depending on whether you are using Docker or a native Node.js approach.&lt;/p&gt;
-&lt;nav&gt;
-	&lt;div class=&#34;nav nav-tabs&#34; id=&#34;nav-tab&#34; role=&#34;tablist&#34;&gt;
-
-		
-		
-
-		
-		
-		
-
-		
-
-		&lt;a class=&#34;nav-item nav-link active&#34; id=&#34;nav-1&#34; data-toggle=&#34;tab&#34; href=&#34;#tab11&#34; role=&#34;tab&#34;
-		   aria-controls=&#34;nav-home&#34; aria-selected=&#34;true&#34;&gt;Docker&lt;/a&gt;
-
-		
-		
-
-		
-		
-		
-
-		
-
-		&lt;a class=&#34;nav-item nav-link&#34; id=&#34;nav-1&#34; data-toggle=&#34;tab&#34; href=&#34;#tab12&#34; role=&#34;tab&#34;
-		   aria-controls=&#34;nav-home&#34; aria-selected=&#34;false&#34;&gt;Native Node.js&lt;/a&gt;
-
-		
-		
-
-	&lt;/div&gt;
-&lt;/nav&gt;
-
-&lt;div class=&#34;tab-content&#34; id=&#34;1&#34;&gt;
 
 
 
@@ -208,54 +174,81 @@ If you specify a server name of &amp;ldquo;myserver.company.com&amp;rdquo; while
 
 
 
-&lt;div class=&#34;tab-pane fade show active&#34; id=&#34;tab11&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;nav-tabName1&#34;&gt;
-
-	&lt;p&gt;Starting Butler SOS using Docker is easy.&lt;/p&gt;
-&lt;p&gt;First configure the &lt;code&gt;docker-compose.yml&lt;/code&gt; file as needed, then start the Docker container in interactive mode (with output sent to the screen).&lt;br&gt;
-This is useful to ensure everything works as intended when first setting up Butler SOS.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;docker-compose up
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Once Butler SIS has been verified to work as intended, hit &lt;code&gt;ctrl-c&lt;/code&gt; to stop it.&lt;br&gt;
-Then start Butler SOS in deameon (background) mode:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;docker-compose up -d
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;From here on the Docker enviromment will make sure Butler SOS is always running, including restarting it if it for some reason stops.&lt;/p&gt;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-0&#34; role=&#34;tablist&#34;&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link active tab-Docker&#34;
+        id=&#34;tabs-0-0-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-0-0&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;Docker&amp;#34;);&#34;
+        aria-controls=&#34;tabs-0-0&#34; aria-selected=&#34;true&#34;&gt;
+        Docker
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link tab-Native-Node.js&#34;
+        id=&#34;tabs-0-1-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-0-1&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;Native-Node.js&amp;#34;);&#34;
+        aria-controls=&#34;tabs-0-1&#34; aria-selected=&#34;false&#34;&gt;
+        Native Node.js
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;/ul&gt;
+
+
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-0-content&#34;&gt;&lt;div class=&#34;tab-pane fade show active&#34;
+        id=&#34;tabs-0-0&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-0-0-tab&#34;&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-en&#34; data-lang=&#34;en&#34;&gt;Starting Butler SOS using Docker is easy.  
+
+First configure the `docker-compose.yml` file as needed, then start the Docker container in interactive mode (=with output sent to the screen).  
+This is useful to ensure everything works as intended when first setting up Butler SOS.
+
+    docker-compose up
+
+Once Butler SOS has been verified to work as intended, hit `ctrl-c` to stop it.  
+Then start it again in deameon (background) mode:
+
+    docker-compose up -d
+
+From here on the Docker enviromment will make sure Butler SOS is always running, including restarting it if it for some reason stops, when server reboots etc.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  &lt;div class=&#34;tab-pane fade&#34;
+        id=&#34;tabs-0-1&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-0-1-tab&#34;&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-en&#34; data-lang=&#34;en&#34;&gt;Starting Butler SOS as a Node.js on Windows could look like this:  
+
+    d:
+    cd \node\butler-sos\src
+    node butler-sos.js
+
+It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.
+
+### Windows services &amp;amp; process monitors
+
+As Butler SOS is the kind of service that (probably) should always be running on a server, it makes sense using a Node.js process monitor to keep it alive (if running Butler SOS as a Docker container you get this for free).
+
+On Windows you can use the excellent Nssm tool (https://nssm.cc) to make Butler SOS run as a Windows Service, with all the benefits that follow (can be monitored using operations tools, automatic restarts etc).
+
+If running Butler SOS as a Node.js app on Linux, PM2 (https://github.com/Unitech/pm2) and Forever (https://github.com/foreverjs/forever) are two process monitors that both have been successfully tested with Butler SOS.
+
+One caveat with these is that it can be hard to start them (and thus Butler SOS) when a Windows server is rebooted.
+PM2 can be used to solve this challenge in a nice way, more info in this blog post: https://ptarmiganlabs.com/blog/2017/07/12/monitoring-auto-starting-node-js-services-windows-server.  
+On the other hand - just using Nssm is probably the easiest and best option for Windows.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  
 &lt;/div&gt;
 
-
-
-
-
-
-
-
-
-&lt;div class=&#34;tab-pane fade&#34; id=&#34;tab12&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;nav-tabName2&#34;&gt;
-
-	&lt;br&gt;
-Starting Butler SOS as a Node.js on Windows could look like this:  
-&lt;pre&gt;&lt;code&gt;d:
-cd \node\butler-sos\src
-node butler-sos.js
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.&lt;/p&gt;
-&lt;h3 id=&#34;windows-services--process-monitors&#34;&gt;Windows services &amp;amp; process monitors&lt;/h3&gt;
-&lt;p&gt;As Butler SOS is the kind of service that (probably) should always be running on a server, it makes sense using a Node.js process monitor to keep it alive (if running Butler SOS as a Docker container you get this for free).&lt;/p&gt;
-&lt;p&gt;On Windows you can use the excellent &lt;a href=&#34;https://nssm.cc/&#34;&gt;Nssm&lt;/a&gt; tool to make Butler SOS run as a Windows Service, with all the benefits that follow (can be monitored using operations tools, automatic restarts etc).&lt;/p&gt;
-&lt;p&gt;If running Butler SOS as a Node.js app on Linux, &lt;a href=&#34;https://github.com/Unitech/pm2&#34;&gt;PM2&lt;/a&gt; and &lt;a href=&#34;https://github.com/foreverjs/forever&#34;&gt;Forever&lt;/a&gt; are two process monitors that both have been successfully tested with Butler SOS.&lt;/p&gt;
-&lt;p&gt;One caveat with these is that it can be hard to start them (and thus Butler SOS) when a Windows server is rebooted.
-PM2 can be used to solve this challenge in a nice way, more info in &lt;a href=&#34;https://ptarmiganlabs.com/blog/2017/07/12/monitoring-auto-starting-node-js-services-windows-server&#34;&gt;this blog post&lt;/a&gt;. On the other hand - just using Nssm is probably the easiest and best option for Windows.&lt;/p&gt;
-
-
-&lt;/div&gt;
-
-
-
-
-
-&lt;/div&gt;
 
       </description>
     </item>

@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Butler SOS – Available Metrics</title>
+    <title>Butler SOS – Metrics available in InfluxDB</title>
     <link>https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/influxdb/</link>
-    <description>Recent content in Available Metrics on Butler SOS</description>
+    <description>Recent content in Metrics available in InfluxDB on Butler SOS</description>
     <generator>Hugo -- gohugo.io</generator>
     
 	  <atom:link href="https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/influxdb/index.xml" rel="self" type="application/rss+xml" />

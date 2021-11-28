@@ -4,13 +4,16 @@ linkTitle: "Overview"
 weight: 10
 description: >
   SenseOps monitoring - what's that?
+  <br><br>
+  This page provides the general steps to get started with Butler SOS.<br>
+  It also explains how Butler SOS relates to other tools and services that collectively make up the SenseOps concept.
 ---
 
 <!-- {{% pageinfo %}}
 This is a placeholder page that shows you how to use this template site.
 {{% /pageinfo %}} -->
 
-![Butler SOS](butler-sos-small.png)
+![Butler SOS](/butler-sos-overview-1.png)
 
 ## Qlik Sense + DevOps = SenseOps
 

@@ -16,7 +16,7 @@ Butler SOS will log data on its memory usage to InfluxDB if
 2. The remaining InfluxDB properties of the config file are correctly configured.
 
 Assuming everything is correctly set up, you can then create a Grafana dashboard showing Butler SOS' memory use over time.  
-You can also set up alerts in Grafana if so desired, with notifications going to most IM tools and email.
+You can also set up alerts in Grafana with notifications going to most popular IM tools and email.
 
 A Grafana dashboard can look like this. This particular chart is for the [Butler](https://butler.ptarmiganlabs.com) tool, but the concept for Butler SOS is the same.
 

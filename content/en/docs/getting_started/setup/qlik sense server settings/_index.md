@@ -1,7 +1,7 @@
 ---
 title: "Connecting to a Qlik Sense server"
 linkTitle: "Sense server settings"
-weight: 60
+weight: 100
 description: >
   Details on how to configure the connection from Butler SOS to Qlik Sense Enterprise on Windows.
 ---
@@ -22,26 +22,8 @@ In order to interact with a Qlik Sense Enterprise on Windows (QSEoW) environment
 Butler-SOS:
   ...
   ...
-  # Qlik Sense logging db config parameters
-  logdb:
-    enable: true
-    # Items below are mandatory if logdb.enable=true
-    pollingInterval: 60000            # How often (milliseconds) should Postgres log db be queried for warnings and errors?
-    queryPeriod: 5 minutes            # How far back should Butler SOS query for log entries? Default is 5 min
-    host: <IP or FQDN of Qlik Sense logging db>
-    port: 4432
-    qlogsReaderUser: qlogs_reader
-    qlogsReaderPwd: <pwd>
-    extractErrors: true               # Should error level entries be extracted from log db into Influxdb?
-    extractWarnings: true             # Should warn level entries be extracted from log db into Influxdb?
-    extractInfo: false                 # Should info level entries be extracted from log db into Influxdb? 
-                                      # Warning! Seting this to true will result in LOTS of log messages 
-                                      # being retrrieved by Butler SOS!
-
-# Certificates to use when connecting to Sense. Get these from the Certificate Export in QMC.
+  # Certificates to use when connecting to Sense. Get these from the Certificate Export in QMC.
   cert:
-    rejectUnauthorized: false           # Set to false to ignore warnings/errors caused by Qlik Sense's self-signed certificates.
-                                        # Set to true if the Qlik Sense root CA is available on the computer where Butler SOS is running.
     clientCert: <path/to/cert/client.pem>
     clientCertKey: <path/to/cert/client_key.pem>
     clientCertCA: <path/to/cert/root.pem>
@@ -64,13 +46,12 @@ These certificates must be exported from the Qlik Management Console (QMC).
 
 To export certificates you need to provide a few pieces of information:  
 
-1. Name of the server where the certificate will be used (i.e. where Butler SOS will be running).
-
-2. Butler SOS can handle certificates with or without password protection. If you choose to use a password, you must enter that password in the Butler SOS config file.
-
-3. Check the "Include secret key" check box.
-
-4. Export certificates in PEM format.
+1. The IP or full host name that Butler SOS' will use when calling Butler SOS APIs.
+  For example, if Butler SOS get data from `server1.my.domain` (i.e. the config setting `Butler.serverToMonitor.server.host` is set to `server1.my.domain`), the value `server1.my.domain` should be entered as "machine name" when exporting the certificates from the QMC.
+2. You only need to export certificate from one server in multi-server Sense clusters. The exported certificate can be used to access and get data from any server in the cluster.
+3. Butler SOS can handle certificates with or without password protection. If you choose to use a password, you must enter that password in the Butler SOS config file.
+4. Check the "Include secret key" check box.
+5. Export certificates in PEM format.
 
 ![Qlik Sense certificate export](qmc-certexport-2.png "Exporting certificates from Qlik, step 2")
 

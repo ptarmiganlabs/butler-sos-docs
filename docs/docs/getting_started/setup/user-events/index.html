@@ -3,11 +3,9 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.87.0" />
-
-<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-
+<meta name="generator" content="Hugo 0.89.4" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/user-events/index.xml">
+<meta name="robots" content="index, follow">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -21,7 +19,23 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Configuring user events | Butler SOS</title><meta property="og:title" content="Configuring user events" />
+<title>Configuring user events | Butler SOS</title>
+
+
+  
+  <meta name="description" content="
+
+
+Optional
+
+    These settings are optional.
+If you don&rsquo;t do anything user activity events are turned off by default.
+
+
+
+
+What&rsquo;s this? …">
+<meta property="og:title" content="Configuring user events" />
 <meta property="og:description" content="Butler SOS documentation" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/user-events/" /><meta property="og:site_name" content="Butler SOS" />
@@ -30,6 +44,23 @@
 <meta itemprop="description" content="Butler SOS documentation"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Configuring user events"/>
 <meta name="twitter:description" content="Butler SOS documentation"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.ff6b2a070a64a637ab695bd014ea39355251198e42f4e8d69f7d75be2e3fa94e.css" as="style">
+<link href="/scss/main.min.ff6b2a070a64a637ab695bd014ea39355251198e42f4e8d69f7d75be2e3fa94e.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+
 
 
 <script type="application/javascript">
@@ -43,19 +74,6 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
-
-
-
-
-
-<link rel="preload" href="/scss/main.min.ff6b2a070a64a637ab695bd014ea39355251198e42f4e8d69f7d75be2e3fa94e.css" as="style">
-<link href="/scss/main.min.ff6b2a070a64a637ab695bd014ea39355251198e42f4e8d69f7d75be2e3fa94e.css" rel="stylesheet" integrity="">
-
-
-<script
-  src="https://code.jquery.com/jquery-3.5.1.min.js"
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-  crossorigin="anonymous"></script>
 
 
 
@@ -78,10 +96,14 @@ if (!doNotTrack) {
 				
 				
 				
+				
+				
 				<a class="nav-link" href="/about/" ><span>About</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
 				
 				
 				
@@ -98,10 +120,14 @@ if (!doNotTrack) {
 				
 				
 				
+				
+				
 				<a class="nav-link" href="/blog/" ><span>Blog</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
 				
 				
 				
@@ -115,1076 +141,212 @@ if (!doNotTrack) {
 			
 		</ul>
 	</div>
-	<div class="navbar-nav d-none d-lg-block">
-</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
 </nav>
 
     </header>
     <div class="container-fluid td-outer">
       <div class="td-main">
         <div class="row flex-xl-nowrap">
-          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
             
-
-
-
-
 <div id="td-sidebar-menu" class="td-sidebar__inner">
-  
   <form class="td-sidebar__search d-flex align-items-center">
     
-
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
   </form>
-  
-  <nav class="collapse td-sidebar-nav pt-2 pl-4" id="td-section-nav">
-    
-    
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="docs">
-      
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/about/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">About</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsabout">
-      
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutbutler-sos" href="/docs/about/butler-sos/">Butler SOS</a>
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutbutler-family" href="/docs/about/butler-family/">The Butler family</a>
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutusecases" href="/docs/about/usecases/">Use cases</a>
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutversioning" href="/docs/about/versioning/">Versions</a>
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutcontributing" href="/docs/about/contributing/">Contribution guidelines</a>
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsabouttelemetry" href="/docs/about/telemetry/">Telemetry</a>
-      
-      
-    </li>
+  <nav class="collapse td-sidebar-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Documentation</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsabout-li">
+  <a href="/docs/about/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsabout"><span class="">About</span></a>
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsaboutbutler-sos-li">
+  <a href="/docs/about/butler-sos/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsaboutbutler-sos"><span class="">Butler SOS</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsaboutbutler-family-li">
+  <a href="/docs/about/butler-family/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsaboutbutler-family"><span class="">The Butler family</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsaboutusecases-li">
+  <a href="/docs/about/usecases/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsaboutusecases"><span class="">Use cases</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsaboutversioning-li">
+  <a href="/docs/about/versioning/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsaboutversioning"><span class="">Versions</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsaboutcontributing-li">
+  <a href="/docs/about/contributing/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsaboutcontributing"><span class="">Contribution guidelines</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsabouttelemetry-li">
+  <a href="/docs/about/telemetry/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsabouttelemetry"><span class="">Telemetry</span></a>
+</li>
   </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Getting started</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="docsgetting_started">
-      
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Overview</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedoverview">
-      
-      
-      
-    </li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsgetting_started-li">
+  <a href="/docs/getting_started/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_started"><span class="">Getting started</span></a>
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedoverview-li">
+  <a href="/docs/getting_started/overview/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedoverview"><span class="">Overview</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgetting_startedinstall-li">
+  <a href="/docs/getting_started/install/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedinstall"><span class="">Installing Butler SOS</span></a>
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedinstallchoose_platform-li">
+  <a href="/docs/getting_started/install/choose_platform/" title="Choosing a platform - what are the options?" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedinstallchoose_platform"><span class="">Choose a platform</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsgetting_startedinstallnative-li">
+  <a href="/docs/getting_started/install/native/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedinstallnative"><span class="">Native app</span></a>
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedinstallnativewindows-li">
+  <a href="/docs/getting_started/install/native/windows/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedinstallnativewindows"><span class="">Windows</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedinstallnativelinux_macos-li">
+  <a href="/docs/getting_started/install/native/linux_macos/" title="Linux and Mac OS" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedinstallnativelinux_macos"><span class="">Linux, Mac OS</span></a>
+</li>
   </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/install/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installing Butler SOS</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedinstall">
-      
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/install/choose_platform/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Choose a platform</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedinstallchoose_platform">
-      
-      
-      
-    </li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedinstalldocker-li">
+  <a href="/docs/getting_started/install/docker/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedinstalldocker"><span class="">Docker</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedinstallinfluxdb_grafana-li">
+  <a href="/docs/getting_started/install/influxdb_grafana/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedinstallinfluxdb_grafana"><span class="">InfluxDB &amp; Grafana</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedinstallprometheus_grafana-li">
+  <a href="/docs/getting_started/install/prometheus_grafana/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedinstallprometheus_grafana"><span class="">Prometheus &amp; Grafana</span></a>
+</li>
   </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/install/native/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Native app</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedinstallnative">
-      
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/install/native/windows/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Windows</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedinstallnativewindows">
-      
-      
-      
-    </li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsgetting_startedsetup-li">
+  <a href="/docs/getting_started/setup/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetup"><span class="">Setup</span></a>
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupwhich-config-file-li">
+  <a href="/docs/getting_started/setup/which-config-file/" title="Which config file to use" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupwhich-config-file"><span class="">Which config file?</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetuplogging-li">
+  <a href="/docs/getting_started/setup/logging/" title="Configuring Butler SOS logging" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetuplogging"><span class="">Log files</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupheartbeats-li">
+  <a href="/docs/getting_started/setup/heartbeats/" title="Configuring Butler SOS heartbeats" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupheartbeats"><span class="">Heartbeats</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupdocker-health-check-li">
+  <a href="/docs/getting_started/setup/docker-health-check/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupdocker-health-check"><span class="">Docker healthcheck</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupuptime-monitor-li">
+  <a href="/docs/getting_started/setup/uptime-monitor/" title="Configuring Butler SOS uptime monitor" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupuptime-monitor"><span class="">Uptime monitor</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsgetting_startedsetupuser-events-li">
+  <a href="/docs/getting_started/setup/user-events/" title="Configuring user events" class="align-left pl-0 active td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupuser-events"><span class="td-sidebar-nav-active-item">User events</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetuplog-events-li">
+  <a href="/docs/getting_started/setup/log-events/" title="Configuring log events" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetuplog-events"><span class="">Log events</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetuplog-db-li">
+  <a href="/docs/getting_started/setup/log-db/" title="Configuring the log database" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetuplog-db"><span class="">Log db</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupqlik-sense-server-settings-li">
+  <a href="/docs/getting_started/setup/qlik-sense-server-settings/" title="Connecting to a Qlik Sense server" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupqlik-sense-server-settings"><span class="">Sense server settings</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupmqtt-li">
+  <a href="/docs/getting_started/setup/mqtt/" title="Setting up MQTT messaging" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupmqtt"><span class="">MQTT</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupprometheus-li">
+  <a href="/docs/getting_started/setup/prometheus/" title="Setting up Prometheus" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupprometheus"><span class="">Prometheus</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupinfluxdb-li">
+  <a href="/docs/getting_started/setup/influxdb/" title="Setting up InfluxDB time series database" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupinfluxdb"><span class="">InfluxDB</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupapp-names-li">
+  <a href="/docs/getting_started/setup/app-names/" title="Configuring extraction of app names from Qlik Sense" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupapp-names"><span class="">App names</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupuser-sessions-li">
+  <a href="/docs/getting_started/setup/user-sessions/" title="Configuring user sessions" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupuser-sessions"><span class="">User sessions</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupservers-to-monitor-li">
+  <a href="/docs/getting_started/setup/servers-to-monitor/" title="Configure which Sense servers to monitor" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupservers-to-monitor"><span class="">Servers to monitor</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetuptelemetry-li">
+  <a href="/docs/getting_started/setup/telemetry/" title="Configuring telemetry" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetuptelemetry"><span class="">Telemetry</span></a>
+</li>
   </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/install/native/linux_macos/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Linux, Mac OS</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedinstallnativelinux_macos">
-      
-      
-      
-    </li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgetting_startedoperations-li">
+  <a href="/docs/getting_started/operations/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedoperations"><span class="">Day 2 operations</span></a>
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedoperationsmonitoring-butler-sos-li">
+  <a href="/docs/getting_started/operations/monitoring-butler-sos/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedoperationsmonitoring-butler-sos"><span class="">Monitoring Butler SOS</span></a>
+</li>
   </ul>
-</ul>
-
-      
-      
-    </li>
+</li>
   </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/install/docker/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Docker</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedinstalldocker">
-      
-      
-      
-    </li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconcepts-li">
+  <a href="/docs/concepts/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconcepts"><span class="">Concepts</span></a>
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptssessions-connections-li">
+  <a href="/docs/concepts/sessions-connections/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptssessions-connections"><span class="">Sessions &amp; Connections</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsapps-li">
+  <a href="/docs/concepts/apps/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsapps"><span class="">Apps</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptserrors-warnings-li">
+  <a href="/docs/concepts/errors-warnings/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptserrors-warnings"><span class="">Errors &amp; Warnings</span></a>
+</li>
   </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/install/influxdb_grafana/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">InfluxDB &amp; Grafana</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedinstallinfluxdb_grafana">
-      
-      
-      
-    </li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsexamples-li">
+  <a href="/docs/examples/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamples"><span class="">Examples</span></a>
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana8-li">
+  <a href="/docs/examples/qliksense_monitoring_grafana8/" title="Qlik Sense monitoring using Butler SOS v7 and Grafana v8" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesqliksense_monitoring_grafana8"><span class="">Grafana 8 dashboard</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana7-li">
+  <a href="/docs/examples/qliksense_monitoring_grafana7/" title="Qlik Sense monitoring using Grafana 7" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesqliksense_monitoring_grafana7"><span class="">Grafana 7 dashboard</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana6-li">
+  <a href="/docs/examples/qliksense_monitoring_grafana6/" title="Qlik Sense monitoring using Grafana 6" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesqliksense_monitoring_grafana6"><span class="">Grafana 6 dashboard</span></a>
+</li>
   </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/install/prometheus_grafana/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Prometheus &amp; Grafana</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedinstallprometheus_grafana">
-      
-      
-      
-    </li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsreference-li">
+  <a href="/docs/reference/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreference"><span class="">Reference docs</span></a>
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceconfig_file_format-li">
+  <a href="/docs/reference/config_file_format/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceconfig_file_format"><span class="">Config file format</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsreferenceavailable_metrics-li">
+  <a href="/docs/reference/available_metrics/" title="Available Metrics" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metrics"><span class="">Available metrics</span></a>
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceavailable_metricsinfluxdb-li">
+  <a href="/docs/reference/available_metrics/influxdb/" title="Metrics available in InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsinfluxdb"><span class="">InfluxDB</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceavailable_metricsprometheus-li">
+  <a href="/docs/reference/available_metrics/prometheus/" title="Available Metrics" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsprometheus"><span class="">Prometheus</span></a>
+</li>
   </ul>
-</ul>
-
-      
-      
-    </li>
+</li>
   </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/setup/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Setup</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="docsgetting_startedsetup">
-      
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/setup/which-config-file/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Which config file?</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedsetupwhich-config-file">
-      
-      
-      
-    </li>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docssecurity-li">
+  <a href="/docs/security/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docssecurity"><span class="">Security considerations</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docslegal_stuff-li">
+  <a href="/docs/legal_stuff/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docslegal_stuff"><span class="">Legal stuff</span></a>
+</li>
   </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/setup/logging/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Log files</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedsetuplogging">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/setup/heartbeats/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Heartbeats</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedsetupheartbeats">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/setup/docker-health-check/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Docker healthcheck</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedsetupdocker-health-check">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/setup/uptime-monitor/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Uptime monitor</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedsetupuptime-monitor">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/setup/user-events/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">User events</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="docsgetting_startedsetupuser-events">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/setup/qlik-sense-server-settings/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Sense server settings</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedsetupqlik-sense-server-settings">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/setup/mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MQTT</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedsetupmqtt">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/setup/prometheus/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Prometheus</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedsetupprometheus">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/setup/influxdb/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">InfluxDB</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedsetupinfluxdb">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/setup/app-names/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">App names</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedsetupapp-names">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/setup/user-sessions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">User sessions</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedsetupuser-sessions">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/setup/servers-to-monitor/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Servers to monitor</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedsetupservers-to-monitor">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/operations/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Day 2 operations</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedoperations">
-      
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting_started/operations/monitoring-butler-sos/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Monitoring Butler SOS</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting_startedoperationsmonitoring-butler-sos">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/concepts/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Concepts</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsconcepts">
-      
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/concepts/sessions-connections/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Sessions &amp; Connections</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsconceptssessions-connections">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/concepts/apps/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Apps</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsconceptsapps">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/concepts/errors-warnings/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Errors &amp; Warnings</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsconceptserrors-warnings">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/examples/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Examples</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsexamples">
-      
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/examples/qliksense_monitoring_grafana7/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Grafana 7 dashboard</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsexamplesqliksense_monitoring_grafana7">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/examples/qliksense_monitoring_grafana6/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Grafana 6 dashboard</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsexamplesqliksense_monitoring_grafana6">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/reference/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reference docs</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsreference">
-      
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/reference/config_file_format/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Config file format</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsreferenceconfig_file_format">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/reference/available_metrics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Available metrics</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsreferenceavailable_metrics">
-      
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/reference/available_metrics/influxdb/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">InfluxDB</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsreferenceavailable_metricsinfluxdb">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/reference/available_metrics/prometheus/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Prometheus</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsreferenceavailable_metricsprometheus">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/security/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Security considerations</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docssecurity">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/legal_stuff/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Legal stuff</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docslegal_stuff">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-    </li>
-  </ul>
-</ul>
-
+</li>
+    </ul>
   </nav>
 </div>
 
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+<a href="https://github.com/ptarmiganlabs/butler-sos-docs/tree/master/content/en/docs/getting_started/setup/user%20events/_index.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+  <a href="https://github.com/ptarmiganlabs/butler-sos-docs/edit/master/content/en/docs/getting_started/setup/user%20events/_index.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/ptarmiganlabs/butler-sos-docs/new/master/content/en/docs/getting_started/setup/user%20events/_index.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+  <a href="https://github.com/ptarmiganlabs/butler-sos-docs/issues/new?title=Configuring%20user%20events" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+  <a href="https://github.com/ptarmiganlabs/butler-sos/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+  
+</div>
 
-
-
-          </div>
-          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
             
 
 
-
-
-
-
-<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-
-
-
-
-
-<a href="https://github.com/ptarmiganlabs/butler-sos-docs/edit/master/content/en/docs/getting_started/setup/user%20events/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-<a href="https://github.com/ptarmiganlabs/butler-sos-docs/issues/new?title=Configuring%20user%20events" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
-
-
-<a href="https://github.com/ptarmiganlabs/butler-sos/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
-
-</div>
-
-
-
-
-
-
-<nav id="TableOfContents">
+<div class="td-toc"><nav id="TableOfContents">
   <ul>
     <li><a href="#whats-this">What&rsquo;s this?</a></li>
     <li><a href="#tech-deep-dive">Tech deep-dive</a></li>
     <li><a href="#settings-in-main-config-file">Settings in main config file</a></li>
     <li><a href="#log-appender-xml-files">Log appender XML files</a></li>
   </ul>
-</nav>
+</nav></div>
 
 
 
-          </div>
+            
+
+	
+		
+
+
+
+  
+  
+
+	
+		
+
+
+
+  
+  
+
+	
+
+          </aside>
           <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
             
   
@@ -1236,14 +398,30 @@ if (!doNotTrack) {
             
 <div class="td-content">
 	<h1>Configuring user events</h1>
-        
-	
+  
+	<header class="article-meta">
+		
+		
+			
+				
+
+
+			
+				
+
+
+			
+		
+		
+	</header>
 	
 
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Optional</h4>
-<p>These settings are optional.</p>
-<p>If you don&rsquo;t do anything telemetry is turned on by default.</p>
+
+    <p>These settings are optional.</p>
+<p>If you don&rsquo;t do anything user activity events are turned off by default.</p>
+
 
 </div>
 
@@ -1253,18 +431,18 @@ They capture session start/stop events (=users logging in/out) and connection op
 <p>These events rely on two things to be correctly configured:</p>
 <ol>
 <li>Settings in main config file.</li>
-<li>Log appender XML files being deployed on the Sense servers where user events should be captured.</li>
+<li>Log appender XML files being deployed on the Sense servers where user activity events should be captured.</li>
 </ol>
 <p>Both are described below.</p>
 <h2 id="tech-deep-dive">Tech deep-dive</h2>
 <p>The user events are created by hooking into Sense&rsquo;s logging framework, which is called Log4Net.</p>
-<p>By placing a carefully crafted XML file in the Qlik Sense proxy service&rsquo;s configuration directory, we can instruct Log4net to forward Sense log events that we are interested in to Butler SOS.<br>
+<p>By placing a carefully crafted XML file in the Qlik Sense proxy service&rsquo;s configuration directory, we can instruct Log4Net to forward Sense log events that we are interested in to Butler SOS.<br>
 In this case we are interested in session start/stop and connection open/close events.</p>
-<p>The XML file is called a &ldquo;log appender file&rdquo;. It can instructions that tell Log4Net to do various things when the specified filter matches the actual log data. Examples include sending emails, writing log entries to disk (i.e. regular file logging!), sending the log row as a UDP message and more.<br>
+<p>The XML file is also known as a &ldquo;log appender file&rdquo;. It contains instructions that tell Log4Net to do various things when the specified filter matches the actual log data. Examples include sending emails, writing log entries to disk (i.e. regular file logging!), sending the log row as a UDP message and more.<br>
 Here we&rsquo;re interested in the UDP message feature.</p>
 <p>So, by means of a log appender file we tell Log4Net to send certain log rows to Butler SOS as UDP messages.<br>
-We then also have to specify what host/IP address and port Butler SOS listens to.
-Finally we have to make sure firewalls are open and allow UDP traffic to Butler SOS.</p>
+We also have to specify in the log appender file what host/IP address and port Butler SOS listens to, i.e. where the UDP messages should be sent.<br>
+Finally we have to make sure firewalls are open and allow UDP traffic from the Sense server(s) to Butler SOS.</p>
 <p>If everything is set up correctly UDP messages will arrive at Butler SOS within seconds after the actual event taking place.</p>
 <h2 id="settings-in-main-config-file">Settings in main config file</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1288,9 +466,24 @@ Finally we have to make sure firewalls are open and allow UDP traffic to Butler 
 </span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">DEV</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">tag</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">foo</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">bar</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">sendToMQTT</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                     </span><span style="color:#8f5902;font-style:italic"># Set to true if user events should be forwarded as MQTT messages</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">                 </span><span style="color:#8f5902;font-style:italic"># MQTT topic to use for user event messages</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">topic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">userEvent</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">sendToMQTT</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> 
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">                 </span><span style="color:#8f5902;font-style:italic"># Set to true if user events should be forwarded as MQTT messages</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">postTo</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                       </span><span style="color:#8f5902;font-style:italic"># Control when and to which MQTT topics messages are sent </span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">everythingTopic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#8f5902;font-style:italic"># Topic to which all user events are sent</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">topic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qliksense/userevent</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">sessionStartTopic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#8f5902;font-style:italic"># Topic to which &#34;session start&#34; events are sent</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">topic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qliksense/userevent/session/start</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">sessionStopTopic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">           </span><span style="color:#8f5902;font-style:italic"># Topic to which &#34;session stop&#34; events are sent</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">topic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qliksense/userevent/session/stop</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">connectionOpenTopic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#8f5902;font-style:italic"># Topic to which &#34;connection open&#34; events are sent</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">topic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qliksense/userevent/connection/open</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">connectionCloseTopic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">       </span><span style="color:#8f5902;font-style:italic"># Topic to which &#34;connection close&#34; events are sent</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">topic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qliksense/userevent/connection/close</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">sendToInfluxdb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Set to true if user events should be stored in InfluxDB</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1300,6 +493,7 @@ Finally we have to make sure firewalls are open and allow UDP traffic to Butler 
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#8f5902;font-style:italic">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span style="color:#204a87;font-weight:bold">&lt;configuration&gt;</span>
 
+    <span style="color:#8f5902;font-style:italic">&lt;!-- Log appender finding user session events --&gt;</span>
     <span style="color:#204a87;font-weight:bold">&lt;appender</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;EventSession&#34;</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Appender.UdpAppender&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
         <span style="color:#204a87;font-weight:bold">&lt;filter</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Filter.StringMatchFilter&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
             <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;stringToMatch&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Start session for user&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
@@ -1308,18 +502,19 @@ Finally we have to make sure firewalls are open and allow UDP traffic to Butler 
             <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;stringToMatch&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Stop session for user&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
         <span style="color:#204a87;font-weight:bold">&lt;/filter&gt;</span>
         <span style="color:#204a87;font-weight:bold">&lt;filter</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Filter.DenyAllFilter&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;remoteAddress&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;&lt;FQDN or IP of server where Butler is running&gt;&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;remoteAddress&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;192.168.1.168&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
         <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;remotePort&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;9997&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
         <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;encoding&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;utf-8&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
         <span style="color:#204a87;font-weight:bold">&lt;layout</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Layout.PatternLayout&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
             <span style="color:#204a87;font-weight:bold">&lt;converter&gt;</span>
                 <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;name&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;hostname&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
                 <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;type&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Qlik.Sense.Logging.log4net.Layout.Pattern.HostNamePatternConverter&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-            <span style="color:#204a87;font-weight:bold">&lt;/converter&gt;</span>
-            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;conversionpattern&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;/proxy-session/;%hostname;%property{Command};%property{UserDirectory};%property{UserId};%property{Origin};%property{Context};%message&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+             <span style="color:#204a87;font-weight:bold">&lt;/converter&gt;</span>
+            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;conversionpattern&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;/qseow-proxy-session/;%hostname;%property{Command};%property{UserDirectory};%property{UserId};%property{Origin};%property{Context};%message&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
         <span style="color:#204a87;font-weight:bold">&lt;/layout&gt;</span>
     <span style="color:#204a87;font-weight:bold">&lt;/appender&gt;</span>
 
+    <span style="color:#8f5902;font-style:italic">&lt;!-- Log appender finding user connection events --&gt;</span>
     <span style="color:#204a87;font-weight:bold">&lt;appender</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;EventConnection&#34;</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Appender.UdpAppender&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
         <span style="color:#204a87;font-weight:bold">&lt;filter</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Filter.StringMatchFilter&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
             <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;stringToMatch&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;connection Opened for session&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
@@ -1328,27 +523,33 @@ Finally we have to make sure firewalls are open and allow UDP traffic to Butler 
             <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;stringToMatch&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;connection Closed for session&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
         <span style="color:#204a87;font-weight:bold">&lt;/filter&gt;</span>
         <span style="color:#204a87;font-weight:bold">&lt;filter</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Filter.DenyAllFilter&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;remoteAddress&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;&lt;FQDN or IP of server where Butler is running&gt;&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;remoteAddress&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;192.168.1.168&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
         <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;remotePort&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;9997&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
         <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;encoding&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;utf-8&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
         <span style="color:#204a87;font-weight:bold">&lt;layout</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Layout.PatternLayout&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
             <span style="color:#204a87;font-weight:bold">&lt;converter&gt;</span>
                 <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;name&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;hostname&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
                 <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;type&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Qlik.Sense.Logging.log4net.Layout.Pattern.HostNamePatternConverter&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-            <span style="color:#204a87;font-weight:bold">&lt;/converter&gt;</span>
-            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;conversionpattern&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;/proxy-connection/;%hostname;%property{Command};%property{UserDirectory};%property{UserId};%property{Origin};%property{Context};%message&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+             <span style="color:#204a87;font-weight:bold">&lt;/converter&gt;</span>
+            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;conversionpattern&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;/qseow-proxy-connection/;%hostname;%property{Command};%property{UserDirectory};%property{UserId};%property{Origin};%property{Context};%message&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
         <span style="color:#204a87;font-weight:bold">&lt;/layout&gt;</span>
     <span style="color:#204a87;font-weight:bold">&lt;/appender&gt;</span>
 
+    <span style="color:#8f5902;font-style:italic">&lt;!-- Send UDP message to Butler SOS on user activity --&gt;</span>
     <span style="color:#204a87;font-weight:bold">&lt;logger</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;AuditActivity.Proxy&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
         <span style="color:#204a87;font-weight:bold">&lt;appender-ref</span> <span style="color:#c4a000">ref=</span><span style="color:#4e9a06">&#34;EventSession&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
         <span style="color:#204a87;font-weight:bold">&lt;appender-ref</span> <span style="color:#c4a000">ref=</span><span style="color:#4e9a06">&#34;EventConnection&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
     <span style="color:#204a87;font-weight:bold">&lt;/logger&gt;</span>
 <span style="color:#204a87;font-weight:bold">&lt;/configuration&gt;</span>
-</code></pre></div><p>Note the places where you need to fill in the IP/host where Butler SOS is running, as well as the port number to use (set to 9997 but can be changed if needed).</p>
+</code></pre></div><style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>If you have several servers in your Sense cluster you probably need several log appender files too.</p>
+<p>More specifically, you should put a log appender file on each server where the Qlik Sense proxy service is running, i.e. on all servers via which end users access the Sense cluster.</p></div>
+
+<p>Note the places where you need to fill in the IP/host where Butler SOS is running, as well as the port number to use (set to 9997 but can be changed if needed).</p>
 <p>Make necessary changes so the file matches your environment, then deploy to <code>C:\ProgramData\Qlik\Sense\Proxy\LocalLogConfig.xml</code>.
 Note that the file <strong>must</strong> be called <code>LocalLogConfig.xml</code>!</p>
-<p>Sense will usually detect and use the file without any restarts needed, but it can take a while. You can always try restarting the Sense proxy service to make sure the XML file is applied and used.</p>
+<p>Sense will usually detect and use the file without any restarts needed, but it can take a while. You can always restart the Sense proxy service to make sure the XML file is applied and used.</p>
 <p>Once in place you should see events in the Butler SOS console log if you set logging level to <code>verbose</code>, <code>debug</code> or <code>silly</code>.</p>
 
         <div class="section-index">
@@ -1356,104 +557,10 @@ Note that the file <strong>must</strong> be called <code>LocalLogConfig.xml</cod
     
     
     
-    <hr class="panel-line">
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
+    
+    
+    
+    
     
 </div>
 
@@ -1473,16 +580,18 @@ Note that the file <strong>must</strong> be called <code>LocalLogConfig.xml</cod
     display: block;
   }
 </style>
+<div class="d-print-none">
 <h2 class="feedback--title">Feedback</h2>
 <p class="feedback--question">Was this page helpful?</p>
-<button class="feedback--answer feedback--answer-yes">Yes</button>
-<button class="feedback--answer feedback--answer-no">No</button>
+<button class="btn btn-primary mb-4 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn btn-primary mb-4 feedback--answer feedback--answer-no">No</button>
 <p class="feedback--response feedback--response-yes">
   Glad to hear it! Please <a href="https://github.com/ptarmiganlabs/butler-sos/issues/new/choose">tell us how we can improve</a>.
 </p>
 <p class="feedback--response feedback--response-no">
   Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butler-sos/issues/new/choose">tell us how Butler SOS can be improved</a>.
 </p>
+</div>
 <script>
   const yesButton = document.querySelector('.feedback--answer-yes');
   const noButton = document.querySelector('.feedback--answer-no');
@@ -1519,8 +628,10 @@ Note that the file <strong>must</strong> be called <code>LocalLogConfig.xml</cod
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified September 8, 2021: <a  href="https://github.com/ptarmiganlabs/butler-sos-docs/commit/47e5e7d0f2f28e8a36fd939559fedd5aa7cdef5e">v6.0.0 update (47e5e7d)</a>
+	<div class="text-muted mt-5 pt-3 border-top">
+  Last modified September 8, 2021: <a href="https://github.com/ptarmiganlabs/butler-sos-docs/commit/47e5e7d0f2f28e8a36fd939559fedd5aa7cdef5e">v6.0.0 update (47e5e7d)</a>
 </div>
+
 </div>
 
           </main>
@@ -1537,13 +648,13 @@ Note that the file <strong>must</strong> be called <code>LocalLogConfig.xml</cod
 <ul class="list-inline mb-0">
   
   <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Ptarmigan Labs on Twitter" aria-label="Ptarmigan Labs on Twitter">
-    <a class="text-white" target="_blank" href="https://twitter.com/ptarmiganlabs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://twitter.com/ptarmiganlabs" aria-label="Ptarmigan Labs on Twitter">
       <i class="fab fa-twitter"></i>
     </a>
   </li>
   
   <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
-    <a class="text-white" target="_blank" href="https://www.linkedin.com/in/gorsan/">
+    <a class="text-white" target="_blank" rel="noopener" href="https://www.linkedin.com/in/gorsan/" aria-label="LinkedIn">
       <i class="fab fa-linkedin"></i>
     </a>
   </li>
@@ -1560,13 +671,13 @@ Note that the file <strong>must</strong> be called <code>LocalLogConfig.xml</cod
 <ul class="list-inline mb-0">
   
   <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
-    <a class="text-white" target="_blank" href="https://github.com/ptarmiganlabs/butler-sos">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler-sos" aria-label="GitHub">
       <i class="fab fa-github"></i>
     </a>
   </li>
   
   <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Get in touch with Ptarmigan Labs" aria-label="Get in touch with Ptarmigan Labs">
-    <a class="text-white" target="_blank" href="mailto://info@ptarmiganlabs.com">
+    <a class="text-white" target="_blank" rel="noopener" href="mailto://info@ptarmiganlabs.com" aria-label="Get in touch with Ptarmigan Labs">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
@@ -1589,9 +700,24 @@ Note that the file <strong>must</strong> be called <code>LocalLogConfig.xml</cod
 
 
     </div>
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+ 
+
+
+
+
+
 
 
 
@@ -1600,6 +726,7 @@ Note that the file <strong>must</strong> be called <code>LocalLogConfig.xml</cod
 
 
 <script src="/js/main.min.bac7898495f8b0a2193d726a55f57a494ed7b34b99d83f4dc5a9bcc9e0f60490.js" integrity="sha256-useJhJX4sKIZPXJqVfV6SU7Xs0uZ2D9Nxam8yeD2BJA=" crossorigin="anonymous"></script>
+
 
 
 

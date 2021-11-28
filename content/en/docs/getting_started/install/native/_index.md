@@ -3,6 +3,21 @@ title: "Native app"
 linkTitle: "Native app"
 weight: 30
 description: >
-  How to install Butler as a Node.js application.
+  How to install Butler SOS as a Node.js application.
 ---
 
+## Selecting an OS
+
+While Qlik Sense Enterprise is a Windows only system, Butler SOS should be able to run on any OS where Node.js is available.  
+Butler SOS has been succesfully used as a native Node.js app - during development and production - on Windows, Linux (Debian and Ubuntu tested) and mac OS.
+
+## Prerequisites
+
+What | Comment
+---- | -------
+Qlik Sense Enterprise on Windows | *Mandatory.* Butler SOS is developed with Qlik Sense Enterprise on Windows (QSEoW) in mind. <br>Butler SOS is simply not intended to work with Sense Desktop or Sense cloud.
+Node.js | *Mandatory.* Butler SOS is written in Node - which is thus a firm requirement.
+MQTT broker | *Optional.* MQTT is used for outbound pub-sub messaging. Butler SOS assumes a working MQTT broker is available, the IP of which is defined in the Butler SOS config file. [Mosquitto](https://mosquitto.org/) is a great open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/... instance is enough, if you want a dedicated MQTT server. If you don't care about the pubsub features of Butler SOS, you don't need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.
+| [InfluxDB](https://www.influxdata.com/time-series-platform/) | *Use at least one of InfluxDB and Prometheus.* An open source database for realtime information, used to store metrics around Butler's own memory usage over time (if this feature is enabled).<br> At this point more metrics and events are sent to InfluxDB, compared to Prometheus. |
+| [Prometheus](https://prometheus.io) | *Use at least one of InfluxDB and Prometheus.* The de-facto standard open source tool for metrics gathering in large-scale systems, including Kubernetes. A bit more complex to set up and configure compared to InfluxDB, but also more focused on providing observability features. |
+| [Grafana](https://grafana.com) | *Optional.* The de-facto open source standard for showing real-time metrics. In order to visualise Sense realtime metrics in Grafana you must enable at least one of InfluxDB or Prometheus. |

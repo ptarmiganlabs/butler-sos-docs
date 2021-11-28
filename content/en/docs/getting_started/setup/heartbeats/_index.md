@@ -1,7 +1,7 @@
 ---
 title: "Configuring Butler SOS heartbeats"
 linkTitle: "Heartbeats"
-weight: 20
+weight: 30
 description: >
   Heartbeats provide a way to monitor that Butler SOS is running and working as intended.  
 
@@ -42,7 +42,7 @@ Butler-SOS:
   heartbeat:
     enable: false
     remoteURL: http://my.monitoring.server/some/path/
-    frequency: every 1 hour         # https://bunkat.github.io/later/parsers.html
+    frequency: every 1 hour         # https://bunkat.github.io/later/parsers.html#text
   ...
   ...
 ```

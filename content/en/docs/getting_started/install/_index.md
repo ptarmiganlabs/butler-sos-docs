@@ -41,7 +41,8 @@ First we must recognize that Sense uses [self signed certificates](https://en.wi
 
 This means that the easiest option for getting Butler SOS up and running is usually to install it on one of your Sense servers.
 
-That said, it is probably better system design to run Butler SOS (and maybe other members of the [Butler family](https://github.com/ptarmiganlabs)) on their own server, maybe using some flavour of Linux (lower cost compared to Windows).  
+That said, it is probably better system design to run Butler SOS (and maybe other members of the [Butler family](https://github.com/ptarmiganlabs)) on their own server, maybe using some flavour of Linux (lower cost compared to Windows). Windows servers work equally well though.  
+
 In this case you might want to consider exporting the Sense CA certificate from one of your Sense servers, and then install it on the Linux server.
 This *should* technically not be needed for Butler SOS to work correctly - as long as you specify the correct root.pem file in the Butler SOS config file, you should be ok.
 
