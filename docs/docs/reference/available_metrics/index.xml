@@ -1340,6 +1340,7 @@ The Prometheus server is responsible for gathering data exposed by the systems t
 &lt;p&gt;Prometheus is awesome when it comes to storing all kinds of measurements, but it doesn&amp;rsquo;t offer a good way to store strings.&lt;br&gt;
 For that reason Butler SOS metrics involving strings (for example list of apps loaded in memory) are not available on the Prometheus endpoint.&lt;br&gt;
 Most of the metrics come from Qlik Sense&#39; &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/November2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;health check API&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;qlik-sense-metrics&#34;&gt;Qlik Sense metrics&lt;/h4&gt;
 &lt;p&gt;These are the Prometheus metrics exposed by Butler SOS:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -1440,8 +1441,21 @@ Most of the metrics come from Qlik Sense&#39; &lt;a href=&#34;https://help.qlik.
 &lt;td&gt;Gauge&lt;/td&gt;
 &lt;td&gt;Total number of distinct users within the current engine sessions.&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;butlersos_engine_metadata&lt;/td&gt;
+&lt;td&gt;Gauge&lt;/td&gt;
+&lt;td&gt;Metadata about the Qlik Sense engine.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;butlersos_user_session_total&lt;/td&gt;
+&lt;td&gt;Gauge&lt;/td&gt;
+&lt;td&gt;Number of sessions (as reported by the proxy service).&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h4 id=&#34;nodejs-metrics&#34;&gt;Node.js metrics&lt;/h4&gt;
+&lt;p&gt;A set of Node.js specific metrics are also available on Butler SOS&#39; Prometheus endpoint.&lt;br&gt;
+These are described in the &amp;ldquo;Default metrics&amp;rdquo; section on [this](&lt;a href=&#34;https://github.com/siimon/prom-client/tree/master/lib/metrics&#34;&gt;Default metrics&lt;/a&gt;) page.&lt;/p&gt;
 
       </description>
     </item>

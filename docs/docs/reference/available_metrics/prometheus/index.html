@@ -469,6 +469,7 @@ The Prometheus server is responsible for gathering data exposed by the systems t
 <p>Prometheus is awesome when it comes to storing all kinds of measurements, but it doesn&rsquo;t offer a good way to store strings.<br>
 For that reason Butler SOS metrics involving strings (for example list of apps loaded in memory) are not available on the Prometheus endpoint.<br>
 Most of the metrics come from Qlik Sense' <a href="https://help.qlik.com/en-US/sense-developer/November2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm">health check API</a>.</p>
+<h4 id="qlik-sense-metrics">Qlik Sense metrics</h4>
 <p>These are the Prometheus metrics exposed by Butler SOS:</p>
 <table>
 <thead>
@@ -569,8 +570,21 @@ Most of the metrics come from Qlik Sense' <a href="https://help.qlik.com/en-US/s
 <td>Gauge</td>
 <td>Total number of distinct users within the current engine sessions.</td>
 </tr>
+<tr>
+<td>butlersos_engine_metadata</td>
+<td>Gauge</td>
+<td>Metadata about the Qlik Sense engine.</td>
+</tr>
+<tr>
+<td>butlersos_user_session_total</td>
+<td>Gauge</td>
+<td>Number of sessions (as reported by the proxy service).</td>
+</tr>
 </tbody>
 </table>
+<h4 id="nodejs-metrics">Node.js metrics</h4>
+<p>A set of Node.js specific metrics are also available on Butler SOS' Prometheus endpoint.<br>
+These are described in the &ldquo;Default metrics&rdquo; section on [this](<a href="https://github.com/siimon/prom-client/tree/master/lib/metrics">Default metrics</a>) page.</p>
 
         <div class="section-index">
     
