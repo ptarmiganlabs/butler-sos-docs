@@ -373,7 +373,7 @@ Fields in proxy log events:
 | exception_message | If a serious problem/exception occurs the associated message is available here. |
 | message | Description of what the event is about. Example: `Login failed for user 'LAB\\goran' wrong credentials?` |
 | origin |  Example: `qseow-repository.` |
-| raw_event | The raw event message as received from QSEoW. Described [here](TODO_Github_link). |
+| raw_event | The raw event message as received from QSEoW. Described [here](https://github.com/ptarmiganlabs/butler-sos/blob/bd9135d953d4fc2d025dc8326956b2504b3d06d4/src/lib/udp_handlers_log_events.js#L26). |
 | result_code |  Example: `500` |
 
 The `raw_event` is the actual log event message sent from QSEoW to Butler SOS.  
@@ -428,7 +428,7 @@ Fields in scheduler log events:
 | exception_message | If a serious problem/exception occurs the associated message is available here. |
 | execution_id | ID identifying  a particular task execution. Example: `67a56c3b-2e20-4df8-ad1b-e48de28e1bfa` |
 | message | Description of what the event is about. Example: `Login failed for user 'LAB\\goran' wrong credentials?` |
-| raw_event | The raw event message as received from QSEoW. Described [here](TODO_Github_link). |
+| raw_event | The raw event message as received from QSEoW. Described [here](https://github.com/ptarmiganlabs/butler-sos/blob/bd9135d953d4fc2d025dc8326956b2504b3d06d4/src/lib/udp_handlers_log_events.js#L61). |
 
 The `raw_event` is the actual log event message sent from QSEoW to Butler SOS.  
 It has the following components:
@@ -483,7 +483,7 @@ Fields in scheduler log events:
 | exception_message | If a serious problem/exception occurs the associated message is available here. |
 | message | Description of what the event is about. Example: `Login failed for user 'LAB\\goran' wrong credentials?` |
 | origin |  Example: `qseow-repository.` |
-| raw_event | The raw event message as received from QSEoW. Described [here](TODO_Github_link). |
+| raw_event | The raw event message as received from QSEoW. Described [here](https://github.com/ptarmiganlabs/butler-sos/blob/bd9135d953d4fc2d025dc8326956b2504b3d06d4/src/lib/udp_handlers_log_events.js#L43). |
 | result_code |  Example: `500` |
 
 The `raw_event` is the actual log event message sent from QSEoW to Butler SOS.  

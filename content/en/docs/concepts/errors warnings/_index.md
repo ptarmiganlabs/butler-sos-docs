@@ -19,7 +19,7 @@ Sense creates a large number of log files for the various parts of the larger Ql
 Those logs track more or less everything - from extensions being installed, users logging in, to incorrect structure of Active Directory user directories.
 
 Butler SOS monitors select parts of these logs and provides a way to get an aggregated, close to real-time view into warnings and errors.  
-The [log events](http://localhost:1313/docs/getting_started/setup/log-events/) page has more info on this.
+The [log events](/docs/getting_started/setup/log-events/) page has more info on this.
 
 ## Grafana dashboards
 
