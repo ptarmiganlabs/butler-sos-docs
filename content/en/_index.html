@@ -12,8 +12,12 @@ linkTitle = "Butler SOS"
 	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/ptarmiganlabs/butler-sos/releases" target="_blank">
 		Download <i class="fab fa-github ml-2 "></i>
 	</a>
-	<p class="lead mt-5">If you don't measure it, you can't improve it.
-	</p>
+	<p class="lead mt-5">Warnings lead to errors ➡️ Errors lead to unhappy users ➡️ Unhappy users call you</p>
+	<p class="lead mt-2">Wouldn't you rather get the warnings yourself, before anyone else?</p>
+	
+
+	<p class="lead mt-5"></p>
+	<p class="-bg-primary p-2 display-4">If you don't measure it, you can't improve it.	</p>
 	
 	<div class="mx-auto mt-5">
 		{{< blocks/link-down color="info" >}}
@@ -52,6 +56,17 @@ Yes! Butler SOS stores all data in an InfluxDB and/or Prometheus database, from 
 Both are best-in-class, open source products for storing and visualising time-series data.
 
 Grafana is increadibly feature rich, including a powerful alerting feature that can send alerts to email, IM tools (Slack etc), PagerDuty and more.
+{{% /blocks/lead %}}
+
+
+{{% blocks/lead color="info" %}}
+**--- Can I get alerts when errors or warnings occur in Qlik Sense? ---**
+
+Yes! In version 7 Butler SOS added a new, unique feature: Real-time monitoring of Qlik Sense log events.
+
+This means that you get notifications about warnings or errors within seconds of them happening in your Sense server(s). You can take action within minutes rather than hours or days.
+
+The same concept also works for user events. Need to track sessions over time or alert when a users from a certain department logs on? No problem.
 {{% /blocks/lead %}}
 
 

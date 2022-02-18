@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.89.4" />
+<meta name="generator" content="Hugo 0.92.0" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/concepts/errors-warnings/index.xml">
 <meta name="robots" content="index, follow">
 
@@ -325,8 +325,13 @@ if (!doNotTrack) {
 
 <div class="td-toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#sense-log-files">Sense log files</a></li>
-    <li><a href="#grafana-dashboards">Grafana dashboards</a></li>
+    <li><a href="#sense-log-events">Sense log events</a></li>
+    <li><a href="#grafana-dashboards">Grafana dashboards</a>
+      <ul>
+        <li><a href="#example-1-circular-active-directory-references">Example 1: Circular Active Directory references</a></li>
+        <li><a href="#example-2-session-bursts-causing-proxy-overload">Example 2: Session bursts causing proxy overload</a></li>
+      </ul>
+    </li>
     <li><a href="#alerts">Alerts</a></li>
   </ul>
 </nav></div>
@@ -415,22 +420,34 @@ Unhappy users call you.</p>
 		
 		
 	</header>
-	<h2 id="sense-log-files">Sense log files</h2>
+	<h2 id="sense-log-events">Sense log events</h2>
 <p>Sense creates a large number of log files for the various parts of the larger Qlik Sense Enterprise environment.<br>
 Those logs track more or less everything - from extensions being installed, users logging in, to incorrect structure of Active Directory user directories.</p>
-<p>Butler SOS monitors select parts of these logs and provides a way to get an aggregated, close to real-time view into warnings and errors.<br>
-The <a href="/docs/getting_started/setup/log-events/">log events</a> page has more info on this.</p>
+<p>Butler SOS monitors select parts of these logs and provides a way to get an aggregated, close to real-time view into warnings and errors.</p>
+<p>The <a href="/docs/getting_started/setup/log-events/">log events</a> page has more info on this.</p>
 <h2 id="grafana-dashboards">Grafana dashboards</h2>
 <p>Butler SOS stores the log events in InfluxDB together with all other metrics.<br>
 It is therefore possible to create Grafana dashboards that combine both operational metrics (apps, sessions, server RAM/CPU etc) with warning and error related charts and tables.</p>
 <p>Showing warnings and errors visually is often an effective way to quickly identify developing or recurring issues.</p>
+<h3 id="example-1-circular-active-directory-references">Example 1: Circular Active Directory references</h3>
 <p>Here is an example where bursts of warnings tell us visually that something is not quite right.<br>
-We can then look at the actual warnings to see what&rsquo;s going on.<br>
-In this case it turns out to be circular references in the Active Directory data used in Qlik Sense.  Not a problem with Sense per se, but still something worth looking into:</p>
+50-60 warnings arriving in bursts every few minutes - something is not right.<br>
+There is also a single error during this time period - what&rsquo;s going on there?</p>
+<p>We can then look at the actual warnings (=log events) to see what&rsquo;s going on.</p>
+<p>In this case it turns out to be circular references in the Active Directory data used in Qlik Sense.  Not a problem with Sense per se, but still something worth looking into:</p>
 <p><img src="butler-sos-warnings-errors-graph-1.png" alt="Warnings and errors from Qlik Sense in Grafana dashboard" title="Warnings and errors from Qlik Sense in Grafana dashboard"></p>
 <p><img src="butler-sos-warnings-table-1.png" alt="Warnings from Qlik Sense in Grafana table" title="Warnings from Qlik Sense in Grafana table"></p>
 <p>Looking at that single error then, it turns out it&rsquo;s caused by a task already running when it was scheduled to start:</p>
 <p><img src="butler-sos-errors-table-1.png" alt="Errors from Qlik Sense in Grafana table" title="Errors from Qlik Sense in Grafana table"></p>
+<h3 id="example-2-session-bursts-causing-proxy-overload">Example 2: Session bursts causing proxy overload</h3>
+<p>This example is would have been hard or impossible to investigate without Butler SOS.</p>
+<p>The problem was that the Sense environment from time to time became very slow or even unresponsive. A restart solved the problem.</p>
+<p>Grafana was set up to send alerts when session count increase very rapidly. Thanks to this actions could be taken within minutes from the incident occuring.</p>
+<p>Looking in the Grafana dashboard could then show something like below.<br>
+New sessions started every few seconds, all coming from a single client. The effect for this Sense user was that Sense was unresponsive.</p>
+<p>The log events section of the Grafana dashboard showed that this user had been given 5 proxy sessions, after which further access to Sense internal resources (engine etc) was denied.</p>
+<p><img src="butler-sos-session-runaway-1.png" alt="Sessions increasing very quickly" title="Qlik Sense sessions increasing very quickly"></p>
+<p>In this case the problem was caused by a mashup using iframes that when recovering from session timeouts caused race conditions, trying to re-establish a session to Sense over and over again.</p>
 <h2 id="alerts">Alerts</h2>
 <p>Grafana includes a set of built-in alert features that can be used to set up alerts as well as forward them to destinations such as Slack, MS Teams, email, Discord, Kafka, Webhooks, PagerDuty and others.</p>
 <p>More info about Grafana alerts <a href="https://grafana.com/docs/grafana/latest/alerting/notifications/">here</a>.</p>
@@ -571,7 +588,7 @@ In this case it turns out to be circular references in the Active Directory data
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 Ptarmigan Labs AB All Rights Reserved</small>
+        <small class="text-white">&copy; 2022 Ptarmigan Labs AB All Rights Reserved</small>
         
 	
 		<p class="mt-2"><a href="/about/">About Butler SOS</a></p>
