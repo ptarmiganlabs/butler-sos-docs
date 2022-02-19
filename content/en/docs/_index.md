@@ -9,6 +9,28 @@ menu:
 
 {{% pageinfo %}}
 
+### What's new in version 8.1
+
+* Scanning for security risks and vulnerabilities is now done as part of the relese process.
+* Clean up the Docker images (available on Docker Hub) in order to keep them as lean as possible.
+
+### What's new in version 8.0
+
+The version number change indicate this release contains breaking changes.  
+
+Well... When working on the release process for Butler SOS we happened to bump the version number too much. Oops.  
+No breaking changes in this version.
+
+There's a major new feature though:  
+**Pre-compiled, standalone binaries for Windows, Linux and macOS!**
+
+This has been planned for ages and we finally got around to implement it.  
+It may look like a minor change but it does make it easier to get started with Butler SOS:
+
+* You no longer have to first install Node.js, then install all the Butler SOS files.
+* All you need is now a single binary and a valid YAML config file (which hasn't changed since previous version/7.x).
+* If you want to keep using a separate Node.js engine for running Butler SOS that's perfectly fine too.
+
 ### What's new in version 7.0
 
 This is a major release including features that have been on the roadmap for years, but never really graduated from the concept phase.  
