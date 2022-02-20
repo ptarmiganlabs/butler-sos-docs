@@ -12,6 +12,7 @@ menu:
 ### What's new in version 8.1
 
 * Scanning for security risks and vulnerabilities is now done as part of the relese process.
+  This is in addition to the daily scans that are also done (and have been done for a long time].
 * Clean up the Docker images (available on Docker Hub) in order to keep them as lean as possible.
 
 ### What's new in version 8.0
