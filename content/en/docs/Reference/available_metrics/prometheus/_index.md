@@ -1,7 +1,7 @@
 ---
-title: "Available Metrics"
+title: "Available Metrics: Prometheus"
 linkTitle: "Prometheus"
-weight: 10
+weight: 20
 description: >
   In order to create graphs in for example Grafana, you must understand what metrics are available and how they are structured.
 ---
@@ -11,7 +11,7 @@ description: >
 
 Metrics retrieved from the Sense servers can be stored in [Prometheus](https://prometheus.io). You don't have to be a Prometheus expert to use Butler SOS, but understanding some basic concepts are helpful.  
 
-Storing metrics in Prometheus is not mandatory, but some kind of metrics storage - either in [InfluxDB](/docs/reference/available_metrics/influxdb/) or Prometheus - is needed to take full benefit of Butler SOS' features.
+Storing metrics in Prometheus is not mandatory, but some kind of metrics storage - either in Prometheus, [InfluxDB](/docs/reference/available_metrics/influxdb/) or [New Relic](https://newrelic.com) - is needed to take full benefit of Butler SOS' features.
 
 Prometheus gathers metrics by "scraping" data from web pages ("endpoints") on which metrics are displayed in a well specified format.  
 Most metrics from the Sense servers are exposed on a Prometheus compatible endpoint, but not all.  
@@ -88,4 +88,4 @@ These are the Prometheus metrics exposed by Butler SOS:
 #### Node.js metrics
 
 A set of Node.js specific metrics are also available on Butler SOS' Prometheus endpoint.  
-These are described in the "Default metrics" section on [this]([Default metrics](https://github.com/siimon/prom-client/tree/master/lib/metrics)) page.
+These are described in the "Default metrics" section on [this](https://github.com/siimon/prom-client) page.

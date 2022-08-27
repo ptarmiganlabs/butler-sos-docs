@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.92.0" />
+<meta name="generator" content="Hugo 0.101.0" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/user-sessions/index.xml">
 <meta name="robots" content="index, follow">
 
@@ -219,6 +219,8 @@ if (!doNotTrack) {
   <a href="/docs/getting_started/setup/docker-health-check/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupdocker-health-check"><span class="">Docker healthcheck</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupuptime-monitor-li">
   <a href="/docs/getting_started/setup/uptime-monitor/" title="Configuring Butler SOS uptime monitor" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupuptime-monitor"><span class="">Uptime monitor</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupcredentials-li">
+  <a href="/docs/getting_started/setup/credentials/" title="Credentials to third party services" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupcredentials"><span class="">Credentials</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupuser-events-li">
   <a href="/docs/getting_started/setup/user-events/" title="Configuring user events" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupuser-events"><span class="">User events</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetuplog-events-li">
@@ -229,13 +231,15 @@ if (!doNotTrack) {
   <a href="/docs/getting_started/setup/qlik-sense-server-settings/" title="Connecting to a Qlik Sense server" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupqlik-sense-server-settings"><span class="">Sense server settings</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupmqtt-li">
   <a href="/docs/getting_started/setup/mqtt/" title="Setting up MQTT messaging" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupmqtt"><span class="">MQTT</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupnew-relic-li">
+  <a href="/docs/getting_started/setup/new-relic/" title="Setting up the New Relic integration" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupnew-relic"><span class="">New Relic</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupprometheus-li">
   <a href="/docs/getting_started/setup/prometheus/" title="Setting up Prometheus" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupprometheus"><span class="">Prometheus</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupinfluxdb-li">
   <a href="/docs/getting_started/setup/influxdb/" title="Setting up InfluxDB time series database" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupinfluxdb"><span class="">InfluxDB</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupapp-names-li">
   <a href="/docs/getting_started/setup/app-names/" title="Configuring extraction of app names from Qlik Sense" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupapp-names"><span class="">App names</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsgetting_startedsetupuser-sessions-li">
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupuser-sessions-li">
   <a href="/docs/getting_started/setup/user-sessions/" title="Configuring user sessions" class="align-left pl-0 active td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupuser-sessions"><span class="td-sidebar-nav-active-item">User sessions</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupservers-to-monitor-li">
   <a href="/docs/getting_started/setup/servers-to-monitor/" title="Configure which Sense servers to monitor" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupservers-to-monitor"><span class="">Servers to monitor</span></a>
@@ -266,7 +270,9 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsexamples-li">
   <a href="/docs/examples/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamples"><span class="">Examples</span></a>
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana8-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana9-li">
+  <a href="/docs/examples/qliksense_monitoring_grafana9/" title="Qlik Sense monitoring using Butler SOS v9.2 and Grafana v9.1" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesqliksense_monitoring_grafana9"><span class="">Grafana 9 dashboard</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana8-li">
   <a href="/docs/examples/qliksense_monitoring_grafana8/" title="Qlik Sense monitoring using Butler SOS v7 and Grafana v8" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesqliksense_monitoring_grafana8"><span class="">Grafana 8 dashboard</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana7-li">
   <a href="/docs/examples/qliksense_monitoring_grafana7/" title="Qlik Sense monitoring using Grafana 7" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesqliksense_monitoring_grafana7"><span class="">Grafana 7 dashboard</span></a>
@@ -283,9 +289,11 @@ if (!doNotTrack) {
   <a href="/docs/reference/available_metrics/" title="Available Metrics" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metrics"><span class="">Available metrics</span></a>
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceavailable_metricsinfluxdb-li">
-  <a href="/docs/reference/available_metrics/influxdb/" title="Metrics available in InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsinfluxdb"><span class="">InfluxDB</span></a>
+  <a href="/docs/reference/available_metrics/influxdb/" title="Available metrics: InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsinfluxdb"><span class="">InfluxDB</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceavailable_metricsnew-relic-li">
+  <a href="/docs/reference/available_metrics/new-relic/" title="Available Metrics: New Relic" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsnew-relic"><span class="">New Relic</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceavailable_metricsprometheus-li">
-  <a href="/docs/reference/available_metrics/prometheus/" title="Available Metrics" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsprometheus"><span class="">Prometheus</span></a>
+  <a href="/docs/reference/available_metrics/prometheus/" title="Available Metrics: Prometheus" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsprometheus"><span class="">Prometheus</span></a>
 </li>
   </ul>
 </li>
@@ -440,23 +448,23 @@ Don&rsquo;t forget to set <code>Butler-SOS.userSessions.enableSessionExtract</co
 <p>Being a template, it contains examples on how configuration <em>may</em> be done - not necessarily how it <em>should</em> be done.<br>
 For example, the <code>LAB/testuser1</code> and <code>LAB/testuser2</code> user are optional and can be changed to something else, or removed all together if not used.</p></div>
 
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">Butler-SOS</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Sessions per virtual proxy</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">userSessions</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">enableSessionExtract</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># Query unique user IDs of what users have sessions open (true/false)?</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># Items below are mandatory if enableSessionExtract=true    </span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">pollingInterval</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">30000</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#8f5902;font-style:italic"># How often (milliseconds) should session data be polled?</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">excludeUser</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Optional blacklist of users that should be disregarded when it comes to session monitoring.</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">                                  </span><span style="color:#8f5902;font-style:italic"># Blacklist is only applied to data in InfluxDB. All session data will be sent to MQTT.</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">directory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">LAB</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">userId</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">testuser1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">directory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">LAB</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">userId</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">testuser2</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">Butler-SOS</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Sessions per virtual proxy</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">userSessions</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">enableSessionExtract</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># Query unique user IDs of what users have sessions open (true/false)?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># Items below are mandatory if enableSessionExtract=true    </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">pollingInterval</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">30000</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#8f5902;font-style:italic"># How often (milliseconds) should session data be polled?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">excludeUser</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Optional blacklist of users that should be disregarded when it comes to session monitoring.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                  </span><span style="color:#8f5902;font-style:italic"># Blacklist is only applied to data in InfluxDB. All session data will be sent to MQTT.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">directory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">LAB</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">userId</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">testuser1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">directory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">LAB</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">userId</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">testuser2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div>
         <div class="section-index">
     
     
@@ -630,7 +638,7 @@ For example, the <code>LAB/testuser1</code> and <code>LAB/testuser2</code> user 
 
 
 
-<script src="/js/main.min.bac7898495f8b0a2193d726a55f57a494ed7b34b99d83f4dc5a9bcc9e0f60490.js" integrity="sha256-useJhJX4sKIZPXJqVfV6SU7Xs0uZ2D9Nxam8yeD2BJA=" crossorigin="anonymous"></script>
+<script src="/js/main.min.e404d12d340e64a577f807a6d1f28f7b85c1390e1fc893c48702d60e61b077ef.js" integrity="sha256-5ATRLTQOZKV3&#43;Aem0fKPe4XBOQ4fyJPEhwLWDmGwd&#43;8=" crossorigin="anonymous"></script>
 
 
 

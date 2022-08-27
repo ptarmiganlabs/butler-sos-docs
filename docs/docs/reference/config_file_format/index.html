@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.92.0" />
+<meta name="generator" content="Hugo 0.101.0" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/reference/config_file_format/index.xml">
 <meta name="robots" content="index, follow">
 
@@ -210,6 +210,8 @@ if (!doNotTrack) {
   <a href="/docs/getting_started/setup/docker-health-check/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupdocker-health-check"><span class="">Docker healthcheck</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupuptime-monitor-li">
   <a href="/docs/getting_started/setup/uptime-monitor/" title="Configuring Butler SOS uptime monitor" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupuptime-monitor"><span class="">Uptime monitor</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupcredentials-li">
+  <a href="/docs/getting_started/setup/credentials/" title="Credentials to third party services" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupcredentials"><span class="">Credentials</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupuser-events-li">
   <a href="/docs/getting_started/setup/user-events/" title="Configuring user events" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupuser-events"><span class="">User events</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetuplog-events-li">
@@ -220,6 +222,8 @@ if (!doNotTrack) {
   <a href="/docs/getting_started/setup/qlik-sense-server-settings/" title="Connecting to a Qlik Sense server" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupqlik-sense-server-settings"><span class="">Sense server settings</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupmqtt-li">
   <a href="/docs/getting_started/setup/mqtt/" title="Setting up MQTT messaging" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupmqtt"><span class="">MQTT</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupnew-relic-li">
+  <a href="/docs/getting_started/setup/new-relic/" title="Setting up the New Relic integration" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupnew-relic"><span class="">New Relic</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupprometheus-li">
   <a href="/docs/getting_started/setup/prometheus/" title="Setting up Prometheus" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupprometheus"><span class="">Prometheus</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupinfluxdb-li">
@@ -257,7 +261,9 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsexamples-li">
   <a href="/docs/examples/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamples"><span class="">Examples</span></a>
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana8-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana9-li">
+  <a href="/docs/examples/qliksense_monitoring_grafana9/" title="Qlik Sense monitoring using Butler SOS v9.2 and Grafana v9.1" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesqliksense_monitoring_grafana9"><span class="">Grafana 9 dashboard</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana8-li">
   <a href="/docs/examples/qliksense_monitoring_grafana8/" title="Qlik Sense monitoring using Butler SOS v7 and Grafana v8" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesqliksense_monitoring_grafana8"><span class="">Grafana 8 dashboard</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana7-li">
   <a href="/docs/examples/qliksense_monitoring_grafana7/" title="Qlik Sense monitoring using Grafana 7" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesqliksense_monitoring_grafana7"><span class="">Grafana 7 dashboard</span></a>
@@ -268,15 +274,17 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsreference-li">
   <a href="/docs/reference/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreference"><span class="">Reference docs</span></a>
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsreferenceconfig_file_format-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsreferenceconfig_file_format-li">
   <a href="/docs/reference/config_file_format/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__section" id="m-docsreferenceconfig_file_format"><span class="td-sidebar-nav-active-item">Config file format</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsreferenceavailable_metrics-li">
   <a href="/docs/reference/available_metrics/" title="Available Metrics" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metrics"><span class="">Available metrics</span></a>
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceavailable_metricsinfluxdb-li">
-  <a href="/docs/reference/available_metrics/influxdb/" title="Metrics available in InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsinfluxdb"><span class="">InfluxDB</span></a>
+  <a href="/docs/reference/available_metrics/influxdb/" title="Available metrics: InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsinfluxdb"><span class="">InfluxDB</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceavailable_metricsnew-relic-li">
+  <a href="/docs/reference/available_metrics/new-relic/" title="Available Metrics: New Relic" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsnew-relic"><span class="">New Relic</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceavailable_metricsprometheus-li">
-  <a href="/docs/reference/available_metrics/prometheus/" title="Available Metrics" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsprometheus"><span class="">Prometheus</span></a>
+  <a href="/docs/reference/available_metrics/prometheus/" title="Available Metrics: Prometheus" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsprometheus"><span class="">Prometheus</span></a>
 </li>
   </ul>
 </li>
@@ -395,7 +403,7 @@ if (!doNotTrack) {
 <p>The parameters in the config file are described below.
 All parameters must be defined in the config file - run time errors are likely to occur otherwise.
 The <a href="https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml">sample config file</a> looks like this:</p>
-<p><img src="./configfile_7_0.png" alt="Sample config file" title="Sample Butler SOS config file"></p>
+<p><img src="./configfile_9_2.png" alt="Sample config file" title="Sample Butler SOS config file"></p>
 <p>A few things to keep in mind:</p>
 <ul>
 <li>Topic names (e.g. &ldquo;Butler-SOS.logdb&rdquo;) are case sensitive.</li>
@@ -515,11 +523,54 @@ If you are <em>not</em> running Butler SOS in Docker you can disable this featur
 </tr>
 <tr>
 <td>storeInInfluxdb.<br>butlerSOSMemoryUsage</td>
-<td>Should data on Butler SOS' own memory use be stored in Infludb? true/false</td>
+<td>Should data on Butler SOS&rsquo; own memory use be stored in Infludb? true/false</td>
 </tr>
 <tr>
 <td>storeInInfluxdb.<br>instanceTag</td>
 <td>Tag used to differentiate data from multiple Butler SOS instances. Useful if running different Butler SOS instances against (for example) DEV, TEST and PROD environments</td>
+</tr>
+<tr>
+<td>storeNewRelic.<br>enable</td>
+<td>Should uptime data be sent to New Relic? true/false</td>
+</tr>
+<tr>
+<td>storeNewRelic.<br>destinationAccount</td>
+<td>Array of New Relic account names to which uptime data will be sent</td>
+</tr>
+<tr>
+<td>storeNewRelic.<br>metric.dynamic.<br>butlerMemoryUsage.enable</td>
+<td>Should Butler SOS memory metrics be sent to New Relic? true/false</td>
+</tr>
+<tr>
+<td>storeNewRelic.<br>metric.dynamic.<br>butlerUptime.enable</td>
+<td>Should Butler uptime (days, hours, minutes since startup) be sent to New Relic? true/false</td>
+</tr>
+<tr>
+<td>storeNewRelic.<br>attribute.static</td>
+<td>Array of attributes which will be added to all uptime metrics sent to New Relic</td>
+</tr>
+<tr>
+<td>storeNewRelic.<br>attribute.dynamic.<br>butlerVersion.enable</td>
+<td>Should uptime metrics be tagged with Butler SOS version number? true/false</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="butler-sosthirdpartytoolscredentials">Butler-SOS.thirdPartyToolsCredentials</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>newRelic</td>
+<td>Should messages with Butler SOS uptime and memory usage be written to console and logs? true/false</td>
 </tr>
 <tr>
 <td></td>
@@ -607,6 +658,18 @@ Requires log appender XML file(s) to be added to Sense server(s).</p>
 <td>Should user events be saved in InfluxDB? true/false</td>
 </tr>
 <tr>
+<td>sendToNewRelic.enable</td>
+<td>Should user events be saved in New Relic? true/false</td>
+</tr>
+<tr>
+<td>sendToNewRelic.destinationAccount</td>
+<td>Array of New Relic account names to which user events will be sent.</td>
+</tr>
+<tr>
+<td>sendToNewRelic.scramble</td>
+<td>Should <code>user directory</code> and <code>user ID</code> fields be scrambled before user events are sent to New Relic? true/false</td>
+</tr>
+<tr>
 <td></td>
 <td></td>
 </tr>
@@ -635,6 +698,10 @@ Requires log appender XML file(s) to be added to Sense server(s).</p>
 <tr>
 <td>tags</td>
 <td>Array of tags (tagName/tagValue pairs) that should be added to each log event before sending it to InfluxDB. Remove sample tags before deploying Butler SOS.</td>
+</tr>
+<tr>
+<td>source.<br>engine.enable</td>
+<td>Should log events from the engine service be handled by Butler SOS? true/false</td>
 </tr>
 <tr>
 <td>source.<br>proxy.enable</td>
@@ -667,6 +734,62 @@ Requires log appender XML file(s) to be added to Sense server(s).</p>
 <tr>
 <td>sendToInfluxdb.enable</td>
 <td>Should log events be saved in InfluxDB? true/false</td>
+</tr>
+<tr>
+<td>sendToNewRelic.enable</td>
+<td>Should log events be sent to New Relic? true/false</td>
+</tr>
+<tr>
+<td>sendToNewRelic.destinationAccount</td>
+<td>Array of New Relic account names to which log events will be sent.</td>
+</tr>
+<tr>
+<td>sendToNewRelic.<br>source.engine.enable</td>
+<td>Should log events from the engine service be handled?</td>
+</tr>
+<tr>
+<td>sendToNewRelic.<br>source.engine.logLevel.error</td>
+<td>Should ERROR log events from the engine service be handled?</td>
+</tr>
+<tr>
+<td>sendToNewRelic.<br>source.engine.logLevel.warn</td>
+<td>Should WARN log events from the engine service be handled?</td>
+</tr>
+<tr>
+<td>sendToNewRelic.<br>source.proxy.enable</td>
+<td>Should log events from the proxy service be handled?</td>
+</tr>
+<tr>
+<td>sendToNewRelic.<br>source.proxy.logLevel.error</td>
+<td>Should ERROR log events from the proxy service be handled</td>
+</tr>
+<tr>
+<td>sendToNewRelic.<br>source.proxy.logLevel.warn</td>
+<td>Should WARN log events from the proxy service be handled</td>
+</tr>
+<tr>
+<td>sendToNewRelic.<br>source.repository.enable</td>
+<td>Should log events from the repository service be handled?</td>
+</tr>
+<tr>
+<td>sendToNewRelic.<br>source.repository.logLevel.error</td>
+<td>Should ERROR log events from the repository service be handled</td>
+</tr>
+<tr>
+<td>sendToNewRelic.<br>source.repository.logLevel.warn</td>
+<td>Should WARN log events from the repository service be handled</td>
+</tr>
+<tr>
+<td>sendToNewRelic.<br>source.scheduler.enable</td>
+<td>Should log events from the scheduler service be handled?</td>
+</tr>
+<tr>
+<td>sendToNewRelic.<br>source.scheduler.logLevel.error</td>
+<td>Should ERROR log events from the scheduler service be handled</td>
+</tr>
+<tr>
+<td>sendToNewRelic.<br>source.scheduler.logLevel.warn</td>
+<td>Should WARN log events from the scheduler service be handled</td>
 </tr>
 <tr>
 <td></td>
@@ -789,6 +912,103 @@ It is no longer installed when doing fresh QSEoW installs.</p>
 <tr>
 <td>baseTopic</td>
 <td>Default topic used if not not oherwise specified elsewhere. Should end with /. For example butler-sos/</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="butler-sosnewrelic">Butler-SOS.newRelic</h4>
+<p>If enabled, select Butler SOS metrics and events will be sent to New Relic.</p>
+<p>Note that New Relic destination accounts for events are defined in the <code>Butler-SOS.userEvent</code> and <code>Butler-SOS.logEvent</code> sections, whereas destination accounts for metrics are defined in this section (<code>Butler-SOS.newRelic</code>).</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enable</td>
+<td>Should Qlik Sense health metrics be sent to New Relic? true/false</td>
+</tr>
+<tr>
+<td>event.url</td>
+<td>Which API URL should be used for sending events to New Relic?<br>At time of this writing the options are<br><a href="https://insights-collector.eu01.nr-data.net">https://insights-collector.eu01.nr-data.net</a><br><a href="https://insights-collector.newrelic.com">https://insights-collector.newrelic.com</a><br>More info here: <a href="https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center">https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center</a></td>
+</tr>
+<tr>
+<td>event.header</td>
+<td>Array of name/value pairs that will be added as http headers to all calls to the New Relic event API</td>
+</tr>
+<tr>
+<td>event.attribute.<br>static</td>
+<td>Array of name/value pairs, representing attributes/tags that will be added to all events sent to New Relic</td>
+</tr>
+<tr>
+<td>event.attribute.<br>dynamic.butlerSosVersion.<br>enable</td>
+<td>Should Butler SOS&rsquo; version be attached as an attribute to events sent to New Relic? true/false</td>
+</tr>
+<tr>
+<td>metric.destinationAccount</td>
+<td>Array of New Relic account names to which Sense health metrics will be sent.</td>
+</tr>
+<tr>
+<td>metric.url</td>
+<td>Which API URL should be used for sending Sense health metrics to New Relic?<br>At time of this writing the options are<br><a href="https://insights-collector.eu01.nr-data.net/metric/v1">https://insights-collector.eu01.nr-data.net/metric/v1</a><br><a href="https://metric-api.newrelic.com/metric/v1">https://metric-api.newrelic.com/metric/v1</a></td>
+</tr>
+<tr>
+<td>metric.header</td>
+<td>Array of name/value pairs that will be added as http headers to all calls to the New Relic metric API</td>
+</tr>
+<tr>
+<td>metric.dynamic.<br>engine.memory.<br>enable</td>
+<td>Send Sense memory metrics to New Relic? true/false</td>
+</tr>
+<tr>
+<td>metric.dynamic.<br>engine.cpu.<br>enable</td>
+<td>Send Sense CPU metrics to New Relic? true/false</td>
+</tr>
+<tr>
+<td>metric.dynamic.<br>engine.calls.<br>enable</td>
+<td>Send metrics about calls to the Sense engine to New Relic? true/false</td>
+</tr>
+<tr>
+<td>metric.dynamic.<br>engine.selections.<br>enable</td>
+<td>Send metrics about number of selections made in Sense apps to New Relic? true/false</td>
+</tr>
+<tr>
+<td>metric.dynamic.<br>engine.sessions.<br>enable</td>
+<td>Send aggregated Sense engine session metrics to New Relic? true/false</td>
+</tr>
+<tr>
+<td>metric.dynamic.<br>engine.users.<br>enable</td>
+<td>Send aggregated Sense user metrics to New Relic? true/false</td>
+</tr>
+<tr>
+<td>metric.dynamic.<br>engine.saturated.<br>enable</td>
+<td>Send Sense engine saturation status to New Relic? true/false</td>
+</tr>
+<tr>
+<td>metric.dynamic.<br>apps.docCount.<br>enable</td>
+<td>Send metrics on loaded/active/in-memory Sense apps to New Relic? true/false</td>
+</tr>
+<tr>
+<td>metric.dynamic.<br>cache.cache.<br>enable</td>
+<td>Send Sense cache metrics to New Relic? true/false</td>
+</tr>
+<tr>
+<td>metric.dynamic.<br>proxy.sessions.<br>enable</td>
+<td>Send aggregated Sense proxy metrics to New Relic? true/false</td>
+</tr>
+<tr>
+<td>metric.attribute.<br>static</td>
+<td>Array of name/value pairs, representing attributes/tags that will be added to all Sense health metrics sent to New Relic</td>
+</tr>
+<tr>
+<td>metric.attribute.<br>dynamic.butlerSosVersion.<br>enable</td>
+<td>Should Butler SOS&rsquo; version be attached as an attribute to Sense health metrics sent to New Relic? true/false</td>
 </tr>
 <tr>
 <td></td>
@@ -1175,7 +1395,7 @@ It is no longer installed when doing fresh QSEoW installs.</p>
 
 
 
-<script src="/js/main.min.bac7898495f8b0a2193d726a55f57a494ed7b34b99d83f4dc5a9bcc9e0f60490.js" integrity="sha256-useJhJX4sKIZPXJqVfV6SU7Xs0uZ2D9Nxam8yeD2BJA=" crossorigin="anonymous"></script>
+<script src="/js/main.min.e404d12d340e64a577f807a6d1f28f7b85c1390e1fc893c48702d60e61b077ef.js" integrity="sha256-5ATRLTQOZKV3&#43;Aem0fKPe4XBOQ4fyJPEhwLWDmGwd&#43;8=" crossorigin="anonymous"></script>
 
 
 

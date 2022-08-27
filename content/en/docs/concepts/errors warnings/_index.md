@@ -66,6 +66,7 @@ In this case the problem was caused by a mashup using iframes that when recoveri
 
 ## Alerts
 
-Grafana includes a set of built-in alert features that can be used to set up alerts as well as forward them to destinations such as Slack, MS Teams, email, Discord, Kafka, Webhooks, PagerDuty and others.
+Both New Relic and Grafana includes a set of built-in alert features that can be used to set up alerts as well as forward them to destinations such as Slack, MS Teams, email, Discord, Kafka, Webhooks, PagerDuty and others.
 
-More info about Grafana alerts [here](https://grafana.com/docs/grafana/latest/alerting/notifications/).
+More info about Grafana alerts [here](https://grafana.com/docs/grafana/latest/alerting/notifications/).  
+New Relic alerts described [here](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/learn-alerts/introduction-alerts/).

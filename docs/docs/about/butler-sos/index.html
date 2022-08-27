@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.92.0" />
+<meta name="generator" content="Hugo 0.101.0" />
 <meta name="robots" content="index, follow">
 
 
@@ -32,7 +32,7 @@
 <meta itemprop="name" content="Butler SOS">
 <meta itemprop="description" content="An introduction to Butler SOS.">
 <meta itemprop="dateModified" content="2021-11-28T22:47:41+01:00" />
-<meta itemprop="wordCount" content="325">
+<meta itemprop="wordCount" content="384">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Butler SOS"/>
 <meta name="twitter:description" content="An introduction to Butler SOS."/>
@@ -156,7 +156,7 @@ if (!doNotTrack) {
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsabout-li">
   <a href="/docs/about/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsabout"><span class="">About</span></a>
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsaboutbutler-sos-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsaboutbutler-sos-li">
   <a href="/docs/about/butler-sos/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-docsaboutbutler-sos"><span class="td-sidebar-nav-active-item">Butler SOS</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsaboutbutler-family-li">
   <a href="/docs/about/butler-family/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsaboutbutler-family"><span class="">The Butler family</span></a>
@@ -210,6 +210,8 @@ if (!doNotTrack) {
   <a href="/docs/getting_started/setup/docker-health-check/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupdocker-health-check"><span class="">Docker healthcheck</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupuptime-monitor-li">
   <a href="/docs/getting_started/setup/uptime-monitor/" title="Configuring Butler SOS uptime monitor" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupuptime-monitor"><span class="">Uptime monitor</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupcredentials-li">
+  <a href="/docs/getting_started/setup/credentials/" title="Credentials to third party services" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupcredentials"><span class="">Credentials</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupuser-events-li">
   <a href="/docs/getting_started/setup/user-events/" title="Configuring user events" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupuser-events"><span class="">User events</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetuplog-events-li">
@@ -220,6 +222,8 @@ if (!doNotTrack) {
   <a href="/docs/getting_started/setup/qlik-sense-server-settings/" title="Connecting to a Qlik Sense server" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupqlik-sense-server-settings"><span class="">Sense server settings</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupmqtt-li">
   <a href="/docs/getting_started/setup/mqtt/" title="Setting up MQTT messaging" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupmqtt"><span class="">MQTT</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupnew-relic-li">
+  <a href="/docs/getting_started/setup/new-relic/" title="Setting up the New Relic integration" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupnew-relic"><span class="">New Relic</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupprometheus-li">
   <a href="/docs/getting_started/setup/prometheus/" title="Setting up Prometheus" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupprometheus"><span class="">Prometheus</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupinfluxdb-li">
@@ -257,7 +261,9 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsexamples-li">
   <a href="/docs/examples/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamples"><span class="">Examples</span></a>
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana8-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana9-li">
+  <a href="/docs/examples/qliksense_monitoring_grafana9/" title="Qlik Sense monitoring using Butler SOS v9.2 and Grafana v9.1" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesqliksense_monitoring_grafana9"><span class="">Grafana 9 dashboard</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana8-li">
   <a href="/docs/examples/qliksense_monitoring_grafana8/" title="Qlik Sense monitoring using Butler SOS v7 and Grafana v8" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesqliksense_monitoring_grafana8"><span class="">Grafana 8 dashboard</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana7-li">
   <a href="/docs/examples/qliksense_monitoring_grafana7/" title="Qlik Sense monitoring using Grafana 7" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesqliksense_monitoring_grafana7"><span class="">Grafana 7 dashboard</span></a>
@@ -274,9 +280,11 @@ if (!doNotTrack) {
   <a href="/docs/reference/available_metrics/" title="Available Metrics" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metrics"><span class="">Available metrics</span></a>
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceavailable_metricsinfluxdb-li">
-  <a href="/docs/reference/available_metrics/influxdb/" title="Metrics available in InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsinfluxdb"><span class="">InfluxDB</span></a>
+  <a href="/docs/reference/available_metrics/influxdb/" title="Available metrics: InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsinfluxdb"><span class="">InfluxDB</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceavailable_metricsnew-relic-li">
+  <a href="/docs/reference/available_metrics/new-relic/" title="Available Metrics: New Relic" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsnew-relic"><span class="">New Relic</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceavailable_metricsprometheus-li">
-  <a href="/docs/reference/available_metrics/prometheus/" title="Available Metrics" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsprometheus"><span class="">Prometheus</span></a>
+  <a href="/docs/reference/available_metrics/prometheus/" title="Available Metrics: Prometheus" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsprometheus"><span class="">Prometheus</span></a>
 </li>
   </ul>
 </li>
@@ -392,13 +400,16 @@ if (!doNotTrack) {
 <p>At different times different metrics will be of interest.<br>
 For that reason Butler SOS stores all metrics from Sense in a time-series databse (InfluxDB and Prometheus both supported), from which dashboards, reports etc can then be created using tools such as Grafana.<br>
 Grafana is an open source, world-class visualisation tool for time series data. It also has great alerting features and integrate with all kinds of alerting solutions and IM tools.</p>
+<p>If you don&rsquo;t fancy InfluxDB or Prometheus, Qlik Sense metrics and events can also be sent to New Relic for storage and visualisation.<br>
+They offer a free tier that will go a long way towards testing out a cloud-based visualisation solution for Butler SOS.</p>
 <p>Metrics are a major component of operational monitoring, but it&rsquo;s also important to keep on top of what errors and warning occur in the system.<br>
-As of late 2021 the log database is no longer part of QSEoW, with the log files the only place where you can find those errors and warnings.<br>
-Butler SOS address this by sending log events in real-time from QSEoW to Butler SOS, which then stores them in its database and/or re-publish them as MQTT messages.<br>
+As of late 2021 the log database is no longer part of QSEoW, with the log files the only place where you can find those errors and warnings.</p>
+<p>Butler SOS address this by sending log events in real-time from QSEoW to Butler SOS, which then stores them in InfluxDB, and/or send them to New Relic, and/or re-publish them as MQTT messages.<br>
 This basically means you will very rarely have to plow through endless log files to find information about warnings and errors that have occured.</p>
 <p>There is also a clear goal that Butler SOS should be very configurable.<br>
 In practice this means that features can be turned on/off as needed, improving security and lowering memory usage.</p>
-<p>Butler SOS is written in <a href="https://nodejs.org/en/">Node.js</a> and runs on most modern operating systems.</p>
+<p>Butler SOS is written in <a href="https://nodejs.org/en/">Node.js</a> and runs on most modern operating systems.<br>
+Stand-alone binary files are created for Windows, Linux and macOS.</p>
 <p>You can run Butler SOS on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).</p>
 <p>Butler SOS is a member of a group of tools collectively referred to as the &ldquo;Butler family&rdquo;, more info is available <a href="/docs/about/butler-family">here</a>.</p>
 
@@ -564,7 +575,7 @@ In practice this means that features can be turned on/off as needed, improving s
 
 
 
-<script src="/js/main.min.bac7898495f8b0a2193d726a55f57a494ed7b34b99d83f4dc5a9bcc9e0f60490.js" integrity="sha256-useJhJX4sKIZPXJqVfV6SU7Xs0uZ2D9Nxam8yeD2BJA=" crossorigin="anonymous"></script>
+<script src="/js/main.min.e404d12d340e64a577f807a6d1f28f7b85c1390e1fc893c48702d60e61b077ef.js" integrity="sha256-5ATRLTQOZKV3&#43;Aem0fKPe4XBOQ4fyJPEhwLWDmGwd&#43;8=" crossorigin="anonymous"></script>
 
 
 

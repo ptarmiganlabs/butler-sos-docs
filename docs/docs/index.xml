@@ -27,13 +27,16 @@
 &lt;p&gt;At different times different metrics will be of interest.&lt;br&gt;
 For that reason Butler SOS stores all metrics from Sense in a time-series databse (InfluxDB and Prometheus both supported), from which dashboards, reports etc can then be created using tools such as Grafana.&lt;br&gt;
 Grafana is an open source, world-class visualisation tool for time series data. It also has great alerting features and integrate with all kinds of alerting solutions and IM tools.&lt;/p&gt;
+&lt;p&gt;If you don&amp;rsquo;t fancy InfluxDB or Prometheus, Qlik Sense metrics and events can also be sent to New Relic for storage and visualisation.&lt;br&gt;
+They offer a free tier that will go a long way towards testing out a cloud-based visualisation solution for Butler SOS.&lt;/p&gt;
 &lt;p&gt;Metrics are a major component of operational monitoring, but it&amp;rsquo;s also important to keep on top of what errors and warning occur in the system.&lt;br&gt;
-As of late 2021 the log database is no longer part of QSEoW, with the log files the only place where you can find those errors and warnings.&lt;br&gt;
-Butler SOS address this by sending log events in real-time from QSEoW to Butler SOS, which then stores them in its database and/or re-publish them as MQTT messages.&lt;br&gt;
+As of late 2021 the log database is no longer part of QSEoW, with the log files the only place where you can find those errors and warnings.&lt;/p&gt;
+&lt;p&gt;Butler SOS address this by sending log events in real-time from QSEoW to Butler SOS, which then stores them in InfluxDB, and/or send them to New Relic, and/or re-publish them as MQTT messages.&lt;br&gt;
 This basically means you will very rarely have to plow through endless log files to find information about warnings and errors that have occured.&lt;/p&gt;
 &lt;p&gt;There is also a clear goal that Butler SOS should be very configurable.&lt;br&gt;
 In practice this means that features can be turned on/off as needed, improving security and lowering memory usage.&lt;/p&gt;
-&lt;p&gt;Butler SOS is written in &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; and runs on most modern operating systems.&lt;/p&gt;
+&lt;p&gt;Butler SOS is written in &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; and runs on most modern operating systems.&lt;br&gt;
+Stand-alone binary files are created for Windows, Linux and macOS.&lt;/p&gt;
 &lt;p&gt;You can run Butler SOS on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).&lt;/p&gt;
 &lt;p&gt;Butler SOS is a member of a group of tools collectively referred to as the &amp;ldquo;Butler family&amp;rdquo;, more info is available &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/about/butler-family&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
@@ -49,15 +52,16 @@ In practice this means that features can be turned on/off as needed, improving s
       <description>
         
         
-        &lt;p&gt;Butler started out with a very specific need to start Sense reloads from outside systems.&lt;br&gt;
+        &lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler&#34;&gt;Butler&lt;/a&gt; started out with a very specific need to start Sense reloads from outside systems.&lt;br&gt;
 Over the years a few projects (for example Butler SOS, which simplifies day 2 operations ([&lt;a href=&#34;https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html&#34;&gt;1&lt;/a&gt;], [&lt;a href=&#34;https://dzone.com/articles/defining-day-2-operations&#34;&gt;2&lt;/a&gt;]) have spun off from the original Butler project, and still other projects have been created from scratch to solve specific challenges around developing Sense apps and running Qlik Sense server environments.&lt;/p&gt;
-&lt;p&gt;All members of the Butler family are available on &lt;a href=&#34;https://github.com/ptarmiganlabs&#34;&gt;Ptarmigan Labs&#39; GitHub page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;All members of the Butler family are available on &lt;a href=&#34;https://github.com/ptarmiganlabs&#34;&gt;Ptarmigan Labs&amp;rsquo; GitHub page&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Projects with production grade release status are (as of this writing):&lt;/p&gt;
 &lt;h3 id=&#34;butler&#34;&gt;Butler&lt;/h3&gt;
 &lt;p&gt;The original Butler. Offers various utilities that make it easier to develop Sense apps, as well as simplifying day 2 operations.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https:/butler.ptarmiganlabs.com&#34;&gt;butler.ptarmiganlabs.com&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;butler-sos&#34;&gt;Butler SOS&lt;/h3&gt;
-&lt;p&gt;Real-time operational metrics for Qlik Sense. A must-have if you are responsible for a Sense environment with more than a dozen or so users.&lt;/p&gt;
+&lt;p&gt;Real-time operational metrics for Qlik Sense.&lt;br&gt;
+A must-have if you are responsible for a Sense environment with more than a dozen or so users.&lt;/p&gt;
 &lt;p&gt;Butler SOS makes it possible to detect and alert on issues as they happen, rather than in retrospect much later.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;butler-sos.ptarmiganlabs.com&lt;/a&gt;. (This site!)&lt;/p&gt;
 &lt;h3 id=&#34;butler-sheet-icons&#34;&gt;Butler Sheet Icons&lt;/h3&gt;
@@ -70,7 +74,7 @@ Start Butler Sheet Icons instead and go get a nice &lt;a href=&#34;https://www.s
 &lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sheet-icons&#34;&gt;https://github.com/ptarmiganlabs/butler-sheet-icons&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;butler-cw&#34;&gt;Butler CW&lt;/h3&gt;
 &lt;p&gt;Butler Cache Warmer. Cache warming is the process of proactively forcing Sense apps to be loaded into RAM, so they are readily available when users open them.&lt;br&gt;
-Using Butler CW is an easy way to make your end users&#39; experience of Sense a little better.&lt;/p&gt;
+Using Butler CW is an easy way to make your end users&amp;rsquo; experience of Sense a little better.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-cw&#34;&gt;github.com/ptarmiganlabs/butler-cw&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;butler-app-duplicator&#34;&gt;Butler App Duplicator&lt;/h3&gt;
 &lt;p&gt;No matter if you are a single developer creating Sense apps, or have lots of developers doing this, having app templates is a good idea:&lt;/p&gt;
@@ -110,7 +114,7 @@ Using Butler CW is an easy way to make your end users&#39; experience of Sense a
 Butler SOS can be configured to store these metrics in InfluxDB/Prometheus and/or send them as MQTT messages.&lt;/p&gt;
 &lt;h3 id=&#34;session-count&#34;&gt;Session count&lt;/h3&gt;
 &lt;p&gt;A session (or more specifically, a &amp;ldquo;proxy session&amp;rdquo;) is created when a user logs into Sense.&lt;br&gt;
-The session is typically reused when a user opens additional apps.&lt;br&gt;
+The session is typically reused when a user opens additional Sense apps from the same browser.&lt;br&gt;
 Knowing how many users are logged at any given time gives a Sense admin an understanding of when peak hours are, when service windows should be planed, whether the server(s) is too small or too big etc.&lt;/p&gt;
 &lt;p&gt;The session metrics are arguably among the most important ones provided by Butler SOS&lt;/p&gt;
 &lt;h3 id=&#34;applications&#34;&gt;Applications&lt;/h3&gt;
@@ -128,7 +132,7 @@ In-memory and active applications are also tracked in the same way.&lt;/p&gt;
 It&amp;rsquo;s however often convenient to have both server and Sense metrics side by side, thus Butler SOS includes some of the more important server metrics in addition to the Sense ones.&lt;/p&gt;
 &lt;p&gt;These metrics are only stored in InfluxDB/Prometheus, i.e. not sent as MQTT messages.&lt;/p&gt;
 &lt;h3 id=&#34;available-memoryram&#34;&gt;Available memory/RAM&lt;/h3&gt;
-&lt;p&gt;As Qlik Sense is an in-memory analytics tool you &lt;em&gt;really&lt;/em&gt; want to ensure that there is always available memory for users&#39; apps.&lt;br&gt;
+&lt;p&gt;As Qlik Sense is an in-memory analytics tool you &lt;em&gt;really&lt;/em&gt; want to ensure that there is always available memory for users&amp;rsquo; apps.&lt;br&gt;
 If your Sense server runs out of memory it&amp;rsquo;s basically game over.
 Now, Sense usually does a very good job reclaiming unused memory, but it&amp;rsquo;s still critically important to monitor memory usage.&lt;/p&gt;
 &lt;p&gt;One error scenario that&amp;rsquo;s hard or impossible to catch without Butler SOS style monitoring is that of apps with cartesian products in them.&lt;br&gt;
@@ -140,11 +144,21 @@ Butler SOS has more than once proven its value when debugging this specific issu
 &lt;p&gt;The Sense logs are always available on the Sense servers, the problem is that they are hard to reach there - at least in real time.&lt;br&gt;
 Retrospective analysis is also cumbersome, you basically have to manually dig up the specific log files of interest and then search them for the information of interest.&lt;/p&gt;
 &lt;p&gt;Butler SOS simplifies this greatly by having select log events (warnings, errors and fatals by default) sent from the Sense servers to Butler SOS.&lt;br&gt;
-Once such a log event message arrives, Butler SOS will store it in its database (for example InfluxDB), from where the log event can be visualised using Grafana.&lt;/p&gt;
-&lt;p&gt;Log events are also re-published as MQTT messages. This makes it trivial for 3rd party systems to trigger actions when certain log events occur in Qlik Sense.&lt;/p&gt;
-&lt;p&gt;Butler SOS pulls errors and/or warnings from the log database and store them in InfluxDB.&lt;br&gt;
-This can be increadibly useful information when used in Grafana dashboars: Visuallu seeing lots of errors arriving in a short time period is a strong indication something is not right.&lt;/p&gt;
-&lt;p&gt;Add Grafana or Prometheus alerts and you have a very capable, close to real-time error/warning monitoring solution.&lt;/p&gt;
+Once such a log event message arrives, Butler SOS will store it in its database (for example InfluxDB or New Relic), from where the log event can be visualised using Grafana or within New Relic.&lt;/p&gt;
+&lt;p&gt;Log events are also re-published as MQTT messages. This makes it possible for 3rd party systems to trigger actions when certain log events occur in Qlik Sense.&lt;/p&gt;
+&lt;p&gt;Log events from several Qlik Sense servics can selectively be forwarded to Butler SOS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Engine&lt;/li&gt;
+&lt;li&gt;Proxy&lt;/li&gt;
+&lt;li&gt;Repository&lt;/li&gt;
+&lt;li&gt;Scheduler&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A sample use case of log events:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a Grafana or New Relic real-time chart showing number of warnings/errors per 5-minute window.&lt;/li&gt;
+&lt;li&gt;Set up an alert in those tools to notify you when number of events during past 5 minutes go above some limit.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This is trivial to set up, but gives you a very capable, close to real-time error/warning monitoring solution.&lt;/p&gt;
 &lt;h2 id=&#34;the-log-database&#34;&gt;The log database&lt;/h2&gt;
 &lt;p&gt;The log database in Qlik Sense Enterprise on Windows is deprecated as of late 2021.&lt;br&gt;
 Butler SOS still maintains support for older QSEoW versions. At some point in the future this support is however likely to be removed.&lt;/p&gt;
@@ -166,7 +180,7 @@ Exactly &lt;em&gt;what&lt;/em&gt; users are usually of less interest.&lt;/p&gt;
 &lt;p&gt;At times you may want more detailed insights though. Then these events are increadibly useful.&lt;/p&gt;
 &lt;p&gt;For example:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Sometimes network issues cause some users&#39; browsers to start many new sessions instead of re-using existing sessions.&lt;br&gt;
+&lt;li&gt;Sometimes network issues cause some users&amp;rsquo; browsers to start many new sessions instead of re-using existing sessions.&lt;br&gt;
 This can result in the proxy service overloading and making access to Sense slow for all users.&lt;br&gt;
 Butler SOS makes it easy to detect this. Just create a Grafana chart that shows number of &lt;code&gt;session start&lt;/code&gt; events over time, attach an alert that goes off if number of new sessions per minute is too high.&lt;/li&gt;
 &lt;li&gt;Let&amp;rsquo;s say a specific user has troubles using Sense apps as intended, or a user is suspected of causing excessive RAM/CPU usage.&lt;br&gt;
@@ -260,76 +274,76 @@ It also enforces consistent versioning when new (sometimes breaking) features ar
 &lt;h3 id=&#34;eslint--prettier&#34;&gt;ESLint + Prettier&lt;/h3&gt;
 &lt;p&gt;Used to enforce a uniform source code format that also follow best practices defined in ESLint.&lt;/p&gt;
 &lt;p&gt;ESLint shows code issues within Visual Studio Code, but standalone reports can also be created:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜ npx eslint . --format table
-
-/Users/goran/code/butler-sos/src/butler-sos.js
-
-║ Line     │ Column   │ Type     │ Message                                                │ Rule ID              ║
-╟──────────┼──────────┼──────────┼────────────────────────────────────────────────────────┼──────────────────────╢
-║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;31&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;18&lt;/span&gt;       │ error    │ Unexpected require&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt;.                                  │ global-require       ║
-
-/Users/goran/code/butler-sos/src/lib/appnamesextract.js
-
-║ Line     │ Column   │ Type     │ Message                                                │ Rule ID              ║
-╟──────────┼──────────┼──────────┼────────────────────────────────────────────────────────┼──────────────────────╢
-║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;29&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;37&lt;/span&gt;       │ error    │ A constructor name should not start with a             │ new-cap              ║
-║          │          │          │ lowercase letter.                                      │                      ║
-
-/Users/goran/code/butler-sos/src/lib/heartbeat.js
-
-║ Line     │ Column   │ Type     │ Message                                                │ Rule ID              ║
-╟──────────┼──────────┼──────────┼────────────────────────────────────────────────────────┼──────────────────────╢
-║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;        │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;        │ error    │ Unexpected var, use &lt;span style=&#34;color:#204a87&#34;&gt;let&lt;/span&gt; or const instead.              │ no-var               ║
-║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt;        │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;        │ error    │ Unexpected var, use &lt;span style=&#34;color:#204a87&#34;&gt;let&lt;/span&gt; or const instead.              │ no-var               ║
-║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt;        │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;21&lt;/span&gt;       │ warning  │ Unexpected unnamed &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt;.                           │ func-names           ║
-║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;        │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15&lt;/span&gt;       │ error    │ Unexpected &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; expression.                        │ prefer-arrow-        ║
-║          │          │          │                                                        │ callback             ║
-║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;        │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15&lt;/span&gt;       │ warning  │ Unexpected unnamed &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt;.                           │ func-names           ║
-║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;        │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;25&lt;/span&gt;       │ error    │ &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;response&amp;#39;&lt;/span&gt; is defined but never used.                  │ no-unused-vars       ║
-║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;13&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt;       │ error    │ Unexpected &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; expression.                        │ prefer-arrow-        ║
-║          │          │          │                                                        │ callback             ║
-║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;13&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt;       │ warning  │ Unexpected unnamed &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt;.                           │ func-names           ║
-║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;27&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;        │ error    │ All &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;var&amp;#39;&lt;/span&gt; declarations must be at the top of the       │ vars-on-top          ║
-║          │          │          │ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; scope.                                        │                      ║
-║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;27&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;        │ error    │ Unexpected var, use &lt;span style=&#34;color:#204a87&#34;&gt;let&lt;/span&gt; or const instead.              │ no-var               ║
-║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;28&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;        │ error    │ All &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;var&amp;#39;&lt;/span&gt; declarations must be at the top of the       │ vars-on-top          ║
-║          │          │          │ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; scope.                                        │                      ║
-║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;28&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;        │ error    │ Unexpected var, use &lt;span style=&#34;color:#204a87&#34;&gt;let&lt;/span&gt; or const instead.              │ no-var               ║
-║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;28&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;13&lt;/span&gt;       │ error    │ &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;t&amp;#39;&lt;/span&gt; is assigned a value but never used.                │ no-unused-vars       ║
-║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;28&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;35&lt;/span&gt;       │ error    │ Unexpected &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; expression.                        │ prefer-arrow-        ║
-║          │          │          │                                                        │ callback             ║
-║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;28&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;35&lt;/span&gt;       │ warning  │ Unexpected unnamed &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt;.                           │ func-names           ║
-
-╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
-║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;13&lt;/span&gt; Errors                                                                                                      ║
-╟────────────────────────────────────────────────────────────────────────────────────────────────────────────────╢
-║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; Warnings                                                                                                     ║
-╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
-
-➜ 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To format all source code files:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  npm run format:prettier
-
-&amp;gt; butler-sos@5.6.0 format:prettier
-&amp;gt; npx prettier --config .prettierrc.yaml &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./**/*.{ts,css,less,js}&amp;#34;&lt;/span&gt; --write
-
-butler-sos.js 97ms
-docker-healthcheck.js 13ms
-globals.js 90ms
-lib/appnamesextract.js 35ms
-lib/healthmetrics.js 27ms
-lib/heartbeat.js 8ms
-lib/logdb.js 34ms
-lib/post-to-influxdb.js 85ms
-lib/post-to-mqtt.js 27ms
-lib/prom-client.js 45ms
-lib/servertags.js 5ms
-lib/service_uptime.js 14ms
-lib/sessionmetrics.js 29ms
-lib/telemetry.js 18ms
-lib/udp_handlers.js 18ms
-➜ 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;➜ npx eslint . --format table
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/goran/code/butler-sos/src/butler-sos.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ Line     │ Column   │ Type     │ Message                                                │ Rule ID              ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;╟──────────┼──────────┼──────────┼────────────────────────────────────────────────────────┼──────────────────────╢
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;31&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;18&lt;/span&gt;       │ error    │ Unexpected require&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt;.                                  │ global-require       ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/goran/code/butler-sos/src/lib/appnamesextract.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ Line     │ Column   │ Type     │ Message                                                │ Rule ID              ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;╟──────────┼──────────┼──────────┼────────────────────────────────────────────────────────┼──────────────────────╢
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;29&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;37&lt;/span&gt;       │ error    │ A constructor name should not start with a             │ new-cap              ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║          │          │          │ lowercase letter.                                      │                      ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/goran/code/butler-sos/src/lib/heartbeat.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ Line     │ Column   │ Type     │ Message                                                │ Rule ID              ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;╟──────────┼──────────┼──────────┼────────────────────────────────────────────────────────┼──────────────────────╢
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;        │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;        │ error    │ Unexpected var, use &lt;span style=&#34;color:#204a87&#34;&gt;let&lt;/span&gt; or const instead.              │ no-var               ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt;        │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;        │ error    │ Unexpected var, use &lt;span style=&#34;color:#204a87&#34;&gt;let&lt;/span&gt; or const instead.              │ no-var               ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt;        │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;21&lt;/span&gt;       │ warning  │ Unexpected unnamed &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt;.                           │ func-names           ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;        │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15&lt;/span&gt;       │ error    │ Unexpected &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; expression.                        │ prefer-arrow-        ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║          │          │          │                                                        │ callback             ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;        │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15&lt;/span&gt;       │ warning  │ Unexpected unnamed &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt;.                           │ func-names           ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;        │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;25&lt;/span&gt;       │ error    │ &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;response&amp;#39;&lt;/span&gt; is defined but never used.                  │ no-unused-vars       ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;13&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt;       │ error    │ Unexpected &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; expression.                        │ prefer-arrow-        ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║          │          │          │                                                        │ callback             ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;13&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt;       │ warning  │ Unexpected unnamed &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt;.                           │ func-names           ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;27&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;        │ error    │ All &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;var&amp;#39;&lt;/span&gt; declarations must be at the top of the       │ vars-on-top          ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║          │          │          │ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; scope.                                        │                      ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;27&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;        │ error    │ Unexpected var, use &lt;span style=&#34;color:#204a87&#34;&gt;let&lt;/span&gt; or const instead.              │ no-var               ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;28&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;        │ error    │ All &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;var&amp;#39;&lt;/span&gt; declarations must be at the top of the       │ vars-on-top          ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║          │          │          │ &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; scope.                                        │                      ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;28&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;        │ error    │ Unexpected var, use &lt;span style=&#34;color:#204a87&#34;&gt;let&lt;/span&gt; or const instead.              │ no-var               ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;28&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;13&lt;/span&gt;       │ error    │ &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;t&amp;#39;&lt;/span&gt; is assigned a value but never used.                │ no-unused-vars       ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;28&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;35&lt;/span&gt;       │ error    │ Unexpected &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; expression.                        │ prefer-arrow-        ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║          │          │          │                                                        │ callback             ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;28&lt;/span&gt;       │ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;35&lt;/span&gt;       │ warning  │ Unexpected unnamed &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt;.                           │ func-names           ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;13&lt;/span&gt; Errors                                                                                                      ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;╟────────────────────────────────────────────────────────────────────────────────────────────────────────────────╢
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;║ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; Warnings                                                                                                     ║
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;➜ 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To format all source code files:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;➜  npm run format:prettier
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; butler-sos@5.6.0 format:prettier
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; npx prettier --config .prettierrc.yaml &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./**/*.{ts,css,less,js}&amp;#34;&lt;/span&gt; --write
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler-sos.js 97ms
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker-healthcheck.js 13ms
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;globals.js 90ms
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lib/appnamesextract.js 35ms
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lib/healthmetrics.js 27ms
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lib/heartbeat.js 8ms
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lib/logdb.js 34ms
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lib/post-to-influxdb.js 85ms
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lib/post-to-mqtt.js 27ms
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lib/prom-client.js 45ms
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lib/servertags.js 5ms
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lib/service_uptime.js 14ms
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lib/sessionmetrics.js 29ms
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lib/telemetry.js 18ms
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lib/udp_handlers.js 18ms
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;➜ 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
       </description>
     </item>
     
@@ -383,7 +397,7 @@ Or the fact that Qlik released some new feature in Sense and Butler SOS was a wa
 &lt;li&gt;Telemetry will show if lots of users run Butler SOS on old Node.js versions. Knowing this its possible to set a migration schedule for what Node.js versions are supported - avoiding hard errors when some old Node.js version is no longer supported by Butler SOS.&lt;/li&gt;
 &lt;li&gt;Same thing for understanding what operating systems Butler SOS runs (and should be supported) on.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;configuring-butler-sos-telemetry&#34;&gt;Configuring Butler SOS&#39; telemetry&lt;/h3&gt;
+&lt;h3 id=&#34;configuring-butler-sos-telemetry&#34;&gt;Configuring Butler SOS&amp;rsquo; telemetry&lt;/h3&gt;
 &lt;p&gt;Instructions &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/telemetry/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;the-details&#34;&gt;The details&lt;/h2&gt;
 
@@ -425,39 +439,39 @@ This is critical information when it comes to planning where to focus future dev
 &lt;p&gt;The &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/legal_stuff/#telemetry-data&#34;&gt;legal page&lt;/a&gt; has more information about this.&lt;/p&gt;
 &lt;h3 id=&#34;field-level-description-of-telemetry-data&#34;&gt;Field level description of telemetry data&lt;/h3&gt;
 &lt;p&gt;A telemetry message from Butler SOS contains the information below.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;ts&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2021-04-16T13:43:02.467Z&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;data&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;service&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;butler-sos&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;serviceVersion&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5.6.0&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;system&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;8e315a90cac0e447360697123002f23b2775cc61f93d6bc7a9138d94af057e5e&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;arch&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;x64&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;platform&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;darwin&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;release&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;11.2.2&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;distro&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;macOS&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;codename&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;macOS Big Sur&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;virtual&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;nodeVersion&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;v14.15.4&amp;#34;&lt;/span&gt;
-    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;enabledFeatures&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;feature&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;heartbeat&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;dockerHealthCheck&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;uptimeMonitor&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;uptimeMonitor_storeInInfluxdb&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;udpServer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;logdb&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;mqtt&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;influxdb&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;prometheus&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;appNames&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;userSessions&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;
-      &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;the-anonymous-id-field&#34;&gt;The anonymous ID field&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;ts&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2021-04-16T13:43:02.467Z&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;data&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;service&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;butler-sos&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;serviceVersion&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5.6.0&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;system&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;8e315a90cac0e447360697123002f23b2775cc61f93d6bc7a9138d94af057e5e&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;arch&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;x64&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;platform&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;darwin&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;release&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;11.2.2&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;distro&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;macOS&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;codename&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;macOS Big Sur&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;virtual&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;nodeVersion&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;v14.15.4&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;enabledFeatures&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;feature&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;heartbeat&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;dockerHealthCheck&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;uptimeMonitor&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;uptimeMonitor_storeInInfluxdb&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;udpServer&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;logdb&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;mqtt&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;influxdb&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;prometheus&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;appNames&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;userSessions&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;the-anonymous-id-field&#34;&gt;The anonymous ID field&lt;/h4&gt;
 &lt;p&gt;The &lt;code&gt;id&lt;/code&gt; field deserves a bit more explanation.&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s purpose is to uniquely identify the Butler SOS instance - nothing else.&lt;br&gt;
 If Butler SOS is stopped and started agagin the same ID should be generated.&lt;/p&gt;
@@ -475,7 +489,7 @@ If Butler SOS is stopped and started agagin the same ID should be generated.&lt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Run the created string through a &lt;a href=&#34;https://en.wikipedia.org/wiki/Cryptographic_hash_function&#34;&gt;one-way hashing/message digest function&lt;/a&gt;.
-Butler SOS uses Node.js&#39; own &lt;a href=&#34;https://nodejs.org/docs/latest-v15.x/api/crypto.html&#34;&gt;Crypto&lt;/a&gt; library to create a &lt;a href=&#34;https://en.wikipedia.org/wiki/SHA-2&#34;&gt;SHA-256&lt;/a&gt; hash, using the default network interface&amp;rsquo;s MAC address as salt.&lt;br&gt;
+Butler SOS uses Node.js&amp;rsquo; own &lt;a href=&#34;https://nodejs.org/docs/latest-v15.x/api/crypto.html&#34;&gt;Crypto&lt;/a&gt; library to create a &lt;a href=&#34;https://en.wikipedia.org/wiki/SHA-2&#34;&gt;SHA-256&lt;/a&gt; hash, using the default network interface&amp;rsquo;s MAC address as salt.&lt;br&gt;
 Security is increased due to the fact that the salt never leaves the server where Butler is running.&lt;/p&gt;
 &lt;p&gt;The bottom line is that it&amp;rsquo;s impossible to reverse the process and get the IP, host name etc used in step 1 above.&lt;br&gt;
 Then again - this is cryptografy and things change.&lt;br&gt;

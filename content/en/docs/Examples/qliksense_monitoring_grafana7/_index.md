@@ -1,7 +1,7 @@
 ---
 title: "Qlik Sense monitoring using Grafana 7"
 linkTitle: "Grafana 7 dashboard"
-weight: 50
+weight: 190
 description: >
   Grafana 7 is a big update when it comes to visualisations. Grafana was excellent already in version 6, but with v7 things are taken to a new level. 
 ---

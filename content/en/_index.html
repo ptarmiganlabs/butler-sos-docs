@@ -12,7 +12,7 @@ linkTitle = "Butler SOS"
 	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/ptarmiganlabs/butler-sos/releases" target="_blank">
 		Download <i class="fab fa-github ml-2 "></i>
 	</a>
-	<p class="lead mt-5">Warnings lead to errors ➡️ Errors lead to unhappy users ➡️ Unhappy users call you</p>
+	<p class="lead mt-5">Warnings lead to errors ➡️ Errors lead to unhappy users ➡️ Unhappy users call you. Ouch 👎.</p>
 	<p class="lead mt-2">Wouldn't you rather get the warnings yourself, before anyone else?</p>
 	
 
@@ -67,6 +67,8 @@ Yes! In version 7 Butler SOS added a new, unique feature: Real-time monitoring o
 This means that you get notifications about warnings or errors within seconds of them happening in your Sense server(s). You can take action within minutes rather than hours or days.
 
 The same concept also works for user events. Need to track sessions over time or alert when a users from a certain department logs on? No problem.
+
+Butler SOS version 9 takes this concept even further, enabling forwarding of select log and user events to the New Relic monitoring service. 
 {{% /blocks/lead %}}
 
 
@@ -74,20 +76,22 @@ The same concept also works for user events. Need to track sessions over time or
 {{% blocks/lead color="primary" %}}
 **--- We use system \<*our-preferred-monitoring–tool*\> for monitoring. Can it be used with Butler SOS? ---**
 
-Yes, most likely. Butler SOS supports both InfluxDB and Prometheus, but also optionally sends metrics as MQTT messages.  
+Yes, most likely. Butler SOS supports both InfluxDB, Prometheus and New Relic, but also optionally sends metrics as MQTT messages.  
 If your main monitoring tool can use either of these as a data source, it can read data extracted by Butler SOS.
 
-If not natively supporting InfluxDB, Prometheus or MQTT, it is usually pretty easy to create a small tool that acts as a bridge to other systems.
+If not natively supporting InfluxDB, Prometheus, New Relic or MQTT, it is usually pretty easy to create a small tool that acts as a bridge to other systems.
 
 {{% /blocks/lead %}}
 
 
 {{< blocks/section >}}
 
-{{% blocks/feature icon="fa-lightbulb" title="Latest release: 8.1" %}}
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 9.2" %}}
 
-Stand-alone apps for Windows, Linux and macOS!  
-Download, configure & run - no additional installs needed!  
+Focus on New Relic.  
+Send both metrics and log warnings/errors to New Relic,  
+where it can be displayed and used for alerting.  
+
 Available on [GitHub](https://github.com/ptarmiganlabs/butler-sos/releases).
 
 {{% /blocks/feature %}}

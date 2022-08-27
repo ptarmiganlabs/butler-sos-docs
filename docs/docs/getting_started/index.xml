@@ -32,11 +32,11 @@
 &lt;p&gt;&lt;img src=&#34;https://butler-sos.ptarmiganlabs.com/butler-sos-overview-1.png&#34; alt=&#34;Butler SOS&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;qlik-sense--devops--senseops&#34;&gt;Qlik Sense + DevOps = SenseOps&lt;/h2&gt;
 &lt;p&gt;Butler SenseOps Stats (&amp;ldquo;Butler SOS&amp;rdquo;) is a monitoring tool for &lt;a href=&#34;https://www.qlik.com/us/products/qlik-sense&#34;&gt;Qlik Sense&lt;/a&gt;, built with DevOps workflows in mind.&lt;/p&gt;
-&lt;p&gt;It publishes operational, close to real-time Qlik Sense Enterprise metrics to &lt;a href=&#34;https://www.influxdata.com/time-series-platform/influxdb/&#34;&gt;InfluxDB&lt;/a&gt;, &lt;a href=&#34;https://prometheus.io&#34;&gt;Prometheus&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/MQTT&#34;&gt;MQTT&lt;/a&gt;. From there it can be visualised using tools like &lt;a href=&#34;https://grafana.com/&#34;&gt;Grafana&lt;/a&gt; or acted on by downstream systems that listen to the MQTT topics used by Butler SOS.&lt;/p&gt;
+&lt;p&gt;It publishes operational, close to real-time Qlik Sense Enterprise metrics to &lt;a href=&#34;https://www.influxdata.com/time-series-platform/influxdb/&#34;&gt;InfluxDB&lt;/a&gt;, &lt;a href=&#34;https://prometheus.io&#34;&gt;Prometheus&lt;/a&gt;, &lt;a href=&#34;https://newrelic.com&#34;&gt;New Relic&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/MQTT&#34;&gt;MQTT&lt;/a&gt;. From there it can be visualised using tools like &lt;a href=&#34;https://grafana.com/&#34;&gt;Grafana&lt;/a&gt;, New Relic or acted on by downstream systems that listen to the MQTT topics used by Butler SOS.&lt;/p&gt;
 &lt;p&gt;Butler SOS gathers operational metrics from several sources, including the &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/May2021/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;Sense healthcheck API&lt;/a&gt; and &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/May2021/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm&#34;&gt;Session API&lt;/a&gt;.&lt;br&gt;
 It also pulls log events from &lt;a href=&#34;https://help.qlik.com/en-US/sense-admin/May2021/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Qlik-Logging-Service.htm&#34;&gt;Sense&amp;rsquo;s Postgres logging database&lt;/a&gt;, and forwards these to InfluxDB and MQTT.&lt;/p&gt;
 &lt;h2 id=&#34;do-i-really-need-a-tool-like-this&#34;&gt;Do I really need a tool like this?&lt;/h2&gt;
-&lt;p&gt;Let&amp;rsquo;s say you are somehow involved in (or maybe even responsible for) your company&amp;rsquo;s Qlik Sense environemnt.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s say you are somehow involved in (or maybe even responsible for) your company&amp;rsquo;s client-managed Qlik Sense Enterprise on Windows (QSEoW) environemnt.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s also assume you have more than 5-10 users in your Sense environment. Maybe you even have business critical data in your Sense apps.&lt;/p&gt;
 &lt;p&gt;Given the above, the answer is almost certainly &amp;ldquo;yes&amp;rdquo; : You can simplify your workday and provide a better analytics experience to your end users by using a tool like Butler SOS.&lt;/p&gt;
 &lt;h2 id=&#34;why-a-separate-tool-for-this&#34;&gt;Why a separate tool for this?&lt;/h2&gt;
@@ -112,33 +112,35 @@ Why? Several reasons:&lt;/p&gt;
 
 &lt;/div&gt;
 
-&lt;p&gt;But even with the above Docker recommendation, Butler SOS &lt;em&gt;can&lt;/em&gt; be deployed in lots of different configurations.&lt;br&gt;
-It is therefore difficult to give precise instructions that will work for all configurations. Especially the fact that Butler SOS uses certificates to authenticate with Sense is a complicating factor. Certificates are (when correctly used) great for securing systems, but they can alse cause headaches.&lt;/p&gt;
-&lt;p&gt;First we must recognize that Sense uses &lt;a href=&#34;https://en.wikipedia.org/wiki/Self-signed_certificate&#34;&gt;self signed certificates&lt;/a&gt;. This is fine, and as long as you work on a server where Sense Enterprise is installed, that server will have the Sense-provided Certificate Authority (CA) certificate installed.&lt;/p&gt;
+&lt;p&gt;If Docker is not an option, the pre-built, stand-alone binaries for Windows, Linux and macOS are good options.&lt;br&gt;
+They offer a download-configure-execute approach to running Butler SOS. Also a very good option.&lt;/p&gt;
+&lt;p&gt;But even with the above recommendations, Butler SOS can be deployed in lots of different configurations.&lt;br&gt;
+It is therefore difficult to give precise instructions that will work everwhere, for everyone. Especially the fact that Butler SOS uses certificates to authenticate with Sense is a complicating factor. Certificates are (when correctly used) great for securing systems, but they can alse cause headaches.&lt;/p&gt;
+&lt;p&gt;First we must recognize that Sense uses &lt;a href=&#34;https://en.wikipedia.org/wiki/Self-signed_certificate&#34;&gt;self signed certificates&lt;/a&gt;. This is fine, and as long as you work on a server where Sense Enterprise is installed, that server will have the Sense-provided certificates and Certificate Authority (CA) installed.&lt;/p&gt;
 &lt;p&gt;This means that the easiest option for getting Butler SOS up and running is usually to install it on one of your Sense servers.&lt;/p&gt;
 &lt;p&gt;That said, it is probably better system design to run Butler SOS (and maybe other members of the &lt;a href=&#34;https://github.com/ptarmiganlabs&#34;&gt;Butler family&lt;/a&gt;) on their own server, maybe using some flavour of Linux (lower cost compared to Windows). Windows servers work equally well though.&lt;/p&gt;
 &lt;p&gt;In this case you might want to consider exporting the Sense CA certificate from one of your Sense servers, and then install it on the Linux server.
 This &lt;em&gt;should&lt;/em&gt; technically not be needed for Butler SOS to work correctly - as long as you specify the correct root.pem file in the Butler SOS config file, you should be ok.&lt;/p&gt;
 &lt;p&gt;If you specify an incorrect root CA certificate file in the &lt;code&gt;clientCertCA&lt;/code&gt; config option, you will get an error like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;2018-05-23T20:36:44.393Z - error: Error: Error: unable to verify the first certificate
-    at TLSSocket.&amp;lt;anonymous&amp;gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;_tls_wrap.js:1105:38&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-    at emitNone &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;events.js:106:13&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-    at TLSSocket.emit &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;events.js:208:7&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-    at TLSSocket._finishInit &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;_tls_wrap.js:639:8&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-    at TLSWrap.ssl.onhandshakedone &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;_tls_wrap.js:469:38&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-2018-05-23T20:36:49.164Z - verbose: Event started: Query log db
-2018-05-23T20:36:49.180Z - verbose: Event started: Statistics collection
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A general note on host names is also relevant.&lt;br&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2018-05-23T20:36:44.393Z - error: Error: Error: unable to verify the first certificate
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    at TLSSocket.&amp;lt;anonymous&amp;gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;_tls_wrap.js:1105:38&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    at emitNone &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;events.js:106:13&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    at TLSSocket.emit &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;events.js:208:7&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    at TLSSocket._finishInit &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;_tls_wrap.js:639:8&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    at TLSWrap.ssl.onhandshakedone &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;_tls_wrap.js:469:38&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2018-05-23T20:36:49.164Z - verbose: Event started: Query log db
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2018-05-23T20:36:49.180Z - verbose: Event started: Statistics collection
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A general note on host names is also relevant.&lt;br&gt;
 If you specify a server name of &amp;ldquo;myserver.company.com&amp;rdquo; while exporting certificates from the QMC, you should use that same server name in the Butler SOS config file.  Failing to do so will (most likely) result in an error:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;2018-05-23T19:51:03.087Z - error: Error: Error: Hostname/IP doesn&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;t match certificate&amp;#39;&lt;/span&gt;s altnames: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Host: serveralias.company.net. is not in the cert&amp;#39;s altnames: DNS:myserver.company.com&amp;#34;&lt;/span&gt;
-    at Object.checkServerIdentity &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;tls.js:223:17&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-    at TLSSocket.&amp;lt;anonymous&amp;gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;_tls_wrap.js:1111:29&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-    at emitNone &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;events.js:106:13&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-    at TLSSocket.emit &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;events.js:208:7&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-    at TLSSocket._finishInit &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;_tls_wrap.js:639:8&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-    at TLSWrap.ssl.onhandshakedone &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;_tls_wrap.js:469:38&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-2018-05-23T19:51:07.701Z - verbose: Event started: Statistics collection
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2018-05-23T19:51:03.087Z - error: Error: Error: Hostname/IP doesn&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;t match certificate&amp;#39;&lt;/span&gt;s altnames: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Host: serveralias.company.net. is not in the cert&amp;#39;s altnames: DNS:myserver.company.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    at Object.checkServerIdentity &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;tls.js:223:17&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    at TLSSocket.&amp;lt;anonymous&amp;gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;_tls_wrap.js:1111:29&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    at emitNone &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;events.js:106:13&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    at TLSSocket.emit &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;events.js:208:7&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    at TLSSocket._finishInit &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;_tls_wrap.js:639:8&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    at TLSWrap.ssl.onhandshakedone &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;_tls_wrap.js:469:38&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2018-05-23T19:51:07.701Z - verbose: Event started: Statistics collection
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
       </description>
     </item>
     
@@ -197,6 +199,21 @@ If you specify a server name of &amp;ldquo;myserver.company.com&amp;rdquo; while
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 &lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-0&#34; role=&#34;tablist&#34;&gt;&lt;li class=&#34;nav-item&#34;&gt;
       &lt;a class=&#34;nav-link active tab-Docker&#34;
         id=&#34;tabs-0-0-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-0-0&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;Docker&amp;#34;);&#34;
@@ -204,9 +221,15 @@ If you specify a server name of &amp;ldquo;myserver.company.com&amp;rdquo; while
         Docker
       &lt;/a&gt;
     &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
-      &lt;a class=&#34;nav-link tab-Native-Node.js&#34;
-        id=&#34;tabs-0-1-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-0-1&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;Native-Node.js&amp;#34;);&#34;
+      &lt;a class=&#34;nav-link tab-Pre-built,-standalone-binaries&#34;
+        id=&#34;tabs-0-1-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-0-1&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;Pre-built,-standalone-binaries&amp;#34;);&#34;
         aria-controls=&#34;tabs-0-1&#34; aria-selected=&#34;false&#34;&gt;
+        Pre-built, standalone binaries
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link tab-Native-Node.js&#34;
+        id=&#34;tabs-0-2-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-0-2&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;Native-Node.js&amp;#34;);&#34;
+        aria-controls=&#34;tabs-0-2&#34; aria-selected=&#34;false&#34;&gt;
         Native Node.js
       &lt;/a&gt;
     &lt;/li&gt;&lt;/ul&gt;
@@ -227,7 +250,21 @@ Then start it again in deameon (background) mode:
 
 From here on the Docker enviromment will make sure Butler SOS is always running, including restarting it if it for some reason stops, when server reboots etc.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;div class=&#34;tab-pane fade&#34;
-        id=&#34;tabs-0-1&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-0-1-tab&#34;&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-en&#34; data-lang=&#34;en&#34;&gt;Starting Butler SOS as a Node.js on Windows could look like this:  
+        id=&#34;tabs-0-1&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-0-1-tab&#34;&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-en&#34; data-lang=&#34;en&#34;&gt;Starting Butler SOS using the pre-built binaries could look like this on Windows:  
+
+    d:
+    cd \node\butler-sos
+    butler-sos.exe --configfile butler-sos-prod.yaml --loglevel info
+
+It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.
+
+As Butler SOS is the kind of service that (probably) should always be running on a server, it makes sense running it as a Windows service (or similar mechanism in Linix).
+
+On Windows you can use the excellent Nssm tool (https://nssm.cc) to achieve this, with all the benefits that follow (the service can be monitored using operations tools, automatic restarts etc).
+
+On Linux both PM2 (https://github.com/Unitech/pm2) and Forever (https://github.com/foreverjs/forever) have been successfully tested with Butler SOS.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  &lt;div class=&#34;tab-pane fade&#34;
+        id=&#34;tabs-0-2&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-0-2-tab&#34;&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-en&#34; data-lang=&#34;en&#34;&gt;Starting Butler SOS as a Node.js on Windows could look like this:  
 
     d:
     cd \node\butler-sos\src

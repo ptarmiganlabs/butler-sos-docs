@@ -1,7 +1,7 @@
 ---
 title: "Qlik Sense monitoring using Grafana 6"
 linkTitle: "Grafana 6 dashboard"
-weight: 60
+weight: 200
 description: >
   Probably the most obvious and common use case for Butler SOS. View Qlik Sense and Windows operational metrics in great looking Grafana dashboards.
 ---

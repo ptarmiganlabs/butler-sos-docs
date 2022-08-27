@@ -16,7 +16,7 @@ The parameters in the config file are described below.
 All parameters must be defined in the config file - run time errors are likely to occur otherwise.
 The [sample config file](https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml) looks like this:
 
-![Sample config file](./configfile_7_0.png "Sample Butler SOS config file")
+![Sample config file](./configfile_9_2.png "Sample Butler SOS config file")
 
 A few things to keep in mind:
 
@@ -69,6 +69,19 @@ If you are *not* running Butler SOS in Docker you can disable this feature.
 | logLevel | Starting at what log level should uptime messages be used? Possible values are silly, debug, verbose, info, warn, error. For example, if you specify "verbose" here, uptime messages will appear if you set overall log level to silly, debug or verbose. |
 | storeInInfluxdb.<br>butlerSOSMemoryUsage | Should data on Butler SOS' own memory use be stored in Infludb? true/false |
 | storeInInfluxdb.<br>instanceTag | Tag used to differentiate data from multiple Butler SOS instances. Useful if running different Butler SOS instances against (for example) DEV, TEST and PROD environments |
+| storeNewRelic.<br>enable |  Should uptime data be sent to New Relic? true/false |
+| storeNewRelic.<br>destinationAccount | Array of New Relic account names to which uptime data will be sent |
+| storeNewRelic.<br>metric.dynamic.<br>butlerMemoryUsage.enable | Should Butler SOS memory metrics be sent to New Relic? true/false |
+| storeNewRelic.<br>metric.dynamic.<br>butlerUptime.enable | Should Butler uptime (days, hours, minutes since startup) be sent to New Relic? true/false |
+| storeNewRelic.<br>attribute.static | Array of attributes which will be added to all uptime metrics sent to New Relic |
+| storeNewRelic.<br>attribute.dynamic.<br>butlerVersion.enable | Should uptime metrics be tagged with Butler SOS version number? true/false|
+|  |  |
+
+#### Butler-SOS.thirdPartyToolsCredentials
+
+| Parameter | Description |
+| --------- | ----------- |
+| newRelic  | Should messages with Butler SOS uptime and memory usage be written to console and logs? true/false |
 |  |  |
 
 #### Butler-SOS.userEvents
@@ -95,6 +108,9 @@ Requires log appender XML file(s) to be added to Sense server(s).
 | sendToMQTT.postTo.<br>connectionCloseTopic.enable | Should **connection close** user event messages be sent to an MQTT topic? true/false |
 | sendToMQTT.postTo.<br>connectionCloseTopic.topic | MQTT topic to which **connection close** user event messages will be sent. |
 | sendToInfluxdb.enable | Should user events be saved in InfluxDB? true/false |
+| sendToNewRelic.enable | Should user events be saved in New Relic? true/false |
+| sendToNewRelic.destinationAccount | Array of New Relic account names to which user events will be sent. |
+| sendToNewRelic.scramble | Should `user directory` and `user ID` fields be scrambled before user events are sent to New Relic? true/false |
 |  |  |
 
 #### Butler-SOS.logEvents
@@ -109,6 +125,7 @@ Note that log events can be enabled/disabled per source (repository, proxy, sche
 | udpServerConfig.<br>serverHost | IP/host where the log event UDP server should listen for incoming connections. Usually the same IP/host as where Butler SOS is running. Using 0.0.0.0 will cause Butler SOS to listen on all available IPs. |
 | udpServerConfig.<br>portLogEvents | Port on which the log event UDP server will listen. Should match the port specified in the log appender. |
 | tags | Array of tags (tagName/tagValue pairs) that should be added to each log event before sending it to InfluxDB. Remove sample tags before deploying Butler SOS. |
+| source.<br>engine.enable | Should log events from the engine service be handled by Butler SOS? true/false |
 | source.<br>proxy.enable | Should log events from the proxy service be handled by Butler SOS? true/false |
 | source.<br>repository.enable | Should log events from the repository service be handled by Butler SOS? true/false |
 | source.<br>scheduler.enable | Should log events from the scheduler service be handled by Butler SOS? true/false |
@@ -117,6 +134,20 @@ Note that log events can be enabled/disabled per source (repository, proxy, sche
 | sendToMQTT.postTo<br>.baseTopic | Should all log events be posted to the root topic? true/false |
 | sendToMQTT.postTo<br>.subsystemTopics | All log events originate from a specific subsystem in a Sense server. These subsystems are organised in a hierarchical tree that can be directly mapped to MQTT topics. Should log events be posted as MQTT messages to such topics? true/false |
 | sendToInfluxdb.enable | Should log events be saved in InfluxDB? true/false |
+| sendToNewRelic.enable | Should log events be sent to New Relic? true/false |
+| sendToNewRelic.destinationAccount | Array of New Relic account names to which log events will be sent. |
+| sendToNewRelic.<br>source.engine.enable | Should log events from the engine service be handled? |
+| sendToNewRelic.<br>source.engine.logLevel.error | Should ERROR log events from the engine service be handled? |
+| sendToNewRelic.<br>source.engine.logLevel.warn | Should WARN log events from the engine service be handled? |
+| sendToNewRelic.<br>source.proxy.enable | Should log events from the proxy service be handled? |
+| sendToNewRelic.<br>source.proxy.logLevel.error | Should ERROR log events from the proxy service be handled |
+| sendToNewRelic.<br>source.proxy.logLevel.warn | Should WARN log events from the proxy service be handled |
+| sendToNewRelic.<br>source.repository.enable | Should log events from the repository service be handled? |
+| sendToNewRelic.<br>source.repository.logLevel.error | Should ERROR log events from the repository service be handled |
+| sendToNewRelic.<br>source.repository.logLevel.warn | Should WARN log events from the repository service be handled |
+| sendToNewRelic.<br>source.scheduler.enable | Should log events from the scheduler service be handled? |
+| sendToNewRelic.<br>source.scheduler.logLevel.error | Should ERROR log events from the scheduler service be handled |
+| sendToNewRelic.<br>source.scheduler.logLevel.warn | Should WARN log events from the scheduler service be handled |
 |  |  |
 
 #### Butler-SOS.logdb
@@ -162,6 +193,36 @@ MQTT config parameters. These must be correctly defined for any other MQTT featu
 | brokerHost | IP or FQDN of MQTT broker |
 | brokerPort | Broker port |
 | baseTopic | Default topic used if not not oherwise specified elsewhere. Should end with /. For example butler-sos/ |
+|  |  |
+
+#### Butler-SOS.newRelic
+
+If enabled, select Butler SOS metrics and events will be sent to New Relic.  
+
+Note that New Relic destination accounts for events are defined in the `Butler-SOS.userEvent` and `Butler-SOS.logEvent` sections, whereas destination accounts for metrics are defined in this section (`Butler-SOS.newRelic`).
+
+| Parameter | Description |
+| --------- | ----------- |
+| enable | Should Qlik Sense health metrics be sent to New Relic? true/false |
+| event.url | Which API URL should be used for sending events to New Relic?<br>At time of this writing the options are<br>https://insights-collector.eu01.nr-data.net<br>https://insights-collector.newrelic.com<br>More info here: https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center |
+| event.header | Array of name/value pairs that will be added as http headers to all calls to the New Relic event API |
+| event.attribute.<br>static | Array of name/value pairs, representing attributes/tags that will be added to all events sent to New Relic |
+| event.attribute.<br>dynamic.butlerSosVersion.<br>enable | Should Butler SOS' version be attached as an attribute to events sent to New Relic? true/false |
+| metric.destinationAccount | Array of New Relic account names to which Sense health metrics will be sent.  |
+| metric.url | Which API URL should be used for sending Sense health metrics to New Relic?<br>At time of this writing the options are<br>https://insights-collector.eu01.nr-data.net/metric/v1<br>https://metric-api.newrelic.com/metric/v1 |
+| metric.header | Array of name/value pairs that will be added as http headers to all calls to the New Relic metric API |
+| metric.dynamic.<br>engine.memory.<br>enable | Send Sense memory metrics to New Relic? true/false |
+| metric.dynamic.<br>engine.cpu.<br>enable | Send Sense CPU metrics to New Relic? true/false |
+| metric.dynamic.<br>engine.calls.<br>enable | Send metrics about calls to the Sense engine to New Relic? true/false |
+| metric.dynamic.<br>engine.selections.<br>enable | Send metrics about number of selections made in Sense apps to New Relic? true/false |
+| metric.dynamic.<br>engine.sessions.<br>enable | Send aggregated Sense engine session metrics to New Relic? true/false |
+| metric.dynamic.<br>engine.users.<br>enable | Send aggregated Sense user metrics to New Relic? true/false |
+| metric.dynamic.<br>engine.saturated.<br>enable | Send Sense engine saturation status to New Relic? true/false |
+| metric.dynamic.<br>apps.docCount.<br>enable | Send metrics on loaded/active/in-memory Sense apps to New Relic? true/false |
+| metric.dynamic.<br>cache.cache.<br>enable | Send Sense cache metrics to New Relic? true/false |
+| metric.dynamic.<br>proxy.sessions.<br>enable | Send aggregated Sense proxy metrics to New Relic? true/false |
+| metric.attribute.<br>static | Array of name/value pairs, representing attributes/tags that will be added to all Sense health metrics sent to New Relic |
+| metric.attribute.<br>dynamic.butlerSosVersion.<br>enable | Should Butler SOS' version be attached as an attribute to Sense health metrics sent to New Relic? true/false |
 |  |  |
 
 #### Butler-SOS.prometheus

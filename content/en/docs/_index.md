@@ -9,6 +9,73 @@ menu:
 
 {{% pageinfo %}}
 
+### What's new in version 9.2
+
+#### Features
+
+* Add support for storing Sense engine warning/error log messages in InfluxDB. [#435](https://github.com/ptarmiganlabs/butler-sos/issues/435)
+* Specify zero or more New Relic credentials via command line options. [#429](https://github.com/ptarmiganlabs/butler-sos/issues/429)
+* Support for sending metrics and events to multiple New Relic accounts. [#417](https://github.com/ptarmiganlabs/butler-sos/issues/417)
+* Write info on startup about execution type. [#430](https://github.com/ptarmiganlabs/butler-sos/issues/430)
+
+#### Bug Fixes
+
+* Add missing XML log appender file for QS engine service. [#433](https://github.com/ptarmiganlabs/butler-sos/issues/433)
+* Log events now correctly sent to New Relic, incl engine log events. [#432](https://github.com/ptarmiganlabs/butler-sos/issues/432)
+
+#### Miscellaneous
+
+* Remove unnecessary handling of engine performance log messages. [#434](https://github.com/ptarmiganlabs/butler-sos/issues/434)
+* Updated dependencies
+
+### What's new in version 9.1
+
+#### Features
+
+* Better logging when warnings and errors occur. [#404](https://github.com/ptarmiganlabs/butler-sos/issues/404)
+
+#### Bug Fixes
+
+* Send correct tags to Prometheus endpoint. [#422](https://github.com/ptarmiganlabs/butler-sos/issues/422)
+
+#### Miscellaneous
+
+* Apply consistent formatting to all source and doc files. [#419](https://github.com/ptarmiganlabs/butler-sos/issues/419)
+* Upgrade Prometheus metrics lib to latest version.
+* Update dependencies to latest versions.
+
+### What's new in version 9.0
+
+Focus of this release is twofold:  
+
+1. Improve the usability of the stand-alone Butler SOS binaries.
+2. Send metrics and log events to the New Relic monitoring service.
+
+#### ⚠ BREAKING CHANGES
+
+* Add external memory to uptime data in InfluxDB.  
+  This is a minor change, but it does also require a small change in the config file.
+
+#### Features
+
+* Add command line options to Butler SOS. [#387](https://github.com/ptarmiganlabs/butler-sos/issues/387)
+* Add external memory to uptime data in InfluxDB.
+* Add New Relic as destination for SenseOps metrics.
+* Add optional scrambling of user id for user events sent to New Relic. [#398](https://github.com/ptarmiganlabs/butler-sos/issues/398)
+* Send engine, proxy and session metrics to New Relic.
+
+#### Bug Fixes
+
+* Compress stand-alone binaries.
+* Include New Relic status in telemtry data (23c292c)
+
+#### Miscellaneous
+
+* Make proxy related log entries easier to understand.[#392](https://github.com/ptarmiganlabs/butler-sos/issues/392)
+* Make user event log messages easier to understand. [#396](https://github.com/ptarmiganlabs/butler-sos/issues/396)
+* More relvant log prefixes for proxy session logging.
+* Update dependencies to latest versions.
+
 ### What's new in version 8.1
 
 * Scanning for security risks and vulnerabilities is now done as part of the relese process.

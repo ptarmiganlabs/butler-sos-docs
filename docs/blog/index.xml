@@ -52,7 +52,7 @@ The current file format of the config file is described &lt;a href=&#34;https://
 &lt;p&gt;List of changes:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/issues/105&#34;&gt;#105&lt;/a&gt; Choose whether or not to store info about session apps in Influxdb.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/issues/107&#34;&gt;#107&lt;/a&gt; Log Butler SOS&#39; own memory use to Influxdb.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/issues/107&#34;&gt;#107&lt;/a&gt; Log Butler SOS&amp;rsquo; own memory use to Influxdb.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/issues/108&#34;&gt;#108&lt;/a&gt; Add user configurable uptime messages.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/issues/110&#34;&gt;#110&lt;/a&gt; User configurable Docker healthcheck service.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/issues/111&#34;&gt;#111&lt;/a&gt; Update docs to explain need for new certs from Feb 2020 and onward.&lt;/li&gt;
@@ -192,7 +192,7 @@ The new features make it possible to see exactly what users are connected right 
 &lt;li&gt;All data stored in InfluxDB is accompanied by a &lt;strong&gt;InfluxDB retention policy&lt;/strong&gt;. This means there is now a way to make sure that the InfluxDB database does not grow beyond reasonable limits. Put differently: You can save detailed, fine-grained Sense metrics and specify that it should only be kept for (for example) 4 weeks. Any data older than the threshold is automatically purged from InfluxDB.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Improved logging&lt;/strong&gt; throughout the app makes it easier to debug and solve for example configuration issues.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Thes new features mean that Butler SOS&#39; configuration file has a slightly new format. When upgrading to v5.0 from earlier versions you must ensure that your YAML config file meets the v5.0 format.&lt;/p&gt;
+&lt;p&gt;Thes new features mean that Butler SOS&amp;rsquo; configuration file has a slightly new format. When upgrading to v5.0 from earlier versions you must ensure that your YAML config file meets the v5.0 format.&lt;/p&gt;
 
       </description>
     </item>

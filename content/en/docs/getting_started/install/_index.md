@@ -34,10 +34,13 @@ Why? Several reasons:
 - Updating Butler SOS to the latest version (assuming no config file changes are needed for that particular upgrade) is as easy as stopping the container, doing a "docker pull ptarmiganlabs/butler-sos:latest", and finally starting the container again.
 {{% /pageinfo %}}
 
-But even with the above Docker recommendation, Butler SOS *can* be deployed in lots of different configurations.  
-It is therefore difficult to give precise instructions that will work for all configurations. Especially the fact that Butler SOS uses certificates to authenticate with Sense is a complicating factor. Certificates are (when correctly used) great for securing systems, but they can alse cause headaches.
+If Docker is not an option, the pre-built, stand-alone binaries for Windows, Linux and macOS are good options.  
+They offer a download-configure-execute approach to running Butler SOS. Also a very good option.
 
-First we must recognize that Sense uses [self signed certificates](https://en.wikipedia.org/wiki/Self-signed_certificate). This is fine, and as long as you work on a server where Sense Enterprise is installed, that server will have the Sense-provided Certificate Authority (CA) certificate installed.
+But even with the above recommendations, Butler SOS can be deployed in lots of different configurations.  
+It is therefore difficult to give precise instructions that will work everwhere, for everyone. Especially the fact that Butler SOS uses certificates to authenticate with Sense is a complicating factor. Certificates are (when correctly used) great for securing systems, but they can alse cause headaches.
+
+First we must recognize that Sense uses [self signed certificates](https://en.wikipedia.org/wiki/Self-signed_certificate). This is fine, and as long as you work on a server where Sense Enterprise is installed, that server will have the Sense-provided certificates and Certificate Authority (CA) installed.
 
 This means that the easiest option for getting Butler SOS up and running is usually to install it on one of your Sense servers.
 

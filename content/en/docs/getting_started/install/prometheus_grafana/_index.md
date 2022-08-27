@@ -6,7 +6,14 @@ description: >
   How to use Butler SOS with Prometheus and Grafana using Docker.
 ---
 
+
 {{< notice warning >}}
+# Work in progress
+
+While Butler SOS' Prometheus support is functional and works well, this documentation page is not yet complete.
+{{< /notice >}}
+
+{{< notice info >}}
 Prometheus is extremely powerful and flexible.  
 In fact, it's probably the closest thing there is to a de facto standard for monitoring large scale software systems today.  
 No matter if you run Kubernetes cluster spanning multiple data centers and continents, or just a single Butler SOS instance - Prometheus is an excellent choice for monitoring of operational metrics.
@@ -37,84 +44,78 @@ Let's start Butler SOS, Prometheus and Grafana from a single `docker-compose_ful
 
 ```bash
 # docker-compose_fullstack_prometheus.yml
-version: '3.3'
+version: "3.3"
 services:
-  butler-sos:
-    image: ptarmiganlabs/butler-sos:latest
-    container_name: butler-sos
-    restart: always
-    volumes:
-      # Make config file accessible outside of container
-      - "./config:/nodeapp/config"
-      - "./logs:/nodeapp/logs"
-    environment:
-      - "NODE_ENV=production_prometheus"         # Means that Butler SOS will read config data from production_prometheus.yaml 
-    logging:
-      driver: "json-file"
-      options:
-        max-file: "5"
-        max-size: "5m"
-    networks:
-      - senseops
+    butler-sos:
+        image: ptarmiganlabs/butler-sos:latest
+        container_name: butler-sos
+        restart: always
+        volumes:
+            # Make config file and log files accessible outside of container
+            - "./config:/nodeapp/config"
+            - "./log:/nodeapp/log"
+        environment:
+            - "NODE_ENV=production_prometheus" # Means that Butler SOS will read config data from production_prometheus.yaml
+        logging:
+            driver: "json-file"
+            options:
+                max-file: "5"
+                max-size: "5m"
+        networks:
+            - senseops
 
+    prometheus:
+        image: prom/prometheus:latest
+        container_name: prometheus
+        volumes:
+            - ./prometheus/:/etc/prometheus/
+            - prometheus_data:/prometheus
+        command:
+            - "--config.file=/etc/prometheus/prometheus.yml"
+            - "--storage.tsdb.path=/prometheus"
+            - "--web.console.libraries=/usr/share/prometheus/console_libraries"
+            - "--web.console.templates=/usr/share/prometheus/consoles"
+            # - "--log.level=debug"
+        ports:
+            - 9090:9090
+        links:
+            - alertmanager:alertmanager
+        networks:
+            - senseops
+        restart: always
 
-  prometheus:
-    image: prom/prometheus:v2.29.2
-    container_name: prometheus
-    volumes:
-      - ./prometheus/:/etc/prometheus/
-      - prometheus_data:/prometheus
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
-      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
-      - '--web.console.templates=/usr/share/prometheus/consoles'
-      - '--log.level=debug'
-    ports:
-      - 9090:9090
-    links:
-      - cadvisor:cadvisor
-      - alertmanager:alertmanager
-    depends_on:
-      - cadvisor
-    networks:
-      - senseops
-    restart: always
+    alertmanager:
+        image: prom/alertmanager
+        container_name: alertmanager
+        ports:
+            - 9093:9093
+        volumes:
+            - ./alertmanager/:/etc/alertmanager/
+        networks:
+            - senseops
+        restart: always
+        command:
+            - "--config.file=/etc/alertmanager/config.yml"
+            - "--storage.path=/alertmanager"
 
-
-  alertmanager:
-    image: prom/alertmanager
-    container_name: alertmanager
-    ports:
-      - 9093:9093
-    volumes:
-      - ./alertmanager/:/etc/alertmanager/
-    networks:
-      - senseops
-    restart: always
-    command:
-      - '--config.file=/etc/alertmanager/config.yml'
-      - '--storage.path=/alertmanager'
-
-
-  grafana:
-    image: grafana/grafana:latest
-    container_name: grafana
-    restart: always
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./grafana/data:/var/lib/grafana
-    networks:
-      - senseops
-
+    grafana:
+        image: grafana/grafana:latest
+        container_name: grafana
+        restart: always
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./grafana/data:/var/lib/grafana
+        networks:
+            - senseops
 
 networks:
-  senseops:
-    driver: bridge
+    senseops:
+        driver: bridge
+
 ```
 
-Assuming you've already completed the [setup of Butler SOS](/docs/getting_started/setup/), the result of running the `docker-compose_fullstack_influxdb.yml` file above is something like this:
+Assuming you've already completed the [setup of Butler SOS](/docs/getting_started/setup/), the result of running the `docker-compose_fullstack_prometheus.yml` file above is something like this:
 
 ```bash
 

@@ -39,6 +39,24 @@ Finally we have to make sure firewalls are open and allow UDP traffic from the S
 
 If everything is set up correctly UDP messages will arrive at Butler SOS within seconds after the actual event taking place.
 
+## Tagging of data
+
+### New Relic
+
+The following attributes (which is New Relic lingo for tags) are added:
+
+1. A core set of attributes are added to all user events
+   1. `qs_host`: Host name of the Sense server the event originated at.
+   2. `qs_event_action`: What kind of user event that took place. Examples are "Start session", "Stop session, "Open connection", "Close connection".
+   3. `qs_userFull`: Full directory/user ID of the user the event is about. Will be scrambled if scrambling enabled in config file.
+   4. `qs_userDirectory`: User directory of the user the event is about. Will be scrambled if scrambling enabled in config file.
+   5. `qs_userId`: User ID of the user the event is about. Will be scrambled if scrambling enabled in config file.
+   6. `qs_origin`: What kind of activity caused the event, for example "AppAccess". Can be empty for some user events.
+2. Custom attributes defined in the Butler SOS config file's `Butler-SOS.userEvents.tags` section.
+
+Note: Attributes defined further down in the list above will overwrite already defined attributes if their names match.  
+To avoid problems you should make sure not to use already defined attributes.
+
 ## Settings in main config file
 
 ```yaml
@@ -47,7 +65,7 @@ Butler-SOS:
   ...
   ...
   # Track individual users opening/closing apps and starting/stopping sessions. 
-  # Requires log appender XML file(s) to be added to Sense server(s.
+  # Requires log appender XML file(s) to be added to Sense server(s).
   userEvents:                       
     enable: false
     excludeUser:                    # Optional blacklist of users that should be disregarded when it comes to user events
@@ -83,6 +101,12 @@ Butler-SOS:
           topic: qliksense/userevent/connection/close
     sendToInfluxdb:
       enable: true                  # Set to true if user events should be stored in InfluxDB
+    sendToNewRelic:
+      enable: false                  # Should log events be sent to New Relic?
+      destinationAccount:
+        - First NR account
+        - Second NR account
+      scramble: true                # Should user info (user directory and user ID) be scrambled before sent to NR?
   ...
   ...
 ```

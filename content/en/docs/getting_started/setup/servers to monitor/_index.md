@@ -53,11 +53,15 @@ Butler-SOS:
     # List of extra tags for each server. Useful for creating more advanced Grafana dashboards.
     # Each server below MUST include these tags in its serverTags property.
     # The tags below are just examples - define your own as needed
+    # These tags will also be used to label data exposed on the Prometheus endpoint (if it is enabled)
+    # NOTE: Prometheus only allows label names consisting of ASCII letters, numbers, as well as underscores. They must match the regex [a-zA-Z_][a-zA-Z0-9_]*. 
+    # I.e. if the Prometheus endpoint is enabled, the tag names below must follow the label naming standard of Prometheus. 
     serverTagsDefinition: 
       - server_group
       - serverLocation
-      - server-type
+      - server_type
       - serverBrand
+
     # Sense Servers that should be queried for healthcheck data 
     servers:
       - host: <server1.my.domain>:4747        # Example: 10.34.3.45:4747
@@ -75,7 +79,7 @@ Butler-SOS:
         serverTags:
           server_group: DEV
           serverLocation: Asia
-          server-type: virtual
+          server_type: virtual
           serverBrand: Dell
       - host: <server2.my.domain>:4747        # Example: 10.34.3.46:4747
         serverName: <server2>
@@ -84,13 +88,13 @@ Butler-SOS:
         userSessions:
           enable: true
           # Items below are mandatory if userSessions.enable=true
-          host: <server2.my.domain>:4243
+          host: <server2.my.domain>:4243      # Example: 10.34.3.46:4243
           virtualProxies:
             - virtualProxy: /finance          # "finance" virtual proxy
         serverTags:
           server_group: PROD
           serverLocation: Europe
-          server-type: physical
+          server_type: physical
           serverBrand: HP
   ...
   ...

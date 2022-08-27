@@ -8,11 +8,37 @@ description: >
 
 ## Installation
 
-In this scenario, Butler SOS will run as a Node.js app on a Windows server.  
+There are two options: Run Butler SOS as a standalone binary or as a Node.js app.
+The first is by far easier to set up and maintain and thus recommended.
+
+### Using the pre-built, standalone app
+
+The pre-build binaries are available from the [releases page](https://github.com/ptarmiganlabs/butler-sos/releases).
+
+1. Download the Windows binary
+2. "Unblock" the downloaded zip file
+   1. Right-click the zip file
+   2. Select "properties"
+   3. Mark the "Unblock" check box in the lower right part of the properties window
+   4. Click the "Apply" button, then "Ok" to close the properties window
+3. Unzip the zip file
+4. Move the extracted `butler-sos.exe` file to desired location, for example `d:\tools\butler-sos`
+5. Use [nssm](https://nssm.cc/download) or similar tool to install Butler SOS as a Windows service
+
+{{< imgproc unblock-butler-sos-windows-1.png Resize "400x" >}}
+Unblocking the Butler SOS zip file on Windows Server
+{{< /imgproc >}}
+
+### Using Node.js
+
+In this scenario you will use the Butler SOS source code together with the standard Node.js runtime libraries.
+
+The result is the same as with the stand-alone binaries, you just have to do more of the work yourself.  
+This is usually *not* preferred, but if you want to add new features to (or modify existone ones) Butler SOS, this option is for you
 
 ### 1. Install Node.js
 
-Any recent Node version should work. If in doubt the [latest LTS version](https://nodejs.org/en/download/) is usually a good choice.
+The [latest LTS version](https://nodejs.org/en/download/) is usually a good choice.
 
 ### 2. Select a directory from which Butler SOS will be run
 

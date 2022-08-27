@@ -14,7 +14,7 @@ Butler SOS can be configured to store these metrics in InfluxDB/Prometheus and/o
 ### Session count
 
 A session (or more specifically, a "proxy session") is created when a user logs into Sense.  
-The session is typically reused when a user opens additional apps.  
+The session is typically reused when a user opens additional Sense apps from the same browser.  
 Knowing how many users are logged at any given time gives a Sense admin an understanding of when peak hours are, when service windows should be planed, whether the server(s) is too small or too big etc.
 
 The session metrics are arguably among the most important ones provided by Butler SOS
@@ -65,14 +65,23 @@ The Sense logs are always available on the Sense servers, the problem is that th
 Retrospective analysis is also cumbersome, you basically have to manually dig up the specific log files of interest and then search them for the information of interest.
 
 Butler SOS simplifies this greatly by having select log events (warnings, errors and fatals by default) sent from the Sense servers to Butler SOS.  
-Once such a log event message arrives, Butler SOS will store it in its database (for example InfluxDB), from where the log event can be visualised using Grafana.  
+Once such a log event message arrives, Butler SOS will store it in its database (for example InfluxDB or New Relic), from where the log event can be visualised using Grafana or within New Relic.  
 
-Log events are also re-published as MQTT messages. This makes it trivial for 3rd party systems to trigger actions when certain log events occur in Qlik Sense.  
+Log events are also re-published as MQTT messages. This makes it possible for 3rd party systems to trigger actions when certain log events occur in Qlik Sense.  
 
-Butler SOS pulls errors and/or warnings from the log database and store them in InfluxDB.  
-This can be increadibly useful information when used in Grafana dashboars: Visuallu seeing lots of errors arriving in a short time period is a strong indication something is not right.  
+Log events from several Qlik Sense servics can selectively be forwarded to Butler SOS:
 
-Add Grafana or Prometheus alerts and you have a very capable, close to real-time error/warning monitoring solution.
+* Engine
+* Proxy
+* Repository
+* Scheduler
+
+A sample use case of log events:  
+
+1. Create a Grafana or New Relic real-time chart showing number of warnings/errors per 5-minute window.
+2. Set up an alert in those tools to notify you when number of events during past 5 minutes go above some limit.
+
+This is trivial to set up, but gives you a very capable, close to real-time error/warning monitoring solution.
 
 ## The log database
 

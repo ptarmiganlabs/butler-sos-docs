@@ -19,14 +19,14 @@ This is a placeholder page that shows you how to use this template site.
 
 Butler SenseOps Stats ("Butler SOS") is a monitoring tool for [Qlik Sense](https://www.qlik.com/us/products/qlik-sense), built with DevOps workflows in mind.
 
-It publishes operational, close to real-time Qlik Sense Enterprise metrics to [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/), [Prometheus](https://prometheus.io) and [MQTT](https://en.wikipedia.org/wiki/MQTT). From there it can be visualised using tools like [Grafana](https://grafana.com/) or acted on by downstream systems that listen to the MQTT topics used by Butler SOS.
+It publishes operational, close to real-time Qlik Sense Enterprise metrics to [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/), [Prometheus](https://prometheus.io), [New Relic](https://newrelic.com) and [MQTT](https://en.wikipedia.org/wiki/MQTT). From there it can be visualised using tools like [Grafana](https://grafana.com/), New Relic or acted on by downstream systems that listen to the MQTT topics used by Butler SOS.
 
 Butler SOS gathers operational metrics from several sources, including the [Sense healthcheck API](https://help.qlik.com/en-US/sense-developer/May2021/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm) and [Session API](https://help.qlik.com/en-US/sense-developer/May2021/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm).  
 It also pulls log events from [Sense's Postgres logging database](https://help.qlik.com/en-US/sense-admin/May2021/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Qlik-Logging-Service.htm), and forwards these to InfluxDB and MQTT.
 
 ## Do I really need a tool like this?
 
-Let's say you are somehow involved in (or maybe even responsible for) your company's Qlik Sense environemnt.
+Let's say you are somehow involved in (or maybe even responsible for) your company's client-managed Qlik Sense Enterprise on Windows (QSEoW) environemnt.
 
 Let's also assume you have more than 5-10 users in your Sense environment. Maybe you even have business critical data in your Sense apps.
 

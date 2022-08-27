@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.92.0" />
+<meta name="generator" content="Hugo 0.101.0" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/prometheus/index.xml">
 <meta name="robots" content="index, follow">
 
@@ -19,21 +19,21 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Available Metrics | Butler SOS</title>
+<title>Available Metrics: Prometheus | Butler SOS</title>
 
 
   <meta name="description" content="In order to create graphs in for example Grafana, you must understand what metrics are available and how they are structured.
 ">
-<meta property="og:title" content="Available Metrics" />
+<meta property="og:title" content="Available Metrics: Prometheus" />
 <meta property="og:description" content="In order to create graphs in for example Grafana, you must understand what metrics are available and how they are structured.
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/prometheus/" /><meta property="og:site_name" content="Butler SOS" />
 
-<meta itemprop="name" content="Available Metrics">
+<meta itemprop="name" content="Available Metrics: Prometheus">
 <meta itemprop="description" content="In order to create graphs in for example Grafana, you must understand what metrics are available and how they are structured.
 "><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Available Metrics"/>
+<meta name="twitter:title" content="Available Metrics: Prometheus"/>
 <meta name="twitter:description" content="In order to create graphs in for example Grafana, you must understand what metrics are available and how they are structured.
 "/>
 
@@ -210,6 +210,8 @@ if (!doNotTrack) {
   <a href="/docs/getting_started/setup/docker-health-check/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupdocker-health-check"><span class="">Docker healthcheck</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupuptime-monitor-li">
   <a href="/docs/getting_started/setup/uptime-monitor/" title="Configuring Butler SOS uptime monitor" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupuptime-monitor"><span class="">Uptime monitor</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupcredentials-li">
+  <a href="/docs/getting_started/setup/credentials/" title="Credentials to third party services" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupcredentials"><span class="">Credentials</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupuser-events-li">
   <a href="/docs/getting_started/setup/user-events/" title="Configuring user events" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupuser-events"><span class="">User events</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetuplog-events-li">
@@ -220,6 +222,8 @@ if (!doNotTrack) {
   <a href="/docs/getting_started/setup/qlik-sense-server-settings/" title="Connecting to a Qlik Sense server" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupqlik-sense-server-settings"><span class="">Sense server settings</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupmqtt-li">
   <a href="/docs/getting_started/setup/mqtt/" title="Setting up MQTT messaging" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupmqtt"><span class="">MQTT</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupnew-relic-li">
+  <a href="/docs/getting_started/setup/new-relic/" title="Setting up the New Relic integration" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupnew-relic"><span class="">New Relic</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupprometheus-li">
   <a href="/docs/getting_started/setup/prometheus/" title="Setting up Prometheus" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupprometheus"><span class="">Prometheus</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupinfluxdb-li">
@@ -257,7 +261,9 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsexamples-li">
   <a href="/docs/examples/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamples"><span class="">Examples</span></a>
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana8-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana9-li">
+  <a href="/docs/examples/qliksense_monitoring_grafana9/" title="Qlik Sense monitoring using Butler SOS v9.2 and Grafana v9.1" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesqliksense_monitoring_grafana9"><span class="">Grafana 9 dashboard</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana8-li">
   <a href="/docs/examples/qliksense_monitoring_grafana8/" title="Qlik Sense monitoring using Butler SOS v7 and Grafana v8" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesqliksense_monitoring_grafana8"><span class="">Grafana 8 dashboard</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana7-li">
   <a href="/docs/examples/qliksense_monitoring_grafana7/" title="Qlik Sense monitoring using Grafana 7" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesqliksense_monitoring_grafana7"><span class="">Grafana 7 dashboard</span></a>
@@ -274,9 +280,11 @@ if (!doNotTrack) {
   <a href="/docs/reference/available_metrics/" title="Available Metrics" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metrics"><span class="">Available metrics</span></a>
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsreferenceavailable_metricsinfluxdb-li">
-  <a href="/docs/reference/available_metrics/influxdb/" title="Metrics available in InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsinfluxdb"><span class="">InfluxDB</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsreferenceavailable_metricsprometheus-li">
-  <a href="/docs/reference/available_metrics/prometheus/" title="Available Metrics" class="align-left pl-0 active td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsprometheus"><span class="td-sidebar-nav-active-item">Prometheus</span></a>
+  <a href="/docs/reference/available_metrics/influxdb/" title="Available metrics: InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsinfluxdb"><span class="">InfluxDB</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsreferenceavailable_metricsnew-relic-li">
+  <a href="/docs/reference/available_metrics/new-relic/" title="Available Metrics: New Relic" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsnew-relic"><span class="">New Relic</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsreferenceavailable_metricsprometheus-li">
+  <a href="/docs/reference/available_metrics/prometheus/" title="Available Metrics: Prometheus" class="align-left pl-0 active td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsprometheus"><span class="td-sidebar-nav-active-item">Prometheus</span></a>
 </li>
   </ul>
 </li>
@@ -299,7 +307,7 @@ if (!doNotTrack) {
 <a href="https://github.com/ptarmiganlabs/butler-sos-docs/tree/master/content/en/docs/reference/available_metrics/prometheus/_index.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
   <a href="https://github.com/ptarmiganlabs/butler-sos-docs/edit/master/content/en/docs/reference/available_metrics/prometheus/_index.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
   <a href="https://github.com/ptarmiganlabs/butler-sos-docs/new/master/content/en/docs/reference/available_metrics/prometheus/_index.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-  <a href="https://github.com/ptarmiganlabs/butler-sos-docs/issues/new?title=Available%20Metrics" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+  <a href="https://github.com/ptarmiganlabs/butler-sos-docs/issues/new?title=Available%20Metrics:%20Prometheus" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/ptarmiganlabs/butler-sos/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
   
 </div>
@@ -393,7 +401,7 @@ if (!doNotTrack) {
 
             
 <div class="td-content">
-	<h1>Available Metrics</h1>
+	<h1>Available Metrics: Prometheus</h1>
   <div class="lead">In order to create graphs in for example Grafana, you must understand what metrics are available and how they are structured.</div>
 	<header class="article-meta">
 		
@@ -412,7 +420,7 @@ if (!doNotTrack) {
 	</header>
 	<h2 id="prometheus">Prometheus</h2>
 <p>Metrics retrieved from the Sense servers can be stored in <a href="https://prometheus.io">Prometheus</a>. You don&rsquo;t have to be a Prometheus expert to use Butler SOS, but understanding some basic concepts are helpful.</p>
-<p>Storing metrics in Prometheus is not mandatory, but some kind of metrics storage - either in <a href="/docs/reference/available_metrics/influxdb/">InfluxDB</a> or Prometheus - is needed to take full benefit of Butler SOS' features.</p>
+<p>Storing metrics in Prometheus is not mandatory, but some kind of metrics storage - either in Prometheus, <a href="/docs/reference/available_metrics/influxdb/">InfluxDB</a> or <a href="https://newrelic.com">New Relic</a> - is needed to take full benefit of Butler SOS&rsquo; features.</p>
 <p>Prometheus gathers metrics by &ldquo;scraping&rdquo; data from web pages (&ldquo;endpoints&rdquo;) on which metrics are displayed in a well specified format.<br>
 Most metrics from the Sense servers are exposed on a Prometheus compatible endpoint, but not all.<br>
 InfluxDB is more flexible for some types of data, while Prometheus provides more easily used features for data aggregation when data should be displaued in Grafana.</p>
@@ -420,7 +428,7 @@ InfluxDB is more flexible for some types of data, while Prometheus provides more
 <p>Prometheus is enabled/disabled in the <code>Butler-SOS.prometheus</code> section in the config file.
 Prometheus metrics are available on the <code>/metrics</code> URL on the IP and port specified in the config file.</p>
 <p>For example, if the host is 0.0.0.0 and the port is 9842, Butler SOS will listen on port 9842 on all available network interfaces.
-If the Butler SOS' server&rsquo;s IP address is 192.168.1.168, a call from a web browser can look like this:</p>
+If the Butler SOS&rsquo; server&rsquo;s IP address is 192.168.1.168, a call from a web browser can look like this:</p>
 <p><img src="prometheus-browser-1.png" alt="Prometheus metrics in web browser" title="Prometheus metrics in web browser"></p>
 <p>This is the web page Prometheus will scrape and ingest into it&rsquo;s time-series database.</p>
 <h3 id="overview-of-prometheus">Overview of Prometheus</h3>
@@ -468,7 +476,7 @@ The Prometheus server is responsible for gathering data exposed by the systems t
 <p>Available metrics are similar to those in InfluxDB, with a few exceptions.</p>
 <p>Prometheus is awesome when it comes to storing all kinds of measurements, but it doesn&rsquo;t offer a good way to store strings.<br>
 For that reason Butler SOS metrics involving strings (for example list of apps loaded in memory) are not available on the Prometheus endpoint.<br>
-Most of the metrics come from Qlik Sense' <a href="https://help.qlik.com/en-US/sense-developer/November2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm">health check API</a>.</p>
+Most of the metrics come from Qlik Sense&rsquo; <a href="https://help.qlik.com/en-US/sense-developer/November2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm">health check API</a>.</p>
 <h4 id="qlik-sense-metrics">Qlik Sense metrics</h4>
 <p>These are the Prometheus metrics exposed by Butler SOS:</p>
 <table>
@@ -583,8 +591,8 @@ Most of the metrics come from Qlik Sense' <a href="https://help.qlik.com/en-US/s
 </tbody>
 </table>
 <h4 id="nodejs-metrics">Node.js metrics</h4>
-<p>A set of Node.js specific metrics are also available on Butler SOS' Prometheus endpoint.<br>
-These are described in the &ldquo;Default metrics&rdquo; section on [this](<a href="https://github.com/siimon/prom-client/tree/master/lib/metrics">Default metrics</a>) page.</p>
+<p>A set of Node.js specific metrics are also available on Butler SOS&rsquo; Prometheus endpoint.<br>
+These are described in the &ldquo;Default metrics&rdquo; section on <a href="https://github.com/siimon/prom-client">this</a> page.</p>
 
         <div class="section-index">
     
@@ -756,7 +764,7 @@ These are described in the &ldquo;Default metrics&rdquo; section on [this](<a hr
 
 
 
-<script src="/js/main.min.bac7898495f8b0a2193d726a55f57a494ed7b34b99d83f4dc5a9bcc9e0f60490.js" integrity="sha256-useJhJX4sKIZPXJqVfV6SU7Xs0uZ2D9Nxam8yeD2BJA=" crossorigin="anonymous"></script>
+<script src="/js/main.min.e404d12d340e64a577f807a6d1f28f7b85c1390e1fc893c48702d60e61b077ef.js" integrity="sha256-5ATRLTQOZKV3&#43;Aem0fKPe4XBOQ4fyJPEhwLWDmGwd&#43;8=" crossorigin="anonymous"></script>
 
 
 

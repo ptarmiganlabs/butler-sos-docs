@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.92.0" />
+<meta name="generator" content="Hugo 0.101.0" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/index.xml">
 <meta name="robots" content="index, follow">
 
@@ -26,10 +26,11 @@
   <meta name="description" content="
 
 
-What&rsquo;s new in version 8.1
+What&rsquo;s new in version 9.2
+Features
 
-Scanning for security risks and vulnerabilities is now done as part of the relese process.
-This is in addition to …">
+Add support for storing Sense engine warning/error log messages in InfluxDB. #435
+Specify zero or more …">
 <meta property="og:title" content="Documentation" />
 <meta property="og:description" content="Butler SOS documentation" />
 <meta property="og:type" content="website" />
@@ -153,7 +154,7 @@ if (!doNotTrack) {
   </form>
   <nav class="collapse td-sidebar-nav" id="td-section-nav">
     <ul class="td-sidebar-nav__section pr-md-3 ul-0">
-      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docs-li">
   <a href="/docs/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="td-sidebar-nav-active-item">Documentation</span></a>
   <ul class="ul-1">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsabout-li">
@@ -213,6 +214,8 @@ if (!doNotTrack) {
   <a href="/docs/getting_started/setup/docker-health-check/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupdocker-health-check"><span class="">Docker healthcheck</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupuptime-monitor-li">
   <a href="/docs/getting_started/setup/uptime-monitor/" title="Configuring Butler SOS uptime monitor" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupuptime-monitor"><span class="">Uptime monitor</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupcredentials-li">
+  <a href="/docs/getting_started/setup/credentials/" title="Credentials to third party services" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupcredentials"><span class="">Credentials</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupuser-events-li">
   <a href="/docs/getting_started/setup/user-events/" title="Configuring user events" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupuser-events"><span class="">User events</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetuplog-events-li">
@@ -223,6 +226,8 @@ if (!doNotTrack) {
   <a href="/docs/getting_started/setup/qlik-sense-server-settings/" title="Connecting to a Qlik Sense server" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupqlik-sense-server-settings"><span class="">Sense server settings</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupmqtt-li">
   <a href="/docs/getting_started/setup/mqtt/" title="Setting up MQTT messaging" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupmqtt"><span class="">MQTT</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupnew-relic-li">
+  <a href="/docs/getting_started/setup/new-relic/" title="Setting up the New Relic integration" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupnew-relic"><span class="">New Relic</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupprometheus-li">
   <a href="/docs/getting_started/setup/prometheus/" title="Setting up Prometheus" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupprometheus"><span class="">Prometheus</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupinfluxdb-li">
@@ -260,7 +265,9 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsexamples-li">
   <a href="/docs/examples/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamples"><span class="">Examples</span></a>
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana8-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana9-li">
+  <a href="/docs/examples/qliksense_monitoring_grafana9/" title="Qlik Sense monitoring using Butler SOS v9.2 and Grafana v9.1" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesqliksense_monitoring_grafana9"><span class="">Grafana 9 dashboard</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana8-li">
   <a href="/docs/examples/qliksense_monitoring_grafana8/" title="Qlik Sense monitoring using Butler SOS v7 and Grafana v8" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesqliksense_monitoring_grafana8"><span class="">Grafana 8 dashboard</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesqliksense_monitoring_grafana7-li">
   <a href="/docs/examples/qliksense_monitoring_grafana7/" title="Qlik Sense monitoring using Grafana 7" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesqliksense_monitoring_grafana7"><span class="">Grafana 7 dashboard</span></a>
@@ -277,9 +284,11 @@ if (!doNotTrack) {
   <a href="/docs/reference/available_metrics/" title="Available Metrics" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metrics"><span class="">Available metrics</span></a>
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceavailable_metricsinfluxdb-li">
-  <a href="/docs/reference/available_metrics/influxdb/" title="Metrics available in InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsinfluxdb"><span class="">InfluxDB</span></a>
+  <a href="/docs/reference/available_metrics/influxdb/" title="Available metrics: InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsinfluxdb"><span class="">InfluxDB</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceavailable_metricsnew-relic-li">
+  <a href="/docs/reference/available_metrics/new-relic/" title="Available Metrics: New Relic" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsnew-relic"><span class="">New Relic</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceavailable_metricsprometheus-li">
-  <a href="/docs/reference/available_metrics/prometheus/" title="Available Metrics" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsprometheus"><span class="">Prometheus</span></a>
+  <a href="/docs/reference/available_metrics/prometheus/" title="Available Metrics: Prometheus" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceavailable_metricsprometheus"><span class="">Prometheus</span></a>
 </li>
   </ul>
 </li>
@@ -373,6 +382,70 @@ if (!doNotTrack) {
 	
 
 <div class="pageinfo pageinfo-primary">
+<h3 id="whats-new-in-version-92">What&rsquo;s new in version 9.2</h3>
+<h4 id="features">Features</h4>
+<ul>
+<li>Add support for storing Sense engine warning/error log messages in InfluxDB. <a href="https://github.com/ptarmiganlabs/butler-sos/issues/435">#435</a></li>
+<li>Specify zero or more New Relic credentials via command line options. <a href="https://github.com/ptarmiganlabs/butler-sos/issues/429">#429</a></li>
+<li>Support for sending metrics and events to multiple New Relic accounts. <a href="https://github.com/ptarmiganlabs/butler-sos/issues/417">#417</a></li>
+<li>Write info on startup about execution type. <a href="https://github.com/ptarmiganlabs/butler-sos/issues/430">#430</a></li>
+</ul>
+<h4 id="bug-fixes">Bug Fixes</h4>
+<ul>
+<li>Add missing XML log appender file for QS engine service. <a href="https://github.com/ptarmiganlabs/butler-sos/issues/433">#433</a></li>
+<li>Log events now correctly sent to New Relic, incl engine log events. <a href="https://github.com/ptarmiganlabs/butler-sos/issues/432">#432</a></li>
+</ul>
+<h4 id="miscellaneous">Miscellaneous</h4>
+<ul>
+<li>Remove unnecessary handling of engine performance log messages. <a href="https://github.com/ptarmiganlabs/butler-sos/issues/434">#434</a></li>
+<li>Updated dependencies</li>
+</ul>
+<h3 id="whats-new-in-version-91">What&rsquo;s new in version 9.1</h3>
+<h4 id="features-1">Features</h4>
+<ul>
+<li>Better logging when warnings and errors occur. <a href="https://github.com/ptarmiganlabs/butler-sos/issues/404">#404</a></li>
+</ul>
+<h4 id="bug-fixes-1">Bug Fixes</h4>
+<ul>
+<li>Send correct tags to Prometheus endpoint. <a href="https://github.com/ptarmiganlabs/butler-sos/issues/422">#422</a></li>
+</ul>
+<h4 id="miscellaneous-1">Miscellaneous</h4>
+<ul>
+<li>Apply consistent formatting to all source and doc files. <a href="https://github.com/ptarmiganlabs/butler-sos/issues/419">#419</a></li>
+<li>Upgrade Prometheus metrics lib to latest version.</li>
+<li>Update dependencies to latest versions.</li>
+</ul>
+<h3 id="whats-new-in-version-90">What&rsquo;s new in version 9.0</h3>
+<p>Focus of this release is twofold:</p>
+<ol>
+<li>Improve the usability of the stand-alone Butler SOS binaries.</li>
+<li>Send metrics and log events to the New Relic monitoring service.</li>
+</ol>
+<h4 id="-breaking-changes">⚠ BREAKING CHANGES</h4>
+<ul>
+<li>Add external memory to uptime data in InfluxDB.<br>
+This is a minor change, but it does also require a small change in the config file.</li>
+</ul>
+<h4 id="features-2">Features</h4>
+<ul>
+<li>Add command line options to Butler SOS. <a href="https://github.com/ptarmiganlabs/butler-sos/issues/387">#387</a></li>
+<li>Add external memory to uptime data in InfluxDB.</li>
+<li>Add New Relic as destination for SenseOps metrics.</li>
+<li>Add optional scrambling of user id for user events sent to New Relic. <a href="https://github.com/ptarmiganlabs/butler-sos/issues/398">#398</a></li>
+<li>Send engine, proxy and session metrics to New Relic.</li>
+</ul>
+<h4 id="bug-fixes-2">Bug Fixes</h4>
+<ul>
+<li>Compress stand-alone binaries.</li>
+<li>Include New Relic status in telemtry data (23c292c)</li>
+</ul>
+<h4 id="miscellaneous-2">Miscellaneous</h4>
+<ul>
+<li>Make proxy related log entries easier to understand.<a href="https://github.com/ptarmiganlabs/butler-sos/issues/392">#392</a></li>
+<li>Make user event log messages easier to understand. <a href="https://github.com/ptarmiganlabs/butler-sos/issues/396">#396</a></li>
+<li>More relvant log prefixes for proxy session logging.</li>
+<li>Update dependencies to latest versions.</li>
+</ul>
 <h3 id="whats-new-in-version-81">What&rsquo;s new in version 8.1</h3>
 <ul>
 <li>Scanning for security risks and vulnerabilities is now done as part of the relese process.
@@ -444,7 +517,7 @@ Note: The blacklist only applies to storing detailed session data in InfluxDB, M
 <li>Anonymous telemetry added. Same set of data included in other Butler tools, i.e. only information about what the execution environment of Butler SOS looks like and which features are enabled.
 The rationale for adding telemetry is to give Butler SOS developers a better understanding of on what kinds of servers the software is used. This insight will make it easier to develop future Butler SOS versions.</li>
 <li>Continuing the journey towards using the same formatting principles in the config files for all the various Butler tools.<br>
-In Butler SOS' config file there&rsquo;s been a mix between &ldquo;enabled&rdquo;, &ldquo;enable&rdquo;, &ldquo;enableMqtt&rdquo; etc to tell whether a certain feature should be enabled or not. Confusing.
+In Butler SOS&rsquo; config file there&rsquo;s been a mix between &ldquo;enabled&rdquo;, &ldquo;enable&rdquo;, &ldquo;enableMqtt&rdquo; etc to tell whether a certain feature should be enabled or not. Confusing.
 We&rsquo;re moving towards only using &ldquo;enable&rdquo; for this. This release changes this for most config file entries.
 Rest assured though, the old format will still work - but you are <strong>strongly</strong> recommended to adapt the <a href="/docs/reference/config_file_format/">current config file format</a> as it includes settings for other new (as of version 5.6) features too.</li>
 <li>Major refactoring of the documentation site <a href="https://butler-sos.ptarmiganlabs.com">butler-sos.ptarmiganlabs.com</a>. This site is now more aligned with other Butler sites, for example <a href="https://butler.ptarmiganlabs.com">butler.ptarmiganlabs.com</a>.</li>
@@ -465,7 +538,7 @@ Rest assured though, the old format will still work - but you are <strong>strong
 <ul>
 <li><strong>Sample dashboards</strong> are now built using the brand new, shiny and all together awesome Grafana 7. Did we mention that Grafana 7 is awesome? Awesome.</li>
 <li>Ever wondered how long Butler SOS has been running or how much memory it uses? The new <strong>uptime messages</strong> have you covered.</li>
-<li>You are properly impressed with the uptime messages - good. Why not store them to Influxdb, so you can also <strong>visualize Butler SOS' own memory use</strong>? It&rsquo;s just a couple of changes in the config file away.</li>
+<li>You are properly impressed with the uptime messages - good. Why not store them to Influxdb, so you can also <strong>visualize Butler SOS&rsquo; own memory use</strong>? It&rsquo;s just a couple of changes in the config file away.</li>
 <li>Don&rsquo;t want to use the <strong>Docker healthchecks</strong>? No reason to if you don&rsquo;t user Docker. You can now turn it off in the config file.</li>
 <li>Ah, you are a serious Sense user and have separate DEV and PROD environments? Good - now Butler SOS tags its own memory use so you can <strong>monitor each Butler SOS instance separately</strong>.</li>
 <li>Who will monitor the monitor? Butler SOS can now <strong>send heartbeats</strong> to customizable URLs at desired intervals. Perfect if you want to monitor Butler SOS using for example <a href="https://healthchecks.io">healthchecks.io</a>. Very, very cool actually.</li>
@@ -615,7 +688,7 @@ Don&rsquo;t hesitate to post your thoughts in the <a href="https://github.com/pt
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified February 19, 2022: <a href="https://github.com/ptarmiganlabs/butler-sos-docs/commit/9ec5918f864a918733737472250c0cc70a74c633">8.1.0 update (9ec5918)</a>
+  Last modified February 20, 2022: <a href="https://github.com/ptarmiganlabs/butler-sos-docs/commit/2c71c813c29649e0e0afbb72c3ee094e27c954ac">Improve 8.1 docs (2c71c81)</a>
 </div>
 
 </div>
@@ -711,7 +784,7 @@ Don&rsquo;t hesitate to post your thoughts in the <a href="https://github.com/pt
 
 
 
-<script src="/js/main.min.bac7898495f8b0a2193d726a55f57a494ed7b34b99d83f4dc5a9bcc9e0f60490.js" integrity="sha256-useJhJX4sKIZPXJqVfV6SU7Xs0uZ2D9Nxam8yeD2BJA=" crossorigin="anonymous"></script>
+<script src="/js/main.min.e404d12d340e64a577f807a6d1f28f7b85c1390e1fc893c48702d60e61b077ef.js" integrity="sha256-5ATRLTQOZKV3&#43;Aem0fKPe4XBOQ4fyJPEhwLWDmGwd&#43;8=" crossorigin="anonymous"></script>
 
 
 

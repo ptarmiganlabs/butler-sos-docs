@@ -1,5 +1,5 @@
 ---
-title: "Metrics available in InfluxDB"
+title: "Available metrics: InfluxDB"
 linkTitle: "InfluxDB"
 weight: 10
 description: >
@@ -10,7 +10,7 @@ description: >
 
 Metrics retrieved from the Sense servers can be stored in an [InfluxDB](https://www.influxdata.com/products/influxdb-overview/) database. You don't have to be an InfluxDB expert to use Butler SOS, but understanding some basic concepts are helpful.  
 
-Storing metrics in InfluxDB is not mandatory, but some kind of metrics storage - either in InfluxDB or [Prometheus](/docs/reference/available_metrics/prometheus/) - is needed to take full benefit of Butler SOS' features.
+Storing metrics in InfluxDB is not mandatory, but some kind of metrics storage - either in InfluxDB, [New Relic](https://newrelic.com) or [Prometheus](/docs/reference/available_metrics/prometheus/) - is needed to take full benefit of Butler SOS' features.
 
 * InfluxDB is a [time series database](https://www.influxdata.com/time-series-database/). This means it is super good at storing values that have a timestamp associated with them - and pretty bad at everything else. In many respects time series databases are the opposite of traditional SQL databases (who are usually pretty bad at handling time series data).
 

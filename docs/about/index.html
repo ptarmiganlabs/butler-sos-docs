@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.92.0" />
+<meta name="generator" content="Hugo 0.101.0" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/about/index.xml">
 <meta name="robots" content="index, follow">
 
@@ -219,7 +219,7 @@ if (!doNotTrack) {
 			
 				<p>Anyone responsible for an IT system - large or small - can testify how frustrating it can be, <strong>NOT</strong> to be confident about the system’s current status.</p>
 <p>Butler SOS was born out of that frustration.</p>
-<p>As sysadmin, shouldn’t <em>you</em> be the first to know when something breaks - rather than be told about it by stressed-out end users?</p>
+<p>As a sysadmin, shouldn’t <em>you</em> be the first to know when something breaks - rather than be told about it by stressed-out end users?</p>
 
 			
 		</span>
@@ -261,8 +261,8 @@ if (!doNotTrack) {
 		<span class="h4 mb-0">
 			
 				<p>Butler SOS extracts more than 30 metrics on both server health (CPU load, free memory) and Qlik Sense specifics (session, users, log entries, cache status etc).</p>
-<p>These metrics are stored in a time-series database (<a href="https://www.influxdata.com/products/influxdb-overview/">InfluxDB</a> and <a href="https://prometheus.io">Prometheus</a> both supported) and optionally also sent to other systems as MQTT messages.</p>
-<p>Once the metrics are stored in the database of choice, <a href="https://grafana.com/">Grafana</a> can be used to create real-time visualisations.</p>
+<p>These metrics are stored in a time-series database (<a href="https://www.influxdata.com/products/influxdb-overview/">InfluxDB</a> and <a href="https://prometheus.io">Prometheus</a> both supported) and optionally also sent to other services such as New Relic, or sent as MQTT messages.</p>
+<p>Once the metrics are stored in the database/service of choice, <a href="https://grafana.com/">Grafana</a> or <a href="https://newrelic.com/">New Relic</a> (if data is stored there) can be used to create real-time visualisations and alerts.</p>
 
 			
 		</span>
@@ -295,7 +295,7 @@ if (!doNotTrack) {
 </div>
 <h4 class="h3">Alerts and notifications?</h4>
 <div class="mb-0">
-<p>Built into Grafana. Email, Slack, Teams, PagerDuty and more.<br>
+<p>Built into Grafana. Email, Slack, Teams, New Relic, PagerDuty and more.<br>
 Prometheus offers even more integrations with various alerting tools.</p>
 </div>
 </div>
@@ -315,7 +315,7 @@ Prometheus offers even more integrations with various alerting tools.</p>
 </div>
 <h4 class="h3">Logging revisited</h4>
 <div class="mb-0">
-<p>The Sense log database is gone as of second half of 2021, but with log events forwarded to Butler SOS you get real-time insight into errors and warnings as they happen.</p>
+<p>The Sense log database is gone as of second half of 2021, but with log events forwarded to Butler SOS - then visualised in Grafana or New Relic - you get real-time insight into errors and warnings as they happen.</p>
 <p>No more digging around in log files on the server!</p>
 </div>
 </div>
@@ -417,7 +417,7 @@ Prometheus offers even more integrations with various alerting tools.</p>
 
 
 
-<script src="/js/main.min.bac7898495f8b0a2193d726a55f57a494ed7b34b99d83f4dc5a9bcc9e0f60490.js" integrity="sha256-useJhJX4sKIZPXJqVfV6SU7Xs0uZ2D9Nxam8yeD2BJA=" crossorigin="anonymous"></script>
+<script src="/js/main.min.e404d12d340e64a577f807a6d1f28f7b85c1390e1fc893c48702d60e61b077ef.js" integrity="sha256-5ATRLTQOZKV3&#43;Aem0fKPe4XBOQ4fyJPEhwLWDmGwd&#43;8=" crossorigin="anonymous"></script>
 
 
 

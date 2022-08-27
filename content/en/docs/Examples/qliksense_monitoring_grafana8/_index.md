@@ -1,7 +1,7 @@
 ---
 title: "Qlik Sense monitoring using Butler SOS v7 and Grafana v8"
 linkTitle: "Grafana 8 dashboard"
-weight: 40
+weight: 180
 description: >
   With version 8 Grafana further establishes its position as the leadning open source platform for obervability and real-time dashboards.  
 

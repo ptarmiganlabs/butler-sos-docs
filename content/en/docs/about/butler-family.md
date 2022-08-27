@@ -4,7 +4,7 @@ description: "Please meet the Butlers. They're a nice, wild bunch!"
 weight: 20
 ---
 
-Butler started out with a very specific need to start Sense reloads from outside systems.  
+[Butler](https://github.com/ptarmiganlabs/butler) started out with a very specific need to start Sense reloads from outside systems.  
 Over the years a few projects (for example Butler SOS, which simplifies day 2 operations ([[1](https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html)], [[2](https://dzone.com/articles/defining-day-2-operations)]) have spun off from the original Butler project, and still other projects have been created from scratch to solve specific challenges around developing Sense apps and running Qlik Sense server environments.
 
 All members of the Butler family are available on [Ptarmigan Labs' GitHub page](https://github.com/ptarmiganlabs).
@@ -19,7 +19,8 @@ The original Butler. Offers various utilities that make it easier to develop Sen
 
 ### Butler SOS
 
-Real-time operational metrics for Qlik Sense. A must-have if you are responsible for a Sense environment with more than a dozen or so users.  
+Real-time operational metrics for Qlik Sense.  
+A must-have if you are responsible for a Sense environment with more than a dozen or so users.  
 
 Butler SOS makes it possible to detect and alert on issues as they happen, rather than in retrospect much later.
 

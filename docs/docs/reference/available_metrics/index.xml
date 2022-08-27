@@ -14,7 +14,7 @@
     
     
     <item>
-      <title>Docs: Metrics available in InfluxDB</title>
+      <title>Docs: Available metrics: InfluxDB</title>
       <link>https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/influxdb/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -24,7 +24,7 @@
         
         &lt;h2 id=&#34;influxdb&#34;&gt;InfluxDB&lt;/h2&gt;
 &lt;p&gt;Metrics retrieved from the Sense servers can be stored in an &lt;a href=&#34;https://www.influxdata.com/products/influxdb-overview/&#34;&gt;InfluxDB&lt;/a&gt; database. You don&amp;rsquo;t have to be an InfluxDB expert to use Butler SOS, but understanding some basic concepts are helpful.&lt;/p&gt;
-&lt;p&gt;Storing metrics in InfluxDB is not mandatory, but some kind of metrics storage - either in InfluxDB or &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/prometheus/&#34;&gt;Prometheus&lt;/a&gt; - is needed to take full benefit of Butler SOS&#39; features.&lt;/p&gt;
+&lt;p&gt;Storing metrics in InfluxDB is not mandatory, but some kind of metrics storage - either in InfluxDB, &lt;a href=&#34;https://newrelic.com&#34;&gt;New Relic&lt;/a&gt; or &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/prometheus/&#34;&gt;Prometheus&lt;/a&gt; - is needed to take full benefit of Butler SOS&amp;rsquo; features.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;InfluxDB is a &lt;a href=&#34;https://www.influxdata.com/time-series-database/&#34;&gt;time series database&lt;/a&gt;. This means it is super good at storing values that have a timestamp associated with them - and pretty bad at everything else. In many respects time series databases are the opposite of traditional SQL databases (who are usually pretty bad at handling time series data).&lt;/p&gt;
@@ -110,7 +110,7 @@ server_type
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note that this list of tags consits of&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Tags always present. These are inserted by Butler SOS and are present for all measurements. These are &lt;code&gt;host&lt;/code&gt;, &lt;code&gt;server_description&lt;/code&gt; and &lt;code&gt;server_name&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Tags configured in Butler SOS&#39; config fil. In the example above these are &lt;code&gt;serverBrand&lt;/code&gt;, &lt;code&gt;serverLocation&lt;/code&gt;, &lt;code&gt;server_group&lt;/code&gt; and&lt;code&gt;server_type&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Tags configured in Butler SOS&amp;rsquo; config fil. In the example above these are &lt;code&gt;serverBrand&lt;/code&gt;, &lt;code&gt;serverLocation&lt;/code&gt;, &lt;code&gt;server_group&lt;/code&gt; and&lt;code&gt;server_type&lt;/code&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;measurements-and-fields&#34;&gt;Measurements and fields&lt;/h3&gt;
 &lt;p&gt;The measurements are grouped based on what part of Sense they are retrieved from. The groups are&lt;/p&gt;
@@ -665,7 +665,7 @@ These events are also forwarded as MQTT messages, allowing other systems to act 
 &lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Info&lt;/p&gt;&lt;p&gt;There is only one measurement for log events. It&amp;rsquo;s simply called &lt;code&gt;log_event&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Different QSEoW services (Qlik Sense Enterprise on Windows) will send different tags and metrics in the log events.&lt;br&gt;
 Each variant is described below.&lt;/p&gt;
-&lt;p&gt;This modular approach to log events makes it possible to extend Butler SOS&#39; with additional log events if/when needed..&lt;/p&gt;&lt;/div&gt;
+&lt;p&gt;This modular approach to log events makes it possible to extend Butler SOS&amp;rsquo; with additional log events if/when needed..&lt;/p&gt;&lt;/div&gt;
 
 &lt;h5 id=&#34;source-proxy-service&#34;&gt;Source: Proxy service&lt;/h5&gt;
 &lt;p&gt;Events such as failed login attempts will be sent from the proxy service.&lt;/p&gt;
@@ -1273,7 +1273,55 @@ More info on these metrics and what they mean is available &lt;a href=&#34;https
     </item>
     
     <item>
-      <title>Docs: Available Metrics</title>
+      <title>Docs: Available Metrics: New Relic</title>
+      <link>https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/new-relic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/new-relic/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;new-relic&#34;&gt;New Relic&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://newrelic.com&#34;&gt;New Relic&lt;/a&gt; offers a complete SaaS observablity stack, ranging from high-volume ingestion of events/metrics/logs/traces to advanced dashboards that can be created ad-hoc using a web UI or from files and templates, for more of an infrastructure-as-code approach.&lt;/p&gt;
+&lt;p&gt;Storing metrics in New Relic is not mandatory, but some kind of metrics storage - either in &lt;a href=&#34;https://newrelic.com&#34;&gt;New Relic&lt;/a&gt;, &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/influxdb/&#34;&gt;InfluxDB&lt;/a&gt; or &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/prometheus/&#34;&gt;Prometheus&lt;/a&gt; - is needed to take full benefit of Butler SOS&amp;rsquo; features.&lt;/p&gt;
+&lt;p&gt;In order to view data in New Relic you first have to send data to them.&lt;/p&gt;
+&lt;p&gt;Butler SOS does this for you.&lt;/p&gt;
+&lt;p&gt;Furthermore, you can to a large degree control which Qlik Sense metrics, logs and events are sent to New Relic.&lt;/p&gt;
+&lt;h2 id=&#34;data-volumes-and-pricing&#34;&gt;Data volumes and pricing&lt;/h2&gt;
+&lt;p&gt;At the time of this writing New Relic offers a generous &lt;a href=&#34;https://newrelic.com/pricing&#34;&gt;free plan&lt;/a&gt;.&lt;br&gt;
+It will be a great starting point for everyone, if there&amp;rsquo;s a need for more dashboard users etc the account can be upgraded as needed.&lt;/p&gt;
+&lt;p&gt;In most cases Butler SOS will not generate a lot of data and you can stay within New Relic&amp;rsquo;s free tier.&lt;br&gt;
+The amount of data generated by Sense health metrics and Butler SOS uptime metrics is very small indeed, but if your Qlik Sense environment for some reason generate a lot of &lt;em&gt;log events&lt;/em&gt; that can cause the data volumes to increase rapidly.&lt;/p&gt;
+&lt;p&gt;For example, if a user connects to Sense and gets a https certificate warning in the browser, this will also cause a number of warnings and errors in the proxy logs. Multiple this by X users and there can suddenly be thousands of errors and warnings per hour in the Sense logs.&lt;br&gt;
+If these are also sent to New Relic the data volumes increase quickly.&lt;/p&gt;
+&lt;h3 id=&#34;overview-of-new-relic&#34;&gt;Overview of New Relic&lt;/h3&gt;
+&lt;p&gt;New Relic is similar to InfluxDB in that Butler SOS pushes data to both systems.&lt;/p&gt;
+&lt;p&gt;The basic concepts are&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Metrics&lt;/em&gt; represent a measurement of some kind. Number or sessions in the Sense proxy, amount of free RAM on a Sense server etc.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Events&lt;/em&gt; are something that happened. Warnings and errors in the Sense log files can be forwarded to New Relic as events.&lt;br&gt;
+Various user activities (user session start/stop etc) in Sense can also be sent to New Relic as events.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Attributes&lt;/em&gt; are conceptually tags that are attached to metrics or events. These act as dimensions for the data.
+Metrics in visualisations can be grouped by attributes, much in the same way Qlik Sense measurements are grouped by dimensions in Sense charts and tables.
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Static attributes&lt;/em&gt; are defined in Butler SOS&amp;rsquo; config file.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Dynamic attributes&lt;/em&gt; are determined at runtime.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In addition to the above these data formats exist but are not currently used by Butler SOS. This may change in the future.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Logs&lt;/em&gt; are essentially regular lines in a log file, consisting of several fields.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Distributed tracing&lt;/em&gt; collects data as requests travel from one service to another, recording each segment of the journey as a span.
+These spans contain important details about each segment of the request and are eventually combined into one trace.
+The completed trace gives you a picture of the entire request.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Available Metrics: Prometheus</title>
       <link>https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/prometheus/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -1283,7 +1331,7 @@ More info on these metrics and what they mean is available &lt;a href=&#34;https
         
         &lt;h2 id=&#34;prometheus&#34;&gt;Prometheus&lt;/h2&gt;
 &lt;p&gt;Metrics retrieved from the Sense servers can be stored in &lt;a href=&#34;https://prometheus.io&#34;&gt;Prometheus&lt;/a&gt;. You don&amp;rsquo;t have to be a Prometheus expert to use Butler SOS, but understanding some basic concepts are helpful.&lt;/p&gt;
-&lt;p&gt;Storing metrics in Prometheus is not mandatory, but some kind of metrics storage - either in &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/influxdb/&#34;&gt;InfluxDB&lt;/a&gt; or Prometheus - is needed to take full benefit of Butler SOS&#39; features.&lt;/p&gt;
+&lt;p&gt;Storing metrics in Prometheus is not mandatory, but some kind of metrics storage - either in Prometheus, &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/influxdb/&#34;&gt;InfluxDB&lt;/a&gt; or &lt;a href=&#34;https://newrelic.com&#34;&gt;New Relic&lt;/a&gt; - is needed to take full benefit of Butler SOS&amp;rsquo; features.&lt;/p&gt;
 &lt;p&gt;Prometheus gathers metrics by &amp;ldquo;scraping&amp;rdquo; data from web pages (&amp;ldquo;endpoints&amp;rdquo;) on which metrics are displayed in a well specified format.&lt;br&gt;
 Most metrics from the Sense servers are exposed on a Prometheus compatible endpoint, but not all.&lt;br&gt;
 InfluxDB is more flexible for some types of data, while Prometheus provides more easily used features for data aggregation when data should be displaued in Grafana.&lt;/p&gt;
@@ -1291,7 +1339,7 @@ InfluxDB is more flexible for some types of data, while Prometheus provides more
 &lt;p&gt;Prometheus is enabled/disabled in the &lt;code&gt;Butler-SOS.prometheus&lt;/code&gt; section in the config file.
 Prometheus metrics are available on the &lt;code&gt;/metrics&lt;/code&gt; URL on the IP and port specified in the config file.&lt;/p&gt;
 &lt;p&gt;For example, if the host is 0.0.0.0 and the port is 9842, Butler SOS will listen on port 9842 on all available network interfaces.
-If the Butler SOS&#39; server&amp;rsquo;s IP address is 192.168.1.168, a call from a web browser can look like this:&lt;/p&gt;
+If the Butler SOS&amp;rsquo; server&amp;rsquo;s IP address is 192.168.1.168, a call from a web browser can look like this:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;prometheus-browser-1.png&#34; alt=&#34;Prometheus metrics in web browser&#34; title=&#34;Prometheus metrics in web browser&#34;&gt;&lt;/p&gt;
 &lt;p&gt;This is the web page Prometheus will scrape and ingest into it&amp;rsquo;s time-series database.&lt;/p&gt;
 &lt;h3 id=&#34;overview-of-prometheus&#34;&gt;Overview of Prometheus&lt;/h3&gt;
@@ -1339,7 +1387,7 @@ The Prometheus server is responsible for gathering data exposed by the systems t
 &lt;p&gt;Available metrics are similar to those in InfluxDB, with a few exceptions.&lt;/p&gt;
 &lt;p&gt;Prometheus is awesome when it comes to storing all kinds of measurements, but it doesn&amp;rsquo;t offer a good way to store strings.&lt;br&gt;
 For that reason Butler SOS metrics involving strings (for example list of apps loaded in memory) are not available on the Prometheus endpoint.&lt;br&gt;
-Most of the metrics come from Qlik Sense&#39; &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/November2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;health check API&lt;/a&gt;.&lt;/p&gt;
+Most of the metrics come from Qlik Sense&amp;rsquo; &lt;a href=&#34;https://help.qlik.com/en-US/sense-developer/November2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm&#34;&gt;health check API&lt;/a&gt;.&lt;/p&gt;
 &lt;h4 id=&#34;qlik-sense-metrics&#34;&gt;Qlik Sense metrics&lt;/h4&gt;
 &lt;p&gt;These are the Prometheus metrics exposed by Butler SOS:&lt;/p&gt;
 &lt;table&gt;
@@ -1454,8 +1502,8 @@ Most of the metrics come from Qlik Sense&#39; &lt;a href=&#34;https://help.qlik.
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h4 id=&#34;nodejs-metrics&#34;&gt;Node.js metrics&lt;/h4&gt;
-&lt;p&gt;A set of Node.js specific metrics are also available on Butler SOS&#39; Prometheus endpoint.&lt;br&gt;
-These are described in the &amp;ldquo;Default metrics&amp;rdquo; section on [this](&lt;a href=&#34;https://github.com/siimon/prom-client/tree/master/lib/metrics&#34;&gt;Default metrics&lt;/a&gt;) page.&lt;/p&gt;
+&lt;p&gt;A set of Node.js specific metrics are also available on Butler SOS&amp;rsquo; Prometheus endpoint.&lt;br&gt;
+These are described in the &amp;ldquo;Default metrics&amp;rdquo; section on &lt;a href=&#34;https://github.com/siimon/prom-client&#34;&gt;this&lt;/a&gt; page.&lt;/p&gt;
 
       </description>
     </item>

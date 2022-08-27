@@ -14,12 +14,12 @@ But that app gives a retrospective view of the data - it does not provide real-t
 
 Butler SOS focus on the opposite: Give as close to real-time insights as possible into what's happening in the Sense environment.
 
-User behaviour is then an important metrics to track, more on this below.
+User behaviour is then an important metric to track, more on this below.
 
 ## Proxy sessions
 
 A *session*, or more precicely a *proxy session* starts when a user logs into Sense and ends when the user logs out or the session timeout is reached.  
-There may be some additional corner-case variants, but the above is the basic, high-level definition of a session.
+There may be some additional corner-case variants, but the above is the basic, high-level definition of a proxy session.
 
 {{< notice tip >}}
 Some useful lingo: The events that can happen for sessions are that they can *start* and *stop*.
@@ -28,7 +28,7 @@ They can also *timeout* if the user is inactive long enough (the exact time depe
 {{< /notice >}}
 
 As long as a user uses the same web browser and doesn't use incognito mode or similar, the user will reuse the same session for all access to Sense.  
-On the other hand: If a user uses different browsers, incognito mode or similar, multiple sessions will be registered for the user in question. There is a [limit to how many sessions a user can have at any given time](https://community.qlik.com/t5/Knowledge-Base/Increase-max-parallel-SessionCount-for-Qlik-Sense-end-user/ta-p/1717086).
+On the other hand: If a user uses different browsers, incognito mode etc, multiple sessions will be registered for the user in question. There is a [limit to how many sessions a user can have at any given time](https://community.qlik.com/t5/Knowledge-Base/Increase-max-parallel-SessionCount-for-Qlik-Sense-end-user/ta-p/1717086).
 
 Mashups and similar scenarios where Sense objects are embedded into web apps may result in multiple sessions being created. Whether or not this happens largely depends on how the mashup was created.
 
