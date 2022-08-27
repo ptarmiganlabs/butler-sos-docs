@@ -24,8 +24,9 @@
         
         &lt;p&gt;In this dashboard most of the data comes from Butler SOS, but the failed reload pie chart and table at the top are created using data from the &lt;a href=&#34;https://butler.ptarmiganlabs.com&#34;&gt;Butler&lt;/a&gt; tool.&lt;/p&gt;
 &lt;p&gt;New Relic does not give you nearly the same level control as Grafana does, for example when it comes to fine-tuning visual details of charts, tables etc.&lt;/p&gt;
-&lt;p&gt;That can first feel a bit limiting, but as New Relic&amp;rsquo;s query language is very powerful and is very well integrated in the chart editor, it&amp;rsquo;s not really a problem.&lt;br&gt;
-New Relic dashboards are definitely on the same level as Grafana ditto, which one to use is a matter of preference.&lt;/p&gt;
+&lt;p&gt;That can feel a bit limiting at first, but as New Relic&amp;rsquo;s query language is very powerful and is very well integrated in the chart editor, it&amp;rsquo;s not really a problem.&lt;br&gt;
+A benefit of New Relic&amp;rsquo;s dashboards is that their dashboard editor very effectively guide you through the creation of charts, using the various kinds of data (metrics, events, logs) you have sent - and are sending - to their database.&lt;/p&gt;
+&lt;p&gt;New Relic dashboards are thus definitely on the same level as Grafana ditto, which one to use is a matter of preference.&lt;/p&gt;
 
 
 
@@ -73,7 +74,6 @@ New Relic dashboard with data from both Butler SOS and Butler (part 2).
 	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt;
 Viewing failed reload logs from within New Relic can save lots of time when investigating incidents.
-&lt; /imgproc &gt;}}
 &lt;/p&gt;
 	&lt;/div&gt;
 	
