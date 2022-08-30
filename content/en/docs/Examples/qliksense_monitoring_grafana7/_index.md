@@ -16,7 +16,7 @@ Feel free to modify it to your specific needs.
 
 A concept that has proven useful many times is to use an overview dashboard to monitors high-level metrics for the entire Sense cluster. A separate, parameterised dashboard then drill into the details for each server.
 
-Sample dashboards are available in the [Git repository](https://github.com/ptarmiganlabs/butler-sos/tree/master/grafana).
+Sample dashboards are available in the [Git repository](https://github.com/ptarmiganlabs/butler-sos/tree/master/docs/grafana).
 Before importing these to Grafana you should create a Grafana data source called "SenseOps", and point it to your InfluxDB database. When you then import the dashboards they should find your database straight away.
 
 ## Overview metrics

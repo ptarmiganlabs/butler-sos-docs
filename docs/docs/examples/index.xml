@@ -188,7 +188,7 @@ Having access to it in close to real time makes it possible to act on developing
 &lt;/div&gt;
 
 &lt;p&gt;A concept that has proven useful many times is to use an overview dashboard to monitors high-level metrics for the entire Sense cluster. A separate, parameterised dashboard then drill into the details for each server.&lt;/p&gt;
-&lt;p&gt;Sample dashboards are available in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/tree/master/grafana&#34;&gt;Git repository&lt;/a&gt;.
+&lt;p&gt;Sample dashboards are available in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/tree/master/docs/grafana&#34;&gt;Git repository&lt;/a&gt;.
 Before importing these to Grafana you should create a Grafana data source called &amp;ldquo;SenseOps&amp;rdquo;, and point it to your InfluxDB database. When you then import the dashboards they should find your database straight away.&lt;/p&gt;
 &lt;h2 id=&#34;overview-metrics&#34;&gt;Overview metrics&lt;/h2&gt;
 &lt;p&gt;This view gives high level insights into the 3 virtual proxies (/sales, /sourcing, /finance) in this particlar Sense environment, as well as top-level numbers on users and sessions.&lt;/p&gt;
@@ -255,7 +255,7 @@ These kind of dashboards give you detailed insights into several important metri
 &lt;li&gt;Number of loaded apps in the Qlik engine&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;A concept that has proven useful many times is to use an overview dashboard to monitors high-level metrics for the entire Sense cluster. A separate, parameterised dashboard then drill into the details for each server.&lt;/p&gt;
-&lt;p&gt;Sample dashboards are available in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/tree/master/grafana&#34;&gt;Git repository&lt;/a&gt;.
+&lt;p&gt;Sample dashboards are available in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/tree/master/docs/grafana&#34;&gt;Git repository&lt;/a&gt;.
 Before importing these to Grafana you should create a Grafana data source called &amp;ldquo;SenseOps&amp;rdquo;, and point it to your InfluxDB database. When you then import the dashboards they should find your database straight away.&lt;/p&gt;
 &lt;h2 id=&#34;overview-dashboard&#34;&gt;Overview dashboard&lt;/h2&gt;
 &lt;p&gt;An overview dashboard could look something like this:&lt;/p&gt;

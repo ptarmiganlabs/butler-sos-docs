@@ -22,4 +22,4 @@ A Grafana dashboard can look like this. This particular chart is for the [Butler
 
 ![alt text](butler-memory-usage-grafana-1.png "Butler SOS memory usage in Grafana dashboard")  
 
-There is a [sample Grafana dashboard](https://github.com/ptarmiganlabs/butler-sos/tree/master/grafana) in Butler SOS' GitHub repo.
+There is a [sample Grafana dashboard](https://github.com/ptarmiganlabs/butler-sos/tree/master/docs/grafana) in Butler SOS' GitHub repo.
