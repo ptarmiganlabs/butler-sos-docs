@@ -46,7 +46,7 @@ Docker on Windows is another story - it's there and works great, but not always 
 ➜  butler-sos-docker
 ```
 
-1. Copy [docker-compose.yml](https://github.com/ptarmiganlabs/butler-sos/blob/master/src/docker-compose.yml) from the GitHub repository to the Butler SOS directory that was created above. The directory where the docker-compose file is stored is the 'root' directory of Butler SOS - everything else is relative to this directory.
+1. Copy [docker-compose.yml](https://github.com/ptarmiganlabs/butler-sos/blob/master/docs/docker-compose/docker-compose.yml) from the GitHub repository to the Butler SOS directory that was created above. The directory where the docker-compose file is stored is the 'root' directory of Butler SOS - everything else is relative to this directory.
 
 2. Adapt the docker-compose file as needed (usually no changes are needed if you want to run the latest version of Butler SOS).
 

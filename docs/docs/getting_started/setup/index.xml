@@ -55,7 +55,7 @@ Or (this option is usually much easier!) use the &lt;code&gt;--configfile&lt;/co
 &lt;p&gt;Mac OS or Linux&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;export NODE_ENV=production
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If using Docker, the NODE_ENV environment varible is set in the docker-compose.yml file (as already done in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/blob/master/src/docker-compose.yml&#34;&gt;template docker-compose file&lt;/a&gt;.)&lt;/p&gt;
+&lt;p&gt;If using Docker, the NODE_ENV environment varible is set in the docker-compose.yml file (as already done in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos/tree/master/docs/docker-compose&#34;&gt;template docker-compose files&lt;/a&gt;.)&lt;/p&gt;
 
       </description>
     </item>
