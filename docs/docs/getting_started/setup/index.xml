@@ -281,7 +281,7 @@ An example is the Butler SOS version, which will change when Butler SOS is upgra
 &lt;h4 class=&#34;alert-heading&#34;&gt;Optional&lt;/h4&gt;
 
     &lt;p&gt;These settings are optional.&lt;/p&gt;
-&lt;p&gt;If you don&amp;rsquo;t do not use any third party services with Butler SOS you can leave the default values in this section.&lt;/p&gt;
+&lt;p&gt;If you do not use any third party services with Butler SOS you can leave the default values in this section.&lt;/p&gt;
 
 
 &lt;/div&gt;

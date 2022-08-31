@@ -8,7 +8,7 @@ description:
 {{% alert title="Optional" color="primary" %}}
 These settings are optional.
 
-If you don't do not use any third party services with Butler SOS you can leave the default values in this section.
+If you do not use any third party services with Butler SOS you can leave the default values in this section.
 {{% /alert %}}
 
 ## What's this?
