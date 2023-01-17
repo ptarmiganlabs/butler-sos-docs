@@ -17,8 +17,8 @@
   },
   "homepage": "hhttps://github.com/ptarmiganlabs/butler-sos-docs#readme",
   "devDependencies": {
-    "autoprefixer": "10.4.0",
-    "postcss": "8.4.4",
-    "postcss-cli": "9.0.2"
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0"
   }
 }
