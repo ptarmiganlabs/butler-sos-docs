@@ -9,6 +9,10 @@ menu:
 
 {{% pageinfo %}}
 
+Starting with version 9.3, the [GitHub releases page](https://github.com/ptarmiganlabs/butler-sos/releases) is the place where release notes are found.
+
+Release notes for older versions are found below.
+
 ### What's new in version 9.2
 
 #### Features
