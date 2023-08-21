@@ -7,13 +7,15 @@ description: >
 ---
 
 {{< notice tip >}}
-Either JSON or YAML notation can be used to create the configuration file, with file extensions of .json and .yaml/.yml, respectively.
 
-YAML is strongly recommended, as it is easier to edit/read/understand compared to JSON.
+The config file uses YAML notation, with file extensions of .yaml or .yml.  
+The .yaml extension is recommended.
+
 {{< /notice >}}
 
-The parameters in the config file are described below.
-All parameters must be defined in the config file - run time errors are likely to occur otherwise.
+The config file is the heart of Butler SOS.  
+All setting must be defined in the config file - run time errors are likely to occur otherwise.
+
 The [sample config file](https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml) looks like this:
 
 ![Sample config file](./configfile_9_2.png "Sample Butler SOS config file")
