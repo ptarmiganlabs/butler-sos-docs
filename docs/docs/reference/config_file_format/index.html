@@ -542,7 +542,19 @@ If you are <em>not</em> running Butler SOS in Docker you can disable this featur
 <tbody>
 <tr>
 <td>newRelic</td>
-<td>Should messages with Butler SOS uptime and memory usage be written to console and logs? true/false</td>
+<td>Array of credentials for the New Relic accounts to which data should be sent. Each array item consists of severail items, see below.</td>
+</tr>
+<tr>
+<td>newRelic[]<br>accountName</td>
+<td>Name of New Relic account. This is a &ldquo;friendly name&rdquo; that&rsquo;s used within Butler SOS to identify each NR account.</td>
+</tr>
+<tr>
+<td>newRelic[]<br>insertApiKey</td>
+<td>Insert API key associated with the NR account. Get this from the NR account&rsquo;s settings page.</td>
+</tr>
+<tr>
+<td>newRelic[]<br>accountId</td>
+<td>New Relic account id. Get this from the NR account&rsquo;s settings page.</td>
 </tr>
 <tr>
 <td></td>
@@ -965,6 +977,18 @@ It is no longer installed when doing fresh QSEoW installs.</p>
 <tr>
 <td>metric.dynamic.<br>apps.docCount.<br>enable</td>
 <td>Send metrics on loaded/active/in-memory Sense apps to New Relic? true/false</td>
+</tr>
+<tr>
+<td>metric.dynamic.<br>apps.activeDocs.<br>enable</td>
+<td>Should data on what docs are active in engine be sent to New Relic (true/false)?</td>
+</tr>
+<tr>
+<td>metric.dynamic.<br>apps.loadedDocs.<br>enable</td>
+<td>Should data on what docs are loaded (=having open sessions or connections) in engine be sent to New Relic (true/false)?</td>
+</tr>
+<tr>
+<td>metric.dynamic.<br>apps.inMemoryDocs.<br>enable</td>
+<td>Should data on what docs are in engine memory be sent to New Relic (true/false)?</td>
 </tr>
 <tr>
 <td>metric.dynamic.<br>cache.cache.<br>enable</td>

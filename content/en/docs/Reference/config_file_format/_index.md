@@ -83,7 +83,10 @@ If you are *not* running Butler SOS in Docker you can disable this feature.
 
 | Parameter | Description |
 | --------- | ----------- |
-| newRelic  | Should messages with Butler SOS uptime and memory usage be written to console and logs? true/false |
+| newRelic  | Array of credentials for the New Relic accounts to which data should be sent. Each array item consists of severail items, see below. |
+| newRelic[]<br>accountName  | Name of New Relic account. This is a "friendly name" that's used within Butler SOS to identify each NR account. |
+| newRelic[]<br>insertApiKey  | Insert API key associated with the NR account. Get this from the NR account's settings page. |
+| newRelic[]<br>accountId  | New Relic account id. Get this from the NR account's settings page. |
 |  |  |
 
 #### Butler-SOS.userEvents
@@ -221,6 +224,9 @@ Note that New Relic destination accounts for events are defined in the `Butler-S
 | metric.dynamic.<br>engine.users.<br>enable | Send aggregated Sense user metrics to New Relic? true/false |
 | metric.dynamic.<br>engine.saturated.<br>enable | Send Sense engine saturation status to New Relic? true/false |
 | metric.dynamic.<br>apps.docCount.<br>enable | Send metrics on loaded/active/in-memory Sense apps to New Relic? true/false |
+| metric.dynamic.<br>apps.activeDocs.<br>enable | Should data on what docs are active in engine be sent to New Relic (true/false)? |
+| metric.dynamic.<br>apps.loadedDocs.<br>enable | Should data on what docs are loaded (=having open sessions or connections) in engine be sent to New Relic (true/false)? |
+| metric.dynamic.<br>apps.inMemoryDocs.<br>enable | Should data on what docs are in engine memory be sent to New Relic (true/false)? |
 | metric.dynamic.<br>cache.cache.<br>enable | Send Sense cache metrics to New Relic? true/false |
 | metric.dynamic.<br>proxy.sessions.<br>enable | Send aggregated Sense proxy metrics to New Relic? true/false |
 | metric.attribute.<br>static | Array of name/value pairs, representing attributes/tags that will be added to all Sense health metrics sent to New Relic |
