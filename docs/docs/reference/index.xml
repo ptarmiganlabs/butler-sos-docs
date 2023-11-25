@@ -716,7 +716,7 @@ It is no longer installed when doing fresh QSEoW installs.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;hostPort&lt;/td&gt;
-&lt;td&gt;Port where Influxdb server is listening. Useful if Influxdb for some reason is not using its standard port of 8086.&lt;/td&gt;
+&lt;td&gt;Port where Influxdb server is listening. Useful if Influxdb for some reason is not using its standard port of 8086. &lt;br&gt;NOTE: Must be set to a value (for example 8086), otherwise this config entry will be flagged as invalid when the config file format is verified on startup.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;auth.enable&lt;/td&gt;

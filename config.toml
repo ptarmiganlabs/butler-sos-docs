@@ -83,7 +83,7 @@ weight = 1
 
 [params]
 copyright = "Ptarmigan Labs AB"
-# privacy_policy = "https://policies.google.com/privacy"
+# privacy_policy = "https://ptarmiganlabs.com/privacy-policy/"
 
 # First one is picked as the Twitter card image if not set on page.
 # images = ["images/project-illustration.png"]
@@ -148,6 +148,11 @@ no = 'Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butle
 
 [params.links]
 # End user relevant links. These will show up on left side of footer and in the community page if you have one.
+[[params.links.user]]
+  name = "Ptarmigan Labs Newsletter"
+  url = "https://ptarmiganlabs.com/#/portal/signup"
+  icon = "fa fa-envelope"
+  desc = "Qlik Sense tips straight to your inbox."
 # [[params.links.user]]
 # 	name = "Ptarmigan Labs on Twitter"
 # 	url = "https://twitter.com/ptarmiganlabs"

@@ -252,7 +252,7 @@ InfluxDB config parameters. These must be correctly defined for any other Influx
 | --------- | ----------- |
 | enable | Should health metrics be stored in Influxdb? true/false |
 | hostIP | IP or FQDN of Influxdb server. |
-| hostPort | Port where Influxdb server is listening. Useful if Influxdb for some reason is not using its standard port of 8086. |
+| hostPort | Port where Influxdb server is listening. Useful if Influxdb for some reason is not using its standard port of 8086. <br>NOTE: Must be set to a value (for example 8086), otherwise this config entry will be flagged as invalid when the config file format is verified on startup. |
 | auth.enable | Enable if data is to be stored in a password protected Influxdb database. |
 | auth.username | Influxdb username. |
 | auth.password | Influxdb password. |
