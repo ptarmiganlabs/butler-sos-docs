@@ -13,7 +13,7 @@ Butler SOS is distributed under the [MIT license](https://en.wikipedia.org/wiki/
 ```
 MIT License
 
-Copyright (c) 2021 Göran Sander
+Copyright (c) 2023 Göran Sander
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -42,16 +42,15 @@ GitHub probably keep log files for GitHub Pages, your visit to this documentatio
 
 ## Google Analytics
 
-Google Analytics is used to track general site usage.
+[Plausible](https://plausible.io) is used to track general site usage.
+The collected data is not shared with any third parties.
 
-Aggregated Google Analytics data may be used to determine, and in some cases publicly communicate, how popular the site is.  
+Aggregated data may be used to determine, and in some cases publicly communicate, how popular the site is.  
 Examples of aggregated metrics are how many users have visited the site and from where in the world they accessed the site.  
-
-No detailed Google Analytics data for this site will be shared with any third parties.
 
 ## Telemetry data
 
-If enabled in the config file, Butler SOS will send anonymous telemetry data to servers operated by Ptarmigan Labs AB.  
+If enabled in the config file, Butler SOS will send anonymous telemetry data to PostHog, with data stored within the EU.  
 A detailed description of what's included in the telemetry datais found [here](/docs/about/telemetry/).
 
 Ptarmigan Labs collects this information to better understand
@@ -65,5 +64,4 @@ If you want your historical telemetry data to be deleted, you must provide Ptarm
 This ID is what identifies your specific instance of Butler SOS.  
 
 Until you tell Ptarmigan Labs what your ID is there is no link between you and that ID.  
-No storage of IP addresses, geocoding lookups or other techniques are used to identify where an incoming telemetry message originates from.  
 The idea is simply that the anonymous telemetry should be just that: anonymous.

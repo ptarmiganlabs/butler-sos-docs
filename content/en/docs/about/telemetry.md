@@ -10,7 +10,7 @@ description: >
 Sharing telemetry data from Butler SOS is optional.  
 You can use all Butler SOS features without sharing telemetry data.
 
-That said, if you find the Butler SOS tool useful you are **strongly encouraged** to leave the telemetry feature turned on.  
+That said, if you find Butler SOS useful you are **strongly encouraged** to leave the telemetry feature turned on.  
 Having access to this data greatly helps the Butler SOS developers when they design new features, fix bugs etc.
 
 The Butler SOS developers care about you - sharing telemetry data is your way of showing you care about them.
@@ -27,9 +27,9 @@ _Telemetry is the in situ collection of measurements or other data at remote poi
 
 In the context of software tools (including Butler) telemetry is often used to describe the process of sending information about the tool itself to some monitoring system.
 
-## Why telemetry in Butler SOS
+## Why telemetry in Butler SOS?
 
-This is a very, very good question.
+This is a good question.
 
 For several years there was no telemetry at all in Butler SOS.
 
@@ -81,7 +81,10 @@ The telemetry data will never include:
 
 ### Where is telemetry data sent
 
-The telemetry data is sent to an Azure server and then stored in a database operated by [Ptarmigan Labs](https://ptarmiganlabs.com) (which is the company sponsoring the Butler SOS project).
+Butler SOS uses PostHog to collect telemetry data.
+
+PostHog is an open source telemetry platform that is used by many open source projects.
+The data is stored in the EU.
 
 ### Deleting telemetry data
 
