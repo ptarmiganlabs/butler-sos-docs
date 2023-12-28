@@ -169,124 +169,42 @@ If you specify a server name of &amp;ldquo;myserver.company.com&amp;rdquo; while
         
         &lt;h2 id=&#34;running-butler-sos&#34;&gt;Running Butler SOS&lt;/h2&gt;
 &lt;p&gt;How to start and keep Butler SOS running varies depending on whether you are using Docker or a native Node.js approach.&lt;/p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-0&#34; role=&#34;tablist&#34;&gt;&lt;li class=&#34;nav-item&#34;&gt;
-      &lt;a class=&#34;nav-link active tab-Docker&#34;
-        id=&#34;tabs-0-0-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-0-0&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;Docker&amp;#34;);&#34;
-        aria-controls=&#34;tabs-0-0&#34; aria-selected=&#34;true&#34;&gt;
-        Docker
-      &lt;/a&gt;
-    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
-      &lt;a class=&#34;nav-link tab-Pre-built,-standalone-binaries&#34;
-        id=&#34;tabs-0-1-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-0-1&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;Pre-built,-standalone-binaries&amp;#34;);&#34;
-        aria-controls=&#34;tabs-0-1&#34; aria-selected=&#34;false&#34;&gt;
-        Pre-built, standalone binaries
-      &lt;/a&gt;
-    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
-      &lt;a class=&#34;nav-link tab-Native-Node.js&#34;
-        id=&#34;tabs-0-2-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-0-2&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;Native-Node.js&amp;#34;);&#34;
-        aria-controls=&#34;tabs-0-2&#34; aria-selected=&#34;false&#34;&gt;
-        Native Node.js
-      &lt;/a&gt;
-    &lt;/li&gt;&lt;/ul&gt;
-
-
-&lt;div class=&#34;tab-content&#34; id=&#34;tabs-0-content&#34;&gt;&lt;div class=&#34;tab-pane fade show active&#34;
-        id=&#34;tabs-0-0&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-0-0-tab&#34;&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-en&#34; data-lang=&#34;en&#34;&gt;Starting Butler SOS using Docker is easy.  
-
-First configure the `docker-compose.yml` file as needed, then start the Docker container in interactive mode (=with output sent to the screen).  
-This is useful to ensure everything works as intended when first setting up Butler SOS.
-
-    docker-compose up
-
-Once Butler SOS has been verified to work as intended, hit `ctrl-c` to stop it.  
-Then start it again in deameon (background) mode:
-
-    docker-compose up -d
-
-From here on the Docker enviromment will make sure Butler SOS is always running, including restarting it if it for some reason stops, when server reboots etc.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-  &lt;div class=&#34;tab-pane fade&#34;
-        id=&#34;tabs-0-1&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-0-1-tab&#34;&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-en&#34; data-lang=&#34;en&#34;&gt;Starting Butler SOS using the pre-built binaries could look like this on Windows:  
-
-    d:
-    cd \node\butler-sos
-    butler-sos.exe --configfile butler-sos-prod.yaml --loglevel info
-
-It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.
-
-As Butler SOS is the kind of service that (probably) should always be running on a server, it makes sense running it as a Windows service (or similar mechanism in Linix).
-
-On Windows you can use the excellent Nssm tool (https://nssm.cc) to achieve this, with all the benefits that follow (the service can be monitored using operations tools, automatic restarts etc).
-
-On Linux both PM2 (https://github.com/Unitech/pm2) and Forever (https://github.com/foreverjs/forever) have been successfully tested with Butler SOS.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-  &lt;div class=&#34;tab-pane fade&#34;
-        id=&#34;tabs-0-2&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-0-2-tab&#34;&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-en&#34; data-lang=&#34;en&#34;&gt;Starting Butler SOS as a Node.js on Windows could look like this:  
-
-    d:
-    cd \node\butler-sos\src
-    node butler-sos.js
-
-It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.
-
-### Windows services &amp;amp; process monitors
-
-As Butler SOS is the kind of service that (probably) should always be running on a server, it makes sense using a Node.js process monitor to keep it alive (if running Butler SOS as a Docker container you get this for free).
-
-On Windows you can use the excellent Nssm tool (https://nssm.cc) to make Butler SOS run as a Windows Service, with all the benefits that follow (can be monitored using operations tools, automatic restarts etc).
-
-If running Butler SOS as a Node.js app on Linux, PM2 (https://github.com/Unitech/pm2) and Forever (https://github.com/foreverjs/forever) are two process monitors that both have been successfully tested with Butler SOS.
-
-One caveat with these is that it can be hard to start them (and thus Butler SOS) when a Windows server is rebooted.
-PM2 can be used to solve this challenge in a nice way, more info in this blog post: https://ptarmiganlabs.com/blog/2017/07/12/monitoring-auto-starting-node-js-services-windows-server.  
-On the other hand - just using Nssm is probably the easiest and best option for Windows.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-  
-&lt;/div&gt;
-
+&lt;h3 id=&#34;docker&#34;&gt;Docker&lt;/h3&gt;
+&lt;p&gt;Starting Butler SOS using Docker is easy.&lt;/p&gt;
+&lt;p&gt;First configure the &lt;code&gt;docker-compose.yml&lt;/code&gt; file as needed, then start the Docker container in interactive mode (=with output sent to the screen).&lt;br&gt;
+This is useful to ensure everything works as intended when first setting up Butler SOS.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker-compose up
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once Butler SOS has been verified to work as intended, hit &lt;code&gt;ctrl-c&lt;/code&gt; to stop it.&lt;br&gt;
+Then start it again in deameon (background) mode:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker-compose up -d
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;From here on the Docker enviromment will make sure Butler SOS is always running, including restarting it if it for some reason stops, when server reboots etc.&lt;/p&gt;
+&lt;h3 id=&#34;pre-built-standalone-binaries&#34;&gt;Pre-built, standalone binaries&lt;/h3&gt;
+&lt;p&gt;Starting Butler SOS using the pre-built binaries could look like this on Windows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;d:
+cd \node\butler-sos
+butler-sos.exe --configfile butler-sos-prod.yaml --loglevel info
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.&lt;/p&gt;
+&lt;p&gt;As Butler SOS is the kind of service that (probably) should always be running on a server, it makes sense running it as a Windows service (or similar mechanism in Linix).&lt;/p&gt;
+&lt;p&gt;On Windows you can use the excellent Nssm tool (&lt;a href=&#34;https://nssm.cc&#34;&gt;https://nssm.cc&lt;/a&gt;) to achieve this, with all the benefits that follow (the service can be monitored using operations tools, automatic restarts etc).&lt;/p&gt;
+&lt;p&gt;A step-by-step tutorial for running Butler SOS as a Windows service using NSSM is available over at &lt;a href=&#34;https://ptarmiganlabs.com/running-butler-tools-as-windows-services/&#34;&gt;ptarmiganlabs.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;On Linux both PM2 (&lt;a href=&#34;https://github.com/Unitech/pm2&#34;&gt;https://github.com/Unitech/pm2&lt;/a&gt;) and Forever (&lt;a href=&#34;https://github.com/foreverjs/forever&#34;&gt;https://github.com/foreverjs/forever&lt;/a&gt;) have been successfully tested with Butler SOS.&lt;/p&gt;
+&lt;h3 id=&#34;native-nodejs&#34;&gt;Native Node.js&lt;/h3&gt;
+&lt;p&gt;Starting Butler SOS as a Node.js on Windows could look like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;d:
+cd \node\butler-sos\src
+node butler-sos.js
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.&lt;/p&gt;
+&lt;h3 id=&#34;windows-services--process-monitors&#34;&gt;Windows services &amp;amp; process monitors&lt;/h3&gt;
+&lt;p&gt;As Butler SOS is the kind of service that (probably) should always be running on a server, it makes sense using a Node.js process monitor to keep it alive (if running Butler SOS as a Docker container you get this for free).&lt;/p&gt;
+&lt;p&gt;On Windows you can use the excellent Nssm tool (&lt;a href=&#34;https://nssm.cc&#34;&gt;https://nssm.cc&lt;/a&gt;) to make Butler SOS run as a Windows Service, with all the benefits that follow (can be monitored using operations tools, automatic restarts etc).&lt;/p&gt;
+&lt;p&gt;If running Butler SOS as a Node.js app on Linux, PM2 (&lt;a href=&#34;https://github.com/Unitech/pm2&#34;&gt;https://github.com/Unitech/pm2&lt;/a&gt;) and Forever (&lt;a href=&#34;https://github.com/foreverjs/forever&#34;&gt;https://github.com/foreverjs/forever&lt;/a&gt;) are two process monitors that both have been successfully tested with Butler SOS.&lt;/p&gt;
+&lt;p&gt;One caveat with these is that it can be hard to start them (and thus Butler SOS) when a Windows server is rebooted.
+PM2 can be used to solve this challenge in a nice way, more info in this blog post: &lt;a href=&#34;https://ptarmiganlabs.com/blog/2017/07/12/monitoring-auto-starting-node-js-services-windows-server&#34;&gt;https://ptarmiganlabs.com/blog/2017/07/12/monitoring-auto-starting-node-js-services-windows-server&lt;/a&gt;.&lt;br&gt;
+On the other hand - just using Nssm is probably the easiest and best option for Windows.&lt;/p&gt;
 
       </description>
     </item>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.120.4">
+<meta name="generator" content="Hugo 0.121.1">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/operations/index.xml">
 <meta name="robots" content="index, follow">
 <script defer data-domain="butler-sos.ptarmiganlabs.com" src="https://plausible.io/js/script.js"></script>
@@ -28,12 +28,11 @@
 <meta property="og:description" content="Options for running Butler SOS.
 " />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://butler-sos.ptarmiganlabs.com/docs/getting_started/operations/" />
+<meta property="og:url" content="https://butler-sos.ptarmiganlabs.com/docs/getting_started/operations/" /><meta property="og:site_name" content="Butler SOS" />
 
 <meta itemprop="name" content="Day 2 operations">
 <meta itemprop="description" content="Options for running Butler SOS.
-"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Day 2 operations"/>
+"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Day 2 operations"/>
 <meta name="twitter:description" content="Options for running Butler SOS.
 "/>
 
@@ -47,17 +46,6 @@
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
   crossorigin="anonymous"></script>
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-58487795-4', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 
   </head>
   <body class="td-section">
@@ -309,6 +297,19 @@ if (!doNotTrack) {
             
 
 
+<div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#running-butler-sos">Running Butler SOS</a>
+      <ul>
+        <li><a href="#docker">Docker</a></li>
+        <li><a href="#pre-built-standalone-binaries">Pre-built, standalone binaries</a></li>
+        <li><a href="#native-nodejs">Native Node.js</a></li>
+        <li><a href="#windows-services--process-monitors">Windows services &amp; process monitors</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+
 
 
             
@@ -370,124 +371,42 @@ if (!doNotTrack) {
 	</header>
 	<h2 id="running-butler-sos">Running Butler SOS</h2>
 <p>How to start and keep Butler SOS running varies depending on whether you are using Docker or a native Node.js approach.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<ul class="nav nav-tabs" id="tabs-0" role="tablist"><li class="nav-item">
-      <a class="nav-link active tab-Docker"
-        id="tabs-0-0-tab" data-toggle="tab" href="#tabs-0-0" role="tab" onclick="handleClick(&#34;Docker&#34;);"
-        aria-controls="tabs-0-0" aria-selected="true">
-        Docker
-      </a>
-    </li><li class="nav-item">
-      <a class="nav-link tab-Pre-built,-standalone-binaries"
-        id="tabs-0-1-tab" data-toggle="tab" href="#tabs-0-1" role="tab" onclick="handleClick(&#34;Pre-built,-standalone-binaries&#34;);"
-        aria-controls="tabs-0-1" aria-selected="false">
-        Pre-built, standalone binaries
-      </a>
-    </li><li class="nav-item">
-      <a class="nav-link tab-Native-Node.js"
-        id="tabs-0-2-tab" data-toggle="tab" href="#tabs-0-2" role="tab" onclick="handleClick(&#34;Native-Node.js&#34;);"
-        aria-controls="tabs-0-2" aria-selected="false">
-        Native Node.js
-      </a>
-    </li></ul>
-
-
-<div class="tab-content" id="tabs-0-content"><div class="tab-pane fade show active"
-        id="tabs-0-0" role="tabpanel" aria-labelled-by="tabs-0-0-tab"><pre tabindex="0"><code class="language-en" data-lang="en">Starting Butler SOS using Docker is easy.  
-
-First configure the `docker-compose.yml` file as needed, then start the Docker container in interactive mode (=with output sent to the screen).  
-This is useful to ensure everything works as intended when first setting up Butler SOS.
-
-    docker-compose up
-
-Once Butler SOS has been verified to work as intended, hit `ctrl-c` to stop it.  
-Then start it again in deameon (background) mode:
-
-    docker-compose up -d
-
-From here on the Docker enviromment will make sure Butler SOS is always running, including restarting it if it for some reason stops, when server reboots etc.</code></pre></div>
-  <div class="tab-pane fade"
-        id="tabs-0-1" role="tabpanel" aria-labelled-by="tabs-0-1-tab"><pre tabindex="0"><code class="language-en" data-lang="en">Starting Butler SOS using the pre-built binaries could look like this on Windows:  
-
-    d:
-    cd \node\butler-sos
-    butler-sos.exe --configfile butler-sos-prod.yaml --loglevel info
-
-It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.
-
-As Butler SOS is the kind of service that (probably) should always be running on a server, it makes sense running it as a Windows service (or similar mechanism in Linix).
-
-On Windows you can use the excellent Nssm tool (https://nssm.cc) to achieve this, with all the benefits that follow (the service can be monitored using operations tools, automatic restarts etc).
-
-On Linux both PM2 (https://github.com/Unitech/pm2) and Forever (https://github.com/foreverjs/forever) have been successfully tested with Butler SOS.</code></pre></div>
-  <div class="tab-pane fade"
-        id="tabs-0-2" role="tabpanel" aria-labelled-by="tabs-0-2-tab"><pre tabindex="0"><code class="language-en" data-lang="en">Starting Butler SOS as a Node.js on Windows could look like this:  
-
-    d:
-    cd \node\butler-sos\src
-    node butler-sos.js
-
-It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.
-
-### Windows services &amp; process monitors
-
-As Butler SOS is the kind of service that (probably) should always be running on a server, it makes sense using a Node.js process monitor to keep it alive (if running Butler SOS as a Docker container you get this for free).
-
-On Windows you can use the excellent Nssm tool (https://nssm.cc) to make Butler SOS run as a Windows Service, with all the benefits that follow (can be monitored using operations tools, automatic restarts etc).
-
-If running Butler SOS as a Node.js app on Linux, PM2 (https://github.com/Unitech/pm2) and Forever (https://github.com/foreverjs/forever) are two process monitors that both have been successfully tested with Butler SOS.
-
-One caveat with these is that it can be hard to start them (and thus Butler SOS) when a Windows server is rebooted.
-PM2 can be used to solve this challenge in a nice way, more info in this blog post: https://ptarmiganlabs.com/blog/2017/07/12/monitoring-auto-starting-node-js-services-windows-server.  
-On the other hand - just using Nssm is probably the easiest and best option for Windows.</code></pre></div>
-  
-</div>
-
+<h3 id="docker">Docker</h3>
+<p>Starting Butler SOS using Docker is easy.</p>
+<p>First configure the <code>docker-compose.yml</code> file as needed, then start the Docker container in interactive mode (=with output sent to the screen).<br>
+This is useful to ensure everything works as intended when first setting up Butler SOS.</p>
+<pre><code>docker-compose up
+</code></pre>
+<p>Once Butler SOS has been verified to work as intended, hit <code>ctrl-c</code> to stop it.<br>
+Then start it again in deameon (background) mode:</p>
+<pre><code>docker-compose up -d
+</code></pre>
+<p>From here on the Docker enviromment will make sure Butler SOS is always running, including restarting it if it for some reason stops, when server reboots etc.</p>
+<h3 id="pre-built-standalone-binaries">Pre-built, standalone binaries</h3>
+<p>Starting Butler SOS using the pre-built binaries could look like this on Windows:</p>
+<pre><code>d:
+cd \node\butler-sos
+butler-sos.exe --configfile butler-sos-prod.yaml --loglevel info
+</code></pre>
+<p>It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.</p>
+<p>As Butler SOS is the kind of service that (probably) should always be running on a server, it makes sense running it as a Windows service (or similar mechanism in Linix).</p>
+<p>On Windows you can use the excellent Nssm tool (<a href="https://nssm.cc">https://nssm.cc</a>) to achieve this, with all the benefits that follow (the service can be monitored using operations tools, automatic restarts etc).</p>
+<p>A step-by-step tutorial for running Butler SOS as a Windows service using NSSM is available over at <a href="https://ptarmiganlabs.com/running-butler-tools-as-windows-services/">ptarmiganlabs.com</a>.</p>
+<p>On Linux both PM2 (<a href="https://github.com/Unitech/pm2">https://github.com/Unitech/pm2</a>) and Forever (<a href="https://github.com/foreverjs/forever">https://github.com/foreverjs/forever</a>) have been successfully tested with Butler SOS.</p>
+<h3 id="native-nodejs">Native Node.js</h3>
+<p>Starting Butler SOS as a Node.js on Windows could look like this:</p>
+<pre><code>d:
+cd \node\butler-sos\src
+node butler-sos.js
+</code></pre>
+<p>It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.</p>
+<h3 id="windows-services--process-monitors">Windows services &amp; process monitors</h3>
+<p>As Butler SOS is the kind of service that (probably) should always be running on a server, it makes sense using a Node.js process monitor to keep it alive (if running Butler SOS as a Docker container you get this for free).</p>
+<p>On Windows you can use the excellent Nssm tool (<a href="https://nssm.cc">https://nssm.cc</a>) to make Butler SOS run as a Windows Service, with all the benefits that follow (can be monitored using operations tools, automatic restarts etc).</p>
+<p>If running Butler SOS as a Node.js app on Linux, PM2 (<a href="https://github.com/Unitech/pm2">https://github.com/Unitech/pm2</a>) and Forever (<a href="https://github.com/foreverjs/forever">https://github.com/foreverjs/forever</a>) are two process monitors that both have been successfully tested with Butler SOS.</p>
+<p>One caveat with these is that it can be hard to start them (and thus Butler SOS) when a Windows server is rebooted.
+PM2 can be used to solve this challenge in a nice way, more info in this blog post: <a href="https://ptarmiganlabs.com/blog/2017/07/12/monitoring-auto-starting-node-js-services-windows-server">https://ptarmiganlabs.com/blog/2017/07/12/monitoring-auto-starting-node-js-services-windows-server</a>.<br>
+On the other hand - just using Nssm is probably the easiest and best option for Windows.</p>
 
         <div class="section-index">
     
@@ -511,68 +430,6 @@ On the other hand - just using Nssm is probably the easiest and best option for 
     
 </div>
 
-	
-		<style>
-  .feedback--answer {
-    display: inline-block;
-  }
-  .feedback--answer-no {
-    margin-left: 1em;
-  }
-  .feedback--response {
-    display: none;
-    margin-top: 1em;
-  }
-  .feedback--response__visible {
-    display: block;
-  }
-</style>
-<div class="d-print-none">
-<h2 class="feedback--title">Feedback</h2>
-<p class="feedback--question">Was this page helpful?</p>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-yes">Yes</button>
-<button class="btn btn-primary mb-4 feedback--answer feedback--answer-no">No</button>
-<p class="feedback--response feedback--response-yes">
-  Glad to hear it! Please <a href="https://github.com/ptarmiganlabs/butler-sos/issues/new/choose">tell us how we can improve</a>.
-</p>
-<p class="feedback--response feedback--response-no">
-  Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butler-sos/issues/new/choose">tell us how Butler SOS can be improved</a>.
-</p>
-</div>
-<script>
-  const yesButton = document.querySelector('.feedback--answer-yes');
-  const noButton = document.querySelector('.feedback--answer-no');
-  const yesResponse = document.querySelector('.feedback--response-yes');
-  const noResponse = document.querySelector('.feedback--response-no');
-  const disableButtons = () => {
-    yesButton.disabled = true;
-    noButton.disabled = true;
-  };
-  const sendFeedback = (value) => {
-    if (typeof ga !== 'function') return;
-    const args = {
-      command: 'send',
-      hitType: 'event',
-      category: 'Helpful',
-      action: 'click',
-      label: window.location.pathname,
-      value: value
-    };
-    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
-  };
-  yesButton.addEventListener('click', () => {
-    yesResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(1);
-  });
-  noButton.addEventListener('click', () => {
-    noResponse.classList.add('feedback--response__visible');
-    disableButtons();
-    sendFeedback(0);
-  });
-</script>
-
-		<br />
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">

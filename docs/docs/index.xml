@@ -424,7 +424,6 @@ This is critical information when it comes to planning where to focus future dev
 &lt;em&gt;Why: Ideally the Butler SOS developers want to use as modern versions of Node.js as possible. But if telemetry shows that lots os Butler SOS instances use old Node.js versions or run on some (yet) untested/unverified Linux version - then maybe those older Node.js/Linux versions must be supported for yet some time.&lt;/em&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-
 &lt;/div&gt;
 
 
@@ -438,7 +437,6 @@ This is critical information when it comes to planning where to focus future dev
 &lt;li&gt;Any actual data handled by Butler SOS (user IDs, app names, number of users in your system etc).&lt;/li&gt;
 &lt;li&gt;Qlik Sense or other certificates in any shape or form.&lt;/li&gt;
 &lt;/ol&gt;
-
 
 &lt;/div&gt;
 
