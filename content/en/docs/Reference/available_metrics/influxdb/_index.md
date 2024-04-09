@@ -60,7 +60,7 @@ users
 >
 ```
 
-Let's take a look at what field keys the apps measurement contains:
+Let's take a look at what field keys the `apps` measurement contains:
 
 ```
 > show field keys from apps
@@ -84,7 +84,7 @@ selections                   integer
 >
 ```
 
-Ok, so the field keys are the actual metrics for which we gather data. Collectively those metrics (again: *field keys* in InfluxDB lingo) above are grouped into a *measurement* called 'apps'.
+Ok, so the field keys are the actual metrics for which we gather data. Collectively those metrics (again: *field keys* in InfluxDB lingo) above are grouped into a *measurement* called `apps`.
 
 There is one more concept you need to understand: *tag keys*
 
@@ -320,6 +320,15 @@ Tag keys present for all `user_events` records:
 | userId | Sense user ID for the user causing the event. |
 | userFull | The combination of `userDirectory` and `userId`. |
 
+If the user event includes browser user agent information, the following tags will be present:
+
+| Tag key | Description |
+| --------- | ----------- |
+| uaBrowserName | Name of connecting user's browser. |
+| uaBrowserMajorVersion | Connecting user's browser version. |
+| uaOsName | Connecting user's operating system. |
+| uaOsVersion | Connecting user's operating system version. |
+
 In addition to the above tags defined in the Butler SOS config file will be added.  
 More info [here](/docs/getting_started/setup/user-events/#settings-in-main-config-file).
 
@@ -327,6 +336,8 @@ Fields:
 
 | Field key | Description |
 | --------- | ----------- |
+| appId | Id of app that is opened/closed.  |
+| appName | Name of app that is opened/closed. |
 | userFull | Same as the userFull tag.  |
 | userId | Same as the userId tag. |
 

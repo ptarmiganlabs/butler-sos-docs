@@ -53,9 +53,8 @@ Butler-SOS:
   # Uptime monitor
   uptimeMonitor:
     enable: true                    # Should uptime messages be written to the console and log files?
-    # frequency: every 5 minutes      # https://bunkat.github.io/later/parsers.html#text
-    frequency: every 15 seconds
-    logLevel: verbose               # Starting at what log level should uptime messages be shown?
+    frequency: every 15 minutes     # https://bunkat.github.io/later/parsers.html#text
+    logLevel: verbose               # Starting at what log level should uptime messages be shown in console log and log files?
     storeInInfluxdb: 
       butlerSOSMemoryUsage: true    # Should data on Butler SOS' own memory use be stored in Infludb?
       instanceTag: PROD             # Tag that can be used to differentiate data from multiple Butler SOS instances

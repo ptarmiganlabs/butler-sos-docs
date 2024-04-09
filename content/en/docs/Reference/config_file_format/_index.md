@@ -18,7 +18,7 @@ All setting must be defined in the config file - run time errors are likely to o
 
 The [sample config file](https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml) looks like this:
 
-![Sample config file](./configfile_9_2.png "Sample Butler SOS config file")
+![Sample config file](./configfile.png "Sample Butler SOS config file")
 
 A few things to keep in mind:
 
@@ -300,6 +300,7 @@ Extract user session data per virtual proxy.
 | servers.<br>userSessions.<br>host | Host and port from which to retrieve user session data. Usually on the form servername.mydomain.net:4243 |
 | servers.<br>userSessions.<br>virtualProxies | A list of key-value pairs. Use to specify for which virtual proxies on this server user session data should be retrieved. |
 | serverTags | A list of key-value pairs. Use to provide more metadata for servers. Can then (among other things) be used to created more advanced Grafana dashboards. |
+| headers | A list of key-value pairs. Headers specified here will be used when retrieving metrics from this Sense server. |
 
 The ```Butler-SOS.serversToMonitor.servers.logDbHost``` property can be tricky to get right. Easiest way to get the correct value is to look in the Nodes section in the QMC. In the ```Host name``` column you find the host names of the various nodes. ```logDbHost``` should be set to the first part of each host name:
 

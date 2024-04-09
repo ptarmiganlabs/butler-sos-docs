@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.121.1">
+<meta name="generator" content="Hugo 0.122.0">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/reference/config_file_format/index.xml">
 <meta name="robots" content="index, follow">
 <script defer data-domain="butler-sos.ptarmiganlabs.com" src="https://plausible.io/js/script.js"></script>
@@ -364,7 +364,7 @@ The .yaml extension is recommended.</p></div>
 <p>The config file is the heart of Butler SOS.<br>
 All setting must be defined in the config file - run time errors are likely to occur otherwise.</p>
 <p>The <a href="https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml">sample config file</a> looks like this:</p>
-<p><img src="./configfile_9_2.png" alt="Sample config file" title="Sample Butler SOS config file"></p>
+<p><img src="./configfile.png" alt="Sample config file" title="Sample Butler SOS config file"></p>
 <p>A few things to keep in mind:</p>
 <ul>
 <li>Topic names (e.g. &ldquo;Butler-SOS.logdb&rdquo;) are case sensitive.</li>
@@ -1205,6 +1205,10 @@ It is no longer installed when doing fresh QSEoW installs.</p>
 <td>serverTags</td>
 <td>A list of key-value pairs. Use to provide more metadata for servers. Can then (among other things) be used to created more advanced Grafana dashboards.</td>
 </tr>
+<tr>
+<td>headers</td>
+<td>A list of key-value pairs. Headers specified here will be used when retrieving metrics from this Sense server.</td>
+</tr>
 </tbody>
 </table>
 <p>The <code>Butler-SOS.serversToMonitor.servers.logDbHost</code> property can be tricky to get right. Easiest way to get the correct value is to look in the Nodes section in the QMC. In the <code>Host name</code> column you find the host names of the various nodes. <code>logDbHost</code> should be set to the first part of each host name:</p>
@@ -1281,7 +1285,7 @@ It is no longer installed when doing fresh QSEoW installs.</p>
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2023 Ptarmigan Labs AB All Rights Reserved</small>
+        <small class="text-white">&copy; 2024 Ptarmigan Labs AB All Rights Reserved</small>
         
 	
 		<p class="mt-2"><a href="/about/">About Butler SOS</a></p>

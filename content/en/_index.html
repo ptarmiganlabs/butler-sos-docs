@@ -72,6 +72,20 @@ Butler SOS version 9 takes this concept even further, enabling forwarding of sel
 {{% /blocks/lead %}}
 
 
+{{% blocks/lead color="success" %}}
+**--- What operating systems and browsers are used to access my Qlik Sense environment ? ---**
+
+Glad you asked!<br>
+Butler SOS can help you with that too.
+
+Butler SOS version 9.7 added a new feature that tracks user agents of all users  
+accessing your Sense environment.<br>
+
+This data is stored in InfluxDB, NewRelic and is sent as MQTT messages.
+{{% /blocks/lead %}}
+
+
+
 
 {{% blocks/lead color="primary" %}}
 **--- We use system \<*our-preferred-monitoring–tool*\> for monitoring. Can it be used with Butler SOS? ---**
@@ -86,11 +100,12 @@ If not natively supporting InfluxDB, Prometheus, New Relic or MQTT, it is usuall
 
 {{< blocks/section >}}
 
-{{% blocks/feature icon="fa-lightbulb" title="Latest release: 9.6" %}}
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 9.10" %}}
 
-Trouble setting up Butler SOS?  
-Latest version has built-in verification of the config file.  
-Enabled by default, but can be disabled if needed.
+OS and browser tracking for all users accessing Sense,  
+saving the data to InfluxDB and NewRelic, and sending it as MQTT messages.
+
+With the data in InfluxDB it's then easy to visualise it in Grafana.
 
 Available on [GitHub](https://github.com/ptarmiganlabs/butler-sos/releases).
 

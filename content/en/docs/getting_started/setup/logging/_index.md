@@ -33,9 +33,6 @@ Butler-SOS:
   logLevel: info          # Log level. Possible log levels are silly, debug, verbose, info, warn, error
   fileLogging: true       # true/false to enable/disable logging to disk file
   logDirectory: log       # Subdirectory where log files are stored
-  anonTelemetry: true     # Can Butler SOS send anonymous data about what computer it is running on? 
-                          # More info on whata data is collected: https://butler-sos.ptarmiganlabs.com/docs/about/telemetry/
-                          # Please consider leaving this at true - it really helps future development of Butler SOS!
   ...
   ...
 ```

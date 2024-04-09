@@ -70,7 +70,7 @@ user_session_list
 user_session_summary
 users
 &amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let&amp;rsquo;s take a look at what field keys the apps measurement contains:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let&amp;rsquo;s take a look at what field keys the &lt;code&gt;apps&lt;/code&gt; measurement contains:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt; show field keys from apps
 name: apps
 fieldKey                     fieldType
@@ -90,7 +90,7 @@ loaded_docs_names            string
 loaded_session_docs_names    string
 selections                   integer
 &amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ok, so the field keys are the actual metrics for which we gather data. Collectively those metrics (again: &lt;em&gt;field keys&lt;/em&gt; in InfluxDB lingo) above are grouped into a &lt;em&gt;measurement&lt;/em&gt; called &amp;lsquo;apps&amp;rsquo;.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ok, so the field keys are the actual metrics for which we gather data. Collectively those metrics (again: &lt;em&gt;field keys&lt;/em&gt; in InfluxDB lingo) above are grouped into a &lt;em&gt;measurement&lt;/em&gt; called &lt;code&gt;apps&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;There is one more concept you need to understand: &lt;em&gt;tag keys&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s pretty simple: Tag keys are used to categorise (or simply &amp;ldquo;tag&amp;rdquo;) measurements.&lt;br&gt;
 Let&amp;rsquo;s say you use Butler SOS to collect data from ten Sense servers. That&amp;rsquo;s great, but how will you later distinguish between server 3 and server 8? You need some way of telling your Grafana dashboard to show the data for server 3 (if that&amp;rsquo;s what you want).&lt;/p&gt;
@@ -637,6 +637,33 @@ These events are also forwarded as MQTT messages, allowing other systems to act 
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;p&gt;If the user event includes browser user agent information, the following tags will be present:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Tag key&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;uaBrowserName&lt;/td&gt;
+&lt;td&gt;Name of connecting user&amp;rsquo;s browser.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;uaBrowserMajorVersion&lt;/td&gt;
+&lt;td&gt;Connecting user&amp;rsquo;s browser version.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;uaOsName&lt;/td&gt;
+&lt;td&gt;Connecting user&amp;rsquo;s operating system.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;uaOsVersion&lt;/td&gt;
+&lt;td&gt;Connecting user&amp;rsquo;s operating system version.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;p&gt;In addition to the above tags defined in the Butler SOS config file will be added.&lt;br&gt;
 More info &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/user-events/#settings-in-main-config-file&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Fields:&lt;/p&gt;
@@ -648,6 +675,14 @@ More info &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/docs/getting_star
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;appId&lt;/td&gt;
+&lt;td&gt;Id of app that is opened/closed.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;appName&lt;/td&gt;
+&lt;td&gt;Name of app that is opened/closed.&lt;/td&gt;
+&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;userFull&lt;/td&gt;
 &lt;td&gt;Same as the userFull tag.&lt;/td&gt;

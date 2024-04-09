@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.121.1">
+<meta name="generator" content="Hugo 0.122.0">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/influxdb/index.xml">
 <meta name="robots" content="index, follow">
 <script defer data-domain="butler-sos.ptarmiganlabs.com" src="https://plausible.io/js/script.js"></script>
@@ -418,7 +418,7 @@ user_session_list
 user_session_summary
 users
 &gt;
-</code></pre><p>Let&rsquo;s take a look at what field keys the apps measurement contains:</p>
+</code></pre><p>Let&rsquo;s take a look at what field keys the <code>apps</code> measurement contains:</p>
 <pre tabindex="0"><code>&gt; show field keys from apps
 name: apps
 fieldKey                     fieldType
@@ -438,7 +438,7 @@ loaded_docs_names            string
 loaded_session_docs_names    string
 selections                   integer
 &gt;
-</code></pre><p>Ok, so the field keys are the actual metrics for which we gather data. Collectively those metrics (again: <em>field keys</em> in InfluxDB lingo) above are grouped into a <em>measurement</em> called &lsquo;apps&rsquo;.</p>
+</code></pre><p>Ok, so the field keys are the actual metrics for which we gather data. Collectively those metrics (again: <em>field keys</em> in InfluxDB lingo) above are grouped into a <em>measurement</em> called <code>apps</code>.</p>
 <p>There is one more concept you need to understand: <em>tag keys</em></p>
 <p>It&rsquo;s pretty simple: Tag keys are used to categorise (or simply &ldquo;tag&rdquo;) measurements.<br>
 Let&rsquo;s say you use Butler SOS to collect data from ten Sense servers. That&rsquo;s great, but how will you later distinguish between server 3 and server 8? You need some way of telling your Grafana dashboard to show the data for server 3 (if that&rsquo;s what you want).</p>
@@ -985,6 +985,33 @@ These events are also forwarded as MQTT messages, allowing other systems to act 
 </tr>
 </tbody>
 </table>
+<p>If the user event includes browser user agent information, the following tags will be present:</p>
+<table>
+<thead>
+<tr>
+<th>Tag key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uaBrowserName</td>
+<td>Name of connecting user&rsquo;s browser.</td>
+</tr>
+<tr>
+<td>uaBrowserMajorVersion</td>
+<td>Connecting user&rsquo;s browser version.</td>
+</tr>
+<tr>
+<td>uaOsName</td>
+<td>Connecting user&rsquo;s operating system.</td>
+</tr>
+<tr>
+<td>uaOsVersion</td>
+<td>Connecting user&rsquo;s operating system version.</td>
+</tr>
+</tbody>
+</table>
 <p>In addition to the above tags defined in the Butler SOS config file will be added.<br>
 More info <a href="/docs/getting_started/setup/user-events/#settings-in-main-config-file">here</a>.</p>
 <p>Fields:</p>
@@ -996,6 +1023,14 @@ More info <a href="/docs/getting_started/setup/user-events/#settings-in-main-con
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>appId</td>
+<td>Id of app that is opened/closed.</td>
+</tr>
+<tr>
+<td>appName</td>
+<td>Name of app that is opened/closed.</td>
+</tr>
 <tr>
 <td>userFull</td>
 <td>Same as the userFull tag.</td>
@@ -1689,7 +1724,7 @@ More info on these metrics and what they mean is available <a href="https://www.
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2023 Ptarmigan Labs AB All Rights Reserved</small>
+        <small class="text-white">&copy; 2024 Ptarmigan Labs AB All Rights Reserved</small>
         
 	
 		<p class="mt-2"><a href="/about/">About Butler SOS</a></p>
