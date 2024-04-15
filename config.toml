@@ -199,6 +199,18 @@ no = 'Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butle
 	icon = "fa fa-envelope"
         desc = "Get in touch with Ptarmigan Labs around Butler SOS"
 
+# Comment out if you don't want the "print entire section" link enabled.
+[outputs]
+section = ["HTML", "print", "RSS"]
+
+[outputFormats]
+[outputFormats.PRINT]
+baseName = "index"
+isHTML = true
+mediaType = "text/html"
+path = "printview"
+permalinkable = false
+
 
 [privacy]
   [privacy.disqus]

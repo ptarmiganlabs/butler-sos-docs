@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/concepts/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/concepts/index.xml">
+<meta name="robots" content="noindex, nofollow">
+<script defer data-domain="butler-sos.ptarmiganlabs.com" src="https://plausible.io/js/script.js"></script>
+
+<link rel="canonical" href="https://butler-sos.ptarmiganlabs.com/docs/concepts/" />
+
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Concepts | Butler SOS</title>
+<meta name="description" content="Deep dive into the various components that make up Butler SOS. 
+">
+<meta property="og:title" content="Concepts" />
+<meta property="og:description" content="Deep dive into the various components that make up Butler SOS. 
+" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://butler-sos.ptarmiganlabs.com/docs/concepts/" /><meta property="og:site_name" content="Butler SOS" />
+
+<meta itemprop="name" content="Concepts">
+<meta itemprop="description" content="Deep dive into the various components that make up Butler SOS. 
+"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Concepts"/>
+<meta name="twitter:description" content="Deep dive into the various components that make up Butler SOS. 
+"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.79e3930541ca05b5395c14b2a313b798fad1dc69f9a14aefa57b62eaa9f65f14.css" as="style">
+<link href="/scss/main.min.79e3930541ca05b5395c14b2a313b798fad1dc69f9a14aefa57b62eaa9f65f14.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg width="200" height="109" viewBox="0 0 200 109" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><image id="image" width="200" height="109" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZgAATU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAyKADAAQAAAABAAAAbQAAAAD/7QA4UGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAAA4QklNBCUAAAAAABDUHYzZjwCyBOmACZjs+EJ+/8AAEQgAbQDIAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/bAEMAAgICAgICAwICAwUDAwMFBgUFBQUGCAYGBgYGCAoICAgICAgKCgoKCgoKCgwMDAwMDA4ODg4ODw8PDw8PDw8PD//bAEMBAgICBAQEBwQEBxALCQsQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEP/dAAQADf/aAAwDAQACEQMRAD8A+B6KKK/Cz/SQKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9D4Hooor8LP9JAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/0fgeiiivws/0kCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/S+B6KKK/Cz/SQKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9P4Hooor8LP9JAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/1Pgeiiivws/0kCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/V+B6KKK/Cz/SQKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9k="/></defs><use id="Background-Layer" xlink:href="#image" x="0" y="0" width="200" height="109"/><defs><image id="image-1" width="65" height="95" xlink:href="data:image/png;base64,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"/></defs><use id="Butler" xlink:href="#image-1" x="6" y="4" width="65" height="95"/><defs><text id="string" transform="matrix(1.0 0.0 0.0 1.0 20.045454545460004 16.51333333334)" fill="#fff" font-family="HelveticaNeue-Bold, Helvetica Neue" y="34" x="55.98623999999998" font-size="34.848" text-decoration="none">Butler</text></defs><use id="Butler-1" xlink:href="#string"/><defs><text id="string-1" transform="matrix(1.0 0.0 0.0 1.0 55.86363636364 54.400000000000006)" fill="#fff" font-family="HelveticaNeue-BoldItalic, Helvetica Neue" y="17" x="83.862624" font-size="17.424" text-decoration="none">SOS</text></defs><use id="BUTLER-copy" xlink:href="#string-1"/></svg></span><span class="font-weight-bold">Butler SOS</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/about/" ><span>About</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/" ><span class="active">Documentation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/community/" ><span>Community</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/concepts/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Concepts</h1>
+<div class="lead">Deep dive into the various components that make up Butler SOS.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-824cd5d845e0027b5cc40d1ec64f916c">Sessions &amp; Connections</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-f541b79b5cb8948885ca92ccf6f8d612">Apps</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-638f4d0877061ed3d9b9f941fce72f8e">Errors &amp; Warnings</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-824cd5d845e0027b5cc40d1ec64f916c">1 - Sessions &amp; Connections</h1>
+    <div class="lead">What are user sessions and why are they important?</div>
+	<p>Who are using the Sense environment right now?</p>
+<p>This is a very basic question a sysadmin will ask over and over again.<br>
+This question is answered in great detail by the excellent Operations Monitor app that comes with Qlik Sense out of the box.<br>
+But that app gives a retrospective view of the data - it does not provide real-time insights.</p>
+<p>Butler SOS focus on the opposite: Give as close to real-time insights as possible into what&rsquo;s happening in the Sense environment.</p>
+<p>User behaviour is then an important metric to track, more on this below.</p>
+<h2 id="proxy-sessions">Proxy sessions</h2>
+<p>A <em>session</em>, or more precicely a <em>proxy session</em> starts when a user logs into Sense and ends when the user logs out or the session timeout is reached.<br>
+There may be some additional corner-case variants, but the above is the basic, high-level definition of a proxy session.</p>
+<style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
+<div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>Some useful lingo: The events that can happen for sessions are that they can <em>start</em> and <em>stop</em>.</p>
+<p>They can also <em>timeout</em> if the user is inactive long enough (the exact time depends on settings in the QMC).</p></div>
+
+<p>As long as a user uses the same web browser and doesn&rsquo;t use incognito mode or similar, the user will reuse the same session for all access to Sense.<br>
+On the other hand: If a user uses different browsers, incognito mode etc, multiple sessions will be registered for the user in question. There is a <a href="https://community.qlik.com/t5/Knowledge-Base/Increase-max-parallel-SessionCount-for-Qlik-Sense-end-user/ta-p/1717086">limit to how many sessions a user can have at any given time</a>.</p>
+<p>Mashups and similar scenarios where Sense objects are embedded into web apps may result in multiple sessions being created. Whether or not this happens largely depends on how the mashup was created.</p>
+<p>A good overview of what constitutes a session is found <a href="https://community.qlik.com/t5/Knowledge-Base/How-to-count-sessions-in-Qlik-Sense/ta-p/1714209">here</a>.</p>
+<h3 id="proxy-session-vs-engine-sessions">Proxy session vs engine sessions</h3>
+<p>The proxy service is responsible for handling users connecting to Qlik Sense.</p>
+<p>When a user connects a <em>proxy session</em> is created - assuming the user has permissions to access Sense.</p>
+<p>When interacting with individual charts in a Sense app, <em>engine sessions</em> are used to interact with the engine service.</p>
+<p>A user typically thus have one (or a few) proxy session and then a larger number of transient engine sessions.</p>
+<p>More info <a href="https://help.qlik.com/en-US/sense-developer/November2021/Subsystems/Platform/Content/Sense_PlatformOverview/Concepts/sessions.htm">here</a>.</p>
+<h2 id="connections">Connections</h2>
+<p>A user may open more than one <em>connection</em> within a session.</p>
+<p>A connection is opened when the user opens an app in a browser tab, or when a user opens a mashup which in turn triggers a connection to a Sense app to be set up.<br>
+Closing the browser tab will close the connection.</p>
+<div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>Some useful lingo: The events that can happen for connections are that they can be <em>opened</em> and <em>closed</em>.</p></div>
+
+<h2 id="user-events">User events</h2>
+<p>Butler SOS offers a way to monitor individual session and connection events, as they happen.</p>
+<p>This is done by Butler SOS hooking into the logging framework of Qlik Sense, which will notify Butler SOS when users start/stop sessions or connections are being open/closed.</p>
+<p>A blacklist in the main config file provides a way to exlcude some users (e.g. system accounts) from the user event monitoring.</p>
+<p>Configuration of user events monitoring is done in the main config file&rsquo;s <code>Butler-SOS.userEvents</code> section.<br>
+A step-by-step instruction for setting up user event monitoring is available in the <a href="/docs/getting_started/">Getting started section</a>.
+More info about the config file is available <a href="/docs/reference/config_file_format/">here</a>.</p>
+<p>On an aggregated level this information is useful to understand how often users log in/out, when peak ours are etc.
+On a detailed level this information is extremely useful when trying to understand which users had active sessions when some error occured.<br>
+Think investigations such as &ldquo;who caused that 250 GB drop in RAM we were just alerted about?&rdquo;.</p>
+<p><img src="butler-sos-user-events-graph-1.png" alt="User events in Grafana dashboard" title="User events in Grafana dashboard"></p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f541b79b5cb8948885ca92ccf6f8d612">2 - Apps</h1>
+    <div class="lead">&ldquo;Apps&rdquo;, &ldquo;Applications&rdquo; or &ldquo;Documents&rdquo; - in Qlik lingo they all refer to the same thing.<br>
+It&rsquo;s where data and logic is kept in the Qlik Sense system.</div>
+	<style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
+<div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>The <a href="/docs/about/usecases/">use cases</a> page contains related information that may be of interest.</p></div>
+
+<h2 id="app-metrics">App metrics</h2>
+<p>When it comes to apps we basically want to track which apps are loaded into the monitored Sense server(s).</p>
+<h2 id="in-memory-vs-loaded-vs-active-apps">In-memory vs loaded vs active apps</h2>
+<p>Given the caching nature of Qlik Sense, some apps will be actively used by users and some will just be sitting there without any current connections.</p>
+<p>Sense group apps into three categories, which are all available in Butler SOS:</p>
+<ul>
+<li>Active apps. An app is active when a user is currently performing some action on it.</li>
+<li>Loaded apps. An app that is currently loaded into memory and that have open sessions or connections.</li>
+<li>In-memory apps. Loaded into memory, but without any open sessions or connections.</li>
+</ul>
+<p>Butler SOS keeps track of both app IDs and names of the apps in each of the three categories.</p>
+<p>More info on <a href="https://help.qlik.com/en-US/sense-developer/February2021/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm">Qlik help pages</a>.</p>
+<h2 id="app-names-are-tricky">App names are tricky</h2>
+<p>Qlik Sense provides app health info based on app IDs.<br>
+I.e. we get a list of what app IDs are active, loaded and in-memory.</p>
+<p>That&rsquo;s all good, except those IDs don&rsquo;t tell us humans a lot.<br>
+We need app <strong>names</strong>.</p>
+<p>We can get those app names by simply asking Sense for a list of app app IDs and names, but there are a couple of challenges here:</p>
+<ol>
+<li>This query to Sense may not be complex or expensive if done once, but if we do it several times per minute it will create an unwanted load on the Sense server(s).</li>
+<li>There is the risk of an app being deleted between we get health data for it and the following appID-name query. Most apps are reasonably long-lived, but the risk is still there.</li>
+</ol>
+<p>Right or wrong, Butler SOS takes this approach to the above:</p>
+<ol>
+<li>App name queries are done on a separate schedule. In the main config file you can configure both if app names should even be looked up, and how often that lookup should happen. This puts you in control of how up-to-date app names you need in your Grafana dashboards.</li>
+<li>The risk of a temporary mismatch between app IDs and app names in Butler SOS remains, and will even get worse if you query app names infrequently. Still, this is typically a very small problem (if even a problem at all).</li>
+</ol>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-638f4d0877061ed3d9b9f941fce72f8e">3 - Errors &amp; Warnings</h1>
+    <div class="lead"><p>Warnings lead to errors.<br>
+Errors lead to unhappy users.<br>
+Unhappy users call you.</p>
+<p>Wouldn&rsquo;t you rather get the warnings yourself, before anyone else?</p>
+</div>
+	<h2 id="sense-log-events">Sense log events</h2>
+<p>Sense creates a large number of log files for the various parts of the larger Qlik Sense Enterprise environment.<br>
+Those logs track more or less everything - from extensions being installed, users logging in, to incorrect structure of Active Directory user directories.</p>
+<p>Butler SOS monitors select parts of these logs and provides a way to get an aggregated, close to real-time view into warnings and errors.</p>
+<p>The <a href="/docs/getting_started/setup/log-events/">log events</a> page has more info on this.</p>
+<h2 id="grafana-dashboards">Grafana dashboards</h2>
+<p>Butler SOS stores the log events in InfluxDB together with all other metrics.<br>
+It is therefore possible to create Grafana dashboards that combine both operational metrics (apps, sessions, server RAM/CPU etc) with warning and error related charts and tables.</p>
+<p>Showing warnings and errors visually is often an effective way to quickly identify developing or recurring issues.</p>
+<h3 id="example-1-circular-active-directory-references">Example 1: Circular Active Directory references</h3>
+<p>Here is an example where bursts of warnings tell us visually that something is not quite right.<br>
+50-60 warnings arriving in bursts every few minutes - something is not right.<br>
+There is also a single error during this time period - what&rsquo;s going on there?</p>
+<p>We can then look at the actual warnings (=log events) to see what&rsquo;s going on.</p>
+<p>In this case it turns out to be circular references in the Active Directory data used in Qlik Sense.  Not a problem with Sense per se, but still something worth looking into:</p>
+<p><img src="butler-sos-warnings-errors-graph-1.png" alt="Warnings and errors from Qlik Sense in Grafana dashboard" title="Warnings and errors from Qlik Sense in Grafana dashboard"></p>
+<p><img src="butler-sos-warnings-table-1.png" alt="Warnings from Qlik Sense in Grafana table" title="Warnings from Qlik Sense in Grafana table"></p>
+<p>Looking at that single error then, it turns out it&rsquo;s caused by a task already running when it was scheduled to start:</p>
+<p><img src="butler-sos-errors-table-1.png" alt="Errors from Qlik Sense in Grafana table" title="Errors from Qlik Sense in Grafana table"></p>
+<h3 id="example-2-session-bursts-causing-proxy-overload">Example 2: Session bursts causing proxy overload</h3>
+<p>This example is would have been hard or impossible to investigate without Butler SOS.</p>
+<p>The problem was that the Sense environment from time to time became very slow or even unresponsive. A restart solved the problem.</p>
+<p>Grafana was set up to send alerts when session count increase very rapidly. Thanks to this actions could be taken within minutes from the incident occuring.</p>
+<p>Looking in the Grafana dashboard could then show something like below.<br>
+New sessions started every few seconds, all coming from a single client. The effect for this Sense user was that Sense was unresponsive.</p>
+<p>The log events section of the Grafana dashboard showed that this user had been given 5 proxy sessions, after which further access to Sense internal resources (engine etc) was denied.</p>
+<p><img src="butler-sos-session-runaway-1.png" alt="Sessions increasing very quickly" title="Qlik Sense sessions increasing very quickly"></p>
+<p>In this case the problem was caused by a mashup using iframes that when recovering from session timeouts caused race conditions, trying to re-establish a session to Sense over and over again.</p>
+<h2 id="alerts">Alerts</h2>
+<p>Both New Relic and Grafana includes a set of built-in alert features that can be used to set up alerts as well as forward them to destinations such as Slack, MS Teams, email, Discord, Kafka, Webhooks, PagerDuty and others.</p>
+<p>More info about Grafana alerts <a href="https://grafana.com/docs/grafana/latest/alerting/notifications/">here</a>.<br>
+New Relic alerts described <a href="https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/learn-alerts/introduction-alerts/">here</a>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Ptarmigan Labs Newsletter" aria-label="Ptarmigan Labs Newsletter">
+    <a class="text-white" target="_blank" rel="noopener" href="https://ptarmiganlabs.com/#/portal/signup" aria-label="Ptarmigan Labs Newsletter">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener" href="https://www.linkedin.com/in/gorsan/" aria-label="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler-sos" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Get in touch with Ptarmigan Labs" aria-label="Get in touch with Ptarmigan Labs">
+    <a class="text-white" target="_blank" rel="noopener" href="mailto://info@ptarmiganlabs.com" aria-label="Get in touch with Ptarmigan Labs">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2024 Ptarmigan Labs AB All Rights Reserved</small>
+        
+	
+		<p class="mt-2"><a href="/about/">About Butler SOS</a></p>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.2445708dcaed76ca77256bbd7c601588ceb1ae5298dccef4f503c9a56d4ff7d9.js" integrity="sha256-JEVwjcrtdsp3JWu9fGAViM6xrlKY3M709QPJpW1P99k=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>
