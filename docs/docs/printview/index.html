@@ -1023,7 +1023,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5.1: <a href="#pg-9756264663f19141b745db1b9a4a4349">Config file format</a></li>
+<li>5.1: <a href="#pg-0f3b13017db18ddf0cdc4c4696a6b595">Command line options</a></li>
 
 
     
@@ -1042,22 +1042,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5.2: <a href="#pg-46ae95baecdd2027c2ee952b27c21456">Available Metrics</a></li>
-
-
-    
-    <ul>
-        
-  
-  
-  
-  
-
-  
-    
-    
-	
-<li>5.2.1: <a href="#pg-144165adc63bc9876e0d02ae96a88c33">Available metrics: InfluxDB</a></li>
+<li>5.2: <a href="#pg-9756264663f19141b745db1b9a4a4349">Config file format</a></li>
 
 
     
@@ -1076,7 +1061,22 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5.2.2: <a href="#pg-f7f2c65b42830c866c15f72e4fc40815">Available Metrics: New Relic</a></li>
+<li>5.3: <a href="#pg-46ae95baecdd2027c2ee952b27c21456">Available Metrics</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>5.3.1: <a href="#pg-144165adc63bc9876e0d02ae96a88c33">Available metrics: InfluxDB</a></li>
 
 
     
@@ -1095,7 +1095,26 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5.2.3: <a href="#pg-e3fb69bf186bf086b0bffebac03a1dc2">Available Metrics: Prometheus</a></li>
+<li>5.3.2: <a href="#pg-f7f2c65b42830c866c15f72e4fc40815">Available Metrics: New Relic</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>5.3.3: <a href="#pg-e3fb69bf186bf086b0bffebac03a1dc2">Available Metrics: Prometheus</a></li>
 
 
     
@@ -5510,7 +5529,100 @@ In a production setting it&rsquo;s usually a good idea to turn off extraction of
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-9756264663f19141b745db1b9a4a4349">5.1 - Config file format</h1>
+	<h1 id="pg-0f3b13017db18ddf0cdc4c4696a6b595">5.1 - Command line options</h1>
+    <div class="lead">Description of Butler SOS&rsquo; command line options.</div>
+	<!-- 
+
+<div class="pageinfo pageinfo-primary">
+<p>This is a placeholder page that shows you how to use this template site.</p>
+
+</div>
+ -->
+<h2 id="command-line-options">Command line options</h2>
+<p>When starting Butler SOS, you can pass command line options to customize its behavior.<br>
+Looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Usage: butler-sos <span style="color:#ce5c00;font-weight:bold">[</span>options<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Butler SenseOps Stats <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Butler-SOS&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span> is a microservice publishing operational Qlik Sense metrics to InfluxDB, Prometheus and New Relic.
+</span></span><span style="display:flex;"><span>User events and log events can be forwarded from Sense to Butler SOS and <span style="color:#204a87;font-weight:bold">then</span> acted upon there. Events can be stored in InfluxDB and sent to New Relic.
+</span></span><span style="display:flex;"><span>Add Grafana <span style="color:#204a87;font-weight:bold">for</span> great looking dashboards and you get real-time monitoring of what happens inside a Qlik Sense environment.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Options:
+</span></span><span style="display:flex;"><span>  -V, --version                        output the version number
+</span></span><span style="display:flex;"><span>  -c, --configfile &lt;file&gt;              path to config file
+</span></span><span style="display:flex;"><span>  -l, --loglevel &lt;level&gt;               log level <span style="color:#ce5c00;font-weight:bold">(</span>choices: <span style="color:#4e9a06">&#34;error&#34;</span>, <span style="color:#4e9a06">&#34;warn&#34;</span>, <span style="color:#4e9a06">&#34;info&#34;</span>, <span style="color:#4e9a06">&#34;verbose&#34;</span>, <span style="color:#4e9a06">&#34;debug&#34;</span>, <span style="color:#4e9a06">&#34;silly&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  --new-relic-account-name  &lt;name...&gt;  New Relic account name. Used within Butler SOS to differentiate between different target New Relic accounts
+</span></span><span style="display:flex;"><span>  --new-relic-api-key &lt;key...&gt;         insert API key to use with New Relic
+</span></span><span style="display:flex;"><span>  --new-relic-account-id &lt;id...&gt;       New Relic account ID
+</span></span><span style="display:flex;"><span>  --skip-config-verification           Disable config file verification <span style="color:#ce5c00;font-weight:bold">(</span>default: <span style="color:#204a87">false</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  -h, --help                           display <span style="color:#204a87">help</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#204a87">command</span>
+</span></span></code></pre></div><h2 id="-v---version">-V, &ndash;version</h2>
+<p>Output the version number of Butler SOS.</p>
+<h2 id="-c---configfile">-c, &ndash;configfile</h2>
+<p>Specifies the configuration file to use.</p>
+<p>Valid values: A path to a configuration file.</p>
+<p>Default: Whatever is specified in the <code>NODE_ENV</code> environment variable, with a .yaml extension added. Butler SOS will look for that file in the <code>./config</code> directory.</p>
+<p>Example:</p>
+<ul>
+<li><code>-c</code> or <code>--configfile</code> are not specified. <code>NODE_ENV</code> is set to <code>production</code>. Butler SOS will try to read settings from <code>./config/production.yaml</code>.</li>
+</ul>
+<h2 id="-l---loglevel">-l, &ndash;loglevel</h2>
+<p>Specifies the log level to use.<br>
+When set, this overrides the log level specified in the configuration file.</p>
+<p>Valid values: &rsquo;error&rsquo;, &lsquo;warn&rsquo;, &lsquo;info&rsquo;, &lsquo;verbose&rsquo;, &lsquo;debug&rsquo;, &lsquo;silly&rsquo;</p>
+<p>Default: &lsquo;info&rsquo;</p>
+<h2 id="new-relic-related-options">New Relic related options</h2>
+<p>When using New Relic as backend for storing metrics, you can specify New Relic credentials in the config file - but that is not ideal from a security perspective.</p>
+<p>To avoid that, you can specify the New Relic credentials on the command line using the following options.</p>
+<h3 id="--new-relic-account-name">&ndash;new-relic-account-name</h3>
+<p>List of New Relic account names. Used within Butler SOS to differentiate between different target New Relic accounts to which data can be sent. This name has nothing to do with the account name used in New Relic - it&rsquo;s purely for Butler SOS&rsquo; internal use.<br>
+Specifically, it&rsquo;s at multiple places in the config file where you can specificy to which New Relic account to send data.</p>
+<p>Enclose account names in quotes if they contain spaces.<br>
+Separate multiple account names with a space.</p>
+<p>Example: <code>--new-relic-account-name &quot;Account 1&quot; &quot;Account 2&quot;</code></p>
+<h3 id="--new-relic-api-key">&ndash;new-relic-api-key</h3>
+<p>List of New Relic API keys. Used to authenticate with New Relic.</p>
+<p>Enclose API keys in quotes if they contain spaces.<br>
+Separate multiple API keys with a space. Note that the order of the API keys must match the order of the account names, i.e. the first API key corresponds to the first account name, the second API key corresponds to the second account name, and so on.</p>
+<p>Example: <code>--new-relic-api-key &quot;API key 1&quot; &quot;API key 2&quot;</code></p>
+<h3 id="--new-relic-account-id">&ndash;new-relic-account-id</h3>
+<p>List of New Relic account IDs. Used to identify the New Relic account to which data should be sent.</p>
+<p>Enclose account IDs in quotes if they contain spaces.<br>
+Separate multiple account IDs with a space. Note that the order of the account IDs must match the order of the account names, i.e. the first account ID corresponds to the first account name, the second account ID corresponds to the second account name, and so on.</p>
+<h2 id="--skip-config-verification">&ndash;skip-config-verification</h2>
+<p>Disable config file verification.</p>
+<p>By default, Butler SOS verifies the config file when it starts. If the config file is invalid, Butler SOS will log an error and exit.<br>
+Use this option to disable config file verification.</p>
+<h2 id="-h---help">-h, &ndash;help</h2>
+<p>Display help for command.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9756264663f19141b745db1b9a4a4349">5.2 - Config file format</h1>
     <div class="lead">Everything you ever wanted to know about the Butler SOS configuration file.</div>
 	<style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
 <div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice tip" >
@@ -6396,7 +6508,7 @@ It is no longer installed when doing fresh QSEoW installs.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-46ae95baecdd2027c2ee952b27c21456">5.2 - Available Metrics</h1>
+	<h1 id="pg-46ae95baecdd2027c2ee952b27c21456">5.3 - Available Metrics</h1>
     <div class="lead">In order to create graphs in for example Grafana, you must understand what metrics are available and how they are structured.</div>
 	
 </div>
@@ -6421,7 +6533,7 @@ It is no longer installed when doing fresh QSEoW installs.</p>
 
 <div class="td-content" style="">
     
-	<h1 id="pg-144165adc63bc9876e0d02ae96a88c33">5.2.1 - Available metrics: InfluxDB</h1>
+	<h1 id="pg-144165adc63bc9876e0d02ae96a88c33">5.3.1 - Available metrics: InfluxDB</h1>
     <div class="lead">In order to create dashboards in for example Grafana, you must understand what metrics are available and how they are structured.</div>
 	<h2 id="influxdb">InfluxDB</h2>
 <p>Metrics retrieved from the Sense servers can be stored in an <a href="https://www.influxdata.com/products/influxdb-overview/">InfluxDB</a> database. You don&rsquo;t have to be an InfluxDB expert to use Butler SOS, but understanding some basic concepts are helpful.</p>
@@ -7731,7 +7843,7 @@ More info on these metrics and what they mean is available <a href="https://www.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-f7f2c65b42830c866c15f72e4fc40815">5.2.2 - Available Metrics: New Relic</h1>
+	<h1 id="pg-f7f2c65b42830c866c15f72e4fc40815">5.3.2 - Available Metrics: New Relic</h1>
     <div class="lead">Once data has been sent to New Relic, its web based user interface makes it very intuitive to both create charts and combine these into dashboards.</div>
 	<h2 id="new-relic">New Relic</h2>
 <p><a href="https://newrelic.com">New Relic</a> offers a complete SaaS observablity stack, ranging from high-volume ingestion of events/metrics/logs/traces to advanced dashboards that can be created ad-hoc using a web UI or from files and templates, for more of an infrastructure-as-code approach.</p>
@@ -7795,7 +7907,7 @@ The completed trace gives you a picture of the entire request.</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-e3fb69bf186bf086b0bffebac03a1dc2">5.2.3 - Available Metrics: Prometheus</h1>
+	<h1 id="pg-e3fb69bf186bf086b0bffebac03a1dc2">5.3.3 - Available Metrics: Prometheus</h1>
     <div class="lead">In order to create graphs in for example Grafana, you must understand what metrics are available and how they are structured.</div>
 	<h2 id="prometheus">Prometheus</h2>
 <p>Metrics retrieved from the Sense servers can be stored in <a href="https://prometheus.io">Prometheus</a>. You don&rsquo;t have to be a Prometheus expert to use Butler SOS, but understanding some basic concepts are helpful.</p>

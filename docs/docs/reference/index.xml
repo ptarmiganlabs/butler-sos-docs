@@ -15,6 +15,83 @@
     
     
     <item>
+      <title>Docs: Command line options</title>
+      <link>https://butler-sos.ptarmiganlabs.com/docs/reference/command-line-options/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-sos.ptarmiganlabs.com/docs/reference/command-line-options/</guid>
+      <description>
+        
+        
+        &lt;!-- 
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;This is a placeholder page that shows you how to use this template site.&lt;/p&gt;
+
+&lt;/div&gt;
+ --&gt;
+&lt;h2 id=&#34;command-line-options&#34;&gt;Command line options&lt;/h2&gt;
+&lt;p&gt;When starting Butler SOS, you can pass command line options to customize its behavior.&lt;br&gt;
+Looks like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Usage: butler-sos &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;options&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Butler SenseOps Stats &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Butler-SOS&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; is a microservice publishing operational Qlik Sense metrics to InfluxDB, Prometheus and New Relic.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;User events and log events can be forwarded from Sense to Butler SOS and &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;then&lt;/span&gt; acted upon there. Events can be stored in InfluxDB and sent to New Relic.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Add Grafana &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; great looking dashboards and you get real-time monitoring of what happens inside a Qlik Sense environment.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Options:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -V, --version                        output the version number
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -c, --configfile &amp;lt;file&amp;gt;              path to config file
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -l, --loglevel &amp;lt;level&amp;gt;               log level &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;choices: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;error&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;warn&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;info&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;verbose&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;debug&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;silly&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --new-relic-account-name  &amp;lt;name...&amp;gt;  New Relic account name. Used within Butler SOS to differentiate between different target New Relic accounts
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --new-relic-api-key &amp;lt;key...&amp;gt;         insert API key to use with New Relic
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --new-relic-account-id &amp;lt;id...&amp;gt;       New Relic account ID
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --skip-config-verification           Disable config file verification &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;default: &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -h, --help                           display &lt;span style=&#34;color:#204a87&#34;&gt;help&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;command&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;-v---version&#34;&gt;-V, &amp;ndash;version&lt;/h2&gt;
+&lt;p&gt;Output the version number of Butler SOS.&lt;/p&gt;
+&lt;h2 id=&#34;-c---configfile&#34;&gt;-c, &amp;ndash;configfile&lt;/h2&gt;
+&lt;p&gt;Specifies the configuration file to use.&lt;/p&gt;
+&lt;p&gt;Valid values: A path to a configuration file.&lt;/p&gt;
+&lt;p&gt;Default: Whatever is specified in the &lt;code&gt;NODE_ENV&lt;/code&gt; environment variable, with a .yaml extension added. Butler SOS will look for that file in the &lt;code&gt;./config&lt;/code&gt; directory.&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-c&lt;/code&gt; or &lt;code&gt;--configfile&lt;/code&gt; are not specified. &lt;code&gt;NODE_ENV&lt;/code&gt; is set to &lt;code&gt;production&lt;/code&gt;. Butler SOS will try to read settings from &lt;code&gt;./config/production.yaml&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;-l---loglevel&#34;&gt;-l, &amp;ndash;loglevel&lt;/h2&gt;
+&lt;p&gt;Specifies the log level to use.&lt;br&gt;
+When set, this overrides the log level specified in the configuration file.&lt;/p&gt;
+&lt;p&gt;Valid values: &amp;rsquo;error&amp;rsquo;, &amp;lsquo;warn&amp;rsquo;, &amp;lsquo;info&amp;rsquo;, &amp;lsquo;verbose&amp;rsquo;, &amp;lsquo;debug&amp;rsquo;, &amp;lsquo;silly&amp;rsquo;&lt;/p&gt;
+&lt;p&gt;Default: &amp;lsquo;info&amp;rsquo;&lt;/p&gt;
+&lt;h2 id=&#34;new-relic-related-options&#34;&gt;New Relic related options&lt;/h2&gt;
+&lt;p&gt;When using New Relic as backend for storing metrics, you can specify New Relic credentials in the config file - but that is not ideal from a security perspective.&lt;/p&gt;
+&lt;p&gt;To avoid that, you can specify the New Relic credentials on the command line using the following options.&lt;/p&gt;
+&lt;h3 id=&#34;--new-relic-account-name&#34;&gt;&amp;ndash;new-relic-account-name&lt;/h3&gt;
+&lt;p&gt;List of New Relic account names. Used within Butler SOS to differentiate between different target New Relic accounts to which data can be sent. This name has nothing to do with the account name used in New Relic - it&amp;rsquo;s purely for Butler SOS&amp;rsquo; internal use.&lt;br&gt;
+Specifically, it&amp;rsquo;s at multiple places in the config file where you can specificy to which New Relic account to send data.&lt;/p&gt;
+&lt;p&gt;Enclose account names in quotes if they contain spaces.&lt;br&gt;
+Separate multiple account names with a space.&lt;/p&gt;
+&lt;p&gt;Example: &lt;code&gt;--new-relic-account-name &amp;quot;Account 1&amp;quot; &amp;quot;Account 2&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;--new-relic-api-key&#34;&gt;&amp;ndash;new-relic-api-key&lt;/h3&gt;
+&lt;p&gt;List of New Relic API keys. Used to authenticate with New Relic.&lt;/p&gt;
+&lt;p&gt;Enclose API keys in quotes if they contain spaces.&lt;br&gt;
+Separate multiple API keys with a space. Note that the order of the API keys must match the order of the account names, i.e. the first API key corresponds to the first account name, the second API key corresponds to the second account name, and so on.&lt;/p&gt;
+&lt;p&gt;Example: &lt;code&gt;--new-relic-api-key &amp;quot;API key 1&amp;quot; &amp;quot;API key 2&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;--new-relic-account-id&#34;&gt;&amp;ndash;new-relic-account-id&lt;/h3&gt;
+&lt;p&gt;List of New Relic account IDs. Used to identify the New Relic account to which data should be sent.&lt;/p&gt;
+&lt;p&gt;Enclose account IDs in quotes if they contain spaces.&lt;br&gt;
+Separate multiple account IDs with a space. Note that the order of the account IDs must match the order of the account names, i.e. the first account ID corresponds to the first account name, the second account ID corresponds to the second account name, and so on.&lt;/p&gt;
+&lt;h2 id=&#34;--skip-config-verification&#34;&gt;&amp;ndash;skip-config-verification&lt;/h2&gt;
+&lt;p&gt;Disable config file verification.&lt;/p&gt;
+&lt;p&gt;By default, Butler SOS verifies the config file when it starts. If the config file is invalid, Butler SOS will log an error and exit.&lt;br&gt;
+Use this option to disable config file verification.&lt;/p&gt;
+&lt;h2 id=&#34;-h---help&#34;&gt;-h, &amp;ndash;help&lt;/h2&gt;
+&lt;p&gt;Display help for command.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Config file format</title>
       <link>https://butler-sos.ptarmiganlabs.com/docs/reference/config_file_format/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
