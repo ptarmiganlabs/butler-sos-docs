@@ -8,7 +8,7 @@ description: >
 
 
 {{< notice warning >}}
-# Work in progress
+## Work in progress
 
 While Butler SOS' Prometheus support is functional and works well, this documentation page is not yet complete.
 {{< /notice >}}
@@ -118,7 +118,6 @@ networks:
 Assuming you've already completed the [setup of Butler SOS](/docs/getting_started/setup/), the result of running the `docker-compose_fullstack_prometheus.yml` file above is something like this:
 
 ```bash
-
 ...
 ...
 ```

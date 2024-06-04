@@ -1,15 +1,14 @@
 <!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.122.0">
-<link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/">
-<link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/index.xml">
+<meta name="generator" content="Hugo 0.126.1">
+<link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/docs/index.xml">
 <meta name="robots" content="noindex, nofollow">
 <script defer data-domain="butler-sos.ptarmiganlabs.com" src="https://plausible.io/js/script.js"></script>
 
-<link rel="canonical" href="https://butler-sos.ptarmiganlabs.com/docs/" />
+<link rel="canonical" href="http://localhost:1313/docs/printview/" />
 
 
 
@@ -29,86 +28,71 @@
 
 
 ">
-<meta property="og:title" content="Documentation" />
-<meta property="og:description" content="Butler SOS documentation" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://butler-sos.ptarmiganlabs.com/docs/" /><meta property="og:site_name" content="Butler SOS" />
+<meta property="og:url" content="http://localhost:1313/docs/printview/">
+  <meta property="og:site_name" content="Butler SOS">
+  <meta property="og:title" content="Documentation">
+  <meta property="og:description" content="Tip
+Starting with version 9.3, the GitHub releases page is the place where release notes are found.
+Release notes for older versions are found below.
+What’s new in version 9.2 Features Add support for storing Sense engine warning/error log messages in InfluxDB. #435 Specify zero or more New Relic credentials via command line options. #429 Support for sending metrics and events to multiple New Relic accounts. #417 Write info on startup about execution type.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
 
-<meta itemprop="name" content="Documentation">
-<meta itemprop="description" content="Butler SOS documentation"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Documentation"/>
-<meta name="twitter:description" content="Butler SOS documentation"/>
+  <meta itemprop="name" content="Documentation">
+  <meta itemprop="description" content="Tip
+Starting with version 9.3, the GitHub releases page is the place where release notes are found.
+Release notes for older versions are found below.
+What’s new in version 9.2 Features Add support for storing Sense engine warning/error log messages in InfluxDB. #435 Specify zero or more New Relic credentials via command line options. #429 Support for sending metrics and events to multiple New Relic accounts. #417 Write info on startup about execution type.">
+  <meta itemprop="dateModified" content="2024-04-15T08:23:17+02:00">
+  <meta itemprop="wordCount" content="1700">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Documentation">
+  <meta name="twitter:description" content="Tip
+Starting with version 9.3, the GitHub releases page is the place where release notes are found.
+Release notes for older versions are found below.
+What’s new in version 9.2 Features Add support for storing Sense engine warning/error log messages in InfluxDB. #435 Specify zero or more New Relic credentials via command line options. #429 Support for sending metrics and events to multiple New Relic accounts. #417 Write info on startup about execution type.">
 
 
 
 
-<link rel="preload" href="/scss/main.min.79e3930541ca05b5395c14b2a313b798fad1dc69f9a14aefa57b62eaa9f65f14.css" as="style">
-<link href="/scss/main.min.79e3930541ca05b5395c14b2a313b798fad1dc69f9a14aefa57b62eaa9f65f14.css" rel="stylesheet" integrity="">
+
+<link href="/scss/main.css" rel="stylesheet">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
   crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
 
   </head>
   <body class="td-section">
     <header>
-      
-<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
-        <a class="navbar-brand" href="/">
-		<span class="navbar-logo"><svg width="200" height="109" viewBox="0 0 200 109" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><image id="image" width="200" height="109" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZgAATU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAyKADAAQAAAABAAAAbQAAAAD/7QA4UGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAAA4QklNBCUAAAAAABDUHYzZjwCyBOmACZjs+EJ+/8AAEQgAbQDIAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/bAEMAAgICAgICAwICAwUDAwMFBgUFBQUGCAYGBgYGCAoICAgICAgKCgoKCgoKCgwMDAwMDA4ODg4ODw8PDw8PDw8PD//bAEMBAgICBAQEBwQEBxALCQsQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEP/dAAQADf/aAAwDAQACEQMRAD8A+B6KKK/Cz/SQKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9D4Hooor8LP9JAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/0fgeiiivws/0kCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/S+B6KKK/Cz/SQKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9P4Hooor8LP9JAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/1Pgeiiivws/0kCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/V+B6KKK/Cz/SQKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9k="/></defs><use id="Background-Layer" xlink:href="#image" x="0" y="0" width="200" height="109"/><defs><image id="image-1" width="65" height="95" xlink:href="data:image/png;base64,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"/></defs><use id="Butler" xlink:href="#image-1" x="6" y="4" width="65" height="95"/><defs><text id="string" transform="matrix(1.0 0.0 0.0 1.0 20.045454545460004 16.51333333334)" fill="#fff" font-family="HelveticaNeue-Bold, Helvetica Neue" y="34" x="55.98623999999998" font-size="34.848" text-decoration="none">Butler</text></defs><use id="Butler-1" xlink:href="#string"/><defs><text id="string-1" transform="matrix(1.0 0.0 0.0 1.0 55.86363636364 54.400000000000006)" fill="#fff" font-family="HelveticaNeue-BoldItalic, Helvetica Neue" y="17" x="83.862624" font-size="17.424" text-decoration="none">SOS</text></defs><use id="BUTLER-copy" xlink:href="#string-1"/></svg></span><span class="font-weight-bold">Butler SOS</span>
-	</a>
-	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
-		<ul class="navbar-nav mt-2 mt-lg-0">
-			
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0">
-				
-				
-				
-				
-				
-				
-				
-				
-				<a class="nav-link" href="/about/" ><span>About</span></a>
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0">
-				
-				
-				
-				
-				
-				
-				
-				
-				<a class="nav-link active" href="/docs/" ><span class="active">Documentation</span></a>
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0">
-				
-				
-				
-				
-				
-				
-				
-				
-				<a class="nav-link" href="/community/" ><span>Community</span></a>
-			</li>
-			
-			
-			
-		</ul>
-	</div>
-	<div class="navbar-nav d-none d-lg-block"></div>
+      <nav class="td-navbar js-navbar-scroll" data-bs-theme="dark">
+<div class="container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg width="200" height="109" viewBox="0 0 200 109" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><image id="image" width="200" height="109" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZgAATU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAyKADAAQAAAABAAAAbQAAAAD/7QA4UGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAAA4QklNBCUAAAAAABDUHYzZjwCyBOmACZjs+EJ+/8AAEQgAbQDIAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/bAEMAAgICAgICAwICAwUDAwMFBgUFBQUGCAYGBgYGCAoICAgICAgKCgoKCgoKCgwMDAwMDA4ODg4ODw8PDw8PDw8PD//bAEMBAgICBAQEBwQEBxALCQsQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEP/dAAQADf/aAAwDAQACEQMRAD8A+B6KKK/Cz/SQKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9D4Hooor8LP9JAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/0fgeiiivws/0kCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/S+B6KKK/Cz/SQKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9P4Hooor8LP9JAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/1Pgeiiivws/0kCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/V+B6KKK/Cz/SQKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9k="/></defs><use id="Background-Layer" xlink:href="#image" x="0" y="0" width="200" height="109"/><defs><image id="image-1" width="65" height="95" xlink:href="data:image/png;base64,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"/></defs><use id="Butler" xlink:href="#image-1" x="6" y="4" width="65" height="95"/><defs><text id="string" transform="matrix(1.0 0.0 0.0 1.0 20.045454545460004 16.51333333334)" fill="#fff" font-family="HelveticaNeue-Bold, Helvetica Neue" y="34" x="55.98623999999998" font-size="34.848" text-decoration="none">Butler</text></defs><use id="Butler-1" xlink:href="#string"/><defs><text id="string-1" transform="matrix(1.0 0.0 0.0 1.0 55.86363636364 54.400000000000006)" fill="#fff" font-family="HelveticaNeue-BoldItalic, Helvetica Neue" y="17" x="83.862624" font-size="17.424" text-decoration="none">SOS</text></defs><use id="BUTLER-copy" xlink:href="#string-1"/></svg></span><span class="navbar-brand__name">Butler SOS</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/about/printview/"><span>About</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/docs/printview/"><span>Documentation</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/community/printview/"><span>Community</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    
+  </div>
+</div>
 </nav>
-
     </header>
     <div class="container-fluid td-outer">
       <div class="td-main">
         <div class="row flex-xl-nowrap">
-          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
             
 
 
@@ -120,7 +104,7 @@
 This is the multi-page printable view of this section.
 <a href="#" onclick="print();return false;">Click here to print</a>.
 </p><p>
-<a href="/docs/">Return to the regular view of this page</a>.
+<a href="/docs/printview/">Return to the regular view of this page</a>.
 </p>
 </div>
 
@@ -1325,7 +1309,7 @@ The rationale for adding telemetry is to give Butler SOS developers a better und
 <li>Continuing the journey towards using the same formatting principles in the config files for all the various Butler tools.<br>
 In Butler SOS&rsquo; config file there&rsquo;s been a mix between &ldquo;enabled&rdquo;, &ldquo;enable&rdquo;, &ldquo;enableMqtt&rdquo; etc to tell whether a certain feature should be enabled or not. Confusing.
 We&rsquo;re moving towards only using &ldquo;enable&rdquo; for this. This release changes this for most config file entries.
-Rest assured though, the old format will still work - but you are <strong>strongly</strong> recommended to adapt the <a href="/docs/reference/config_file_format/">current config file format</a> as it includes settings for other new (as of version 5.6) features too.</li>
+Rest assured though, the old format will still work - but you are <strong>strongly</strong> recommended to adapt the <a href="/docs/reference/config_file_format/printview/">current config file format</a> as it includes settings for other new (as of version 5.6) features too.</li>
 <li>Major refactoring of the documentation site <a href="https://butler-sos.ptarmiganlabs.com">butler-sos.ptarmiganlabs.com</a>. This site is now more aligned with other Butler sites, for example <a href="https://butler.ptarmiganlabs.com">butler.ptarmiganlabs.com</a>.</li>
 <li>Various bug fixes, performance improvements and fixed typos.</li>
 </ul>
@@ -1335,9 +1319,11 @@ Rest assured though, the old format will still work - but you are <strong>strong
 </ul>
 <h3 id="whats-new-in-version-54">What&rsquo;s new in version 5.4</h3>
 <p>This video gives an idea of what Butler SOS is capable of.</p>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/CCMr8svrJXI?autoplay=1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+<pre><code>&lt;div style=&quot;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&quot;&gt;
+  &lt;iframe allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen=&quot;allowfullscreen&quot; loading=&quot;eager&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; src=&quot;https://www.youtube.com/embed/CCMr8svrJXI?autoplay=1&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=1&amp;start=0&quot; style=&quot;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&quot; title=&quot;YouTube video&quot;
+  &gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</code></pre>
 <br>
 <br>
 <p>Highlights of version 5.4 include:</p>
@@ -1422,7 +1408,7 @@ In practice this means that features can be turned on/off as needed, improving s
 <p>Butler SOS is written in <a href="https://nodejs.org/en/">Node.js</a> and runs on most modern operating systems.<br>
 Stand-alone binary files are created for Windows, Linux and macOS.</p>
 <p>You can run Butler SOS on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).</p>
-<p>Butler SOS is a member of a group of tools collectively referred to as the &ldquo;Butler family&rdquo;, more info is available <a href="/docs/about/butler-family">here</a>.</p>
+<p>Butler SOS is a member of a group of tools collectively referred to as the &ldquo;Butler family&rdquo;, more info is available <a href="/docs/about/butler-family/">here</a>.</p>
 
 </div>
 
@@ -1509,7 +1495,7 @@ Using Butler CW is an easy way to make your end users&rsquo; experience of Sense
     
 	<h1 id="pg-f4e58fe39d282d36514d33b47cd33235">1.3 - Use cases</h1>
     <div class="lead">How can Butler SOS be used?</div>
-	<p>A complete list of metrics is available in the <a href="/docs/reference/available_metrics/">reference section</a>.</p>
+	<p>A complete list of metrics is available in the <a href="/docs/reference/available_metrics/printview/">reference section</a>.</p>
 <h2 id="monitor-qlik-sense-metrics">Monitor Qlik Sense metrics</h2>
 <p>This is the main use case for Butler SOS, with a large number of monitored metrics.<br>
 Butler SOS can be configured to store these metrics in InfluxDB/Prometheus and/or send them as MQTT messages.</p>
@@ -1593,9 +1579,12 @@ Get a notification the very moment the user connects to Sense after which you ca
 Red = User closing connection to Sense</p>
 <p>From <a href="https://www.youtube.com/watch?v=T_IxQYdoqJA">YouTube</a>.</p>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/T_IxQYdoqJA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/T_IxQYdoqJA?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 
 </div>
@@ -1811,7 +1800,7 @@ Or the fact that Qlik released some new feature in Sense and Butler SOS was a wa
 <li>Same thing for understanding what operating systems Butler SOS runs (and should be supported) on.</li>
 </ul>
 <h3 id="configuring-butler-sos-telemetry">Configuring Butler SOS&rsquo; telemetry</h3>
-<p>Instructions <a href="/docs/getting_started/setup/telemetry/">here</a>.</p>
+<p>Instructions <a href="/docs/getting_started/setup/telemetry/printview/">here</a>.</p>
 <h2 id="the-details">The details</h2>
 
 
@@ -1849,7 +1838,7 @@ This is critical information when it comes to planning where to focus future dev
 The data is stored in the EU.</p>
 <h3 id="deleting-telemetry-data">Deleting telemetry data</h3>
 <p>Even though no-one (not even Ptarmigan Labs who runs the telemetry database!) has any way of ever connecting the data sent by <em>your</em> Butler SOS instance to <em>you</em> (it&rsquo;s all anonymized, remember?), there can be cases where telemetry data must be deleted.</p>
-<p>The <a href="/docs/legal_stuff/#telemetry-data">legal page</a> has more information about this.</p>
+<p>The <a href="/docs/legal_stuff/printview/#telemetry-data">legal page</a> has more information about this.</p>
 <h3 id="field-level-description-of-telemetry-data">Field level description of telemetry data</h3>
 <p>A telemetry message from Butler SOS contains the information below.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
@@ -1992,7 +1981,7 @@ For example, you need to export certificates from the QMC, as well as installing
 
 </div>
  -->
-<p><img src="/butler-sos-overview-1.png" alt="Butler SOS"></p>
+<p><img alt="Butler SOS" src="/butler-sos-overview-1.png"></p>
 <h2 id="qlik-sense--devops--senseops">Qlik Sense + DevOps = SenseOps</h2>
 <p>Butler SenseOps Stats (&ldquo;Butler SOS&rdquo;) is a monitoring tool for <a href="https://www.qlik.com/us/products/qlik-sense">Qlik Sense</a>, built with DevOps workflows in mind.</p>
 <p>It publishes operational, close to real-time Qlik Sense Enterprise metrics to <a href="https://www.influxdata.com/time-series-platform/influxdb/">InfluxDB</a>, <a href="https://prometheus.io">Prometheus</a>, <a href="https://newrelic.com">New Relic</a> and <a href="https://en.wikipedia.org/wiki/MQTT">MQTT</a>. From there it can be visualised using tools like <a href="https://grafana.com/">Grafana</a>, New Relic or acted on by downstream systems that listen to the MQTT topics used by Butler SOS.</p>
@@ -2008,9 +1997,9 @@ It also pulls log events from <a href="https://help.qlik.com/en-US/sense-admin/M
 The Ops Monitor app is great for retrospective analysis of what happened in a Qlik Sense environment, but for a real-time understanding of what&rsquo;s going on in a Sense environment something else is needed - enter Butler SOS.</p>
 <p>The most common way of using Butler SOS is for creating real-time dashboards based on the data in the InfluxDB or Prometheus database, showing operational metrics for a Qlik Sense Enterprise environment.</p>
 <p>Sample screen shots of <a href="https://grafana.com/">Grafana</a> dashboards created using data extracted by Butler SOS:</p>
-<p><img src="butlersos_5_4_main_metrics.png" alt="Grafana dashboard" title="SenseOps dashboard showing errors and warnings, using Grafana 7"></p>
-<p><img src="senseOps_dashboard_3.png" alt="Grafana dashboard" title="SenseOps dashboard showing errors and warnings, using Grafana 6"></p>
-<p><img src="senseOps_dashboard_4.png" alt="Grafana dashboard" title="SenseOps dashboard showing Qlik Sense metrics, using Grafana 6"></p>
+<p><img alt="Grafana dashboard" src="/docs/getting_started/overview/printview/butlersos_5_4_main_metrics.png" title="SenseOps dashboard showing errors and warnings, using Grafana 7"></p>
+<p><img alt="Grafana dashboard" src="/docs/getting_started/overview/printview/senseOps_dashboard_3.png" title="SenseOps dashboard showing errors and warnings, using Grafana 6"></p>
+<p><img alt="Grafana dashboard" src="/docs/getting_started/overview/printview/senseOps_dashboard_4.png" title="SenseOps dashboard showing Qlik Sense metrics, using Grafana 6"></p>
 <p>As mentioned above, Butler SOS can also send data to <a href="https://en.wikipedia.org/wiki/MQTT">MQTT</a> for use in any MQTT enabled tool or system.</p>
 <h2 id="known-limitations--improvement-ideas">Known limitations &amp; improvement ideas</h2>
 <p>Things can always be improved, of course. Here are some ideas on things for future versions:</p>
@@ -2024,8 +2013,8 @@ A better approach would be to send more detailed MQTT messages. Those would be e
 <p>Ready to move on?</p>
 <p>Great! Here are some good starting points</p>
 <ul>
-<li><a href="/docs/examples/">Examples</a>: Check out some Grafana dashboards to get inspiration what can be done!</li>
-<li><a href="/docs/getting_started/">Installation &amp; setup</a>: Learn how to install Butler SOS, then set it up according to your needs.</li>
+<li><a href="/docs/examples/printview/">Examples</a>: Check out some Grafana dashboards to get inspiration what can be done!</li>
+<li><a href="/docs/getting_started/printview/">Installation &amp; setup</a>: Learn how to install Butler SOS, then set it up according to your needs.</li>
 </ul>
 <h2 id="i-have-a-question-or-want-to-report-an-issue">I have a question or want to report an issue</h2>
 <p>Feel free to reach out via <a href="https://github.com/ptarmiganlabs/butler-sos/discussions">GitHub discussions</a> for general questions, <a href="https://github.com/ptarmiganlabs/butler-sos/issues">GitHub issues</a> for bugs, or by email to <a href="mailto:info@ptarmiganlabs.com">info@ptarmiganlabs.com</a>.</p>
@@ -2307,23 +2296,18 @@ The first is by far easier to set up and maintain and thus recommended.</p>
 <li>Move the extracted <code>butler-sos.exe</code> file to desired location, for example <code>d:\tools\butler-sos</code></li>
 <li>Use <a href="https://nssm.cc/download">nssm</a> or similar tool to install Butler SOS as a Windows service</li>
 </ol>
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 410px">
+<img class="card-img-top" src="/docs/getting_started/install/native/windows/printview/unblock-butler-sos-windows-1_hu120b59aaec49bf3d577d7f8be27a0445_303493_400x0_resize_catmullrom_3.png" width="400" height="562">
+<figcaption class="card-body px-0 pt-2 pb-0">
+<p class="card-text">
 
 
-
-
-
-
-
-<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 410px">
-	<img class="card-img-top" src="/docs/getting_started/install/native/windows/unblock-butler-sos-windows-1_hu120b59aaec49bf3d577d7f8be27a0445_303493_400x0_resize_catmullrom_3.png" width="400" height="562">
-	
-	<div class="card-body px-0 pt-2 pb-0">
-		<p class="card-text">
 Unblocking the Butler SOS zip file on Windows Server
+
 </p>
-	</div>
-	
-</div>
+</figcaption>
+</figure>
+
 <h3 id="using-nodejs">Using Node.js</h3>
 <p>In this scenario you will use the Butler SOS source code together with the standard Node.js runtime libraries.</p>
 <p>The result is the same as with the stand-alone binaries, you just have to do more of the work yourself.<br>
@@ -2400,9 +2384,9 @@ The first is by far easier to set up and maintain and thus recommended.</p>
 <li>Use the process monitor of choice (see below) to make sure Butler SOS is always running</li>
 </ol>
 <h3 id="using-nodejs">Using Node.js</h3>
-<p>This scenario is identical to the <a href="/docs/getting_started/install/native/windows/">Windows scenario</a>, please refer to that page for details. Keep in mind that the format of file systems paths differ between Windows and Linxu/Mac OS.</p>
+<p>This scenario is identical to the <a href="/docs/getting_started/install/native/windows/printview/">Windows scenario</a>, please refer to that page for details. Keep in mind that the format of file systems paths differ between Windows and Linxu/Mac OS.</p>
 <h2 id="configuration">Configuration</h2>
-<p>Once again, same thing as <a href="/docs/getting_started/install/native/windows/">on Windows</a>.</p>
+<p>Once again, same thing as <a href="/docs/getting_started/install/native/windows/printview/">on Windows</a>.</p>
 <h2 id="stayin-alive">Stayin&rsquo; alive</h2>
 <p>A Node process monitor can be used on Linux or Mac OS too.<br>
 Tools like <a href="http://pm2.keymetrics.io/">PM2</a> in fact usually work better on Linux/Mac OS than on Windows.</p>
@@ -2448,7 +2432,7 @@ Tools like <a href="http://pm2.keymetrics.io/">PM2</a> in fact usually work bett
 <li>arm64: Arm servers are now available from most cloud providers and offer very competetive price/performance. Apple&rsquo;s new M1 CPUs also use arm64, as does the newer Raspberry Pi models.</li>
 <li>arm/v7: An older Arm architecture found in previous-gen Raspberry Pis, for example.</li>
 </ul>
-<p>All images are available on <a href="https://hub.docker.com/r/ptarmiganlabs/butler-sos/tags?page=1&amp;ordering=last_updated">Docker Hub</a>.</p></div>
+<p>All images are available on <a href="https://hub.docker.com/r/ptarmiganlabs/butler-sos/tags?page=1&ordering=last_updated">Docker Hub</a>.</p></div>
 
 <p>Docker is great in that it runs on many different platforms.<br>
 This means that as long as the Docker runtime environment is installed, you can run Butler SOS on your Mac laptop, on a Linux server or on a Windows server.<br>
@@ -2698,7 +2682,7 @@ On the other hand, having separate docker-compose files makes it easier to resta
 </span></span><span style="display:flex;"><span>        driver: bridge
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>➜  butler-sos-docker
-</span></span></code></pre></div><p>Assuming you&rsquo;ve already completed the <a href="/docs/getting_started/setup/">setup of Butler SOS</a>, the result of running the <code>docker-compose_fullstack_influxdb.yml</code> file above is something like this:</p>
+</span></span></code></pre></div><p>Assuming you&rsquo;ve already completed the <a href="/docs/getting_started/setup/printview/">setup of Butler SOS</a>, the result of running the <code>docker-compose_fullstack_influxdb.yml</code> file above is something like this:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>➜  butler-sos-docker docker-compose -f docker-compose_fullstack_influxdb.yml up
 </span></span><span style="display:flex;"><span>Creating network <span style="color:#4e9a06">&#34;butler-sos-docker_senseops&#34;</span> with driver <span style="color:#4e9a06">&#34;bridge&#34;</span>
 </span></span><span style="display:flex;"><span>Creating influxdb   ... <span style="color:#204a87;font-weight:bold">done</span>
@@ -2776,42 +2760,32 @@ Let&rsquo;s check this by going into Grafana, which is available on port 3000.</
 <p>First time logging into a new Grafana instance you can use the default admin acount (username=admin, password=admin).<br>
 You will be asked to change that password during first login.</p>
 <p>First add a data source in Grafana, pointing it to the local InfluxDB server.</p>
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+<img class="card-img-top" src="/docs/getting_started/install/influxdb_grafana/printview/grafana-influxdb-datasource-1_huf87d48ef93429e6df2ded65e93e1941f_375073_800x0_resize_catmullrom_3.png" width="800" height="918">
+<figcaption class="card-body px-0 pt-2 pb-0">
+<p class="card-text">
 
 
-
-
-
-
-
-<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
-	<img class="card-img-top" src="/docs/getting_started/install/influxdb_grafana/grafana-influxdb-datasource-1_huf87d48ef93429e6df2ded65e93e1941f_375073_800x0_resize_catmullrom_3.png" width="800" height="918">
-	
-	<div class="card-body px-0 pt-2 pb-0">
-		<p class="card-text">
 Adding an InfluxDB datasource in Grafana
+
 </p>
-	</div>
-	
-</div>
+</figcaption>
+</figure>
+
 <p>Now we can create a basic chart in Grafana, showing for example Butler SOS&rsquo; own memory usage.<br>
 After a while we should see some data in the chart:</p>
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1034px">
+<img class="card-img-top" src="/docs/getting_started/install/influxdb_grafana/printview/grafana-chart-1_hu914e16c8d82c9d5b9ddb4ef00024dfcf_603808_1024x0_resize_catmullrom_3.png" width="1024" height="587">
+<figcaption class="card-body px-0 pt-2 pb-0">
+<p class="card-text">
 
 
-
-
-
-
-
-<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1034px">
-	<img class="card-img-top" src="/docs/getting_started/install/influxdb_grafana/grafana-chart-1_hu914e16c8d82c9d5b9ddb4ef00024dfcf_603808_1024x0_resize_catmullrom_3.png" width="1024" height="587">
-	
-	<div class="card-body px-0 pt-2 pb-0">
-		<p class="card-text">
 Butler SOS' own memory usage, stored in InfluxDB and visualised in Grafana
+
 </p>
-	</div>
-	
-</div>
+</figcaption>
+</figure>
+
 <p>Need to stop the entire stack of tools?<br>
 Easy - just run <code>docker-compose -f docker-compose_fullstack_influxdb.yml down</code>:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>➜  butler-sos-docker docker-compose -f docker-compose_fullstack_influxdb.yml down
@@ -2863,7 +2837,7 @@ Easy - just run <code>docker-compose -f docker-compose_fullstack_influxdb.yml do
 In fact, it&rsquo;s probably the closest thing there is to a de facto standard for monitoring large scale software systems today.<br>
 No matter if you run Kubernetes cluster spanning multiple data centers and continents, or just a single Butler SOS instance - Prometheus is an excellent choice for monitoring of operational metrics.</p>
 <p>That power and flexibility also means it can be challenging to set up Prometheus.<br>
-Usually it&rsquo;s not that difficult, but if you&rsquo;re new to Docker and has no previous experience with monitoring tools, <a href="/docs/getting_started/install/influxdb_grafana/">using InfluxDB</a> is usually a bit easier.</p>
+Usually it&rsquo;s not that difficult, but if you&rsquo;re new to Docker and has no previous experience with monitoring tools, <a href="/docs/getting_started/install/influxdb_grafana/printview/">using InfluxDB</a> is usually a bit easier.</p>
 <p>Or view it as a chance to learn more about one of the absolute stars of open source software - Prometheus is awesome!</p></div>
 
 <p>This page assumes you <strong>don&rsquo;t</strong> already have Prometheus and Grafana running.<br>
@@ -2946,7 +2920,7 @@ On the other hand, having separate docker-compose files makes it easier to resta
 </span></span><span style="display:flex;"><span>networks:
 </span></span><span style="display:flex;"><span>    senseops:
 </span></span><span style="display:flex;"><span>        driver: bridge
-</span></span></code></pre></div><p>Assuming you&rsquo;ve already completed the <a href="/docs/getting_started/setup/">setup of Butler SOS</a>, the result of running the <code>docker-compose_fullstack_prometheus.yml</code> file above is something like this:</p>
+</span></span></code></pre></div><p>Assuming you&rsquo;ve already completed the <a href="/docs/getting_started/setup/printview/">setup of Butler SOS</a>, the result of running the <code>docker-compose_fullstack_prometheus.yml</code> file above is something like this:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>...
 </span></span><span style="display:flex;"><span>...
@@ -3017,12 +2991,12 @@ Easy - just run <code>docker-compose -f docker-compose_fullstack_influxdb.yml do
     
 	<h1 id="pg-0453b1fdbf444ece19d9953907886bed">2.3.1 - Which config file to use</h1>
     <div class="lead">Butler SOS can use multiple config files. Here you learn to control which one is used by Butler SOS.</div>
-	<p>A description of the config file format is available <a href="/docs/reference/config_file_format/">here</a>.</p>
+	<p>A description of the config file format is available <a href="/docs/reference/config_file_format/printview/">here</a>.</p>
 <h2 id="select-which-config-file-to-use">Select which config file to use</h2>
 <p>Butler SOS uses configuration files in YAML format. The config files are stored in the <code>src/config</code> folder.</p>
 <p>Butler SOS comes with a default config file called <code>production_template.yaml</code>.<br>
 Make a copy of it, then rename the copy to <code>default.yaml</code>, <code>production.yaml</code>, <code>staging.yaml</code> or something else suitable to your specific use case.</p>
-<p>Update the config file as needed (see the <a href="/docs/reference/config_file_format/">config file reference page</a> for details).</p>
+<p>Update the config file as needed (see the <a href="/docs/reference/config_file_format/printview/">config file reference page</a> for details).</p>
 <p>Trying to run Butler SOS with the default config file (the one included in the files download from GitHub) will not work - you <em>must</em> adapt it to your server environment. For example, you need to enter the IP or host name of you Sense server(s), the IP or host name where Butler SOS is running, where the Sense certificates are stored etc.</p>
 <p>The name of the config file matters. Unless you specifically name which config to use when starting Butler SOS, it will look for an environment variable called &ldquo;NODE_ENV&rdquo; and then try to load a config file named with the value found in NODE_ENV.</p>
 <p>Example 1:</p>
@@ -3080,7 +3054,7 @@ Or (this option is usually much easier!) use the <code>--configfile</code> comma
     
 	<h1 id="pg-32e99a424e03dd5de2fb788192c39e44">2.3.2 - Config file verification</h1>
     <div class="lead">How to verify that the Butler SOS config file is valid.</div>
-	<p>A description of the config file format is available <a href="/docs/reference/config_file_format/">here</a>.</p>
+	<p>A description of the config file format is available <a href="/docs/reference/config_file_format/printview/">here</a>.</p>
 <p>Configuring the Butler SOS config file is usually the most challenging part of setting up Butler SOS.<br>
 The config file is written in an easy to read YAML format, but given the number of settings that can be configured, it can be a bit daunting to get it right.</p>
 <p>Starting with version 9.6.0, Butler SOS comes with a built-in config file verification tool that can be used to verify that the config file is valid.</p>
@@ -3691,10 +3665,10 @@ Log db had to be polled to detect new log events and this polling could realisti
 <li>Repository</li>
 <li>Scheduler</li>
 </ul>
-<p>Support for additional modules is reasonably easy to add, please <a href="https://github.com/ptarmiganlabs/butler-sos/issues/new?assignees=&amp;labels=&amp;template=feature_request.md&amp;title=">create a ticket</a> if you believe some service should be added to the list above.</p></div>
+<p>Support for additional modules is reasonably easy to add, please <a href="https://github.com/ptarmiganlabs/butler-sos/issues/new?assignees=&labels=&template=feature_request.md&title=">create a ticket</a> if you believe some service should be added to the list above.</p></div>
 
 <h2 id="tech-deep-dive">Tech deep-dive</h2>
-<p>The underlying mechanism is the same as described on the <a href="/docs/getting_started/setup/user-events/#tech-deep-dive">user events page</a>.</p>
+<p>The underlying mechanism is the same as described on the <a href="/docs/getting_started/setup/user-events/printview/#tech-deep-dive">user events page</a>.</p>
 <h2 id="tagging-of-data">Tagging of data</h2>
 <h3 id="new-relic">New Relic</h3>
 <p>The following attributes (which is New Relic lingo for tags) are added:</p>
@@ -3863,7 +3837,7 @@ Also keep in mind that the log appender files <strong>must</strong> be called <c
 <h2 id="whats-this">What&rsquo;s this?</h2>
 <p>Up until mid 2021 Qlik Sense Enterprise on Windows included a logging database to which log events were sent.
 It was removed from the product due to mainly performance reasons - it could be difficult to scale properly for large Sense clusters.</p>
-<p>Butler SOS offers a replacement for log db, in the form of <a href="/docs/getting_started/setup/log-events/">log events</a>.</p>
+<p>Butler SOS offers a replacement for log db, in the form of <a href="/docs/getting_started/setup/log-events/printview/">log events</a>.</p>
 <p>There may cases where using log db is still preferred though, for example for Sense cluster running older versions of QSEoW. For that reason it&rsquo;s still possible to configure and use log db from Butler SOS.</p>
 <style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
 <div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice warning" >
@@ -3978,7 +3952,7 @@ They must exist in the config file and be correctly set for Butler SOS to work.
 </span></span></span></code></pre></div><h2 id="qlik-sense-certificates">Qlik Sense certificates</h2>
 <p>Butler SOS uses certificates to authenticate with Qlik Sense.<br>
 These certificates must be exported from the Qlik Management Console (QMC).</p>
-<p><img src="qmc-certexport-1.png" alt="Qlik Sense certificate export" title="Exporting certificates from Qlik"></p>
+<p><img alt="Qlik Sense certificate export" src="/docs/getting_started/setup/qlik-sense-server-settings/printview/qmc-certexport-1.png" title="Exporting certificates from Qlik"></p>
 <p>To export certificates you need to provide a few pieces of information:</p>
 <ol>
 <li>The IP or full host name that Butler SOS&rsquo; will use when calling Butler SOS APIs.
@@ -3988,10 +3962,10 @@ For example, if Butler SOS get data from <code>server1.my.domain</code> (i.e. th
 <li>Check the &ldquo;Include secret key&rdquo; check box.</li>
 <li>Export certificates in PEM format.</li>
 </ol>
-<p><img src="qmc-certexport-2.png" alt="Qlik Sense certificate export" title="Exporting certificates from Qlik, step 2"></p>
+<p><img alt="Qlik Sense certificate export" src="/docs/getting_started/setup/qlik-sense-server-settings/printview/qmc-certexport-2.png" title="Exporting certificates from Qlik, step 2"></p>
 <p>Then click the &ldquo;Export certificates&rdquo; button. If all goes well the certificates are now exported to a folder on the Sense server to which you are connected (i.e. the server hosting the virtual proxy you are connected to):</p>
-<p><img src="qmc-certexport-3.png" alt="Qlik Sense certificate export" title="Exporting certificates from Qlik - all done!"></p>
-<p>The exported certificate files will be used when <a href="/docs/reference/config_file_format/">configuring Butler SOS</a>.</p>
+<p><img alt="Qlik Sense certificate export" src="/docs/getting_started/setup/qlik-sense-server-settings/printview/qmc-certexport-3.png" title="Exporting certificates from Qlik - all done!"></p>
+<p>The exported certificate files will be used when <a href="/docs/reference/config_file_format/printview/">configuring Butler SOS</a>.</p>
 
 </div>
 
@@ -4354,7 +4328,7 @@ To avoid problems you should make sure not to use already defined attributes.</p
     <p>These settings are optional, but highly recommended.</p>
 <p>In theory you can use Butler SOS to pull metrics from Qlik Sense and then forward the metrics as MQTT messages, not storing the data in InfluxDB (no Grafana dashboards then!).</p>
 <p>By far the most common use case is to store the metrics in InfluxDB.<br>
-If you already have Prometheus deployed you can use it instead of Grafana, see the <a href="/docs/getting_started/setup/prometheus/">Prometheus config page</a>.</p>
+If you already have Prometheus deployed you can use it instead of Grafana, see the <a href="/docs/getting_started/setup/prometheus/printview/">Prometheus config page</a>.</p>
 <p>Using InfluxDB is enabled by default in the config file.</p>
 
 
@@ -4455,7 +4429,7 @@ I.e. if you store data to an existing InfluxDB database, the retention policy wi
 This is fine as the ID is guaranteed to be unique, but the downside is that the ID doesn&rsquo;t tell us humans much.</p>
 <p>Butler SOS therefore provides an app ID-to-app name mapping with a configurable update interval.<br>
 The <code>Butler-SOS.appNames</code> section of the config file controls if this mapping should be done at all, how often and which Sense server should be used to get it.</p>
-<p>A more comprehensive description of Butler SOS&rsquo; strategy for getting correct names of Sense apps is available in the <a href="/docs/concepts/apps/#app-names-are-tricky">Concepts section</a>.</p>
+<p>A more comprehensive description of Butler SOS&rsquo; strategy for getting correct names of Sense apps is available in the <a href="/docs/concepts/apps/printview/#app-names-are-tricky">Concepts section</a>.</p>
 <h2 id="settings-in-main-config-file">Settings in main config file</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">Butler-SOS</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -4509,7 +4483,7 @@ The <code>Butler-SOS.appNames</code> section of the config file controls if this
 </div>
 
 <h2 id="whats-this">What&rsquo;s this?</h2>
-<p>A description of what user sessions are is available in the <a href="/docs/concepts/sessions-connections/#sessions">Concepts section</a>.</p>
+<p>A description of what user sessions are is available in the <a href="/docs/concepts/sessions-connections/printview/#sessions">Concepts section</a>.</p>
 <p>Detailed user session metrics are retrieved for all virtual proxies specified in the <code>Butler-SOS.serversToMonitor.servers[].userSessions.VirtualProxies[]</code> array.</p>
 <p>In other words: For each monitored Sense server it is possible to specify which of the server&rsquo;s proxy service&rsquo;s virtual proxies should be monitored with respect to per-user session metrics.<br>
 Right, that&rsquo;s a long sentence&hellip;</p>
@@ -4588,7 +4562,7 @@ They must exist in the config file and be correctly set for Butler SOS to work.
 
 <h2 id="whats-this">What&rsquo;s this?</h2>
 <p>This part of the config file contains information on what Sense servers should be monitored and details about those servers.</p>
-<p>Note that there is a dependency to the <code>Butler-SOS.userSessions</code> section. Please see the <a href="/docs/getting_started/setup/user-sessions/">Configuring user sessions</a> page for more info.</p>
+<p>Note that there is a dependency to the <code>Butler-SOS.userSessions</code> section. Please see the <a href="/docs/getting_started/setup/user-sessions/printview/">Configuring user sessions</a> page for more info.</p>
 <h3 id="tags">Tags</h3>
 <p>It&rsquo;s possible to define server specific tags that will be stored together with the Sense metrics in InfluxDB.<br>
 The tags can then be used when creating Grafana dashboards, for example to distinguish between DEV, TEST and PROD servers, where servers are located physically etc.</p>
@@ -4829,7 +4803,7 @@ On the other hand - just using Nssm is probably the easiest and best option for 
 <p>Assuming everything is correctly set up, you can then create a Grafana dashboard showing Butler SOS&rsquo; memory use over time.<br>
 You can also set up alerts in Grafana with notifications going to most popular IM tools and email.</p>
 <p>A Grafana dashboard can look like this. This particular chart is for the <a href="https://butler.ptarmiganlabs.com">Butler</a> tool, but the concept for Butler SOS is the same.</p>
-<p><img src="butler-memory-usage-grafana-1.png" alt="alt text" title="Butler SOS memory usage in Grafana dashboard"></p>
+<p><img alt="alt text" src="/docs/getting_started/operations/monitoring-butler-sos/printview/butler-memory-usage-grafana-1.png" title="Butler SOS memory usage in Grafana dashboard"></p>
 <p>There is a <a href="https://github.com/ptarmiganlabs/butler-sos/tree/master/docs/grafana">sample Grafana dashboard</a> in Butler SOS&rsquo; GitHub repo.</p>
 
 </div>
@@ -4929,12 +4903,12 @@ Closing the browser tab will close the connection.</p>
 <p>This is done by Butler SOS hooking into the logging framework of Qlik Sense, which will notify Butler SOS when users start/stop sessions or connections are being open/closed.</p>
 <p>A blacklist in the main config file provides a way to exlcude some users (e.g. system accounts) from the user event monitoring.</p>
 <p>Configuration of user events monitoring is done in the main config file&rsquo;s <code>Butler-SOS.userEvents</code> section.<br>
-A step-by-step instruction for setting up user event monitoring is available in the <a href="/docs/getting_started/">Getting started section</a>.
-More info about the config file is available <a href="/docs/reference/config_file_format/">here</a>.</p>
+A step-by-step instruction for setting up user event monitoring is available in the <a href="/docs/getting_started/printview/">Getting started section</a>.
+More info about the config file is available <a href="/docs/reference/config_file_format/printview/">here</a>.</p>
 <p>On an aggregated level this information is useful to understand how often users log in/out, when peak ours are etc.
 On a detailed level this information is extremely useful when trying to understand which users had active sessions when some error occured.<br>
 Think investigations such as &ldquo;who caused that 250 GB drop in RAM we were just alerted about?&rdquo;.</p>
-<p><img src="butler-sos-user-events-graph-1.png" alt="User events in Grafana dashboard" title="User events in Grafana dashboard"></p>
+<p><img alt="User events in Grafana dashboard" src="/docs/concepts/sessions-connections/printview/butler-sos-user-events-graph-1.png" title="User events in Grafana dashboard"></p>
 
 </div>
 
@@ -5033,7 +5007,7 @@ Unhappy users call you.</p>
 <p>Sense creates a large number of log files for the various parts of the larger Qlik Sense Enterprise environment.<br>
 Those logs track more or less everything - from extensions being installed, users logging in, to incorrect structure of Active Directory user directories.</p>
 <p>Butler SOS monitors select parts of these logs and provides a way to get an aggregated, close to real-time view into warnings and errors.</p>
-<p>The <a href="/docs/getting_started/setup/log-events/">log events</a> page has more info on this.</p>
+<p>The <a href="/docs/getting_started/setup/log-events/printview/">log events</a> page has more info on this.</p>
 <h2 id="grafana-dashboards">Grafana dashboards</h2>
 <p>Butler SOS stores the log events in InfluxDB together with all other metrics.<br>
 It is therefore possible to create Grafana dashboards that combine both operational metrics (apps, sessions, server RAM/CPU etc) with warning and error related charts and tables.</p>
@@ -5044,10 +5018,10 @@ It is therefore possible to create Grafana dashboards that combine both operatio
 There is also a single error during this time period - what&rsquo;s going on there?</p>
 <p>We can then look at the actual warnings (=log events) to see what&rsquo;s going on.</p>
 <p>In this case it turns out to be circular references in the Active Directory data used in Qlik Sense.  Not a problem with Sense per se, but still something worth looking into:</p>
-<p><img src="butler-sos-warnings-errors-graph-1.png" alt="Warnings and errors from Qlik Sense in Grafana dashboard" title="Warnings and errors from Qlik Sense in Grafana dashboard"></p>
-<p><img src="butler-sos-warnings-table-1.png" alt="Warnings from Qlik Sense in Grafana table" title="Warnings from Qlik Sense in Grafana table"></p>
+<p><img alt="Warnings and errors from Qlik Sense in Grafana dashboard" src="/docs/concepts/errors-warnings/printview/butler-sos-warnings-errors-graph-1.png" title="Warnings and errors from Qlik Sense in Grafana dashboard"></p>
+<p><img alt="Warnings from Qlik Sense in Grafana table" src="/docs/concepts/errors-warnings/printview/butler-sos-warnings-table-1.png" title="Warnings from Qlik Sense in Grafana table"></p>
 <p>Looking at that single error then, it turns out it&rsquo;s caused by a task already running when it was scheduled to start:</p>
-<p><img src="butler-sos-errors-table-1.png" alt="Errors from Qlik Sense in Grafana table" title="Errors from Qlik Sense in Grafana table"></p>
+<p><img alt="Errors from Qlik Sense in Grafana table" src="/docs/concepts/errors-warnings/printview/butler-sos-errors-table-1.png" title="Errors from Qlik Sense in Grafana table"></p>
 <h3 id="example-2-session-bursts-causing-proxy-overload">Example 2: Session bursts causing proxy overload</h3>
 <p>This example is would have been hard or impossible to investigate without Butler SOS.</p>
 <p>The problem was that the Sense environment from time to time became very slow or even unresponsive. A restart solved the problem.</p>
@@ -5055,7 +5029,7 @@ There is also a single error during this time period - what&rsquo;s going on the
 <p>Looking in the Grafana dashboard could then show something like below.<br>
 New sessions started every few seconds, all coming from a single client. The effect for this Sense user was that Sense was unresponsive.</p>
 <p>The log events section of the Grafana dashboard showed that this user had been given 5 proxy sessions, after which further access to Sense internal resources (engine etc) was denied.</p>
-<p><img src="butler-sos-session-runaway-1.png" alt="Sessions increasing very quickly" title="Qlik Sense sessions increasing very quickly"></p>
+<p><img alt="Sessions increasing very quickly" src="/docs/concepts/errors-warnings/printview/butler-sos-session-runaway-1.png" title="Qlik Sense sessions increasing very quickly"></p>
 <p>In this case the problem was caused by a mashup using iframes that when recovering from session timeouts caused race conditions, trying to re-establish a session to Sense over and over again.</p>
 <h2 id="alerts">Alerts</h2>
 <p>Both New Relic and Grafana includes a set of built-in alert features that can be used to set up alerts as well as forward them to destinations such as Slack, MS Teams, email, Discord, Kafka, Webhooks, PagerDuty and others.</p>
@@ -5138,57 +5112,42 @@ And when doing so - please consider sharing your successes (and failures..) with
 <p>That can feel a bit limiting at first, but as New Relic&rsquo;s query language is very powerful and is very well integrated in the chart editor, it&rsquo;s not really a problem.<br>
 A benefit of New Relic&rsquo;s dashboards is that their dashboard editor very effectively guide you through the creation of charts, using the various kinds of data (metrics, events, logs) you have sent - and are sending - to their database.</p>
 <p>New Relic dashboards are thus definitely on the same level as Grafana ditto, which one to use is a matter of preference.</p>
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
+<img class="card-img-top" src="/docs/examples/new-relic-dashboards/printview/new-relic-dashboard-1_huef71785db797360bc0c516988a31853f_1482944_1200x0_resize_catmullrom_3.png" width="1200" height="688">
+<figcaption class="card-body px-0 pt-2 pb-0">
+<p class="card-text">
 
 
-
-
-
-
-
-<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-	<img class="card-img-top" src="/docs/examples/new-relic-dashboards/new-relic-dashboard-1_huef71785db797360bc0c516988a31853f_1482944_1200x0_resize_catmullrom_3.png" width="1200" height="688">
-	
-	<div class="card-body px-0 pt-2 pb-0">
-		<p class="card-text">
 New Relic dashboard with data from both Butler SOS and Butler (part 1).
+
 </p>
-	</div>
-	
-</div>
+</figcaption>
+</figure>
+
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
+<img class="card-img-top" src="/docs/examples/new-relic-dashboards/printview/new-relic-dashboard-2_huef71785db797360bc0c516988a31853f_1294554_1200x0_resize_catmullrom_3.png" width="1200" height="688">
+<figcaption class="card-body px-0 pt-2 pb-0">
+<p class="card-text">
 
 
-
-
-
-
-
-<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-	<img class="card-img-top" src="/docs/examples/new-relic-dashboards/new-relic-dashboard-2_huef71785db797360bc0c516988a31853f_1294554_1200x0_resize_catmullrom_3.png" width="1200" height="688">
-	
-	<div class="card-body px-0 pt-2 pb-0">
-		<p class="card-text">
 New Relic dashboard with data from both Butler SOS and Butler (part 2).
+
 </p>
-	</div>
-	
-</div>
+</figcaption>
+</figure>
+
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
+<img class="card-img-top" src="/docs/examples/new-relic-dashboards/printview/new-relic-dashboard-3_hu0894c5ace2ca8962ba2010fa5c9f1512_1282577_1200x0_resize_catmullrom_3.png" width="1200" height="688">
+<figcaption class="card-body px-0 pt-2 pb-0">
+<p class="card-text">
 
 
-
-
-
-
-
-<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-	<img class="card-img-top" src="/docs/examples/new-relic-dashboards/new-relic-dashboard-3_hu0894c5ace2ca8962ba2010fa5c9f1512_1282577_1200x0_resize_catmullrom_3.png" width="1200" height="688">
-	
-	<div class="card-body px-0 pt-2 pb-0">
-		<p class="card-text">
 Viewing failed reload logs from within New Relic can save lots of time when investigating incidents.
+
 </p>
-	</div>
-	
-</div>
+</figcaption>
+</figure>
+
 
 </div>
 
@@ -5264,7 +5223,7 @@ Before importing these to Grafana you should create a Grafana data source called
 <h2 id="overview-metrics">Overview metrics</h2>
 <p>The dashboard has a top section that&rsquo;s always expanded.<br>
 A set of (by default) collapsed sections contain different kinds of metrics and log events.</p>
-<p><img src="butlersos_7_0_main_metrics.png" alt="Grafana dashboard" title="Top level metrics">
+<p><img alt="Grafana dashboard" src="/docs/examples/qliksense_monitoring_grafana8/printview/butlersos_7_0_main_metrics.png" title="Top level metrics">
 <em>Top level metrics</em></p>
 <p>Low memory alerts can be set (using Grafana&rsquo;s alert feature). Such alerts can be sent (using features built into Grafana) as notifications to Slack, Teams, Pager Duty, as email etc.
 To keep the dashboard nice and clean it&rsquo;s usually a good idea to put alert charts in their own section at the bottom, or in a separate dashboard dedicated to alerts.</p>
@@ -5273,12 +5232,12 @@ To keep the dashboard nice and clean it&rsquo;s usually a good idea to put alert
 For example, when a server is quickly loosing RAM it&rsquo;s extremely useful to be able to zoom in to the very minute when the RAM drop occurs, then look at what apps were present in memory. One of those apps is probably not well designed, or is at least using a lot of memory.</p>
 <p>The dashboard separates regular apps and session apps.<br>
 You can also use Grafana&rsquo;s standard filtering features to narrow down on the server(s) of interest.</p>
-<p><img src="butlersos_7_0_apps_in_memory.png" alt="Grafana dashboard" title="Apps loaded into memory">
+<p><img alt="Grafana dashboard" src="/docs/examples/qliksense_monitoring_grafana8/printview/butlersos_7_0_apps_in_memory.png" title="Apps loaded into memory">
 <em>Apps loaded into memory</em></p>
 <h2 id="users--sessions-per-server">Users &amp; sessions per server</h2>
 <p>If things really go wrong wrong in a Qlik Sense Enterprise environment there connected users might be kicked out. It is therefore important to know at any given time how many users are connected, and be able to detect sudden drops in user count.</p>
 <p>Another use case could be for maintenance windows: You then want to know how many - and which - users are connected, so you can send them a message that maintenance is about to start.</p>
-<p><img src="butlersos_7_0_users_sessions.png" alt="Grafana dashboard" title="Users and sessions per server">
+<p><img alt="Grafana dashboard" src="/docs/examples/qliksense_monitoring_grafana8/printview/butlersos_7_0_users_sessions.png" title="Users and sessions per server">
 <em>Users and sessions per server</em></p>
 <h2 id="user-events">User events</h2>
 <p>If Butler SOS has been configured to handle user level events coming from Sense, these are shown here.</p>
@@ -5291,7 +5250,7 @@ You can also use Grafana&rsquo;s standard filtering features to narrow down on t
 <li>closed a connection to an app (for example closed a browser tab)</li>
 <li>&hellip; and more</li>
 </ul>
-<p><img src="butlersos_7_0_users_events.png" alt="Grafana dashboard" title="Users and sessions per server">
+<p><img alt="Grafana dashboard" src="/docs/examples/qliksense_monitoring_grafana8/printview/butlersos_7_0_users_events.png" title="Users and sessions per server">
 <em>User events</em></p>
 <h2 id="warnings--errors">Warnings &amp; Errors</h2>
 <p>In previous Butler SOS demo dashboards this information came from log db.<br>
@@ -5299,16 +5258,16 @@ Starting with Butler SOS 7 the source of this data is instead the log events int
 <p>Some of this information is also available in the standard Operations Monitor app in Qlik Sense Enterprise, but only in a retrospective way.<br>
 Having access to it in close to real time makes it possible to act on developing issues quicker.</p>
 <p>Charts provide overview while tables then give the actual messages, as they appear in the log files.</p>
-<p><img src="butlersos_7_0_errors_warnings_charts.png" alt="Grafana dashboard" title="Error and warning charts">
+<p><img alt="Grafana dashboard" src="/docs/examples/qliksense_monitoring_grafana8/printview/butlersos_7_0_errors_warnings_charts.png" title="Error and warning charts">
 <em>Error and warning charts</em></p>
-<p><img src="butlersos_7_0_errors_warnings_table.png" alt="Grafana dashboard" title="Error and warning tables">
+<p><img alt="Grafana dashboard" src="/docs/examples/qliksense_monitoring_grafana8/printview/butlersos_7_0_errors_warnings_table.png" title="Error and warning tables">
 <em>Error and warning tables</em></p>
 <p>It&rsquo;s also possible to drill down into individual warnings and errors to get very detailed information about what happened:</p>
-<p><img src="butlersos_7_0_errors_warnings_table_details.png" alt="Grafana dashboard" title="Error and warning tables">
+<p><img alt="Grafana dashboard" src="/docs/examples/qliksense_monitoring_grafana8/printview/butlersos_7_0_errors_warnings_table_details.png" title="Error and warning tables">
 <em>Detailed view into errors and warnings</em></p>
 <h2 id="butler-sos-metrics">Butler SOS metrics</h2>
 <p>Butler SOS is very robust indeed, but it may still be of interest to track its memory use, to make sure there aren&rsquo;t any memory leaks etc.</p>
-<p><img src="butlersos_7_0_butlersos_memory.png" alt="Grafana dashboard" title="Butler SOS memory usage">
+<p><img alt="Grafana dashboard" src="/docs/examples/qliksense_monitoring_grafana8/printview/butlersos_7_0_butlersos_memory.png" title="Butler SOS memory usage">
 <em>Butler SOS memory usage</em></p>
 
 </div>
@@ -5352,7 +5311,7 @@ Having access to it in close to real time makes it possible to act on developing
 Before importing these to Grafana you should create a Grafana data source called &ldquo;SenseOps&rdquo;, and point it to your InfluxDB database. When you then import the dashboards they should find your database straight away.</p>
 <h2 id="overview-metrics">Overview metrics</h2>
 <p>This view gives high level insights into the 3 virtual proxies (/sales, /sourcing, /finance) in this particlar Sense environment, as well as top-level numbers on users and sessions.</p>
-<p><img src="butlersos_5_4_main_metrics.png" alt="Grafana dashboard" title="Top level metrics">
+<p><img alt="Grafana dashboard" src="/docs/examples/qliksense_monitoring_grafana7/printview/butlersos_5_4_main_metrics.png" title="Top level metrics">
 <em>Top level metrics</em></p>
 <p>Low memory alerts can be set (using Grafana&rsquo;s alert feature). Such alerts can be sent (using features built into Grafana) as notifications to Slack, Teams, Pager Duty, as email etc.
 To keep the dashboard nice and clean it&rsquo;s usually a good idea to put alert charts in their own section (see below for an example).</p>
@@ -5360,28 +5319,28 @@ To keep the dashboard nice and clean it&rsquo;s usually a good idea to put alert
 <p>From a sysadmin perspective it&rsquo;s often interesting to know what apps are loaded into memory on each Sense server.</p>
 <p>Here you get the details broken down by regular apps and session apps.<br>
 You can also use Grafana&rsquo;s standard filtering features to narrow down on the server(s) of interest.</p>
-<p><img src="butlersos_5_4_apps_in_memory.png" alt="Grafana dashboard" title="Apps loaded into memory">
+<p><img alt="Grafana dashboard" src="/docs/examples/qliksense_monitoring_grafana7/printview/butlersos_5_4_apps_in_memory.png" title="Apps loaded into memory">
 <em>Apps loaded into memory</em></p>
 <h2 id="users--sessions-per-server">Users &amp; sessions per server</h2>
 <p>If things really go wrong wrong in a Qlik Sense Enterprise environment there connected users might be kicked out. It is therefore important to know at any given time how many users are connected, and be able to detect sudden drops in user count.</p>
 <p>Another use case could be for maintenance windows: You then want to know how many - and which - users are connected, so you can send them a message that maintenance is about to start.</p>
-<p><img src="butlersos_5_4_users_sessions.png" alt="Grafana dashboard" title="Users and sessions per server">
+<p><img alt="Grafana dashboard" src="/docs/examples/qliksense_monitoring_grafana7/printview/butlersos_5_4_users_sessions.png" title="Users and sessions per server">
 <em>Users and sessions per server</em></p>
 <h2 id="warnings--errors">Warnings &amp; Errors</h2>
 <p>This information is available in the standard Operations Monitor app in Qlik Sense Enterprise, but only in a retrospective way.<br>
 Having access to it in close to real time makes it possible to act on developing issues quicker.</p>
 <p>Charts provide overview while tables then give the actual messages, as they appear in the log files.</p>
-<p><img src="butlersos_5_4_errors_warnings_charts.png" alt="Grafana dashboard" title="Error and warning charts">
+<p><img alt="Grafana dashboard" src="/docs/examples/qliksense_monitoring_grafana7/printview/butlersos_5_4_errors_warnings_charts.png" title="Error and warning charts">
 <em>Error and warning charts</em></p>
-<p><img src="butlersos_5_4_errors_warnings_table.png" alt="Grafana dashboard" title="Error and warning tables">
+<p><img alt="Grafana dashboard" src="/docs/examples/qliksense_monitoring_grafana7/printview/butlersos_5_4_errors_warnings_table.png" title="Error and warning tables">
 <em>Error and warning tables</em></p>
 <h2 id="butler-sos-metrics">Butler SOS metrics</h2>
 <p>Butler SOS is very robust indeed, but it may still be of interest to track its memory use, to make sure there aren&rsquo;t any memory leaks etc.</p>
-<p><img src="butlersos_5_4_butlersos_memory.png" alt="Grafana dashboard" title="Butler SOS memory usage">
+<p><img alt="Grafana dashboard" src="/docs/examples/qliksense_monitoring_grafana7/printview/butlersos_5_4_butlersos_memory.png" title="Butler SOS memory usage">
 <em>Butler SOS memory usage</em></p>
 <h2 id="alerts">Alerts</h2>
 <p>While it&rsquo;s perfectly possible to include alerts in almost any Grafana chart, sometimes its nice to tuck the alert-enabled charts away, out of sight. They will do their job and alert when needed.</p>
-<p><img src="butlersos_5_4_alerts.png" alt="Grafana dashboard" title="Butler SOS memory usage">
+<p><img alt="Grafana dashboard" src="/docs/examples/qliksense_monitoring_grafana7/printview/butlersos_5_4_alerts.png" title="Butler SOS memory usage">
 <em>Alerts</em></p>
 
 </div>
@@ -5435,25 +5394,25 @@ These kind of dashboards give you detailed insights into several important metri
 Before importing these to Grafana you should create a Grafana data source called &ldquo;SenseOps&rdquo;, and point it to your InfluxDB database. When you then import the dashboards they should find your database straight away.</p>
 <h2 id="overview-dashboard">Overview dashboard</h2>
 <p>An overview dashboard could look something like this:</p>
-<p><img src="senseops_overview_ram_usage.png" alt="Grafana dashboard" title="RAM usage in Grafana dashboard">
+<p><img alt="Grafana dashboard" src="/docs/examples/qliksense_monitoring_grafana6/printview/senseops_overview_ram_usage.png" title="RAM usage in Grafana dashboard">
 <em>RAM usage for each server</em></p>
 <p>Low memory alerts can be set (using Grafana&rsquo;s alert feature). Such alerts can be sent (using features built into Grafana) as notifications to Slack, Teams, Pager Duty, as email etc.</p>
 <br>
-<p><img src="senseops_overview_sessions_general.png" alt="Grafana dashboard" title="General sessions info in Grafana dashboard">
+<p><img alt="Grafana dashboard" src="/docs/examples/qliksense_monitoring_grafana6/printview/senseops_overview_sessions_general.png" title="General sessions info in Grafana dashboard">
 <em>General/high level user sessions info for both whole system and each server</em></p>
 <br>
 <p>You can also get very detailed sessions metrics, down to the level of individual sessions per server and virtual proxy.</p>
 <p>One possible use case for this information is to see what users will be affected by a pending server reboot. You could even use this information to send a chat message to these users, informing them that their connection to Sense will be lost in x minutes. This feature is not available in Butler SOS out of the box, but is quite possible to implement if needed.</p>
 <p>As of Butler SOS v5.0.0, detailed user session metrics stored in a fairly comprehensive way in InfluxDB. The visualisation of these metrics is still kind of rough though. The charts below can serve as inspiration, but can surely be improved upon..</p>
-<p><img src="senseops_detailed_sessions.png" alt="Grafana dashboard" title="Detailed sessions info in Grafana dashboard">
+<p><img alt="Grafana dashboard" src="/docs/examples/qliksense_monitoring_grafana6/printview/senseops_detailed_sessions.png" title="Detailed sessions info in Grafana dashboard">
 <em>Detailed user sessions info per server and virtual proxy</em></p>
 <br>
 <p>When something breaks in a Qlik Sense environment the logs immediately fill up with warning and/or error messages. By keeping track of these it&rsquo;s easy to quickly spot (and get notified) issues when they first occur:</p>
-<p><img src="senseops_logs.png" alt="Grafana dashboard" title="SenseOps dashboard showing errors and warnings, using Grafana">
+<p><img alt="Grafana dashboard" src="/docs/examples/qliksense_monitoring_grafana6/printview/senseops_logs.png" title="SenseOps dashboard showing errors and warnings, using Grafana">
 <em>Detailed user sessions info per server and virtual proxy</em></p>
 <p>Note how there are <strong>lots</strong> of INFO level messages generated (note the y axis scales in the diagram above!).
 In a production setting it&rsquo;s usually a good idea to turn off extraction of INFO level log messages into InfluxDB.</p>
-<p>This is controlled in the <a href="/docs/reference/config_file_format/">YAML config file</a>.</p>
+<p>This is controlled in the <a href="/docs/reference/config_file_format/printview/">YAML config file</a>.</p>
 
 </div>
 
@@ -5489,9 +5448,9 @@ In a production setting it&rsquo;s usually a good idea to turn off extraction of
     <div class="lead">Technical reference docs and general sources of information that might be useful.</div>
 	<h2 id="references-in-this-site">References in this site</h2>
 <h3 id="config-file-format">Config file format</h3>
-<p>A detailed description of all configuration options in the main config file is available <a href="/docs/reference/config_file_format/">here</a>.</p>
+<p>A detailed description of all configuration options in the main config file is available <a href="/docs/reference/config_file_format/printview/">here</a>.</p>
 <h3 id="available-metrics">Available metrics</h3>
-<p>A complete list of all metrics provided by Butler SOS is found <a href="/docs/reference/available_metrics/">here</a>.</p>
+<p>A complete list of all metrics provided by Butler SOS is found <a href="/docs/reference/available_metrics/printview/">here</a>.</p>
 <h2 id="useuful-references-out-there">Useuful references out there</h2>
 <h3 id="qlik-sense-apis">Qlik Sense APIs</h3>
 <p>Qlik&rsquo;s API documentation is found <a href="https://help.qlik.com/en-US/sense-developer/February2021/Content/Sense_Helpsites/APIs-and-SDKs.htm">here</a>.</p>
@@ -5632,7 +5591,7 @@ The .yaml extension is recommended.</p></div>
 <p>The config file is the heart of Butler SOS.<br>
 All setting must be defined in the config file - run time errors are likely to occur otherwise.</p>
 <p>The <a href="https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml">sample config file</a> looks like this:</p>
-<p><img src="./configfile.png" alt="Sample config file" title="Sample Butler SOS config file"></p>
+<p><img alt="Sample config file" src="./configfile.png" title="Sample Butler SOS config file"></p>
 <p>A few things to keep in mind:</p>
 <ul>
 <li>Topic names (e.g. &ldquo;Butler-SOS.logdb&rdquo;) are case sensitive.</li>
@@ -5666,7 +5625,7 @@ If it doesn&rsquo;t exist it will be created together with a default InfluxDB re
 </tr>
 <tr>
 <td>anonTelemetry</td>
-<td>Can Butler SOS share anonymous data about itself with the Butler SOS project? More info on whata data is collected <a href="/docs/about/telemetry">here</a>.</td>
+<td>Can Butler SOS share anonymous data about itself with the Butler SOS project? More info on whata data is collected <a href="/docs/about/telemetry/">here</a>.</td>
 </tr>
 <tr>
 <td></td>
@@ -6480,7 +6439,7 @@ It is no longer installed when doing fresh QSEoW installs.</p>
 </tbody>
 </table>
 <p>The <code>Butler-SOS.serversToMonitor.servers.logDbHost</code> property can be tricky to get right. Easiest way to get the correct value is to look in the Nodes section in the QMC. In the <code>Host name</code> column you find the host names of the various nodes. <code>logDbHost</code> should be set to the first part of each host name:</p>
-<p><img src="./logdb-host-name-1.png" alt="Log db host name" title="Getting the log db host name property from QMC"></p>
+<p><img alt="Log db host name" src="./logdb-host-name-1.png" title="Getting the log db host name property from QMC"></p>
 
 </div>
 
@@ -6537,7 +6496,7 @@ It is no longer installed when doing fresh QSEoW installs.</p>
     <div class="lead">In order to create dashboards in for example Grafana, you must understand what metrics are available and how they are structured.</div>
 	<h2 id="influxdb">InfluxDB</h2>
 <p>Metrics retrieved from the Sense servers can be stored in an <a href="https://www.influxdata.com/products/influxdb-overview/">InfluxDB</a> database. You don&rsquo;t have to be an InfluxDB expert to use Butler SOS, but understanding some basic concepts are helpful.</p>
-<p>Storing metrics in InfluxDB is not mandatory, but some kind of metrics storage - either in InfluxDB, <a href="https://newrelic.com">New Relic</a> or <a href="/docs/reference/available_metrics/prometheus/">Prometheus</a> - is needed to take full benefit of Butler SOS&rsquo; features.</p>
+<p>Storing metrics in InfluxDB is not mandatory, but some kind of metrics storage - either in InfluxDB, <a href="https://newrelic.com">New Relic</a> or <a href="/docs/reference/available_metrics/prometheus/printview/">Prometheus</a> - is needed to take full benefit of Butler SOS&rsquo; features.</p>
 <ul>
 <li>
 <p>InfluxDB is a <a href="https://www.influxdata.com/time-series-database/">time series database</a>. This means it is super good at storing values that have a timestamp associated with them - and pretty bad at everything else. In many respects time series databases are the opposite of traditional SQL databases (who are usually pretty bad at handling time series data).</p>
@@ -7105,7 +7064,7 @@ server_type
 <p>User events capture real-time events in Qlik Sense as they happen.<br>
 They originate from Sense&rsquo;s log4net logging framework and are forwarded from Sense to Butler SOS by means of XML log appenders in Sense.<br>
 These events are also forwarded as MQTT messages, allowing other systems to act when warnings/errors/fatals occur in Qlik Sense.</p>
-<p>Setup instructions <a href="/docs/getting_started/setup/user-events/">here</a>.</p>
+<p>Setup instructions <a href="/docs/getting_started/setup/user-events/printview/">here</a>.</p>
 <p>The following user events are handled by Butler SOS:</p>
 <ul>
 <li>Session start</li>
@@ -7177,7 +7136,7 @@ These events are also forwarded as MQTT messages, allowing other systems to act 
 </tbody>
 </table>
 <p>In addition to the above tags defined in the Butler SOS config file will be added.<br>
-More info <a href="/docs/getting_started/setup/user-events/#settings-in-main-config-file">here</a>.</p>
+More info <a href="/docs/getting_started/setup/user-events/printview/#settings-in-main-config-file">here</a>.</p>
 <p>Fields:</p>
 <table>
 <thead>
@@ -7208,7 +7167,7 @@ More info <a href="/docs/getting_started/setup/user-events/#settings-in-main-con
 <h4 id="log-events">Log events</h4>
 <p>Log events are used to capture warning, error and fatal messages in Sense. Once in Butler SOS these events are stored in InfluxDB (enabling Grafana dashboards).<br>
 These events are also forwarded as MQTT messages, allowing other systems to act when warnings/errors/fatals occur in Qlik Sense.</p>
-<p>Setup instructions <a href="/docs/getting_started/setup/log-events/">here</a>.</p>
+<p>Setup instructions <a href="/docs/getting_started/setup/log-events/printview/">here</a>.</p>
 <div class="notice info" >
 <p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>There is only one measurement for log events. It&rsquo;s simply called <code>log_event</code>.</p>
 <p>Different QSEoW services (Qlik Sense Enterprise on Windows) will send different tags and metrics in the log events.<br>
@@ -7847,7 +7806,7 @@ More info on these metrics and what they mean is available <a href="https://www.
     <div class="lead">Once data has been sent to New Relic, its web based user interface makes it very intuitive to both create charts and combine these into dashboards.</div>
 	<h2 id="new-relic">New Relic</h2>
 <p><a href="https://newrelic.com">New Relic</a> offers a complete SaaS observablity stack, ranging from high-volume ingestion of events/metrics/logs/traces to advanced dashboards that can be created ad-hoc using a web UI or from files and templates, for more of an infrastructure-as-code approach.</p>
-<p>Storing metrics in New Relic is not mandatory, but some kind of metrics storage - either in <a href="https://newrelic.com">New Relic</a>, <a href="/docs/reference/available_metrics/influxdb/">InfluxDB</a> or <a href="/docs/reference/available_metrics/prometheus/">Prometheus</a> - is needed to take full benefit of Butler SOS&rsquo; features.</p>
+<p>Storing metrics in New Relic is not mandatory, but some kind of metrics storage - either in <a href="https://newrelic.com">New Relic</a>, <a href="/docs/reference/available_metrics/influxdb/printview/">InfluxDB</a> or <a href="/docs/reference/available_metrics/prometheus/printview/">Prometheus</a> - is needed to take full benefit of Butler SOS&rsquo; features.</p>
 <p>In order to view data in New Relic you first have to send data to them.</p>
 <p>Butler SOS does this for you.</p>
 <p>Furthermore, you can to a large degree control which Qlik Sense metrics, logs and events are sent to New Relic.</p>
@@ -7911,7 +7870,7 @@ The completed trace gives you a picture of the entire request.</li>
     <div class="lead">In order to create graphs in for example Grafana, you must understand what metrics are available and how they are structured.</div>
 	<h2 id="prometheus">Prometheus</h2>
 <p>Metrics retrieved from the Sense servers can be stored in <a href="https://prometheus.io">Prometheus</a>. You don&rsquo;t have to be a Prometheus expert to use Butler SOS, but understanding some basic concepts are helpful.</p>
-<p>Storing metrics in Prometheus is not mandatory, but some kind of metrics storage - either in Prometheus, <a href="/docs/reference/available_metrics/influxdb/">InfluxDB</a> or <a href="https://newrelic.com">New Relic</a> - is needed to take full benefit of Butler SOS&rsquo; features.</p>
+<p>Storing metrics in Prometheus is not mandatory, but some kind of metrics storage - either in Prometheus, <a href="/docs/reference/available_metrics/influxdb/printview/">InfluxDB</a> or <a href="https://newrelic.com">New Relic</a> - is needed to take full benefit of Butler SOS&rsquo; features.</p>
 <p>Prometheus gathers metrics by &ldquo;scraping&rdquo; data from web pages (&ldquo;endpoints&rdquo;) on which metrics are displayed in a well specified format.<br>
 Most metrics from the Sense servers are exposed on a Prometheus compatible endpoint, but not all.<br>
 InfluxDB is more flexible for some types of data, while Prometheus provides more easily used features for data aggregation when data should be displaued in Grafana.</p>
@@ -7920,7 +7879,7 @@ InfluxDB is more flexible for some types of data, while Prometheus provides more
 Prometheus metrics are available on the <code>/metrics</code> URL on the IP and port specified in the config file.</p>
 <p>For example, if the host is 0.0.0.0 and the port is 9842, Butler SOS will listen on port 9842 on all available network interfaces.
 If the Butler SOS&rsquo; server&rsquo;s IP address is 192.168.1.168, a call from a web browser can look like this:</p>
-<p><img src="prometheus-browser-1.png" alt="Prometheus metrics in web browser" title="Prometheus metrics in web browser"></p>
+<p><img alt="Prometheus metrics in web browser" src="/docs/reference/available_metrics/prometheus/printview/prometheus-browser-1.png" title="Prometheus metrics in web browser"></p>
 <p>This is the web page Prometheus will scrape and ingest into it&rsquo;s time-series database.</p>
 <h3 id="overview-of-prometheus">Overview of Prometheus</h3>
 <p>In contrast to InfluxDB, to which Butler SOS pushes data, Prometheus works the other way around.<br>
@@ -8258,103 +8217,56 @@ The idea is simply that the anonymous telemetry should be just that: anonymous.<
           </main>
         </div>
       </div>
-      
-<footer class="bg-dark py-5 row d-print-none">
-  <div class="container-fluid mx-sm-5">
-    <div class="row">
-      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
-        
-        
-        
-<ul class="list-inline mb-0">
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        <ul class="td-footer__links-list">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Ptarmigan Labs Newsletter" aria-label="Ptarmigan Labs Newsletter">
-    <a class="text-white" target="_blank" rel="noopener" href="https://ptarmiganlabs.com/#/portal/signup" aria-label="Ptarmigan Labs Newsletter">
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Ptarmigan Labs Newsletter" aria-label="Ptarmigan Labs Newsletter">
+    <a target="_blank" rel="noopener" href="https://ptarmiganlabs.com/#/portal/signup" aria-label="Ptarmigan Labs Newsletter">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
-    <a class="text-white" target="_blank" rel="noopener" href="https://www.linkedin.com/in/gorsan/" aria-label="LinkedIn">
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="LinkedIn" aria-label="LinkedIn">
+    <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/gorsan/" aria-label="LinkedIn">
       <i class="fab fa-linkedin"></i>
     </a>
   </li>
   
 </ul>
 
-        
-        
-      </div>
-      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
-        
-        
-        
-<ul class="list-inline mb-0">
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        <ul class="td-footer__links-list">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
-    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler-sos" aria-label="GitHub">
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="GitHub" aria-label="GitHub">
+    <a target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler-sos" aria-label="GitHub">
       <i class="fab fa-github"></i>
     </a>
   </li>
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Get in touch with Ptarmigan Labs" aria-label="Get in touch with Ptarmigan Labs">
-    <a class="text-white" target="_blank" rel="noopener" href="mailto://info@ptarmiganlabs.com" aria-label="Get in touch with Ptarmigan Labs">
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Get in touch with Ptarmigan Labs" aria-label="Get in touch with Ptarmigan Labs">
+    <a target="_blank" rel="noopener" href="mailto://info@ptarmiganlabs.com" aria-label="Get in touch with Ptarmigan Labs">
       <i class="fa fa-envelope"></i>
     </a>
   </li>
   
 </ul>
 
-        
-        
-      </div>
-      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2024 Ptarmigan Labs AB All Rights Reserved</small>
-        
-	
-		<p class="mt-2"><a href="/about/">About Butler SOS</a></p>
-	
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        <span class="td-footer__copyright">&copy;
+    2018&ndash;2024
+    <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/printview/">About Butler SOS</a></p>
       </div>
     </div>
   </div>
 </footer>
 
-
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
-    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
-    crossorigin="anonymous"></script>
-
-
-
-
-
+    <script src="/js/main.js"></script>
+<script src='/js/prism.js'></script>
 <script src='/js/tabpane-persist.js'></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="/js/main.min.2445708dcaed76ca77256bbd7c601588ceb1ae5298dccef4f503c9a56d4ff7d9.js" integrity="sha256-JEVwjcrtdsp3JWu9fGAViM6xrlKY3M709QPJpW1P99k=" crossorigin="anonymous"></script>
-
-
-
 
   </body>
 </html>

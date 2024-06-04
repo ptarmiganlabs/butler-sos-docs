@@ -1,18 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Butler SOS – Configuring extraction of app names from Qlik Sense</title>
-    <link>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/app-names/</link>
+    <title>Configuring extraction of app names from Qlik Sense on Butler SOS</title>
+    <link>http://localhost:1313/docs/getting_started/setup/app-names/printview/</link>
     <description>Recent content in Configuring extraction of app names from Qlik Sense on Butler SOS</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    
-	  <atom:link href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/app-names/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
+    <atom:link href="http://localhost:1313/docs/getting_started/setup/app-names/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

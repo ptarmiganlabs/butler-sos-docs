@@ -1,18 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Butler SOS – Available Metrics: Prometheus</title>
-    <link>https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/prometheus/</link>
+    <title>Available Metrics: Prometheus on Butler SOS</title>
+    <link>http://localhost:1313/docs/reference/available_metrics/prometheus/printview/</link>
     <description>Recent content in Available Metrics: Prometheus on Butler SOS</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    
-	  <atom:link href="https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/prometheus/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
+    <atom:link href="http://localhost:1313/docs/reference/available_metrics/prometheus/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

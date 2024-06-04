@@ -36,7 +36,7 @@ For several years there was no telemetry at all in Butler SOS.
 Development of new features were driven mainly by what features were needed at the time.  
 Or the fact that Qlik released some new feature in Sense and Butler SOS was a way to test that new feature from the perspective of the Sense APIs.
 
-That's all good but today Butler SOS is a rather significant tool with features spanning monitoring, alerting and more..
+That's all good but today Butler SOS is a rather significant tool with features spanning monitoring, alerting and more.
 
 This multitude of features is also one of the core reasons for adding telemetry to Butler SOS:
 

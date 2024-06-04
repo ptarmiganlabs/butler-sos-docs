@@ -13,10 +13,12 @@ Metrics retrieved from the Sense servers can be stored in an [InfluxDB](https://
 Storing metrics in InfluxDB is not mandatory, but some kind of metrics storage - either in InfluxDB, [New Relic](https://newrelic.com) or [Prometheus](/docs/reference/available_metrics/prometheus/) - is needed to take full benefit of Butler SOS' features.
 
 * InfluxDB is a [time series database](https://www.influxdata.com/time-series-database/). This means it is super good at storing values that have a timestamp associated with them - and pretty bad at everything else. In many respects time series databases are the opposite of traditional SQL databases (who are usually pretty bad at handling time series data).
-
-* Because of it's focus on time series data, InfluxDB has its own query language, [InfluxQL](https://docs.influxdata.com/influxdb/v1.7/query_language/). It is somewhat similar to SQL, but also has many unique commands and features.
-
-* Browsing through the [key concepts of InfluxDB](https://docs.influxdata.com/influxdb/v1.7/concepts/key_concepts/) is a good idea. There you will learn about things such as measurements, series and tags - which are all key to using data stored in InfluxDB.
+* Because of it's focus on time series data, InfluxDB v1 has its own query language, [InfluxQL](https://docs.influxdata.com/influxdb/v1.7/query_language/). It is somewhat similar to SQL, but also has many unique commands and features.
+  * Influx DB v2 has a new query language called [Flux](https://docs.influxdata.com/influxdb/v2.0/query-data/get-started/). There are compatibility layers in InfluxDB v2 that allow you to use InfluxQL, meaning that existing Grafana dashboards and can be kept as they are, even if you upgrade to InfluxDB v2.
+  * Flux is a more powerful query language than InfluxQL, but it also has a steeper learning curve. By learning Flux you will be able to do more advanced things with your data, for example in Grafana dashboards.
+* It's worth browsing through the [InfluxDB documentation](https://docs.influxdata.com/influxdb/) to get a feel for what InfluxDB is and how it works.
+  * [InfluxDB v1 documentation](https://docs.influxdata.com/influxdb/v1/).
+  * [InfluxDB v2 documentation](https://docs.influxdata.com/influxdb/v2/).
 
 {{< notice tip >}}
 The list of metrics below shows *all* metrics that Butler SOS can store in InfluxDB.
@@ -27,6 +29,17 @@ If you have disabled some features of Butler SOS, the asociated metrics will not
 ## Metrics structure
 
 The metrics are grouped based on what kind of Qlik Sense data they represent. InfluxDB is a *very* capable database, so we will only touch on the basics here.
+
+### InfluxDB v1 vs v2
+
+That are some differences between InfluxDB v1 and v2 when it comes to terminology and concepts.
+
+For example in InfluxDB v1, the main concepts are *databases*, *measurements*, *field keys* and *tag keys*.  
+In InfluxDB v2 the main concepts are *buckets*, *measurements*, *fields* and *tags*.
+
+The concepts are very similar, but the names are different.
+
+The metrics below are the same for both InfluxDB v1 and v2.
 
 ### Overview
 
@@ -111,7 +124,7 @@ server_name
 server_type
 ```
 
-Note that this list of tags consits of
+Note that this list of tags consists of two parts:
 
 1. Tags always present. These are inserted by Butler SOS and are present for all measurements. These are `host`, `server_description` and `server_name`.
 2. Tags configured in Butler SOS' config fil. In the example above these are `serverBrand`, `serverLocation`, `server_group` and`server_type`.

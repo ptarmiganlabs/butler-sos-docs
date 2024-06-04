@@ -81,6 +81,6 @@ For example, if the certificate files exported from Sense are stored in d:\secre
 
 A tool like Butler SOS should of course start automatically when the server it runs on is restarted. This can be achieved in at least a couple of ways:
 
-1. By far the best option is to turn Butler SOS into a Windows service. That way it will be started on server boot, restarted if it fails etc. There are various tools for doing this, with [NSSM](https://nssm.cc/) being a very, very good one. Butler SOS has been installed in lots of Sense clusters this way.
+1. By far the best option is to turn Butler SOS into a Windows service. That way it will be started on server boot, restarted if it fails etc. There are various tools for doing this, with [NSSM](https://nssm.cc/) being a very good one. Butler SOS has been installed in lots of Sense environments this way.
 
 2. You can also use a Node process monitor such as [PM2](http://pm2.keymetrics.io/) to monitor the Butler SOS process, and restart it if it for some reason crashes. PM2 is not entirely easy to use on Windows though.

@@ -18,12 +18,10 @@ Using InfluxDB is enabled by default in the config file.
 {{% /alert %}}
 
 {{< notice warning >}}
-Butler SOS was developed with InfluxDB version 1.x in mind.  
+Butler SOS supports InflixDB 1.x and 2.x.  
+There are reports that InfluxDB's cloud product also works with Butler SOS, that has however not been tested by the Butler SOS team.
 
-InfluxDB is currently available in version 2.x and while this version brings lots of new goodies, it's not out-of-the-box compatible with Butler SOS.  
-For that reason you should use the latest 1.x version of InfluxDB, which at the time of this writing is 1.8.4.
-
-In due time Butler SOS will be updated to support InfluxDB 2.x too.
+Version 3 (in beta at the time of this writing) is not supported.
 {{< /notice >}}
 
 ## What's this?
@@ -53,26 +51,33 @@ Butler-SOS:
   influxdbConfig:
     enable: true
     # Items below are mandatory if influxdbConfig.enable=true
-    hostIP: <IP or FQDN of Influxdb server>
-    hostPort: <Port where Influxdb is listening>    # Optional. Default value=8086
-    auth:
-      enable: false                 # Does influxdb instance require authentication (true/false)?
-      username: <username>          # Username for Influxdb authentication. Mandatory if auth.enable=true
-      password: <password>          # Password for Influxdb authentication. Mandatory if auth.enable=true
-    dbName: SenseOps
-
-    # Default retention policy that should be created in InfluxDB when Butler SOS creates a new database there. 
-    # Any data older than retention policy threshold will be purged from InfluxDB.
-    retentionPolicy:
-      name: 10d
-      duration: 10d                 # Possible duration units here: https://docs.influxdata.com/influxdb/v1.8/query_language/spec/#durations 
-
+    host: influxdb.mycompany.com    # InfluxDB host, hostname, FQDN or IP address
+    port: 8086                      # Port where InfluxDBdb is listening, usually 8086
+    version: 1                      # Is the InfluxDB instance version 1.x or 2.x? Valid values are 1 or 2
+    v2Config:                       # Settings for InfluxDB v2.x only, i.e. Butler-SOS.influxdbConfig.version=2
+      org: myorg
+      bucket: mybucket
+      description: Butler SOS metrics
+      token: mytoken
+      retentionDuration: 10d
+    v1Config:                       # Settings below are for InfluxDB v1.x only, i.e. Butler-SOS.influxdbConfig.version=1
+      auth:
+        enable: false               # Does influxdb instance require authentication (true/false)?
+        username: <username>        # Username for Influxdb authentication. Mandatory if auth.enable=true
+        password: <password>        # Password for Influxdb authentication. Mandatory if auth.enable=true
+      dbName: SenseOps
+      # Default retention policy that should be created in InfluxDB when Butler SOS creates a new database there. 
+      # Any data older than retention policy threshold will be purged from InfluxDB.
+      retentionPolicy:
+        name: 10d
+        duration: 10d                 # Possible duration units here: https://docs.influxdata.com/influxdb/v1.8/query_language/spec/#durations
     # Control whether certain metrics are stored in InfluxDB or not
     # Use with caution! Enabling activeDocs, loadedDocs or inMemoryDocs may result in lots of data sent to InfluxDB.
     includeFields:
       activeDocs: false              # Should data on what docs are active be stored in Influxdb (true/false)? 
       loadedDocs: false              # Should data on what docs are loaded be stored in Influxdb (true/false)?
       inMemoryDocs: false            # Should data on what docs are in memory be stored in Influxdb (true/false)?
+
   ...
   ...
 ```

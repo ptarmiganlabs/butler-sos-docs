@@ -21,7 +21,7 @@ In other words: For each monitored Sense server it is possible to specify which 
 Right, that's a long sentence...  
 
 Let's try again: For each monitored Sense server, decide which virtual proxies should be monitored.  
-Enter those proxies in the `Butler-SOS.serversToMonitor.servers[].userSessions.VirtualProxies[]` array for the server in question. 
+Enter those virtual proxies in the `Butler-SOS.serversToMonitor.servers[].userSessions.VirtualProxies[]` array for the server in question. 
 
 {{< notice note >}}
 In order to get detailed, per-user and virtual proxy session info you need to

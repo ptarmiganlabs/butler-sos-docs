@@ -3,25 +3,22 @@ title: "Configuring Butler SOS logging"
 linkTitle: "Log files"
 weight: 20
 description: >
-  Heartbeats provide a way to monitor that Butler SOS is running and working as intended.  
+  Butler SOS can log its activities to console and disk files.  
 
-  Butler SOS can send periodic heartbeat messages to a monitoring tool, which can then alert if Butler SOS hasn't checked in as expected.
+  Log files can be useful for retrospective troubleshooting of Butler SOS.
 ---
-
-{{% alert title="Mandatory" color="warning" %}}
-These settings are mandatory.
-They must exist in the config file and be correctly set for Butler SOS to work.
-{{% /alert %}}
 
 ## What's this?
 
 Butler SOS continuously logs what its doing.  
+Logging is always done to console and optionally also to disk files.
 
-The top level section `Butler-SOS` in the config file has a set of settings that control logging and telemetry.
+The top level section `Butler-SOS` in the config file has a set of settings that control logging.
 
-Log level (verbosity) can be set, logging to disk can be enabled/disabled etc.
+Log level (verbosity) can be set, logging to disk can be enabled/disabled and the directory where log files are stored can be set.  
+Log level can also be set on the command line when starting Butler SOS, using the `--loglevel` option.
 
-For more information about telemetry, please see [this page](/docs/about/telemetry/).
+Log files are kept for 30 days, after which they are automatically deleted.
 
 ## Settings in main config file
 

@@ -30,8 +30,9 @@ You will rarely if ever need to know how much memory Butler SOS used a month ago
 ### InfluxDB
 
 The memory usage data can optionally be written to InfluxDB, from where it can later be viewed in Grafana.  
-The metrics will be stored in the database specified in ``.  
-The log level does not affect storing uptime metrics in InfluxDB or New Relic.
+The metrics will be stored in the database specified in the `Butler-SOS.influxdbConfig` section of the config file.
+
+Note that `Butler-SOS.influxdbConfig.enable` must also be set to `true` for *any* data to be sent to InfluxDB.
 
 ### New Relic
 
@@ -43,6 +44,10 @@ Attributes come in two forms: Static and dynamic.
 * Static attributes are hard-coded strings that don't change over time. Could be used to distinguish metrics from DEV, TEST and PROD Sense environments.
 * Dynamic attributes may change each time Butler SOS is started, or even more often in the future if/when more dynamic attributes are added.  
   An example is the Butler SOS version, which will change when Butler SOS is upgraded to a new version.
+
+### Log level
+
+The log level does not affect storing uptime metrics in InfluxDB or New Relic.
 
 ## Settings in main config file
 
@@ -61,7 +66,8 @@ Butler-SOS:
     storeNewRelic:
       enable: true
       destinationAccount:
-        - Ptarmigan Labs NR account
+        - First NR account
+        - Second NR account
       metric:
         dynamic:
           butlerMemoryUsage:

@@ -18,15 +18,17 @@ Do note though that Butler SOS expects the configuration properties below to exi
 
 ## What's this?
 
-A tool like Butler SOS should be viewed as mission critical, at least if it's features are used by mission critical Sense apps.
+A tool like Butler SOS should be viewed as mission critical, at least if it is used to monitor mission critical Sense apps.
 
 But how can you know whether Butler SOS itself is working?  
-Somehow Butler SOS itself should be monitored.
+Somehow Butler SOS should be monitored.
 
 Butler SOS (and most other tools in the Butler family) has a **heartbeat** feature.  
 It sends periodic messages to a monitoring tool, which can then alert if Butler SOS hasn't checked in as expected.
 
 [Healthchecks.io](https://healthchecks.io/) is an example of such as tool. It's open source but also has a SaaS option if so preferred.
+
+[Uptime Kuma](https://github.com/louislam/uptime-kuma) is another great tool that can be used, it has a somewhat slicker UI than Healthchecks.io - but it's relally a matter of personal preference which one to use.
 
 More info on using Healthchecks.io with Butler (Butler SOS works the same way) can be found [in this blog post](https://ptarmiganlabs.com/blog/2020/07/26/black-box-monitoring-of-butler-tools-monitoring-the-monitor/).
 
@@ -40,7 +42,7 @@ Butler-SOS:
   # The concept is simple: The remoteURL will be called at the specified frequency. The receiving tool will then know 
   # that Butler SOS is alive.
   heartbeat:
-    enable: false
+    enable: true
     remoteURL: http://my.monitoring.server/some/path/
     frequency: every 1 hour         # https://bunkat.github.io/later/parsers.html#text
   ...

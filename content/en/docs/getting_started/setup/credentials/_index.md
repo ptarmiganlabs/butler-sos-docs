@@ -31,6 +31,9 @@ Example:
 * Sense log events are sent to `Second NR account`
 * Sense RAM usage is sent to both `First NR account` and `Second NR account`
 
+Note that the `accountName` setting is only used within Butler SOS to reference the diffferent New Relic accounts.  
+Specificallyt, it is *not* used by or within New Relic itself.
+
 ## Settings in main config file
 
 ```yaml

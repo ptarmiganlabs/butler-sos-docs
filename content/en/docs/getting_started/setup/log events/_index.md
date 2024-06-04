@@ -15,7 +15,7 @@ If you don't do anything log events are turned off by default.
 
 Butler SOS log events are designed to be a replacement for the most important/useful aspects of Qlik Sense' log database, which was removed from Qlik Sense Enterprise on Windows in mid 2021.  
 
-They capture warnings, errors and fatals from the various QSEoW subsystems.  
+The log events capture warnings, errors and fatals from the various QSEoW subsystems.  
 These events used to be sent to the PostgreSQL logging database, most (but not all) are also sent to QSEoW's log files.  
 
 Using Butler SOS' log events is arguably even *better* than getting the same information from log db:  
@@ -25,7 +25,7 @@ With Butler SOS' log events concept the notifications are almost instantaneous. 
 
 Log events rely on two things to work:
 
-1. Settings in the Butler SOS main config file.
+1. Settings in the Butler SOS config file.
 2. Log appender XML files being deployed on the Sense servers where log events should be captured.
 
 Both are described below.
@@ -46,6 +46,10 @@ Support for additional modules is reasonably easy to add, please [create a ticke
 The underlying mechanism is the same as described on the [user events page](/docs/getting_started/setup/user-events/#tech-deep-dive).
 
 ## Tagging of data
+
+### InfluxDB
+
+The tags added to InfluxDB are described in the reference documentation for [log events](/docs/reference/available_metrics/influxdb/#log-events).
 
 ### New Relic
 
@@ -161,7 +165,7 @@ Butler-SOS:
 
 ## Log appender XML files
 
-Template/sample log appender files are available in the `/docs/log_appenders` folder in the GitHub repo.  
+Sample log appender files are available in the ZIP file available from the [download page](https://github.com/ptarmiganlabs/butler-sos/releases), in subfolders engine/proxy/repository/scheduler of `config/log_appender_xml/` folder.  
 
 Note that the log appender files contain slightly different information for each Sense service (engine/proxy/repository/scheduler)!  
 Also keep in mind that the log appender files **must** be called `LocalLogConfig.xml` and placed in these directories on the all Sense servers:  

@@ -11,8 +11,6 @@ A description of the config file format is available [here](/docs/reference/conf
 Configuring the Butler SOS config file is usually the most challenging part of setting up Butler SOS.  
 The config file is written in an easy to read YAML format, but given the number of settings that can be configured, it can be a bit daunting to get it right.
 
-Starting with version 9.6.0, Butler SOS comes with a built-in config file verification tool that can be used to verify that the config file is valid.
-
 ## Verify the config file
 
 Config file verification is enabled by default.  

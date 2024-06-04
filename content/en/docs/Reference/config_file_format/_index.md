@@ -251,14 +251,20 @@ InfluxDB config parameters. These must be correctly defined for any other Influx
 | Parameter | Description |
 | --------- | ----------- |
 | enable | Should health metrics be stored in Influxdb? true/false |
-| hostIP | IP or FQDN of Influxdb server. |
-| hostPort | Port where Influxdb server is listening. Useful if Influxdb for some reason is not using its standard port of 8086. <br>NOTE: Must be set to a value (for example 8086), otherwise this config entry will be flagged as invalid when the config file format is verified on startup. |
-| auth.enable | Enable if data is to be stored in a password protected Influxdb database. |
-| auth.username | Influxdb username. |
-| auth.password | Influxdb password. |
-| dbName | Database namne in Influxdb to which health metrics will be stored. Database will be created if it does not already exist when Butler SOS is started. |
-| retentionPolicy.<br>name | Name of default retention policy that will be created in InfluxDB database when that database is created during first execution of Butler SOS. |
-| retentionPolicy.<br>duration | Duration during which metrics are kept in InfluxDB. After the duration has passed, InfluxDB will purge all data older than duration from the database. See [InfluxDB docs](https://docs.influxdata.com/influxdb/v1.8/query_language/spec/#durations) for details on syntax. |
+| host | IP or FQDN of Influxdb server. |
+| port | Port where Influxdb server is listening. Useful if Influxdb for some reason is not using its standard port of 8086. <br>NOTE: Must be set to a value (for example 8086), otherwise this config entry will be flagged as invalid when the config file format is verified on startup. |
+| version | Influxdb version. Valid values are 1 and 2. |
+| v2Config.org | Organization name to use when connecting to Influxdb v2. |
+| v2Config.bucket | Bucket name to use when connecting to Influxdb v2. |
+| v2Config.description | Description of the Inflluxdb bucket. |
+| v2Config.token | Token to use when connecting to Influxdb v2. |
+| v2Config.retentionDuration | Retention duration for the Influxdb bucket. |
+| v1Config.<br>auth.enable | Enable if data is to be stored in a password protected Influxdb v1 database. |
+| v1Config.<br>auth.username | Influxdb username. |
+| v1Config.<br>auth.password | Influxdb password. |
+| v1Config.dbName | Name of Influxdb v1 database to use. |
+| v1Config.<br>retentionPolicy.name | Name of default retention policy that will be created in InfluxDB database when that database is created during first execution of Butler SOS. |
+| v1Config.<br>retentionPolicy.duration | Duration during which metrics are kept in InfluxDB. After the duration has passed, InfluxDB will purge all data older than duration from the database. See [InfluxDB docs](https://docs.influxdata.com/influxdb/v1.8/query_language/spec/#durations) for details on syntax. |
 | includeFields.<br>activeDocs | Should a list of currently active Sense apps be stored in Influxdb? true/false |
 | includeFields.<br>loadedDocs | Should a list of Sense apps opened in a user session be stored in Influxdb? true/false |
 | includeFields.<br>activeDocs | Should a list of Sense apps loaded into memory (some apps might not currently be associated with a user session) be stored in Influxdb? true/false |
@@ -291,8 +297,8 @@ Extract user session data per virtual proxy.
 | pollingInterval | How often to query the Sense healthcheck API |
 | rejectUnauthorized | Set to false to ignore warnings/errors caused by Qlik Sense's self-signed certificates. <br> Set to true if the Qlik Sense root CA is available on the computer where Butler SOS is running. |
 | serverTagsDefinition | List of tags to add to each server when storing the data in Influxdb. All tags defined here MUST be present in each server's definition section further down in the config file! |
-| servers | List of what servers to monitor. For each server a set of properties MUST be defined. |
-| servers.<br>host:4747 | FQDN of server. Domain should match that of the certificate exported from QMC - otherwise certificate warnings may appear. NOTE: You need to specify the port too - should be :4747 unless it's been changed from default value (*very* unusual to change this). |
+| servers | Array of servers to monitor. For each server a set of properties MUST be defined. |
+| servers.<br>host | FQDN of server. Domain should match that of the certificate exported from QMC - otherwise certificate warnings may appear. NOTE: You need to specify the port too - should be :4747 unless it's been changed from default value (*very* unusual to change this). |
 | servers.<br>serverName | Human friendly server name |
 | servers.<br>serverDescription | Human friendly server description |
 | servers.<br>logDbHost | Server's name as it appears in the ```process_host``` field log db. This is needed in order to link entries in logdb to the specific server at hand. See note below too! |

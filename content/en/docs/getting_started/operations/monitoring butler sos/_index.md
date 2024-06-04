@@ -12,7 +12,7 @@ Once Butler SOS is running it's a good idea to also monitor it. Otherwise you st
 
 Butler SOS will log data on its memory usage to InfluxDB if
 
-1. The config file's `Butler-SOS.uptimeMonitor.enables` and `Butler.uptimeMonitor.storeInInfluxdb.butlerSOSMemoryUsage` properties are both set to `true`.
+1. The config file's `Butler-SOS.uptimeMonitor.enable` and `Butler.uptimeMonitor.storeInInfluxdb.butlerSOSMemoryUsage` properties are both set to `true`.
 2. The remaining InfluxDB properties of the config file are correctly configured.
 
 Assuming everything is correctly set up, you can then create a Grafana dashboard showing Butler SOS' memory use over time.  

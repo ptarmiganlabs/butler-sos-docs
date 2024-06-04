@@ -1,0 +1,115 @@
+---
+title: Butler SOS
+---
+
+{{< blocks/cover title="Butler SOS: DevOps monitoring for Qlik Sense" image_anchor="top" height="full" >}}
+<div class="mx-auto">
+ <a class="btn btn-lg btn-primary mr-3 mb-4" href="/docs/">
+  Learn More <i class="fas fa-arrow-alt-circle-right ml-2"></i>
+ </a>
+ <a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/ptarmiganlabs/butler-sos/releases/latest" target="_blank">
+  Download <i class="fab fa-github ml-2 "></i>
+ </a>
+ <p class="lead mt-5">Warnings lead to errors ➡️ Errors lead to unhappy users ➡️ Unhappy users call you. Ouch 👎.</p>
+ <p class="lead mt-2">Wouldn't you rather get the warnings yourself, before anyone else?</p>
+ 
+
+ <p class="lead mt-5"></p>
+ <p class="-bg-primary p-2 display-4">If you don't measure it, you can't improve it. </p>
+ 
+ <div class="mx-auto mt-5">
+  {{< blocks/link-down color="info" >}}
+ </div>
+</div>
+{{< /blocks/cover >}}
+
+
+{{% blocks/lead color="primary" %}}
+Butler SOS is an open source (free!!) tool that provides real-time monitoring of Qlik Sense environments.
+
+Runs on Windows, Linux, Mac OS, in Docker or as a Kubernetes service.
+
+Eager to try it out? The [getting started](docs/getting_started/) pages will tell you everything you need.
+{{% /blocks/lead %}}
+
+
+{{% blocks/lead color="dark" %}}
+**--- Why is monitoring important? ---**
+
+Good question!
+
+For starters, if you are responsible for a Sense environment and hear about issues from your end users - that's a bad position to be in.
+You should be the first to know when something breaks. Only then are you able to fix things quickly, ideally even before end users realise there has been an incident.
+
+Additionally, having access to real-time metrics makes it much easier to incrementally tweak and tune your Sense environment. 
+{{% /blocks/lead %}}
+
+
+
+{{% blocks/lead color="orange" %}}
+**--- Can I get alerts when some metric go out of bounds? ---**
+
+Yes! Butler SOS stores all data in an InfluxDB and/or Prometheus database, from where it is visualised using Grafana.
+
+Both are best-in-class, open source products for storing and visualising time-series data.
+
+Grafana is increadibly feature rich, including a powerful alerting feature that can send alerts to email, IM tools (Slack etc), PagerDuty and more.
+{{% /blocks/lead %}}
+
+
+{{% blocks/lead color="info" %}}
+**--- Can I get alerts when errors or warnings occur in Qlik Sense? ---**
+
+Yes! In version 7 Butler SOS added a new, unique feature: Real-time monitoring of Qlik Sense log events.
+
+This means that you get notifications about warnings or errors within seconds of them happening in your Sense server(s). You can take action within minutes rather than hours or days.
+
+The same concept also works for user events. Need to track sessions over time or alert when a users from a certain department logs on? No problem.
+
+Butler SOS version 9 takes this concept even further, enabling forwarding of select log and user events to the New Relic monitoring service. 
+{{% /blocks/lead %}}
+
+
+{{% blocks/lead color="success" %}}
+**--- What operating systems and browsers are used to access my Qlik Sense environment ? ---**
+
+Glad you asked!<br>
+Butler SOS can help you with that too.
+
+Butler SOS version 9.7 added a new feature that tracks user agents of all users  
+accessing your Sense environment.<br>
+
+This data is stored in InfluxDB, NewRelic and is sent as MQTT messages.
+{{% /blocks/lead %}}
+
+
+
+
+{{% blocks/lead color="primary" %}}
+**--- We use system \<*our-preferred-monitoring–tool*\> for monitoring. Can it be used with Butler SOS? ---**
+
+Yes, most likely. Butler SOS supports both InfluxDB, Prometheus and New Relic, but also optionally sends metrics as MQTT messages.  
+If your main monitoring tool can use either of these as a data source, it can read data extracted by Butler SOS.
+
+If not natively supporting InfluxDB, Prometheus, New Relic or MQTT, it is usually pretty easy to create a small tool that acts as a bridge to other systems.
+
+{{% /blocks/lead %}}
+
+
+{{< blocks/section type="row">}}
+
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 10.0" %}}
+
+Simplified configuration.  
+Support for storing metrics in InfluxDB v2 databases.
+
+Available on [GitHub](https://github.com/ptarmiganlabs/butler-sos/releases).
+
+{{% /blocks/feature %}}
+
+{{% blocks/feature icon="fab fa-github" title="Contributions welcome!"%}}
+We use a [Pull Request](https://github.com/ptarmiganlabs/butler-sos/pulls) contributions workflow on GitHub.  
+New developers are always welcome!
+{{% /blocks/feature %}}
+
+{{< /blocks/section >}}

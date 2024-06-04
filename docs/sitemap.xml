@@ -2,179 +2,179 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/reference/command-line-options/</loc>
+    <loc>http://localhost:1313/docs/reference/command-line-options/printview/</loc>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/about/</loc>
+    <loc>http://localhost:1313/docs/about/printview/</loc>
     <lastmod>2021-04-16T14:13:25+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/about/butler-sos/</loc>
+    <loc>http://localhost:1313/docs/about/butler-sos/</loc>
     <lastmod>2022-08-27T09:00:57+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/reference/config_file_format/</loc>
+    <loc>http://localhost:1313/docs/reference/config_file_format/printview/</loc>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/influxdb/</loc>
+    <loc>http://localhost:1313/docs/reference/available_metrics/influxdb/printview/</loc>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/operations/monitoring-butler-sos/</loc>
+    <loc>http://localhost:1313/docs/getting_started/operations/monitoring-butler-sos/printview/</loc>
     <lastmod>2022-08-30T19:57:40+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/overview/</loc>
+    <loc>http://localhost:1313/docs/getting_started/overview/printview/</loc>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/concepts/sessions-connections/</loc>
+    <loc>http://localhost:1313/docs/concepts/sessions-connections/printview/</loc>
     <lastmod>2022-08-27T09:00:57+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/which-config-file/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/which-config-file/printview/</loc>
     <lastmod>2022-08-30T19:54:39+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/config-file-verification/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/config-file-verification/printview/</loc>
     <lastmod>2023-08-21T15:14:22+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/new-relic/</loc>
+    <loc>http://localhost:1313/docs/reference/available_metrics/new-relic/printview/</loc>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/choose_platform/</loc>
+    <loc>http://localhost:1313/docs/getting_started/install/choose_platform/printview/</loc>
     <lastmod>2022-08-27T09:00:57+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/concepts/apps/</loc>
+    <loc>http://localhost:1313/docs/concepts/apps/printview/</loc>
     <lastmod>2021-04-22T08:38:05+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/</loc>
+    <loc>http://localhost:1313/docs/printview/</loc>
     <lastmod>2024-04-15T08:23:17+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/</loc>
+    <loc>http://localhost:1313/docs/getting_started/printview/</loc>
     <lastmod>2022-08-27T09:00:57+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/logging/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/logging/printview/</loc>
     <lastmod>2024-04-09T19:56:19+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/prometheus/</loc>
+    <loc>http://localhost:1313/docs/reference/available_metrics/prometheus/printview/</loc>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/about/butler-family/</loc>
+    <loc>http://localhost:1313/docs/about/butler-family/</loc>
     <lastmod>2023-03-10T08:41:17+01:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/concepts/</loc>
+    <loc>http://localhost:1313/docs/concepts/printview/</loc>
     <lastmod>2021-04-21T22:36:38+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/examples/</loc>
+    <loc>http://localhost:1313/docs/examples/printview/</loc>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/heartbeats/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/heartbeats/printview/</loc>
     <lastmod>2021-11-28T22:47:41+01:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/</loc>
+    <loc>http://localhost:1313/docs/getting_started/install/printview/</loc>
     <lastmod>2022-08-27T09:00:57+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/</loc>
+    <loc>http://localhost:1313/docs/getting_started/install/native/printview/</loc>
     <lastmod>2021-11-28T22:47:41+01:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/about/usecases/</loc>
+    <loc>http://localhost:1313/docs/about/usecases/</loc>
     <lastmod>2022-08-27T09:00:57+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/</loc>
+    <loc>http://localhost:1313/docs/reference/available_metrics/printview/</loc>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/docker/</loc>
+    <loc>http://localhost:1313/docs/getting_started/install/docker/printview/</loc>
     <lastmod>2022-08-30T19:54:39+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/docker-health-check/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/docker-health-check/printview/</loc>
     <lastmod>2021-11-28T22:47:41+01:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/concepts/errors-warnings/</loc>
+    <loc>http://localhost:1313/docs/concepts/errors-warnings/printview/</loc>
     <lastmod>2022-08-27T09:00:57+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/printview/</loc>
     <lastmod>2021-04-21T22:36:38+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/uptime-monitor/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/uptime-monitor/printview/</loc>
     <lastmod>2024-04-09T19:56:19+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/about/versioning/</loc>
+    <loc>http://localhost:1313/docs/about/versioning/</loc>
     <lastmod>2021-04-19T21:46:55+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/windows/</loc>
+    <loc>http://localhost:1313/docs/getting_started/install/native/windows/printview/</loc>
     <lastmod>2022-08-27T09:00:57+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/credentials/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/credentials/printview/</loc>
     <lastmod>2022-08-31T05:48:51+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/about/contributing/</loc>
+    <loc>http://localhost:1313/docs/about/contributing/</loc>
     <lastmod>2021-08-05T08:18:21+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/linux_macos/</loc>
+    <loc>http://localhost:1313/docs/getting_started/install/native/linux_macos/printview/</loc>
     <lastmod>2022-08-27T09:00:57+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/user-events/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/user-events/printview/</loc>
     <lastmod>2022-08-27T09:00:57+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/operations/</loc>
+    <loc>http://localhost:1313/docs/getting_started/operations/printview/</loc>
     <lastmod>2023-12-28T12:09:03+01:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/influxdb_grafana/</loc>
+    <loc>http://localhost:1313/docs/getting_started/install/influxdb_grafana/printview/</loc>
     <lastmod>2022-08-27T09:00:57+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/log-events/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/log-events/printview/</loc>
     <lastmod>2022-08-27T09:00:57+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/about/telemetry/</loc>
+    <loc>http://localhost:1313/docs/about/telemetry/</loc>
     <lastmod>2023-11-30T22:25:18+01:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/log-db/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/log-db/printview/</loc>
     <lastmod>2021-11-28T22:47:41+01:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/prometheus_grafana/</loc>
+    <loc>http://localhost:1313/docs/getting_started/install/prometheus_grafana/printview/</loc>
     <lastmod>2022-08-27T09:00:57+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/reference/</loc>
+    <loc>http://localhost:1313/docs/reference/printview/</loc>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/examples/new-relic-dashboards/</loc>
+    <loc>http://localhost:1313/docs/examples/new-relic-dashboards/printview/</loc>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/security/</loc>
+    <loc>http://localhost:1313/docs/security/printview/</loc>
     <lastmod>2021-11-28T22:47:41+01:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/qlik-sense-server-settings/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/qlik-sense-server-settings/printview/</loc>
     <lastmod>2021-11-28T22:47:41+01:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/legal_stuff/</loc>
+    <loc>http://localhost:1313/docs/legal_stuff/printview/</loc>
     <lastmod>2023-11-30T22:25:18+01:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/mqtt/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/mqtt/printview/</loc>
     <lastmod>2021-11-28T22:47:41+01:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/new-relic/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/new-relic/printview/</loc>
     <lastmod>2022-08-27T09:00:57+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/prometheus/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/prometheus/printview/</loc>
     <lastmod>2021-11-28T22:47:41+01:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/influxdb/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/influxdb/printview/</loc>
     <lastmod>2021-11-28T22:47:41+01:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/examples/qliksense_monitoring_grafana9/</loc>
+    <loc>http://localhost:1313/docs/examples/qliksense_monitoring_grafana9/printview/</loc>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/app-names/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/app-names/printview/</loc>
     <lastmod>2021-11-28T22:47:41+01:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/examples/qliksense_monitoring_grafana8/</loc>
+    <loc>http://localhost:1313/docs/examples/qliksense_monitoring_grafana8/printview/</loc>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/examples/qliksense_monitoring_grafana7/</loc>
+    <loc>http://localhost:1313/docs/examples/qliksense_monitoring_grafana7/printview/</loc>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/examples/qliksense_monitoring_grafana6/</loc>
+    <loc>http://localhost:1313/docs/examples/qliksense_monitoring_grafana6/printview/</loc>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/user-sessions/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/user-sessions/printview/</loc>
     <lastmod>2021-11-28T22:47:41+01:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/servers-to-monitor/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/servers-to-monitor/printview/</loc>
     <lastmod>2024-04-09T19:56:19+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/telemetry/</loc>
+    <loc>http://localhost:1313/docs/getting_started/setup/telemetry/printview/</loc>
     <lastmod>2024-04-09T19:56:19+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/about/</loc>
+    <loc>http://localhost:1313/about/printview/</loc>
     <lastmod>2022-08-27T09:00:57+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2024-04-09T19:56:19+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/community/</loc>
+    <loc>http://localhost:1313/community/printview/</loc>
     <lastmod>2019-09-13T22:39:19+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/search/</loc>
+    <loc>http://localhost:1313/search/</loc>
     <lastmod>2019-09-13T22:39:19+02:00</lastmod>
   </url>
 </urlset>

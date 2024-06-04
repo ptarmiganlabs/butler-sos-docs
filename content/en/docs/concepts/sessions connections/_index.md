@@ -18,7 +18,7 @@ User behaviour is then an important metric to track, more on this below.
 
 ## Proxy sessions
 
-A *session*, or more precicely a *proxy session* starts when a user logs into Sense and ends when the user logs out or the session timeout is reached.  
+A *session*, or more precicely a *proxy session* starts when a user logs into Sense and ends when the user logs out or the session inactivity timeout is reached.  
 There may be some additional corner-case variants, but the above is the basic, high-level definition of a proxy session.
 
 {{< notice tip >}}
@@ -44,7 +44,7 @@ When interacting with individual charts in a Sense app, *engine sessions* are us
 
 A user typically thus have one (or a few) proxy session and then a larger number of transient engine sessions.
 
-More info [here](https://help.qlik.com/en-US/sense-developer/November2021/Subsystems/Platform/Content/Sense_PlatformOverview/Concepts/sessions.htm).
+More info [here](https://help.qlik.com/en-US/sense-developer/May2024/Subsystems/Platform/Content/Sense_PlatformOverview/Concepts/sessions.htm).
 
 ## Connections
 
@@ -61,12 +61,13 @@ Some useful lingo: The events that can happen for connections are that they can 
 
 Butler SOS offers a way to monitor individual session and connection events, as they happen.
 
-This is done by Butler SOS hooking into the logging framework of Qlik Sense, which will notify Butler SOS when users start/stop sessions or connections are being open/closed.
+This is done by Butler SOS hooking into the logging framework of Qlik Sense, which will notify Butler SOS when users start/stop sessions or connections are being open/closed.  
+The concept is identical to how Butler SOS gets metrics and log events from Sense.  
 
 A blacklist in the main config file provides a way to exlcude some users (e.g. system accounts) from the user event monitoring.
 
 Configuration of user events monitoring is done in the main config file's `Butler-SOS.userEvents` section.  
-A step-by-step instruction for setting up user event monitoring is available in the [Getting started section](/docs/getting_started/).
+A step-by-step instruction for setting up user event monitoring is available in the [Getting started section](/docs/getting_started/setup/user-events/).
 More info about the config file is available [here](/docs/reference/config_file_format/).
 
 On an aggregated level this information is useful to understand how often users log in/out, when peak ours are etc.
