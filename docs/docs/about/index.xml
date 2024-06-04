@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About on Butler SOS</title>
+    <link>https://butler-sos.ptarmiganlabs.com/docs/about/</link>
+    <description>Recent content in About on Butler SOS</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://butler-sos.ptarmiganlabs.com/docs/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Butler SOS</title>
+      <link>https://butler-sos.ptarmiganlabs.com/docs/about/butler-sos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler-sos.ptarmiganlabs.com/docs/about/butler-sos/</guid>
+      <description>The Butler SOS project is about adding best-in-class monitoring to the client-managed Windows version of Qlik Sense Enterprise, also known as QSEoW (Qlik Sense Enterprise on Windows).&#xA;The goal is to provide a close to real-time view into what&amp;rsquo;s happening in a Qlik Sense environment.&#xA;At different times different metrics will be of interest.&#xA;For that reason Butler SOS stores all metrics from Sense in a time-series databse (InfluxDB and Prometheus both supported), from which dashboards, reports etc can then be created using tools such as Grafana.</description>
+    </item>
+    <item>
+      <title>The Butler family</title>
+      <link>https://butler-sos.ptarmiganlabs.com/docs/about/butler-family/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler-sos.ptarmiganlabs.com/docs/about/butler-family/</guid>
+      <description>Butler started out with a very specific need to start Sense reloads from outside systems.&#xA;Over the years a few projects (for example Butler SOS, which simplifies day 2 operations ([1], [2]) have spun off from the original Butler project, and still other projects have been created from scratch to solve specific challenges around developing Sense apps and running Qlik Sense server environments.&#xA;All members of the Butler family are available on Ptarmigan Labs&amp;rsquo; GitHub page.</description>
+    </item>
+    <item>
+      <title>Use cases</title>
+      <link>https://butler-sos.ptarmiganlabs.com/docs/about/usecases/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler-sos.ptarmiganlabs.com/docs/about/usecases/</guid>
+      <description>A complete list of metrics is available in the reference section.&#xA;Monitor Qlik Sense metrics This is the main use case for Butler SOS, with a large number of monitored metrics.&#xA;Butler SOS can be configured to store these metrics in InfluxDB/Prometheus and/or send them as MQTT messages.&#xA;Session count A session (or more specifically, a &amp;ldquo;proxy session&amp;rdquo;) is created when a user logs into Sense.&#xA;The session is typically reused when a user opens additional Sense apps from the same browser.</description>
+    </item>
+    <item>
+      <title>Versions</title>
+      <link>https://butler-sos.ptarmiganlabs.com/docs/about/versioning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler-sos.ptarmiganlabs.com/docs/about/versioning/</guid>
+      <description>In the spirit of not copying information to several places, the version history is kept as annotations of each release on the GitHub release page.&#xA;Version numbers include up to 3 levels, for example version 4.6.2 (which is a fictitious version):&#xA;4 is the major version. It is increased when Butler has added major new features, or in other ways changed in major ways.&#xA;If following this principle, breaking changes should always result in a bumped major version.</description>
+    </item>
+    <item>
+      <title>Contribution guidelines</title>
+      <link>https://butler-sos.ptarmiganlabs.com/docs/about/contributing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler-sos.ptarmiganlabs.com/docs/about/contributing/</guid>
+      <description>Butler SOS is an open source project, using the MIT license.&#xA;This means that all source code, documentation etc is available as-is, at no cost.&#xA;It however also means that anyone interested can - and is encouraged to - contribute to the project!&#xA;Butler SOS is developed in Node.js, with support from various NPM modules.&#xA;We use Hugo to format and generate this documentation site, the Docsy theme for styling and site structure.</description>
+    </item>
+    <item>
+      <title>Telemetry</title>
+      <link>https://butler-sos.ptarmiganlabs.com/docs/about/telemetry/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler-sos.ptarmiganlabs.com/docs/about/telemetry/</guid>
+      <description>Sharing telemetry data from Butler SOS is optional.&#xA;You can use all Butler SOS features without sharing telemetry data.&#xA;That said, if you find Butler SOS useful you are strongly encouraged to leave the telemetry feature turned on.&#xA;Having access to this data greatly helps the Butler SOS developers when they design new features, fix bugs etc.&#xA;The Butler SOS developers care about you - sharing telemetry data is your way of showing you care about them.</description>
+    </item>
+  </channel>
+</rss>

@@ -63,6 +63,10 @@ markup:
     # Uncomment if you want your chosen highlight style used for code blocks without a specified language
     # guessSyntax: true
 
+# Added to support publishing to GitHub Pages, as per https://gohugo.io/hosting-and-deployment/hosting-on-github/
+publishDir: docs
+
+
 # Everything below this are Site Params
 
 # Comment out if you don't want the "print entire section" link enabled.
