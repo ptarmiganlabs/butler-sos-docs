@@ -98,9 +98,10 @@ If not natively supporting InfluxDB, Prometheus, New Relic or MQTT, it is usuall
 
 {{< blocks/section type="row">}}
 
-{{% blocks/feature icon="fa-lightbulb" title="Latest release: 10.0" %}}
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 10.1" %}}
 
 Simplified configuration.  
+More comprehensive verification of config file on startup.
 Support for storing metrics in InfluxDB v2 databases.
 
 Available on [GitHub](https://github.com/ptarmiganlabs/butler-sos/releases).
