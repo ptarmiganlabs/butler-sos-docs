@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.126.1">
+<meta name="generator" content="Hugo 0.131.0">
 <link rel="alternate" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/influxdb/printview/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/influxdb/index.xml">
 <meta name="robots" content="index, follow">
@@ -36,7 +36,7 @@
 
   <meta itemprop="name" content="Available metrics: InfluxDB">
   <meta itemprop="description" content="In order to create dashboards in for example Grafana, you must understand what metrics are available and how they are structured.">
-  <meta itemprop="wordCount" content="3953">
+  <meta itemprop="wordCount" content="3987">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Available metrics: InfluxDB">
   <meta name="twitter:description" content="In order to create dashboards in for example Grafana, you must understand what metrics are available and how they are structured.">
@@ -989,6 +989,7 @@ These events are also forwarded as MQTT messages, allowing other systems to act 
 Each variant is described below.</p>
 <p>This modular approach to log events makes it possible to extend Butler SOS&rsquo; with additional log events if/when needed..</p></div>
 
+<p><em>Note: If log event categorisation is enabled in the main YAML config file, the categories defined in the config file will be added as tags to the log event data points written to InfluxDB.</em></p>
 <h5 id="source-proxy-service">Source: Proxy service</h5>
 <p>Events such as failed login attempts will be sent from the proxy service.</p>
 <p>Proxy log events have these tags:</p>

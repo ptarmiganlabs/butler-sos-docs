@@ -7,12 +7,9 @@ description: >
 ---
 
 {{< notice warning >}}
-Butler SOS was developed with InfluxDB version 1.x in mind.  
+Butler SOS supports InfluxDB version 1.x and 2x.  
 
-InfluxDB is currently available in version 2.x and while this version brings lots of new goodies, it's not out-of-the-box compatible with Butler SOS.  
-For that reason you should use the latest 1.x version of InfluxDB, which at the time of this writing is 1.8.4.
-
-In due time Butler SOS will be updated to support InfluxDB 2.x too.
+InfluxDB v3.x is not yet supported.
 {{< /notice >}}
 
 If you already have InfluxDB and/or Grafana running you can skip this section.

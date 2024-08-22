@@ -13,7 +13,7 @@ A description of the config file format is available [here](/docs/reference/conf
 Butler SOS uses configuration files in YAML format. The config files are stored in the `src/config` folder.  
 
 Butler SOS comes with a default config file called `production_template.yaml`.  
-Make a copy of it, then rename the copy to `default.yaml`, `production.yaml`, `staging.yaml` or something else suitable to your specific use case.
+Make a copy of it, then rename the copy to `butler-sos-config-prod.yaml`, `production.yaml`, `staging.yaml` or something else suitable to your specific use case.
 
 Update the config file as needed (see the [config file reference page](/docs/reference/config_file_format/) for details).
 
@@ -35,7 +35,7 @@ Example 2:
 ### Running several Butler SOS instances in parallel
 
 If you have several Sense clusters (for example DEV, TEST and PROD environments) you can either monitor them all from a single Butler SOS instance, or set up separate instances for each Sense cluster.  
-The second case is implemented by creating several config files: `butler_dev.yaml`, `butler_test.yaml` and `butler_prod.yaml`.
+The second case is implemented by creating several config files: `butler-sos-dev.yaml`, `butler-sos-test.yaml` and `butler-sos-prod.yaml`.
 
 In this scenario three instances of Butler SOS should be started, each given a different config file by setting the NODE_ENV variable as needed when starting Butler SOS.  
 Or (this option is usually much easier!) use the `--configfile` command line option when starting Butler SOS.

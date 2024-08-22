@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.126.1">
+<meta name="generator" content="Hugo 0.131.0">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/which-config-file/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/which-config-file/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -123,7 +123,7 @@ This is the multi-page printable view of this section.
 <h2 id="select-which-config-file-to-use">Select which config file to use</h2>
 <p>Butler SOS uses configuration files in YAML format. The config files are stored in the <code>src/config</code> folder.</p>
 <p>Butler SOS comes with a default config file called <code>production_template.yaml</code>.<br>
-Make a copy of it, then rename the copy to <code>default.yaml</code>, <code>production.yaml</code>, <code>staging.yaml</code> or something else suitable to your specific use case.</p>
+Make a copy of it, then rename the copy to <code>butler-sos-config-prod.yaml</code>, <code>production.yaml</code>, <code>staging.yaml</code> or something else suitable to your specific use case.</p>
 <p>Update the config file as needed (see the <a href="/docs/reference/config_file_format/">config file reference page</a> for details).</p>
 <p>Trying to run Butler SOS with the default config file (the one included in the files download from GitHub) will not work - you <em>must</em> adapt it to your server environment. For example, you need to enter the IP or host name of you Sense server(s), the IP or host name where Butler SOS is running, where the Sense certificates are stored etc.</p>
 <p>The name of the config file matters. Unless you specifically name which config to use when starting Butler SOS, it will look for an environment variable called &ldquo;NODE_ENV&rdquo; and then try to load a config file named with the value found in NODE_ENV.</p>
@@ -140,7 +140,7 @@ Make a copy of it, then rename the copy to <code>default.yaml</code>, <code>prod
 </ul>
 <h3 id="running-several-butler-sos-instances-in-parallel">Running several Butler SOS instances in parallel</h3>
 <p>If you have several Sense clusters (for example DEV, TEST and PROD environments) you can either monitor them all from a single Butler SOS instance, or set up separate instances for each Sense cluster.<br>
-The second case is implemented by creating several config files: <code>butler_dev.yaml</code>, <code>butler_test.yaml</code> and <code>butler_prod.yaml</code>.</p>
+The second case is implemented by creating several config files: <code>butler-sos-dev.yaml</code>, <code>butler-sos-test.yaml</code> and <code>butler-sos-prod.yaml</code>.</p>
 <p>In this scenario three instances of Butler SOS should be started, each given a different config file by setting the NODE_ENV variable as needed when starting Butler SOS.<br>
 Or (this option is usually much easier!) use the <code>--configfile</code> command line option when starting Butler SOS.</p>
 <p>Note: If running several Butler SOS instances in parallel, you must also ensure that each one uses unique port numbers for their respective UDP servers etc.</p>

@@ -32,6 +32,8 @@ Let's also assume you have more than 5-10 users in your Sense environment. Maybe
 
 Given the above, the answer is almost certainly "yes" : You can simplify your workday and provide a better analytics experience to your end users by using a tool like Butler SOS.
 
+Looking at companies using Butler SOS, they range from small companies with a single Sense server to large enterprises with dozens of Sense servers and (many!) thousands of users.
+
 ## Why a separate tool for this?
 
 Good question.  

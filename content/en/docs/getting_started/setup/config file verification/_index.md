@@ -8,7 +8,7 @@ description: >
 
 A description of the config file format is available [here](/docs/reference/config_file_format/).
 
-Configuring the Butler SOS config file is usually the most challenging part of setting up Butler SOS.  
+Getting the config file correctly set up is usually the most challenging part of setting up Butler SOS.  
 The config file is written in an easy to read YAML format, but given the number of settings that can be configured, it can be a bit daunting to get it right.
 
 ## Verify the config file
@@ -19,7 +19,8 @@ Verification is done when Butler SOS is started, and if the config file is not v
 
 {{< notice info >}}
 All settings in the config file are mandatory.  
-If you don't want to use a specific Butler SOS feature, you must still include its settings in the config file, but you are free to disable the feature and set its setting to empty strings/values/arrays.
+
+If you don't want to use a specific Butler SOS feature, you must still include its settings in the config file, but you are free to disable the feature and set its setting to empty strings/values/arrays, or just leave the default values in place.
 {{< /notice >}}
 
 ## Skipping config file verification

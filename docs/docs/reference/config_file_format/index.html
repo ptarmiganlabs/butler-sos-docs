@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.126.1">
+<meta name="generator" content="Hugo 0.131.0">
 <link rel="alternate" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/reference/config_file_format/printview/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/reference/config_file_format/index.xml">
 <meta name="robots" content="index, follow">
@@ -36,7 +36,7 @@
 
   <meta itemprop="name" content="Config file format">
   <meta itemprop="description" content="Everything you ever wanted to know about the Butler SOS configuration file.">
-  <meta itemprop="wordCount" content="2932">
+  <meta itemprop="wordCount" content="3196">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Config file format">
   <meta name="twitter:description" content="Everything you ever wanted to know about the Butler SOS configuration file.">
@@ -301,8 +301,7 @@ The .yaml extension is recommended.</p></div>
 
 <p>The config file is the heart of Butler SOS.<br>
 All setting must be defined in the config file - run time errors are likely to occur otherwise.</p>
-<p>The <a href="https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml">sample config file</a> looks like this:</p>
-<p><img alt="Sample config file" src="./configfile.png" title="Sample Butler SOS config file"></p>
+<p>A sample config file is included in the release ZIP files, and also <a href="https://raw.githubusercontent.com/ptarmiganlabs/butler-sos/master/src/config/production_template.yaml">available on GitHub</a>.</p>
 <p>A few things to keep in mind:</p>
 <ul>
 <li>Topic names (e.g. &ldquo;Butler-SOS.logdb&rdquo;) are case sensitive.</li>
@@ -341,6 +340,33 @@ If it doesn&rsquo;t exist it will be created together with a default InfluxDB re
 <tr>
 <td></td>
 <td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="butler-sosconfigvisualisation">Butler-SOS.configVisualisation</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enable</td>
+<td>Should Butler SOS&rsquo; config file be visualized in a web UI? true/false</td>
+</tr>
+<tr>
+<td>host</td>
+<td>Hostname or IP address where the web server will listen. Should be localhost or the host&rsquo;s IP address in most cases.</td>
+</tr>
+<tr>
+<td>port</td>
+<td>Port where the web server will listen. Change if port 3100 is already in use.</td>
+</tr>
+<tr>
+<td>obfuscate</td>
+<td>Should the config file shown in the web UI be obfuscated? true/false</td>
 </tr>
 </tbody>
 </table>
@@ -625,6 +651,66 @@ Requires log appender XML file(s) to be added to Sense server(s).</p>
 <tr>
 <td>source.<br>scheduler.enable</td>
 <td>Should log events from the scheduler service be handled by Butler SOS? true/false</td>
+</tr>
+<tr>
+<td>categorise.enable</td>
+<td>Should categorisation of log events be enabled? true/false</td>
+</tr>
+<tr>
+<td>categorise.rules</td>
+<td>Array of rules that will be used to categorise log events. Each rule consists of a set of properties.</td>
+</tr>
+<tr>
+<td>categorise.rules[].<br>description</td>
+<td>Description of the rule.</td>
+</tr>
+<tr>
+<td>categorise.rules[].<br>logLevel[]</td>
+<td>Array of log levels that will be used to match log events against this rule.</td>
+</tr>
+<tr>
+<td>categorise.rules[].<br>action</td>
+<td>Action to take if a log event matches this rule. Possible values are &ldquo;categorise&rdquo; and &ldquo;drop&rdquo;.</td>
+</tr>
+<tr>
+<td>categorise.rules[].<br>category[]</td>
+<td>Array of name-value pairs that will be added to the log event if it matches this rule.</td>
+</tr>
+<tr>
+<td>categorise.rules[].<br>category[].name</td>
+<td>Name of the category.</td>
+</tr>
+<tr>
+<td>categorise.rules[].<br>category[].value</td>
+<td>Value of the category.</td>
+</tr>
+<tr>
+<td>categorise.rules[].<br>filter[]</td>
+<td>Array of type-value pairs that will be used to match log events against this rule.</td>
+</tr>
+<tr>
+<td>categorise.rules[].<br>filter[].type</td>
+<td>Type of filter. Possible values are &ldquo;sw&rdquo; = starts with, &ldquo;ew&rdquo; = ends with, &ldquo;so&rdquo; = substring of.</td>
+</tr>
+<tr>
+<td>categorise.ruleDefault</td>
+<td>Default values for categorisation, if no other rule matches.</td>
+</tr>
+<tr>
+<td>categorise.ruleDefault.<br>enable</td>
+<td>Should the default rule be used? true/false</td>
+</tr>
+<tr>
+<td>categorise.ruleDefault.<br>category[]</td>
+<td>Array of name-value pairs that will be added to the log event if no other rule matches.</td>
+</tr>
+<tr>
+<td>categorise.ruleDefault.<br>category[].name</td>
+<td>Name of the category.</td>
+</tr>
+<tr>
+<td>categorise.ruleDefault.<br>category[].value</td>
+<td>Value of the category.</td>
 </tr>
 <tr>
 <td>sendToMQTT.enable</td>
@@ -1174,7 +1260,7 @@ It is no longer installed when doing fresh QSEoW installs.</p>
 </tbody>
 </table>
 <p>The <code>Butler-SOS.serversToMonitor.servers.logDbHost</code> property can be tricky to get right. Easiest way to get the correct value is to look in the Nodes section in the QMC. In the <code>Host name</code> column you find the host names of the various nodes. <code>logDbHost</code> should be set to the first part of each host name:</p>
-<p><img alt="Log db host name" src="./logdb-host-name-1.png" title="Getting the log db host name property from QMC"></p>
+<p><img alt="Log db host name" src="/docs/reference/config_file_format/logdb-host-name-1.png" title="Getting the log db host name property from QMC"></p>
 
   <div class="section-index">
     

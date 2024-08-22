@@ -13,7 +13,7 @@ Butler SOS is distributed under the [MIT license](https://en.wikipedia.org/wiki/
 ```
 MIT License
 
-Copyright (c) 2023 Göran Sander
+Copyright (c) 2024 Göran Sander
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -40,7 +40,7 @@ This documentation site was built using [Hugo](https://gohugo.io/) and consists 
 
 GitHub probably keep log files for GitHub Pages, your visit to this documentation site is thus likely to be recorded there. For questions about such logs you should contact GitHub.
 
-## Google Analytics
+## Analytics
 
 [Plausible](https://plausible.io) is used to track general site usage.
 The collected data is not shared with any third parties.
@@ -58,7 +58,7 @@ Ptarmigan Labs collects this information to better understand
 1. what the execution environment looks like for Butler SOS out there, and
 2. which Butler SOS features are used/not used
 
-The purpose of the telemetry data is ultimately to aid in future development of Butler SOS, focusing on the most used features and execution environments.
+The purpose of the telemetry data is to aid in future development of Butler SOS, so focus be put on the most important features and execution environments.
 
 If you want your historical telemetry data to be deleted, you must provide Ptarmigan Labs with the system ID mentioned in the logs when Butler SOS is starting.  
 This ID is what identifies your specific instance of Butler SOS.  

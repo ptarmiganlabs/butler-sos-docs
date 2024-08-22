@@ -370,6 +370,8 @@ Each variant is described below.
 This modular approach to log events makes it possible to extend Butler SOS' with additional log events if/when needed..
 {{< /notice >}}
 
+*Note: If log event categorisation is enabled in the main YAML config file, the categories defined in the config file will be added as tags to the log event data points written to InfluxDB.*
+
 ##### Source: Proxy service
 
 Events such as failed login attempts will be sent from the proxy service.

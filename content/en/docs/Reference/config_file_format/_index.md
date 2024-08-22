@@ -16,9 +16,7 @@ The .yaml extension is recommended.
 The config file is the heart of Butler SOS.  
 All setting must be defined in the config file - run time errors are likely to occur otherwise.
 
-The [sample config file](https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml) looks like this:
-
-![Sample config file](./configfile.png "Sample Butler SOS config file")
+A sample config file is included in the release ZIP files, and also [available on GitHub](https://raw.githubusercontent.com/ptarmiganlabs/butler-sos/master/src/config/production_template.yaml).
 
 A few things to keep in mind:
 
@@ -36,6 +34,15 @@ A few things to keep in mind:
 | logDirectory | Subdirectory where log files are stored |
 | anonTelemetry | Can Butler SOS share anonymous data about itself with the Butler SOS project? More info on whata data is collected [here](/docs/about/telemetry). |
 |  |  |
+
+#### Butler-SOS.configVisualisation
+
+| Parameter | Description |
+| --------- | ----------- |
+| enable | Should Butler SOS' config file be visualized in a web UI? true/false |
+| host | Hostname or IP address where the web server will listen. Should be localhost or the host's IP address in most cases.  |
+| port | Port where the web server will listen. Change if port 3100 is already in use. |
+| obfuscate | Should the config file shown in the web UI be obfuscated? true/false |
 
 #### Butler-SOS.heartbeat
 
@@ -134,6 +141,21 @@ Note that log events can be enabled/disabled per source (repository, proxy, sche
 | source.<br>proxy.enable | Should log events from the proxy service be handled by Butler SOS? true/false |
 | source.<br>repository.enable | Should log events from the repository service be handled by Butler SOS? true/false |
 | source.<br>scheduler.enable | Should log events from the scheduler service be handled by Butler SOS? true/false |
+| categorise.enable | Should categorisation of log events be enabled? true/false |
+| categorise.rules | Array of rules that will be used to categorise log events. Each rule consists of a set of properties. |
+| categorise.rules[].<br>description | Description of the rule. |
+| categorise.rules[].<br>logLevel[] | Array of log levels that will be used to match log events against this rule. |
+| categorise.rules[].<br>action | Action to take if a log event matches this rule. Possible values are "categorise" and "drop". |
+| categorise.rules[].<br>category[] | Array of name-value pairs that will be added to the log event if it matches this rule. |
+| categorise.rules[].<br>category[].name | Name of the category. |
+| categorise.rules[].<br>category[].value | Value of the category. |
+| categorise.rules[].<br>filter[] | Array of type-value pairs that will be used to match log events against this rule. |
+| categorise.rules[].<br>filter[].type | Type of filter. Possible values are "sw" = starts with, "ew" = ends with, "so" = substring of. |
+| categorise.ruleDefault | Default values for categorisation, if no other rule matches. |
+| categorise.ruleDefault.<br>enable | Should the default rule be used? true/false |
+| categorise.ruleDefault.<br>category[] | Array of name-value pairs that will be added to the log event if no other rule matches. |
+| categorise.ruleDefault.<br>category[].name | Name of the category. |
+| categorise.ruleDefault.<br>category[].value | Value of the category. |
 | sendToMQTT.enable | Should log events be sent to MQTT? true/false |
 | sendToMQTT.baseTopic | Root MQTT topic. All log events MQTT messages will be posted in this topic or subtopics of it. |
 | sendToMQTT.postTo<br>.baseTopic | Should all log events be posted to the root topic? true/false |

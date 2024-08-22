@@ -62,12 +62,23 @@ If a server is heavily loaded it will eventually be seen as slow(er) by end user
 ## Log events: Qlik Sense errors & warning
 
 The Sense logs are always available on the Sense servers, the problem is that they are hard to reach there - at least in real time.  
-Retrospective analysis is also cumbersome, you basically have to manually dig up the specific log files of interest and then search them for the information of interest.
+Retrospective analysis is also cumbersome, you basically have to manually dig up the specific log files of interest and then search them for the needed information.
 
 Butler SOS simplifies this greatly by having select log events (warnings, errors and fatals by default) sent from the Sense servers to Butler SOS.  
 Once such a log event message arrives, Butler SOS will store it in its database (for example InfluxDB or New Relic), from where the log event can be visualised using Grafana or within New Relic.  
 
-Log events are also re-published as MQTT messages. This makes it possible for 3rd party systems to trigger actions when certain log events occur in Qlik Sense.  
+By categorising log events, Butler SOS makes it much easier to understand what is happening in your Sense environment.  
+For example, if you categorise log events as follows:
+
+- reload failures as "reload_failures"
+- engine related errors/warnings as"engine"
+- Active Directory related errors as "active_directory"
+- permission denied related messages as "permission"
+
+...you can then easily create Grafana charts that show number of warnings/errors per category, and also clearly show how many unknown log events there are.  
+It's also easy to track volume of warnings/errors over time, and to set up alerts when number of events go above some threshold.
+
+Log events can also be re-published as MQTT messages. This makes it possible for 3rd party systems to trigger actions when certain log events occur in Qlik Sense.  
 
 Log events from several Qlik Sense servics can selectively be forwarded to Butler SOS:
 
