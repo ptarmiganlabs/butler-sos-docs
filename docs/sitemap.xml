@@ -78,8 +78,6 @@
     <loc>https://butler-sos.ptarmiganlabs.com/docs/concepts/errors-warnings/</loc>
     <lastmod>2022-08-27T09:00:57+02:00</lastmod>
   </url><url>
-    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/upgrade/</loc>
-  </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/</loc>
     <lastmod>2021-04-21T22:36:38+02:00</lastmod>
   </url><url>
@@ -121,6 +119,9 @@
   </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/prometheus_grafana/</loc>
     <lastmod>2024-06-04T09:00:13+02:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/upgrade/</loc>
+    <lastmod>2024-09-02T16:45:18+02:00</lastmod>
   </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/docs/reference/</loc>
   </url><url>
