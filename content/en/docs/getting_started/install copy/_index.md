@@ -9,8 +9,17 @@ description: >
 
 ## First: Don't panic
 
-Upgrading Butler SOS is usually a smooth process.  
-Stop the service, replace the Butler SOS binary with the new version, start the service. Done.
+Upgrading Butler SOS is usually a smooth process:
+
+- Get the new version from the assets section on the [download page](https://github.com/ptarmiganlabs/butler-sos/releases). Extract the ZIP file.
+- Back up your existing Butler SOS configuration file.
+- Edit the configuration file to match the new version's requirements.
+- Stop the Butler SOS process/service.
+- Replace the Butler SOS binary with the new version.
+- Start the process/service.
+- 🥳 Celebrate!
+
+If the above works as intended, the downtime will be on the order of a minute or less.
 
 There are a few things to consider though:
 

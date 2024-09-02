@@ -38,7 +38,8 @@ Here&#39;s how to do it. ">
   <meta itemprop="name" content="Upgrade">
   <meta itemprop="description" content="Upgrading Butler SOS to a new version?
 Here&#39;s how to do it. ">
-  <meta itemprop="wordCount" content="338">
+  <meta itemprop="dateModified" content="2024-09-02T16:27:31+02:00">
+  <meta itemprop="wordCount" content="393">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Upgrade">
   <meta name="twitter:description" content="Upgrading Butler SOS to a new version?
@@ -298,8 +299,17 @@ Here&#39;s how to do it. ">
 		
   </header>
 	<h2 id="first-dont-panic">First: Don&rsquo;t panic</h2>
-<p>Upgrading Butler SOS is usually a smooth process.<br>
-Stop the service, replace the Butler SOS binary with the new version, start the service. Done.</p>
+<p>Upgrading Butler SOS is usually a smooth process:</p>
+<ul>
+<li>Get the new version from the assets section on the <a href="https://github.com/ptarmiganlabs/butler-sos/releases">download page</a>. Extract the ZIP file.</li>
+<li>Back up your existing Butler SOS configuration file.</li>
+<li>Edit the configuration file to match the new version&rsquo;s requirements.</li>
+<li>Stop the Butler SOS process/service.</li>
+<li>Replace the Butler SOS binary with the new version.</li>
+<li>Start the process/service.</li>
+<li>🥳 Celebrate!</li>
+</ul>
+<p>If the above works as intended, the downtime will be on the order of a minute or less.</p>
 <p>There are a few things to consider though:</p>
 <ul>
 <li>Make a backup of your YAML configuration file before upgrading. Just&hellip; do it.</li>
@@ -336,6 +346,9 @@ Adding that entry to the config file should make Butler SOS start.</p>
     
     
     </div>
+<div class="td-page-meta__lastmod">
+  Last modified September 2, 2024: <a href="https://github.com/ptarmiganlabs/butler-sos-docs/commit/b18dcffab5198967e22a5186b81b8ac036aa9b17">Add section on how to upgrade Butler SOS (b18dcff)</a>
+</div>
 </div>
 
           </main>
