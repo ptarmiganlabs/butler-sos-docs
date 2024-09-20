@@ -150,12 +150,12 @@ Suddenly it's easy to find the important log entries among all those non-critica
 
 {{< blocks/section type="row">}}
 
-{{% blocks/feature icon="fa-lightbulb" title="Latest release: 10.2" %}}
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 11.0" %}}
 
 Detailed performance metrics for individual apps, sheets and charts.  
 Get notified in real time about apps that open slowly, or charts that take too long to render.
 
-Or apps with less than ideal data model design.
+Or when apps with less than ideal data model design are accessed.
 
 {{% /blocks/feature %}}
 
