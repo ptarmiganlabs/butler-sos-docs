@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.134.1">
 <link rel="alternate" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/printview/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/index.xml">
 <meta name="robots" content="index, follow">
@@ -145,6 +145,8 @@
   <a href="/docs/getting_started/setup/which-config-file/" title="Which config file to use" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupwhich-config-file"><span class="">Which config file?</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupconfig-file-verification-li">
   <a href="/docs/getting_started/setup/config-file-verification/" title="Config file verification" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupconfig-file-verification"><span class="">Verify config file</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupconfig-file-visualisation-li">
+  <a href="/docs/getting_started/setup/config-file-visualisation/" title="Visualise the config file" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupconfig-file-visualisation"><span class="">Config file visualisation</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetuplogging-li">
   <a href="/docs/getting_started/setup/logging/" title="Configuring Butler SOS logging" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetuplogging"><span class="">Log files</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupheartbeats-li">
@@ -155,10 +157,20 @@
   <a href="/docs/getting_started/setup/uptime-monitor/" title="Configuring Butler SOS uptime monitor" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupuptime-monitor"><span class="">Uptime monitor</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupcredentials-li">
   <a href="/docs/getting_started/setup/credentials/" title="Credentials to third party services" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupcredentials"><span class="">Credentials</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupuser-events-li">
-  <a href="/docs/getting_started/setup/user-events/" title="Configuring user events" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupuser-events"><span class="">User events</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetuplog-events-li">
-  <a href="/docs/getting_started/setup/log-events/" title="Configuring log events" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetuplog-events"><span class="">Log events</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsgetting_startedsetupqlik-sense-events-li">
+  <a href="/docs/getting_started/setup/qlik-sense-events/" title="General Sense event settings" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupqlik-sense-events"><span class="">Qlik Sense events</span></a>
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupqlik-sense-eventsuser-events-li">
+  <a href="/docs/getting_started/setup/qlik-sense-events/user-events/" title="Configuring user events" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupqlik-sense-eventsuser-events"><span class="">User events</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsgetting_startedsetupqlik-sense-eventslog-events-li">
+  <a href="/docs/getting_started/setup/qlik-sense-events/log-events/" title="Configuring log events" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupqlik-sense-eventslog-events"><span class="">Log events</span></a>
+  <ul class="ul-5 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupqlik-sense-eventslog-eventsperformance-log-events-li">
+  <a href="/docs/getting_started/setup/qlik-sense-events/log-events/performance-log-events/" title="Engine performance log events" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupqlik-sense-eventslog-eventsperformance-log-events"><span class="">Performance log events</span></a>
+</li>
+  </ul>
+</li>
+  </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetuplog-db-li">
   <a href="/docs/getting_started/setup/log-db/" title="Configuring the log database" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetuplog-db"><span class="">Log db</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupqlik-sense-server-settings-li">
@@ -195,12 +207,23 @@
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconcepts-li">
   <a href="/docs/concepts/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconcepts"><span class="">Concepts</span></a>
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptssessions-connections-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsapp-metrics-li">
+  <a href="/docs/concepts/app-metrics/" title="App nmetrics" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsapp-metrics"><span class="">App metrics</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptssessions-connections-li">
   <a href="/docs/concepts/sessions-connections/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptssessions-connections"><span class="">Sessions &amp; Connections</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsapps-li">
-  <a href="/docs/concepts/apps/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsapps"><span class="">Apps</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptserrors-warnings-li">
-  <a href="/docs/concepts/errors-warnings/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptserrors-warnings"><span class="">Errors &amp; Warnings</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsconceptslog-events-li">
+  <a href="/docs/concepts/log-events/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptslog-events"><span class="">Log events</span></a>
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptslog-eventslog-events-overview-li">
+  <a href="/docs/concepts/log-events/log-events-overview/" title="Log events overview" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptslog-eventslog-events-overview"><span class="">Overview</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptslog-eventserrors-warnings-li">
+  <a href="/docs/concepts/log-events/errors-warnings/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptslog-eventserrors-warnings"><span class="">Errors &amp; Warnings</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptslog-eventscatgorising-log-events-li">
+  <a href="/docs/concepts/log-events/catgorising-log-events/" title="Getting rid of Sense log noise" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptslog-eventscatgorising-log-events"><span class="">Categorising log events</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptslog-eventsapp-object-performance-monitoring-li">
+  <a href="/docs/concepts/log-events/app-object-performance-monitoring/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptslog-eventsapp-object-performance-monitoring"><span class="">App performance monitoring</span></a>
+</li>
+  </ul>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsexamples-li">
@@ -301,38 +324,38 @@
 Butler SOS has been succesfully used as a native Node.js app - during development and production - on Windows, Linux (Debian and Ubuntu tested) and mac OS.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <table>
-<thead>
-<tr>
-<th>What</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Qlik Sense Enterprise on Windows</td>
-<td><em>Mandatory.</em> Butler SOS is developed with Qlik Sense Enterprise on Windows (QSEoW) in mind. <br>Butler SOS is simply not intended to work with Sense Desktop or Sense cloud.</td>
-</tr>
-<tr>
-<td>Node.js</td>
-<td><em>Mandatory.</em> Butler SOS is written in Node - which is thus a firm requirement.</td>
-</tr>
-<tr>
-<td>MQTT broker</td>
-<td><em>Optional.</em> MQTT is used for outbound pub-sub messaging. Butler SOS assumes a working MQTT broker is available, the IP of which is defined in the Butler SOS config file. <a href="https://mosquitto.org/">Mosquitto</a> is a great open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&hellip; instance is enough, if you want a dedicated MQTT server. If you don&rsquo;t care about the pubsub features of Butler SOS, you don&rsquo;t need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.</td>
-</tr>
-<tr>
-<td><a href="https://www.influxdata.com/time-series-platform/">InfluxDB</a></td>
-<td><em>Use at least one of InfluxDB and Prometheus.</em> An open source database for realtime information, used to store metrics around Butler&rsquo;s own memory usage over time (if this feature is enabled).<br> At this point more metrics and events are sent to InfluxDB, compared to Prometheus.</td>
-</tr>
-<tr>
-<td><a href="https://prometheus.io">Prometheus</a></td>
-<td><em>Use at least one of InfluxDB and Prometheus.</em> The de-facto standard open source tool for metrics gathering in large-scale systems, including Kubernetes. A bit more complex to set up and configure compared to InfluxDB, but also more focused on providing observability features.</td>
-</tr>
-<tr>
-<td><a href="https://grafana.com">Grafana</a></td>
-<td><em>Optional.</em> The de-facto open source standard for showing real-time metrics. In order to visualise Sense realtime metrics in Grafana you must enable at least one of InfluxDB or Prometheus.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">What</th>
+          <th style="text-align: left">Comment</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Qlik Sense Enterprise on Windows</td>
+          <td style="text-align: left"><em>Mandatory.</em> Butler SOS is developed with Qlik Sense Enterprise on Windows (QSEoW) in mind. <br>Butler SOS is simply not intended to work with Sense Desktop or Sense cloud.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Node.js</td>
+          <td style="text-align: left"><em>Mandatory.</em> Butler SOS is written in Node - which is thus a firm requirement.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">MQTT broker</td>
+          <td style="text-align: left"><em>Optional.</em> MQTT is used for outbound pub-sub messaging. Butler SOS assumes a working MQTT broker is available, the IP of which is defined in the Butler SOS config file. <a href="https://mosquitto.org/">Mosquitto</a> is a great open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&hellip; instance is enough, if you want a dedicated MQTT server. If you don&rsquo;t care about the pubsub features of Butler SOS, you don&rsquo;t need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a href="https://www.influxdata.com/time-series-platform/">InfluxDB</a></td>
+          <td style="text-align: left"><em>Use at least one of InfluxDB and Prometheus.</em> An open source database for realtime information, used to store metrics around Butler&rsquo;s own memory usage over time (if this feature is enabled).<br> At this point more metrics and events are sent to InfluxDB, compared to Prometheus.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a href="https://prometheus.io">Prometheus</a></td>
+          <td style="text-align: left"><em>Use at least one of InfluxDB and Prometheus.</em> The de-facto standard open source tool for metrics gathering in large-scale systems, including Kubernetes. A bit more complex to set up and configure compared to InfluxDB, but also more focused on providing observability features.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a href="https://grafana.com">Grafana</a></td>
+          <td style="text-align: left"><em>Optional.</em> The de-facto open source standard for showing real-time metrics. In order to visualise Sense realtime metrics in Grafana you must enable at least one of InfluxDB or Prometheus.</td>
+      </tr>
+  </tbody>
 </table>
 
   <div class="section-index">
@@ -375,6 +398,12 @@ Butler SOS has been succesfully used as a native Node.js app - during developmen
   <li class="td-footer__links-item" data-bs-toggle="tooltip" title="LinkedIn" aria-label="LinkedIn">
     <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/gorsan/" aria-label="LinkedIn">
       <i class="fab fa-linkedin"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="GitHub discussions" aria-label="GitHub discussions">
+    <a target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler-sos/discussions" aria-label="GitHub discussions">
+      <i class="fab fa-github"></i>
     </a>
   </li>
   

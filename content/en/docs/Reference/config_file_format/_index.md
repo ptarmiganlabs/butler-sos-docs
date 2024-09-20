@@ -20,7 +20,7 @@ A sample config file is included in the release ZIP files, and also [available o
 
 A few things to keep in mind:
 
-- Topic names (e.g. "Butler-SOS.logdb") are case sensitive.
+- Topic names (e.g. "Butler-SOS.logLevel") are case sensitive.
 - First time Butler SOS is started, a new check is done if the specified InfluxDB database already exists.
   If it doesn't exist it will be created together with a default InfluxDB retention policy. The retention policy is based on the time period set in the config file.
 
@@ -177,27 +177,6 @@ Note that log events can be enabled/disabled per source (repository, proxy, sche
 | sendToNewRelic.<br>source.scheduler.logLevel.warn | Should WARN log events from the scheduler service be handled |
 |  |  |
 
-#### Butler-SOS.logdb
-
-As of August 2021 log db has been deprecated in Qlik Sense.  
-It is no longer installed when doing fresh QSEoW installs.
-
-To support older QSEoW clusters out there Butler SOS will for now keep log db support intact.
-
-| Parameter | Description |
-| --------- | ----------- |
-| enable | Should Sense log db be queried for warnings/errors/info messages? true/false |
-| pollingInterval | How often to query log db. Milliseconds |
-| queryPeriod | How far back should log db be queried? Human readable, e.g. "5 minutes" (which is also the default value)|
-| host | IP or FQDN of server where Sense log db is running |
-| port | Port used by log db. 4432 unless changed during installation of Sense |
-| qlogsReaderUser | User to connect to log db as. "qlogs_reader" unless changed during installation of Sense |
-| qlogsReaderPwd | Password of above user |
-| extractErrors | Should error entries be extracted from log db? true/false |
-| extractWarnings | Should warning entries be extracted from log db? true/false |
-| extractInfo | Should info entries be extracted from log db? true/false. <br>**NOTE:** If info level logging is enabled, this will result in lots of messages being stored in Influxdb (at least for a busy Sense cluster).  |
-|  |  |
-
 #### Butler-SOS.cert
 
 Certificates to use when connecting to Sense. Get these from the Certificate Export in QMC.
@@ -323,13 +302,8 @@ Extract user session data per virtual proxy.
 | servers.<br>host | FQDN of server. Domain should match that of the certificate exported from QMC - otherwise certificate warnings may appear. NOTE: You need to specify the port too - should be :4747 unless it's been changed from default value (*very* unusual to change this). |
 | servers.<br>serverName | Human friendly server name |
 | servers.<br>serverDescription | Human friendly server description |
-| servers.<br>logDbHost | Server's name as it appears in the ```process_host``` field log db. This is needed in order to link entries in logdb to the specific server at hand. See note below too! |
 | servers.<br>userSessions.<br>enable | Control whether user session data should be retrieved for this server |
 | servers.<br>userSessions.<br>host | Host and port from which to retrieve user session data. Usually on the form servername.mydomain.net:4243 |
 | servers.<br>userSessions.<br>virtualProxies | A list of key-value pairs. Use to specify for which virtual proxies on this server user session data should be retrieved. |
 | serverTags | A list of key-value pairs. Use to provide more metadata for servers. Can then (among other things) be used to created more advanced Grafana dashboards. |
 | headers | A list of key-value pairs. Headers specified here will be used when retrieving metrics from this Sense server. |
-
-The ```Butler-SOS.serversToMonitor.servers.logDbHost``` property can be tricky to get right. Easiest way to get the correct value is to look in the Nodes section in the QMC. In the ```Host name``` column you find the host names of the various nodes. ```logDbHost``` should be set to the first part of each host name:
-
-![Log db host name](./logdb-host-name-1.png "Getting the log db host name property from QMC")

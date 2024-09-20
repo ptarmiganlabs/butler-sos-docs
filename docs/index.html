@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.134.1">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/index.xml">
 <meta name="robots" content="index, follow">
 <script defer data-domain="butler-sos.ptarmiganlabs.com" src="https://plausible.io/js/script.js"></script>
@@ -30,29 +30,20 @@
 <meta property="og:url" content="https://butler-sos.ptarmiganlabs.com/">
   <meta property="og:site_name" content="Butler SOS">
   <meta property="og:title" content="Butler SOS">
-  <meta property="og:description" content="Butler SOS: Realtime monitoring for Qlik Sense Learn More Download Warnings lead to errors ➡️ Errors lead to unhappy users ➡️ Unhappy users call you. Ouch 👎.
-Wouldn&#39;t you rather get the warnings yourself, before anyone else?
-If you don&#39;t measure it, you can&#39;t improve it. Butler SOS is an open source (free!!) tool that provides real-time monitoring of Qlik Sense Enterprise environments.
-One server or 40? No problem.">
+  <meta property="og:description" content=" Butler SOS: Realtime monitoring for Qlik Sense Learn More Download Warnings lead to errors ➡️ Errors lead to unhappy users ➡️ Unhappy users call you. Ouch 👎.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
     <meta property="og:image" content="https://butler-sos.ptarmiganlabs.com/featured-background.png">
 
   <meta itemprop="name" content="Butler SOS">
-  <meta itemprop="description" content="Butler SOS: Realtime monitoring for Qlik Sense Learn More Download Warnings lead to errors ➡️ Errors lead to unhappy users ➡️ Unhappy users call you. Ouch 👎.
-Wouldn&#39;t you rather get the warnings yourself, before anyone else?
-If you don&#39;t measure it, you can&#39;t improve it. Butler SOS is an open source (free!!) tool that provides real-time monitoring of Qlik Sense Enterprise environments.
-One server or 40? No problem.">
+  <meta itemprop="description" content=" Butler SOS: Realtime monitoring for Qlik Sense Learn More Download Warnings lead to errors ➡️ Errors lead to unhappy users ➡️ Unhappy users call you. Ouch 👎.">
   <meta itemprop="dateModified" content="2024-08-22T18:44:05+02:00">
-  <meta itemprop="wordCount" content="618">
+  <meta itemprop="wordCount" content="860">
   <meta itemprop="image" content="https://butler-sos.ptarmiganlabs.com/featured-background.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://butler-sos.ptarmiganlabs.com/featured-background.png">
   <meta name="twitter:title" content="Butler SOS">
-  <meta name="twitter:description" content="Butler SOS: Realtime monitoring for Qlik Sense Learn More Download Warnings lead to errors ➡️ Errors lead to unhappy users ➡️ Unhappy users call you. Ouch 👎.
-Wouldn&#39;t you rather get the warnings yourself, before anyone else?
-If you don&#39;t measure it, you can&#39;t improve it. Butler SOS is an open source (free!!) tool that provides real-time monitoring of Qlik Sense Enterprise environments.
-One server or 40? No problem.">
+  <meta name="twitter:description" content=" Butler SOS: Realtime monitoring for Qlik Sense Learn More Download Warnings lead to errors ➡️ Errors lead to unhappy users ➡️ Unhappy users call you. Ouch 👎.">
 
 
 
@@ -222,7 +213,120 @@ If your main monitoring tool can use either of these as a data source, it can re
 </div>
 </section>
 <div><a id="td-block-7" class="td-offset-anchor"></a></div>
-<section class="row td-box td-box--7 td-box--height-auto">
+<section class="row td-box td-box--light td-box--height-auto">
+<div class="col">
+<div class="row">
+
+
+
+<div class="col-lg-4 mb-5 mb-lg-0 text-center">
+<div class="mb-4 h1">
+  <i class="fas fa-server"></i>
+</div>
+<h4 class="h3">Scalability?</h4>
+<div class="mb-0">
+<p>Butler SOS handles very large Sense clusters - or just a single node.</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-4 mb-5 mb-lg-0 text-center">
+<div class="mb-4 h1">
+  <i class="fas fa-bell"></i>
+</div>
+<h4 class="h3">Alerts and notifications?</h4>
+<div class="mb-0">
+<p>Built into Grafana. Email, Slack, Teams, New Relic, PagerDuty and more.<br>
+Prometheus offers even more integrations with various alerting tools.</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-4 mb-5 mb-lg-0 text-center">
+<div class="mb-4 h1">
+  <i class="fas fa-users"></i>
+</div>
+<h4 class="h3">Who, when, where?</h4>
+<div class="mb-0">
+<p>Detailed info is available about what users are (and were!) connected to which virtual proxies.<br></p>
+<p>Example: Easy to see which users will be affectd by a server restart. Connect this data to your IM tool and notify users before restarts happen.</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-4 mb-5 mb-lg-0 text-center">
+<div class="mb-4 h1">
+  <i class="fas fa-archive"></i>
+</div>
+<h4 class="h3">Logging revisited</h4>
+<div class="mb-0">
+<p>The Sense log database is gone as of second half of 2021, but with log events forwarded to Butler SOS - then visualised in Grafana or New Relic - you get real-time insight into errors and warnings as they happen.</p>
+<p>No more digging around in log files on the server!</p>
+
+</div>
+
+</div>
+
+
+<div class="col-lg-4 mb-5 mb-lg-0 text-center">
+<div class="mb-4 h1">
+  <i class="fas fa-tachometer-alt"></i>
+</div>
+<h4 class="h3">Real-time chart performance monitoring</h4>
+<div class="mb-0">
+<p>Butler SOS can monitor the performance of individual charts and tables in your apps, as well as the performance of the actual data model itself.</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-4 mb-5 mb-lg-0 text-center">
+<div class="mb-4 h1">
+  <i class="fas fa-frown"></i>
+</div>
+<h4 class="h3">Know - don&rsquo;t guess what your users experience</h4>
+<div class="mb-0">
+<p>Are users reporting that an app is slow to open?<br>
+Get actual numbers - in real-time - on how long the app usually takes to open, and what the outliers are.</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-4 mb-5 mb-lg-0 text-center">
+<div class="mb-4 h1">
+  <i class="fas fa-volume-down"></i>
+</div>
+<h4 class="h3">Manage Sense log noise</h4>
+<div class="mb-0">
+<p>Getting thousands of warnings and errors in your Sense logs?</p>
+<p>Butler SOS can categorise log entries into any number of categories, making it much easier to understand what is happening in your Sense environment.</p>
+<p>Suddenly it&rsquo;s easy to find the important log entries among all those non-critical events.</p>
+
+</div>
+
+</div>
+
+
+</div>
+</div>
+</section>
+
+<div><a id="td-block-8" class="td-offset-anchor"></a></div>
+<section class="row td-box td-box--8 td-box--height-auto">
 <div class="col">
 <div class="row">
 
@@ -234,9 +338,9 @@ If your main monitoring tool can use either of these as a data source, it can re
 </div>
 <h4 class="h3">Latest release: 10.2</h4>
 <div class="mb-0">
-<p>Categorise log events according to your specific needs.<br>
-This makes it easier to find the important warnings and errors among the potentially huge amount of log events generated by your Sense environment.</p>
-<p>Visualise the current Butler SOS config in a web page, optionally also obfuscating sensitive data.</p>
+<p>Detailed performance metrics for individual apps, sheets and charts.<br>
+Get notified in real time about apps that open slowly, or charts that take too long to render.</p>
+<p>Or apps with less than ideal data model design.</p>
 
 </div>
 
@@ -295,6 +399,12 @@ It&rsquo;s all done over at <a href="https://github.com/ptarmiganlabs/butler-sos
   <li class="td-footer__links-item" data-bs-toggle="tooltip" title="LinkedIn" aria-label="LinkedIn">
     <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/gorsan/" aria-label="LinkedIn">
       <i class="fab fa-linkedin"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="GitHub discussions" aria-label="GitHub discussions">
+    <a target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler-sos/discussions" aria-label="GitHub discussions">
+      <i class="fab fa-github"></i>
     </a>
   </li>
   

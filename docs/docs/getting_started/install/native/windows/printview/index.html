@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.134.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/windows/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/windows/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -154,17 +154,17 @@ Unblocking the Butler SOS zip file on Windows Server
 <p>In this scenario you will use the Butler SOS source code together with the standard Node.js runtime libraries.</p>
 <p>The result is the same as with the stand-alone binaries, you just have to do more of the work yourself.<br>
 This is usually <em>not</em> preferred, but if you want to add new features to (or modify existone ones) Butler SOS, this option is for you</p>
-<h3 id="1-install-nodejs">1. Install Node.js</h3>
+<h4 id="1-install-nodejs">1. Install Node.js</h4>
 <p>The <a href="https://nodejs.org/en/download/">latest LTS version</a> is usually a good choice.</p>
-<h3 id="2-select-a-directory-from-which-butler-sos-will-be-run">2. Select a directory from which Butler SOS will be run</h3>
+<h4 id="2-select-a-directory-from-which-butler-sos-will-be-run">2. Select a directory from which Butler SOS will be run</h4>
 <p>This can be pretty much anywhere, in this example d:\tools\butler-sos will be used.</p>
-<h3 id="3-get-butler-sos">3. Get Butler SOS</h3>
+<h4 id="3-get-butler-sos">3. Get Butler SOS</h4>
 <p>Get the desired <a href="https://github.com/ptarmiganlabs/butler-sos/releases">Butler SOS version</a> and extract it into the directory above.</p>
 <p>Get the latest available version unless you have a <em>really</em> good reason to use an older version.<br>
 New features are added, bugs fixed and security updates are applied in each version - it&rsquo;s simply a good idea to use the latest version.</p>
 <p>Do not just clone the Butler SOS repository as that will give you the latest development version, which may not yet be fully tested and packaged.<br>
 The exception is of course if you want to contribute to Butler SOS development - then forking and cloning the repository is the right thing to do.</p>
-<h3 id="4-install-nodejs-dependencies">4. Install Node.js dependencies</h3>
+<h4 id="4-install-nodejs-dependencies">4. Install Node.js dependencies</h4>
 <p>From d:\tools\butler-sos\src, run <code>npm i</code> to install the various Node.js modules used by Butler SOS. Depending on your server configuration you may get some warnings about (for example) Python not being installed, these can usually be ignored.</p>
 <h2 id="configuration">Configuration</h2>
 <p>The configuration file is used the same way as when Butler SOS runs on Docker, with one exception:</p>
@@ -221,6 +221,12 @@ The exception is of course if you want to contribute to Butler SOS development -
   <li class="td-footer__links-item" data-bs-toggle="tooltip" title="LinkedIn" aria-label="LinkedIn">
     <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/gorsan/" aria-label="LinkedIn">
       <i class="fab fa-linkedin"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="GitHub discussions" aria-label="GitHub discussions">
+    <a target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler-sos/discussions" aria-label="GitHub discussions">
+      <i class="fab fa-github"></i>
     </a>
   </li>
   

@@ -36,15 +36,15 @@ In this scenario you will use the Butler SOS source code together with the stand
 The result is the same as with the stand-alone binaries, you just have to do more of the work yourself.  
 This is usually *not* preferred, but if you want to add new features to (or modify existone ones) Butler SOS, this option is for you
 
-### 1. Install Node.js
+#### 1. Install Node.js
 
 The [latest LTS version](https://nodejs.org/en/download/) is usually a good choice.
 
-### 2. Select a directory from which Butler SOS will be run
+#### 2. Select a directory from which Butler SOS will be run
 
 This can be pretty much anywhere, in this example d:\tools\butler-sos will be used.
 
-### 3. Get Butler SOS
+#### 3. Get Butler SOS
 
 Get the desired [Butler SOS version](https://github.com/ptarmiganlabs/butler-sos/releases) and extract it into the directory above.
 
@@ -54,7 +54,7 @@ New features are added, bugs fixed and security updates are applied in each vers
 Do not just clone the Butler SOS repository as that will give you the latest development version, which may not yet be fully tested and packaged.  
 The exception is of course if you want to contribute to Butler SOS development - then forking and cloning the repository is the right thing to do.
 
-### 4. Install Node.js dependencies
+#### 4. Install Node.js dependencies
 
 From d:\tools\butler-sos\src, run `npm i` to install the various Node.js modules used by Butler SOS. Depending on your server configuration you may get some warnings about (for example) Python not being installed, these can usually be ignored.
 

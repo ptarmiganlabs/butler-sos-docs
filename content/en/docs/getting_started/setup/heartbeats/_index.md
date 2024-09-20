@@ -26,7 +26,7 @@ Somehow Butler SOS should be monitored.
 Butler SOS (and most other tools in the Butler family) has a **heartbeat** feature.  
 It sends periodic messages to a monitoring tool, which can then alert if Butler SOS hasn't checked in as expected.
 
-[Healthchecks.io](https://healthchecks.io/) is an example of such as tool. It's open source but also has a SaaS option if so preferred.
+[Healthchecks.io](https://healthchecks.io/) is an example of such as tool. It's open source and can be self-hosted, but also has a SaaS option if so preferred.
 
 [Uptime Kuma](https://github.com/louislam/uptime-kuma) is another great tool that can be used, it has a somewhat slicker UI than Healthchecks.io - but it's relally a matter of personal preference which one to use.
 

@@ -10,7 +10,7 @@ A description of the config file format is available [here](/docs/reference/conf
 
 ## Select which config file to use
 
-Butler SOS uses configuration files in YAML format. The config files are stored in the `src/config` folder.  
+Butler SOS uses configuration files in YAML format.  
 
 Butler SOS comes with a default config file called `production_template.yaml`.  
 Make a copy of it, then rename the copy to `butler-sos-config-prod.yaml`, `production.yaml`, `staging.yaml` or something else suitable to your specific use case.

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.134.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/reference/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/reference/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -297,7 +297,7 @@ Looks like this:</p>
 </span></span><span style="display:flex;"><span>  --new-relic-account-name  &lt;name...&gt;  New Relic account name. Used within Butler SOS to differentiate between different target New Relic accounts
 </span></span><span style="display:flex;"><span>  --new-relic-api-key &lt;key...&gt;         insert API key to use with New Relic
 </span></span><span style="display:flex;"><span>  --new-relic-account-id &lt;id...&gt;       New Relic account ID
-</span></span><span style="display:flex;"><span>  --skip-config-verification           Disable config file verification <span style="color:#ce5c00;font-weight:bold">(</span>default: <span style="color:#204a87">false</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a40000">-</span>-skip-config-verification           Disable config file verification <span style="color:#ce5c00;font-weight:bold">(</span>default: <span style="color:#204a87">false</span><span style="color:#ce5c00;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>  -h, --help                           display <span style="color:#204a87">help</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#204a87">command</span>
 </span></span></code></pre></div><h2 id="-v---version">-V, &ndash;version</h2>
 <p>Output the version number of Butler SOS.</p>
@@ -377,963 +377,899 @@ All setting must be defined in the config file - run time errors are likely to o
 <p>A sample config file is included in the release ZIP files, and also <a href="https://raw.githubusercontent.com/ptarmiganlabs/butler-sos/master/src/config/production_template.yaml">available on GitHub</a>.</p>
 <p>A few things to keep in mind:</p>
 <ul>
-<li>Topic names (e.g. &ldquo;Butler-SOS.logdb&rdquo;) are case sensitive.</li>
+<li>Topic names (e.g. &ldquo;Butler-SOS.logLevel&rdquo;) are case sensitive.</li>
 <li>First time Butler SOS is started, a new check is done if the specified InfluxDB database already exists.
 If it doesn&rsquo;t exist it will be created together with a default InfluxDB retention policy. The retention policy is based on the time period set in the config file.</li>
 </ul>
 <h4 id="top-level">Top level</h4>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>logLevel</td>
-<td>The level of details in the logs. Possible values are silly, debug, verbose, info, warn, error (in order of decreasing level of detail).</td>
-</tr>
-<tr>
-<td>fileLogging</td>
-<td>true/false to enable/disable logging to disk file</td>
-</tr>
-<tr>
-<td>logDirectory</td>
-<td>Subdirectory where log files are stored</td>
-</tr>
-<tr>
-<td>anonTelemetry</td>
-<td>Can Butler SOS share anonymous data about itself with the Butler SOS project? More info on whata data is collected <a href="/docs/about/telemetry/">here</a>.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">logLevel</td>
+          <td style="text-align: left">The level of details in the logs. Possible values are silly, debug, verbose, info, warn, error (in order of decreasing level of detail).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">fileLogging</td>
+          <td style="text-align: left">true/false to enable/disable logging to disk file</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">logDirectory</td>
+          <td style="text-align: left">Subdirectory where log files are stored</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">anonTelemetry</td>
+          <td style="text-align: left">Can Butler SOS share anonymous data about itself with the Butler SOS project? More info on whata data is collected <a href="/docs/about/telemetry/">here</a>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="butler-sosconfigvisualisation">Butler-SOS.configVisualisation</h4>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enable</td>
-<td>Should Butler SOS&rsquo; config file be visualized in a web UI? true/false</td>
-</tr>
-<tr>
-<td>host</td>
-<td>Hostname or IP address where the web server will listen. Should be localhost or the host&rsquo;s IP address in most cases.</td>
-</tr>
-<tr>
-<td>port</td>
-<td>Port where the web server will listen. Change if port 3100 is already in use.</td>
-</tr>
-<tr>
-<td>obfuscate</td>
-<td>Should the config file shown in the web UI be obfuscated? true/false</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">enable</td>
+          <td style="text-align: left">Should Butler SOS&rsquo; config file be visualized in a web UI? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">Hostname or IP address where the web server will listen. Should be localhost or the host&rsquo;s IP address in most cases.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">port</td>
+          <td style="text-align: left">Port where the web server will listen. Change if port 3100 is already in use.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">obfuscate</td>
+          <td style="text-align: left">Should the config file shown in the web UI be obfuscated? true/false</td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="butler-sosheartbeat">Butler-SOS.heartbeat</h4>
 <p>Heartbeats can be used to send &ldquo;I&rsquo;m alive&rdquo; messages to some other tool, e.g. an infrastructure monitoring tool.<br>
 The concept is simple: The remoteURL will be called at the specified frequency. The receiving tool will then know that Butler SOS is alive.</p>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enable</td>
-<td>Should heartbeats be sent to some URL, indicating that Butler SOS is alive and well? true/false</td>
-</tr>
-<tr>
-<td>remoteURL</td>
-<td>URL that will be called for heartbeats</td>
-</tr>
-<tr>
-<td>frequency</td>
-<td>How often should heartbeats be sent? Format according to <a href="https://bunkat.github.io/later/parsers.html#text">https://bunkat.github.io/later/parsers.html#text</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">enable</td>
+          <td style="text-align: left">Should heartbeats be sent to some URL, indicating that Butler SOS is alive and well? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">remoteURL</td>
+          <td style="text-align: left">URL that will be called for heartbeats</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">frequency</td>
+          <td style="text-align: left">How often should heartbeats be sent? Format according to <a href="https://bunkat.github.io/later/parsers.html#text">https://bunkat.github.io/later/parsers.html#text</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="butler-sosdockerhealthcheck">Butler-SOS.dockerHealthCheck</h4>
 <p>Docker health checks are used when running Butler SOS as a Docker container.</p>
 <p>The Docker engine will call the container&rsquo;s health check REST endpoint with a set interval to determine whether the container is alive/well or not.<br>
 If you are <em>not</em> running Butler SOS in Docker you can disable this feature.</p>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enable</td>
-<td>Should a Docker healthcheck endpoint be created within Butler SOS? Set to false if <em>not</em> running Butler SOS under Docker. true/false</td>
-</tr>
-<tr>
-<td>port</td>
-<td>Port the healthcheck should use. Usually 12398, but might need be changed if seveal Butler instances run on the same server</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">enable</td>
+          <td style="text-align: left">Should a Docker healthcheck endpoint be created within Butler SOS? Set to false if <em>not</em> running Butler SOS under Docker. true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">port</td>
+          <td style="text-align: left">Port the healthcheck should use. Usually 12398, but might need be changed if seveal Butler instances run on the same server</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="butler-sosuptimemonitor">Butler-SOS.uptimeMonitor</h4>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enable</td>
-<td>Should messages with Butler SOS uptime and memory usage be written to console and logs? true/false</td>
-</tr>
-<tr>
-<td>frequency</td>
-<td>How often should uptime messages be written to console and/or logs? Format according to <a href="https://bunkat.github.io/later/parsers.html#text">https://bunkat.github.io/later/parsers.html#text</a></td>
-</tr>
-<tr>
-<td>logLevel</td>
-<td>Starting at what log level should uptime messages be used? Possible values are silly, debug, verbose, info, warn, error. For example, if you specify &ldquo;verbose&rdquo; here, uptime messages will appear if you set overall log level to silly, debug or verbose.</td>
-</tr>
-<tr>
-<td>storeInInfluxdb.<br>butlerSOSMemoryUsage</td>
-<td>Should data on Butler SOS&rsquo; own memory use be stored in Infludb? true/false</td>
-</tr>
-<tr>
-<td>storeInInfluxdb.<br>instanceTag</td>
-<td>Tag used to differentiate data from multiple Butler SOS instances. Useful if running different Butler SOS instances against (for example) DEV, TEST and PROD environments</td>
-</tr>
-<tr>
-<td>storeNewRelic.<br>enable</td>
-<td>Should uptime data be sent to New Relic? true/false</td>
-</tr>
-<tr>
-<td>storeNewRelic.<br>destinationAccount</td>
-<td>Array of New Relic account names to which uptime data will be sent</td>
-</tr>
-<tr>
-<td>storeNewRelic.<br>metric.dynamic.<br>butlerMemoryUsage.enable</td>
-<td>Should Butler SOS memory metrics be sent to New Relic? true/false</td>
-</tr>
-<tr>
-<td>storeNewRelic.<br>metric.dynamic.<br>butlerUptime.enable</td>
-<td>Should Butler uptime (days, hours, minutes since startup) be sent to New Relic? true/false</td>
-</tr>
-<tr>
-<td>storeNewRelic.<br>attribute.static</td>
-<td>Array of attributes which will be added to all uptime metrics sent to New Relic</td>
-</tr>
-<tr>
-<td>storeNewRelic.<br>attribute.dynamic.<br>butlerVersion.enable</td>
-<td>Should uptime metrics be tagged with Butler SOS version number? true/false</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">enable</td>
+          <td style="text-align: left">Should messages with Butler SOS uptime and memory usage be written to console and logs? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">frequency</td>
+          <td style="text-align: left">How often should uptime messages be written to console and/or logs? Format according to <a href="https://bunkat.github.io/later/parsers.html#text">https://bunkat.github.io/later/parsers.html#text</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">logLevel</td>
+          <td style="text-align: left">Starting at what log level should uptime messages be used? Possible values are silly, debug, verbose, info, warn, error. For example, if you specify &ldquo;verbose&rdquo; here, uptime messages will appear if you set overall log level to silly, debug or verbose.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">storeInInfluxdb.<br>butlerSOSMemoryUsage</td>
+          <td style="text-align: left">Should data on Butler SOS&rsquo; own memory use be stored in Infludb? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">storeInInfluxdb.<br>instanceTag</td>
+          <td style="text-align: left">Tag used to differentiate data from multiple Butler SOS instances. Useful if running different Butler SOS instances against (for example) DEV, TEST and PROD environments</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">storeNewRelic.<br>enable</td>
+          <td style="text-align: left">Should uptime data be sent to New Relic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">storeNewRelic.<br>destinationAccount</td>
+          <td style="text-align: left">Array of New Relic account names to which uptime data will be sent</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">storeNewRelic.<br>metric.dynamic.<br>butlerMemoryUsage.enable</td>
+          <td style="text-align: left">Should Butler SOS memory metrics be sent to New Relic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">storeNewRelic.<br>metric.dynamic.<br>butlerUptime.enable</td>
+          <td style="text-align: left">Should Butler uptime (days, hours, minutes since startup) be sent to New Relic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">storeNewRelic.<br>attribute.static</td>
+          <td style="text-align: left">Array of attributes which will be added to all uptime metrics sent to New Relic</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">storeNewRelic.<br>attribute.dynamic.<br>butlerVersion.enable</td>
+          <td style="text-align: left">Should uptime metrics be tagged with Butler SOS version number? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="butler-sosthirdpartytoolscredentials">Butler-SOS.thirdPartyToolsCredentials</h4>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>newRelic</td>
-<td>Array of credentials for the New Relic accounts to which data should be sent. Each array item consists of severail items, see below.</td>
-</tr>
-<tr>
-<td>newRelic[]<br>accountName</td>
-<td>Name of New Relic account. This is a &ldquo;friendly name&rdquo; that&rsquo;s used within Butler SOS to identify each NR account.</td>
-</tr>
-<tr>
-<td>newRelic[]<br>insertApiKey</td>
-<td>Insert API key associated with the NR account. Get this from the NR account&rsquo;s settings page.</td>
-</tr>
-<tr>
-<td>newRelic[]<br>accountId</td>
-<td>New Relic account id. Get this from the NR account&rsquo;s settings page.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">newRelic</td>
+          <td style="text-align: left">Array of credentials for the New Relic accounts to which data should be sent. Each array item consists of severail items, see below.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">newRelic[]<br>accountName</td>
+          <td style="text-align: left">Name of New Relic account. This is a &ldquo;friendly name&rdquo; that&rsquo;s used within Butler SOS to identify each NR account.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">newRelic[]<br>insertApiKey</td>
+          <td style="text-align: left">Insert API key associated with the NR account. Get this from the NR account&rsquo;s settings page.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">newRelic[]<br>accountId</td>
+          <td style="text-align: left">New Relic account id. Get this from the NR account&rsquo;s settings page.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="butler-sosuserevents">Butler-SOS.userEvents</h4>
 <p>Track individual users opening/closing apps and starting/stopping sessions.<br>
 Requires log appender XML file(s) to be added to Sense server(s).</p>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enable</td>
-<td>Should Butler SOS track detailed user events (i.e. session start/stop, connection open/close)? true/false</td>
-</tr>
-<tr>
-<td>excludeUser</td>
-<td>Array of users (=directory/userId pairs) that should be disregarded when user events arrive from Sense. Remove sample users before deploying Butler SOS.</td>
-</tr>
-<tr>
-<td>udpServerConfig.<br>serverHost</td>
-<td>IP/host where the user event UDP server should listen for incoming connections. Usually the same IP/host as where Butler SOS is running. Using 0.0.0.0 will cause Butler SOS to listen on all available IPs.</td>
-</tr>
-<tr>
-<td>udpServerConfig.<br>portUserActivityEvents</td>
-<td>Port on which the user event UDP server will listen. Should match the port specified in the log appender.</td>
-</tr>
-<tr>
-<td>tags</td>
-<td>Array of tags (tagName/tagValue pairs) that should be added to each user event before sending it to InfluxDB. Remove sample tags before deploying Butler SOS.</td>
-</tr>
-<tr>
-<td>sendToMQTT.enable</td>
-<td>Should user events be sent to MQTT? true/false</td>
-</tr>
-<tr>
-<td>sendToMQTT.postTo.<br>everythingTopic.enable</td>
-<td>Should <strong>all</strong> user event messages be sent to an MQTT topic? true/false</td>
-</tr>
-<tr>
-<td>sendToMQTT.postTo.<br>everythingTopic.topic</td>
-<td>MQTT topic to which <strong>all</strong> user event messages will be sent.</td>
-</tr>
-<tr>
-<td>sendToMQTT.postTo.<br>sessionStartTopic.enable</td>
-<td>Should <strong>session start</strong> user event messages be sent to an MQTT topic? true/false</td>
-</tr>
-<tr>
-<td>sendToMQTT.postTo.<br>sessionStartTopic.topic</td>
-<td>MQTT topic to which <strong>session start</strong> user event messages will be sent.</td>
-</tr>
-<tr>
-<td>sendToMQTT.postTo.<br>sessionStopTopic.enable</td>
-<td>Should <strong>session stop</strong> user event messages be sent to an MQTT topic? true/false</td>
-</tr>
-<tr>
-<td>sendToMQTT.postTo.<br>sessionStopTopic.topic</td>
-<td>MQTT topic to which <strong>session stop</strong> user event messages will be sent.</td>
-</tr>
-<tr>
-<td>sendToMQTT.postTo.<br>connectionOpenTopic.enable</td>
-<td>Should <strong>connection open</strong> user event messages be sent to an MQTT topic? true/false</td>
-</tr>
-<tr>
-<td>sendToMQTT.postTo.<br>connectionOpenTopic.topic</td>
-<td>MQTT topic to which <strong>connection open</strong> user event messages will be sent.</td>
-</tr>
-<tr>
-<td>sendToMQTT.postTo.<br>connectionCloseTopic.enable</td>
-<td>Should <strong>connection close</strong> user event messages be sent to an MQTT topic? true/false</td>
-</tr>
-<tr>
-<td>sendToMQTT.postTo.<br>connectionCloseTopic.topic</td>
-<td>MQTT topic to which <strong>connection close</strong> user event messages will be sent.</td>
-</tr>
-<tr>
-<td>sendToInfluxdb.enable</td>
-<td>Should user events be saved in InfluxDB? true/false</td>
-</tr>
-<tr>
-<td>sendToNewRelic.enable</td>
-<td>Should user events be saved in New Relic? true/false</td>
-</tr>
-<tr>
-<td>sendToNewRelic.destinationAccount</td>
-<td>Array of New Relic account names to which user events will be sent.</td>
-</tr>
-<tr>
-<td>sendToNewRelic.scramble</td>
-<td>Should <code>user directory</code> and <code>user ID</code> fields be scrambled before user events are sent to New Relic? true/false</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">enable</td>
+          <td style="text-align: left">Should Butler SOS track detailed user events (i.e. session start/stop, connection open/close)? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">excludeUser</td>
+          <td style="text-align: left">Array of users (=directory/userId pairs) that should be disregarded when user events arrive from Sense. Remove sample users before deploying Butler SOS.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">udpServerConfig.<br>serverHost</td>
+          <td style="text-align: left">IP/host where the user event UDP server should listen for incoming connections. Usually the same IP/host as where Butler SOS is running. Using 0.0.0.0 will cause Butler SOS to listen on all available IPs.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">udpServerConfig.<br>portUserActivityEvents</td>
+          <td style="text-align: left">Port on which the user event UDP server will listen. Should match the port specified in the log appender.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">tags</td>
+          <td style="text-align: left">Array of tags (tagName/tagValue pairs) that should be added to each user event before sending it to InfluxDB. Remove sample tags before deploying Butler SOS.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToMQTT.enable</td>
+          <td style="text-align: left">Should user events be sent to MQTT? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToMQTT.postTo.<br>everythingTopic.enable</td>
+          <td style="text-align: left">Should <strong>all</strong> user event messages be sent to an MQTT topic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToMQTT.postTo.<br>everythingTopic.topic</td>
+          <td style="text-align: left">MQTT topic to which <strong>all</strong> user event messages will be sent.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToMQTT.postTo.<br>sessionStartTopic.enable</td>
+          <td style="text-align: left">Should <strong>session start</strong> user event messages be sent to an MQTT topic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToMQTT.postTo.<br>sessionStartTopic.topic</td>
+          <td style="text-align: left">MQTT topic to which <strong>session start</strong> user event messages will be sent.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToMQTT.postTo.<br>sessionStopTopic.enable</td>
+          <td style="text-align: left">Should <strong>session stop</strong> user event messages be sent to an MQTT topic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToMQTT.postTo.<br>sessionStopTopic.topic</td>
+          <td style="text-align: left">MQTT topic to which <strong>session stop</strong> user event messages will be sent.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToMQTT.postTo.<br>connectionOpenTopic.enable</td>
+          <td style="text-align: left">Should <strong>connection open</strong> user event messages be sent to an MQTT topic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToMQTT.postTo.<br>connectionOpenTopic.topic</td>
+          <td style="text-align: left">MQTT topic to which <strong>connection open</strong> user event messages will be sent.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToMQTT.postTo.<br>connectionCloseTopic.enable</td>
+          <td style="text-align: left">Should <strong>connection close</strong> user event messages be sent to an MQTT topic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToMQTT.postTo.<br>connectionCloseTopic.topic</td>
+          <td style="text-align: left">MQTT topic to which <strong>connection close</strong> user event messages will be sent.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToInfluxdb.enable</td>
+          <td style="text-align: left">Should user events be saved in InfluxDB? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToNewRelic.enable</td>
+          <td style="text-align: left">Should user events be saved in New Relic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToNewRelic.destinationAccount</td>
+          <td style="text-align: left">Array of New Relic account names to which user events will be sent.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToNewRelic.scramble</td>
+          <td style="text-align: left">Should <code>user directory</code> and <code>user ID</code> fields be scrambled before user events are sent to New Relic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="butler-soslogevents">Butler-SOS.logEvents</h4>
 <p>Log events are used to capture Sense warnings, errors and fatals in real time.
 Requires log appender XML file(s) to be added to Sense server(s).</p>
 <p>Note that log events can be enabled/disabled per source (repository, proxy, scheduler etc).</p>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>udpServerConfig.<br>serverHost</td>
-<td>IP/host where the log event UDP server should listen for incoming connections. Usually the same IP/host as where Butler SOS is running. Using 0.0.0.0 will cause Butler SOS to listen on all available IPs.</td>
-</tr>
-<tr>
-<td>udpServerConfig.<br>portLogEvents</td>
-<td>Port on which the log event UDP server will listen. Should match the port specified in the log appender.</td>
-</tr>
-<tr>
-<td>tags</td>
-<td>Array of tags (tagName/tagValue pairs) that should be added to each log event before sending it to InfluxDB. Remove sample tags before deploying Butler SOS.</td>
-</tr>
-<tr>
-<td>source.<br>engine.enable</td>
-<td>Should log events from the engine service be handled by Butler SOS? true/false</td>
-</tr>
-<tr>
-<td>source.<br>proxy.enable</td>
-<td>Should log events from the proxy service be handled by Butler SOS? true/false</td>
-</tr>
-<tr>
-<td>source.<br>repository.enable</td>
-<td>Should log events from the repository service be handled by Butler SOS? true/false</td>
-</tr>
-<tr>
-<td>source.<br>scheduler.enable</td>
-<td>Should log events from the scheduler service be handled by Butler SOS? true/false</td>
-</tr>
-<tr>
-<td>categorise.enable</td>
-<td>Should categorisation of log events be enabled? true/false</td>
-</tr>
-<tr>
-<td>categorise.rules</td>
-<td>Array of rules that will be used to categorise log events. Each rule consists of a set of properties.</td>
-</tr>
-<tr>
-<td>categorise.rules[].<br>description</td>
-<td>Description of the rule.</td>
-</tr>
-<tr>
-<td>categorise.rules[].<br>logLevel[]</td>
-<td>Array of log levels that will be used to match log events against this rule.</td>
-</tr>
-<tr>
-<td>categorise.rules[].<br>action</td>
-<td>Action to take if a log event matches this rule. Possible values are &ldquo;categorise&rdquo; and &ldquo;drop&rdquo;.</td>
-</tr>
-<tr>
-<td>categorise.rules[].<br>category[]</td>
-<td>Array of name-value pairs that will be added to the log event if it matches this rule.</td>
-</tr>
-<tr>
-<td>categorise.rules[].<br>category[].name</td>
-<td>Name of the category.</td>
-</tr>
-<tr>
-<td>categorise.rules[].<br>category[].value</td>
-<td>Value of the category.</td>
-</tr>
-<tr>
-<td>categorise.rules[].<br>filter[]</td>
-<td>Array of type-value pairs that will be used to match log events against this rule.</td>
-</tr>
-<tr>
-<td>categorise.rules[].<br>filter[].type</td>
-<td>Type of filter. Possible values are &ldquo;sw&rdquo; = starts with, &ldquo;ew&rdquo; = ends with, &ldquo;so&rdquo; = substring of.</td>
-</tr>
-<tr>
-<td>categorise.ruleDefault</td>
-<td>Default values for categorisation, if no other rule matches.</td>
-</tr>
-<tr>
-<td>categorise.ruleDefault.<br>enable</td>
-<td>Should the default rule be used? true/false</td>
-</tr>
-<tr>
-<td>categorise.ruleDefault.<br>category[]</td>
-<td>Array of name-value pairs that will be added to the log event if no other rule matches.</td>
-</tr>
-<tr>
-<td>categorise.ruleDefault.<br>category[].name</td>
-<td>Name of the category.</td>
-</tr>
-<tr>
-<td>categorise.ruleDefault.<br>category[].value</td>
-<td>Value of the category.</td>
-</tr>
-<tr>
-<td>sendToMQTT.enable</td>
-<td>Should log events be sent to MQTT? true/false</td>
-</tr>
-<tr>
-<td>sendToMQTT.baseTopic</td>
-<td>Root MQTT topic. All log events MQTT messages will be posted in this topic or subtopics of it.</td>
-</tr>
-<tr>
-<td>sendToMQTT.postTo<br>.baseTopic</td>
-<td>Should all log events be posted to the root topic? true/false</td>
-</tr>
-<tr>
-<td>sendToMQTT.postTo<br>.subsystemTopics</td>
-<td>All log events originate from a specific subsystem in a Sense server. These subsystems are organised in a hierarchical tree that can be directly mapped to MQTT topics. Should log events be posted as MQTT messages to such topics? true/false</td>
-</tr>
-<tr>
-<td>sendToInfluxdb.enable</td>
-<td>Should log events be saved in InfluxDB? true/false</td>
-</tr>
-<tr>
-<td>sendToNewRelic.enable</td>
-<td>Should log events be sent to New Relic? true/false</td>
-</tr>
-<tr>
-<td>sendToNewRelic.destinationAccount</td>
-<td>Array of New Relic account names to which log events will be sent.</td>
-</tr>
-<tr>
-<td>sendToNewRelic.<br>source.engine.enable</td>
-<td>Should log events from the engine service be handled?</td>
-</tr>
-<tr>
-<td>sendToNewRelic.<br>source.engine.logLevel.error</td>
-<td>Should ERROR log events from the engine service be handled?</td>
-</tr>
-<tr>
-<td>sendToNewRelic.<br>source.engine.logLevel.warn</td>
-<td>Should WARN log events from the engine service be handled?</td>
-</tr>
-<tr>
-<td>sendToNewRelic.<br>source.proxy.enable</td>
-<td>Should log events from the proxy service be handled?</td>
-</tr>
-<tr>
-<td>sendToNewRelic.<br>source.proxy.logLevel.error</td>
-<td>Should ERROR log events from the proxy service be handled</td>
-</tr>
-<tr>
-<td>sendToNewRelic.<br>source.proxy.logLevel.warn</td>
-<td>Should WARN log events from the proxy service be handled</td>
-</tr>
-<tr>
-<td>sendToNewRelic.<br>source.repository.enable</td>
-<td>Should log events from the repository service be handled?</td>
-</tr>
-<tr>
-<td>sendToNewRelic.<br>source.repository.logLevel.error</td>
-<td>Should ERROR log events from the repository service be handled</td>
-</tr>
-<tr>
-<td>sendToNewRelic.<br>source.repository.logLevel.warn</td>
-<td>Should WARN log events from the repository service be handled</td>
-</tr>
-<tr>
-<td>sendToNewRelic.<br>source.scheduler.enable</td>
-<td>Should log events from the scheduler service be handled?</td>
-</tr>
-<tr>
-<td>sendToNewRelic.<br>source.scheduler.logLevel.error</td>
-<td>Should ERROR log events from the scheduler service be handled</td>
-</tr>
-<tr>
-<td>sendToNewRelic.<br>source.scheduler.logLevel.warn</td>
-<td>Should WARN log events from the scheduler service be handled</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h4 id="butler-soslogdb">Butler-SOS.logdb</h4>
-<p>As of August 2021 log db has been deprecated in Qlik Sense.<br>
-It is no longer installed when doing fresh QSEoW installs.</p>
-<p>To support older QSEoW clusters out there Butler SOS will for now keep log db support intact.</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enable</td>
-<td>Should Sense log db be queried for warnings/errors/info messages? true/false</td>
-</tr>
-<tr>
-<td>pollingInterval</td>
-<td>How often to query log db. Milliseconds</td>
-</tr>
-<tr>
-<td>queryPeriod</td>
-<td>How far back should log db be queried? Human readable, e.g. &ldquo;5 minutes&rdquo; (which is also the default value)</td>
-</tr>
-<tr>
-<td>host</td>
-<td>IP or FQDN of server where Sense log db is running</td>
-</tr>
-<tr>
-<td>port</td>
-<td>Port used by log db. 4432 unless changed during installation of Sense</td>
-</tr>
-<tr>
-<td>qlogsReaderUser</td>
-<td>User to connect to log db as. &ldquo;qlogs_reader&rdquo; unless changed during installation of Sense</td>
-</tr>
-<tr>
-<td>qlogsReaderPwd</td>
-<td>Password of above user</td>
-</tr>
-<tr>
-<td>extractErrors</td>
-<td>Should error entries be extracted from log db? true/false</td>
-</tr>
-<tr>
-<td>extractWarnings</td>
-<td>Should warning entries be extracted from log db? true/false</td>
-</tr>
-<tr>
-<td>extractInfo</td>
-<td>Should info entries be extracted from log db? true/false. <br><strong>NOTE:</strong> If info level logging is enabled, this will result in lots of messages being stored in Influxdb (at least for a busy Sense cluster).</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">udpServerConfig.<br>serverHost</td>
+          <td style="text-align: left">IP/host where the log event UDP server should listen for incoming connections. Usually the same IP/host as where Butler SOS is running. Using 0.0.0.0 will cause Butler SOS to listen on all available IPs.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">udpServerConfig.<br>portLogEvents</td>
+          <td style="text-align: left">Port on which the log event UDP server will listen. Should match the port specified in the log appender.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">tags</td>
+          <td style="text-align: left">Array of tags (tagName/tagValue pairs) that should be added to each log event before sending it to InfluxDB. Remove sample tags before deploying Butler SOS.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">source.<br>engine.enable</td>
+          <td style="text-align: left">Should log events from the engine service be handled by Butler SOS? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">source.<br>proxy.enable</td>
+          <td style="text-align: left">Should log events from the proxy service be handled by Butler SOS? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">source.<br>repository.enable</td>
+          <td style="text-align: left">Should log events from the repository service be handled by Butler SOS? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">source.<br>scheduler.enable</td>
+          <td style="text-align: left">Should log events from the scheduler service be handled by Butler SOS? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">categorise.enable</td>
+          <td style="text-align: left">Should categorisation of log events be enabled? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">categorise.rules</td>
+          <td style="text-align: left">Array of rules that will be used to categorise log events. Each rule consists of a set of properties.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">categorise.rules[].<br>description</td>
+          <td style="text-align: left">Description of the rule.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">categorise.rules[].<br>logLevel[]</td>
+          <td style="text-align: left">Array of log levels that will be used to match log events against this rule.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">categorise.rules[].<br>action</td>
+          <td style="text-align: left">Action to take if a log event matches this rule. Possible values are &ldquo;categorise&rdquo; and &ldquo;drop&rdquo;.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">categorise.rules[].<br>category[]</td>
+          <td style="text-align: left">Array of name-value pairs that will be added to the log event if it matches this rule.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">categorise.rules[].<br>category[].name</td>
+          <td style="text-align: left">Name of the category.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">categorise.rules[].<br>category[].value</td>
+          <td style="text-align: left">Value of the category.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">categorise.rules[].<br>filter[]</td>
+          <td style="text-align: left">Array of type-value pairs that will be used to match log events against this rule.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">categorise.rules[].<br>filter[].type</td>
+          <td style="text-align: left">Type of filter. Possible values are &ldquo;sw&rdquo; = starts with, &ldquo;ew&rdquo; = ends with, &ldquo;so&rdquo; = substring of.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">categorise.ruleDefault</td>
+          <td style="text-align: left">Default values for categorisation, if no other rule matches.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">categorise.ruleDefault.<br>enable</td>
+          <td style="text-align: left">Should the default rule be used? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">categorise.ruleDefault.<br>category[]</td>
+          <td style="text-align: left">Array of name-value pairs that will be added to the log event if no other rule matches.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">categorise.ruleDefault.<br>category[].name</td>
+          <td style="text-align: left">Name of the category.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">categorise.ruleDefault.<br>category[].value</td>
+          <td style="text-align: left">Value of the category.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToMQTT.enable</td>
+          <td style="text-align: left">Should log events be sent to MQTT? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToMQTT.baseTopic</td>
+          <td style="text-align: left">Root MQTT topic. All log events MQTT messages will be posted in this topic or subtopics of it.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToMQTT.postTo<br>.baseTopic</td>
+          <td style="text-align: left">Should all log events be posted to the root topic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToMQTT.postTo<br>.subsystemTopics</td>
+          <td style="text-align: left">All log events originate from a specific subsystem in a Sense server. These subsystems are organised in a hierarchical tree that can be directly mapped to MQTT topics. Should log events be posted as MQTT messages to such topics? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToInfluxdb.enable</td>
+          <td style="text-align: left">Should log events be saved in InfluxDB? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToNewRelic.enable</td>
+          <td style="text-align: left">Should log events be sent to New Relic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToNewRelic.destinationAccount</td>
+          <td style="text-align: left">Array of New Relic account names to which log events will be sent.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToNewRelic.<br>source.engine.enable</td>
+          <td style="text-align: left">Should log events from the engine service be handled?</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToNewRelic.<br>source.engine.logLevel.error</td>
+          <td style="text-align: left">Should ERROR log events from the engine service be handled?</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToNewRelic.<br>source.engine.logLevel.warn</td>
+          <td style="text-align: left">Should WARN log events from the engine service be handled?</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToNewRelic.<br>source.proxy.enable</td>
+          <td style="text-align: left">Should log events from the proxy service be handled?</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToNewRelic.<br>source.proxy.logLevel.error</td>
+          <td style="text-align: left">Should ERROR log events from the proxy service be handled</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToNewRelic.<br>source.proxy.logLevel.warn</td>
+          <td style="text-align: left">Should WARN log events from the proxy service be handled</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToNewRelic.<br>source.repository.enable</td>
+          <td style="text-align: left">Should log events from the repository service be handled?</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToNewRelic.<br>source.repository.logLevel.error</td>
+          <td style="text-align: left">Should ERROR log events from the repository service be handled</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToNewRelic.<br>source.repository.logLevel.warn</td>
+          <td style="text-align: left">Should WARN log events from the repository service be handled</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToNewRelic.<br>source.scheduler.enable</td>
+          <td style="text-align: left">Should log events from the scheduler service be handled?</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToNewRelic.<br>source.scheduler.logLevel.error</td>
+          <td style="text-align: left">Should ERROR log events from the scheduler service be handled</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sendToNewRelic.<br>source.scheduler.logLevel.warn</td>
+          <td style="text-align: left">Should WARN log events from the scheduler service be handled</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="butler-soscert">Butler-SOS.cert</h4>
 <p>Certificates to use when connecting to Sense. Get these from the Certificate Export in QMC.</p>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>clientCert</td>
-<td>Certificate file. Exported from QMC</td>
-</tr>
-<tr>
-<td>clientCertKey</td>
-<td>Certificate key file. Exported from QMC</td>
-</tr>
-<tr>
-<td>clientCertCA</td>
-<td>Root certificate for above certificate files. Exported from QMC</td>
-</tr>
-<tr>
-<td>clientCertPassphrase</td>
-<td>Password used to protect the certificate (as set when exporting cert from QMC)</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">clientCert</td>
+          <td style="text-align: left">Certificate file. Exported from QMC</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">clientCertKey</td>
+          <td style="text-align: left">Certificate key file. Exported from QMC</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">clientCertCA</td>
+          <td style="text-align: left">Root certificate for above certificate files. Exported from QMC</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">clientCertPassphrase</td>
+          <td style="text-align: left">Password used to protect the certificate (as set when exporting cert from QMC)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="butler-sosmqttconfig">Butler-SOS.mqttConfig</h4>
 <p>MQTT config parameters. These must be correctly defined for any other MQTT features in Butler SOS to work.</p>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enable</td>
-<td>Should health metrics be sent to MQTT? true/false</td>
-</tr>
-<tr>
-<td>brokerHost</td>
-<td>IP or FQDN of MQTT broker</td>
-</tr>
-<tr>
-<td>brokerPort</td>
-<td>Broker port</td>
-</tr>
-<tr>
-<td>baseTopic</td>
-<td>Default topic used if not not oherwise specified elsewhere. Should end with /. For example butler-sos/</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">enable</td>
+          <td style="text-align: left">Should health metrics be sent to MQTT? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">brokerHost</td>
+          <td style="text-align: left">IP or FQDN of MQTT broker</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">brokerPort</td>
+          <td style="text-align: left">Broker port</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">baseTopic</td>
+          <td style="text-align: left">Default topic used if not not oherwise specified elsewhere. Should end with /. For example butler-sos/</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="butler-sosnewrelic">Butler-SOS.newRelic</h4>
 <p>If enabled, select Butler SOS metrics and events will be sent to New Relic.</p>
 <p>Note that New Relic destination accounts for events are defined in the <code>Butler-SOS.userEvent</code> and <code>Butler-SOS.logEvent</code> sections, whereas destination accounts for metrics are defined in this section (<code>Butler-SOS.newRelic</code>).</p>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enable</td>
-<td>Should Qlik Sense health metrics be sent to New Relic? true/false</td>
-</tr>
-<tr>
-<td>event.url</td>
-<td>Which API URL should be used for sending events to New Relic?<br>At time of this writing the options are<br><a href="https://insights-collector.eu01.nr-data.net">https://insights-collector.eu01.nr-data.net</a><br><a href="https://insights-collector.newrelic.com">https://insights-collector.newrelic.com</a><br>More info here: <a href="https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center">https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center</a></td>
-</tr>
-<tr>
-<td>event.header</td>
-<td>Array of name/value pairs that will be added as http headers to all calls to the New Relic event API</td>
-</tr>
-<tr>
-<td>event.attribute.<br>static</td>
-<td>Array of name/value pairs, representing attributes/tags that will be added to all events sent to New Relic</td>
-</tr>
-<tr>
-<td>event.attribute.<br>dynamic.butlerSosVersion.<br>enable</td>
-<td>Should Butler SOS&rsquo; version be attached as an attribute to events sent to New Relic? true/false</td>
-</tr>
-<tr>
-<td>metric.destinationAccount</td>
-<td>Array of New Relic account names to which Sense health metrics will be sent.</td>
-</tr>
-<tr>
-<td>metric.url</td>
-<td>Which API URL should be used for sending Sense health metrics to New Relic?<br>At time of this writing the options are<br><a href="https://insights-collector.eu01.nr-data.net/metric/v1">https://insights-collector.eu01.nr-data.net/metric/v1</a><br><a href="https://metric-api.newrelic.com/metric/v1">https://metric-api.newrelic.com/metric/v1</a></td>
-</tr>
-<tr>
-<td>metric.header</td>
-<td>Array of name/value pairs that will be added as http headers to all calls to the New Relic metric API</td>
-</tr>
-<tr>
-<td>metric.dynamic.<br>engine.memory.<br>enable</td>
-<td>Send Sense memory metrics to New Relic? true/false</td>
-</tr>
-<tr>
-<td>metric.dynamic.<br>engine.cpu.<br>enable</td>
-<td>Send Sense CPU metrics to New Relic? true/false</td>
-</tr>
-<tr>
-<td>metric.dynamic.<br>engine.calls.<br>enable</td>
-<td>Send metrics about calls to the Sense engine to New Relic? true/false</td>
-</tr>
-<tr>
-<td>metric.dynamic.<br>engine.selections.<br>enable</td>
-<td>Send metrics about number of selections made in Sense apps to New Relic? true/false</td>
-</tr>
-<tr>
-<td>metric.dynamic.<br>engine.sessions.<br>enable</td>
-<td>Send aggregated Sense engine session metrics to New Relic? true/false</td>
-</tr>
-<tr>
-<td>metric.dynamic.<br>engine.users.<br>enable</td>
-<td>Send aggregated Sense user metrics to New Relic? true/false</td>
-</tr>
-<tr>
-<td>metric.dynamic.<br>engine.saturated.<br>enable</td>
-<td>Send Sense engine saturation status to New Relic? true/false</td>
-</tr>
-<tr>
-<td>metric.dynamic.<br>apps.docCount.<br>enable</td>
-<td>Send metrics on loaded/active/in-memory Sense apps to New Relic? true/false</td>
-</tr>
-<tr>
-<td>metric.dynamic.<br>apps.activeDocs.<br>enable</td>
-<td>Should data on what docs are active in engine be sent to New Relic (true/false)?</td>
-</tr>
-<tr>
-<td>metric.dynamic.<br>apps.loadedDocs.<br>enable</td>
-<td>Should data on what docs are loaded (=having open sessions or connections) in engine be sent to New Relic (true/false)?</td>
-</tr>
-<tr>
-<td>metric.dynamic.<br>apps.inMemoryDocs.<br>enable</td>
-<td>Should data on what docs are in engine memory be sent to New Relic (true/false)?</td>
-</tr>
-<tr>
-<td>metric.dynamic.<br>cache.cache.<br>enable</td>
-<td>Send Sense cache metrics to New Relic? true/false</td>
-</tr>
-<tr>
-<td>metric.dynamic.<br>proxy.sessions.<br>enable</td>
-<td>Send aggregated Sense proxy metrics to New Relic? true/false</td>
-</tr>
-<tr>
-<td>metric.attribute.<br>static</td>
-<td>Array of name/value pairs, representing attributes/tags that will be added to all Sense health metrics sent to New Relic</td>
-</tr>
-<tr>
-<td>metric.attribute.<br>dynamic.butlerSosVersion.<br>enable</td>
-<td>Should Butler SOS&rsquo; version be attached as an attribute to Sense health metrics sent to New Relic? true/false</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">enable</td>
+          <td style="text-align: left">Should Qlik Sense health metrics be sent to New Relic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">event.url</td>
+          <td style="text-align: left">Which API URL should be used for sending events to New Relic?<br>At time of this writing the options are<br><a href="https://insights-collector.eu01.nr-data.net">https://insights-collector.eu01.nr-data.net</a><br><a href="https://insights-collector.newrelic.com">https://insights-collector.newrelic.com</a><br>More info here: <a href="https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center">https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">event.header</td>
+          <td style="text-align: left">Array of name/value pairs that will be added as http headers to all calls to the New Relic event API</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">event.attribute.<br>static</td>
+          <td style="text-align: left">Array of name/value pairs, representing attributes/tags that will be added to all events sent to New Relic</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">event.attribute.<br>dynamic.butlerSosVersion.<br>enable</td>
+          <td style="text-align: left">Should Butler SOS&rsquo; version be attached as an attribute to events sent to New Relic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">metric.destinationAccount</td>
+          <td style="text-align: left">Array of New Relic account names to which Sense health metrics will be sent.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">metric.url</td>
+          <td style="text-align: left">Which API URL should be used for sending Sense health metrics to New Relic?<br>At time of this writing the options are<br><a href="https://insights-collector.eu01.nr-data.net/metric/v1">https://insights-collector.eu01.nr-data.net/metric/v1</a><br><a href="https://metric-api.newrelic.com/metric/v1">https://metric-api.newrelic.com/metric/v1</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">metric.header</td>
+          <td style="text-align: left">Array of name/value pairs that will be added as http headers to all calls to the New Relic metric API</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">metric.dynamic.<br>engine.memory.<br>enable</td>
+          <td style="text-align: left">Send Sense memory metrics to New Relic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">metric.dynamic.<br>engine.cpu.<br>enable</td>
+          <td style="text-align: left">Send Sense CPU metrics to New Relic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">metric.dynamic.<br>engine.calls.<br>enable</td>
+          <td style="text-align: left">Send metrics about calls to the Sense engine to New Relic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">metric.dynamic.<br>engine.selections.<br>enable</td>
+          <td style="text-align: left">Send metrics about number of selections made in Sense apps to New Relic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">metric.dynamic.<br>engine.sessions.<br>enable</td>
+          <td style="text-align: left">Send aggregated Sense engine session metrics to New Relic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">metric.dynamic.<br>engine.users.<br>enable</td>
+          <td style="text-align: left">Send aggregated Sense user metrics to New Relic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">metric.dynamic.<br>engine.saturated.<br>enable</td>
+          <td style="text-align: left">Send Sense engine saturation status to New Relic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">metric.dynamic.<br>apps.docCount.<br>enable</td>
+          <td style="text-align: left">Send metrics on loaded/active/in-memory Sense apps to New Relic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">metric.dynamic.<br>apps.activeDocs.<br>enable</td>
+          <td style="text-align: left">Should data on what docs are active in engine be sent to New Relic (true/false)?</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">metric.dynamic.<br>apps.loadedDocs.<br>enable</td>
+          <td style="text-align: left">Should data on what docs are loaded (=having open sessions or connections) in engine be sent to New Relic (true/false)?</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">metric.dynamic.<br>apps.inMemoryDocs.<br>enable</td>
+          <td style="text-align: left">Should data on what docs are in engine memory be sent to New Relic (true/false)?</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">metric.dynamic.<br>cache.cache.<br>enable</td>
+          <td style="text-align: left">Send Sense cache metrics to New Relic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">metric.dynamic.<br>proxy.sessions.<br>enable</td>
+          <td style="text-align: left">Send aggregated Sense proxy metrics to New Relic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">metric.attribute.<br>static</td>
+          <td style="text-align: left">Array of name/value pairs, representing attributes/tags that will be added to all Sense health metrics sent to New Relic</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">metric.attribute.<br>dynamic.butlerSosVersion.<br>enable</td>
+          <td style="text-align: left">Should Butler SOS&rsquo; version be attached as an attribute to Sense health metrics sent to New Relic? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="butler-sosprometheus">Butler-SOS.prometheus</h4>
 <p>If enabled, select Butler SOS metrics will be exposed on a Prometheus compatible URL from where they can be scraped by Prometheus.</p>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enable</td>
-<td>Should health metrics be made available for scraping on a Prometheus compatible API http endpoint? true/false</td>
-</tr>
-<tr>
-<td>host</td>
-<td>IP on which the Prometheus compatible endpoint should be available. Using 0.0.0.0 will cause Butler SOS to listen on all available IPs.</td>
-</tr>
-<tr>
-<td>port</td>
-<td>Port on which the Prometheus compatible endpoint will be made available. Default 9842.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">enable</td>
+          <td style="text-align: left">Should health metrics be made available for scraping on a Prometheus compatible API http endpoint? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">IP on which the Prometheus compatible endpoint should be available. Using 0.0.0.0 will cause Butler SOS to listen on all available IPs.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">port</td>
+          <td style="text-align: left">Port on which the Prometheus compatible endpoint will be made available. Default 9842.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="butler-sosinfluxdbconfig">Butler-SOS.influxdbConfig</h4>
 <p>InfluxDB config parameters. These must be correctly defined for any other InfluxDB features in Butler SOS to work.</p>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enable</td>
-<td>Should health metrics be stored in Influxdb? true/false</td>
-</tr>
-<tr>
-<td>host</td>
-<td>IP or FQDN of Influxdb server.</td>
-</tr>
-<tr>
-<td>port</td>
-<td>Port where Influxdb server is listening. Useful if Influxdb for some reason is not using its standard port of 8086. <br>NOTE: Must be set to a value (for example 8086), otherwise this config entry will be flagged as invalid when the config file format is verified on startup.</td>
-</tr>
-<tr>
-<td>version</td>
-<td>Influxdb version. Valid values are 1 and 2.</td>
-</tr>
-<tr>
-<td>v2Config.org</td>
-<td>Organization name to use when connecting to Influxdb v2.</td>
-</tr>
-<tr>
-<td>v2Config.bucket</td>
-<td>Bucket name to use when connecting to Influxdb v2.</td>
-</tr>
-<tr>
-<td>v2Config.description</td>
-<td>Description of the Inflluxdb bucket.</td>
-</tr>
-<tr>
-<td>v2Config.token</td>
-<td>Token to use when connecting to Influxdb v2.</td>
-</tr>
-<tr>
-<td>v2Config.retentionDuration</td>
-<td>Retention duration for the Influxdb bucket.</td>
-</tr>
-<tr>
-<td>v1Config.<br>auth.enable</td>
-<td>Enable if data is to be stored in a password protected Influxdb v1 database.</td>
-</tr>
-<tr>
-<td>v1Config.<br>auth.username</td>
-<td>Influxdb username.</td>
-</tr>
-<tr>
-<td>v1Config.<br>auth.password</td>
-<td>Influxdb password.</td>
-</tr>
-<tr>
-<td>v1Config.dbName</td>
-<td>Name of Influxdb v1 database to use.</td>
-</tr>
-<tr>
-<td>v1Config.<br>retentionPolicy.name</td>
-<td>Name of default retention policy that will be created in InfluxDB database when that database is created during first execution of Butler SOS.</td>
-</tr>
-<tr>
-<td>v1Config.<br>retentionPolicy.duration</td>
-<td>Duration during which metrics are kept in InfluxDB. After the duration has passed, InfluxDB will purge all data older than duration from the database. See <a href="https://docs.influxdata.com/influxdb/v1.8/query_language/spec/#durations">InfluxDB docs</a> for details on syntax.</td>
-</tr>
-<tr>
-<td>includeFields.<br>activeDocs</td>
-<td>Should a list of currently active Sense apps be stored in Influxdb? true/false</td>
-</tr>
-<tr>
-<td>includeFields.<br>loadedDocs</td>
-<td>Should a list of Sense apps opened in a user session be stored in Influxdb? true/false</td>
-</tr>
-<tr>
-<td>includeFields.<br>activeDocs</td>
-<td>Should a list of Sense apps loaded into memory (some apps might not currently be associated with a user session) be stored in Influxdb? true/false</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">enable</td>
+          <td style="text-align: left">Should health metrics be stored in Influxdb? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">IP or FQDN of Influxdb server.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">port</td>
+          <td style="text-align: left">Port where Influxdb server is listening. Useful if Influxdb for some reason is not using its standard port of 8086. <br>NOTE: Must be set to a value (for example 8086), otherwise this config entry will be flagged as invalid when the config file format is verified on startup.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">version</td>
+          <td style="text-align: left">Influxdb version. Valid values are 1 and 2.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">v2Config.org</td>
+          <td style="text-align: left">Organization name to use when connecting to Influxdb v2.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">v2Config.bucket</td>
+          <td style="text-align: left">Bucket name to use when connecting to Influxdb v2.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">v2Config.description</td>
+          <td style="text-align: left">Description of the Inflluxdb bucket.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">v2Config.token</td>
+          <td style="text-align: left">Token to use when connecting to Influxdb v2.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">v2Config.retentionDuration</td>
+          <td style="text-align: left">Retention duration for the Influxdb bucket.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">v1Config.<br>auth.enable</td>
+          <td style="text-align: left">Enable if data is to be stored in a password protected Influxdb v1 database.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">v1Config.<br>auth.username</td>
+          <td style="text-align: left">Influxdb username.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">v1Config.<br>auth.password</td>
+          <td style="text-align: left">Influxdb password.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">v1Config.dbName</td>
+          <td style="text-align: left">Name of Influxdb v1 database to use.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">v1Config.<br>retentionPolicy.name</td>
+          <td style="text-align: left">Name of default retention policy that will be created in InfluxDB database when that database is created during first execution of Butler SOS.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">v1Config.<br>retentionPolicy.duration</td>
+          <td style="text-align: left">Duration during which metrics are kept in InfluxDB. After the duration has passed, InfluxDB will purge all data older than duration from the database. See <a href="https://docs.influxdata.com/influxdb/v1.8/query_language/spec/#durations">InfluxDB docs</a> for details on syntax.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">includeFields.<br>activeDocs</td>
+          <td style="text-align: left">Should a list of currently active Sense apps be stored in Influxdb? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">includeFields.<br>loadedDocs</td>
+          <td style="text-align: left">Should a list of Sense apps opened in a user session be stored in Influxdb? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">includeFields.<br>activeDocs</td>
+          <td style="text-align: left">Should a list of Sense apps loaded into memory (some apps might not currently be associated with a user session) be stored in Influxdb? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="butler-sosappnames">Butler-SOS.appNames</h4>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enableAppNameExtract</td>
-<td>Should app names be extracted from Qlik Sense server? true/false</td>
-</tr>
-<tr>
-<td>extractInterval</td>
-<td>How often (milliseconds) should app names be extracted from Sense server?</td>
-</tr>
-<tr>
-<td>hostIP</td>
-<td>IP or FQDN of Sense server from which app names should be extracted</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">enableAppNameExtract</td>
+          <td style="text-align: left">Should app names be extracted from Qlik Sense server? true/false</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">extractInterval</td>
+          <td style="text-align: left">How often (milliseconds) should app names be extracted from Sense server?</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">hostIP</td>
+          <td style="text-align: left">IP or FQDN of Sense server from which app names should be extracted</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="butler-sosusersessions">Butler-SOS.userSessions</h4>
 <p>Extract user session data per virtual proxy.</p>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enableSessionExtract</td>
-<td>Influxdb password</td>
-</tr>
-<tr>
-<td>pollingInterval</td>
-<td>Influxdb password</td>
-</tr>
-<tr>
-<td>excludeUser</td>
-<td>Array of users (=directory/userId pairs) that should be disregarded when user session data arrives from Sense.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">enableSessionExtract</td>
+          <td style="text-align: left">Influxdb password</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pollingInterval</td>
+          <td style="text-align: left">Influxdb password</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">excludeUser</td>
+          <td style="text-align: left">Array of users (=directory/userId pairs) that should be disregarded when user session data arrives from Sense.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="butler-sosserverstomonitor">Butler-SOS.serversToMonitor</h4>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pollingInterval</td>
-<td>How often to query the Sense healthcheck API</td>
-</tr>
-<tr>
-<td>rejectUnauthorized</td>
-<td>Set to false to ignore warnings/errors caused by Qlik Sense&rsquo;s self-signed certificates. <br> Set to true if the Qlik Sense root CA is available on the computer where Butler SOS is running.</td>
-</tr>
-<tr>
-<td>serverTagsDefinition</td>
-<td>List of tags to add to each server when storing the data in Influxdb. All tags defined here MUST be present in each server&rsquo;s definition section further down in the config file!</td>
-</tr>
-<tr>
-<td>servers</td>
-<td>Array of servers to monitor. For each server a set of properties MUST be defined.</td>
-</tr>
-<tr>
-<td>servers.<br>host</td>
-<td>FQDN of server. Domain should match that of the certificate exported from QMC - otherwise certificate warnings may appear. NOTE: You need to specify the port too - should be :4747 unless it&rsquo;s been changed from default value (<em>very</em> unusual to change this).</td>
-</tr>
-<tr>
-<td>servers.<br>serverName</td>
-<td>Human friendly server name</td>
-</tr>
-<tr>
-<td>servers.<br>serverDescription</td>
-<td>Human friendly server description</td>
-</tr>
-<tr>
-<td>servers.<br>logDbHost</td>
-<td>Server&rsquo;s name as it appears in the <code>process_host</code> field log db. This is needed in order to link entries in logdb to the specific server at hand. See note below too!</td>
-</tr>
-<tr>
-<td>servers.<br>userSessions.<br>enable</td>
-<td>Control whether user session data should be retrieved for this server</td>
-</tr>
-<tr>
-<td>servers.<br>userSessions.<br>host</td>
-<td>Host and port from which to retrieve user session data. Usually on the form servername.mydomain.net:4243</td>
-</tr>
-<tr>
-<td>servers.<br>userSessions.<br>virtualProxies</td>
-<td>A list of key-value pairs. Use to specify for which virtual proxies on this server user session data should be retrieved.</td>
-</tr>
-<tr>
-<td>serverTags</td>
-<td>A list of key-value pairs. Use to provide more metadata for servers. Can then (among other things) be used to created more advanced Grafana dashboards.</td>
-</tr>
-<tr>
-<td>headers</td>
-<td>A list of key-value pairs. Headers specified here will be used when retrieving metrics from this Sense server.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">pollingInterval</td>
+          <td style="text-align: left">How often to query the Sense healthcheck API</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">rejectUnauthorized</td>
+          <td style="text-align: left">Set to false to ignore warnings/errors caused by Qlik Sense&rsquo;s self-signed certificates. <br> Set to true if the Qlik Sense root CA is available on the computer where Butler SOS is running.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">serverTagsDefinition</td>
+          <td style="text-align: left">List of tags to add to each server when storing the data in Influxdb. All tags defined here MUST be present in each server&rsquo;s definition section further down in the config file!</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">servers</td>
+          <td style="text-align: left">Array of servers to monitor. For each server a set of properties MUST be defined.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">servers.<br>host</td>
+          <td style="text-align: left">FQDN of server. Domain should match that of the certificate exported from QMC - otherwise certificate warnings may appear. NOTE: You need to specify the port too - should be :4747 unless it&rsquo;s been changed from default value (<em>very</em> unusual to change this).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">servers.<br>serverName</td>
+          <td style="text-align: left">Human friendly server name</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">servers.<br>serverDescription</td>
+          <td style="text-align: left">Human friendly server description</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">servers.<br>userSessions.<br>enable</td>
+          <td style="text-align: left">Control whether user session data should be retrieved for this server</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">servers.<br>userSessions.<br>host</td>
+          <td style="text-align: left">Host and port from which to retrieve user session data. Usually on the form servername.mydomain.net:4243</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">servers.<br>userSessions.<br>virtualProxies</td>
+          <td style="text-align: left">A list of key-value pairs. Use to specify for which virtual proxies on this server user session data should be retrieved.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">serverTags</td>
+          <td style="text-align: left">A list of key-value pairs. Use to provide more metadata for servers. Can then (among other things) be used to created more advanced Grafana dashboards.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">headers</td>
+          <td style="text-align: left">A list of key-value pairs. Headers specified here will be used when retrieving metrics from this Sense server.</td>
+      </tr>
+  </tbody>
 </table>
-<p>The <code>Butler-SOS.serversToMonitor.servers.logDbHost</code> property can be tricky to get right. Easiest way to get the correct value is to look in the Nodes section in the QMC. In the <code>Host name</code> column you find the host names of the various nodes. <code>logDbHost</code> should be set to the first part of each host name:</p>
-<p><img alt="Log db host name" src="/docs/reference/config_file_format/logdb-host-name-1.png" title="Getting the log db host name property from QMC"></p>
 
 </div>
 
@@ -1411,15 +1347,13 @@ It is no longer installed when doing fresh QSEoW installs.</p>
 <p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>The list of metrics below shows <em>all</em> metrics that Butler SOS can store in InfluxDB.</p>
 <p>If you have disabled some features of Butler SOS, the asociated metrics will not be stored in InfluxDB.</p></div>
 
-<h2 id="metrics-structure">Metrics structure</h2>
-<p>The metrics are grouped based on what kind of Qlik Sense data they represent. InfluxDB is a <em>very</em> capable database, so we will only touch on the basics here.</p>
 <h3 id="influxdb-v1-vs-v2">InfluxDB v1 vs v2</h3>
 <p>That are some differences between InfluxDB v1 and v2 when it comes to terminology and concepts.</p>
 <p>For example in InfluxDB v1, the main concepts are <em>databases</em>, <em>measurements</em>, <em>field keys</em> and <em>tag keys</em>.<br>
 In InfluxDB v2 the main concepts are <em>buckets</em>, <em>measurements</em>, <em>fields</em> and <em>tags</em>.</p>
 <p>The concepts are very similar, but the names are different.</p>
 <p>The metrics below are the same for both InfluxDB v1 and v2.</p>
-<h3 id="overview">Overview</h3>
+<h2 id="overview">Overview</h2>
 <p><em>Measurements</em> are just what it sounds like: snapshots of some value(s), taken at a specific point in time.
 A measurement can contain several <em>field  keys</em>, which for practical purposes can be viewed as the individual metrics.</p>
 <p>For example, the list of measurements look like this (using the InfluxDB command line client to explore the database structure):</p>
@@ -1488,483 +1422,532 @@ server_type
 <li>Tags always present. These are inserted by Butler SOS and are present for all measurements. These are <code>host</code>, <code>server_description</code> and <code>server_name</code>.</li>
 <li>Tags configured in Butler SOS&rsquo; config fil. In the example above these are <code>serverBrand</code>, <code>serverLocation</code>, <code>server_group</code> and<code>server_type</code>.</li>
 </ol>
-<h3 id="measurements-and-fields">Measurements and fields</h3>
+<h2 id="measurements-and-fields">Measurements and fields</h2>
 <p>The measurements are grouped based on what part of Sense they are retrieved from. The groups are</p>
 <ol>
 <li>General health metrics.</li>
-<li>Messages from the log database.</li>
-<li>Detailed metrics about what users are connected to (i.e. have sessions open with) which virtual proxies.</li>
-<li>Messages from the log database.</li>
-<li>Log events: Warning, error and fatal messages from QSEoW logs.</li>
+<li>Metrics about user sessions, for example how many sessions there are per virtual proxy.</li>
+<li>Event counters: Counters for the different types of events received from Sense.</li>
 <li>User events: Session and connection related messages from QSEoW logs.</li>
+<li>Log events: Warning, error and fatal messages from QSEoW logs.</li>
+<li>Performance log events. Events from the QIX engine. Used to monitor performance of individual charts and other app objects.</li>
+<li>Messages from the log database (deprecated, will be removed during 2nd half of 2024).</li>
 <li>Metric relating to Butler SOS itself (i.e. not retrieved from Sense).</li>
 </ol>
-<h4 id="general-health-metrics">General health metrics</h4>
+<h2 id="general-health-metrics">General health metrics</h2>
 <p>A shared set of tag keys are available for all general health metrics:</p>
 <table>
-<thead>
-<tr>
-<th>Tag key</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>host</td>
-<td>Host name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].host</code> property. Usually a fully qualified host name, or in some cases an IP address.</td>
-</tr>
-<tr>
-<td>server_name</td>
-<td>Human readible/friendly server name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverName</code> property.</td>
-</tr>
-<tr>
-<td>server_description</td>
-<td>Description of the server, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverDescription</code> property.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">Host name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].host</code> property. Usually a fully qualified host name, or in some cases an IP address.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">server_name</td>
+          <td style="text-align: left">Human readible/friendly server name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverName</code> property.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">server_description</td>
+          <td style="text-align: left">Description of the server, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverDescription</code> property.</td>
+      </tr>
+  </tbody>
 </table>
 <p>In addition to the above, all tags defined in the YAML config file for the servers will be included as tag keys.</p>
-<h5 id="measurement-apps">Measurement: apps</h5>
+<h3 id="measurement-apps">Measurement: apps</h3>
 <p>Source: <a href="https://help.qlik.com/en-US/sense-developer/November2021/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm">Health check API</a></p>
 <table>
-<thead>
-<tr>
-<th>Field key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>active_docs</td>
-<td>string</td>
-<td>An array of GUIDs of active apps. Empty if no apps are active. An app is active when a user is currently performing some action on it.</td>
-</tr>
-<tr>
-<td>active_docs_count</td>
-<td>integer</td>
-<td>Number of currently active apps</td>
-</tr>
-<tr>
-<td>active_docs_names</td>
-<td>string</td>
-<td>Names of currently active (non-session) apps</td>
-</tr>
-<tr>
-<td>active_session_docs_names</td>
-<td>string</td>
-<td>Names of currently active session apps</td>
-</tr>
-<tr>
-<td>in_memory_docs</td>
-<td>string</td>
-<td>An array ofthe GUIDs of all apps currently loaded into the memory, even if they do not have any open sessions or connections to it. The apps disappear from the list when the engine has purged them out from memory.</td>
-</tr>
-<tr>
-<td>in_memory_docs_count</td>
-<td>integer</td>
-<td>Numer of apps currently in memory</td>
-</tr>
-<tr>
-<td>in_memory_docs_names</td>
-<td>string</td>
-<td>Names of (non-session) apps currently in memory</td>
-</tr>
-<tr>
-<td>in_memory_session_docs_names</td>
-<td>string</td>
-<td>Names of session apps currently in memory</td>
-</tr>
-<tr>
-<td>loaded_docs</td>
-<td>string</td>
-<td>An array of the GUIDs of apps currently loaded into memory and that have open sessions or connections. Empty if no apps are loaded.</td>
-</tr>
-<tr>
-<td>loaded_docs_count</td>
-<td>integer</td>
-<td>Number of currently loaded apps</td>
-</tr>
-<tr>
-<td>loaded_docs_names</td>
-<td>string</td>
-<td>Names of currently loaded (non-session) apps</td>
-</tr>
-<tr>
-<td>loaded_session_docs_names</td>
-<td>string</td>
-<td>Names of currently loaded session apps</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>calls</td>
-<td>integer</td>
-<td>Number of calls to the Qlik associative engine since it started</td>
-</tr>
-<tr>
-<td>selections</td>
-<td>integer</td>
-<td>Numer of selections made in Qlik associative engine since it started</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Type</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">active_docs</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">An array of GUIDs of active apps. Empty if no apps are active. An app is active when a user is currently performing some action on it.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">active_docs_count</td>
+          <td style="text-align: left">integer</td>
+          <td style="text-align: left">Number of currently active apps</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">active_docs_names</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">Names of currently active (non-session) apps</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">active_session_docs_names</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">Names of currently active session apps</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">in_memory_docs</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">An array ofthe GUIDs of all apps currently loaded into the memory, even if they do not have any open sessions or connections to it. The apps disappear from the list when the engine has purged them out from memory.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">in_memory_docs_count</td>
+          <td style="text-align: left">integer</td>
+          <td style="text-align: left">Numer of apps currently in memory</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">in_memory_docs_names</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">Names of (non-session) apps currently in memory</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">in_memory_session_docs_names</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">Names of session apps currently in memory</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">loaded_docs</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">An array of the GUIDs of apps currently loaded into memory and that have open sessions or connections. Empty if no apps are loaded.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">loaded_docs_count</td>
+          <td style="text-align: left">integer</td>
+          <td style="text-align: left">Number of currently loaded apps</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">loaded_docs_names</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">Names of currently loaded (non-session) apps</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">loaded_session_docs_names</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">Names of currently loaded session apps</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">calls</td>
+          <td style="text-align: left">integer</td>
+          <td style="text-align: left">Number of calls to the Qlik associative engine since it started</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">selections</td>
+          <td style="text-align: left">integer</td>
+          <td style="text-align: left">Numer of selections made in Qlik associative engine since it started</td>
+      </tr>
+  </tbody>
 </table>
-<h5 id="measurement-cache">Measurement: cache</h5>
+<h3 id="measurement-cache">Measurement: cache</h3>
 <p>Source: <a href="https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm">Health check API</a></p>
 <table>
-<thead>
-<tr>
-<th>Field key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>added</td>
-<td>integer</td>
-<td>Number of cache objects added to the cache</td>
-</tr>
-<tr>
-<td>bytes_added</td>
-<td>integer</td>
-<td>Number of bytes added to the cache</td>
-</tr>
-<tr>
-<td>hits</td>
-<td>integer</td>
-<td>Number of cache hits in engine</td>
-</tr>
-<tr>
-<td>lookups</td>
-<td>integer</td>
-<td>Number of lookups in egnine</td>
-</tr>
-<tr>
-<td>replaced</td>
-<td>integer</td>
-<td>Number of cache objects replaced</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Type</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">added</td>
+          <td style="text-align: left">integer</td>
+          <td style="text-align: left">Number of cache objects added to the cache</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bytes_added</td>
+          <td style="text-align: left">integer</td>
+          <td style="text-align: left">Number of bytes added to the cache</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">hits</td>
+          <td style="text-align: left">integer</td>
+          <td style="text-align: left">Number of cache hits in engine</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">lookups</td>
+          <td style="text-align: left">integer</td>
+          <td style="text-align: left">Number of lookups in egnine</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">replaced</td>
+          <td style="text-align: left">integer</td>
+          <td style="text-align: left">Number of cache objects replaced</td>
+      </tr>
+  </tbody>
 </table>
-<h5 id="measurement-cpu">Measurement: cpu</h5>
+<h3 id="measurement-cpu">Measurement: cpu</h3>
 <p>Source: <a href="https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm">Health check API</a></p>
 <table>
-<thead>
-<tr>
-<th>Field key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>total</td>
-<td>integer</td>
-<td>Percentage of the CPU used by the engine, averaged over a time period of 30 seconds.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Type</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">total</td>
+          <td style="text-align: left">integer</td>
+          <td style="text-align: left">Percentage of the CPU used by the engine, averaged over a time period of 30 seconds.</td>
+      </tr>
+  </tbody>
 </table>
-<h5 id="measurement-mem">Measurement: mem</h5>
+<h3 id="measurement-mem">Measurement: mem</h3>
 <p>Source: <a href="https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm">Health check API</a></p>
 <table>
-<thead>
-<tr>
-<th>Field key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>allocated</td>
-<td>integer</td>
-<td>The total amount of allocated memory (committed + reserved) from the operating system in MB.</td>
-</tr>
-<tr>
-<td>committed</td>
-<td>integer</td>
-<td>The total amount of committed memory for the engine process in MB.</td>
-</tr>
-<tr>
-<td>free</td>
-<td>integer</td>
-<td>The total amount of free memory (minimum of free virtual and physical memory) in MB.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Type</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">allocated</td>
+          <td style="text-align: left">integer</td>
+          <td style="text-align: left">The total amount of allocated memory (committed + reserved) from the operating system in MB.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">committed</td>
+          <td style="text-align: left">integer</td>
+          <td style="text-align: left">The total amount of committed memory for the engine process in MB.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">free</td>
+          <td style="text-align: left">integer</td>
+          <td style="text-align: left">The total amount of free memory (minimum of free virtual and physical memory) in MB.</td>
+      </tr>
+  </tbody>
 </table>
-<h5 id="measurement-saturated">Measurement: saturated</h5>
+<h3 id="measurement-saturated">Measurement: saturated</h3>
 <p>Source: <a href="https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm">Health check API</a></p>
 <table>
-<thead>
-<tr>
-<th>Field key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>saturated</td>
-<td>boolean</td>
-<td>When the value is true, the engine is running with high resource usage; otherwise the value is false. See link above for details.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Type</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">saturated</td>
+          <td style="text-align: left">boolean</td>
+          <td style="text-align: left">When the value is true, the engine is running with high resource usage; otherwise the value is false. See link above for details.</td>
+      </tr>
+  </tbody>
 </table>
-<h5 id="measurement-sense_server">Measurement: sense_server</h5>
+<h3 id="measurement-sense_server">Measurement: sense_server</h3>
 <p>Source: <a href="https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm">Health check API</a></p>
 <table>
-<thead>
-<tr>
-<th>Field key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>started</td>
-<td>string</td>
-<td>ISO timestamp when the engine service was started.</td>
-</tr>
-<tr>
-<td>uptime</td>
-<td>string</td>
-<td>Time since engine service was started (human readable).</td>
-</tr>
-<tr>
-<td>version</td>
-<td>string</td>
-<td>Engine version.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Type</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">started</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">ISO timestamp when the engine service was started.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">uptime</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">Time since engine service was started (human readable).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">version</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">Engine version.</td>
+      </tr>
+  </tbody>
 </table>
-<h5 id="measurement-session">Measurement: session</h5>
+<h3 id="measurement-session">Measurement: session</h3>
 <p>Source: <a href="https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm">Health check API</a></p>
 <table>
-<thead>
-<tr>
-<th>Field key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>active</td>
-<td>integer</td>
-<td>Number of active engine sessions. A session is active when a user is currently performing some action on an app, for example, making selections or creating content.</td>
-</tr>
-<tr>
-<td>total</td>
-<td>integer</td>
-<td>Total number of engine sessions.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Type</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">active</td>
+          <td style="text-align: left">integer</td>
+          <td style="text-align: left">Number of active engine sessions. A session is active when a user is currently performing some action on an app, for example, making selections or creating content.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">total</td>
+          <td style="text-align: left">integer</td>
+          <td style="text-align: left">Total number of engine sessions.</td>
+      </tr>
+  </tbody>
 </table>
-<h5 id="measurement-users">Measurement: users</h5>
+<h3 id="measurement-users">Measurement: users</h3>
 <p>Source: <a href="https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm">Health check API</a></p>
 <table>
-<thead>
-<tr>
-<th>Field key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>active</td>
-<td>integer</td>
-<td>Number of users currently doing something in some app.</td>
-</tr>
-<tr>
-<td>total</td>
-<td>integer</td>
-<td>Number of users with established sessions to the Sense server.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Type</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">active</td>
+          <td style="text-align: left">integer</td>
+          <td style="text-align: left">Number of users currently doing something in some app.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">total</td>
+          <td style="text-align: left">integer</td>
+          <td style="text-align: left">Number of users with established sessions to the Sense server.</td>
+      </tr>
+  </tbody>
 </table>
-<h4 id="user-session-details">User session details</h4>
+<h2 id="user-session-details">User session details</h2>
 <p>User session metrics have slightly different tag keys depending on the granularity level of the metric - those metrics are therefore listed under each heading below.</p>
-<h5 id="measurement-user_session_summary">Measurement: user_session_summary</h5>
+<h3 id="measurement-user_session_summary">Measurement: user_session_summary</h3>
 <p>Source: <a href="https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm">Session module API</a></p>
 <table>
-<thead>
-<tr>
-<th>Field key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>session_count</td>
-<td>float</td>
-<td>Total number of sessions, per server and virtual proxy.</td>
-</tr>
-<tr>
-<td>session_user_id_list</td>
-<td>string</td>
-<td>List of user IDs with sessions, per server and virtual proxy. NOTE: A single user may have more than one session open to a particular server/virtual proxy.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Type</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">session_count</td>
+          <td style="text-align: left">float</td>
+          <td style="text-align: left">Total number of sessions, per server and virtual proxy.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">session_user_id_list</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">List of user IDs with sessions, per server and virtual proxy. NOTE: A single user may have more than one session open to a particular server/virtual proxy.</td>
+      </tr>
+  </tbody>
 </table>
 <p>Tag keys:</p>
 <table>
-<thead>
-<tr>
-<th>Tag key</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>host</td>
-<td>Host name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].host</code> property. Usually a fully qualified host name, or in some cases an IP address.</td>
-</tr>
-<tr>
-<td>server_name</td>
-<td>Human readible/friednly server name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverName</code> property.</td>
-</tr>
-<tr>
-<td>server_description</td>
-<td>Description of the server, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverDescription</code> property.</td>
-</tr>
-<tr>
-<td>user_session_host</td>
-<td>Host name the session metrics are associated with.</td>
-</tr>
-<tr>
-<td>user_session_virtual_proxy</td>
-<td>Virtual proxy name the session metrics are associated with.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">Host name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].host</code> property. Usually a fully qualified host name, or in some cases an IP address.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">server_name</td>
+          <td style="text-align: left">Human readible/friednly server name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverName</code> property.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">server_description</td>
+          <td style="text-align: left">Description of the server, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverDescription</code> property.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_session_host</td>
+          <td style="text-align: left">Host name the session metrics are associated with.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_session_virtual_proxy</td>
+          <td style="text-align: left">Virtual proxy name the session metrics are associated with.</td>
+      </tr>
+  </tbody>
 </table>
-<h5 id="measurement-user_session_list">Measurement: user_session_list</h5>
+<h3 id="measurement-user_session_list">Measurement: user_session_list</h3>
 <p>Source: <a href="https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm">Session module API</a></p>
 <table>
-<thead>
-<tr>
-<th>Field key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>session_user_id_list</td>
-<td>string</td>
-<td>List of user IDs with sessions, per server and virtual proxy. NOTE: A single user may have more than one session open to a particular server/virtual proxy.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Type</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">session_user_id_list</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">List of user IDs with sessions, per server and virtual proxy. NOTE: A single user may have more than one session open to a particular server/virtual proxy.</td>
+      </tr>
+  </tbody>
 </table>
 <p>Tag keys:</p>
 <table>
-<thead>
-<tr>
-<th>Tag key</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>host</td>
-<td>Host name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].host</code> property. Usually a fully qualified host name, or in some cases an IP address.</td>
-</tr>
-<tr>
-<td>server_name</td>
-<td>Human readible/friednly server name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverName</code> property.</td>
-</tr>
-<tr>
-<td>server_description</td>
-<td>Description of the server, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverDescription</code> property.</td>
-</tr>
-<tr>
-<td>user_session_host</td>
-<td>Host name the session metrics are associated with.</td>
-</tr>
-<tr>
-<td>user_session_virtual_proxy</td>
-<td>Virtual proxy name the session metrics are associated with.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">Host name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].host</code> property. Usually a fully qualified host name, or in some cases an IP address.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">server_name</td>
+          <td style="text-align: left">Human readible/friednly server name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverName</code> property.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">server_description</td>
+          <td style="text-align: left">Description of the server, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverDescription</code> property.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_session_host</td>
+          <td style="text-align: left">Host name the session metrics are associated with.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_session_virtual_proxy</td>
+          <td style="text-align: left">Virtual proxy name the session metrics are associated with.</td>
+      </tr>
+  </tbody>
 </table>
-<h5 id="measurement-user_session_details">Measurement: user_session_details</h5>
+<h3 id="measurement-user_session_details">Measurement: user_session_details</h3>
 <p>Source: <a href="https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm">Session module API</a></p>
 <table>
-<thead>
-<tr>
-<th>Field key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>session_id</td>
-<td>string</td>
-<td>Session GUID, uniquely identifying the session in the entire Sense cluster.</td>
-</tr>
-<tr>
-<td>user_directory</td>
-<td>string</td>
-<td>Session user&rsquo;s user directory.</td>
-</tr>
-<tr>
-<td>user_id</td>
-<td>string</td>
-<td>Session user ID</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Type</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">session_id</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">Session GUID, uniquely identifying the session in the entire Sense cluster.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_directory</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">Session user&rsquo;s user directory.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_id</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">Session user ID</td>
+      </tr>
+  </tbody>
 </table>
 <p>Tag keys:</p>
 <table>
-<thead>
-<tr>
-<th>Tag key</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>host</td>
-<td>Host name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].host</code> property. Usually a fully qualified host name, or in some cases an IP address.</td>
-</tr>
-<tr>
-<td>server_name</td>
-<td>Human readible/friednly server name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverName</code> property.</td>
-</tr>
-<tr>
-<td>server_description</td>
-<td>Description of the server, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverDescription</code> property.</td>
-</tr>
-<tr>
-<td>user_session_host</td>
-<td>Host name the session metrics are associated with.</td>
-</tr>
-<tr>
-<td>user_session_virtual_proxy</td>
-<td>Virtual proxy name the session metrics are associated with.</td>
-</tr>
-<tr>
-<td>user_session_id</td>
-<td>Session GUID</td>
-</tr>
-<tr>
-<td>user_session_user_directory</td>
-<td>User&rsquo;s user directory</td>
-</tr>
-<tr>
-<td>user_session_user_id</td>
-<td>User ID</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">Host name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].host</code> property. Usually a fully qualified host name, or in some cases an IP address.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">server_name</td>
+          <td style="text-align: left">Human readible/friednly server name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverName</code> property.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">server_description</td>
+          <td style="text-align: left">Description of the server, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverDescription</code> property.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_session_host</td>
+          <td style="text-align: left">Host name the session metrics are associated with.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_session_virtual_proxy</td>
+          <td style="text-align: left">Virtual proxy name the session metrics are associated with.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_session_id</td>
+          <td style="text-align: left">Session GUID</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_session_user_directory</td>
+          <td style="text-align: left">User&rsquo;s user directory</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_session_user_id</td>
+          <td style="text-align: left">User ID</td>
+      </tr>
+  </tbody>
 </table>
-<h4 id="user-events">User events</h4>
+<h2 id="event-counters">Event counters</h2>
+<p>Event counters are used to count the number of events received from Sense.</p>
+<p>The measurement name is configured in the Butler SOS YAML config file, <code>Butler-SOS.qlikSenseEvents.eventCount.influxdb.measurementName</code>.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">event_type</td>
+          <td style="text-align: left">Type of event. <code>log</code> or <code>user</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">Host name of the Sense server generating the event.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">source</td>
+          <td style="text-align: left">Source system within Sense that caused the event. Examples: <code>qseow-scheduler</code>, <code>qseow-proxy</code>, <code>qseow-engine</code>, <code>qseow-repository</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">subsystem</td>
+          <td style="text-align: left">Subsystem where the event originated. More granular than <code>source</code>. Example: <code>System.Scheduler.Scheduler.Master.Task.TaskSession</code></td>
+      </tr>
+  </tbody>
+</table>
+<p>Static tags defined in the config file, <code>Butler-SOS.qlikSenseEvents.eventCount.influxdb.tags</code>, are also added to the InfluxDB datapoints.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">counter</td>
+          <td style="text-align: left">Number of events received.</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="unrecognised-events">Unrecognised events</h3>
+<p>Unrecognised events are events that Butler SOS receives from Sense, but that do not have a valid source (<code>qseow-scheduler</code>, <code>qseow-proxy</code>, <code>qseow-engine</code>, <code>qseow-repository</code> etc).</p>
+<p>These events will get a <code>event_type</code> of <code>user</code> or <code>log</code> based on what UDP port they arrived on.<br>
+The <code>source</code>, <code>host</code> and <code>subsystem</code> tags will be set to <code>Unknown</code>.</p>
+<h2 id="user-events">User events</h2>
 <p>User events capture real-time events in Qlik Sense as they happen.<br>
 They originate from Sense&rsquo;s log4net logging framework and are forwarded from Sense to Butler SOS by means of XML log appenders in Sense.<br>
 These events are also forwarded as MQTT messages, allowing other systems to act when warnings/errors/fatals occur in Qlik Sense.</p>
@@ -1976,99 +1959,99 @@ These events are also forwarded as MQTT messages, allowing other systems to act 
 <li>Connection open</li>
 <li>Connection close.</li>
 </ul>
-<h5 id="measurement-user_events">Measurement: user_events</h5>
+<h3 id="measurement-user_events">Measurement: user_events</h3>
 <p>Tag keys present for all <code>user_events</code> records:</p>
 <table>
-<thead>
-<tr>
-<th>Tag key</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_action</td>
-<td>Indicates what the event is about. Examples: <code>Start session</code>, <code>Stop session</code>, <code>Open connection</code>, <code>Close connection</code>.</td>
-</tr>
-<tr>
-<td>host</td>
-<td>Host name as reported in Qlik Sense&rsquo;s proxy log files.</td>
-</tr>
-<tr>
-<td>origin</td>
-<td>Textual description of what caused the event. Can for example be <code>AppAccess</code>, which means a user opened or closed a browser tab with a Sense app in it.</td>
-</tr>
-<tr>
-<td>userDirectory</td>
-<td>Sense user directory of the user causing the event.</td>
-</tr>
-<tr>
-<td>userId</td>
-<td>Sense user ID for the user causing the event.</td>
-</tr>
-<tr>
-<td>userFull</td>
-<td>The combination of <code>userDirectory</code> and <code>userId</code>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">event_action</td>
+          <td style="text-align: left">Indicates what the event is about. Examples: <code>Start session</code>, <code>Stop session</code>, <code>Open connection</code>, <code>Close connection</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">Host name as reported in Qlik Sense&rsquo;s proxy log files.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">origin</td>
+          <td style="text-align: left">Textual description of what caused the event. Can for example be <code>AppAccess</code>, which means a user opened or closed a browser tab with a Sense app in it.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">userDirectory</td>
+          <td style="text-align: left">Sense user directory of the user causing the event.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">userId</td>
+          <td style="text-align: left">Sense user ID for the user causing the event.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">userFull</td>
+          <td style="text-align: left">The combination of <code>userDirectory</code> and <code>userId</code>.</td>
+      </tr>
+  </tbody>
 </table>
 <p>If the user event includes browser user agent information, the following tags will be present:</p>
 <table>
-<thead>
-<tr>
-<th>Tag key</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>uaBrowserName</td>
-<td>Name of connecting user&rsquo;s browser.</td>
-</tr>
-<tr>
-<td>uaBrowserMajorVersion</td>
-<td>Connecting user&rsquo;s browser version.</td>
-</tr>
-<tr>
-<td>uaOsName</td>
-<td>Connecting user&rsquo;s operating system.</td>
-</tr>
-<tr>
-<td>uaOsVersion</td>
-<td>Connecting user&rsquo;s operating system version.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">uaBrowserName</td>
+          <td style="text-align: left">Name of connecting user&rsquo;s browser.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">uaBrowserMajorVersion</td>
+          <td style="text-align: left">Connecting user&rsquo;s browser version.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">uaOsName</td>
+          <td style="text-align: left">Connecting user&rsquo;s operating system.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">uaOsVersion</td>
+          <td style="text-align: left">Connecting user&rsquo;s operating system version.</td>
+      </tr>
+  </tbody>
 </table>
 <p>In addition to the above tags defined in the Butler SOS config file will be added.<br>
 More info <a href="/docs/getting_started/setup/user-events/#settings-in-main-config-file">here</a>.</p>
 <p>Fields:</p>
 <table>
-<thead>
-<tr>
-<th>Field key</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>appId</td>
-<td>Id of app that is opened/closed.</td>
-</tr>
-<tr>
-<td>appName</td>
-<td>Name of app that is opened/closed.</td>
-</tr>
-<tr>
-<td>userFull</td>
-<td>Same as the userFull tag.</td>
-</tr>
-<tr>
-<td>userId</td>
-<td>Same as the userId tag.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">appId</td>
+          <td style="text-align: left">Id of app that is opened/closed.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">appName</td>
+          <td style="text-align: left">Name of app that is opened/closed.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">userFull</td>
+          <td style="text-align: left">Same as the userFull tag.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">userId</td>
+          <td style="text-align: left">Same as the userId tag.</td>
+      </tr>
+  </tbody>
 </table>
-<h4 id="log-events">Log events</h4>
+<h2 id="log-events">Log events</h2>
 <p>Log events are used to capture warning, error and fatal messages in Sense. Once in Butler SOS these events are stored in InfluxDB (enabling Grafana dashboards).<br>
 These events are also forwarded as MQTT messages, allowing other systems to act when warnings/errors/fatals occur in Qlik Sense.</p>
 <p>Setup instructions <a href="/docs/getting_started/setup/log-events/">here</a>.</p>
@@ -2078,607 +2061,885 @@ These events are also forwarded as MQTT messages, allowing other systems to act 
 Each variant is described below.</p>
 <p>This modular approach to log events makes it possible to extend Butler SOS&rsquo; with additional log events if/when needed..</p></div>
 
-<p><em>Note: If log event categorisation is enabled in the main YAML config file, the categories defined in the config file will be added as tags to the log event data points written to InfluxDB.</em></p>
-<h5 id="source-proxy-service">Source: Proxy service</h5>
+<p><em>Note 1: Static tags are added as for all log events, as defined in the config file, <code>Butler-SOS.logEvents.tags</code>.</em></p>
+<p><em>Note 2: If log event categorisation is enabled in the YAML config file, the categories defined there will be added as tags to the log event data points written to InfluxDB.</em></p>
+<h3 id="source-proxy-service">Source: Proxy service</h3>
 <p>Events such as failed login attempts will be sent from the proxy service.</p>
 <p>Proxy log events have these tags:</p>
 <table>
-<thead>
-<tr>
-<th>Tag key</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>host</td>
-<td>Host name as reported in Qlik Sense&rsquo;s log files.</td>
-</tr>
-<tr>
-<td>level</td>
-<td>Sense log level. Possible values are <code>WARN</code>, <code>ERROR</code>, <code>FATAL</code>.</td>
-</tr>
-<tr>
-<td>log_row</td>
-<td>Row number in Sense log file where the event can be found. Useful if you after all have to dig into the log files.</td>
-</tr>
-<tr>
-<td>result_code</td>
-<td>Result code as reported by the Sense soure system that caused the event. Its meaning will differ depending on where the event originated.</td>
-</tr>
-<tr>
-<td>source</td>
-<td>Source system within Sense that caused the event. Examples: <code>qseow-scheduler</code>, <code>qseow-proxy</code>, <code>qseow-repository</code></td>
-</tr>
-<tr>
-<td>subsystem</td>
-<td>Subsystem where the event originated. More granular than <code>source</code>. Example: <code>System.Scheduler.Scheduler.Master.Task.TaskSession</code></td>
-</tr>
-<tr>
-<td>user_directory</td>
-<td>Sense user directory of the user causing the event. Example: <code>MYCOMPANY</code></td>
-</tr>
-<tr>
-<td>user_id</td>
-<td>Sense user ID for the user causing the event. Example: <code>joe</code></td>
-</tr>
-<tr>
-<td>user_full</td>
-<td>The combination of <code>user_directory</code> and <code>user_id</code>. Example: <code>MYCOMPANY\joe</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">Host name as reported in Qlik Sense&rsquo;s log files.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">level</td>
+          <td style="text-align: left">Sense log level. Possible values are <code>WARN</code>, <code>ERROR</code>, <code>FATAL</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">log_row</td>
+          <td style="text-align: left">Row number in Sense log file where the event can be found. Useful if you after all have to dig into the log files.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">result_code</td>
+          <td style="text-align: left">Result code as reported by the Sense soure system that caused the event. Its meaning will differ depending on where the event originated.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">source</td>
+          <td style="text-align: left">Source system within Sense that caused the event. Examples: <code>qseow-scheduler</code>, <code>qseow-proxy</code>, <code>qseow-repository</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">subsystem</td>
+          <td style="text-align: left">Subsystem where the event originated. More granular than <code>source</code>. Example: <code>System.Scheduler.Scheduler.Master.Task.TaskSession</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_directory</td>
+          <td style="text-align: left">Sense user directory of the user causing the event. Example: <code>MYCOMPANY</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_id</td>
+          <td style="text-align: left">Sense user ID for the user causing the event. Example: <code>joe</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_full</td>
+          <td style="text-align: left">The combination of <code>user_directory</code> and <code>user_id</code>. Example: <code>MYCOMPANY\joe</code></td>
+      </tr>
+  </tbody>
 </table>
 <p>Fields in proxy log events:</p>
 <table>
-<thead>
-<tr>
-<th>Field key</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>command</td>
-<td>Description of what caused the event, as found in the Sense logs. Example: <code>Login:TryLogin</code></td>
-</tr>
-<tr>
-<td>context</td>
-<td>In what context (if one exists) the event occured. If no context is available <code>Not available</code> will be used.</td>
-</tr>
-<tr>
-<td>exception_message</td>
-<td>If a serious problem/exception occurs the associated message is available here.</td>
-</tr>
-<tr>
-<td>message</td>
-<td>Description of what the event is about. Example: <code>Login failed for user 'LAB\\goran' wrong credentials?</code></td>
-</tr>
-<tr>
-<td>origin</td>
-<td>Example: <code>qseow-repository.</code></td>
-</tr>
-<tr>
-<td>raw_event</td>
-<td>The raw event message as received from QSEoW. Described <a href="https://github.com/ptarmiganlabs/butler-sos/blob/bd9135d953d4fc2d025dc8326956b2504b3d06d4/src/lib/udp_handlers_log_events.js#L26">here</a>.</td>
-</tr>
-<tr>
-<td>result_code</td>
-<td>Example: <code>500</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">command</td>
+          <td style="text-align: left">Description of what caused the event, as found in the Sense logs. Example: <code>Login:TryLogin</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">context</td>
+          <td style="text-align: left">In what context (if one exists) the event occured. If no context is available <code>Not available</code> will be used.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">exception_message</td>
+          <td style="text-align: left">If a serious problem/exception occurs the associated message is available here.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">message</td>
+          <td style="text-align: left">Description of what the event is about. Example: <code>Login failed for user 'LAB\\goran' wrong credentials?</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">origin</td>
+          <td style="text-align: left">Example: <code>qseow-repository.</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">raw_event</td>
+          <td style="text-align: left">The raw event message as received from QSEoW. Described <a href="https://github.com/ptarmiganlabs/butler-sos/blob/bd9135d953d4fc2d025dc8326956b2504b3d06d4/src/lib/udp_handlers_log_events.js#L26">here</a>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">result_code</td>
+          <td style="text-align: left">Example: <code>500</code></td>
+      </tr>
+  </tbody>
 </table>
 <p>The <code>raw_event</code> is the actual log event message sent from QSEoW to Butler SOS.<br>
 It has the following components:</p>
 <table>
-<thead>
-<tr>
-<th>Part of message</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>command</td>
-<td>Description of what caused the event, as found in the Sense logs. Example: <code>Login:TryLogin</code></td>
-</tr>
-<tr>
-<td>context</td>
-<td>In what context (if one exists) the event occured. If no context is available <code>Not available</code> will be used.</td>
-</tr>
-<tr>
-<td>exception_message</td>
-<td>If a serious problem/exception occurs the associated message is available here.</td>
-</tr>
-<tr>
-<td>host</td>
-<td>Host name as reported in Qlik Sense&rsquo;s log files.</td>
-</tr>
-<tr>
-<td>level</td>
-<td>Sense log level. Possible values are <code>WARN</code>, <code>ERROR</code>, <code>FATAL</code>.</td>
-</tr>
-<tr>
-<td>log_row</td>
-<td>Row number in Sense log file where the event can be found. Useful if you after all have to dig into the log files.</td>
-</tr>
-<tr>
-<td>message</td>
-<td>Description of what the event is about. Example: <code>Login failed for user 'LAB\\goran' wrong credentials?</code></td>
-</tr>
-<tr>
-<td>origin</td>
-<td>Party of the proxy service the event originated from. Rarely used by Sense.</td>
-</tr>
-<tr>
-<td>result_code</td>
-<td>Result code as reported by the Sense soure system that caused the event. Its meaning will differ depending on where the event originated. Example: <code>500</code></td>
-</tr>
-<tr>
-<td>source</td>
-<td>Source system within Sense that caused the event. Examples: <code>qseow-scheduler</code>, <code>qseow-proxy</code>, <code>qseow-repository</code></td>
-</tr>
-<tr>
-<td>subsystem</td>
-<td>Subsystem where the event originated. More granular than <code>source</code>. Example: <code>System.Scheduler.Scheduler.Master.Task.TaskSession</code></td>
-</tr>
-<tr>
-<td>tags</td>
-<td>User defined tags. Set in the main YAML config file. Example: <code>{&quot;env&quot;:&quot;DEV&quot;,&quot;foo&quot;:&quot;bar&quot;}</code></td>
-</tr>
-<tr>
-<td>ts_iso</td>
-<td>Timestamp (ISO format) when the event occured, according to QSEoW. Example: <code>20211126T214006.122+0100</code></td>
-</tr>
-<tr>
-<td>ts_local</td>
-<td>Event timestamp (time format of Sense server). Example: <code>2021-11-26 21:40:06,122</code></td>
-</tr>
-<tr>
-<td>user_directory</td>
-<td>Sense user directory of the user causing the event. Example: <code>MYCOMPANY</code></td>
-</tr>
-<tr>
-<td>user_full</td>
-<td>The combination of <code>user_directory</code> and <code>user_id</code>. Example: <code>MYCOMPANY\joe</code></td>
-</tr>
-<tr>
-<td>user_id</td>
-<td>Sense user ID for the user causing the event. Example: <code>joe</code></td>
-</tr>
-<tr>
-<td>windows_user</td>
-<td>Windows account used to run the proxy QSEoW Windows service. Example: <code>LAB\\qlikservice</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Part of message</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">command</td>
+          <td style="text-align: left">Description of what caused the event, as found in the Sense logs. Example: <code>Login:TryLogin</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">context</td>
+          <td style="text-align: left">In what context (if one exists) the event occured. If no context is available <code>Not available</code> will be used.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">exception_message</td>
+          <td style="text-align: left">If a serious problem/exception occurs the associated message is available here.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">Host name as reported in Qlik Sense&rsquo;s log files.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">level</td>
+          <td style="text-align: left">Sense log level. Possible values are <code>WARN</code>, <code>ERROR</code>, <code>FATAL</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">log_row</td>
+          <td style="text-align: left">Row number in Sense log file where the event can be found. Useful if you after all have to dig into the log files.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">message</td>
+          <td style="text-align: left">Description of what the event is about. Example: <code>Login failed for user 'LAB\\goran' wrong credentials?</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">origin</td>
+          <td style="text-align: left">Party of the proxy service the event originated from. Rarely used by Sense.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">result_code</td>
+          <td style="text-align: left">Result code as reported by the Sense soure system that caused the event. Its meaning will differ depending on where the event originated. Example: <code>500</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">source</td>
+          <td style="text-align: left">Source system within Sense that caused the event. Examples: <code>qseow-scheduler</code>, <code>qseow-proxy</code>, <code>qseow-repository</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">subsystem</td>
+          <td style="text-align: left">Subsystem where the event originated. More granular than <code>source</code>. Example: <code>System.Scheduler.Scheduler.Master.Task.TaskSession</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">tags</td>
+          <td style="text-align: left">User defined tags. Set in the main YAML config file. Example: <code>{&quot;env&quot;:&quot;DEV&quot;,&quot;foo&quot;:&quot;bar&quot;}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">ts_iso</td>
+          <td style="text-align: left">Timestamp (ISO format) when the event occured, according to QSEoW. Example: <code>20211126T214006.122+0100</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">ts_local</td>
+          <td style="text-align: left">Event timestamp (time format of Sense server). Example: <code>2021-11-26 21:40:06,122</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_directory</td>
+          <td style="text-align: left">Sense user directory of the user causing the event. Example: <code>MYCOMPANY</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_full</td>
+          <td style="text-align: left">The combination of <code>user_directory</code> and <code>user_id</code>. Example: <code>MYCOMPANY\joe</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_id</td>
+          <td style="text-align: left">Sense user ID for the user causing the event. Example: <code>joe</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">windows_user</td>
+          <td style="text-align: left">Windows account used to run the proxy QSEoW Windows service. Example: <code>LAB\\qlikservice</code></td>
+      </tr>
+  </tbody>
 </table>
-<h5 id="source-scheduler-service">Source: Scheduler service</h5>
+<h3 id="source-scheduler-service">Source: Scheduler service</h3>
 <p>Events such as failed reload tasks will be sent from the scheduler service.</p>
 <p>Scheduler log events have these tags:</p>
 <table>
-<thead>
-<tr>
-<th>Tag key</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>host</td>
-<td>Host name as reported in Qlik Sense&rsquo;s log files.</td>
-</tr>
-<tr>
-<td>level</td>
-<td>Sense log level. Possible values are <code>WARN</code>, <code>ERROR</code>, <code>FATAL</code>.</td>
-</tr>
-<tr>
-<td>log_row</td>
-<td>Row number in Sense log file where the event can be found. Useful if you after all have to dig into the log files.</td>
-</tr>
-<tr>
-<td>source</td>
-<td>Source system within Sense that caused the event. Examples: <code>qseow-scheduler</code>, <code>qseow-proxy</code>, <code>qseow-repository</code></td>
-</tr>
-<tr>
-<td>subsystem</td>
-<td>Subsystem where the event originated. More granular than <code>source</code>. Example: <code>System.Scheduler.Scheduler.Master.Task.TaskSession</code></td>
-</tr>
-<tr>
-<td>user_directory</td>
-<td>Sense user directory of the user causing the event. Example: <code>MYCOMPANY</code></td>
-</tr>
-<tr>
-<td>user_id</td>
-<td>Sense user ID for the user causing the event. Example: <code>joe</code></td>
-</tr>
-<tr>
-<td>user_full</td>
-<td>The combination of <code>user_directory</code> and <code>user_id</code>. Example: <code>MYCOMPANY\joe</code></td>
-</tr>
-<tr>
-<td>task_id</td>
-<td>Tasik ID (if a task is involved in the event, for example task failing). Example: <code>58dd8322-e39c-4b71-b74e-13c47a2f6dd4</code></td>
-</tr>
-<tr>
-<td>task_name</td>
-<td>Task name (if a task is involved in the event). Example: <code>Reload task of Meetup.com</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">Host name as reported in Qlik Sense&rsquo;s log files.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">level</td>
+          <td style="text-align: left">Sense log level. Possible values are <code>WARN</code>, <code>ERROR</code>, <code>FATAL</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">log_row</td>
+          <td style="text-align: left">Row number in Sense log file where the event can be found. Useful if you after all have to dig into the log files.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">source</td>
+          <td style="text-align: left">Source system within Sense that caused the event. Examples: <code>qseow-scheduler</code>, <code>qseow-proxy</code>, <code>qseow-repository</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">subsystem</td>
+          <td style="text-align: left">Subsystem where the event originated. More granular than <code>source</code>. Example: <code>System.Scheduler.Scheduler.Master.Task.TaskSession</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_directory</td>
+          <td style="text-align: left">Sense user directory of the user causing the event. Example: <code>MYCOMPANY</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_id</td>
+          <td style="text-align: left">Sense user ID for the user causing the event. Example: <code>joe</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_full</td>
+          <td style="text-align: left">The combination of <code>user_directory</code> and <code>user_id</code>. Example: <code>MYCOMPANY\joe</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_id</td>
+          <td style="text-align: left">Tasik ID (if a task is involved in the event, for example task failing). Example: <code>58dd8322-e39c-4b71-b74e-13c47a2f6dd4</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_name</td>
+          <td style="text-align: left">Task name (if a task is involved in the event). Example: <code>Reload task of Meetup.com</code></td>
+      </tr>
+  </tbody>
 </table>
 <p>Fields in scheduler log events:</p>
 <table>
-<thead>
-<tr>
-<th>Field key</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>app_id</td>
-<td>Application ID (if an app is involved in the event). Example: <code>deba4bcf-47e4-472e-97b2-4fe8d6498e11</code></td>
-</tr>
-<tr>
-<td>app_name</td>
-<td>Application name (if an app is involved in the event). Example: <code>Meetup.com</code></td>
-</tr>
-<tr>
-<td>exception_message</td>
-<td>If a serious problem/exception occurs the associated message is available here.</td>
-</tr>
-<tr>
-<td>execution_id</td>
-<td>ID identifying  a particular task execution. Example: <code>67a56c3b-2e20-4df8-ad1b-e48de28e1bfa</code></td>
-</tr>
-<tr>
-<td>message</td>
-<td>Description of what the event is about. Example: <code>Login failed for user 'LAB\\goran' wrong credentials?</code></td>
-</tr>
-<tr>
-<td>raw_event</td>
-<td>The raw event message as received from QSEoW. Described <a href="https://github.com/ptarmiganlabs/butler-sos/blob/bd9135d953d4fc2d025dc8326956b2504b3d06d4/src/lib/udp_handlers_log_events.js#L61">here</a>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">app_id</td>
+          <td style="text-align: left">Application ID (if an app is involved in the event). Example: <code>deba4bcf-47e4-472e-97b2-4fe8d6498e11</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">app_name</td>
+          <td style="text-align: left">Application name (if an app is involved in the event). Example: <code>Meetup.com</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">exception_message</td>
+          <td style="text-align: left">If a serious problem/exception occurs the associated message is available here.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">execution_id</td>
+          <td style="text-align: left">ID identifying  a particular task execution. Example: <code>67a56c3b-2e20-4df8-ad1b-e48de28e1bfa</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">message</td>
+          <td style="text-align: left">Description of what the event is about. Example: <code>Login failed for user 'LAB\\goran' wrong credentials?</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">raw_event</td>
+          <td style="text-align: left">The raw event message as received from QSEoW. Described <a href="https://github.com/ptarmiganlabs/butler-sos/blob/bd9135d953d4fc2d025dc8326956b2504b3d06d4/src/lib/udp_handlers_log_events.js#L61">here</a>.</td>
+      </tr>
+  </tbody>
 </table>
 <p>The <code>raw_event</code> is the actual log event message sent from QSEoW to Butler SOS.<br>
 It has the following components:</p>
 <table>
-<thead>
-<tr>
-<th>Part of message</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>app_id</td>
-<td>Application ID (if an app is involved in the event). Example: <code>deba4bcf-47e4-472e-97b2-4fe8d6498e11</code></td>
-</tr>
-<tr>
-<td>app_name</td>
-<td>Application name (if an app is involved in the event). Example: <code>Meetup.com</code></td>
-</tr>
-<tr>
-<td>exception_message</td>
-<td>If a serious problem/exception occurs the associated message is available here.</td>
-</tr>
-<tr>
-<td>execution_id</td>
-<td>ID identifying  a particular task execution. Example: <code>67a56c3b-2e20-4df8-ad1b-e48de28e1bfa</code></td>
-</tr>
-<tr>
-<td>host</td>
-<td>Host name as reported in Qlik Sense&rsquo;s log files.</td>
-</tr>
-<tr>
-<td>level</td>
-<td>Sense log level. Possible values are <code>WARN</code>, <code>ERROR</code>, <code>FATAL</code>.</td>
-</tr>
-<tr>
-<td>log_row</td>
-<td>Row number in Sense log file where the event can be found. Useful if you after all have to dig into the log files.</td>
-</tr>
-<tr>
-<td>message</td>
-<td>Description of what the event is about. Example: <code>Login failed for user 'LAB\\goran' wrong credentials?</code></td>
-</tr>
-<tr>
-<td>source</td>
-<td>Source system within Sense that caused the event. Example: <code>qseow-scheduler</code></td>
-</tr>
-<tr>
-<td>subsystem</td>
-<td>Subsystem where the event originated. More granular than <code>source</code>. Example: <code>System.Scheduler.Scheduler.Slave.Tasks.ReloadTask</code></td>
-</tr>
-<tr>
-<td>tags</td>
-<td>User defined tags. Set in the main YAML config file. Example: <code>{&quot;env&quot;:&quot;DEV&quot;,&quot;foo&quot;:&quot;bar&quot;}</code></td>
-</tr>
-<tr>
-<td>task_id</td>
-<td>Tasik ID (if a task is involved in the event, for example task failing). Example: <code>58dd8322-e39c-4b71-b74e-13c47a2f6dd4</code></td>
-</tr>
-<tr>
-<td>task_name</td>
-<td>Task name (if a task is involved in the event). Example: <code>Reload task of Meetup.com</code></td>
-</tr>
-<tr>
-<td>ts_iso</td>
-<td>Timestamp (ISO format) when the event occured, according to QSEoW. Example: <code>20211126T214006.122+0100</code></td>
-</tr>
-<tr>
-<td>ts_local</td>
-<td>Event timestamp (time format of Sense server). Example: <code>2021-11-26 21:40:06,122</code></td>
-</tr>
-<tr>
-<td>user_directory</td>
-<td>Sense user directory of the user causing the event. Example: <code>MYCOMPANY</code></td>
-</tr>
-<tr>
-<td>user_full</td>
-<td>The combination of <code>user_directory</code> and <code>user_id</code>. Example: <code>MYCOMPANY\joe</code></td>
-</tr>
-<tr>
-<td>user_id</td>
-<td>Sense user ID for the user causing the event. Example: <code>joe</code></td>
-</tr>
-<tr>
-<td>windows_user</td>
-<td>Windows account used to run the proxy QSEoW Windows service. Example: <code>LAB\\qlikservice</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Part of message</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">app_id</td>
+          <td style="text-align: left">Application ID (if an app is involved in the event). Example: <code>deba4bcf-47e4-472e-97b2-4fe8d6498e11</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">app_name</td>
+          <td style="text-align: left">Application name (if an app is involved in the event). Example: <code>Meetup.com</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">exception_message</td>
+          <td style="text-align: left">If a serious problem/exception occurs the associated message is available here.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">execution_id</td>
+          <td style="text-align: left">ID identifying  a particular task execution. Example: <code>67a56c3b-2e20-4df8-ad1b-e48de28e1bfa</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">Host name as reported in Qlik Sense&rsquo;s log files.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">level</td>
+          <td style="text-align: left">Sense log level. Possible values are <code>WARN</code>, <code>ERROR</code>, <code>FATAL</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">log_row</td>
+          <td style="text-align: left">Row number in Sense log file where the event can be found. Useful if you after all have to dig into the log files.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">message</td>
+          <td style="text-align: left">Description of what the event is about. Example: <code>Login failed for user 'LAB\\goran' wrong credentials?</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">source</td>
+          <td style="text-align: left">Source system within Sense that caused the event. Example: <code>qseow-scheduler</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">subsystem</td>
+          <td style="text-align: left">Subsystem where the event originated. More granular than <code>source</code>. Example: <code>System.Scheduler.Scheduler.Slave.Tasks.ReloadTask</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">tags</td>
+          <td style="text-align: left">User defined tags. Set in the main YAML config file. Example: <code>{&quot;env&quot;:&quot;DEV&quot;,&quot;foo&quot;:&quot;bar&quot;}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_id</td>
+          <td style="text-align: left">Tasik ID (if a task is involved in the event, for example task failing). Example: <code>58dd8322-e39c-4b71-b74e-13c47a2f6dd4</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_name</td>
+          <td style="text-align: left">Task name (if a task is involved in the event). Example: <code>Reload task of Meetup.com</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">ts_iso</td>
+          <td style="text-align: left">Timestamp (ISO format) when the event occured, according to QSEoW. Example: <code>20211126T214006.122+0100</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">ts_local</td>
+          <td style="text-align: left">Event timestamp (time format of Sense server). Example: <code>2021-11-26 21:40:06,122</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_directory</td>
+          <td style="text-align: left">Sense user directory of the user causing the event. Example: <code>MYCOMPANY</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_full</td>
+          <td style="text-align: left">The combination of <code>user_directory</code> and <code>user_id</code>. Example: <code>MYCOMPANY\joe</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_id</td>
+          <td style="text-align: left">Sense user ID for the user causing the event. Example: <code>joe</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">windows_user</td>
+          <td style="text-align: left">Windows account used to run the proxy QSEoW Windows service. Example: <code>LAB\\qlikservice</code></td>
+      </tr>
+  </tbody>
 </table>
-<h5 id="source-repository-service">Source: Repository service</h5>
+<h3 id="source-repository-service">Source: Repository service</h3>
 <p>The repository service is the hub around which the rest of Qlik Sense revolves.<br>
 As such it emit events in many different situations. One example can be when a Sense node is offline (thais example is used in the field description below).</p>
 <p>Repository log events have these tags:</p>
 <table>
-<thead>
-<tr>
-<th>Tag key</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>host</td>
-<td>Host name as reported in Qlik Sense&rsquo;s log files.</td>
-</tr>
-<tr>
-<td>level</td>
-<td>Sense log level. Possible values are <code>WARN</code>, <code>ERROR</code>, <code>FATAL</code>.</td>
-</tr>
-<tr>
-<td>log_row</td>
-<td>Row number in Sense log file where the event can be found. Useful if you after all have to dig into the log files.</td>
-</tr>
-<tr>
-<td>source</td>
-<td>Source system within Sense that caused the event. Examples: <code>qseow-scheduler</code>, <code>qseow-proxy</code>, <code>qseow-repository</code></td>
-</tr>
-<tr>
-<td>subsystem</td>
-<td>Subsystem where the event originated. More granular than <code>source</code>. Example: <code>System.Scheduler.Scheduler.Master.Task.TaskSession</code></td>
-</tr>
-<tr>
-<td>result_code</td>
-<td>Result code as reported by the Sense soure system that caused the event. Its meaning will differ depending on where the event originated.</td>
-</tr>
-<tr>
-<td>user_directory</td>
-<td>Sense user directory of the user causing the event. Example: <code>MYCOMPANY</code></td>
-</tr>
-<tr>
-<td>user_id</td>
-<td>Sense user ID for the user causing the event. Example: <code>joe</code></td>
-</tr>
-<tr>
-<td>user_full</td>
-<td>The combination of <code>user_directory</code> and <code>user_id</code>. Example: <code>MYCOMPANY\joe</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">Host name as reported in Qlik Sense&rsquo;s log files.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">level</td>
+          <td style="text-align: left">Sense log level. Possible values are <code>WARN</code>, <code>ERROR</code>, <code>FATAL</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">log_row</td>
+          <td style="text-align: left">Row number in Sense log file where the event can be found. Useful if you after all have to dig into the log files.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">source</td>
+          <td style="text-align: left">Source system within Sense that caused the event. Examples: <code>qseow-scheduler</code>, <code>qseow-proxy</code>, <code>qseow-repository</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">subsystem</td>
+          <td style="text-align: left">Subsystem where the event originated. More granular than <code>source</code>. Example: <code>System.Scheduler.Scheduler.Master.Task.TaskSession</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">result_code</td>
+          <td style="text-align: left">Result code as reported by the Sense soure system that caused the event. Its meaning will differ depending on where the event originated.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_directory</td>
+          <td style="text-align: left">Sense user directory of the user causing the event. Example: <code>MYCOMPANY</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_id</td>
+          <td style="text-align: left">Sense user ID for the user causing the event. Example: <code>joe</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_full</td>
+          <td style="text-align: left">The combination of <code>user_directory</code> and <code>user_id</code>. Example: <code>MYCOMPANY\joe</code></td>
+      </tr>
+  </tbody>
 </table>
 <p>Fields in scheduler log events:</p>
 <table>
-<thead>
-<tr>
-<th>Field key</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>command</td>
-<td>Description of what caused the event, as found in the Sense logs. Example: <code>Login:TryLogin</code></td>
-</tr>
-<tr>
-<td>context</td>
-<td>In what context (if one exists) the event occured. If no context is available <code>Not available</code> will be used.</td>
-</tr>
-<tr>
-<td>exception_message</td>
-<td>If a serious problem/exception occurs the associated message is available here.</td>
-</tr>
-<tr>
-<td>message</td>
-<td>Description of what the event is about. Example: <code>Login failed for user 'LAB\\goran' wrong credentials?</code></td>
-</tr>
-<tr>
-<td>origin</td>
-<td>Example: <code>qseow-repository.</code></td>
-</tr>
-<tr>
-<td>raw_event</td>
-<td>The raw event message as received from QSEoW. Described <a href="https://github.com/ptarmiganlabs/butler-sos/blob/bd9135d953d4fc2d025dc8326956b2504b3d06d4/src/lib/udp_handlers_log_events.js#L43">here</a>.</td>
-</tr>
-<tr>
-<td>result_code</td>
-<td>Example: <code>500</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">command</td>
+          <td style="text-align: left">Description of what caused the event, as found in the Sense logs. Example: <code>Login:TryLogin</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">context</td>
+          <td style="text-align: left">In what context (if one exists) the event occured. If no context is available <code>Not available</code> will be used.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">exception_message</td>
+          <td style="text-align: left">If a serious problem/exception occurs the associated message is available here.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">message</td>
+          <td style="text-align: left">Description of what the event is about. Example: <code>Login failed for user 'LAB\\goran' wrong credentials?</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">origin</td>
+          <td style="text-align: left">Example: <code>qseow-repository.</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">raw_event</td>
+          <td style="text-align: left">The raw event message as received from QSEoW. Described <a href="https://github.com/ptarmiganlabs/butler-sos/blob/bd9135d953d4fc2d025dc8326956b2504b3d06d4/src/lib/udp_handlers_log_events.js#L43">here</a>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">result_code</td>
+          <td style="text-align: left">Example: <code>500</code></td>
+      </tr>
+  </tbody>
 </table>
 <p>The <code>raw_event</code> is the actual log event message sent from QSEoW to Butler SOS.<br>
 It has the following components:</p>
 <table>
-<thead>
-<tr>
-<th>Part of message</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>command</td>
-<td>Description of what caused the event, as found in the Sense logs. Example: <code>Check service status</code></td>
-</tr>
-<tr>
-<td>context</td>
-<td>In what context (if one exists) the event occured. If no context is available <code>Not available</code> will be used. Example: <code>/qps/servicestatusworker</code></td>
-</tr>
-<tr>
-<td>exception_message</td>
-<td>If a serious problem/exception occurs the associated message is available here.</td>
-</tr>
-<tr>
-<td>host</td>
-<td>Host name of event source, as reported in Qlik Sense&rsquo;s log files. Example: <code>pro2-win1</code></td>
-</tr>
-<tr>
-<td>level</td>
-<td>Sense log level. Possible values are <code>WARN</code>, <code>ERROR</code>, <code>FATAL</code>.</td>
-</tr>
-<tr>
-<td>log_row</td>
-<td>Row number in Sense log file where the event can be found. Useful if you after all have to dig into the log files. Example: <code>7296</code></td>
-</tr>
-<tr>
-<td>message</td>
-<td>Description of what the event is about. Example: <code>Method: 'SendRimQrsStatusRequest'. Failed to retrieve service status from 'http://pro2-win3.lab.ptarmiganlabs.net:4444/status/'. Server host 'pro2-win3.lab.ptarmiganlabs.net'. Error message: 'Unable to connect to the remote server'</code></td>
-</tr>
-<tr>
-<td>origin</td>
-<td>Party of the proxy service the event originated from. Rarely used by Sense.</td>
-</tr>
-<tr>
-<td>result_code</td>
-<td>Result code as reported by the Sense soure system that caused the event. Its meaning will differ depending on where the event originated. Example: <code>500</code></td>
-</tr>
-<tr>
-<td>source</td>
-<td>Source system within Sense that caused the event. Example: <code>qseow-repository</code></td>
-</tr>
-<tr>
-<td>subsystem</td>
-<td>Subsystem where the event originated. More granular than <code>source</code>. Example: <code>Service.Repository.Repository.Core.Status.ServiceStatusWorker</code></td>
-</tr>
-<tr>
-<td>tags</td>
-<td>User defined tags. Set in the main YAML config file. Example: <code>{&quot;env&quot;:&quot;DEV&quot;,&quot;foo&quot;:&quot;bar&quot;}</code></td>
-</tr>
-<tr>
-<td>ts_iso</td>
-<td>Timestamp (ISO format) when the event occured, according to QSEoW. Example: <code>20211128T201538.508+0100</code></td>
-</tr>
-<tr>
-<td>ts_local</td>
-<td>Event timestamp (time format of Sense server). Example: <code>2021-11-28 20:15:38,508</code></td>
-</tr>
-<tr>
-<td>user_directory</td>
-<td>Sense user directory of the user causing the event. Example: <code>MYCOMPANY</code></td>
-</tr>
-<tr>
-<td>user_full</td>
-<td>The combination of <code>user_directory</code> and <code>user_id</code>. Example: <code>MYCOMPANY\joe</code></td>
-</tr>
-<tr>
-<td>user_id</td>
-<td>Sense user ID for the user causing the event. Example: <code>joe</code></td>
-</tr>
-<tr>
-<td>windows_user</td>
-<td>Windows account used to run the proxy QSEoW Windows service. Example: <code>LAB\\qlikservice</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Part of message</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">command</td>
+          <td style="text-align: left">Description of what caused the event, as found in the Sense logs. Example: <code>Check service status</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">context</td>
+          <td style="text-align: left">In what context (if one exists) the event occured. If no context is available <code>Not available</code> will be used. Example: <code>/qps/servicestatusworker</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">exception_message</td>
+          <td style="text-align: left">If a serious problem/exception occurs the associated message is available here.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">Host name of event source, as reported in Qlik Sense&rsquo;s log files. Example: <code>pro2-win1</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">level</td>
+          <td style="text-align: left">Sense log level. Possible values are <code>WARN</code>, <code>ERROR</code>, <code>FATAL</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">log_row</td>
+          <td style="text-align: left">Row number in Sense log file where the event can be found. Useful if you after all have to dig into the log files. Example: <code>7296</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">message</td>
+          <td style="text-align: left">Description of what the event is about. Example: <code>Method: 'SendRimQrsStatusRequest'. Failed to retrieve service status from 'http://pro2-win3.lab.ptarmiganlabs.net:4444/status/'. Server host 'pro2-win3.lab.ptarmiganlabs.net'. Error message: 'Unable to connect to the remote server'</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">origin</td>
+          <td style="text-align: left">Part of the proxy service the event originated from. Rarely used by Sense.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">result_code</td>
+          <td style="text-align: left">Result code as reported by the Sense soure system that caused the event. Its meaning will differ depending on where the event originated. Example: <code>500</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">source</td>
+          <td style="text-align: left">Source system within Sense that caused the event. Example: <code>qseow-repository</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">subsystem</td>
+          <td style="text-align: left">Subsystem where the event originated. More granular than <code>source</code>. Example: <code>Service.Repository.Repository.Core.Status.ServiceStatusWorker</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">tags</td>
+          <td style="text-align: left">User defined tags. Set in the main YAML config file. Example: <code>{&quot;env&quot;:&quot;DEV&quot;,&quot;foo&quot;:&quot;bar&quot;}</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">ts_iso</td>
+          <td style="text-align: left">Timestamp (ISO format) when the event occured, according to QSEoW. Example: <code>20211128T201538.508+0100</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">ts_local</td>
+          <td style="text-align: left">Event timestamp (time format of Sense server). Example: <code>2021-11-28 20:15:38,508</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_directory</td>
+          <td style="text-align: left">Sense user directory of the user causing the event. Example: <code>MYCOMPANY</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_full</td>
+          <td style="text-align: left">The combination of <code>user_directory</code> and <code>user_id</code>. Example: <code>MYCOMPANY\joe</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_id</td>
+          <td style="text-align: left">Sense user ID for the user causing the event. Example: <code>joe</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">windows_user</td>
+          <td style="text-align: left">Windows account used to run the proxy QSEoW Windows service. Example: <code>LAB\\qlikservice</code></td>
+      </tr>
+  </tbody>
 </table>
-<h4 id="messages-from-the-log-database">Messages from the log database</h4>
+<h3 id="source-engine-service-errors-and-warnings">Source: Engine service (errors and warnings)</h3>
+<p>The associative engine (the &ldquo;QIX&rdquo; engine) is the core of Qlik Sense. This is where the magic happens, all the calculations and selections in apps are ultimately done here.</p>
+<p>Engine log events have these tags:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">Host name as reported in Qlik Sense&rsquo;s log files.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">level</td>
+          <td style="text-align: left">Sense log level. Possible values are <code>WARN</code>, <code>ERROR</code>, <code>FATAL</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">log_row</td>
+          <td style="text-align: left">Row number in Sense log file where the event can be found. Useful if you after all have to dig into the log files.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">result_code</td>
+          <td style="text-align: left">Result code as reported by the Sense soure system that caused the event. Its meaning will differ depending on where the event originated.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">source</td>
+          <td style="text-align: left">Source system within Sense that caused the event. Examples: <code>qseow-scheduler</code>, <code>qseow-proxy</code>, <code>qseow-repository</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">subsystem</td>
+          <td style="text-align: left">Subsystem where the event originated. More granular than <code>source</code>. Example: <code>System.Scheduler.Scheduler.Master.Task.TaskSession</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_directory</td>
+          <td style="text-align: left">Sense user directory of the user causing the event. Example: <code>MYCOMPANY</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_id</td>
+          <td style="text-align: left">Sense user ID for the user causing the event. Example: <code>joe</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user_full</td>
+          <td style="text-align: left">The combination of <code>user_directory</code> and <code>user_id</code>. Example: <code>MYCOMPANY\joe</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">windows_user</td>
+          <td style="text-align: left">Windows account used to run the engine QSEoW Windows service. Example: <code>LAB\\qlikservice</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_id</td>
+          <td style="text-align: left">Tasik ID (if a task is involved in the event, for example task failing). Example: <code>58dd8322-e39c-4b71-b74e-13c47a2f6dd4</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_name</td>
+          <td style="text-align: left">Task name (if a task is involved in the event). Example: <code>Reload task of Meetup.com</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">app_id</td>
+          <td style="text-align: left">Application ID (if an app is involved in the event). Example: <code>deba4bcf-47e4-472e-97b2-4fe8d6498e11</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">app_name</td>
+          <td style="text-align: left">Application name (if an app is involved in the event). Example: <code>Meetup.com</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">engine_exe_version</td>
+          <td style="text-align: left">Version of the QIX engine executable.</td>
+      </tr>
+  </tbody>
+</table>
+<p>Fields in engine log events:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">command</td>
+          <td style="text-align: left">Description of what caused the event, as found in the Sense logs. Example: <code>Login:TryLogin</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">context</td>
+          <td style="text-align: left">In what context (if one exists) the event occured. If no context is available <code>Not available</code> will be used.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">exception_message</td>
+          <td style="text-align: left">If a serious problem/exception occurs the associated message is available here.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">message</td>
+          <td style="text-align: left">String. Description of what the event is about. Example: <code>Login failed for user 'LAB\\goran' wrong credentials?</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">origin</td>
+          <td style="text-align: left">Part of the engine service the event originated from. Rarely used by Sense.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">raw_event</td>
+          <td style="text-align: left">The raw event message as received from QSEoW.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">session_id</td>
+          <td style="text-align: left">Engine session ID.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">result_code</td>
+          <td style="text-align: left">Result code as reported by the Sense soure system that caused the event. Its meaning will differ depending on where the event originated. Example: <code>500</code></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="source-engine-service-performance-related-events">Source: Engine service (performance related events)</h3>
+<p>Performance log events are used to capture <em>performance</em> related events from the associative/QIX engine.</p>
+<p>Due to the potentially large number of performance log events, these can be filtered by Butler SOS.<br>
+Accepted and rejected performance log events are stored in InfluxDB in slightly different ways.</p>
+<h4 id="accepted-performance-log-events">Accepted performance log events</h4>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>host</code></td>
+          <td style="text-align: left">The hostname of the Sense server that generated the event.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>level</code></td>
+          <td style="text-align: left">The log level of the event. Always <code>INFO</code> for performance log events.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>source</code></td>
+          <td style="text-align: left">The source of the event. Always <code>qseow-qix-perf</code> for performance log events.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>log_row</code></td>
+          <td style="text-align: left">The log row number as created by Sense&rsquo;s logging framework.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>subsystem</code></td>
+          <td style="text-align: left">The subsystem that generated the event. Always <code>QixPerformance.Engine.Engine</code> for performance log events.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>method</code></td>
+          <td style="text-align: left">The engine method that generated the performance data. <code>Global::GetProgress</code>, <code>GenericObject::GetLayout</code>, <code>Global::OpenApp</code> etc</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>object_type</code></td>
+          <td style="text-align: left">The type of object that the performance data is about. <code>table</code>, <code>barchart</code>, <code>sheet</code>, <code>CurrentSelection</code> etc.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>proxy_session_id</code></td>
+          <td style="text-align: left">The ID of the proxy session that generated the event. Will be a GUID for user sessions, 0 for internal work done by Sense.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>session_id</code></td>
+          <td style="text-align: left">The ID of the engine session that generated the event.</td>
+      </tr>
+  </tbody>
+</table>
+<p>| <code>user_full</code> | The full name of the user that generated the event. <User directory>&lt;user id&gt; |
+| <code>user_directory</code> | The user directory of the user that generated the event. |
+| <code>user_id</code> | The user ID of the user that generated the event. |
+| <code>app_id</code> | The GUID of the app that the performance data is from. |
+| <code>app_name</code> | The name of the app that the performance data is from, if available. Blank if not. |
+| <code>object_id</code> | The ID of the app object that the performance data is about. |</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>app_id</code></td>
+          <td style="text-align: left">String. The GUID of the app that the performance data is from.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>process_time</code></td>
+          <td style="text-align: left">Float. The amount of time that was needed to process the request. Milliseconds.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>work_time</code></td>
+          <td style="text-align: left">Float. The amount of time that the request did actual work. Milliseconds.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>lock_time</code></td>
+          <td style="text-align: left">Float. The amount of time that the request had to wait for an internal lock. Milliseconds.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>validate_time</code></td>
+          <td style="text-align: left">Float. The amount of time that the request used for validation. Milliseconds.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>traverse_time</code></td>
+          <td style="text-align: left">Float. The amount of time the request uses for the traverse part of the calculation. Milliseconds.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>handle</code></td>
+          <td style="text-align: left">String. The ID of the interface that handled the request. The interface can be Global, a certain sheet, a certain object, or similar.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>net_ram</code></td>
+          <td style="text-align: left">Integer. The amount of memory used for the calculation. Bytes.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>peak_ram</code></td>
+          <td style="text-align: left">Integer. The peak amount of memory used for the calculation. Bytes.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>raw_event</code></td>
+          <td style="text-align: left">JSON. The raw event data in Json format. Useful together with the log chart type in Grafana.</td>
+      </tr>
+  </tbody>
+</table>
+<p>Descriptions of each metric/field can be found in the <a href="https://help.qlik.com/en-US/sense-admin/May2024/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Tracing-Log-File-Format-Additional-Fields-QixPerformance-Log.htm">Qlik Sense logging documentation</a>.</p>
+<h4 id="rejected-performance-log-events">Rejected performance log events</h4>
+<p>For rejected performance log events, the individual events are not stored in InfluxDB.<br>
+Instead, counters are used to keep track of how many events were rejected, broken down by a set of tags.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>source</code></td>
+          <td style="text-align: left">Name of the event. Always <code>qseow-qix-perf</code> for rejected performance log events.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>app_id</code></td>
+          <td style="text-align: left">The GUID of the app that the performance data is from.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>app_name</code></td>
+          <td style="text-align: left">The name of the app that the performance data is from, if available. Blank if not.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>method</code></td>
+          <td style="text-align: left">The engine method that generated the performance data. <code>Global::GetProgress</code>, <code>GenericObject::GetLayout</code>, <code>Global::OpenApp</code> etc</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>object_type</code></td>
+          <td style="text-align: left">The type of object that the performance data is about. <code>table</code>, <code>barchart</code>, <code>sheet</code>, <code>CurrentSelection</code> etc.</td>
+      </tr>
+  </tbody>
+</table>
+<p>A separate set of tags are added to the rejected performance log events.<br>
+These tags are defined in the config file, <code>Butler-SOS.logEvents.enginePerformanceMonitor.trackRejectedEvents.tags</code>.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">counter</td>
+          <td style="text-align: left">Integer. The number of rejected performance log events.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">process_time</td>
+          <td style="text-align: left">Float. The amount of time that was needed to process the request. Milliseconds.</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="messages-from-the-log-database">Messages from the log database</h2>
 <p>All log data written to InfluxDB share a common set of tag keys:</p>
 <table>
-<thead>
-<tr>
-<th>Tag key</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>host</td>
-<td>Host name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].host</code> property. Usually a fully qualified host name, or in some cases an IP address.</td>
-</tr>
-<tr>
-<td>server_name</td>
-<td>Human readible/friednly server name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverName</code> property.</td>
-</tr>
-<tr>
-<td>server_description</td>
-<td>Description of the server, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverDescription</code> property.</td>
-</tr>
-<tr>
-<td>log_level</td>
-<td>The logging level of the log event (ERROR, WARNING, INFO etc).</td>
-</tr>
-<tr>
-<td>source_process</td>
-<td>Which Sense service the log event originated in.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag key</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">Host name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].host</code> property. Usually a fully qualified host name, or in some cases an IP address.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">server_name</td>
+          <td style="text-align: left">Human readible/friednly server name, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverName</code> property.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">server_description</td>
+          <td style="text-align: left">Description of the server, taken from config file&rsquo;s <code>Butler-SOS.serversToMonitor.servers[].serverDescription</code> property.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">log_level</td>
+          <td style="text-align: left">The logging level of the log event (ERROR, WARNING, INFO etc).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">source_process</td>
+          <td style="text-align: left">Which Sense service the log event originated in.</td>
+      </tr>
+  </tbody>
 </table>
-<h5 id="measurement-log_event_logdb">Measurement: log_event_logdb</h5>
+<h3 id="measurement-log_event_logdb">Measurement: log_event_logdb</h3>
 <p>Source: More or less <a href="https://help.qlik.com/en-US/sense-admin/November2021/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Qlik-Logging-Service.htm">log db</a>. A query is done to the log db in Postgres, the results are stored in InfluxDB. There is thus no Qlik API call per se.</p>
 <table>
-<thead>
-<tr>
-<th>Field key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>message</td>
-<td>string</td>
-<td>Log entry as retrieved from the Sense log database (Postgres).</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Type</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">message</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">Log entry as retrieved from the Sense log database (Postgres).</td>
+      </tr>
+  </tbody>
 </table>
-<h4 id="butler-sos-metrics">Butler SOS metrics</h4>
-<h5 id="measurement-butlersos_memory_usage">Measurement: butlersos_memory_usage</h5>
+<h2 id="butler-sos-metrics">Butler SOS metrics</h2>
+<h3 id="measurement-butlersos_memory_usage">Measurement: butlersos_memory_usage</h3>
 <p>These metrics tell you how much memory Butler SOS itself uses.<br>
 More info on these metrics and what they mean is available <a href="https://www.valentinog.com/blog/node-usage/">here</a>.</p>
 <table>
-<thead>
-<tr>
-<th>Field key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>heap_total</td>
-<td>float</td>
-<td>Total size of the allocated heap.</td>
-</tr>
-<tr>
-<td>heap_used</td>
-<td>float</td>
-<td>Actual memory used during the execution of Butler SOS.</td>
-</tr>
-<tr>
-<td>process_memory</td>
-<td>float</td>
-<td>Total memory allocated for the execution of Butler SOS.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field key</th>
+          <th style="text-align: left">Type</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">heap_total</td>
+          <td style="text-align: left">float</td>
+          <td style="text-align: left">Total size of the allocated heap.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">heap_used</td>
+          <td style="text-align: left">float</td>
+          <td style="text-align: left">Actual memory used during the execution of Butler SOS.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">process_memory</td>
+          <td style="text-align: left">float</td>
+          <td style="text-align: left">Total memory allocated for the execution of Butler SOS.</td>
+      </tr>
+  </tbody>
 </table>
 
 </div>
@@ -2797,35 +3058,35 @@ The Prometheus server is responsible for gathering data exposed by the systems t
 <h3 id="labels">Labels</h3>
 <p>The labels available for all Prometheus metrics are:</p>
 <table>
-<thead>
-<tr>
-<th>Label name</th>
-<th>Source</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>host</td>
-<td><code>Butler-SOS.serversToMonitor.servers[].host</code></td>
-<td>Host IP or FQDN of the server from which the metric comes.</td>
-</tr>
-<tr>
-<td>server_name</td>
-<td><code>Butler-SOS.serversToMonitor.servers[].serverName</code></td>
-<td>Human friendly server name.</td>
-</tr>
-<tr>
-<td>server_description</td>
-<td><code>Butler-SOS.serversToMonitor.servers[].serverDescription</code></td>
-<td>Human friendly server description.</td>
-</tr>
-<tr>
-<td>&hellip;</td>
-<td><code>Butler-SOS.serversToMonitor.servers[].serverTags.*</code></td>
-<td>All tags defined in the config file will be added as Prometheus labels.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Label name</th>
+          <th style="text-align: left">Source</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left"><code>Butler-SOS.serversToMonitor.servers[].host</code></td>
+          <td style="text-align: left">Host IP or FQDN of the server from which the metric comes.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">server_name</td>
+          <td style="text-align: left"><code>Butler-SOS.serversToMonitor.servers[].serverName</code></td>
+          <td style="text-align: left">Human friendly server name.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">server_description</td>
+          <td style="text-align: left"><code>Butler-SOS.serversToMonitor.servers[].serverDescription</code></td>
+          <td style="text-align: left">Human friendly server description.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">&hellip;</td>
+          <td style="text-align: left"><code>Butler-SOS.serversToMonitor.servers[].serverTags.*</code></td>
+          <td style="text-align: left">All tags defined in the config file will be added as Prometheus labels.</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="metrics">Metrics</h3>
 <p>Available metrics are similar to those in InfluxDB, with a few exceptions.</p>
@@ -2835,115 +3096,115 @@ Most of the metrics come from Qlik Sense&rsquo; <a href="https://help.qlik.com/e
 <h4 id="qlik-sense-metrics">Qlik Sense metrics</h4>
 <p>These are the Prometheus metrics exposed by Butler SOS:</p>
 <table>
-<thead>
-<tr>
-<th>Metric</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>butlersos_apps_calls</td>
-<td>Gauge</td>
-<td>Total number of requests made to the Qlik Sense engine.</td>
-</tr>
-<tr>
-<td>butlersos_apps_selections</td>
-<td>Gauge</td>
-<td>Total number of selections made to the Qlik Sense engine.</td>
-</tr>
-<tr>
-<td>butlersos_apps_activedocs_total</td>
-<td>Gauge</td>
-<td>Number of active apps. An app is active when a user is currently performing some action on it.</td>
-</tr>
-<tr>
-<td>butlersos_apps_inmemorydocs_total</td>
-<td>Gauge</td>
-<td>Number of apps apps currently loaded into memory, even if they do not have any open sessions or connections to it. Apps disappear from this metric when the engine has purged them from memory.</td>
-</tr>
-<tr>
-<td>butlersos_apps_loadeddocs_total</td>
-<td>Gauge</td>
-<td>Number of apps apps currently loaded into memory, that also have open sessions or connections.</td>
-</tr>
-<tr>
-<td>butlersos_cache_added</td>
-<td>Gauge</td>
-<td>Number of cache objects added.</td>
-</tr>
-<tr>
-<td>butlersos_cache_hits</td>
-<td>Gauge</td>
-<td>Number of cache hits.</td>
-</tr>
-<tr>
-<td>butlersos_cache_lookups</td>
-<td>Gauge</td>
-<td>Number of cache lookups.</td>
-</tr>
-<tr>
-<td>butlersos_cache_replaced</td>
-<td>Gauge</td>
-<td>Number of cache replaced cache objects.</td>
-</tr>
-<tr>
-<td>butlersos_cache_saturated</td>
-<td>Gauge</td>
-<td>When the value is 1, the engine is running with high resource usage; otherwise the value is 0.</td>
-</tr>
-<tr>
-<td>butlersos_cpu_total</td>
-<td>Gauge</td>
-<td>Percentage of the CPU used by the engine, averaged over a time period of 30 seconds.</td>
-</tr>
-<tr>
-<td>butlersos_mem_committed</td>
-<td>Gauge</td>
-<td>The total amount of committed memory for the engine process in MB.</td>
-</tr>
-<tr>
-<td>butlersos_mem_allocated</td>
-<td>Gauge</td>
-<td>The total amount of allocated memory (committed + reserved) from the operating system in MB.</td>
-</tr>
-<tr>
-<td>butlersos_mem_free</td>
-<td>Gauge</td>
-<td>The total amount of free memory (minimum of free virtual and physical memory) in MB.</td>
-</tr>
-<tr>
-<td>butlersos_session_active</td>
-<td>Gauge</td>
-<td>Number of active engine sessions. A session is active when a user is currently performing some action on an app, for example, making selections or creating content.</td>
-</tr>
-<tr>
-<td>butlersos_session_total</td>
-<td>Gauge</td>
-<td>Total number of engine sessions.</td>
-</tr>
-<tr>
-<td>butlersos_users_active</td>
-<td>Gauge</td>
-<td>Number of distinct active users. An active user is one who is currently performing an action on an app.</td>
-</tr>
-<tr>
-<td>butlersos_users_total</td>
-<td>Gauge</td>
-<td>Total number of distinct users within the current engine sessions.</td>
-</tr>
-<tr>
-<td>butlersos_engine_metadata</td>
-<td>Gauge</td>
-<td>Metadata about the Qlik Sense engine.</td>
-</tr>
-<tr>
-<td>butlersos_user_session_total</td>
-<td>Gauge</td>
-<td>Number of sessions (as reported by the proxy service).</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Metric</th>
+          <th style="text-align: left">Type</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">butlersos_apps_calls</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">Total number of requests made to the Qlik Sense engine.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butlersos_apps_selections</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">Total number of selections made to the Qlik Sense engine.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butlersos_apps_activedocs_total</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">Number of active apps. An app is active when a user is currently performing some action on it.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butlersos_apps_inmemorydocs_total</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">Number of apps apps currently loaded into memory, even if they do not have any open sessions or connections to it. Apps disappear from this metric when the engine has purged them from memory.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butlersos_apps_loadeddocs_total</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">Number of apps apps currently loaded into memory, that also have open sessions or connections.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butlersos_cache_added</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">Number of cache objects added.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butlersos_cache_hits</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">Number of cache hits.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butlersos_cache_lookups</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">Number of cache lookups.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butlersos_cache_replaced</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">Number of cache replaced cache objects.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butlersos_cache_saturated</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">When the value is 1, the engine is running with high resource usage; otherwise the value is 0.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butlersos_cpu_total</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">Percentage of the CPU used by the engine, averaged over a time period of 30 seconds.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butlersos_mem_committed</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">The total amount of committed memory for the engine process in MB.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butlersos_mem_allocated</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">The total amount of allocated memory (committed + reserved) from the operating system in MB.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butlersos_mem_free</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">The total amount of free memory (minimum of free virtual and physical memory) in MB.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butlersos_session_active</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">Number of active engine sessions. A session is active when a user is currently performing some action on an app, for example, making selections or creating content.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butlersos_session_total</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">Total number of engine sessions.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butlersos_users_active</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">Number of distinct active users. An active user is one who is currently performing an action on an app.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butlersos_users_total</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">Total number of distinct users within the current engine sessions.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butlersos_engine_metadata</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">Metadata about the Qlik Sense engine.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butlersos_user_session_total</td>
+          <td style="text-align: left">Gauge</td>
+          <td style="text-align: left">Number of sessions (as reported by the proxy service).</td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="nodejs-metrics">Node.js metrics</h4>
 <p>A set of Node.js specific metrics are also available on Butler SOS&rsquo; Prometheus endpoint.<br>
@@ -2993,6 +3254,12 @@ These are described in the &ldquo;Default metrics&rdquo; section on <a href="htt
   <li class="td-footer__links-item" data-bs-toggle="tooltip" title="LinkedIn" aria-label="LinkedIn">
     <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/gorsan/" aria-label="LinkedIn">
       <i class="fab fa-linkedin"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="GitHub discussions" aria-label="GitHub discussions">
+    <a target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler-sos/discussions" aria-label="GitHub discussions">
+      <i class="fab fa-github"></i>
     </a>
   </li>
   

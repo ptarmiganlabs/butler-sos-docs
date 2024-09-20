@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.134.1">
 <link rel="alternate" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/log-db/printview/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/log-db/index.xml">
 <meta name="robots" content="index, follow">
@@ -25,36 +25,21 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>Configuring the log database | Butler SOS</title>
-<meta name="description" content="
-
-
-Optional
-
-    These settings are optional.
-If you don&rsquo;t do anything extraction of events from the Sense log database is turned off by …">
+<meta name="description" content="">
 <meta property="og:url" content="https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/log-db/">
   <meta property="og:site_name" content="Butler SOS">
   <meta property="og:title" content="Configuring the log database">
-  <meta property="og:description" content="Optional These settings are optional.
-If you don’t do anything extraction of events from the Sense log database is turned off by default.
-What’s this? Up until mid 2021 Qlik Sense Enterprise on Windows included a logging database to which log events were sent. It was removed from the product due to mainly performance reasons - it could be difficult to scale properly for large Sense clusters.
-Butler SOS offers a replacement for log db, in the form of log events.">
+  <meta property="og:description" content=" Warning">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Configuring the log database">
-  <meta itemprop="description" content="Optional These settings are optional.
-If you don’t do anything extraction of events from the Sense log database is turned off by default.
-What’s this? Up until mid 2021 Qlik Sense Enterprise on Windows included a logging database to which log events were sent. It was removed from the product due to mainly performance reasons - it could be difficult to scale properly for large Sense clusters.
-Butler SOS offers a replacement for log db, in the form of log events.">
+  <meta itemprop="description" content=" Warning">
   <meta itemprop="dateModified" content="2021-11-28T22:47:41+01:00">
-  <meta itemprop="wordCount" content="515">
+  <meta itemprop="wordCount" content="94">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Configuring the log database">
-  <meta name="twitter:description" content="Optional These settings are optional.
-If you don’t do anything extraction of events from the Sense log database is turned off by default.
-What’s this? Up until mid 2021 Qlik Sense Enterprise on Windows included a logging database to which log events were sent. It was removed from the product due to mainly performance reasons - it could be difficult to scale properly for large Sense clusters.
-Butler SOS offers a replacement for log db, in the form of log events.">
+  <meta name="twitter:description" content=" Warning">
 
 
 
@@ -159,6 +144,8 @@ Butler SOS offers a replacement for log db, in the form of log events.">
   <a href="/docs/getting_started/setup/which-config-file/" title="Which config file to use" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupwhich-config-file"><span class="">Which config file?</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupconfig-file-verification-li">
   <a href="/docs/getting_started/setup/config-file-verification/" title="Config file verification" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupconfig-file-verification"><span class="">Verify config file</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupconfig-file-visualisation-li">
+  <a href="/docs/getting_started/setup/config-file-visualisation/" title="Visualise the config file" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupconfig-file-visualisation"><span class="">Config file visualisation</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetuplogging-li">
   <a href="/docs/getting_started/setup/logging/" title="Configuring Butler SOS logging" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetuplogging"><span class="">Log files</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupheartbeats-li">
@@ -169,10 +156,20 @@ Butler SOS offers a replacement for log db, in the form of log events.">
   <a href="/docs/getting_started/setup/uptime-monitor/" title="Configuring Butler SOS uptime monitor" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupuptime-monitor"><span class="">Uptime monitor</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupcredentials-li">
   <a href="/docs/getting_started/setup/credentials/" title="Credentials to third party services" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupcredentials"><span class="">Credentials</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupuser-events-li">
-  <a href="/docs/getting_started/setup/user-events/" title="Configuring user events" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupuser-events"><span class="">User events</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetuplog-events-li">
-  <a href="/docs/getting_started/setup/log-events/" title="Configuring log events" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetuplog-events"><span class="">Log events</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgetting_startedsetupqlik-sense-events-li">
+  <a href="/docs/getting_started/setup/qlik-sense-events/" title="General Sense event settings" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupqlik-sense-events"><span class="">Qlik Sense events</span></a>
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupqlik-sense-eventsuser-events-li">
+  <a href="/docs/getting_started/setup/qlik-sense-events/user-events/" title="Configuring user events" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupqlik-sense-eventsuser-events"><span class="">User events</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsgetting_startedsetupqlik-sense-eventslog-events-li">
+  <a href="/docs/getting_started/setup/qlik-sense-events/log-events/" title="Configuring log events" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupqlik-sense-eventslog-events"><span class="">Log events</span></a>
+  <ul class="ul-5 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupqlik-sense-eventslog-eventsperformance-log-events-li">
+  <a href="/docs/getting_started/setup/qlik-sense-events/log-events/performance-log-events/" title="Engine performance log events" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupqlik-sense-eventslog-eventsperformance-log-events"><span class="">Performance log events</span></a>
+</li>
+  </ul>
+</li>
+  </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsgetting_startedsetuplog-db-li">
   <a href="/docs/getting_started/setup/log-db/" title="Configuring the log database" class="align-left ps-0 active td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetuplog-db"><span class="td-sidebar-nav-active-item">Log db</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting_startedsetupqlik-sense-server-settings-li">
@@ -209,12 +206,23 @@ Butler SOS offers a replacement for log db, in the form of log events.">
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconcepts-li">
   <a href="/docs/concepts/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconcepts"><span class="">Concepts</span></a>
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptssessions-connections-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsapp-metrics-li">
+  <a href="/docs/concepts/app-metrics/" title="App nmetrics" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsapp-metrics"><span class="">App metrics</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptssessions-connections-li">
   <a href="/docs/concepts/sessions-connections/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptssessions-connections"><span class="">Sessions &amp; Connections</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsapps-li">
-  <a href="/docs/concepts/apps/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsapps"><span class="">Apps</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptserrors-warnings-li">
-  <a href="/docs/concepts/errors-warnings/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptserrors-warnings"><span class="">Errors &amp; Warnings</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsconceptslog-events-li">
+  <a href="/docs/concepts/log-events/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptslog-events"><span class="">Log events</span></a>
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptslog-eventslog-events-overview-li">
+  <a href="/docs/concepts/log-events/log-events-overview/" title="Log events overview" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptslog-eventslog-events-overview"><span class="">Overview</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptslog-eventserrors-warnings-li">
+  <a href="/docs/concepts/log-events/errors-warnings/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptslog-eventserrors-warnings"><span class="">Errors &amp; Warnings</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptslog-eventscatgorising-log-events-li">
+  <a href="/docs/concepts/log-events/catgorising-log-events/" title="Getting rid of Sense log noise" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptslog-eventscatgorising-log-events"><span class="">Categorising log events</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptslog-eventsapp-object-performance-monitoring-li">
+  <a href="/docs/concepts/log-events/app-object-performance-monitoring/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptslog-eventsapp-object-performance-monitoring"><span class="">App performance monitoring</span></a>
+</li>
+  </ul>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsexamples-li">
@@ -279,8 +287,6 @@ Butler SOS offers a replacement for log db, in the form of log events.">
         <nav id="TableOfContents">
   <ul>
     <li><a href="#whats-this">What&rsquo;s this?</a></li>
-    <li><a href="#tech-deep-dive">Tech deep-dive</a></li>
-    <li><a href="#settings-in-main-config-file">Settings in main config file</a></li>
   </ul>
 </nav>
       </div>
@@ -311,74 +317,16 @@ Butler SOS offers a replacement for log db, in the form of log events.">
 	<header class="article-meta">
 		
   </header>
-	
-
-<div class="alert alert-primary" role="alert">
-<h4 class="alert-heading">Optional</h4>
-
-    <p>These settings are optional.</p>
-<p>If you don&rsquo;t do anything extraction of events from the Sense log database is turned off by default.</p>
-
-
-</div>
+	<style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
+<div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice warning" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Warning</p><p>Support for Qlik Sense log db was removed in Butler SOS version 11.0.0.</p>
+<p>It&rsquo;s recommended to use <a href="/docs/getting_started/setup/log-events/">log events</a> instead, they provide a more flexible and scalable way to capture log events from Qlik Sense.</p></div>
 
 <h2 id="whats-this">What&rsquo;s this?</h2>
 <p>Up until mid 2021 Qlik Sense Enterprise on Windows included a logging database to which log events were sent.
 It was removed from the product due to mainly performance reasons - it could be difficult to scale properly for large Sense clusters.</p>
 <p>Butler SOS offers a replacement for log db, in the form of <a href="/docs/getting_started/setup/log-events/">log events</a>.</p>
-<p>There may cases where using log db is still preferred though, for example for Sense cluster running older versions of QSEoW. For that reason it&rsquo;s still possible to configure and use log db from Butler SOS.</p>
-<style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
-<div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice warning" >
-<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Warning</p><p>Future versions of Butler SOS are likely to remove support for log db.<br>
-It can thus be a good idea to migrate to Butler SOS log events already now.</p></div>
 
-<p>The Sense log db contains a subset of the log events that appear in Sense&rsquo;s log files on disk.<br>
-Not all Sense subsystems send logs to log db, but those who do typically sent info, warnings, errors and fatal messages to the database. The logging level is configured in the QMC.</p>
-<p>The log db integration rely on one thing to work:</p>
-<ol>
-<li>Settings in the Butler SOS main config file.</li>
-</ol>
-<p>These settings are described below.</p>
-<h2 id="tech-deep-dive">Tech deep-dive</h2>
-<ul>
-<li>Butler SOS queries log db with a certain interval, set by the <code>pollingInterval</code> setting.</li>
-<li>Each query will get log events going back a certain time, controlled by the <code>queryPeriod</code> setting.
-<ul>
-<li><code>queryPeriod</code> should be longer than the polling interval! If it&rsquo;s not there is a risk that log events won&rsquo;t be retrieved to Butler SOS.</li>
-</ul>
-</li>
-</ul>
-<h2 id="settings-in-main-config-file">Settings in main config file</h2>
-<div class="notice tip" >
-<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>The config snippet below comes from the <a href="https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml">production_template.yaml</a> file.</p>
-<p>Being a template, it contains examples on how configuration <em>may</em> be done - not necessarily how it <em>should</em> be done.<br>
-For example, the <code>env/DEV</code> and <code>foo/bar</code> tags are optional and can be changed to something else, or removed all together if not used.</p></div>
-
-<div class="notice warning" >
-<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Warning</p><p>Enabling <code>info</code> level logs in the query done towards log db will result in <strong>lots</strong> of log events being stored in Butler SOS&rsquo; InfluxDB database. This can cause performance issues in large Sense environments.</p></div>
-
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">Butler-SOS</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Qlik Sense logging db config parameters</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">logdb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># Items below are mandatory if logdb.enable=true</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">pollingInterval</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">60000</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#8f5902;font-style:italic"># How often (milliseconds) should Postgres log db be queried for warnings and errors?</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">queryPeriod</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">minutes           </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># How far back should Butler SOS query for log entries? Default is 5 min</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">host</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;IP or FQDN of Qlik Sense logging db&gt;  </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># E.g. 10.5.23.7 or sense.mycompany.com</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">4432</span><span style="color:#f8f8f8;text-decoration:underline">                        </span><span style="color:#8f5902;font-style:italic"># 4432 if using default Sense setup </span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">qlogsReaderUser</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qlogs_reader</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">qlogsReaderPwd</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;pwd&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">extractErrors</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">               </span><span style="color:#8f5902;font-style:italic"># Should error level entries be extracted from log db into Influxdb?</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">extractWarnings</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">             </span><span style="color:#8f5902;font-style:italic"># Should warn level entries be extracted from log db into Influxdb?</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">extractInfo</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#8f5902;font-style:italic"># Should info level entries be extracted from log db into Influxdb? </span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                      </span><span style="color:#8f5902;font-style:italic"># Warning! Seting this to true will result in LOTS of log messages </span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                      </span><span style="color:#8f5902;font-style:italic"># being retrrieved by Butler SOS!</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span></code></pre></div>
   <div class="section-index">
     
     
@@ -406,6 +354,12 @@ For example, the <code>env/DEV</code> and <code>foo/bar</code> tags are optional
   <li class="td-footer__links-item" data-bs-toggle="tooltip" title="LinkedIn" aria-label="LinkedIn">
     <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/gorsan/" aria-label="LinkedIn">
       <i class="fab fa-linkedin"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="GitHub discussions" aria-label="GitHub discussions">
+    <a target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler-sos/discussions" aria-label="GitHub discussions">
+      <i class="fab fa-github"></i>
     </a>
   </li>
   

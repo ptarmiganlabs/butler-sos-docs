@@ -26,10 +26,6 @@ The list of metrics below shows *all* metrics that Butler SOS can store in Influ
 If you have disabled some features of Butler SOS, the asociated metrics will not be stored in InfluxDB.
 {{< /notice >}}
 
-## Metrics structure
-
-The metrics are grouped based on what kind of Qlik Sense data they represent. InfluxDB is a *very* capable database, so we will only touch on the basics here.
-
 ### InfluxDB v1 vs v2
 
 That are some differences between InfluxDB v1 and v2 when it comes to terminology and concepts.
@@ -41,7 +37,7 @@ The concepts are very similar, but the names are different.
 
 The metrics below are the same for both InfluxDB v1 and v2.
 
-### Overview
+## Overview
 
 *Measurements* are just what it sounds like: snapshots of some value(s), taken at a specific point in time.
 A measurement can contain several *field  keys*, which for practical purposes can be viewed as the individual metrics.
@@ -129,19 +125,20 @@ Note that this list of tags consists of two parts:
 1. Tags always present. These are inserted by Butler SOS and are present for all measurements. These are `host`, `server_description` and `server_name`.
 2. Tags configured in Butler SOS' config fil. In the example above these are `serverBrand`, `serverLocation`, `server_group` and`server_type`.
 
-### Measurements and fields
+## Measurements and fields
 
 The measurements are grouped based on what part of Sense they are retrieved from. The groups are
 
 1. General health metrics.
-2. Messages from the log database.
-3. Detailed metrics about what users are connected to (i.e. have sessions open with) which virtual proxies.
-4. Messages from the log database.
+2. Metrics about user sessions, for example how many sessions there are per virtual proxy.
+3. Event counters: Counters for the different types of events received from Sense.
+4. User events: Session and connection related messages from QSEoW logs.
 5. Log events: Warning, error and fatal messages from QSEoW logs.
-6. User events: Session and connection related messages from QSEoW logs.
-7. Metric relating to Butler SOS itself (i.e. not retrieved from Sense).
+6. Performance log events. Events from the QIX engine. Used to monitor performance of individual charts and other app objects.
+7. Messages from the log database (deprecated, will be removed during 2nd half of 2024).
+8. Metric relating to Butler SOS itself (i.e. not retrieved from Sense).
 
-#### General health metrics
+## General health metrics
 
 A shared set of tag keys are available for all general health metrics:
 
@@ -153,7 +150,7 @@ A shared set of tag keys are available for all general health metrics:
 
 In addition to the above, all tags defined in the YAML config file for the servers will be included as tag keys.
 
-##### Measurement: apps
+### Measurement: apps
 
 Source: [Health check API](https://help.qlik.com/en-US/sense-developer/November2021/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
 
@@ -175,7 +172,7 @@ Source: [Health check API](https://help.qlik.com/en-US/sense-developer/November2
 | calls | integer | Number of calls to the Qlik associative engine since it started |
 | selections | integer | Numer of selections made in Qlik associative engine since it started |
 
-##### Measurement: cache
+### Measurement: cache
 
 Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
 
@@ -187,7 +184,7 @@ Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/
 | lookups | integer | Number of lookups in egnine |
 | replaced | integer | Number of cache objects replaced |
 
-##### Measurement: cpu
+### Measurement: cpu
 
 Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
 
@@ -195,7 +192,7 @@ Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/
 | ----------| -----| ----------- |
 | total | integer | Percentage of the CPU used by the engine, averaged over a time period of 30 seconds. |
 
-##### Measurement: mem
+### Measurement: mem
 
 Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
 
@@ -205,7 +202,7 @@ Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/
 | committed | integer | The total amount of committed memory for the engine process in MB. |
 | free | integer | The total amount of free memory (minimum of free virtual and physical memory) in MB. |
 
-##### Measurement: saturated
+### Measurement: saturated
 
 Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
 
@@ -213,7 +210,7 @@ Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/
 | ----------| -----| ----------- |
 | saturated | boolean | When the value is true, the engine is running with high resource usage; otherwise the value is false. See link above for details. |
 
-##### Measurement: sense_server
+### Measurement: sense_server
 
 Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
 
@@ -223,7 +220,7 @@ Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/
 | uptime | string | Time since engine service was started (human readable).  |
 | version | string | Engine version. |
 
-##### Measurement: session
+### Measurement: session
 
 Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
 
@@ -232,7 +229,7 @@ Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/
 | active | integer | Number of active engine sessions. A session is active when a user is currently performing some action on an app, for example, making selections or creating content. |
 | total | integer | Total number of engine sessions. |
 
-##### Measurement: users
+### Measurement: users
 
 Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm)
 
@@ -241,11 +238,11 @@ Source: [Health check API](https://help.qlik.com/en-US/sense-developer/June2020/
 | active | integer | Number of users currently doing something in some app. |
 | total | integer | Number of users with established sessions to the Sense server. |
 
-#### User session details
+## User session details
 
 User session metrics have slightly different tag keys depending on the granularity level of the metric - those metrics are therefore listed under each heading below.
 
-##### Measurement: user_session_summary
+### Measurement: user_session_summary
 
 Source: [Session module API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm)
 
@@ -264,7 +261,7 @@ Tag keys:
 | user_session_host | Host name the session metrics are associated with. |
 | user_session_virtual_proxy | Virtual proxy name the session metrics are associated with. |
 
-##### Measurement: user_session_list
+### Measurement: user_session_list
 
 Source: [Session module API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm)
 
@@ -282,7 +279,7 @@ Tag keys:
 | user_session_host | Host name the session metrics are associated with. |
 | user_session_virtual_proxy | Virtual proxy name the session metrics are associated with. |
 
-##### Measurement: user_session_details
+### Measurement: user_session_details
 
 Source: [Session module API](https://help.qlik.com/en-US/sense-developer/June2020/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm)
 
@@ -305,7 +302,33 @@ Tag keys:
 | user_session_user_directory | User's user directory |
 | user_session_user_id | User ID |
 
-#### User events
+## Event counters
+
+Event counters are used to count the number of events received from Sense.
+
+The measurement name is configured in the Butler SOS YAML config file, `Butler-SOS.qlikSenseEvents.eventCount.influxdb.measurementName`.
+
+| Tag key | Description |
+| --------- | ----------- |
+| event_type | Type of event. `log` or `user`. |
+| host | Host name of the Sense server generating the event. |
+| source | Source system within Sense that caused the event. Examples: `qseow-scheduler`, `qseow-proxy`, `qseow-engine`, `qseow-repository` |
+| subsystem | Subsystem where the event originated. More granular than `source`. Example: `System.Scheduler.Scheduler.Master.Task.TaskSession` |
+
+Static tags defined in the config file, `Butler-SOS.qlikSenseEvents.eventCount.influxdb.tags`, are also added to the InfluxDB datapoints.
+
+| Field key | Description |
+| --------- | ----------- |
+| counter | Number of events received. |
+
+### Unrecognised events
+
+Unrecognised events are events that Butler SOS receives from Sense, but that do not have a valid source (`qseow-scheduler`, `qseow-proxy`, `qseow-engine`, `qseow-repository` etc).
+
+These events will get a `event_type` of `user` or `log` based on what UDP port they arrived on.  
+The `source`, `host` and `subsystem` tags will be set to `Unknown`.
+
+## User events
 
 User events capture real-time events in Qlik Sense as they happen.  
 They originate from Sense's log4net logging framework and are forwarded from Sense to Butler SOS by means of XML log appenders in Sense.  
@@ -320,7 +343,7 @@ The following user events are handled by Butler SOS:
 * Connection open
 * Connection close.
 
-##### Measurement: user_events
+### Measurement: user_events
 
 Tag keys present for all `user_events` records:
 
@@ -354,7 +377,7 @@ Fields:
 | userFull | Same as the userFull tag.  |
 | userId | Same as the userId tag. |
 
-#### Log events
+## Log events
 
 Log events are used to capture warning, error and fatal messages in Sense. Once in Butler SOS these events are stored in InfluxDB (enabling Grafana dashboards).  
 These events are also forwarded as MQTT messages, allowing other systems to act when warnings/errors/fatals occur in Qlik Sense.
@@ -362,7 +385,7 @@ These events are also forwarded as MQTT messages, allowing other systems to act 
 Setup instructions [here](/docs/getting_started/setup/log-events/).
 
 {{< notice info >}}
-There is only one measurement for log events. It's simply called `log_event`. 
+There is only one measurement for log events. It's simply called `log_event`.
 
 Different QSEoW services (Qlik Sense Enterprise on Windows) will send different tags and metrics in the log events.  
 Each variant is described below.  
@@ -370,9 +393,11 @@ Each variant is described below.
 This modular approach to log events makes it possible to extend Butler SOS' with additional log events if/when needed..
 {{< /notice >}}
 
-*Note: If log event categorisation is enabled in the main YAML config file, the categories defined in the config file will be added as tags to the log event data points written to InfluxDB.*
+*Note 1: Static tags are added as for all log events, as defined in the config file, `Butler-SOS.logEvents.tags`.*
 
-##### Source: Proxy service
+*Note 2: If log event categorisation is enabled in the YAML config file, the categories defined there will be added as tags to the log event data points written to InfluxDB.*
+
+### Source: Proxy service
 
 Events such as failed login attempts will be sent from the proxy service.
 
@@ -426,7 +451,7 @@ It has the following components:
 | user_id | Sense user ID for the user causing the event. Example: `joe` |
 | windows_user | Windows account used to run the proxy QSEoW Windows service. Example: `LAB\\qlikservice` |
 
-##### Source: Scheduler service
+### Source: Scheduler service
 
 Events such as failed reload tasks will be sent from the scheduler service.
 
@@ -481,7 +506,7 @@ It has the following components:
 | user_id | Sense user ID for the user causing the event. Example: `joe` |
 | windows_user | Windows account used to run the proxy QSEoW Windows service. Example: `LAB\\qlikservice` |
 
-##### Source: Repository service
+### Source: Repository service
 
 The repository service is the hub around which the rest of Qlik Sense revolves.  
 As such it emit events in many different situations. One example can be when a Sense node is offline (thais example is used in the field description below).
@@ -524,7 +549,7 @@ It has the following components:
 | level | Sense log level. Possible values are `WARN`, `ERROR`, `FATAL`.  |
 | log_row | Row number in Sense log file where the event can be found. Useful if you after all have to dig into the log files. Example: `7296` |
 | message | Description of what the event is about. Example: `Method: 'SendRimQrsStatusRequest'. Failed to retrieve service status from 'http://pro2-win3.lab.ptarmiganlabs.net:4444/status/'. Server host 'pro2-win3.lab.ptarmiganlabs.net'. Error message: 'Unable to connect to the remote server'` |
-| origin | Party of the proxy service the event originated from. Rarely used by Sense. |
+| origin | Part of the proxy service the event originated from. Rarely used by Sense. |
 | result_code | Result code as reported by the Sense soure system that caused the event. Its meaning will differ depending on where the event originated. Example: `500` |
 | source | Source system within Sense that caused the event. Example: `qseow-repository` |
 | subsystem | Subsystem where the event originated. More granular than `source`. Example: `Service.Repository.Repository.Core.Status.ServiceStatusWorker` |
@@ -536,7 +561,108 @@ It has the following components:
 | user_id | Sense user ID for the user causing the event. Example: `joe` |
 | windows_user | Windows account used to run the proxy QSEoW Windows service. Example: `LAB\\qlikservice` |
 
-#### Messages from the log database
+### Source: Engine service (errors and warnings)
+
+The associative engine (the "QIX" engine) is the core of Qlik Sense. This is where the magic happens, all the calculations and selections in apps are ultimately done here.
+
+Engine log events have these tags:
+
+| Tag key | Description |
+| --------- | ----------- |
+| host | Host name as reported in Qlik Sense's log files. |
+| level | Sense log level. Possible values are `WARN`, `ERROR`, `FATAL`.  |
+| log_row | Row number in Sense log file where the event can be found. Useful if you after all have to dig into the log files. |
+| result_code | Result code as reported by the Sense soure system that caused the event. Its meaning will differ depending on where the event originated. |
+| source | Source system within Sense that caused the event. Examples: `qseow-scheduler`, `qseow-proxy`, `qseow-repository` |
+| subsystem | Subsystem where the event originated. More granular than `source`. Example: `System.Scheduler.Scheduler.Master.Task.TaskSession` |
+| user_directory | Sense user directory of the user causing the event. Example: `MYCOMPANY` |
+| user_id | Sense user ID for the user causing the event. Example: `joe` |
+| user_full | The combination of `user_directory` and `user_id`. Example: `MYCOMPANY\joe` |
+| windows_user | Windows account used to run the engine QSEoW Windows service. Example: `LAB\\qlikservice` |
+| task_id | Tasik ID (if a task is involved in the event, for example task failing). Example: `58dd8322-e39c-4b71-b74e-13c47a2f6dd4` |
+| task_name | Task name (if a task is involved in the event). Example: `Reload task of Meetup.com` |
+| app_id | Application ID (if an app is involved in the event). Example: `deba4bcf-47e4-472e-97b2-4fe8d6498e11` |
+| app_name | Application name (if an app is involved in the event). Example: `Meetup.com` |
+| engine_exe_version | Version of the QIX engine executable. |
+
+Fields in engine log events:
+
+| Field key | Description |
+| --------- | ----------- |
+| command | Description of what caused the event, as found in the Sense logs. Example: `Login:TryLogin` |
+| context | In what context (if one exists) the event occured. If no context is available `Not available` will be used. |
+| exception_message | If a serious problem/exception occurs the associated message is available here. |
+| message | String. Description of what the event is about. Example: `Login failed for user 'LAB\\goran' wrong credentials?` |
+| origin |  Part of the engine service the event originated from. Rarely used by Sense. |
+| raw_event | The raw event message as received from QSEoW. |
+| session_id | Engine session ID. |
+| result_code | Result code as reported by the Sense soure system that caused the event. Its meaning will differ depending on where the event originated. Example: `500` |
+
+### Source: Engine service (performance related events)
+
+Performance log events are used to capture *performance* related events from the associative/QIX engine.
+
+Due to the potentially large number of performance log events, these can be filtered by Butler SOS.  
+Accepted and rejected performance log events are stored in InfluxDB in slightly different ways.
+
+#### Accepted performance log events
+
+| Tag key | Description |
+|----------|-------------|
+| `host` | The hostname of the Sense server that generated the event. |
+| `level` | The log level of the event. Always `INFO` for performance log events. |
+| `source` | The source of the event. Always `qseow-qix-perf` for performance log events. |
+| `log_row` | The log row number as created by Sense's logging framework. |
+| `subsystem` | The subsystem that generated the event. Always `QixPerformance.Engine.Engine` for performance log events. |
+| `method` | The engine method that generated the performance data. `Global::GetProgress`, `GenericObject::GetLayout`, `Global::OpenApp` etc |
+| `object_type` | The type of object that the performance data is about. `table`, `barchart`, `sheet`, `CurrentSelection` etc. |
+| `proxy_session_id` | The ID of the proxy session that generated the event. Will be a GUID for user sessions, 0 for internal work done by Sense. |
+| `session_id` | The ID of the engine session that generated the event. |
+
+| `user_full` | The full name of the user that generated the event. <User directory>\<user id> |
+| `user_directory` | The user directory of the user that generated the event. |
+| `user_id` | The user ID of the user that generated the event. |
+| `app_id` | The GUID of the app that the performance data is from. |
+| `app_name` | The name of the app that the performance data is from, if available. Blank if not. |
+| `object_id` | The ID of the app object that the performance data is about. |
+
+| Field key | Description |
+|------------|-------------|
+| `app_id` | String. The GUID of the app that the performance data is from. |
+| `process_time` | Float. The amount of time that was needed to process the request. Milliseconds. |
+| `work_time` | Float. The amount of time that the request did actual work. Milliseconds. |
+| `lock_time` | Float. The amount of time that the request had to wait for an internal lock. Milliseconds. |
+| `validate_time` | Float. The amount of time that the request used for validation. Milliseconds. |
+| `traverse_time` | Float. The amount of time the request uses for the traverse part of the calculation. Milliseconds. |
+| `handle` | String. The ID of the interface that handled the request. The interface can be Global, a certain sheet, a certain object, or similar. |
+| `net_ram` | Integer. The amount of memory used for the calculation. Bytes. |
+| `peak_ram` | Integer. The peak amount of memory used for the calculation. Bytes. |
+| `raw_event` | JSON. The raw event data in Json format. Useful together with the log chart type in Grafana. |
+
+Descriptions of each metric/field can be found in the [Qlik Sense logging documentation](https://help.qlik.com/en-US/sense-admin/May2024/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Tracing-Log-File-Format-Additional-Fields-QixPerformance-Log.htm).
+
+#### Rejected performance log events
+
+For rejected performance log events, the individual events are not stored in InfluxDB.  
+Instead, counters are used to keep track of how many events were rejected, broken down by a set of tags.
+
+| Tag name | Description |
+|----------|-------------|
+| `source` | Name of the event. Always `qseow-qix-perf` for rejected performance log events. |
+| `app_id` | The GUID of the app that the performance data is from. |
+| `app_name` | The name of the app that the performance data is from, if available. Blank if not. |
+| `method` | The engine method that generated the performance data. `Global::GetProgress`, `GenericObject::GetLayout`, `Global::OpenApp` etc |
+| `object_type` | The type of object that the performance data is about. `table`, `barchart`, `sheet`, `CurrentSelection` etc. |
+
+A separate set of tags are added to the rejected performance log events.  
+These tags are defined in the config file, `Butler-SOS.logEvents.enginePerformanceMonitor.trackRejectedEvents.tags`.
+
+| Field key | Description |
+|------------|-------------|
+| counter | Integer. The number of rejected performance log events. |
+| process_time | Float. The amount of time that was needed to process the request. Milliseconds. |
+
+## Messages from the log database
 
 All log data written to InfluxDB share a common set of tag keys:
 
@@ -548,7 +674,7 @@ All log data written to InfluxDB share a common set of tag keys:
 | log_level | The logging level of the log event (ERROR, WARNING, INFO etc). |
 | source_process | Which Sense service the log event originated in. |
 
-##### Measurement: log_event_logdb
+### Measurement: log_event_logdb
 
 Source: More or less [log db](https://help.qlik.com/en-US/sense-admin/November2021/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Qlik-Logging-Service.htm). A query is done to the log db in Postgres, the results are stored in InfluxDB. There is thus no Qlik API call per se.
 
@@ -556,9 +682,9 @@ Source: More or less [log db](https://help.qlik.com/en-US/sense-admin/November20
 | ----------| -----| ----------- |
 | message | string | Log entry as retrieved from the Sense log database (Postgres). |
 
-#### Butler SOS metrics
+## Butler SOS metrics
 
-##### Measurement: butlersos_memory_usage
+### Measurement: butlersos_memory_usage
 
 These metrics tell you how much memory Butler SOS itself uses.  
 More info on these metrics and what they mean is available [here](https://www.valentinog.com/blog/node-usage/).

@@ -1,7 +1,7 @@
 ---
 title: "Sessions & Connections"
 linkTitle: "Sessions & Connections"
-weight: 10
+weight: 20
 description: >
   What are user sessions and why are they important?
 ---

@@ -9,7 +9,7 @@ description: >
 {{< notice warning >}}
 Butler SOS can store data in InfluxDB 1.x or 2.x databases.
 
-InfluxDB 3.x is currently (June 2024) in beta, but Butler SOS does not yet support it.
+InfluxDB 3.x is currently not supported.
 {{< /notice >}}
 
 {{< notice tip >}}
@@ -19,20 +19,20 @@ It contains description of issues people have faced when installing Butler SOS, 
 {{< /notice >}}
 
 {{% pageinfo %}}
-If in doubt on how to install Butler SOS, please consider Docker as the first alternative.  
+If in doubt on how to install Butler SOS, please consider Docker (or Kubernetes if available) as the first alternative.  
 Why? Several reasons:
 
 - Very quick to get started. Usually it takes just a few minutes to set up a Butler SOS instance in Docker.
 - Using Docker is a great way to test new tools without having to install the tool on one of your actual servers. If you decide the tool in question is not for you - just delete the Docker container. Your servers remain 100% the same as before the test.
 - The previous point is true not only for Butler SOS, but also its companion tools [InfluxDB](https://www.influxdata.com/products/influxdb-overview/), [Prometheus](https://prometheus.io), [Grafana](https://grafana.com/) and [MQTT](https://en.wikipedia.org/wiki/MQTT) (via for example the [Mosquitto MQTT broker](https://mosquitto.org/)). You can run all of these tools in their own Docker containers, and not install a single piece of new, native applications during your evaluation of Butler SOS.
-- No need to install Node.js on your server(s). Less security, performance and maintenance concerns.
 - Make use of your existing Docker runtime environments, or use those offered by Amazon, Google, Microsoft etc.
-- Benefit from the extremely comprehensive tools ecosystem (monitoring, deployment etc) that is available for Docker.
+- Benefit from the comprehensive tools ecosystem (monitoring, deployment etc) that is available for Docker.
 - Updating Butler SOS to the latest version (assuming no config file changes are needed for that particular upgrade) is as easy as stopping the container, doing a "docker pull ptarmiganlabs/butler-sos:latest", and finally starting the container again.
 {{% /pageinfo %}}
 
 If Docker is not an option, the pre-built, stand-alone binaries for Windows, Linux and macOS are good options.  
-They offer a download-configure-execute approach to running Butler SOS. Also a very good option.
+They offer a download-configure-execute approach to running Butler SOS.  
+This will be the easiest way to use Butler SOS if you are not familiar with Docker.
 
 But even with the above recommendations, Butler SOS can be deployed in lots of different configurations.  
 It is therefore difficult to give precise instructions that will work everwhere, for everyone. Especially the fact that Butler SOS uses certificates to authenticate with Sense is a complicating factor. Certificates are (when correctly used) great for securing systems, but they can alse cause headaches.

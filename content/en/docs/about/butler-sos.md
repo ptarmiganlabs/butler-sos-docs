@@ -24,6 +24,10 @@ Butler SOS address this by sending log events in real-time from QSEoW to Butler 
 This basically means you will very rarely have to plow through endless log files to find information about warnings and errors that have occured.  
 Warnings and errors can alse be categorised by Butler SOS, making it *much* easier to understand what is happening in your Sense environment.
 
+By listening in on the Qlik Sense log events from the associative engine, Butler SOS gets very detailed information about what is happening in the engine (which is where the magic happens).  
+This means you get very detailed information about what is happening in your Sense apps, sheets and charts - as it happens.  
+A chart that takes too long to render, an app that opens slowly, a sheet that is slow to load - all these things can be monitored in real-time.
+
 Butler SOS also tracks user agents of all users accessing your Sense environment.
 This means you get real-time insights into what operating systems and browsers are used to access your Sense environment.
 

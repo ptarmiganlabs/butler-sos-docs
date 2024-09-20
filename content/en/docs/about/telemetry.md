@@ -98,34 +98,50 @@ A telemetry message from Butler SOS contains the information below.
 
 ```json
 {
-  "ts": "2021-04-16T13:43:02.467Z",
-  "data": {
-    "service": "butler-sos",
-    "serviceVersion": "5.6.0",
-    "system": {
-      "id": "8e315a90cac0e447360697123002f23b2775cc61f93d6bc7a9138d94af057e5e",
-      "arch": "x64",
-      "platform": "darwin",
-      "release": "11.2.2",
-      "distro": "macOS",
-      "codename": "macOS Big Sur",
-      "virtual": false,
-      "nodeVersion": "v14.15.4"
-    },
-    "enabledFeatures": {
-      "feature": {
-        "heartbeat": true,
-        "dockerHealthCheck": false,
-        "uptimeMonitor": true,
-        "uptimeMonitor_storeInInfluxdb": true,
-        "udpServer": true,
-        "logdb": true,
-        "mqtt": true,
-        "influxdb": true,
-        "prometheus": true,
-        "appNames": true,
-        "userSessions": true
-      }
+  "system": {
+    "id": "62f221c94dc72823ebba9488a74006ccf69da8f8c6cfaa896a60d9a02186cc2e",
+    "arch": "x64",
+    "platform": "linux",
+    "release": "22.04.4 LTS",
+    "distro": "Ubuntu",
+    "codename": "jammy",
+    "virtual": true,
+    "isRunningInDocker": false,
+    "nodeVersion": "v20.15.0"
+  },
+  "enabledFeatures": {
+    "feature": {
+      "heartbeat": true,
+      "dockerHealthCheck": true,
+      "uptimeMonitor": true,
+      "uptimeMonitorNewRelic": false,
+      "udpServer": true,
+      "eventCount": true,
+      "rejectedEventCount": true,
+      "userEvents": true,
+      "userEventsMQTT": true,
+      "userEventsInfluxdb": true,
+      "userEventsNewRelic": false,
+      "logEventsProxy": true,
+      "logEventsScheduler": true,
+      "logEventsRepository": true,
+      "logEventCategorise": true,
+      "logEventCategoriseRuleCount": 4,
+      "logEventCategoriseRuleDefault": true,
+      "logEventEnginePerformanceMonitor": true,
+      "logEventEnginePerformanceMonitorNameLookup": true,
+      "logEventEnginePerformanceMonitorTrackRejected": true,
+      "logEventsMQTT": true,
+      "logEventsInfluxdb": true,
+      "logEventsNewRelic": false,
+      "logdb": false,
+      "mqtt": true,
+      "newRelic": false,
+      "prometheus": true,
+      "influxdb": true,
+      "influxdbVersion": 2,
+      "appNames": true,
+      "userSessions": true
     }
   }
 }
@@ -136,7 +152,8 @@ A telemetry message from Butler SOS contains the information below.
 The `id` field deserves a bit more explanation.  
 
 It's purpose is to uniquely identify the Butler SOS instance - nothing else.  
-If Butler SOS is stopped and started agagin the same ID should be generated.
+If Butler SOS is stopped and started agagin the same ID will be used.  
+If reinstalled on a new server, or if the server's network configuration changes, a new ID will be created.
 
 Some sensitive information is used to create the ID, but as the ID is anonymized before sent as part of the telemetry data, *no sensitive information leaves your servers*.  
 
@@ -152,7 +169,7 @@ The ID field is created as follows:
    Security is increased due to the fact that the salt never leaves the server where Butler is running.
 
    The bottom line is that it's impossible to reverse the process and get the IP, host name etc used in step 1 above.  
-   Then again - this is cryptografy and things change.  
+   Then again - this is cryptography, and there are no guarantees.  
    But if you trust the certificates securing Sense itself, then the ID anonymization in Butler SOS should be ok too. Both are built on the same concepts of one-way cryptographic functions.
 3. The result is a string that uniquely identifies the Butler SOS instance at hand, without giving away any sensitive data about the system where Butler is running.
 

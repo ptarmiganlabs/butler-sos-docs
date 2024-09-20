@@ -156,6 +156,10 @@ params:
         url: https://www.linkedin.com/in/gorsan/
         icon: fab fa-linkedin
         desc: Reach out to Ptarmigan Labs via LinkedIn
+      - name: GitHub discussions
+        url: https://github.com/ptarmiganlabs/butler-sos/discussions
+        icon: fab fa-github
+        desc: Ask questions, suggest features, or report bugs
     # Developer relevant links. These will show up on right side of footer and in the community page if you have one.
     developer:
       - name: GitHub

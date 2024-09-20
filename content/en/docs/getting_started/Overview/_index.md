@@ -21,8 +21,7 @@ Butler SenseOps Stats ("Butler SOS") is a monitoring tool for [Qlik Sense](https
 
 It publishes operational, close to real-time Qlik Sense Enterprise metrics to [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/), [Prometheus](https://prometheus.io), [New Relic](https://newrelic.com) and [MQTT](https://en.wikipedia.org/wiki/MQTT). From there it can be visualised using tools like [Grafana](https://grafana.com/), New Relic or acted on by downstream systems that listen to the MQTT topics used by Butler SOS.
 
-Butler SOS gathers operational metrics from several sources, including the [Sense healthcheck API](https://help.qlik.com/en-US/sense-developer/May2021/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm) and [Session API](https://help.qlik.com/en-US/sense-developer/May2021/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm).  
-It also pulls log events from [Sense's Postgres logging database](https://help.qlik.com/en-US/sense-admin/May2021/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Qlik-Logging-Service.htm), and forwards these to InfluxDB and MQTT.
+Butler SOS gathers operational metrics from several sources, including the [Sense healthcheck API](https://help.qlik.com/en-US/sense-developer/May2021/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm) and [Session API](https://help.qlik.com/en-US/sense-developer/May2021/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm) and the [Sense logs](https://help.qlik.com/en-US/sense-admin/May2024/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging.htm).
 
 ## Do I really need a tool like this?
 
@@ -43,7 +42,7 @@ The Ops Monitor app is great for retrospective analysis of what happened in a Ql
 
 The most common way of using Butler SOS is for creating real-time dashboards based on the data in the InfluxDB or Prometheus database, showing operational metrics for a Qlik Sense Enterprise environment.  
   
-Sample screen shots of [Grafana](https://grafana.com/) dashboards created using data extracted by Butler SOS:
+Sample screen shots of some basic [Grafana](https://grafana.com/) dashboards created using data extracted by Butler SOS:
 
 ![Grafana dashboard](butlersos_5_4_main_metrics.png "SenseOps dashboard showing errors and warnings, using Grafana 7")
 
@@ -82,6 +81,7 @@ If you discover any important bug with Butler SOS that may pose a security probl
 
 ## Who's behind Butler SOS?
 
-Butler SOS is an open source project sponsored by [Ptarmigan Labs](https://ptarmiganlabs.com), an IT consulting company in Stockholm, Sweden. The main contributor to the tool is (so far) [Göran Sander](https://www.linkedin.com/in/gorsan) from same company.  
+Butler SOS is an open source project sponsored by [Ptarmigan Labs](https://ptarmiganlabs.com), an IT consulting company in Stockholm, Sweden.  
+Project lead is [Göran Sander](https://www.linkedin.com/in/gorsan) from same company.  
 
 Please refer to the [Contribution guidelines](/docs/about/contributing/) page for details on how to contribute, suggest features etc to the tool.
