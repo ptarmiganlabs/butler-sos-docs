@@ -18,5 +18,5 @@ The config file can be hard to get to though, especially if Butler SOS is runnin
 To make it easier to see what the current configuration is, Butler SOS has a built-in web server that can be used to visualise the configuration file, either as YAML or JSON.
 
 {{< notice info >}}
-This feature is described in the setuo guide, [here](/docs/getting_started/setup/config-file-visualisation/).
+This feature is described in the setup guide, [here](/docs/getting_started/setup/config-file-visualisation/).
 {{< /notice >}}
