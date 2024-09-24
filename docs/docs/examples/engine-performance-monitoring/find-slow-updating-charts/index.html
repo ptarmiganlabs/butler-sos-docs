@@ -36,7 +36,7 @@
 
   <meta itemprop="name" content="Find charts that are slow to update">
   <meta itemprop="description" content="This example shows how to use Butler SOS to monitor which parts of a Qlik Sense app that are slow to update.">
-  <meta itemprop="wordCount" content="1453">
+  <meta itemprop="wordCount" content="1454">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Find charts that are slow to update">
   <meta name="twitter:description" content="This example shows how to use Butler SOS to monitor which parts of a Qlik Sense app that are slow to update.">
@@ -223,6 +223,8 @@
   <a href="/docs/concepts/log-events/app-object-performance-monitoring/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptslog-eventsapp-object-performance-monitoring"><span class="">App performance monitoring</span></a>
 </li>
   </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsvisualise-config-file-li">
+  <a href="/docs/concepts/visualise-config-file/" title="Visualise Butler SOS config file" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsvisualise-config-file"><span class="">Visualise config file</span></a>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsexamples-li">
@@ -376,7 +378,7 @@ In order to understand the chart you must also know the ID of each app object. M
 <li>XML appender files deployed on the Sense servers you want to monitor. The appender files tell Sense to send log events to Butler SOS via UDP messages. Setup instructions <a href="/docs/getting_started/setup/qlik-sense-events/#log-appender-xml-files">here</a>.</li>
 <li>A reasonably recent version of <a href="https://grafana.com/grafana/download">Grafana</a>. At the time of writing, Grafana 11.2 is the latest version.</li>
 <li>Data connetions set up in Grafana to the InfluxDB database where Butler SOS stores its data.</li>
-<li>A way to get the ID of each app object in the Sense apps you want to monitor. This can be done <a href="/docs/getting_started/setup/qlik-sense-events/log-events/performance-log-events/#filter-applying-to-specific-apps">several way</a>.</li>
+<li>A way to get the ID of each app object in the Sense apps you want to monitor. This can be done in <a href="/docs/getting_started/setup/qlik-sense-events/log-events/performance-log-events/#filter-applying-to-specific-apps">several ways</a>.</li>
 </ul>
 <h3 id="the-app-being-monitored">The app being monitored</h3>
 <p>The &ldquo;Training - Field indexing&rdquo; app is used as an example in this tutorial.<br>

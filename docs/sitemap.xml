@@ -21,7 +21,6 @@
     <lastmod>2024-06-04T09:00:13+02:00</lastmod>
   </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/docs/concepts/log-events/log-events-overview/</loc>
-    <lastmod>2024-09-20T20:34:54+02:00</lastmod>
   </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/overview/</loc>
   </url><url>
@@ -82,13 +81,10 @@
     <lastmod>2021-11-28T22:47:41+01:00</lastmod>
   </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/docs/concepts/log-events/errors-warnings/</loc>
-    <lastmod>2024-09-20T20:34:54+02:00</lastmod>
   </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/docs/concepts/log-events/catgorising-log-events/</loc>
-    <lastmod>2024-09-20T20:34:54+02:00</lastmod>
   </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/docs/concepts/log-events/</loc>
-    <lastmod>2024-09-20T20:34:54+02:00</lastmod>
   </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/qlik-sense-events/log-events/performance-log-events/</loc>
     <lastmod>2024-09-20T20:34:54+02:00</lastmod>
@@ -112,7 +108,6 @@
     <lastmod>2024-09-20T20:34:54+02:00</lastmod>
   </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/docs/concepts/log-events/app-object-performance-monitoring/</loc>
-    <lastmod>2024-09-20T20:34:54+02:00</lastmod>
   </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/docs/about/contributing/</loc>
     <lastmod>2021-08-05T08:18:21+02:00</lastmod>
@@ -155,6 +150,8 @@
   </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/qlik-sense-server-settings/</loc>
     <lastmod>2021-11-28T22:47:41+01:00</lastmod>
+  </url><url>
+    <loc>https://butler-sos.ptarmiganlabs.com/docs/concepts/visualise-config-file/</loc>
   </url><url>
     <loc>https://butler-sos.ptarmiganlabs.com/docs/legal_stuff/</loc>
     <lastmod>2024-08-22T18:44:05+02:00</lastmod>

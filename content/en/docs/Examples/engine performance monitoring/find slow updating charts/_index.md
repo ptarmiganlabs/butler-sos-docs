@@ -30,7 +30,7 @@ In order to understand the chart you must also know the ID of each app object. M
 - XML appender files deployed on the Sense servers you want to monitor. The appender files tell Sense to send log events to Butler SOS via UDP messages. Setup instructions [here](/docs/getting_started/setup/qlik-sense-events/#log-appender-xml-files).
 - A reasonably recent version of [Grafana](https://grafana.com/grafana/download). At the time of writing, Grafana 11.2 is the latest version.
 - Data connetions set up in Grafana to the InfluxDB database where Butler SOS stores its data.
-- A way to get the ID of each app object in the Sense apps you want to monitor. This can be done [several way](/docs/getting_started/setup/qlik-sense-events/log-events/performance-log-events/#filter-applying-to-specific-apps).
+- A way to get the ID of each app object in the Sense apps you want to monitor. This can be done in [several ways](/docs/getting_started/setup/qlik-sense-events/log-events/performance-log-events/#filter-applying-to-specific-apps).
 
 ### The app being monitored
 

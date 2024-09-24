@@ -4,12 +4,12 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.134.3">
-<link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/concepts/log-events/log-events-overview/">
-<link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/concepts/log-events/log-events-overview/index.xml">
+<link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/concepts/visualise-config-file/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/concepts/visualise-config-file/index.xml">
 <meta name="robots" content="noindex, nofollow">
 <script defer data-domain="butler-sos.ptarmiganlabs.com" src="https://plausible.io/js/script.js"></script>
 
-<link rel="canonical" href="https://butler-sos.ptarmiganlabs.com/docs/concepts/log-events/log-events-overview/" />
+<link rel="canonical" href="https://butler-sos.ptarmiganlabs.com/docs/concepts/visualise-config-file/" />
 
 
 
@@ -24,30 +24,30 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Log events overview | Butler SOS</title>
-<meta name="description" content="Butler SOS can capture *very* detailed information about individual charts in apps - or just the high-level information about the apps themselves.
+<title>Visualise Butler SOS config file | Butler SOS</title>
+<meta name="description" content="Butler SOS has a built-in web server that can be used to visualise the configuration file, either as YAML or JSON.
 
-This page explains the different levels of engine performance data that Butler SOS can provide.
+Sensitive config values can be optionally be obfuscated in the visualisation.
 ">
-<meta property="og:url" content="https://butler-sos.ptarmiganlabs.com/docs/concepts/log-events/log-events-overview/">
+<meta property="og:url" content="https://butler-sos.ptarmiganlabs.com/docs/concepts/visualise-config-file/">
   <meta property="og:site_name" content="Butler SOS">
-  <meta property="og:title" content="Log events overview">
-  <meta property="og:description" content="Butler SOS can capture *very* detailed information about individual charts in apps - or just the high-level information about the apps themselves.
+  <meta property="og:title" content="Visualise Butler SOS config file">
+  <meta property="og:description" content="Butler SOS has a built-in web server that can be used to visualise the configuration file, either as YAML or JSON.
 
-This page explains the different levels of engine performance data that Butler SOS can provide.">
+Sensitive config values can be optionally be obfuscated in the visualisation.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
-  <meta itemprop="name" content="Log events overview">
-  <meta itemprop="description" content="Butler SOS can capture *very* detailed information about individual charts in apps - or just the high-level information about the apps themselves.
+  <meta itemprop="name" content="Visualise Butler SOS config file">
+  <meta itemprop="description" content="Butler SOS has a built-in web server that can be used to visualise the configuration file, either as YAML or JSON.
 
-This page explains the different levels of engine performance data that Butler SOS can provide.">
-  <meta itemprop="wordCount" content="692">
+Sensitive config values can be optionally be obfuscated in the visualisation.">
+  <meta itemprop="wordCount" content="111">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Log events overview">
-  <meta name="twitter:description" content="Butler SOS can capture *very* detailed information about individual charts in apps - or just the high-level information about the apps themselves.
+  <meta name="twitter:title" content="Visualise Butler SOS config file">
+  <meta name="twitter:description" content="Butler SOS has a built-in web server that can be used to visualise the configuration file, either as YAML or JSON.
 
-This page explains the different levels of engine performance data that Butler SOS can provide.">
+Sensitive config values can be optionally be obfuscated in the visualisation.">
 
 
 
@@ -101,15 +101,15 @@ This page explains the different levels of engine performance data that Butler S
 This is the multi-page printable view of this section.
 <a href="#" onclick="print();return false;">Click here to print</a>.
 </p><p>
-<a href="/docs/concepts/log-events/log-events-overview/">Return to the regular view of this page</a>.
+<a href="/docs/concepts/visualise-config-file/">Return to the regular view of this page</a>.
 </p>
 </div>
 
 
 
-<h1 class="title">Log events overview</h1>
-<div class="lead"><p>Butler SOS can capture <em>very</em> detailed information about individual charts in apps - or just the high-level information about the apps themselves.</p>
-<p>This page explains the different levels of engine performance data that Butler SOS can provide.</p>
+<h1 class="title">Visualise Butler SOS config file</h1>
+<div class="lead"><p>Butler SOS has a built-in web server that can be used to visualise the configuration file, either as YAML or JSON.</p>
+<p>Sensitive config values can be optionally be obfuscated in the visualisation.</p>
 </div>
 
 
@@ -128,95 +128,14 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <h2 id="three-levels-of-log-event-data">Three levels of log event data</h2>
-<p>Depending on the needs of the Sense admin, Butler SOS can provide three levels of log event data, ranging from high-level counters to detailed performance data for individual charts in apps.</p>
-<p>The most high-level data is the &ldquo;log event counters&rdquo;, which can be enabled/disabled independently of the more detailed engine performance events.<br>
-The engine performance events are then divided into &ldquo;rejected&rdquo; and &ldquo;accepted&rdquo; events, with the latter being the most detailed.</p>
-<p>It&rsquo;s usually a good idea to start with the high-level metrics and then enable more detailed metrics if needed.</p>
+      <h2 id="what-is-the-current-configuration">What is the current configuration?</h2>
+<p>When Butler SOS starts up, it reads its configuration from a file.<br>
+This file is the source of truth for the Butler SOS configuration, so when in doubt about what Butler SOS is doing, this is the place to look.</p>
+<p>The config file can be hard to get to though, especially if Butler SOS is running in a container or on a remote machine.<br>
+To make it easier to see what the current configuration is, Butler SOS has a built-in web server that can be used to visualise the configuration file, either as YAML or JSON.</p>
 <style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
 <div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice info" >
-<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>The counters for top-level metrics and rejected performance log events are reset to zero every time Butler SOS is restarted, as well as every time counter data is sent to InfluxDB.<br>
-I.e. the counters are not cumulative over time, but rather show the number of events since the last restart/save.</p>
-<p>This makes it easy to create Grafana dashboards that show the number of events during the selected time interval, for example.<br>
-Just sum the counter fields in the Grafana chart, and you&rsquo;re done.</p></div>
-
-<h3 id="high-level-event-counters">High level: Event counters</h3>
-<p>Event counters can be enabled independently of engine performance events.<br>
-The counters are configured in the <code>Butler-SOS.qlikSenseEvents.eventCount</code> section in the Butler SOS config file.</p>
-<p>When enabled, Butler SOS will count the number of log and user events that are received from Qlik Sense via UDP messages.</p>
-<p>The counters are split across several dimensions, described in the <a href="/docs/reference/available_metrics/influxdb/#event-counters">reference section</a>.</p>
-<p>These counters can be used to get a general idea of which servers generate the most log events, which Windows services generate the most events, and so on.</p>
-<p>A Grafana dashboard can look like this:</p>
-<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-event-counter-1_hu16061839809196349061.png" width="1200" height="688">
-<figcaption class="card-body px-0 pt-2 pb-0">
-<p class="card-text">
-
-
-Butler SOS event counter charts in Grafana.
-
-</p>
-</figcaption>
-</figure>
-
-<h3 id="medium-rejected-performance-log-events">Medium: Rejected performance log events</h3>
-<p>If an event with <code>source=qseow-qix-perf</code> <em>does not</em> meet the include filter criteria in the config file, it is considered a &ldquo;rejected&rdquo; event.</p>
-<p>For rejected events a set of counters are kept, broken down by dimensions described in the <a href="/docs/reference/available_metrics/influxdb/#rejected-performance-log-events">reference section</a>.</p>
-<p>As both app id/name and the engine method (for example <code>Global::OpenApp</code>) are included as a dimension in the InfluxDB data, it&rsquo;s possible to create Grafana dashboards that show how long time each app takes to open.</p>
-<p>A Grafana dashboard can look like this:</p>
-<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-rejected-performance-log-events-1_hu1857499667583998736.png" width="1200" height="688">
-<figcaption class="card-body px-0 pt-2 pb-0">
-<p class="card-text">
-
-
-Butler SOS rejected performance log events dashboard in Grafana.
-
-</p>
-</figcaption>
-</figure>
-
-<p>In the upper right chart above we can see that all apps except one open quickly.<br>
-Might be a good idea to investigate why the app &ldquo;Training - Field indexing DEV&rdquo; takes so long to open.</p>
-<p>More Grafana examples <a href="/docs/concepts/log-events/app-object-performance-monitoring/">here</a>.</p>
-<h3 id="detailed-accepted-performance-log-events">Detailed: Accepted performance log events</h3>
-<p>If an event with <code>source=qseow-qix-perf</code> <em>does</em> meet the include filter criteria in the config file, it is considered an &ldquo;accepted&rdquo; event.</p>
-<p>All accepted events will result in a set of detailed performance metrics being stored in InfluxDB.<br>
-The metrics are described in the <a href="/docs/reference/available_metrics/influxdb/#accepted-performance-log-events">reference section</a>.</p>
-<p>An example Grafana dashboard can look like this:</p>
-<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-accepted-performance-log-events-1_hu5798062072126743298.png" width="1200" height="688">
-<figcaption class="card-body px-0 pt-2 pb-0">
-<p class="card-text">
-
-
-Butler SOS accepted performance log events dashboard in Grafana.
-
-</p>
-</figcaption>
-</figure>
-
-<p>The upper left chart shows total &ldquo;work time&rdquo; per app, during the selected time interval.<br>
-Work time is the time it takes for the engine to do the actual work, like calculating the chart data after a selection is made by the user.</p>
-<p>The chart shows that the app &ldquo;Training - Field indexing&rdquo; has a high work time.<br>
-This does not have to be a problem, but it&rsquo;s worth investigating why the number is so high.</p>
-<p>The bottom two charts show the work time <em>per chart object</em>, per app.<br>
-The chart tells us that two app objects take on the order of 5 seconds each to calculate.</p>
-<p>Which objects are these?</p>
-<p>Open the app in Chrome and use the &ldquo;Add Sense for Chrome&rdquo; extension to find out.<br>
-Turns out it&rsquo;s the two tables (object 10 and 11) that take a long time to update - that&rsquo;s expected (but not ideal!) as they contain a lot of complex data that takes time to index.</p>
-<p>If the update times get even longer, it might be a good idea to look into the data model and see if it can be optimized.</p>
-<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-accepted-performance-log-events-8_hu18194695238874105630.png" width="1200" height="684">
-<figcaption class="card-body px-0 pt-2 pb-0">
-<p class="card-text">
-
-
-The "Add Sense for Chrome" extension showing the object ID for objects on a sheet.
-
-</p>
-</figcaption>
-</figure>
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>This feature is described in the setuo guide, <a href="/docs/getting_started/setup/config-file-visualisation/">here</a>.</p></div>
 
 
 </div>
