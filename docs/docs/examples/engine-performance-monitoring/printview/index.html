@@ -1,0 +1,636 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.134.3">
+<link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/examples/engine-performance-monitoring/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/examples/engine-performance-monitoring/index.xml">
+<meta name="robots" content="noindex, nofollow">
+<script defer data-domain="butler-sos.ptarmiganlabs.com" src="https://plausible.io/js/script.js"></script>
+
+<link rel="canonical" href="https://butler-sos.ptarmiganlabs.com/docs/examples/engine-performance-monitoring/" />
+
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Monitor Qlik Sense engine performance in Grafana | Butler SOS</title>
+<meta name="description" content="The combination of Butler SOS and Grafana provides a powerful combo for monitoring the performance of your Qlik Sense engines.
+
+Here are some recipies for how to set up Butler SOS to implement various specific monitoring scenarios.
+">
+<meta property="og:url" content="https://butler-sos.ptarmiganlabs.com/docs/examples/engine-performance-monitoring/">
+  <meta property="og:site_name" content="Butler SOS">
+  <meta property="og:title" content="Monitor Qlik Sense engine performance in Grafana">
+  <meta property="og:description" content="The combination of Butler SOS and Grafana provides a powerful combo for monitoring the performance of your Qlik Sense engines.
+
+Here are some recipies for how to set up Butler SOS to implement various specific monitoring scenarios.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Monitor Qlik Sense engine performance in Grafana">
+  <meta itemprop="description" content="The combination of Butler SOS and Grafana provides a powerful combo for monitoring the performance of your Qlik Sense engines.
+
+Here are some recipies for how to set up Butler SOS to implement various specific monitoring scenarios.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Monitor Qlik Sense engine performance in Grafana">
+  <meta name="twitter:description" content="The combination of Butler SOS and Grafana provides a powerful combo for monitoring the performance of your Qlik Sense engines.
+
+Here are some recipies for how to set up Butler SOS to implement various specific monitoring scenarios.">
+
+
+
+
+<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
+<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="td-navbar js-navbar-scroll" data-bs-theme="dark">
+<div class="container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg width="200" height="109" viewBox="0 0 200 109" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><image id="image" width="200" height="109" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZgAATU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAyKADAAQAAAABAAAAbQAAAAD/7QA4UGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAAA4QklNBCUAAAAAABDUHYzZjwCyBOmACZjs+EJ+/8AAEQgAbQDIAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/bAEMAAgICAgICAwICAwUDAwMFBgUFBQUGCAYGBgYGCAoICAgICAgKCgoKCgoKCgwMDAwMDA4ODg4ODw8PDw8PDw8PD//bAEMBAgICBAQEBwQEBxALCQsQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEP/dAAQADf/aAAwDAQACEQMRAD8A+B6KKK/Cz/SQKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9D4Hooor8LP9JAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/0fgeiiivws/0kCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/S+B6KKK/Cz/SQKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9P4Hooor8LP9JAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/1Pgeiiivws/0kCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/V+B6KKK/Cz/SQKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9k="/></defs><use id="Background-Layer" xlink:href="#image" x="0" y="0" width="200" height="109"/><defs><image id="image-1" width="65" height="95" xlink:href="data:image/png;base64,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"/></defs><use id="Butler" xlink:href="#image-1" x="6" y="4" width="65" height="95"/><defs><text id="string" transform="matrix(1.0 0.0 0.0 1.0 20.045454545460004 16.51333333334)" fill="#fff" font-family="HelveticaNeue-Bold, Helvetica Neue" y="34" x="55.98623999999998" font-size="34.848" text-decoration="none">Butler</text></defs><use id="Butler-1" xlink:href="#string"/><defs><text id="string-1" transform="matrix(1.0 0.0 0.0 1.0 55.86363636364 54.400000000000006)" fill="#fff" font-family="HelveticaNeue-BoldItalic, Helvetica Neue" y="17" x="83.862624" font-size="17.424" text-decoration="none">SOS</text></defs><use id="BUTLER-copy" xlink:href="#string-1"/></svg></span><span class="navbar-brand__name">Butler SOS</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/about/"><span>About</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/docs/"><span>Documentation</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/community/"><span>Community</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/examples/engine-performance-monitoring/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Monitor Qlik Sense engine performance in Grafana</h1>
+<div class="lead"><p>The combination of Butler SOS and Grafana provides a powerful combo for monitoring the performance of your Qlik Sense engines.</p>
+<p>Here are some recipies for how to set up Butler SOS to implement various specific monitoring scenarios.</p>
+</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-5e2989c41ee81d08e90aa1fa6d89ecfe">Track how long it takes to open Sense apps</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-ab381640bf3c111e3d8ad836bc9f757b">Find charts that are slow to update</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-5e2989c41ee81d08e90aa1fa6d89ecfe">1 - Track how long it takes to open Sense apps</h1>
+    <div class="lead">This example shows how to use Butler SOS to track how long it takes to open apps on a Qlik Sense server.</div>
+	<h2 id="overview">Overview</h2>
+<h3 id="goal">Goal</h3>
+<p>The goal is to show how to use Butler SOS to track how long it takes to open apps on a Qlik Sense server.</p>
+<p>This is useful for several reasons:</p>
+<ul>
+<li>It provides baseline for how long it takes to usually open apps on your server, and allows you to track changes over time.</li>
+<li>It can help identify apps that are slow to open, and then investigate why.</li>
+<li>Add Grafana based alerts to get notified when the time to open some app(s) exceeds a certain threshold.</li>
+<li>If end users complain about slow app opening times, the concept in this tutorial can be used to verify if there actually is a problem, and if so, where and how severe it is.</li>
+</ul>
+<p>A Grafana chart showing this data could look something like this:</p>
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/open-time-all-apps/butler-sos-rejected-performance-log-events-2_hu12309776204135664758.png" width="1200" height="688">
+<figcaption class="card-body px-0 pt-2 pb-0">
+<p class="card-text">
+
+
+Chart showing mean time needed to open apps on a Qlik Sense server.
+
+</p>
+</figcaption>
+</figure>
+
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Butler SOS 11.0 or later. Downloads are available <a href="https://github.com/ptarmiganlabs/butler-sos/releases">here</a>.</li>
+<li>Store the data collected by Butler SOS in an InfluxDB v1 or v2 database. Setup instructions <a href="/docs/getting_started/setup/influxdb/">here</a></li>
+<li>XML appender files deployed on the Sense servers you want to monitor. The appender files tell Sense to send log events to Butler SOS via UDP messages. Setup instructions <a href="/docs/getting_started/setup/qlik-sense-events/#log-appender-xml-files">here</a>.</li>
+<li>A reasonably recent version of <a href="https://grafana.com/grafana/download">Grafana</a>. At the time of writing, Grafana 11.2 is the latest version.</li>
+<li>Data connetions set up in Grafana to the InfluxDB database where Butler SOS stores its data.</li>
+</ul>
+<h2 id="configure-butler-sos">Configure Butler SOS</h2>
+<ol>
+<li>Enable engine performance monitoring.</li>
+<li>Enable tracking of rejected performance log events.<br>
+Butler SOS will track two things related to rejected events: Number of events (=counter), and the processing time for these events.</li>
+<li>If detailed engine performance log events are enabled, Butler SOS will <em>not</em> create counters for these events. Instead, it will store the detailed data in InfluxDB.<br>
+This data can then be aggregated to create the same kind of counters as for rejected engine performance log events.</li>
+</ol>
+<p>Note: &ldquo;Rejected events&rdquo; are engine performance log events that do not meet the criteria set up in Butler SOS for <em>detailed</em> engine performance monitoring.</p>
+<p>Bottom line is that you can disable all detailed engine monitoring in Butler SOS, and only enable the tracking of rejected events.<br>
+This will give you a counter for the number of rejected events, and the processing time for these events, across a set of dimensions - of which engine &ldquo;method&rdquo; is one.</p>
+<p>Or you can enable detailed engine performance monitoring for some apps, and only track rejected events for others.</p>
+<p>Either way it will be possible to create Grafana charts that show the average time it takes to open apps on your Sense server(s).</p>
+<style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
+<div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>InfluxDB is the only supported database for this feature.<br>
+It is configured elsewhere in the YAML config file, more info <a href="/docs/getting_started/setup/influxdb/">here</a>.</p></div>
+
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Shared settings for user and log events (see below)</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">qlikSenseEvents</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Shared settings for user and log events (see below)</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">influxdb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Should summary (counter) of user/log events, and rejected events be stored in InfluxDB?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">writeFrequency</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">20000</span><span style="color:#f8f8f8;text-decoration:underline">         </span><span style="color:#8f5902;font-style:italic"># How often (milliseconds) should event counts be written to InfluxDB?  </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">rejectedEventCount</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">             </span><span style="color:#8f5902;font-style:italic"># Rejected events are events that are received from Sense, that are correctly formatted, </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                    </span><span style="color:#8f5902;font-style:italic"># but that are rejected by Butler SOS based on the configuration in this file. </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                    </span><span style="color:#8f5902;font-style:italic"># An example of a rejected event is a performance log event that is filtered out by Butler SOS.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Should rejected events be counted and stored in InfluxDB?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">influxdb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">measurementName</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">rejected_event_count</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Name of the InfluxDB measurement where rejected event count is stored</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Log events are used to capture Sense warnings, errors and fatals in real time</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">logEvents</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">udpServerConfig</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">serverHost</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">0.0.0.0</span><span style="color:#f8f8f8;text-decoration:underline">           </span><span style="color:#8f5902;font-style:italic"># Host/IP where log event server will listen for events from Sense</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">portLogEvents</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">9996</span><span style="color:#f8f8f8;text-decoration:underline">           </span><span style="color:#8f5902;font-style:italic"># Port on which log event server will listen for events from Sense</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">tags</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qs_tag1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">somevalue1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qs_tag2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">somevalue2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">enginePerformanceMonitor</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">           </span><span style="color:#8f5902;font-style:italic"># Detailed app performance data extraction from log events</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                      </span><span style="color:#8f5902;font-style:italic"># Should app performance data be extracted from log events?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">appNameLookup</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Should app names be looked up based on app IDs?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">trackRejectedEvents</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Should events that are rejected by the app performance monitor be tracked?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">tags</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                           </span><span style="color:#8f5902;font-style:italic"># Tags are added to the data before it&#39;s stored in InfluxDB</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qs_tag1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">somevalue1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qs_tag2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">somevalue2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><h2 id="configure-grafana">Configure Grafana</h2>
+<p>Create a Grafana chart (in an existing dashboard or a new one) thats shows the average time it takes to open apps on your Sense server(s).<br>
+You do this by only show data in the chart for the engine method <code>Global::OpenApp</code>.</p>
+<p>The definition of such a chart in Grafana could look something like this (slightly different set of apps selected, compared to screenshot above):</p>
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/open-time-all-apps/butler-sos-rejected-performance-log-events-definition-1_hu10928886158310920342.png" width="1200" height="688">
+<figcaption class="card-body px-0 pt-2 pb-0">
+<p class="card-text">
+
+
+Definition of a Grafana chart showing the average time it takes to open apps on a Qlik Sense server.
+
+</p>
+</figcaption>
+</figure>
+
+<p>Note how the tag <code>method</code> is set to <code>Global::OpenApp</code>. This is the engine method that is called when an app is opened in Qlik Sense, it covers the entire time it takes to open an app.</p>
+<p>For apps currently not in memory, this will include the time it takes to load the app from disk (which can be significant for large apps).
+For apps already in memory, the time for this method will be much shorter.</p>
+<p>Also note how the <code>app_name</code> tag is used to filter out only the apps you are interested in, by matching it to the <code>app_name_unmonitored</code> variable.<br>
+See below for detailed on how to set up this variable.</p>
+<h3 id="grafana-variables">Grafana variables</h3>
+<p>By using Grafana variables, you can easily change which apps you want to show data for in the chart.</p>
+<p>Here is how you can set up a variable in Grafana that allows you to select which apps to show data for (see above too, for how to use this variable in a chart):</p>
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/open-time-all-apps/butler-sos-create-app-name-variable-1_hu11720246895079995681.png" width="1200" height="688">
+<figcaption class="card-body px-0 pt-2 pb-0">
+<p class="card-text">
+
+
+Create a Grafana variable that allows you to select which apps to show data for in a chart. The entire definition is not shown here, make sure to check the "Multi-value" and "Include All option" checkboxes too (further down that page).
+
+</p>
+</figcaption>
+</figure>
+
+<h2 id="next-steps">Next steps</h2>
+<p>Using the concept in this tutorial, but with a slightly different chart definition in Grafana, it is possible to visualise the mean time for each method that Butler SOS tracks.<br>
+Combine with a app-selection filter variable in Grafana, and you can easily switch between different apps to see how long the various engine operations take in each of them:</p>
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/open-time-all-apps/butler-sos-rejected-performance-log-events-3_hu10527530034873754350.png" width="1200" height="688">
+<figcaption class="card-body px-0 pt-2 pb-0">
+<p class="card-text">
+
+
+Chart showing mean time for all engine methods that were used during the selected time interval, for the selected apps(s).
+
+</p>
+</figcaption>
+</figure>
+
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ab381640bf3c111e3d8ad836bc9f757b">2 - Find charts that are slow to update</h1>
+    <div class="lead">This example shows how to use Butler SOS to monitor which parts of a Qlik Sense app that are slow to update.</div>
+	<h2 id="overview">Overview</h2>
+<h3 id="goal">Goal</h3>
+<p>The goal is to monitor how long each app object in a Sense app takes to open, and also identify which objects are slow to update.<br>
+This is useful for several reasons:</p>
+<ul>
+<li>Identify misbehaving charts, tables etc in important apps. This can be especially important for apps that are used by many users, or that are in some way business critical.</li>
+<li>To get a baseline for how long it takes for each app object (chart, table, &hellip;) to open and update. This can then be used to set thresholds for alerts, or to identify when performance degrades over time.</li>
+<li>An end user may experience slow performance when interacting with an app. By monitoring the time it takes for each object to both open and update when selections are done, you can identify which objects are slow to update.</li>
+</ul>
+<p>A Grafana chart showing this data for the app &ldquo;Training - Field indexing&rdquo; could look something like this:</p>
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/find-slow-updating-charts/butler-sos-accepted-performance-log-events-7_hu16088525549253033788.png" width="1200" height="688">
+<figcaption class="card-body px-0 pt-2 pb-0">
+<p class="card-text">
+
+
+In order to understand the chart you must also know the ID of each app object. More on this further down this page.
+
+</p>
+</figcaption>
+</figure>
+
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Butler SOS 11.0 or later. Downloads are available <a href="https://github.com/ptarmiganlabs/butler-sos/releases">here</a>.</li>
+<li>Store the data collected by Butler SOS in an InfluxDB v1 or v2 database. Setup instructions <a href="/docs/getting_started/setup/influxdb/">here</a></li>
+<li>XML appender files deployed on the Sense servers you want to monitor. The appender files tell Sense to send log events to Butler SOS via UDP messages. Setup instructions <a href="/docs/getting_started/setup/qlik-sense-events/#log-appender-xml-files">here</a>.</li>
+<li>A reasonably recent version of <a href="https://grafana.com/grafana/download">Grafana</a>. At the time of writing, Grafana 11.2 is the latest version.</li>
+<li>Data connetions set up in Grafana to the InfluxDB database where Butler SOS stores its data.</li>
+<li>A way to get the ID of each app object in the Sense apps you want to monitor. This can be done <a href="/docs/getting_started/setup/qlik-sense-events/log-events/performance-log-events/#filter-applying-to-specific-apps">several way</a>.</li>
+</ul>
+<h3 id="the-app-being-monitored">The app being monitored</h3>
+<p>The &ldquo;Training - Field indexing&rdquo; app is used as an example in this tutorial.<br>
+It&rsquo;s a basic app that is used to explain to Sense developers how in-app data indexing works in Qlik Sense.</p>
+<p>The consists of a single table with two fields, with 10 million rows of random data:</p>
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/find-slow-updating-charts/butler-sos-accepted-performance-log-events-11_hu5256755403791070071.png" width="1200" height="688">
+<figcaption class="card-body px-0 pt-2 pb-0">
+<p class="card-text">
+
+
+Data model in the "Training - Field indexing" app.
+
+</p>
+</figcaption>
+</figure>
+
+<p>The &ldquo;LongStrings&rdquo; field contains random strings of 32 characters each.</p>
+<p>The idea of the app is to stress the Sense engine by having it index random data - something that can be done, but also something that will be slower and slower as the number of rows or the length of the &ldquo;LongStrings&rdquo; field increases.</p>
+<p>There are two things that may require a lot of time to update in this app:</p>
+<ol>
+<li>Opening the app when it is not already in memory. This will trigger an indexing of the data, which takes time given the randomness of the data and the number of rows.</li>
+<li>Making a selection in the app once it is open. This will trigger a re-indexing of the <em>selected</em> data, which can also take some time (depending on what/how much data is selected).</li>
+</ol>
+<h3 id="a-word-of-caution">A word of caution</h3>
+<p>Enabling detailed performance monitoring can generate a lot of data, especially if it is enabled for many apps.<br>
+This can lead to a large amount of data being stored in InfluxDB, which in turn can lead to performance issues in InfluxDB and Grafana.</p>
+<p>It is therefore recommended to only enable detailed performance monitoring for a limited number of apps, and possibly only for a limited time period.</p>
+<p>For example, it can be useful to start off by monitoring all app objects in an app to begin with, and then limit the monitoring to only a few objects that are of special interest.<br>
+It&rsquo;s also possible to limit the monitoring to only certain app object types, such as charts and tables, and not other object types.</p>
+<h2 id="configure-butler-sos">Configure Butler SOS</h2>
+<style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
+<div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>InfluxDB is the only supported database for this feature.<br>
+It is configured elsewhere in the YAML config file, more info <a href="/docs/getting_started/setup/influxdb/">here</a>.</p></div>
+
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Shared settings for user and log events (see below)</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">qlikSenseEvents</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Shared settings for user and log events (see below)</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">influxdb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Should summary (counter) of user/log events, and rejected events be stored in InfluxDB?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">writeFrequency</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">20000</span><span style="color:#f8f8f8;text-decoration:underline">         </span><span style="color:#8f5902;font-style:italic"># How often (milliseconds) should event counts be written to InfluxDB?  </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Log events are used to capture Sense warnings, errors and fatals in real time</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">logEvents</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">udpServerConfig</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">serverHost</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">0.0.0.0</span><span style="color:#f8f8f8;text-decoration:underline">           </span><span style="color:#8f5902;font-style:italic"># Host/IP where log event server will listen for events from Sense</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">portLogEvents</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">9996</span><span style="color:#f8f8f8;text-decoration:underline">           </span><span style="color:#8f5902;font-style:italic"># Port on which log event server will listen for events from Sense</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">tags</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">env</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">DEV</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">foo</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">bar</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">enginePerformanceMonitor</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">           </span><span style="color:#8f5902;font-style:italic"># Detailed app performance data extraction from log events</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                      </span><span style="color:#8f5902;font-style:italic"># Should app performance data be extracted from log events?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">appNameLookup</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Should app names be looked up based on app IDs?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">monitorFilter</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># What objects should be monitored? Entire apps or just specific object(s) within some specific app(s)?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># Two kinds of monitoring can be done:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># 1) Monitor all apps, except those listed for exclusion. This is defined in the allApps section.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># 2) Monitor only specific apps. This is defined in the appSpecific section.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># An event will be accepted if it matches any of the rules in the allApps section OR any of the rules in the appSpecific section.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">allApps</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">                 </span><span style="color:#8f5902;font-style:italic"># Should all apps be monitored?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">appExclude</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                   </span><span style="color:#8f5902;font-style:italic"># What apps should be excluded from monitoring?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># If both appId and appName are specified, both must match the event&#39;s data for it to be considered a match.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">t          objectType</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">allObjectTypes</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">       </span><span style="color:#8f5902;font-style:italic"># Should all object types be monitored?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">allObjectTypesExclude</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># If allObjectTypes is set to true, the object types in this array are excluded from monitoring. </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># someObjectTypesInclude (below) is ignored in that case.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">someObjectTypesInclude</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#8f5902;font-style:italic"># What object types should be included in monitoring?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># Only applicable if allObjectTypes is set to false.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">method</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">allMethods</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">           </span><span style="color:#8f5902;font-style:italic"># Should all methods be monitored?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">allMethodsExclude</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#8f5902;font-style:italic"># If allMethods is set to true, the methods in this array are excluded from monitoring.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># someMethodsInclude (below) is ignored in that case.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">someMethodsInclude</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">         </span><span style="color:#8f5902;font-style:italic"># What methods should be included in monitoring?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># Only applicable if allMethods is set to false.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">appSpecific</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Should app specific monitoring be done?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">app</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#204a87;font-weight:bold">include</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># What apps should be monitored?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># If both appId and appName are specified, both must match the event&#39;s data for it to be considered a match.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span>- <span style="color:#204a87;font-weight:bold">appName</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Training - Field indexing</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#204a87;font-weight:bold">objectType</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                 
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#204a87;font-weight:bold">allObjectTypes</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">   </span><span style="color:#8f5902;font-style:italic"># Should all object types be monitored?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#204a87;font-weight:bold">allObjectTypesExclude</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># If allObjectTypes is set to true, the object types in this array are excluded from monitoring. </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># someObjectTypesInclude (below) is ignored in that case.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#204a87;font-weight:bold">someObjectTypesInclude</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># What object types should be included in monitoring?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># Only applicable if allObjectTypes is set to false.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#204a87;font-weight:bold">appObject</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#204a87;font-weight:bold">allAppObjects</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#8f5902;font-style:italic"># Should all app objects be monitored?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#204a87;font-weight:bold">allAppObjectsExclude</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">   </span><span style="color:#8f5902;font-style:italic"># If allAppObjects is set to true, the app objects in this array are excluded from monitoring.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># someAppObjectsInclude (below) is ignored in that case.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#204a87;font-weight:bold">someAppObjectsInclude</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># What app objects should be included in monitoring?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># Only applicable if allAppObjects is set to false.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#204a87;font-weight:bold">method</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#204a87;font-weight:bold">allMethods</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#8f5902;font-style:italic"># Should all methods be monitored?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#204a87;font-weight:bold">allMethodsExclude</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># If allMethods is set to true, the methods in this array are excluded from monitoring.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># someMethodsInclude (below) is ignored in that case.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#204a87;font-weight:bold">someMethodsInclude</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#8f5902;font-style:italic"># What methods should be included in monitoring?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># Only applicable if allMethods is set to false.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><h2 id="configure-grafana">Configure Grafana</h2>
+<p>With the above Butler SOS configuration in place (remember to restart Butler SOS after making changes to its configuration file), you can now set up Grafana to visualize the data.</p>
+<p>Here is a chart that shows the average time it takes for each app object in the &ldquo;Training - Field indexing&rdquo; app to open and update (the chart shown at the top of this page):</p>
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/find-slow-updating-charts/butler-sos-accepted-performance-log-events-13_hu7228913134870758371.png" width="1200" height="688">
+<figcaption class="card-body px-0 pt-2 pb-0">
+<p class="card-text">
+
+
+Definition of a Grafana chart showing the average time it takes to open and update each app object in the "Training - Field indexing" app.
+
+</p>
+</figcaption>
+</figure>
+
+<h3 id="grafana-variables">Grafana variables</h3>
+<p>The chart repeats itself over the &ldquo;app_name_monitored&rdquo; Grafana variable, which means one chart is shown for each selected app in that variable filter (at the top of the Grafana dashboard).<br>
+The variable is set up like this:</p>
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/find-slow-updating-charts/butler-sos-grafana-variables-1_hu17955797503299518781.png" width="1200" height="688">
+<figcaption class="card-body px-0 pt-2 pb-0">
+<p class="card-text">
+
+
+List of variables in a SenseOps dashboard in Grafana.
+
+</p>
+</figcaption>
+</figure>
+
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/find-slow-updating-charts/butler-sos-grafana-variables-monitored-apps-1_hu5591863933434245288.png" width="1200" height="688">
+<figcaption class="card-body px-0 pt-2 pb-0">
+<p class="card-text">
+
+
+Definition of the "app_name_monitored" Grafana variable.
+
+</p>
+</figcaption>
+</figure>
+
+<h2 id="next-steps">Next steps</h2>
+<p>Given the detailed information captured about all app objects in the &ldquo;Training - Field indexing&rdquo; app, it is possible to slice and dice the data in many ways.</p>
+<p>For example, it could be interesting to see what <em>kinds</em> of app objects use most time, and which ones are faster.<br>
+Something like this:</p>
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/find-slow-updating-charts/butler-sos-accepted-performance-log-events-14_hu16127839757018417943.png" width="1200" height="688">
+<figcaption class="card-body px-0 pt-2 pb-0">
+<p class="card-text">
+
+
+Chart showing the *total* time spent updating the "Training - Field indexing" app, grouped by object type, during last hour.
+
+</p>
+</figcaption>
+</figure>
+
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Ptarmigan Labs Newsletter" aria-label="Ptarmigan Labs Newsletter">
+    <a target="_blank" rel="noopener" href="https://ptarmiganlabs.com/#/portal/signup" aria-label="Ptarmigan Labs Newsletter">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="LinkedIn" aria-label="LinkedIn">
+    <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/gorsan/" aria-label="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="GitHub discussions" aria-label="GitHub discussions">
+    <a target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler-sos/discussions" aria-label="GitHub discussions">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        <ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="GitHub" aria-label="GitHub">
+    <a target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler-sos" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Get in touch with Ptarmigan Labs" aria-label="Get in touch with Ptarmigan Labs">
+    <a target="_blank" rel="noopener" href="mailto://info@ptarmiganlabs.com" aria-label="Get in touch with Ptarmigan Labs">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        <span class="td-footer__copyright">&copy;
+    2018&ndash;2024
+    <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script src="/js/main.min.e31c2c3ea09070843d281c9229acf28ea382e633bae75ab340a57d57c1b24a41.js" integrity="sha256-4xwsPqCQcIQ9KBySKazyjqOC5jO651qzQKV9V8GySkE=" crossorigin="anonymous"></script>
+<script src='/js/prism.js'></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>
