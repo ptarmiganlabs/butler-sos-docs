@@ -36,7 +36,7 @@ SOFTWARE.
 
 ## Data collection
 
-This documentation site was built using [Hugo](https://gohugo.io/) and consists of static web pages hosted on [GitHub Pages](https://pages.github.com/).  
+This documentation site was built using [Hugo](https://gohugo.io/) and consists of static web pages hosted on [GitHub Pages](https://pages.github.com/).
 
 GitHub probably keep log files for GitHub Pages, your visit to this documentation site is thus likely to be recorded there. For questions about such logs you should contact GitHub.
 
@@ -46,12 +46,12 @@ GitHub probably keep log files for GitHub Pages, your visit to this documentatio
 The collected data is not shared with any third parties.
 
 Aggregated data may be used to determine, and in some cases publicly communicate, how popular the site is.  
-Examples of aggregated metrics are how many users have visited the site and from where in the world they accessed the site.  
+Examples of aggregated metrics are how many users have visited the site and from where in the world they accessed the site.
 
 ## Telemetry data
 
 If enabled in the config file, Butler SOS will send anonymous telemetry data to PostHog, with data stored within the EU.  
-A detailed description of what's included in the telemetry datais found [here](/docs/about/telemetry/).
+A detailed description of what's included in the telemetry data is found [here](/docs/about/telemetry/).
 
 Ptarmigan Labs collects this information to better understand
 
@@ -61,7 +61,7 @@ Ptarmigan Labs collects this information to better understand
 The purpose of the telemetry data is to aid in future development of Butler SOS, so focus be put on the most important features and execution environments.
 
 If you want your historical telemetry data to be deleted, you must provide Ptarmigan Labs with the system ID mentioned in the logs when Butler SOS is starting.  
-This ID is what identifies your specific instance of Butler SOS.  
+This ID is what identifies your specific instance of Butler SOS.
 
 Until you tell Ptarmigan Labs what your ID is there is no link between you and that ID.  
 The idea is simply that the anonymous telemetry should be just that: anonymous.

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/docker/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/docker/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -45,8 +45,8 @@
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -124,10 +124,10 @@ This is the multi-page printable view of this section.
 <p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>Butler SOS Docker images are automatically built for several architectures:</p>
 <ul>
 <li>amd64: This is by far the most common platform - your typical Intel based server use amd64.</li>
-<li>arm64: Arm servers are now available from most cloud providers and offer very competetive price/performance. Apple&rsquo;s new M1 CPUs also use arm64, as does the newer Raspberry Pi models.</li>
+<li>arm64: Arm servers are now available from most cloud providers and offer very competitive price/performance. Apple&rsquo;s new M1 CPUs also use arm64, as does the newer Raspberry Pi models.</li>
 <li>arm/v7: An older Arm architecture found in previous-gen Raspberry Pis, for example.</li>
 </ul>
-<p>All images are available on <a href="https://hub.docker.com/r/ptarmiganlabs/butler-sos/tags?page=1&ordering=last_updated">Docker Hub</a>.</p></div>
+<p>All images are available on <a href="https://hub.docker.com/r/ptarmiganlabs/butler-sos/tags?page=1&amp;ordering=last_updated">Docker Hub</a>.</p></div>
 
 <p>Docker is great in that it runs on many different platforms.<br>
 This means that as long as the Docker runtime environment is installed, you can run Butler SOS on your Mac laptop, on a Linux server or on a Windows server.<br>
@@ -158,10 +158,10 @@ Docker on Windows is another story - it&rsquo;s there and works great, but not a
 <p>Copy the <a href="https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml">YAML config file</a> from the GitHub repository into the ./config directory, rename it to <code>production.yaml</code> (or something else, as long as it matches the NODE_ENV environment variable set in the <code>docker-compose.yml</code> file) and edit it as needed. Note that for the Docker setup the path to certificates (as specified in the YAML config file) should be <code>/nodeapp/config/certificate/</code> (this is the Docker container&rsquo;s internal path to the certificate directory).</p>
 </li>
 <li>
-<p>Edit the config file above as needed, with respect to your local Sense environment, folder paths etc. The provided template file has reasonable defualt settings where possible, but there are also a number of paths, passwords etc that must be configured.</p>
+<p>Edit the config file above as needed, with respect to your local Sense environment, folder paths etc. The provided template file has reasonable default settings where possible, but there are also a number of paths, passwords etc that must be configured.</p>
 </li>
 <li>
-<p>Export certifiates from the QMC in Qlik Sense Enterprise, place them in the <code>./config/certificate</code> directory (i.e. in a subdirectory to the directory where the docker-comspose file is stored). The certificates can in theory be placed anywhere, as long as they are made available to the Docker container via a volume mount in the docker-compose.yaml file (e.g. <code>- &quot;./config:/nodeapp/config&quot;</code>).</p>
+<p>Export certificates from the QMC in Qlik Sense Enterprise, place them in the <code>./config/certificate</code> directory (i.e. in a subdirectory to the directory where the docker-compose file is stored). The certificates can in theory be placed anywhere, as long as they are made available to the Docker container via a volume mount in the docker-compose.yaml file (e.g. <code>- &quot;./config:/nodeapp/config&quot;</code>).</p>
 </li>
 </ol>
 <p>Let&rsquo;s do this one step at a time.<br>
@@ -342,7 +342,7 @@ The Butler SOS config file is called <code>production.yaml</code>.</p>
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>

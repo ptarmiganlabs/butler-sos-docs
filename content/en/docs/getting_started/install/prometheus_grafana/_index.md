@@ -6,8 +6,8 @@ description: >
   How to use Butler SOS with Prometheus and Grafana using Docker.
 ---
 
-
 {{< notice warning >}}
+
 ## Work in progress
 
 While Butler SOS' Prometheus support is functional and works well, this documentation page is not yet complete.
@@ -30,8 +30,8 @@ If you already have access to those tools you can of course instead configure th
 ## Running in Docker using docker-compose
 
 The easiest way to get started is to run these tools in Docker containers, controlled by docker-compose files.  
-Running them under Kubernetes will give you a whole other level of fault tolerance, scalability etc - but this also requries much more when it comes to Kubernetes skills.
-Use the setup that's relevant to your use case.  
+Running them under Kubernetes will give you a whole other level of fault tolerance, scalability etc - but this also requires much more when it comes to Kubernetes skills.
+Use the setup that's relevant to your use case.
 
 You can use a single docker-compose file for Butler SOS, Prometheus and Grafana - or separate docker-compose files for each tool.
 
@@ -127,10 +127,10 @@ From a separate shell we can then ensure that the expected Docker containers are
 ```bash
 ➜ docker ps
 CONTAINER ID   IMAGE                             COMMAND                  CREATED         STATUS                            PORTS                                                                                  NAMES
-➜ 
+➜
 ```
 
-That's great, you now have a single command (```docker-compose -f docker-compose_fullstack_influxdb.yml up -d``` for background/daemon mode) to bring up all the tools needed to monitor a Qlik Sense cluster!
+That's great, you now have a single command (`docker-compose -f docker-compose_fullstack_influxdb.yml up -d` for background/daemon mode) to bring up all the tools needed to monitor a Qlik Sense cluster!
 
 Need to stop the entire stack of tools?  
 Easy - just run `docker-compose -f docker-compose_fullstack_influxdb.yml down`:

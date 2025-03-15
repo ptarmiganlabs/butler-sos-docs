@@ -16,7 +16,7 @@ A detailed description of all configuration options in the main config file is a
 
 A complete list of all metrics provided by Butler SOS is found [here](/docs/reference/available_metrics/).
 
-## Useuful references out there
+## Useful references out there
 
 ### Qlik Sense APIs
 
@@ -41,4 +41,4 @@ Grafana docs [here](https://grafana.com/docs/).
 There are various MQTT brokers available, both commercial and open source.  
 [Mosquitto](https://mosquitto.org/) is an open sourceMQTT broker with a solid track record and available as a Docker container.
 
-There are also plenty of companies offering SaaS MQTT brokers, ranging from small specialised companies to the big cloud providers.
+There are also plenty of companies offering SaaS MQTT brokers, ranging from small specialized companies to the big cloud providers.

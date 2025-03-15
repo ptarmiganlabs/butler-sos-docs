@@ -1,5 +1,5 @@
 ---
-title: "App nmetrics"
+title: "App metrics"
 linkTitle: "App metrics"
 weight: 10
 description: >
@@ -9,7 +9,7 @@ description: >
 ---
 
 {{< notice tip >}}
-The [use cases](/docs/about/usecases/) page contains related information that may be of interest. 
+The [use cases](/docs/about/usecases/) page contains related information that may be of interest.
 {{< /notice >}}
 
 ## App metrics

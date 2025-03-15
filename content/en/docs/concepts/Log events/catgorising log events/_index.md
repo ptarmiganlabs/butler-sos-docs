@@ -1,6 +1,6 @@
 ---
 title: "Getting rid of Sense log noise"
-linkTitle: "Categorising log events"
+linkTitle: "Categorizing log events"
 weight: 50
 description: >
   Let's say Butler SOS is configured to receive log events from Qlik Sense Enterprise, specifically warnings and errors.
@@ -9,7 +9,7 @@ description: >
   In the best of worlds there will be few such events, but in reality there are usually more than expected. It's not uncommon for a Sense cluster to generate hundreds or even thousands of error and warning events per hour.
 
 
-  By categorising these events, Butler SOS can help you focus on the most important ones, and ignore the rest.
+  By categorizing these events, Butler SOS can help you focus on the most important ones, and ignore the rest.
 ---
 
 ## What kind of log events are there?
@@ -28,7 +28,7 @@ So, what Butler SOS receives is a stream of log events, with a log level of eith
 That's all fine, but it's not uncommon for a Sense cluster to generate way more warnings and errors than expected by the Sense admin person.  
 The challenge then becomes to focus on the most important events, and ignore the rest.
 
-## How to categorise log events
+## How to categorize log events
 
 Let's say there are 1000 log events per hour.
 
@@ -36,7 +36,7 @@ When looking at the log events, it turns out that 95% of them are either about
 
 - people getting https certificate warnings when accessing the Qlik Sense Hub...
 - ...people getting access denied errors when trying to open an app...
-- ...or that Sense has detected something unusual (like a ciruclar reference) in an Active Directory user directory.
+- ...or that Sense has detected something unusual (like a circular reference) in an Active Directory user directory.
 
 Those events are not good, but they are not critical either.  
 They are things that can be fixed in a controlled way, and they won't bring the Sense cluster to its knees.
@@ -44,27 +44,27 @@ They are things that can be fixed in a controlled way, and they won't bring the 
 But there may also be a few log events that are related to the Sense central node not being able to connect to one of the rim nodes.
 Maybe the events occur at irregular intervals and therefore more difficult to detect.
 
-These events ***are*** critical, and should be investigated immediately.
+These events **_are_** critical, and should be investigated immediately.
 
-If Butler SOS is configured to categorise the certificate warnings as "user-certificate, the Active Directory warnings as "active-directory" and the access-denied warnings as "access-denied", *that information is then added as tags to the event data that is stored in InfluxDB*.
+If Butler SOS is configured to categorize the certificate warnings as "user-certificate, the Active Directory warnings as "active-directory" and the access-denied warnings as "access-denied", _that information is then added as tags to the event data that is stored in InfluxDB_.
 
-This means that when creating Grafana dashboards, it's possible to create a table that show the number of "user-certificate" events and the number of "active-directory" events - and the number of "other" events.  
+This means that when creating Grafana dashboards, it's possible to create a table that show the number of "user-certificate" events and the number of "active-directory" events - and the number of "other" events.
 
-Another Grafana panel can show detailed event info for the "other" events, making it easy to investigate what they are about.  
+Another Grafana panel can show detailed event info for the "other" events, making it easy to investigate what they are about.
 
-> By categorising log events it is possible to get rid of the log noise that hides the important events.
+> By categorizing log events it is possible to get rid of the log noise that hides the important events.
 
 ## Sample Grafana dashboard
 
 A few charts and tables give a good overview of the log events.
 
 {{< imgproc butler-sos-grafana-log-event-categorise-1.png Resize "1200x" >}}
-Butler SOS log events dashboard in Grafana. Uncategorised events by the yellow arrows, and in table/charts to the right.
+Butler SOS log events dashboard in Grafana. Uncategorized events by the yellow arrows, and in table/charts to the right.
 {{< /imgproc >}}
 
 ### Butler SOS Configuration
 
-The following settings in the Butler SOS config file were used to categorise the log events that were used in the Grafana dashboard above.
+The following settings in the Butler SOS config file were used to categorize the log events that were used in the Grafana dashboard above.
 
 ```yaml
 Butler-SOS:
@@ -99,7 +99,7 @@ Butler-SOS:
             - WARN
             - ERROR
           action: categorise           # Action to take on matched log events. Possible values are categorise, drop
-          category:                    # Category to assign to matched log events. Name/value pairs. 
+          category:                    # Category to assign to matched log events. Name/value pairs.
                                        # Will be added to InfluxDB datapoints as tags.
             - name: qs_log_category
               value: access-denied
@@ -113,7 +113,7 @@ Butler-SOS:
             - ERROR
             - WARN
           action: categorise           # Action to take on matched log events. Possible values are categorise, drop
-          category:                    # Category to assign to matched log events. Name/value pairs. 
+          category:                    # Category to assign to matched log events. Name/value pairs.
                                        # Will be added to InfluxDB datapoints as tags.
             - name: qs_log_category
               value: user-directory
@@ -124,7 +124,7 @@ Butler-SOS:
           logLevel:                    # Log events of this Log level will be matched. WARN, ERROR, FATAL. Case insensitive.
             - WARN
           action: categorise           # Action to take on matched log events. Possible values are categorise, drop
-          category:                    # Category to assign to matched log events. Name/value pairs. 
+          category:                    # Category to assign to matched log events. Name/value pairs.
                                        # Will be added to InfluxDB datapoints as tags.
             - name: qs_log_category
               value: qs-service
@@ -138,7 +138,7 @@ Butler-SOS:
             - WARN
             - ERROR
           action: categorise           # Action to take on matched log events. Possible values are categorise, drop
-          category:                    # Category to assign to matched log events. Name/value pairs. 
+          category:                    # Category to assign to matched log events. Name/value pairs.
                                         # Will be added to InfluxDB datapoints as tags.
             - name: qs_log_category
               value: reload-failed

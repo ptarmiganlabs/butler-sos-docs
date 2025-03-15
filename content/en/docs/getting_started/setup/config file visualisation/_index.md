@@ -1,10 +1,10 @@
 ---
 title: "Visualise the config file"
-linkTitle: "Config file visualisation"
+linkTitle: "Config file visualization"
 weight: 16
 description: >
-  Butler SOS can visualise its confile on a web page, using an internal web server.  
-  
+  Butler SOS can visualise its config file on a web page, using an internal web server.  
+
   This can be useful for troubleshooting and understanding how Butler SOS is configured.
 
 
@@ -19,7 +19,7 @@ This can be useful for troubleshooting and understanding how Butler SOS is confi
 If enabled, the web server will serve a web page on the IP address and port specified in the config file.  
 The default IP address is `localhost` and the default port is `3100`.
 
-By clicking the "Download 
+By clicking the "Download
 
 ### JSON and YAML
 
@@ -31,11 +31,11 @@ The YAML format is easier to read and understand for humans, and is also the for
 Examples:
 
 {{< imgproc butler-sos-config-vis-json-1.png Resize "1200x" >}}
-Butler SOS config file visualisation - JSON view
+Butler SOS config file visualization - JSON view
 {{< /imgproc >}}
 
 {{< imgproc butler-sos-config-vis-yaml-1.png Resize "1200x" >}}
-Butler SOS config file visualisation - YAML view
+Butler SOS config file visualization - YAML view
 {{< /imgproc >}}
 
 ### Obfuscation
@@ -46,8 +46,8 @@ Obfuscation is enabled/disabled in the config file.
 
 For example, if asking for support on the [Butler SOS forum](https://github.com/ptarmiganlabs/butler-sos/discussions), you can share the obfuscated config file without revealing sensitive information.
 
-*Disclaimer: Obfuscation is not foolproof, but it should be good enough for most use cases.  
-Always check the obfuscated config file before sharing it.*
+_Disclaimer: Obfuscation is not foolproof, but it should be good enough for most use cases.  
+Always check the obfuscated config file before sharing it._
 
 ## Settings in config file
 
@@ -57,7 +57,7 @@ Butler-SOS:
   ...
   # Should Butler SOS start a web server that serves an obfuscated view of the Butler SOS config file?
   configVisualisation:
-    enable: true  
+    enable: true
     host: localhost       # Hostname or IP address where the web server will listen. Should be localhost in most cases.
     port: 3100            # Port where the web server will listen. Change if port 3100 is already in use.
     obfuscate: true        # Should the config file shown in the web UI be obfuscated?

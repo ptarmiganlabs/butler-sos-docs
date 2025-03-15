@@ -34,7 +34,7 @@ Unblocking the Butler SOS zip file on Windows Server
 In this scenario you will use the Butler SOS source code together with the standard Node.js runtime libraries.
 
 The result is the same as with the stand-alone binaries, you just have to do more of the work yourself.  
-This is usually *not* preferred, but if you want to add new features to (or modify existone ones) Butler SOS, this option is for you
+This is usually _not_ preferred, but if you want to add new features to (or modify existing ones) Butler SOS, this option is for you
 
 #### 1. Install Node.js
 
@@ -48,7 +48,7 @@ This can be pretty much anywhere, in this example d:\tools\butler-sos will be us
 
 Get the desired [Butler SOS version](https://github.com/ptarmiganlabs/butler-sos/releases) and extract it into the directory above.
 
-Get the latest available version unless you have a *really* good reason to use an older version.  
+Get the latest available version unless you have a _really_ good reason to use an older version.  
 New features are added, bugs fixed and security updates are applied in each version - it's simply a good idea to use the latest version.
 
 Do not just clone the Butler SOS repository as that will give you the latest development version, which may not yet be fully tested and packaged.  
@@ -65,7 +65,6 @@ The configuration file is used the same way as when Butler SOS runs on Docker, w
 The path to the certificates used to authenticate with Sense must be specified in the config file. With Docker the certificate path is always the same, but with Windows you need to specify where the certificate files are located.
 
 For example, if the certificate files exported from Sense are stored in d:\secrets\sensecert, the config file would look like this when used on Windows:
-
 
 ```yaml
   ...

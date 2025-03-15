@@ -6,5 +6,5 @@ description: >
   The combination of Butler SOS and Grafana provides a powerful combo for monitoring the performance of your Qlik Sense engines.
 
 
-  Here are some recipies for how to set up Butler SOS to implement various specific monitoring scenarios.
+  Here are some recipes for how to set up Butler SOS to implement various specific monitoring scenarios.
 ---

@@ -10,12 +10,12 @@ description: >
 
 ### Goal
 
-The goal is to count how many  user and log events are received from one or more Qlik Sense servers.
+The goal is to count how many user and log events are received from one or more Qlik Sense servers.
 
 This can be useful for several reasons:
 
 - To get a general feeling if the Qlik Sense environment is healthy or not. A sudden increase in the number of warnings, errors or fatals can be an early warning sign that something is wrong. The event counters can be seen as a kind of heart beat of the Qlik Sense environment. Too fast - or too slow - can be a sign of trouble.
-- The counters count **all** log and user events sent from the Qlik Sense servers to Butler SOS. They can be used to confirm tha the Qlik Sense servers are indeed sending events to Butler SOS at all. Other, more detailed event data can then be used to drill down into the details of what is happening in the Qlik Sense environment.
+- The counters count **all** log and user events sent from the Qlik Sense servers to Butler SOS. They can be used to confirm that the Qlik Sense servers are indeed sending events to Butler SOS at all. Other, more detailed event data can then be used to drill down into the details of what is happening in the Qlik Sense environment.
 
 A Grafana dashboard is used to visualize the event counters:
 
@@ -29,7 +29,7 @@ A set of Grafana panels showing the number of user and log events received from 
 - Store the data collected by Butler SOS in an InfluxDB v1 or v2 database. Setup instructions [here](/docs/getting_started/setup/influxdb/)
 - XML appender files deployed on the Sense servers you want to monitor. The appender files tell Sense to send log events to Butler SOS via UDP messages. Setup instructions [here](/docs/getting_started/setup/qlik-sense-events/#log-appender-xml-files).
 - A reasonably recent version of [Grafana](https://grafana.com/grafana/download). At the time of writing, Grafana 11.2 is the latest version.
-- Data connetions set up in Grafana to the InfluxDB database where Butler SOS stores its data.
+- Data connections set up in Grafana to the InfluxDB database where Butler SOS stores its data.
 
 ## Configure Butler SOS
 
@@ -43,7 +43,7 @@ It is configured elsewhere in the YAML config file, more info [here](/docs/getti
   qlikSenseEvents:                  # Shared settings for user and log events (see below)
     influxdb:
       enable: true                  # Should summary (counter) of user/log events, and rejected events be stored in InfluxDB?
-      writeFrequency: 20000         # How often (milliseconds) should event counts be written to InfluxDB?  
+      writeFrequency: 20000         # How often (milliseconds) should event counts be written to InfluxDB?
   ...
   ...
   # Log events are used to capture Sense warnings, errors and fatals in real time
@@ -51,10 +51,10 @@ It is configured elsewhere in the YAML config file, more info [here](/docs/getti
   qlikSenseEvents:                  # Shared settings for user and log events (see below)
     influxdb:
       enable: true                  # Should summary (counter) of user/log events, and rejected events be stored in InfluxDB?
-      writeFrequency: 20000         # How often (milliseconds) should rejected event count be written to InfluxDB?  
+      writeFrequency: 20000         # How often (milliseconds) should rejected event count be written to InfluxDB?
     eventCount:                     # Track how many log and user events are received from Sense.
                                     # Some events are valid, some are not. Of the valid events, some are rejected by Butler SOS
-                                    # based on the configuration in this file. 
+                                    # based on the configuration in this file.
       enable: true                  # Should event count be stored in InfluxDB?
       influxdb:
         measurementName: event_count # Name of the InfluxDB measurement where event count is stored
@@ -81,7 +81,7 @@ Total count of user and log events received from two Qlik Sense servers.
 There are also a couple of transformations applied to the data:
 
 {{< imgproc butler-sos-event-counter-4 Resize "1200x" >}}
-Transformations applied to the data before it's displayed in the Grafana panel. The sorting is done to make sure the data is displayed in the correct order. Renaming/reorder is not used in this exampe.
+Transformations applied to the data before it's displayed in the Grafana panel. The sorting is done to make sure the data is displayed in the correct order. Renaming/reorder is not used in this example.
 {{< /imgproc >}}
 
 ### Count of user and log events per host
@@ -128,4 +128,3 @@ Transformations applied to the data before it's displayed in the Grafana panel.
 {{< /imgproc >}}
 
 ## Next steps
-

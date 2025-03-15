@@ -21,7 +21,7 @@ The pre-build binaries are available from the [releases page](https://github.com
 
 ### Using Node.js
 
-This scenario is identical to the [Windows scenario](/docs/getting_started/install/native/windows/), please refer to that page for details. Keep in mind that the format of file systems paths differ between Windows and Linxu/Mac OS.
+This scenario is identical to the [Windows scenario](/docs/getting_started/install/native/windows/), please refer to that page for details. Keep in mind that the format of file systems paths differ between Windows and Linux/Mac OS.
 
 ## Configuration
 

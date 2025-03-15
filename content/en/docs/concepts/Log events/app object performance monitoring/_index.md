@@ -25,7 +25,7 @@ If you're not in control, well - that's a bad place to be..
 
 ### Qlik's performance analysis apps
 
-Qlik has a couple of apps that can be used to analyse performance data from Qlik Sense Enterprise on Windows.
+Qlik has a couple of apps that can be used to analyze performance data from Qlik Sense Enterprise on Windows.
 
 First, the **Operations Monitor** app ships with every instance of Qlik Sense Enterprise on Windows.  
 This app is the go-to tool for retrospective analysis of what's going on in a Sense environment.
@@ -38,13 +38,13 @@ Then there's the **Telemetry Dashboard** app.
 It uses the same data as Butler SOS, but as it's a Sense app it must be reloaded in order to get updated data.  
 Butler SOS on the other hand uses real-time delivery of the events from Sense's Log4Net logging framework.
 
-If you want to do retrospective analysis of detailed performance data, the [Telemtry Dashboard app](https://adminplaybook.qlik-poc.com/docs/tooling/telemetry_dashboard.html) is an excellent choice.
+If you want to do retrospective analysis of detailed performance data, the [Telemetry Dashboard app](https://adminplaybook.qlik-poc.com/docs/tooling/telemetry_dashboard.html) is an excellent choice.
 
 [This page](https://help.qlik.com/en-US/sense-admin/May2024/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/telemetry-logging.htm) provides additional info about the telemetry logging available in Qlik Sense.
 
 {{< notice info >}}
 Qlik's Telemetry Dashboard app requires you to enable performance logging for the Engine service in the QMC.  
-The effect is that you get a new set of Sense log files that are likely to quickly become **BIG**.  
+The effect is that you get a new set of Sense log files that are likely to quickly become **BIG**.
 
 By using Butler SOS you can get the same metrics and insights, but without the need to enable performance logging in the QMC.  
 I.e. saving disk space and getting real-time data instead of data that's hours or days old.
@@ -54,7 +54,7 @@ Which is better? That depends on your use case and what you want to achieve.
 
 ## Lots of use cases
 
-Categorisation of events can be done in different ways depending on what you want to achieve.  
+Categorization of events can be done in different ways depending on what you want to achieve.  
 Here are some examples of what can be done using Butler SOS:
 
 - You want high level insights into how long various app actions take for all apps.
@@ -76,7 +76,7 @@ Here are some examples of what can be done using Butler SOS:
   - Enable detailed performance monitoring for that specific app
   - Create a Grafana dashboard that
     - tracks the "traverse_time" metric. This metric shows how long it takes to traverse the data model. A poorly designed data model tend to have longer traverse times. Break it down by app object and proxy session.
-    - tracks the render time for each chart and table in the app. Slow charts and tables *may* be caused by a bad data model, but not always. Lots of (complex) data may also be a reason.
+    - tracks the render time for each chart and table in the app. Slow charts and tables _may_ be caused by a bad data model, but not always. Lots of (complex) data may also be a reason.
   - 🎉 You get real-time insight into which objects are slow for what users, due to a bad data model in that specific app.
 
 ## Performance log events
@@ -84,7 +84,7 @@ Here are some examples of what can be done using Butler SOS:
 A "performance log event" is a log event that originates from the Qlik Sense engine, more specifically from the "QixPerformance.Engine.Engine" subsystem.  
 They are sent to Butler SOS as UDP messages, just like regular log events (using the same port).
 
-The performance log events have `INFO` log level in the Sense logs but still provide *very* detailed information about what the engine is doing.  
+The performance log events have `INFO` log level in the Sense logs but still provide _very_ detailed information about what the engine is doing.
 
 {{< notice warning >}}
 The XML appender files that ship with Butler SOS don't do any filtering of log events.
@@ -107,7 +107,7 @@ Events that meet the filtering criteria are called "accepted" events, and events
 Accepted events are stored in InfluxDB, including detailed performance metrics for the event.  
 Details on what is stored for accepted events can be found in the [reference section](/docs/reference/available_metrics/influxdb/#source-engine-service-performance-related-events).
 
-Rejected events are not stored in InfluxDB, but are still *counted* by Butler SOS.  
+Rejected events are not stored in InfluxDB, but are still _counted_ by Butler SOS.  
 This feature can be enabled/disabled in the Butler SOS config file. More info [here](/docs/getting_started/setup/qliksense-events/#rejected-events).
 
 ### Data available for accepted and rejected events
@@ -118,7 +118,7 @@ The full set of data stored for accepted events is described in the [reference s
 
 For some use high-level cases, such as identifying apps that are slow to load, the data for rejected events may be sufficient.
 
-Other uses cases, such as monitoring the behaviour of specfic app objects (charts, tables etc), require the detailed data stored for accepted events.
+Other uses cases, such as monitoring the behavior of specific app objects (charts, tables etc), require the detailed data stored for accepted events.
 
 The recommended, general principle is:
 

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/examples/engine-performance-monitoring/find-slow-updating-charts/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/examples/engine-performance-monitoring/find-slow-updating-charts/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -36,6 +36,7 @@
 
   <meta itemprop="name" content="Find charts that are slow to update">
   <meta itemprop="description" content="This example shows how to use Butler SOS to monitor which parts of a Qlik Sense app that are slow to update.">
+  <meta itemprop="dateModified" content="2024-09-24T09:49:00+02:00">
   <meta itemprop="wordCount" content="1454">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Find charts that are slow to update">
@@ -44,8 +45,8 @@
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -129,7 +130,7 @@ This is useful for several reasons:</p>
 </ul>
 <p>A Grafana chart showing this data for the app &ldquo;Training - Field indexing&rdquo; could look something like this:</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/find-slow-updating-charts/butler-sos-accepted-performance-log-events-7_hu16088525549253033788.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/find-slow-updating-charts/butler-sos-accepted-performance-log-events-7_hu_18978b43b47c7a64.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -146,7 +147,7 @@ In order to understand the chart you must also know the ID of each app object. M
 <li>Store the data collected by Butler SOS in an InfluxDB v1 or v2 database. Setup instructions <a href="/docs/getting_started/setup/influxdb/">here</a></li>
 <li>XML appender files deployed on the Sense servers you want to monitor. The appender files tell Sense to send log events to Butler SOS via UDP messages. Setup instructions <a href="/docs/getting_started/setup/qlik-sense-events/#log-appender-xml-files">here</a>.</li>
 <li>A reasonably recent version of <a href="https://grafana.com/grafana/download">Grafana</a>. At the time of writing, Grafana 11.2 is the latest version.</li>
-<li>Data connetions set up in Grafana to the InfluxDB database where Butler SOS stores its data.</li>
+<li>Data connections set up in Grafana to the InfluxDB database where Butler SOS stores its data.</li>
 <li>A way to get the ID of each app object in the Sense apps you want to monitor. This can be done in <a href="/docs/getting_started/setup/qlik-sense-events/log-events/performance-log-events/#filter-applying-to-specific-apps">several ways</a>.</li>
 </ul>
 <h3 id="the-app-being-monitored">The app being monitored</h3>
@@ -154,7 +155,7 @@ In order to understand the chart you must also know the ID of each app object. M
 It&rsquo;s a basic app that is used to explain to Sense developers how in-app data indexing works in Qlik Sense.</p>
 <p>The consists of a single table with two fields, with 10 million rows of random data:</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/find-slow-updating-charts/butler-sos-accepted-performance-log-events-11_hu5256755403791070071.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/find-slow-updating-charts/butler-sos-accepted-performance-log-events-11_hu_7ef41fba51d24975.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -188,7 +189,7 @@ It is configured elsewhere in the YAML config file, more info <a href="/docs/get
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">qlikSenseEvents</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Shared settings for user and log events (see below)</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">influxdb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Should summary (counter) of user/log events, and rejected events be stored in InfluxDB?</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">writeFrequency</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">20000</span><span style="color:#f8f8f8;text-decoration:underline">         </span><span style="color:#8f5902;font-style:italic"># How often (milliseconds) should event counts be written to InfluxDB?  </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">writeFrequency</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">20000</span><span style="color:#f8f8f8;text-decoration:underline">         </span><span style="color:#8f5902;font-style:italic"># How often (milliseconds) should event counts be written to InfluxDB?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Log events are used to capture Sense warnings, errors and fatals in real time</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -220,7 +221,7 @@ It is configured elsewhere in the YAML config file, more info <a href="/docs/get
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># If both appId and appName are specified, both must match the event&#39;s data for it to be considered a match.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">t          objectType</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">allObjectTypes</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">       </span><span style="color:#8f5902;font-style:italic"># Should all object types be monitored?</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">allObjectTypesExclude</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># If allObjectTypes is set to true, the object types in this array are excluded from monitoring. </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">allObjectTypesExclude</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># If allObjectTypes is set to true, the object types in this array are excluded from monitoring.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># someObjectTypesInclude (below) is ignored in that case.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">someObjectTypesInclude</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#8f5902;font-style:italic"># What object types should be included in monitoring?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># Only applicable if allObjectTypes is set to false.</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -236,9 +237,9 @@ It is configured elsewhere in the YAML config file, more info <a href="/docs/get
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#204a87;font-weight:bold">include</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># What apps should be monitored?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># If both appId and appName are specified, both must match the event&#39;s data for it to be considered a match.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span>- <span style="color:#204a87;font-weight:bold">appName</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Training - Field indexing</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#204a87;font-weight:bold">objectType</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                 
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#204a87;font-weight:bold">objectType</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#204a87;font-weight:bold">allObjectTypes</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">   </span><span style="color:#8f5902;font-style:italic"># Should all object types be monitored?</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#204a87;font-weight:bold">allObjectTypesExclude</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># If allObjectTypes is set to true, the object types in this array are excluded from monitoring. </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#204a87;font-weight:bold">allObjectTypesExclude</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># If allObjectTypes is set to true, the object types in this array are excluded from monitoring.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># someObjectTypesInclude (below) is ignored in that case.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#204a87;font-weight:bold">someObjectTypesInclude</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># What object types should be included in monitoring?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># Only applicable if allObjectTypes is set to false.</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -248,7 +249,7 @@ It is configured elsewhere in the YAML config file, more info <a href="/docs/get
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># someAppObjectsInclude (below) is ignored in that case.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#204a87;font-weight:bold">someAppObjectsInclude</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># What app objects should be included in monitoring?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># Only applicable if allAppObjects is set to false.</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#204a87;font-weight:bold">method</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#204a87;font-weight:bold">method</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#204a87;font-weight:bold">allMethods</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#8f5902;font-style:italic"># Should all methods be monitored?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#204a87;font-weight:bold">allMethodsExclude</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># If allMethods is set to true, the methods in this array are excluded from monitoring.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># someMethodsInclude (below) is ignored in that case.</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -258,7 +259,7 @@ It is configured elsewhere in the YAML config file, more info <a href="/docs/get
 <p>With the above Butler SOS configuration in place (remember to restart Butler SOS after making changes to its configuration file), you can now set up Grafana to visualize the data.</p>
 <p>Here is a chart that shows the average time it takes for each app object in the &ldquo;Training - Field indexing&rdquo; app to open and update (the chart shown at the top of this page):</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/find-slow-updating-charts/butler-sos-accepted-performance-log-events-13_hu7228913134870758371.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/find-slow-updating-charts/butler-sos-accepted-performance-log-events-13_hu_f5441f49f041525c.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -273,7 +274,7 @@ Definition of a Grafana chart showing the average time it takes to open and upda
 <p>The chart repeats itself over the &ldquo;app_name_monitored&rdquo; Grafana variable, which means one chart is shown for each selected app in that variable filter (at the top of the Grafana dashboard).<br>
 The variable is set up like this:</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/find-slow-updating-charts/butler-sos-grafana-variables-1_hu17955797503299518781.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/find-slow-updating-charts/butler-sos-grafana-variables-1_hu_7b8cef8db138a6e2.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -285,7 +286,7 @@ List of variables in a SenseOps dashboard in Grafana.
 </figure>
 
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/find-slow-updating-charts/butler-sos-grafana-variables-monitored-apps-1_hu5591863933434245288.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/find-slow-updating-charts/butler-sos-grafana-variables-monitored-apps-1_hu_6c51d50b0138a28.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -301,12 +302,12 @@ Definition of the "app_name_monitored" Grafana variable.
 <p>For example, it could be interesting to see what <em>kinds</em> of app objects use most time, and which ones are faster.<br>
 Something like this:</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/find-slow-updating-charts/butler-sos-accepted-performance-log-events-14_hu16127839757018417943.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/find-slow-updating-charts/butler-sos-accepted-performance-log-events-14_hu_4ecab9e3cb25d40c.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
 
-Chart showing the *total* time spent updating the "Training - Field indexing" app, grouped by object type, during last hour.
+Chart showing the _total_ time spent updating the "Training - Field indexing" app, grouped by object type, during last hour.
 
 </p>
 </figcaption>
@@ -377,7 +378,7 @@ Chart showing the *total* time spent updating the "Training - Field indexing" ap
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>

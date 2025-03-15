@@ -5,7 +5,7 @@ weight: 135
 description: >
   Butler SOS can send metrics and events to New Relic.  
 
-  This way it's possible use their SaaS solution for storing and visualising Butler SOS data.
+  This way it's possible use their SaaS solution for storing and visualizing Butler SOS data.
 ---
 
 {{% alert title="Optional" color="primary" %}}
@@ -13,18 +13,18 @@ These settings are optional.
 
 If you don't need the New Relic feature, just disable it and leave the default values in the config as they are.
 
-Do note though that Butler expects the configuration properties below to exist in the config file, but will *ignore their values* if the related features are disabled.
+Do note though that Butler expects the configuration properties below to exist in the config file, but will _ignore their values_ if the related features are disabled.
 {{% /alert %}}
 
 ## What's this?
 
-[New Relic](https://newrelic.com) offers a suite of online/SaaS products that collectively form a very complete obeservability stack.  
+[New Relic](https://newrelic.com) offers a suite of online/SaaS products that collectively form a very complete observability stack.
 
 From a Butler SOS perspective the interesting parts are metrics, event and log handling.  
 By forwarding such data to New Relic it's not necessary to run local InfluxDB and Grafana instances.
 
 That said, New Relic is a commercial service and while their free tier is very generous, there will be a trade-off between a local/lower cost InfluxDB/Grafana setup and using New Relic.  
-With InfluxDB/Grafana you also get more fine grained control over both data storage and visualisations, while New Relic offer ease of setup and no need to host InfluxDB/Grafana yourself.
+With InfluxDB/Grafana you also get more fine grained control over both data storage and visualizations, while New Relic offer ease of setup and no need to host InfluxDB/Grafana yourself.
 
 Below the settings for sending Qlik Sense health metrics to New Relic are described.
 
@@ -95,19 +95,19 @@ Butler-SOS:
       # Note that the URL path should *not* be included in the url setting below!
       # As of this writing the valid options are
       # https://insights-collector.eu01.nr-data.net
-      # https://insights-collector.newrelic.com 
+      # https://insights-collector.newrelic.com
       url: https://insights-collector.eu01.nr-data.net
       header:                   # Custom http headers
         - name: X-My-Header
           value: Header value
-      attribute: 
+      attribute:
         static:                 # Static attributes/dimensions to attach to the events sent to New Relic.
           - name: service
             value: butler-sos
           - name: environment
             value: prod
         dynamic:
-          butlerSosVersion: 
+          butlerSosVersion:
             enable: true       # Should the Butler SOS version be included in the events sent to New Relic?
     metric:
       destinationAccount:
@@ -117,7 +117,7 @@ Butler-SOS:
       # The available URLs are listed here: https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center/
       # As of this writing the options for the New Relic metrics API are
       # https://insights-collector.eu01.nr-data.net/metric/v1
-      # https://metric-api.newrelic.com/metric/v1 
+      # https://metric-api.newrelic.com/metric/v1
       url: https://insights-collector.eu01.nr-data.net/metric/v1   # Where should uptime data be sent?
       header:                   # Custom http headers
         - name: X-My-Header
@@ -127,15 +127,15 @@ Butler-SOS:
           memory:               # Engine RAM (free/committed/allocated).
             enable: true
           cpu:                  # Engine CPU.
-            enable: true        
+            enable: true
           calls:                # Total number of requests made to the engine.
-            enable: true        
+            enable: true
           selections:           # Total number of selections made to the engine.
-            enable: true        
+            enable: true
           sessions:             # Engine session metrics (active and total number of engine sessions).
-            enable: true        
+            enable: true
           users:                # Engine user metrics (active and total number of users in engine.
-            enable: true        
+            enable: true
           saturated:            # Engine saturation status (tracks whether engine has high or low load).
             enable: true
         apps:
@@ -147,14 +147,14 @@ Butler-SOS:
         proxy:
           sessions:             # Session metrics as reported by the Sense proxy service
             enable: true
-      attribute: 
+      attribute:
         static:                 # Static attributes/dimensions to attach to the data sent to New Relic.
           - name: service
             value: butler-sos
           - name: environment
             value: prod
         dynamic:
-          butlerSosVersion: 
+          butlerSosVersion:
             enable: true       # Should the Butler SOS version be included in the data sent to New Relic?
   ...
   ...

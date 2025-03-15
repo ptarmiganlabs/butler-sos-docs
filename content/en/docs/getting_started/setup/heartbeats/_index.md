@@ -13,7 +13,7 @@ These settings are optional.
 
 If you don't need this feature just disable it and leave the default values in the config as they are.
 
-Do note though that Butler SOS expects the configuration properties below to exist in the config file, but will *ignore their values* if the related features are disabled.
+Do note though that Butler SOS expects the configuration properties below to exist in the config file, but will _ignore their values_ if the related features are disabled.
 {{% /alert %}}
 
 ## What's this?
@@ -28,7 +28,7 @@ It sends periodic messages to a monitoring tool, which can then alert if Butler 
 
 [Healthchecks.io](https://healthchecks.io/) is an example of such as tool. It's open source and can be self-hosted, but also has a SaaS option if so preferred.
 
-[Uptime Kuma](https://github.com/louislam/uptime-kuma) is another great tool that can be used, it has a somewhat slicker UI than Healthchecks.io - but it's relally a matter of personal preference which one to use.
+[Uptime Kuma](https://github.com/louislam/uptime-kuma) is another great tool that can be used, it has a somewhat slicker UI than Healthchecks.io - but it's really a matter of personal preference which one to use.
 
 More info on using Healthchecks.io with Butler (Butler SOS works the same way) can be found [in this blog post](https://ptarmiganlabs.com/blog/2020/07/26/black-box-monitoring-of-butler-tools-monitoring-the-monitor/).
 
@@ -39,7 +39,7 @@ Butler-SOS:
   ...
   ...
   # Heartbeats can be used to send "I'm alive" messages to some other tool, e.g. an infrastructure monitoring tool
-  # The concept is simple: The remoteURL will be called at the specified frequency. The receiving tool will then know 
+  # The concept is simple: The remoteURL will be called at the specified frequency. The receiving tool will then know
   # that Butler SOS is alive.
   heartbeat:
     enable: true

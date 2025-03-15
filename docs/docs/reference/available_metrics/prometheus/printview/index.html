@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/prometheus/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/prometheus/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -36,6 +36,7 @@
 
   <meta itemprop="name" content="Available Metrics: Prometheus">
   <meta itemprop="description" content="In order to create graphs in for example Grafana, you must understand what metrics are available and how they are structured.">
+  <meta itemprop="dateModified" content="2022-08-27T09:00:57+02:00">
   <meta itemprop="wordCount" content="739">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Available Metrics: Prometheus">
@@ -44,8 +45,8 @@
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -123,13 +124,13 @@ This is the multi-page printable view of this section.
 <p>Storing metrics in Prometheus is not mandatory, but some kind of metrics storage - either in Prometheus, <a href="/docs/reference/available_metrics/influxdb/">InfluxDB</a> or <a href="https://newrelic.com">New Relic</a> - is needed to take full benefit of Butler SOS&rsquo; features.</p>
 <p>Prometheus gathers metrics by &ldquo;scraping&rdquo; data from web pages (&ldquo;endpoints&rdquo;) on which metrics are displayed in a well specified format.<br>
 Most metrics from the Sense servers are exposed on a Prometheus compatible endpoint, but not all.<br>
-InfluxDB is more flexible for some types of data, while Prometheus provides more easily used features for data aggregation when data should be displaued in Grafana.</p>
+InfluxDB is more flexible for some types of data, while Prometheus provides more easily used features for data aggregation when data should be displayed in Grafana.</p>
 <h2 id="prometheus-endpoint">Prometheus endpoint</h2>
 <p>Prometheus is enabled/disabled in the <code>Butler-SOS.prometheus</code> section in the config file.
 Prometheus metrics are available on the <code>/metrics</code> URL on the IP and port specified in the config file.</p>
 <p>For example, if the host is 0.0.0.0 and the port is 9842, Butler SOS will listen on port 9842 on all available network interfaces.
 If the Butler SOS&rsquo; server&rsquo;s IP address is 192.168.1.168, a call from a web browser can look like this:</p>
-<p><img alt="Prometheus metrics in web browser" src="/docs/reference/available_metrics/prometheus/prometheus-browser-1.png" title="Prometheus metrics in web browser"></p>
+<p><img src="/docs/reference/available_metrics/prometheus/prometheus-browser-1.png" alt="Prometheus metrics in web browser" title="Prometheus metrics in web browser"></p>
 <p>This is the web page Prometheus will scrape and ingest into it&rsquo;s time-series database.</p>
 <h3 id="overview-of-prometheus">Overview of Prometheus</h3>
 <p>In contrast to InfluxDB, to which Butler SOS pushes data, Prometheus works the other way around.<br>
@@ -144,31 +145,31 @@ The Prometheus server is responsible for gathering data exposed by the systems t
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Label name</th>
-          <th style="text-align: left">Source</th>
-          <th style="text-align: left">Description</th>
+          <th>Label name</th>
+          <th>Source</th>
+          <th>Description</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">host</td>
-          <td style="text-align: left"><code>Butler-SOS.serversToMonitor.servers[].host</code></td>
-          <td style="text-align: left">Host IP or FQDN of the server from which the metric comes.</td>
+          <td>host</td>
+          <td><code>Butler-SOS.serversToMonitor.servers[].host</code></td>
+          <td>Host IP or FQDN of the server from which the metric comes.</td>
       </tr>
       <tr>
-          <td style="text-align: left">server_name</td>
-          <td style="text-align: left"><code>Butler-SOS.serversToMonitor.servers[].serverName</code></td>
-          <td style="text-align: left">Human friendly server name.</td>
+          <td>server_name</td>
+          <td><code>Butler-SOS.serversToMonitor.servers[].serverName</code></td>
+          <td>Human friendly server name.</td>
       </tr>
       <tr>
-          <td style="text-align: left">server_description</td>
-          <td style="text-align: left"><code>Butler-SOS.serversToMonitor.servers[].serverDescription</code></td>
-          <td style="text-align: left">Human friendly server description.</td>
+          <td>server_description</td>
+          <td><code>Butler-SOS.serversToMonitor.servers[].serverDescription</code></td>
+          <td>Human friendly server description.</td>
       </tr>
       <tr>
-          <td style="text-align: left">&hellip;</td>
-          <td style="text-align: left"><code>Butler-SOS.serversToMonitor.servers[].serverTags.*</code></td>
-          <td style="text-align: left">All tags defined in the config file will be added as Prometheus labels.</td>
+          <td>&hellip;</td>
+          <td><code>Butler-SOS.serversToMonitor.servers[].serverTags.*</code></td>
+          <td>All tags defined in the config file will be added as Prometheus labels.</td>
       </tr>
   </tbody>
 </table>
@@ -182,111 +183,111 @@ Most of the metrics come from Qlik Sense&rsquo; <a href="https://help.qlik.com/e
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Metric</th>
-          <th style="text-align: left">Type</th>
-          <th style="text-align: left">Description</th>
+          <th>Metric</th>
+          <th>Type</th>
+          <th>Description</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">butlersos_apps_calls</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">Total number of requests made to the Qlik Sense engine.</td>
+          <td>butlersos_apps_calls</td>
+          <td>Gauge</td>
+          <td>Total number of requests made to the Qlik Sense engine.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butlersos_apps_selections</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">Total number of selections made to the Qlik Sense engine.</td>
+          <td>butlersos_apps_selections</td>
+          <td>Gauge</td>
+          <td>Total number of selections made to the Qlik Sense engine.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butlersos_apps_activedocs_total</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">Number of active apps. An app is active when a user is currently performing some action on it.</td>
+          <td>butlersos_apps_activedocs_total</td>
+          <td>Gauge</td>
+          <td>Number of active apps. An app is active when a user is currently performing some action on it.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butlersos_apps_inmemorydocs_total</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">Number of apps apps currently loaded into memory, even if they do not have any open sessions or connections to it. Apps disappear from this metric when the engine has purged them from memory.</td>
+          <td>butlersos_apps_inmemorydocs_total</td>
+          <td>Gauge</td>
+          <td>Number of apps apps currently loaded into memory, even if they do not have any open sessions or connections to it. Apps disappear from this metric when the engine has purged them from memory.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butlersos_apps_loadeddocs_total</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">Number of apps apps currently loaded into memory, that also have open sessions or connections.</td>
+          <td>butlersos_apps_loadeddocs_total</td>
+          <td>Gauge</td>
+          <td>Number of apps apps currently loaded into memory, that also have open sessions or connections.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butlersos_cache_added</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">Number of cache objects added.</td>
+          <td>butlersos_cache_added</td>
+          <td>Gauge</td>
+          <td>Number of cache objects added.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butlersos_cache_hits</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">Number of cache hits.</td>
+          <td>butlersos_cache_hits</td>
+          <td>Gauge</td>
+          <td>Number of cache hits.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butlersos_cache_lookups</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">Number of cache lookups.</td>
+          <td>butlersos_cache_lookups</td>
+          <td>Gauge</td>
+          <td>Number of cache lookups.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butlersos_cache_replaced</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">Number of cache replaced cache objects.</td>
+          <td>butlersos_cache_replaced</td>
+          <td>Gauge</td>
+          <td>Number of cache replaced cache objects.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butlersos_cache_saturated</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">When the value is 1, the engine is running with high resource usage; otherwise the value is 0.</td>
+          <td>butlersos_cache_saturated</td>
+          <td>Gauge</td>
+          <td>When the value is 1, the engine is running with high resource usage; otherwise the value is 0.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butlersos_cpu_total</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">Percentage of the CPU used by the engine, averaged over a time period of 30 seconds.</td>
+          <td>butlersos_cpu_total</td>
+          <td>Gauge</td>
+          <td>Percentage of the CPU used by the engine, averaged over a time period of 30 seconds.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butlersos_mem_committed</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">The total amount of committed memory for the engine process in MB.</td>
+          <td>butlersos_mem_committed</td>
+          <td>Gauge</td>
+          <td>The total amount of committed memory for the engine process in MB.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butlersos_mem_allocated</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">The total amount of allocated memory (committed + reserved) from the operating system in MB.</td>
+          <td>butlersos_mem_allocated</td>
+          <td>Gauge</td>
+          <td>The total amount of allocated memory (committed + reserved) from the operating system in MB.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butlersos_mem_free</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">The total amount of free memory (minimum of free virtual and physical memory) in MB.</td>
+          <td>butlersos_mem_free</td>
+          <td>Gauge</td>
+          <td>The total amount of free memory (minimum of free virtual and physical memory) in MB.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butlersos_session_active</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">Number of active engine sessions. A session is active when a user is currently performing some action on an app, for example, making selections or creating content.</td>
+          <td>butlersos_session_active</td>
+          <td>Gauge</td>
+          <td>Number of active engine sessions. A session is active when a user is currently performing some action on an app, for example, making selections or creating content.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butlersos_session_total</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">Total number of engine sessions.</td>
+          <td>butlersos_session_total</td>
+          <td>Gauge</td>
+          <td>Total number of engine sessions.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butlersos_users_active</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">Number of distinct active users. An active user is one who is currently performing an action on an app.</td>
+          <td>butlersos_users_active</td>
+          <td>Gauge</td>
+          <td>Number of distinct active users. An active user is one who is currently performing an action on an app.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butlersos_users_total</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">Total number of distinct users within the current engine sessions.</td>
+          <td>butlersos_users_total</td>
+          <td>Gauge</td>
+          <td>Total number of distinct users within the current engine sessions.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butlersos_engine_metadata</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">Metadata about the Qlik Sense engine.</td>
+          <td>butlersos_engine_metadata</td>
+          <td>Gauge</td>
+          <td>Metadata about the Qlik Sense engine.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butlersos_user_session_total</td>
-          <td style="text-align: left">Gauge</td>
-          <td style="text-align: left">Number of sessions (as reported by the proxy service).</td>
+          <td>butlersos_user_session_total</td>
+          <td>Gauge</td>
+          <td>Number of sessions (as reported by the proxy service).</td>
       </tr>
   </tbody>
 </table>
@@ -358,7 +359,7 @@ These are described in the &ldquo;Default metrics&rdquo; section on <a href="htt
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>

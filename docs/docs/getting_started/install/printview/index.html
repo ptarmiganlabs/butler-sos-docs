@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -45,8 +45,8 @@
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -281,7 +281,7 @@ Why? Several reasons:</p>
 They offer a download-configure-execute approach to running Butler SOS.<br>
 This will be the easiest way to use Butler SOS if you are not familiar with Docker.</p>
 <p>But even with the above recommendations, Butler SOS can be deployed in lots of different configurations.<br>
-It is therefore difficult to give precise instructions that will work everwhere, for everyone. Especially the fact that Butler SOS uses certificates to authenticate with Sense is a complicating factor. Certificates are (when correctly used) great for securing systems, but they can alse cause headaches.</p>
+It is therefore difficult to give precise instructions that will work everywhere, for everyone. Especially the fact that Butler SOS uses certificates to authenticate with Sense is a complicating factor. Certificates are (when correctly used) great for securing systems, but they can also cause headaches.</p>
 <p>First we must recognize that Sense uses <a href="https://en.wikipedia.org/wiki/Self-signed_certificate">self signed certificates</a>. This is fine, and as long as you work on a server where Sense Enterprise is installed, that server will have the Sense-provided certificates and Certificate Authority (CA) installed.</p>
 <p>This means that the easiest option for getting Butler SOS up and running is usually to install it on one of your Sense servers.</p>
 <p>That said, it is probably better system design to run Butler SOS (and maybe other members of the <a href="https://github.com/ptarmiganlabs">Butler family</a>) on their own server, maybe using some flavour of Linux (lower cost compared to Windows). Windows servers work equally well though.</p>
@@ -297,7 +297,7 @@ This <em>should</em> technically not be needed for Butler SOS to work correctly 
 </span></span><span style="display:flex;"><span>2018-05-23T20:36:49.164Z - verbose: Event started: Query log db
 </span></span><span style="display:flex;"><span>2018-05-23T20:36:49.180Z - verbose: Event started: Statistics collection
 </span></span></code></pre></div><p>A general note on host names is also relevant.<br>
-If you specify a server name of &ldquo;myserver.company.com&rdquo; while exporting certificates from the QMC, you should use that same server name in the Butler SOS config file.  Failing to do so will (most likely) result in an error:</p>
+If you specify a server name of &ldquo;myserver.company.com&rdquo; while exporting certificates from the QMC, you should use that same server name in the Butler SOS config file. Failing to do so will (most likely) result in an error:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>2018-05-23T19:51:03.087Z - error: Error: Error: Hostname/IP doesn<span style="color:#4e9a06">&#39;t match certificate&#39;</span>s altnames: <span style="color:#4e9a06">&#34;Host: serveralias.company.net. is not in the cert&#39;s altnames: DNS:myserver.company.com&#34;</span>
 </span></span><span style="display:flex;"><span>    at Object.checkServerIdentity <span style="color:#ce5c00;font-weight:bold">(</span>tls.js:223:17<span style="color:#ce5c00;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>    at TLSSocket.&lt;anonymous&gt; <span style="color:#ce5c00;font-weight:bold">(</span>_tls_wrap.js:1111:29<span style="color:#ce5c00;font-weight:bold">)</span>
@@ -343,41 +343,41 @@ It is also available as a <a href="https://hub.docker.com/r/ptarmiganlabs/butler
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Platform</th>
-          <th style="text-align: left">Pros</th>
-          <th style="text-align: left">Cons</th>
+          <th>Platform</th>
+          <th>Pros</th>
+          <th>Cons</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">Docker</td>
-          <td style="text-align: left">- Easy to set up Butler SOS in Docker <br>- Easy to test new versions of Butler SOS <br>- Use existing Docker infrastructure<br>- Monitoring, restarts etc built into Docker<br> - Runs on low cost hardware and OSs</td>
-          <td style="text-align: left">- Docker environment needed (if not already available). Setting up and running Docker is not hard, but does require somewhat other skills than those needed to run a Sense environment</td>
+          <td>Docker</td>
+          <td>- Easy to set up Butler SOS in Docker <br>- Easy to test new versions of Butler SOS <br>- Use existing Docker infrastructure<br>- Monitoring, restarts etc built into Docker<br> - Runs on low cost hardware and OSs</td>
+          <td>- Docker environment needed (if not already available). Setting up and running Docker is not hard, but does require somewhat other skills than those needed to run a Sense environment</td>
       </tr>
       <tr>
-          <td style="text-align: left">Kubernetes</td>
-          <td style="text-align: left">- Enterprise grade <br>- Fault tolerant <br>- Deployed alongside other enterprise applications</td>
-          <td style="text-align: left">- More difficult to set up than Docker</td>
+          <td>Kubernetes</td>
+          <td>- Enterprise grade <br>- Fault tolerant <br>- Deployed alongside other enterprise applications</td>
+          <td>- More difficult to set up than Docker</td>
       </tr>
       <tr>
-          <td style="text-align: left">Windows server</td>
-          <td style="text-align: left">- Butler SOS can run on same server as Qlik Sense, saving hardware/server costs<br>- Pre-built, standalone binaries available</td>
-          <td style="text-align: left">- Running Butler SOS natively on the Sense server is a potential risk (usually a good idea to isolate systems/services to their own servers/environments whenever possible)<br>- More difficult (compared to Docker) to achieve a production grade setup (auto restarts etc)</td>
+          <td>Windows server</td>
+          <td>- Butler SOS can run on same server as Qlik Sense, saving hardware/server costs<br>- Pre-built, standalone binaries available</td>
+          <td>- Running Butler SOS natively on the Sense server is a potential risk (usually a good idea to isolate systems/services to their own servers/environments whenever possible)<br>- More difficult (compared to Docker) to achieve a production grade setup (auto restarts etc)</td>
       </tr>
       <tr>
-          <td style="text-align: left">Linux</td>
-          <td style="text-align: left">- No cost for operating system (at least not for most Linux versions)<br>- Runs on low cost hardware<br>- Pre-built, standalone binaries available</td>
-          <td style="text-align: left">- More difficult (compared to Docker) to achieve a production grade setup (auto restarts etc)</td>
+          <td>Linux</td>
+          <td>- No cost for operating system (at least not for most Linux versions)<br>- Runs on low cost hardware<br>- Pre-built, standalone binaries available</td>
+          <td>- More difficult (compared to Docker) to achieve a production grade setup (auto restarts etc)</td>
       </tr>
       <tr>
-          <td style="text-align: left">Mac OS</td>
-          <td style="text-align: left">- For development, if you want to extend or modify Butler SOS<br>- Signed, pre-built, standalone binaries available</td>
-          <td style="text-align: left">- Not a server grade operating system, i.e. not for production use</td>
+          <td>Mac OS</td>
+          <td>- For development, if you want to extend or modify Butler SOS<br>- Signed, pre-built, standalone binaries available</td>
+          <td>- Not a server grade operating system, i.e. not for production use</td>
       </tr>
       <tr>
-          <td style="text-align: left">Windows (desktop)</td>
-          <td style="text-align: left">- For development, if you want to extend or modify Butler SOS</td>
-          <td style="text-align: left">- Not a server grade operating system, i.e. not for production use</td>
+          <td>Windows (desktop)</td>
+          <td>- For development, if you want to extend or modify Butler SOS</td>
+          <td>- Not a server grade operating system, i.e. not for production use</td>
       </tr>
   </tbody>
 </table>
@@ -412,39 +412,39 @@ It is also available as a <a href="https://hub.docker.com/r/ptarmiganlabs/butler
     <div class="lead">How to install Butler SOS as a Node.js application.</div>
 	<h2 id="selecting-an-os">Selecting an OS</h2>
 <p>While Qlik Sense Enterprise is a Windows only system, Butler SOS should be able to run on any OS where Node.js is available.<br>
-Butler SOS has been succesfully used as a native Node.js app - during development and production - on Windows, Linux (Debian and Ubuntu tested) and mac OS.</p>
+Butler SOS has been successfully used as a native Node.js app - during development and production - on Windows, Linux (Debian and Ubuntu tested) and mac OS.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">What</th>
-          <th style="text-align: left">Comment</th>
+          <th>What</th>
+          <th>Comment</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">Qlik Sense Enterprise on Windows</td>
-          <td style="text-align: left"><em>Mandatory.</em> Butler SOS is developed with Qlik Sense Enterprise on Windows (QSEoW) in mind. <br>Butler SOS is simply not intended to work with Sense Desktop or Sense cloud.</td>
+          <td>Qlik Sense Enterprise on Windows</td>
+          <td><em>Mandatory.</em> Butler SOS is developed with Qlik Sense Enterprise on Windows (QSEoW) in mind. <br>Butler SOS is simply not intended to work with Sense Desktop or Sense cloud.</td>
       </tr>
       <tr>
-          <td style="text-align: left">Node.js</td>
-          <td style="text-align: left"><em>Mandatory.</em> Butler SOS is written in Node - which is thus a firm requirement.</td>
+          <td>Node.js</td>
+          <td><em>Mandatory.</em> Butler SOS is written in Node - which is thus a firm requirement.</td>
       </tr>
       <tr>
-          <td style="text-align: left">MQTT broker</td>
-          <td style="text-align: left"><em>Optional.</em> MQTT is used for outbound pub-sub messaging. Butler SOS assumes a working MQTT broker is available, the IP of which is defined in the Butler SOS config file. <a href="https://mosquitto.org/">Mosquitto</a> is a great open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&hellip; instance is enough, if you want a dedicated MQTT server. If you don&rsquo;t care about the pubsub features of Butler SOS, you don&rsquo;t need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.</td>
+          <td>MQTT broker</td>
+          <td><em>Optional.</em> MQTT is used for outbound pub-sub messaging. Butler SOS assumes a working MQTT broker is available, the IP of which is defined in the Butler SOS config file. <a href="https://mosquitto.org/">Mosquitto</a> is a great open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&hellip; instance is enough, if you want a dedicated MQTT server. If you don&rsquo;t care about the pubsub features of Butler SOS, you don&rsquo;t need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><a href="https://www.influxdata.com/time-series-platform/">InfluxDB</a></td>
-          <td style="text-align: left"><em>Use at least one of InfluxDB and Prometheus.</em> An open source database for realtime information, used to store metrics around Butler&rsquo;s own memory usage over time (if this feature is enabled).<br> At this point more metrics and events are sent to InfluxDB, compared to Prometheus.</td>
+          <td><a href="https://www.influxdata.com/time-series-platform/">InfluxDB</a></td>
+          <td><em>Use at least one of InfluxDB and Prometheus.</em> An open source database for real-time information, used to store metrics around Butler&rsquo;s own memory usage over time (if this feature is enabled).<br> At this point more metrics and events are sent to InfluxDB, compared to Prometheus.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><a href="https://prometheus.io">Prometheus</a></td>
-          <td style="text-align: left"><em>Use at least one of InfluxDB and Prometheus.</em> The de-facto standard open source tool for metrics gathering in large-scale systems, including Kubernetes. A bit more complex to set up and configure compared to InfluxDB, but also more focused on providing observability features.</td>
+          <td><a href="https://prometheus.io">Prometheus</a></td>
+          <td><em>Use at least one of InfluxDB and Prometheus.</em> The de-facto standard open source tool for metrics gathering in large-scale systems, including Kubernetes. A bit more complex to set up and configure compared to InfluxDB, but also more focused on providing observability features.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><a href="https://grafana.com">Grafana</a></td>
-          <td style="text-align: left"><em>Optional.</em> The de-facto open source standard for showing real-time metrics. In order to visualise Sense realtime metrics in Grafana you must enable at least one of InfluxDB or Prometheus.</td>
+          <td><a href="https://grafana.com">Grafana</a></td>
+          <td><em>Optional.</em> The de-facto open source standard for showing real-time metrics. In order to visualise Sense real-time metrics in Grafana you must enable at least one of InfluxDB or Prometheus.</td>
       </tr>
   </tbody>
 </table>
@@ -493,7 +493,7 @@ The first is by far easier to set up and maintain and thus recommended.</p>
 <li>Use <a href="https://nssm.cc/download">nssm</a> or similar tool to install Butler SOS as a Windows service</li>
 </ol>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 410px">
-<img class="card-img-top" src="/docs/getting_started/install/native/windows/unblock-butler-sos-windows-1_hu18366972164874321277.png" width="400" height="562">
+<img class="card-img-top" src="/docs/getting_started/install/native/windows/unblock-butler-sos-windows-1_hu_ac2f9a55133ac0fd.png" width="400" height="562">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -507,7 +507,7 @@ Unblocking the Butler SOS zip file on Windows Server
 <h3 id="using-nodejs">Using Node.js</h3>
 <p>In this scenario you will use the Butler SOS source code together with the standard Node.js runtime libraries.</p>
 <p>The result is the same as with the stand-alone binaries, you just have to do more of the work yourself.<br>
-This is usually <em>not</em> preferred, but if you want to add new features to (or modify existone ones) Butler SOS, this option is for you</p>
+This is usually <em>not</em> preferred, but if you want to add new features to (or modify existing ones) Butler SOS, this option is for you</p>
 <h4 id="1-install-nodejs">1. Install Node.js</h4>
 <p>The <a href="https://nodejs.org/en/download/">latest LTS version</a> is usually a good choice.</p>
 <h4 id="2-select-a-directory-from-which-butler-sos-will-be-run">2. Select a directory from which Butler SOS will be run</h4>
@@ -580,7 +580,7 @@ The first is by far easier to set up and maintain and thus recommended.</p>
 <li>Use the process monitor of choice (see below) to make sure Butler SOS is always running</li>
 </ol>
 <h3 id="using-nodejs">Using Node.js</h3>
-<p>This scenario is identical to the <a href="/docs/getting_started/install/native/windows/">Windows scenario</a>, please refer to that page for details. Keep in mind that the format of file systems paths differ between Windows and Linxu/Mac OS.</p>
+<p>This scenario is identical to the <a href="/docs/getting_started/install/native/windows/">Windows scenario</a>, please refer to that page for details. Keep in mind that the format of file systems paths differ between Windows and Linux/Mac OS.</p>
 <h2 id="configuration">Configuration</h2>
 <p>Once again, same thing as <a href="/docs/getting_started/install/native/windows/">on Windows</a>.</p>
 <h2 id="stayin-alive">Stayin&rsquo; alive</h2>
@@ -625,10 +625,10 @@ Tools like <a href="http://pm2.keymetrics.io/">PM2</a> in fact usually work bett
 <p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>Butler SOS Docker images are automatically built for several architectures:</p>
 <ul>
 <li>amd64: This is by far the most common platform - your typical Intel based server use amd64.</li>
-<li>arm64: Arm servers are now available from most cloud providers and offer very competetive price/performance. Apple&rsquo;s new M1 CPUs also use arm64, as does the newer Raspberry Pi models.</li>
+<li>arm64: Arm servers are now available from most cloud providers and offer very competitive price/performance. Apple&rsquo;s new M1 CPUs also use arm64, as does the newer Raspberry Pi models.</li>
 <li>arm/v7: An older Arm architecture found in previous-gen Raspberry Pis, for example.</li>
 </ul>
-<p>All images are available on <a href="https://hub.docker.com/r/ptarmiganlabs/butler-sos/tags?page=1&ordering=last_updated">Docker Hub</a>.</p></div>
+<p>All images are available on <a href="https://hub.docker.com/r/ptarmiganlabs/butler-sos/tags?page=1&amp;ordering=last_updated">Docker Hub</a>.</p></div>
 
 <p>Docker is great in that it runs on many different platforms.<br>
 This means that as long as the Docker runtime environment is installed, you can run Butler SOS on your Mac laptop, on a Linux server or on a Windows server.<br>
@@ -659,10 +659,10 @@ Docker on Windows is another story - it&rsquo;s there and works great, but not a
 <p>Copy the <a href="https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml">YAML config file</a> from the GitHub repository into the ./config directory, rename it to <code>production.yaml</code> (or something else, as long as it matches the NODE_ENV environment variable set in the <code>docker-compose.yml</code> file) and edit it as needed. Note that for the Docker setup the path to certificates (as specified in the YAML config file) should be <code>/nodeapp/config/certificate/</code> (this is the Docker container&rsquo;s internal path to the certificate directory).</p>
 </li>
 <li>
-<p>Edit the config file above as needed, with respect to your local Sense environment, folder paths etc. The provided template file has reasonable defualt settings where possible, but there are also a number of paths, passwords etc that must be configured.</p>
+<p>Edit the config file above as needed, with respect to your local Sense environment, folder paths etc. The provided template file has reasonable default settings where possible, but there are also a number of paths, passwords etc that must be configured.</p>
 </li>
 <li>
-<p>Export certifiates from the QMC in Qlik Sense Enterprise, place them in the <code>./config/certificate</code> directory (i.e. in a subdirectory to the directory where the docker-comspose file is stored). The certificates can in theory be placed anywhere, as long as they are made available to the Docker container via a volume mount in the docker-compose.yaml file (e.g. <code>- &quot;./config:/nodeapp/config&quot;</code>).</p>
+<p>Export certificates from the QMC in Qlik Sense Enterprise, place them in the <code>./config/certificate</code> directory (i.e. in a subdirectory to the directory where the docker-compose file is stored). The certificates can in theory be placed anywhere, as long as they are made available to the Docker container via a volume mount in the docker-compose.yaml file (e.g. <code>- &quot;./config:/nodeapp/config&quot;</code>).</p>
 </li>
 </ol>
 <p>Let&rsquo;s do this one step at a time.<br>
@@ -815,7 +815,7 @@ The Butler SOS config file is called <code>production.yaml</code>.</p>
 <p>If you already have InfluxDB and/or Grafana running you can skip this section.</p>
 <h2 id="running-in-docker-using-docker-compose">Running in Docker using docker-compose</h2>
 <p>The easiest way to get started is to run these tools in Docker containers, controlled by docker-compose files.<br>
-Running them under Kubernetes will give you a whole other level of fault tolerance, scalability etc - but this also requries much more when it comes to Kubernetes skills. Use the setup that&rsquo;s relevant to your use case.</p>
+Running them under Kubernetes will give you a whole other level of fault tolerance, scalability etc - but this also requires much more when it comes to Kubernetes skills. Use the setup that&rsquo;s relevant to your use case.</p>
 <p>You can use a single docker-compose file for Butler SOS, InfluxDB and Grafana - or separate docker-compose files for each tool.</p>
 <p>The advantage of using a single docker-compose file is that the entire stack of tools will be launched in unison. You can create dependencies between the tools if needed etc - very convenient.
 On the other hand, having separate docker-compose files makes it easier to restart (or upgrade or in other ways change) a single service without affecting other services.</p>
@@ -951,16 +951,16 @@ On the other hand, having separate docker-compose files makes it easier to resta
 </span></span></code></pre></div><p>That&rsquo;s great, we now have a single command (<code>docker-compose -f docker-compose_fullstack_influxdb.yml up -d</code> for background/daemon mode) to bring up all the tools needed to monitor a Qlik Sense cluster!</p>
 <p>Now, let&rsquo;s see if any data has arrived in InfluxDB.<br>
 Let&rsquo;s check this by going into Grafana, which is available on port 3000.</p>
-<p>First time logging into a new Grafana instance you can use the default admin acount (username=admin, password=admin).<br>
+<p>First time logging into a new Grafana instance you can use the default admin account (username=admin, password=admin).<br>
 You will be asked to change that password during first login.</p>
 <p>First add a data source in Grafana, pointing it to the local InfluxDB server.</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
-<img class="card-img-top" src="/docs/getting_started/install/influxdb_grafana/grafana-influxdb-datasource-1_hu16195411686734643213.png" width="800" height="918">
+<img class="card-img-top" src="/docs/getting_started/install/influxdb_grafana/grafana-influxdb-datasource-1_hu_853634b1ec668f8f.png" width="800" height="918">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
 
-Adding an InfluxDB datasource in Grafana
+Adding an InfluxDB data source in Grafana
 
 </p>
 </figcaption>
@@ -969,12 +969,12 @@ Adding an InfluxDB datasource in Grafana
 <p>Now we can create a basic chart in Grafana, showing for example Butler SOS&rsquo; own memory usage.<br>
 After a while we should see some data in the chart:</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1034px">
-<img class="card-img-top" src="/docs/getting_started/install/influxdb_grafana/grafana-chart-1_hu1621247098358868806.png" width="1024" height="587">
+<img class="card-img-top" src="/docs/getting_started/install/influxdb_grafana/grafana-chart-1_hu_aa7f8d873ecff50c.png" width="1024" height="587">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
 
-Butler SOS' own memory usage, stored in InfluxDB and visualised in Grafana
+Butler SOS' own memory usage, stored in InfluxDB and visualized in Grafana
 
 </p>
 </figcaption>
@@ -1038,7 +1038,7 @@ Usually it&rsquo;s not that difficult, but if you&rsquo;re new to Docker and has
 If you already have access to those tools you can of course instead configure them to work with Butler SOS.</p>
 <h2 id="running-in-docker-using-docker-compose">Running in Docker using docker-compose</h2>
 <p>The easiest way to get started is to run these tools in Docker containers, controlled by docker-compose files.<br>
-Running them under Kubernetes will give you a whole other level of fault tolerance, scalability etc - but this also requries much more when it comes to Kubernetes skills.
+Running them under Kubernetes will give you a whole other level of fault tolerance, scalability etc - but this also requires much more when it comes to Kubernetes skills.
 Use the setup that&rsquo;s relevant to your use case.</p>
 <p>You can use a single docker-compose file for Butler SOS, Prometheus and Grafana - or separate docker-compose files for each tool.</p>
 <p>The advantage of using a single docker-compose file is that the entire stack of tools will be launched in unison. You can create dependencies between the tools if needed etc - very convenient.
@@ -1120,7 +1120,7 @@ On the other hand, having separate docker-compose files makes it easier to resta
 </span></span></code></pre></div><p>From a separate shell we can then ensure that the expected Docker containers are running:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>➜ docker ps
 </span></span><span style="display:flex;"><span>CONTAINER ID   IMAGE                             COMMAND                  CREATED         STATUS                            PORTS                                                                                  NAMES
-</span></span><span style="display:flex;"><span>➜ 
+</span></span><span style="display:flex;"><span>➜
 </span></span></code></pre></div><p>That&rsquo;s great, you now have a single command (<code>docker-compose -f docker-compose_fullstack_influxdb.yml up -d</code> for background/daemon mode) to bring up all the tools needed to monitor a Qlik Sense cluster!</p>
 <p>Need to stop the entire stack of tools?<br>
 Easy - just run <code>docker-compose -f docker-compose_fullstack_influxdb.yml down</code>:</p>
@@ -1197,7 +1197,7 @@ Easy - just run <code>docker-compose -f docker-compose_fullstack_influxdb.yml do
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>

@@ -11,16 +11,16 @@ These settings are optional.
 
 If you don't need the Prometheus feature, just disable it and leave the default values in the config as they are.
 
-Do note though that Butler expects the configuration properties below to exist in the config file, but will *ignore their values* if the related features are disabled.
+Do note though that Butler expects the configuration properties below to exist in the config file, but will _ignore their values_ if the related features are disabled.
 {{% /alert %}}
 
 ## What's this?
 
 [Prometheus](https://prometheus.io) is the de-facto standard, open source tool for achieving observability of both small, large and huge IT systems.
 
-At its heart Prometheus contains a time-series databas optimized for storing various kinds of measurements. It has strong support for doing dimensional queries, great integrations with incident managament tools and more.
+At its heart Prometheus contains a time-series database optimized for storing various kinds of measurements. It has strong support for doing dimensional queries, great integrations with incident management tools and more.
 
-Looking at the visualisation side of things, Prometheus is Grafana's preferred source for time-series data. Put differently, Prometheus has some query features that InfluxDB lack, thus making some Grafana diagrams easier to create using Prometheus vs InfluxDB. The difference is minor though.
+Looking at the visualization side of things, Prometheus is Grafana's preferred source for time-series data. Put differently, Prometheus has some query features that InfluxDB lack, thus making some Grafana diagrams easier to create using Prometheus vs InfluxDB. The difference is minor though.
 
 ## Settings in main config file
 
@@ -33,7 +33,7 @@ Butler-SOS:
   prometheus:
     enable: false                                    # Default false
     host: <IP or FQDN where Butler SOS is running>  # On what IP/FQDN should the Prometheus metrics be exposed? Default 0.0.0.0, i.e. all available IPs
-    port: 9842      
+    port: 9842
   ...
   ...
 ```

@@ -31,20 +31,20 @@ Chart showing mean time needed to open apps on a Qlik Sense server.
 - Store the data collected by Butler SOS in an InfluxDB v1 or v2 database. Setup instructions [here](/docs/getting_started/setup/influxdb/)
 - XML appender files deployed on the Sense servers you want to monitor. The appender files tell Sense to send log events to Butler SOS via UDP messages. Setup instructions [here](/docs/getting_started/setup/qlik-sense-events/#log-appender-xml-files).
 - A reasonably recent version of [Grafana](https://grafana.com/grafana/download). At the time of writing, Grafana 11.2 is the latest version.
-- Data connetions set up in Grafana to the InfluxDB database where Butler SOS stores its data.
+- Data connections set up in Grafana to the InfluxDB database where Butler SOS stores its data.
 
 ## Configure Butler SOS
 
 1. Enable engine performance monitoring.
 2. Enable tracking of rejected performance log events.  
    Butler SOS will track two things related to rejected events: Number of events (=counter), and the processing time for these events.
-3. If detailed engine performance log events are enabled, Butler SOS will *not* create counters for these events. Instead, it will store the detailed data in InfluxDB.  
+3. If detailed engine performance log events are enabled, Butler SOS will _not_ create counters for these events. Instead, it will store the detailed data in InfluxDB.  
    This data can then be aggregated to create the same kind of counters as for rejected engine performance log events.
 
-Note: "Rejected events" are engine performance log events that do not meet the criteria set up in Butler SOS for *detailed* engine performance monitoring.
+Note: "Rejected events" are engine performance log events that do not meet the criteria set up in Butler SOS for _detailed_ engine performance monitoring.
 
 Bottom line is that you can disable all detailed engine monitoring in Butler SOS, and only enable the tracking of rejected events.  
-This will give you a counter for the number of rejected events, and the processing time for these events, across a set of dimensions - of which engine "method" is one.  
+This will give you a counter for the number of rejected events, and the processing time for these events, across a set of dimensions - of which engine "method" is one.
 
 Or you can enable detailed engine performance monitoring for some apps, and only track rejected events for others.
 
@@ -55,17 +55,16 @@ InfluxDB is the only supported database for this feature.
 It is configured elsewhere in the YAML config file, more info [here](/docs/getting_started/setup/influxdb/).
 {{< /notice >}}
 
-
 ```yaml
   # Shared settings for user and log events (see below)
   qlikSenseEvents:                  # Shared settings for user and log events (see below)
     influxdb:
       enable: true                  # Should summary (counter) of user/log events, and rejected events be stored in InfluxDB?
-      writeFrequency: 20000         # How often (milliseconds) should event counts be written to InfluxDB?  
+      writeFrequency: 20000         # How often (milliseconds) should event counts be written to InfluxDB?
     ...
     ...
-    rejectedEventCount:             # Rejected events are events that are received from Sense, that are correctly formatted, 
-                                    # but that are rejected by Butler SOS based on the configuration in this file. 
+    rejectedEventCount:             # Rejected events are events that are received from Sense, that are correctly formatted,
+                                    # but that are rejected by Butler SOS based on the configuration in this file.
                                     # An example of a rejected event is a performance log event that is filtered out by Butler SOS.
       enable: true                  # Should rejected events be counted and stored in InfluxDB?
       influxdb:
@@ -88,7 +87,7 @@ It is configured elsewhere in the YAML config file, more info [here](/docs/getti
       enable: true                      # Should app performance data be extracted from log events?
       appNameLookup:                    # Should app names be looked up based on app IDs?
         enable: true
-      trackRejectedEvents: 
+      trackRejectedEvents:
         enable: true                    # Should events that are rejected by the app performance monitor be tracked?
         tags:                           # Tags are added to the data before it's stored in InfluxDB
           - name: qs_tag1
@@ -100,7 +99,7 @@ It is configured elsewhere in the YAML config file, more info [here](/docs/getti
 
 ## Configure Grafana
 
-Create a Grafana chart (in an existing dashboard or a new one) thats shows the average time it takes to open apps on your Sense server(s).  
+Create a Grafana chart (in an existing dashboard or a new one) that shows the average time it takes to open apps on your Sense server(s).  
 You do this by only show data in the chart for the engine method `Global::OpenApp`.
 
 The definition of such a chart in Grafana could look something like this (slightly different set of apps selected, compared to screenshot above):

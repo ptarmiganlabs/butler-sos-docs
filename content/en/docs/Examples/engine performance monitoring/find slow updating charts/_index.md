@@ -29,7 +29,7 @@ In order to understand the chart you must also know the ID of each app object. M
 - Store the data collected by Butler SOS in an InfluxDB v1 or v2 database. Setup instructions [here](/docs/getting_started/setup/influxdb/)
 - XML appender files deployed on the Sense servers you want to monitor. The appender files tell Sense to send log events to Butler SOS via UDP messages. Setup instructions [here](/docs/getting_started/setup/qlik-sense-events/#log-appender-xml-files).
 - A reasonably recent version of [Grafana](https://grafana.com/grafana/download). At the time of writing, Grafana 11.2 is the latest version.
-- Data connetions set up in Grafana to the InfluxDB database where Butler SOS stores its data.
+- Data connections set up in Grafana to the InfluxDB database where Butler SOS stores its data.
 - A way to get the ID of each app object in the Sense apps you want to monitor. This can be done in [several ways](/docs/getting_started/setup/qlik-sense-events/log-events/performance-log-events/#filter-applying-to-specific-apps).
 
 ### The app being monitored
@@ -50,7 +50,7 @@ The idea of the app is to stress the Sense engine by having it index random data
 There are two things that may require a lot of time to update in this app:
 
 1. Opening the app when it is not already in memory. This will trigger an indexing of the data, which takes time given the randomness of the data and the number of rows.
-2. Making a selection in the app once it is open. This will trigger a re-indexing of the *selected* data, which can also take some time (depending on what/how much data is selected).
+2. Making a selection in the app once it is open. This will trigger a re-indexing of the _selected_ data, which can also take some time (depending on what/how much data is selected).
 
 ### A word of caution
 
@@ -74,7 +74,7 @@ It is configured elsewhere in the YAML config file, more info [here](/docs/getti
   qlikSenseEvents:                  # Shared settings for user and log events (see below)
     influxdb:
       enable: true                  # Should summary (counter) of user/log events, and rejected events be stored in InfluxDB?
-      writeFrequency: 20000         # How often (milliseconds) should event counts be written to InfluxDB?  
+      writeFrequency: 20000         # How often (milliseconds) should event counts be written to InfluxDB?
   ...
   ...
   # Log events are used to capture Sense warnings, errors and fatals in real time
@@ -106,7 +106,7 @@ It is configured elsewhere in the YAML config file, more info [here](/docs/getti
                                         # If both appId and appName are specified, both must match the event's data for it to be considered a match.
 t          objectType:
             allObjectTypes: false       # Should all object types be monitored?
-            allObjectTypesExclude:      # If allObjectTypes is set to true, the object types in this array are excluded from monitoring. 
+            allObjectTypesExclude:      # If allObjectTypes is set to true, the object types in this array are excluded from monitoring.
                                         # someObjectTypesInclude (below) is ignored in that case.
             someObjectTypesInclude:     # What object types should be included in monitoring?
                                         # Only applicable if allObjectTypes is set to false.
@@ -122,9 +122,9 @@ t          objectType:
             - include:                  # What apps should be monitored?
                                         # If both appId and appName are specified, both must match the event's data for it to be considered a match.
                 - appName: Training - Field indexing
-              objectType:                 
+              objectType:
                 allObjectTypes: true   # Should all object types be monitored?
-                allObjectTypesExclude:  # If allObjectTypes is set to true, the object types in this array are excluded from monitoring. 
+                allObjectTypesExclude:  # If allObjectTypes is set to true, the object types in this array are excluded from monitoring.
                                         # someObjectTypesInclude (below) is ignored in that case.
                 someObjectTypesInclude: # What object types should be included in monitoring?
                                         # Only applicable if allObjectTypes is set to false.
@@ -134,7 +134,7 @@ t          objectType:
                                         # someAppObjectsInclude (below) is ignored in that case.
                 someAppObjectsInclude:  # What app objects should be included in monitoring?
                                         # Only applicable if allAppObjects is set to false.
-              method: 
+              method:
                 allMethods: true        # Should all methods be monitored?
                 allMethodsExclude:      # If allMethods is set to true, the methods in this array are excluded from monitoring.
                                         # someMethodsInclude (below) is ignored in that case.
@@ -169,9 +169,9 @@ Definition of the "app_name_monitored" Grafana variable.
 
 Given the detailed information captured about all app objects in the "Training - Field indexing" app, it is possible to slice and dice the data in many ways.
 
-For example, it could be interesting to see what *kinds* of app objects use most time, and which ones are faster.  
+For example, it could be interesting to see what _kinds_ of app objects use most time, and which ones are faster.  
 Something like this:
 
 {{< imgproc butler-sos-accepted-performance-log-events-14 Resize "1200x" >}}
-Chart showing the *total* time spent updating the "Training - Field indexing" app, grouped by object type, during last hour.
+Chart showing the _total_ time spent updating the "Training - Field indexing" app, grouped by object type, during last hour.
 {{< /imgproc >}}

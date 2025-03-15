@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/mqtt/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/mqtt/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -45,8 +45,8 @@
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -132,7 +132,7 @@ This is the multi-page printable view of this section.
 </div>
 
 <h2 id="whats-this">What&rsquo;s this?</h2>
-<p><a href="https://mqtt.org/">MQTT</a> is a light weight messaging protocol based on a publish-subscribe metaphore. It is widely used in Internet of Things and telecom sectors.</p>
+<p><a href="https://mqtt.org/">MQTT</a> is a light weight messaging protocol based on a publish-subscribe metaphor. It is widely used in Internet of Things and telecom sectors.</p>
 <p>MQTT has features such as guaranteed delivery of messages, which makes it very useful for communicating between Sense and both up- and downstream source/destination systems.</p>
 <p>Butler SOS can be configured to forward various metrics and events from Sense as MQTT messages. In order to do so, some shared configuration needs to be in place first. This section covers that configuration.</p>
 <p>Specifically, a MQTT broker/gateway has to be configured. All MQTT messages from Butler SOS will be sent to this broker.</p>
@@ -146,7 +146,7 @@ This is the multi-page printable view of this section.
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># Items below are mandatory if mqttConfig.enable=true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">brokerHost</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;IP of MQTT broker/server&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">brokerPort</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">1883</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">baseTopic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">butler-sos/         </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Default topic used if not not oherwise specified elsewhere. Should end with /</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">baseTopic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">butler-sos/         </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Default topic used if not not otherwise specified elsewhere. Should end with /</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div>
@@ -214,7 +214,7 @@ This is the multi-page printable view of this section.
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>

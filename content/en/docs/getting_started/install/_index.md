@@ -28,27 +28,27 @@ Why? Several reasons:
 - Make use of your existing Docker runtime environments, or use those offered by Amazon, Google, Microsoft etc.
 - Benefit from the comprehensive tools ecosystem (monitoring, deployment etc) that is available for Docker.
 - Updating Butler SOS to the latest version (assuming no config file changes are needed for that particular upgrade) is as easy as stopping the container, doing a "docker pull ptarmiganlabs/butler-sos:latest", and finally starting the container again.
-{{% /pageinfo %}}
+  {{% /pageinfo %}}
 
 If Docker is not an option, the pre-built, stand-alone binaries for Windows, Linux and macOS are good options.  
 They offer a download-configure-execute approach to running Butler SOS.  
 This will be the easiest way to use Butler SOS if you are not familiar with Docker.
 
 But even with the above recommendations, Butler SOS can be deployed in lots of different configurations.  
-It is therefore difficult to give precise instructions that will work everwhere, for everyone. Especially the fact that Butler SOS uses certificates to authenticate with Sense is a complicating factor. Certificates are (when correctly used) great for securing systems, but they can alse cause headaches.
+It is therefore difficult to give precise instructions that will work everywhere, for everyone. Especially the fact that Butler SOS uses certificates to authenticate with Sense is a complicating factor. Certificates are (when correctly used) great for securing systems, but they can also cause headaches.
 
 First we must recognize that Sense uses [self signed certificates](https://en.wikipedia.org/wiki/Self-signed_certificate). This is fine, and as long as you work on a server where Sense Enterprise is installed, that server will have the Sense-provided certificates and Certificate Authority (CA) installed.
 
 This means that the easiest option for getting Butler SOS up and running is usually to install it on one of your Sense servers.
 
-That said, it is probably better system design to run Butler SOS (and maybe other members of the [Butler family](https://github.com/ptarmiganlabs)) on their own server, maybe using some flavour of Linux (lower cost compared to Windows). Windows servers work equally well though.  
+That said, it is probably better system design to run Butler SOS (and maybe other members of the [Butler family](https://github.com/ptarmiganlabs)) on their own server, maybe using some flavour of Linux (lower cost compared to Windows). Windows servers work equally well though.
 
 In this case you might want to consider exporting the Sense CA certificate from one of your Sense servers, and then install it on the Linux server.
-This *should* technically not be needed for Butler SOS to work correctly - as long as you specify the correct root.pem file in the Butler SOS config file, you should be ok.
+This _should_ technically not be needed for Butler SOS to work correctly - as long as you specify the correct root.pem file in the Butler SOS config file, you should be ok.
 
-If you specify an incorrect root CA certificate file in the ```clientCertCA``` config option, you will get an error like this:
+If you specify an incorrect root CA certificate file in the `clientCertCA` config option, you will get an error like this:
 
-``` bash
+```bash
 2018-05-23T20:36:44.393Z - error: Error: Error: unable to verify the first certificate
     at TLSSocket.<anonymous> (_tls_wrap.js:1105:38)
     at emitNone (events.js:106:13)
@@ -60,9 +60,9 @@ If you specify an incorrect root CA certificate file in the ```clientCertCA``` c
 ```
 
 A general note on host names is also relevant.  
-If you specify a server name of "myserver.company.com" while exporting certificates from the QMC, you should use that same server name in the Butler SOS config file.  Failing to do so will (most likely) result in an error:
+If you specify a server name of "myserver.company.com" while exporting certificates from the QMC, you should use that same server name in the Butler SOS config file. Failing to do so will (most likely) result in an error:
 
-``` bash
+```bash
 2018-05-23T19:51:03.087Z - error: Error: Error: Hostname/IP doesn't match certificate's altnames: "Host: serveralias.company.net. is not in the cert's altnames: DNS:myserver.company.com"
     at Object.checkServerIdentity (tls.js:223:17)
     at TLSSocket.<anonymous> (_tls_wrap.js:1111:29)

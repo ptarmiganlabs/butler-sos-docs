@@ -11,12 +11,12 @@ These settings are optional.
 
 If you don't need the MQTT feature, just disable it and leave the default values in the config as they are.
 
-Do note though that Butler expects the configuration properties below to exist in the config file, but will *ignore their values* if the related features are disabled.
+Do note though that Butler expects the configuration properties below to exist in the config file, but will _ignore their values_ if the related features are disabled.
 {{% /alert %}}
 
 ## What's this?
 
-[MQTT](https://mqtt.org/) is a light weight messaging protocol based on a publish-subscribe metaphore. It is widely used in Internet of Things and telecom sectors.
+[MQTT](https://mqtt.org/) is a light weight messaging protocol based on a publish-subscribe metaphor. It is widely used in Internet of Things and telecom sectors.
 
 MQTT has features such as guaranteed delivery of messages, which makes it very useful for communicating between Sense and both up- and downstream source/destination systems.
 
@@ -36,7 +36,7 @@ Butler-SOS:
     # Items below are mandatory if mqttConfig.enable=true
     brokerHost: <IP of MQTT broker/server>
     brokerPort: 1883
-    baseTopic: butler-sos/          # Default topic used if not not oherwise specified elsewhere. Should end with /
+    baseTopic: butler-sos/          # Default topic used if not not otherwise specified elsewhere. Should end with /
   ...
   ...
 ```

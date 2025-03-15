@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/new-relic/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/reference/available_metrics/new-relic/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -36,6 +36,7 @@
 
   <meta itemprop="name" content="Available Metrics: New Relic">
   <meta itemprop="description" content="Once data has been sent to New Relic, its web based user interface makes it very intuitive to both create charts and combine these into dashboards.">
+  <meta itemprop="dateModified" content="2022-08-27T09:00:57+02:00">
   <meta itemprop="wordCount" content="513">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Available Metrics: New Relic">
@@ -44,8 +45,8 @@
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -119,7 +120,7 @@ This is the multi-page printable view of this section.
 
 <div class="content">
       <h2 id="new-relic">New Relic</h2>
-<p><a href="https://newrelic.com">New Relic</a> offers a complete SaaS observablity stack, ranging from high-volume ingestion of events/metrics/logs/traces to advanced dashboards that can be created ad-hoc using a web UI or from files and templates, for more of an infrastructure-as-code approach.</p>
+<p><a href="https://newrelic.com">New Relic</a> offers a complete SaaS observability stack, ranging from high-volume ingestion of events/metrics/logs/traces to advanced dashboards that can be created ad-hoc using a web UI or from files and templates, for more of an infrastructure-as-code approach.</p>
 <p>Storing metrics in New Relic is not mandatory, but some kind of metrics storage - either in <a href="https://newrelic.com">New Relic</a>, <a href="/docs/reference/available_metrics/influxdb/">InfluxDB</a> or <a href="/docs/reference/available_metrics/prometheus/">Prometheus</a> - is needed to take full benefit of Butler SOS&rsquo; features.</p>
 <p>In order to view data in New Relic you first have to send data to them.</p>
 <p>Butler SOS does this for you.</p>
@@ -139,7 +140,7 @@ If these are also sent to New Relic the data volumes increase quickly.</p>
 <li><em>Events</em> are something that happened. Warnings and errors in the Sense log files can be forwarded to New Relic as events.<br>
 Various user activities (user session start/stop etc) in Sense can also be sent to New Relic as events.</li>
 <li><em>Attributes</em> are conceptually tags that are attached to metrics or events. These act as dimensions for the data.
-Metrics in visualisations can be grouped by attributes, much in the same way Qlik Sense measurements are grouped by dimensions in Sense charts and tables.
+Metrics in visualizations can be grouped by attributes, much in the same way Qlik Sense measurements are grouped by dimensions in Sense charts and tables.
 <ul>
 <li><em>Static attributes</em> are defined in Butler SOS&rsquo; config file.</li>
 <li><em>Dynamic attributes</em> are determined at runtime.</li>
@@ -218,7 +219,7 @@ The completed trace gives you a picture of the entire request.</li>
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>

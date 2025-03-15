@@ -26,7 +26,7 @@ In-memory and active applications are also tracked in the same way.
 
 These metrics provide useful insights into the degree to which loaded apps are actually used and to what degree caching is in effect.
 
-A couple of bonus metrics are also included: Number of calls made to the Qlik associative engine and number of selections done by users in the engine. Not really useful as such, but they do serve as a good relative measurement of how active users are between days/weeks/months. 
+A couple of bonus metrics are also included: Number of calls made to the Qlik associative engine and number of selections done by users in the engine. Not really useful as such, but they do serve as a good relative measurement of how active users are between days/weeks/months.
 
 ### Cache status
 
@@ -47,47 +47,47 @@ These metrics are only stored in InfluxDB/Prometheus, i.e. not sent as MQTT mess
 
 ### Available memory/RAM
 
-As Qlik Sense is an in-memory analytics tool you *really* want to ensure that there is always available memory for users' apps.  
+As Qlik Sense is an in-memory analytics tool you _really_ want to ensure that there is always available memory for users' apps.  
 If your Sense server runs out of memory it's basically game over.
-Now, Sense usually does a very good job reclaiming unused memory, but it's still critically important to monitor memory usage.  
+Now, Sense usually does a very good job reclaiming unused memory, but it's still critically important to monitor memory usage.
 
-One error scenario that's hard or impossible to catch without Butler SOS style monitoring is that of apps with cartesian products in them.  
+One error scenario that's hard or impossible to catch without Butler SOS style monitoring is that of apps with Cartesian products in them.  
 They can easily consume tens of hundreds GByte of RAM within seconds, bringing a Sense server to a halt.  
 Butler SOS has more than once proven its value when debugging this specific issue.
 
 ### CPU load
 
-If a server is heavily loaded it will eventually be seen as slow(er) by end users, with associated badwill accumulating.  
+If a server is heavily loaded it will eventually be seen as slow(er) by end users, with associated badwill accumulating.
 
 ## Log events: Qlik Sense errors & warning
 
 The Sense logs are always available on the Sense servers, the problem is that they are hard to reach there - at least in real time.  
 Retrospective analysis is also cumbersome, you basically have to manually dig up the specific log files of interest and then search them for the needed information.  
-Qlik *does* provide good analysis apps for the logs, but they are not real-time and they must be reloaded (which tends to be slow and resource intensive) to show new data.
+Qlik _does_ provide good analysis apps for the logs, but they are not real-time and they must be reloaded (which tends to be slow and resource intensive) to show new data.
 
 Butler SOS simplifies this greatly by having select log events (warnings, errors and fatals by default) sent from the Sense servers to Butler SOS.  
-Once such a log event message arrives, Butler SOS will store it in its database (for example InfluxDB or New Relic), from where the log event can be visualised using Grafana or within New Relic.  
+Once such a log event message arrives, Butler SOS will store it in its database (for example InfluxDB or New Relic), from where the log event can be visualized using Grafana or within New Relic.
 
-Log events from several Qlik Sense servics can selectively be forwarded to Butler SOS:
+Log events from several Qlik Sense services can selectively be forwarded to Butler SOS:
 
 - Engine
 - Proxy
 - Repository
 - Scheduler
 
-A sample use case of log events:  
+A sample use case of log events:
 
 1. Create a Grafana or New Relic real-time chart showing number of warnings/errors per 5-minute window.
 2. Set up an alert in those tools to notify you when number of events during past 5 minutes go above some limit.
 
 This is trivial to set up, but gives you a very capable, close to real-time error/warning monitoring solution.
 
-Log events can also be re-published as MQTT messages. This makes it possible for 3rd party systems to trigger actions when certain log events occur in Qlik Sense.  
+Log events can also be re-published as MQTT messages. This makes it possible for 3rd party systems to trigger actions when certain log events occur in Qlik Sense.
 
-### Categorisation of log events
+### Categorization of log events
 
-By categorising log events, Butler SOS makes it much easier to understand what is happening in your Sense environment.  
-For example, if you categorise log events as follows:
+By categorizing log events, Butler SOS makes it much easier to understand what is happening in your Sense environment.  
+For example, if you categorize log events as follows:
 
 - reload failures as "reload_failures"
 - engine related errors/warnings as"engine"
@@ -101,15 +101,15 @@ It's also easy to track volume of warnings/errors over time, and to set up alert
 
 Butler SOS can also process performance log events from the Qlik associative engine (the "Qix" engine as it was called in older versions of Sense).
 
-These events provide *very* detailed insights into how the engine is performing, including how long it takes to calculate expressions, how long it takes to open apps, how long it takes to calculate charts etc.  
+These events provide _very_ detailed insights into how the engine is performing, including how long it takes to calculate expressions, how long it takes to open apps, how long it takes to calculate charts etc.  
 And how much memory each of those operations consume.
 
-This is a very powerful feature, but when enabled in Qlik Sense (from the QMC) it will generate *a lot* of data that will all be store in the Sense log files.  
+This is a very powerful feature, but when enabled in Qlik Sense (from the QMC) it will generate _a lot_ of data that will all be store in the Sense log files.
 
 By configuring Qlik Sense to send these events to Butler SOS instead of storing it in ever growing log files, you gain several advantages:
 
-- The data is stored in a time series database, making it easy to visualise, analyse and alert on in real time.
-- By applying retention policies in the database, you keep only the most recent data, thus saving (*lots of!*) disk space compared to storing all data in log files on the Sense servers.
+- The data is stored in a time series database, making it easy to visualise, analyze and alert on in real time.
+- By applying retention policies in the database, you keep only the most recent data, thus saving (_lots of!_) disk space compared to storing all data in log files on the Sense servers.
 
 Let's look at a few examples of what data volumes are generated by these events:
 
@@ -133,21 +133,21 @@ The log event model is almost instantaneous whereas the log db polling will be i
 
 ## User activity events
 
-Detailed events are avilable for all users:  
+Detailed events are available for all users:
 
 - Session start
 - Session stop
 - Connection open
 - Connection close
 
-These events are both stored in InfluxDB and re-published as MQTT messages.  
+These events are both stored in InfluxDB and re-published as MQTT messages.
 
 Usually it's enough to track how many users are currently using the Qlik Sense system.  
-Exactly *what* users are usually of less interest.
+Exactly _what_ users are usually of less interest.
 
-At times you may want more detailed insights though. Then these events are increadibly useful.
+At times you may want more detailed insights though. Then these events are incredibly useful.
 
-For example:  
+For example:
 
 - Sometimes network issues cause some users' browsers to start many new sessions instead of re-using existing sessions.  
   This can result in the proxy service overloading and making access to Sense slow for all users.  

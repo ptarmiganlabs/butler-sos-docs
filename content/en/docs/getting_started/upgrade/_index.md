@@ -26,7 +26,7 @@ Upgrading Butler SOS is usually a smooth process:
 
 Different kind of upgrades (usually) result in different levels on modifications needed in the main config file.
 
-- "Small" upgrades move from one patch verison to another, without changing the feature version.  
+- "Small" upgrades move from one patch version to another, without changing the feature version.  
   Example: Upgrading from 7.3.0 > 7.3.4.
 - "Medium" upgrades involves moving from one minor version to another, without changing the major version.
   Example: Upgrading from 7.2.3 > 7.3.0
@@ -52,11 +52,11 @@ Usually there are also various bug fixes included.
 Most new features need to be configured somehow, meaning that medium upgrades usually require modification to the config files.  
 The most common change by far is that it's the main config file that needs to be modified, but a new scheduler related feature could for example mean that the scheduler config file must be modified too.
 
-The changes needed to the config files are *usually* additive in nature, i.e. some settings must be added to the config file, but the existing settings and general structure of the file remain the same.
+The changes needed to the config files are _usually_ additive in nature, i.e. some settings must be added to the config file, but the existing settings and general structure of the file remain the same.
 
 #### Major upgrades
 
-This scneario involves breaking changes of some kind.
+This scenario involves breaking changes of some kind.
 
 These almost certainly require changes to the config files, sometimes even significant ones in the sense that the structure of the config file may have changed.
 
@@ -64,7 +64,7 @@ If **very** major rework has been done to Butler SOS, this may also result in a 
 
 ### Know your config file
 
-Butler SOS is entirely driven by its YAML-formatted configuration file, with an [example file](https://raw.githubusercontent.com/ptarmiganlabs/butler-sos/master/src/config/production_template.yaml) serving as a good starting point.  
+Butler SOS is entirely driven by its YAML-formatted configuration file, with an [example file](https://raw.githubusercontent.com/ptarmiganlabs/butler-sos/master/src/config/production_template.yaml) serving as a good starting point.
 
 ### InfluxDB considerations
 
@@ -92,9 +92,9 @@ A consequence of this is that all settings are now mandatory, even if you don't 
 
 1. Make a backup of your YAML configuration file before upgrading. Just... do it.
 2. Look at the [release notes](https://github.com/ptarmiganlabs/butler-sos/releases) to get a general feeling for what is new and what has changed.  
-  Those are the areas tha may require changes in the config file.
+   Those are the areas that may require changes in the config file.
 3. Compare your existing main config file with the [template config file](https://raw.githubusercontent.com/ptarmiganlabs/butler-sos/master/src/config/production_template.yaml) available on GitHub.  
-  This comparison is a manual process and can be a bit tedious, but knowing your config file is really needed in order to make full and correct use of Butler SOS.
+   This comparison is a manual process and can be a bit tedious, but knowing your config file is really needed in order to make full and correct use of Butler SOS.
    1. That file is also included in the Butler SOS ZIP file available on the [download page](https://github.com/ptarmiganlabs/butler-sos/releases).
    2. A more in-depth description of the config file is available in the [Reference docs > Config file format](/docs/reference/config_file_format/) section of the documentation.
 4. The result of the comparison will show you what parts of the config file are new (for medium-sized upgrades) and which parts have changed in a significant way (for major upgrades).
@@ -113,9 +113,9 @@ This may seem a bit harsh, but this way Butler SOS can tell you exactly what is 
 
 Missing entries are shown in the startup log, like this:
 
-``` bash
+```bash
 2024-09-02T12:17:33.919Z error: VERIFY CONFIG FILE: Errors found in config file. Exiting.
-2024-09-02T12:17:33.920Z error: Tip: Start Butler SOS with --no-config-file-verify option to skip this check and start with provided config file. 
+2024-09-02T12:17:33.920Z error: Tip: Start Butler SOS with --no-config-file-verify option to skip this check and start with provided config file.
 2024-09-02T12:17:33.920Z error: /home/goran/code/butler-sos/src/config/production.yaml is not following the correct structure, missing:,Butler-SOS.configVisualisation.enable
 ```
 
@@ -124,7 +124,7 @@ Adding that entry to the config file should make Butler SOS start.
 
 Butler SOS is pretty good at figuring out what is wrong with the config file, but there may be cases where it's not obvious what is wrong.
 
-Thus, double check your config file, then triple check it. 
+Thus, double check your config file, then triple check it.
 
 Then start Butler SOS and read the logs carefully.  
 If you need more details, start Butler SOS with the `--log-level verbose` or even `--log-level debug` options to get more details on what's going on.

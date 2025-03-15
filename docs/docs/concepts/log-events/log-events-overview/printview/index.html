@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/concepts/log-events/log-events-overview/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/concepts/log-events/log-events-overview/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -42,6 +42,7 @@ This page explains the different levels of engine performance data that Butler S
   <meta itemprop="description" content="Butler SOS can capture *very* detailed information about individual charts in apps - or just the high-level information about the apps themselves.
 
 This page explains the different levels of engine performance data that Butler SOS can provide.">
+  <meta itemprop="dateModified" content="2024-09-20T20:34:54+02:00">
   <meta itemprop="wordCount" content="692">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Log events overview">
@@ -52,8 +53,8 @@ This page explains the different levels of engine performance data that Butler S
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -148,7 +149,7 @@ The counters are configured in the <code>Butler-SOS.qlikSenseEvents.eventCount</
 <p>These counters can be used to get a general idea of which servers generate the most log events, which Windows services generate the most events, and so on.</p>
 <p>A Grafana dashboard can look like this:</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-event-counter-1_hu16061839809196349061.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-event-counter-1_hu_fcee4e78804e4a90.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -165,7 +166,7 @@ Butler SOS event counter charts in Grafana.
 <p>As both app id/name and the engine method (for example <code>Global::OpenApp</code>) are included as a dimension in the InfluxDB data, it&rsquo;s possible to create Grafana dashboards that show how long time each app takes to open.</p>
 <p>A Grafana dashboard can look like this:</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-rejected-performance-log-events-1_hu1857499667583998736.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-rejected-performance-log-events-1_hu_267930e72fc17f12.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -185,7 +186,7 @@ Might be a good idea to investigate why the app &ldquo;Training - Field indexing
 The metrics are described in the <a href="/docs/reference/available_metrics/influxdb/#accepted-performance-log-events">reference section</a>.</p>
 <p>An example Grafana dashboard can look like this:</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-accepted-performance-log-events-1_hu5798062072126743298.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-accepted-performance-log-events-1_hu_a1990af2966acc68.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -207,7 +208,7 @@ The chart tells us that two app objects take on the order of 5 seconds each to c
 Turns out it&rsquo;s the two tables (object 10 and 11) that take a long time to update - that&rsquo;s expected (but not ideal!) as they contain a lot of complex data that takes time to index.</p>
 <p>If the update times get even longer, it might be a good idea to look into the data model and see if it can be optimized.</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-accepted-performance-log-events-8_hu18194695238874105630.png" width="1200" height="684">
+<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-accepted-performance-log-events-8_hu_4388b051d6560684.png" width="1200" height="684">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -283,7 +284,7 @@ The "Add Sense for Chrome" extension showing the object ID for objects on a shee
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>

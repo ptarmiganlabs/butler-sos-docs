@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/upgrade/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/upgrade/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -32,25 +32,25 @@ Here&#39;s how to do it.
   <meta property="og:site_name" content="Butler SOS">
   <meta property="og:title" content="Upgrade">
   <meta property="og:description" content="Upgrading Butler SOS to a new version?
-Here&#39;s how to do it. ">
+Here&#39;s how to do it.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Upgrade">
   <meta itemprop="description" content="Upgrading Butler SOS to a new version?
-Here&#39;s how to do it. ">
+Here&#39;s how to do it.">
   <meta itemprop="dateModified" content="2024-09-02T22:07:30+02:00">
   <meta itemprop="wordCount" content="1041">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Upgrade">
   <meta name="twitter:description" content="Upgrading Butler SOS to a new version?
-Here&#39;s how to do it. ">
+Here&#39;s how to do it.">
 
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -139,7 +139,7 @@ Here&rsquo;s how to do it.</div>
 <h3 id="version-number-hints">Version number hints</h3>
 <p>Different kind of upgrades (usually) result in different levels on modifications needed in the main config file.</p>
 <ul>
-<li>&ldquo;Small&rdquo; upgrades move from one patch verison to another, without changing the feature version.<br>
+<li>&ldquo;Small&rdquo; upgrades move from one patch version to another, without changing the feature version.<br>
 Example: Upgrading from 7.3.0 &gt; 7.3.4.</li>
 <li>&ldquo;Medium&rdquo; upgrades involves moving from one minor version to another, without changing the major version.
 Example: Upgrading from 7.2.3 &gt; 7.3.0</li>
@@ -161,7 +161,7 @@ Usually there are also various bug fixes included.</p>
 The most common change by far is that it&rsquo;s the main config file that needs to be modified, but a new scheduler related feature could for example mean that the scheduler config file must be modified too.</p>
 <p>The changes needed to the config files are <em>usually</em> additive in nature, i.e. some settings must be added to the config file, but the existing settings and general structure of the file remain the same.</p>
 <h4 id="major-upgrades">Major upgrades</h4>
-<p>This scneario involves breaking changes of some kind.</p>
+<p>This scenario involves breaking changes of some kind.</p>
 <p>These almost certainly require changes to the config files, sometimes even significant ones in the sense that the structure of the config file may have changed.</p>
 <p>If <strong>very</strong> major rework has been done to Butler SOS, this may also result in a major version bump.</p>
 <h3 id="know-your-config-file">Know your config file</h3>
@@ -183,7 +183,7 @@ A consequence of this is that all settings are now mandatory, even if you don&rs
 <ol>
 <li>Make a backup of your YAML configuration file before upgrading. Just&hellip; do it.</li>
 <li>Look at the <a href="https://github.com/ptarmiganlabs/butler-sos/releases">release notes</a> to get a general feeling for what is new and what has changed.<br>
-Those are the areas tha may require changes in the config file.</li>
+Those are the areas that may require changes in the config file.</li>
 <li>Compare your existing main config file with the <a href="https://raw.githubusercontent.com/ptarmiganlabs/butler-sos/master/src/config/production_template.yaml">template config file</a> available on GitHub.<br>
 This comparison is a manual process and can be a bit tedious, but knowing your config file is really needed in order to make full and correct use of Butler SOS.
 <ol>
@@ -207,7 +207,7 @@ Adding <code>--log-level verbose</code> or even <code>--log-level debug</code> w
 This may seem a bit harsh, but this way Butler SOS can tell you exactly what is missing in the config file.</p>
 <p>Missing entries are shown in the startup log, like this:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>2024-09-02T12:17:33.919Z error: VERIFY CONFIG FILE: Errors found in config file. Exiting.
-</span></span><span style="display:flex;"><span>2024-09-02T12:17:33.920Z error: Tip: Start Butler SOS with --no-config-file-verify option to skip this check and start with provided config file. 
+</span></span><span style="display:flex;"><span>2024-09-02T12:17:33.920Z error: Tip: Start Butler SOS with --no-config-file-verify option to skip this check and start with provided config file.
 </span></span><span style="display:flex;"><span>2024-09-02T12:17:33.920Z error: /home/goran/code/butler-sos/src/config/production.yaml is not following the correct structure, missing:,Butler-SOS.configVisualisation.enable
 </span></span></code></pre></div><p>In the example above the <code>Butler-SOS.configVisualisation.enable</code> entry is missing.<br>
 Adding that entry to the config file should make Butler SOS start.</p>
@@ -282,7 +282,7 @@ If you need more details, start Butler SOS with the <code>--log-level verbose</c
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>

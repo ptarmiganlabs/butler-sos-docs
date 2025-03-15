@@ -27,12 +27,12 @@ This is specified in each feature's section in the YAML config file.
 
 Example:
 
-* Sense user events are sent to `First NR account`
-* Sense log events are sent to `Second NR account`
-* Sense RAM usage is sent to both `First NR account` and `Second NR account`
+- Sense user events are sent to `First NR account`
+- Sense log events are sent to `Second NR account`
+- Sense RAM usage is sent to both `First NR account` and `Second NR account`
 
-Note that the `accountName` setting is only used within Butler SOS to reference the diffferent New Relic accounts.  
-Specificallyt, it is *not* used by or within New Relic itself.
+Note that the `accountName` setting is only used within Butler SOS to reference the different New Relic accounts.  
+Specifically, it is _not_ used by or within New Relic itself.
 
 ## Settings in main config file
 
@@ -42,15 +42,15 @@ Butler-SOS:
   ...
   ...
   # Credentials for third party systems that Butler SOS integrate with.
-  # These can also be specified via command line parameters when starting Butler SOS. 
+  # These can also be specified via command line parameters when starting Butler SOS.
   # Command line options takes precedence over settings in this config file.
   thirdPartyToolsCredentials:
     newRelic:         # Array of New Relic accounts/insert keys.
       - accountName: First NR account
-        insertApiKey: <API key 1 (with insert permissions) from New Relic> 
+        insertApiKey: <API key 1 (with insert permissions) from New Relic>
         accountId: <New Relic account ID 1>
       - accountName: Second NR account
-        insertApiKey: <API key 2 (with insert permissions) from New Relic> 
+        insertApiKey: <API key 2 (with insert permissions) from New Relic>
         accountId: <New Relic account ID 2>
   ...
   ...

@@ -7,7 +7,7 @@ description: >
 ---
 
 {{< notice warning >}}
-Butler SOS supports InfluxDB version 1.x and 2x.  
+Butler SOS supports InfluxDB version 1.x and 2x.
 
 InfluxDB v3.x is not yet supported.
 {{< /notice >}}
@@ -17,7 +17,7 @@ If you already have InfluxDB and/or Grafana running you can skip this section.
 ## Running in Docker using docker-compose
 
 The easiest way to get started is to run these tools in Docker containers, controlled by docker-compose files.  
-Running them under Kubernetes will give you a whole other level of fault tolerance, scalability etc - but this also requries much more when it comes to Kubernetes skills. Use the setup that's relevant to your use case.
+Running them under Kubernetes will give you a whole other level of fault tolerance, scalability etc - but this also requires much more when it comes to Kubernetes skills. Use the setup that's relevant to your use case.
 
 You can use a single docker-compose file for Butler SOS, InfluxDB and Grafana - or separate docker-compose files for each tool.
 
@@ -166,30 +166,26 @@ a22307d12263   influxdb:1.8.10                   "/entrypoint.sh infl…"   Abou
 ➜  ~
 ```
 
-That's great, we now have a single command (```docker-compose -f docker-compose_fullstack_influxdb.yml up -d``` for background/daemon mode) to bring up all the tools needed to monitor a Qlik Sense cluster!
+That's great, we now have a single command (`docker-compose -f docker-compose_fullstack_influxdb.yml up -d` for background/daemon mode) to bring up all the tools needed to monitor a Qlik Sense cluster!
 
 Now, let's see if any data has arrived in InfluxDB.  
 Let's check this by going into Grafana, which is available on port 3000.
 
-First time logging into a new Grafana instance you can use the default admin acount (username=admin, password=admin).  
+First time logging into a new Grafana instance you can use the default admin account (username=admin, password=admin).  
 You will be asked to change that password during first login.
 
 First add a data source in Grafana, pointing it to the local InfluxDB server.
 
 {{< imgproc grafana-influxdb-datasource-1.png Resize "800x" >}}
-Adding an InfluxDB datasource in Grafana
+Adding an InfluxDB data source in Grafana
 {{< /imgproc >}}
 
 Now we can create a basic chart in Grafana, showing for example Butler SOS' own memory usage.  
 After a while we should see some data in the chart:
 
 {{< imgproc grafana-chart-1.png Resize "1024x" >}}
-Butler SOS' own memory usage, stored in InfluxDB and visualised in Grafana
+Butler SOS' own memory usage, stored in InfluxDB and visualized in Grafana
 {{< /imgproc >}}
-
-
-
-
 
 Need to stop the entire stack of tools?  
 Easy - just run `docker-compose -f docker-compose_fullstack_influxdb.yml down`:

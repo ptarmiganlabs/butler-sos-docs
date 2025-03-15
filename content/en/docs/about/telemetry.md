@@ -149,13 +149,13 @@ A telemetry message from Butler SOS contains the information below.
 
 #### The anonymous ID field
 
-The `id` field deserves a bit more explanation.  
+The `id` field deserves a bit more explanation.
 
 It's purpose is to uniquely identify the Butler SOS instance - nothing else.  
-If Butler SOS is stopped and started agagin the same ID will be used.  
+If Butler SOS is stopped and started again the same ID will be used.  
 If reinstalled on a new server, or if the server's network configuration changes, a new ID will be created.
 
-Some sensitive information is used to create the ID, but as the ID is anonymized before sent as part of the telemetry data, *no sensitive information leaves your servers*.  
+Some sensitive information is used to create the ID, but as the ID is anonymized before sent as part of the telemetry data, _no sensitive information leaves your servers_.
 
 The ID field is created as follows:
 
@@ -171,6 +171,7 @@ The ID field is created as follows:
    The bottom line is that it's impossible to reverse the process and get the IP, host name etc used in step 1 above.  
    Then again - this is cryptography, and there are no guarantees.  
    But if you trust the certificates securing Sense itself, then the ID anonymization in Butler SOS should be ok too. Both are built on the same concepts of one-way cryptographic functions.
+
 3. The result is a string that uniquely identifies the Butler SOS instance at hand, without giving away any sensitive data about the system where Butler is running.
 
 See above for an example of what the `id` field looks like.  

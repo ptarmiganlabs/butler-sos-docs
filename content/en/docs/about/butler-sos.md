@@ -3,26 +3,26 @@ title: Butler SOS
 linkTitle: Butler SOS
 description: An introduction to Butler SOS.
 weight: 10
-aliases: ['/docs/', '/docs/about/', '/docs/butler-sos/']
+aliases: ["/docs/", "/docs/about/", "/docs/butler-sos/"]
 ---
 
-The Butler SOS project is about adding best-in-class monitoring to the client-managed Windows version of Qlik Sense Enterprise, also known as QSEoW (Qlik Sense Enterprise on Windows).  
+The Butler SOS project is about adding best-in-class monitoring to the client-managed Windows version of Qlik Sense Enterprise, also known as QSEoW (Qlik Sense Enterprise on Windows).
 
 The goal is to provide a close to real-time view into what's happening in a Qlik Sense environment.
 
 At different times different metrics will be of interest.  
-For that reason Butler SOS stores all metrics from Sense in a time-series databse (InfluxDB and Prometheus both supported), from which dashboards, reports etc can be created using tools such as Grafana.  
-Grafana is an open source, world-class visualisation tool for time series data. It also has great alerting features and integrate with all kinds of alerting solutions, email, Teams, Slack and more.
+For that reason Butler SOS stores all metrics from Sense in a time-series database (InfluxDB and Prometheus both supported), from which dashboards, reports etc can be created using tools such as Grafana.  
+Grafana is an open source, world-class visualization tool for time series data. It also has great alerting features and integrate with all kinds of alerting solutions, email, Teams, Slack and more.
 
-If you don't fancy InfluxDB or Prometheus, Qlik Sense metrics and events can also be sent to New Relic for storage and visualisation.  
-They offer a free tier that will go a long way towards testing out a cloud-based visualisation solution for Butler SOS.
+If you don't fancy InfluxDB or Prometheus, Qlik Sense metrics and events can also be sent to New Relic for storage and visualization.  
+They offer a free tier that will go a long way towards testing out a cloud-based visualization solution for Butler SOS.
 
 Metrics are a major component of operational monitoring, but it's also important to keep on top of what errors and warning occur in the system.  
-As of late 2021 the log database is no longer part of QSEoW, with the log files the only place where you can find those errors and warnings.  
+As of late 2021 the log database is no longer part of QSEoW, with the log files the only place where you can find those errors and warnings.
 
 Butler SOS address this by sending log events in real-time from QSEoW to Butler SOS, which then stores them in InfluxDB, and/or send them to New Relic, and/or re-publish them as MQTT messages.  
-This basically means you will very rarely have to plow through endless log files to find information about warnings and errors that have occured.  
-Warnings and errors can alse be categorised by Butler SOS, making it *much* easier to understand what is happening in your Sense environment.
+This basically means you will very rarely have to plow through endless log files to find information about warnings and errors that have occurred.  
+Warnings and errors can also be categorized by Butler SOS, making it _much_ easier to understand what is happening in your Sense environment.
 
 By listening in on the Qlik Sense log events from the associative engine, Butler SOS gets very detailed information about what is happening in the engine (which is where the magic happens).  
 This means you get very detailed information about what is happening in your Sense apps, sheets and charts - as it happens.  

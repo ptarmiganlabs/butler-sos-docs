@@ -3,8 +3,8 @@ title: Contribution guidelines
 linkTitle: Contribution guidelines
 weight: 60
 description: >
-    How to contribute to Butler SOS.
-aliases: ['/docs/contribution-guidelines']
+  How to contribute to Butler SOS.
+aliases: ["/docs/contribution-guidelines"]
 ---
 
 {{% pageinfo %}}
@@ -16,10 +16,10 @@ This means that all source code, documentation etc is available as-is, at no cos
 
 {{% /pageinfo %}}
 
-Butler SOS is developed in [Node.js](https://nodejs.org), with support from various [NPM](https://www.npmjs.com/) modules.  
+Butler SOS is developed in [Node.js](https://nodejs.org), with support from various [NPM](https://www.npmjs.com/) modules.
 
 We use [Hugo](https://gohugo.io/) to format and generate this documentation site, the [Docsy](https://github.com/google/docsy) theme for styling and site structure.  
-Hugo is an open-source static site generator that provides us with templates, content organisation in a standard directory structure, and a website generation engine. You write the pages in Markdown (or HTML if you want), and Hugo wraps them up into a website.
+Hugo is an open-source static site generator that provides us with templates, content organization in a standard directory structure, and a website generation engine. You write the pages in Markdown (or HTML if you want), and Hugo wraps them up into a website.
 
 All submissions, including submissions by project members, require review. We use GitHub pull requests for this purpose. Consult [GitHub Help](https://help.github.com/articles/about-pull-requests/) for more information on using pull requests.
 
@@ -41,7 +41,7 @@ Any IDE supporting Node.js can be used, but VSC works really well. Open Source a
 
 ### GitHub
 
-Used to store source code, track issues, change requests etc. 
+Used to store source code, track issues, change requests etc.
 
 GitHub Actions used to build Docker images.
 
@@ -50,7 +50,7 @@ GitHub Actions used to build Docker images.
 [Release Please](https://github.com/googleapis/release-please) is used to create release notes.  
 It also enforces consistent versioning when new (sometimes breaking) features are added, bugs fixed etc.
 
-This menas thatas of Butler SOS 6.0 you can have more trust in the [semantic versioning](https://semver.org) of Butler SOS releases.
+This means that as of Butler SOS 6.0 you can have more trust in the [semantic versioning](https://semver.org) of Butler SOS releases.
 
 ### ESLint + Prettier
 
@@ -105,7 +105,7 @@ ESLint shows code issues within Visual Studio Code, but standalone reports can a
 ║ 4 Warnings                                                                                                     ║
 ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
 
-➜ 
+➜
 ```
 
 To format all source code files:
@@ -131,5 +131,5 @@ lib/service_uptime.js 14ms
 lib/sessionmetrics.js 29ms
 lib/telemetry.js 18ms
 lib/udp_handlers.js 18ms
-➜ 
+➜
 ```

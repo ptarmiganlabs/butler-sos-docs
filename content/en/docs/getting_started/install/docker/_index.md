@@ -10,7 +10,7 @@ description: >
 Butler SOS Docker images are automatically built for several architectures:
 
 - amd64: This is by far the most common platform - your typical Intel based server use amd64.
-- arm64: Arm servers are now available from most cloud providers and offer very competetive price/performance. Apple's new M1 CPUs also use arm64, as does the newer Raspberry Pi models.
+- arm64: Arm servers are now available from most cloud providers and offer very competitive price/performance. Apple's new M1 CPUs also use arm64, as does the newer Raspberry Pi models.
 - arm/v7: An older Arm architecture found in previous-gen Raspberry Pis, for example.
 
 All images are available on [Docker Hub](https://hub.docker.com/r/ptarmiganlabs/butler-sos/tags?page=1&ordering=last_updated).
@@ -29,7 +29,7 @@ Installing Docker is beyond the scope of this document, but there are plenty of 
 ### Butler SOS installation and configuration
 
 When using Docker there is no installation in the traditional sense.  
-Instead we (in this case) use a docker-compose file to define how Butler SOS should be executed within a Docker container. There are also other ways to start Docker containers, but docker-compose is usually a good and robust starting point.  
+Instead we (in this case) use a docker-compose file to define how Butler SOS should be executed within a Docker container. There are also other ways to start Docker containers, but docker-compose is usually a good and robust starting point.
 
 Configuration of Butler specific settings is then done using Butler's own JSON/YAML config file.
 
@@ -52,9 +52,9 @@ Docker on Windows is another story - it's there and works great, but not always 
 
 3. Copy the [YAML config file](https://github.com/ptarmiganlabs/butler-sos/blob/master/src/config/production_template.yaml) from the GitHub repository into the ./config directory, rename it to `production.yaml` (or something else, as long as it matches the NODE_ENV environment variable set in the `docker-compose.yml` file) and edit it as needed. Note that for the Docker setup the path to certificates (as specified in the YAML config file) should be `/nodeapp/config/certificate/` (this is the Docker container's internal path to the certificate directory).
 
-4. Edit the config file above as needed, with respect to your local Sense environment, folder paths etc. The provided template file has reasonable defualt settings where possible, but there are also a number of paths, passwords etc that must be configured. 
+4. Edit the config file above as needed, with respect to your local Sense environment, folder paths etc. The provided template file has reasonable default settings where possible, but there are also a number of paths, passwords etc that must be configured.
 
-5. Export certifiates from the QMC in Qlik Sense Enterprise, place them in the `./config/certificate` directory (i.e. in a subdirectory to the directory where the docker-comspose file is stored). The certificates can in theory be placed anywhere, as long as they are made available to the Docker container via a volume mount in the docker-compose.yaml file (e.g. ```- "./config:/nodeapp/config"```).  
+5. Export certificates from the QMC in Qlik Sense Enterprise, place them in the `./config/certificate` directory (i.e. in a subdirectory to the directory where the docker-compose file is stored). The certificates can in theory be placed anywhere, as long as they are made available to the Docker container via a volume mount in the docker-compose.yaml file (e.g. `- "./config:/nodeapp/config"`).
 
 Let's do this one step at a time.  
 Here we will bring up a single container with Butler SOS in it.  

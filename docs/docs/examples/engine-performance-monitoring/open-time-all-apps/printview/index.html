@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/examples/engine-performance-monitoring/open-time-all-apps/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/examples/engine-performance-monitoring/open-time-all-apps/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -36,6 +36,7 @@
 
   <meta itemprop="name" content="Track how long it takes to open Sense apps">
   <meta itemprop="description" content="This example shows how to use Butler SOS to track how long it takes to open apps on a Qlik Sense server.">
+  <meta itemprop="dateModified" content="2024-09-24T09:03:08+02:00">
   <meta itemprop="wordCount" content="1096">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Track how long it takes to open Sense apps">
@@ -44,8 +45,8 @@
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -130,7 +131,7 @@ This is the multi-page printable view of this section.
 </ul>
 <p>A Grafana chart showing this data could look something like this:</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/open-time-all-apps/butler-sos-rejected-performance-log-events-2_hu12309776204135664758.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/open-time-all-apps/butler-sos-rejected-performance-log-events-2_hu_42ae7e8d19208df8.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -147,7 +148,7 @@ Chart showing mean time needed to open apps on a Qlik Sense server.
 <li>Store the data collected by Butler SOS in an InfluxDB v1 or v2 database. Setup instructions <a href="/docs/getting_started/setup/influxdb/">here</a></li>
 <li>XML appender files deployed on the Sense servers you want to monitor. The appender files tell Sense to send log events to Butler SOS via UDP messages. Setup instructions <a href="/docs/getting_started/setup/qlik-sense-events/#log-appender-xml-files">here</a>.</li>
 <li>A reasonably recent version of <a href="https://grafana.com/grafana/download">Grafana</a>. At the time of writing, Grafana 11.2 is the latest version.</li>
-<li>Data connetions set up in Grafana to the InfluxDB database where Butler SOS stores its data.</li>
+<li>Data connections set up in Grafana to the InfluxDB database where Butler SOS stores its data.</li>
 </ul>
 <h2 id="configure-butler-sos">Configure Butler SOS</h2>
 <ol>
@@ -171,11 +172,11 @@ It is configured elsewhere in the YAML config file, more info <a href="/docs/get
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">qlikSenseEvents</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Shared settings for user and log events (see below)</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">influxdb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Should summary (counter) of user/log events, and rejected events be stored in InfluxDB?</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">writeFrequency</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">20000</span><span style="color:#f8f8f8;text-decoration:underline">         </span><span style="color:#8f5902;font-style:italic"># How often (milliseconds) should event counts be written to InfluxDB?  </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">writeFrequency</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">20000</span><span style="color:#f8f8f8;text-decoration:underline">         </span><span style="color:#8f5902;font-style:italic"># How often (milliseconds) should event counts be written to InfluxDB?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">rejectedEventCount</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">             </span><span style="color:#8f5902;font-style:italic"># Rejected events are events that are received from Sense, that are correctly formatted, </span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                    </span><span style="color:#8f5902;font-style:italic"># but that are rejected by Butler SOS based on the configuration in this file. </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">rejectedEventCount</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">             </span><span style="color:#8f5902;font-style:italic"># Rejected events are events that are received from Sense, that are correctly formatted,</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                    </span><span style="color:#8f5902;font-style:italic"># but that are rejected by Butler SOS based on the configuration in this file.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                    </span><span style="color:#8f5902;font-style:italic"># An example of a rejected event is a performance log event that is filtered out by Butler SOS.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Should rejected events be counted and stored in InfluxDB?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">influxdb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -198,7 +199,7 @@ It is configured elsewhere in the YAML config file, more info <a href="/docs/get
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                      </span><span style="color:#8f5902;font-style:italic"># Should app performance data be extracted from log events?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">appNameLookup</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Should app names be looked up based on app IDs?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">trackRejectedEvents</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">trackRejectedEvents</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Should events that are rejected by the app performance monitor be tracked?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">tags</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                           </span><span style="color:#8f5902;font-style:italic"># Tags are added to the data before it&#39;s stored in InfluxDB</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qs_tag1</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -206,11 +207,11 @@ It is configured elsewhere in the YAML config file, more info <a href="/docs/get
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qs_tag2</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">somevalue2</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><h2 id="configure-grafana">Configure Grafana</h2>
-<p>Create a Grafana chart (in an existing dashboard or a new one) thats shows the average time it takes to open apps on your Sense server(s).<br>
+<p>Create a Grafana chart (in an existing dashboard or a new one) that shows the average time it takes to open apps on your Sense server(s).<br>
 You do this by only show data in the chart for the engine method <code>Global::OpenApp</code>.</p>
 <p>The definition of such a chart in Grafana could look something like this (slightly different set of apps selected, compared to screenshot above):</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/open-time-all-apps/butler-sos-rejected-performance-log-events-definition-1_hu10928886158310920342.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/open-time-all-apps/butler-sos-rejected-performance-log-events-definition-1_hu_6ef5d1ddf8d90f9.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -230,7 +231,7 @@ See below for detailed on how to set up this variable.</p>
 <p>By using Grafana variables, you can easily change which apps you want to show data for in the chart.</p>
 <p>Here is how you can set up a variable in Grafana that allows you to select which apps to show data for (see above too, for how to use this variable in a chart):</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/open-time-all-apps/butler-sos-create-app-name-variable-1_hu11720246895079995681.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/open-time-all-apps/butler-sos-create-app-name-variable-1_hu_db012495f3dc83a6.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -245,7 +246,7 @@ Create a Grafana variable that allows you to select which apps to show data for 
 <p>Using the concept in this tutorial, but with a slightly different chart definition in Grafana, it is possible to visualise the mean time for each method that Butler SOS tracks.<br>
 Combine with a app-selection filter variable in Grafana, and you can easily switch between different apps to see how long the various engine operations take in each of them:</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/open-time-all-apps/butler-sos-rejected-performance-log-events-3_hu10527530034873754350.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/engine-performance-monitoring/open-time-all-apps/butler-sos-rejected-performance-log-events-3_hu_f756a43dbd814933.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -321,7 +322,7 @@ Chart showing mean time for all engine methods that were used during the selecte
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>

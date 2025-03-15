@@ -6,7 +6,7 @@ description: >
   Butler SOS has a built-in web server that can be used to visualise the configuration file, either as YAML or JSON.
 
 
-  Sensitive config values can be optionally be obfuscated in the visualisation.
+  Sensitive config values can be optionally be obfuscated in the visualization.
 ---
 
 ## What is the current configuration?

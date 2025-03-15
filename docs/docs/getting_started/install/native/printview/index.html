@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/native/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -45,8 +45,8 @@
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -159,39 +159,39 @@ This is the multi-page printable view of this section.
 <div class="content">
       <h2 id="selecting-an-os">Selecting an OS</h2>
 <p>While Qlik Sense Enterprise is a Windows only system, Butler SOS should be able to run on any OS where Node.js is available.<br>
-Butler SOS has been succesfully used as a native Node.js app - during development and production - on Windows, Linux (Debian and Ubuntu tested) and mac OS.</p>
+Butler SOS has been successfully used as a native Node.js app - during development and production - on Windows, Linux (Debian and Ubuntu tested) and mac OS.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">What</th>
-          <th style="text-align: left">Comment</th>
+          <th>What</th>
+          <th>Comment</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">Qlik Sense Enterprise on Windows</td>
-          <td style="text-align: left"><em>Mandatory.</em> Butler SOS is developed with Qlik Sense Enterprise on Windows (QSEoW) in mind. <br>Butler SOS is simply not intended to work with Sense Desktop or Sense cloud.</td>
+          <td>Qlik Sense Enterprise on Windows</td>
+          <td><em>Mandatory.</em> Butler SOS is developed with Qlik Sense Enterprise on Windows (QSEoW) in mind. <br>Butler SOS is simply not intended to work with Sense Desktop or Sense cloud.</td>
       </tr>
       <tr>
-          <td style="text-align: left">Node.js</td>
-          <td style="text-align: left"><em>Mandatory.</em> Butler SOS is written in Node - which is thus a firm requirement.</td>
+          <td>Node.js</td>
+          <td><em>Mandatory.</em> Butler SOS is written in Node - which is thus a firm requirement.</td>
       </tr>
       <tr>
-          <td style="text-align: left">MQTT broker</td>
-          <td style="text-align: left"><em>Optional.</em> MQTT is used for outbound pub-sub messaging. Butler SOS assumes a working MQTT broker is available, the IP of which is defined in the Butler SOS config file. <a href="https://mosquitto.org/">Mosquitto</a> is a great open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&hellip; instance is enough, if you want a dedicated MQTT server. If you don&rsquo;t care about the pubsub features of Butler SOS, you don&rsquo;t need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.</td>
+          <td>MQTT broker</td>
+          <td><em>Optional.</em> MQTT is used for outbound pub-sub messaging. Butler SOS assumes a working MQTT broker is available, the IP of which is defined in the Butler SOS config file. <a href="https://mosquitto.org/">Mosquitto</a> is a great open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&hellip; instance is enough, if you want a dedicated MQTT server. If you don&rsquo;t care about the pubsub features of Butler SOS, you don&rsquo;t need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><a href="https://www.influxdata.com/time-series-platform/">InfluxDB</a></td>
-          <td style="text-align: left"><em>Use at least one of InfluxDB and Prometheus.</em> An open source database for realtime information, used to store metrics around Butler&rsquo;s own memory usage over time (if this feature is enabled).<br> At this point more metrics and events are sent to InfluxDB, compared to Prometheus.</td>
+          <td><a href="https://www.influxdata.com/time-series-platform/">InfluxDB</a></td>
+          <td><em>Use at least one of InfluxDB and Prometheus.</em> An open source database for real-time information, used to store metrics around Butler&rsquo;s own memory usage over time (if this feature is enabled).<br> At this point more metrics and events are sent to InfluxDB, compared to Prometheus.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><a href="https://prometheus.io">Prometheus</a></td>
-          <td style="text-align: left"><em>Use at least one of InfluxDB and Prometheus.</em> The de-facto standard open source tool for metrics gathering in large-scale systems, including Kubernetes. A bit more complex to set up and configure compared to InfluxDB, but also more focused on providing observability features.</td>
+          <td><a href="https://prometheus.io">Prometheus</a></td>
+          <td><em>Use at least one of InfluxDB and Prometheus.</em> The de-facto standard open source tool for metrics gathering in large-scale systems, including Kubernetes. A bit more complex to set up and configure compared to InfluxDB, but also more focused on providing observability features.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><a href="https://grafana.com">Grafana</a></td>
-          <td style="text-align: left"><em>Optional.</em> The de-facto open source standard for showing real-time metrics. In order to visualise Sense realtime metrics in Grafana you must enable at least one of InfluxDB or Prometheus.</td>
+          <td><a href="https://grafana.com">Grafana</a></td>
+          <td><em>Optional.</em> The de-facto open source standard for showing real-time metrics. In order to visualise Sense real-time metrics in Grafana you must enable at least one of InfluxDB or Prometheus.</td>
       </tr>
   </tbody>
 </table>
@@ -238,7 +238,7 @@ The first is by far easier to set up and maintain and thus recommended.</p>
 <li>Use <a href="https://nssm.cc/download">nssm</a> or similar tool to install Butler SOS as a Windows service</li>
 </ol>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 410px">
-<img class="card-img-top" src="/docs/getting_started/install/native/windows/unblock-butler-sos-windows-1_hu18366972164874321277.png" width="400" height="562">
+<img class="card-img-top" src="/docs/getting_started/install/native/windows/unblock-butler-sos-windows-1_hu_ac2f9a55133ac0fd.png" width="400" height="562">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -252,7 +252,7 @@ Unblocking the Butler SOS zip file on Windows Server
 <h3 id="using-nodejs">Using Node.js</h3>
 <p>In this scenario you will use the Butler SOS source code together with the standard Node.js runtime libraries.</p>
 <p>The result is the same as with the stand-alone binaries, you just have to do more of the work yourself.<br>
-This is usually <em>not</em> preferred, but if you want to add new features to (or modify existone ones) Butler SOS, this option is for you</p>
+This is usually <em>not</em> preferred, but if you want to add new features to (or modify existing ones) Butler SOS, this option is for you</p>
 <h4 id="1-install-nodejs">1. Install Node.js</h4>
 <p>The <a href="https://nodejs.org/en/download/">latest LTS version</a> is usually a good choice.</p>
 <h4 id="2-select-a-directory-from-which-butler-sos-will-be-run">2. Select a directory from which Butler SOS will be run</h4>
@@ -325,7 +325,7 @@ The first is by far easier to set up and maintain and thus recommended.</p>
 <li>Use the process monitor of choice (see below) to make sure Butler SOS is always running</li>
 </ol>
 <h3 id="using-nodejs">Using Node.js</h3>
-<p>This scenario is identical to the <a href="/docs/getting_started/install/native/windows/">Windows scenario</a>, please refer to that page for details. Keep in mind that the format of file systems paths differ between Windows and Linxu/Mac OS.</p>
+<p>This scenario is identical to the <a href="/docs/getting_started/install/native/windows/">Windows scenario</a>, please refer to that page for details. Keep in mind that the format of file systems paths differ between Windows and Linux/Mac OS.</p>
 <h2 id="configuration">Configuration</h2>
 <p>Once again, same thing as <a href="/docs/getting_started/install/native/windows/">on Windows</a>.</p>
 <h2 id="stayin-alive">Stayin&rsquo; alive</h2>
@@ -403,7 +403,7 @@ Tools like <a href="http://pm2.keymetrics.io/">PM2</a> in fact usually work bett
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>

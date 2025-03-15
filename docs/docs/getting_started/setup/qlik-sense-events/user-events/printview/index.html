@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/qlik-sense-events/user-events/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/qlik-sense-events/user-events/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -40,7 +40,7 @@ What&rsquo;s this? …">
 <meta property="og:url" content="https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/qlik-sense-events/user-events/">
   <meta property="og:site_name" content="Butler SOS">
   <meta property="og:title" content="Configuring user events">
-  <meta property="og:description" content=" Optional These settings are optional.
+  <meta property="og:description" content="Optional These settings are optional.
 If you don’t do anything user activity events are turned off by default.
 What’s this? User events are among the most detailed bits of information retrieved from Sense by Butler SOS.
 They capture session start/stop events (=users logging in/out) and connection open/close events (apps opened/closed in browser tabs).
@@ -50,7 +50,7 @@ Settings in Butler SOS’ config file. Log appender XML file(s) being deployed o
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Configuring user events">
-  <meta itemprop="description" content=" Optional These settings are optional.
+  <meta itemprop="description" content="Optional These settings are optional.
 If you don’t do anything user activity events are turned off by default.
 What’s this? User events are among the most detailed bits of information retrieved from Sense by Butler SOS.
 They capture session start/stop events (=users logging in/out) and connection open/close events (apps opened/closed in browser tabs).
@@ -60,7 +60,7 @@ Settings in Butler SOS’ config file. Log appender XML file(s) being deployed o
   <meta itemprop="wordCount" content="1377">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Configuring user events">
-  <meta name="twitter:description" content=" Optional These settings are optional.
+  <meta name="twitter:description" content="Optional These settings are optional.
 If you don’t do anything user activity events are turned off by default.
 What’s this? User events are among the most detailed bits of information retrieved from Sense by Butler SOS.
 They capture session start/stop events (=users logging in/out) and connection open/close events (apps opened/closed in browser tabs).
@@ -70,8 +70,8 @@ Settings in Butler SOS’ config file. Log appender XML file(s) being deployed o
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -172,8 +172,7 @@ In this case we are interested in session start/stop and connection open/close e
 It contains instructions that tell Log4Net to do various things when the specified filter matches the actual log data created by Sense. Examples include sending emails, writing log entries to disk (i.e. regular file logging!), sending the log row as a UDP message and more.<br>
 Here we&rsquo;re interested in the UDP message feature.</p>
 <blockquote>
-<p>So, by means of a log appender file we tell Log4Net to send certain log rows to Butler SOS as UDP messages.</p>
-</blockquote>
+<p>So, by means of a log appender file we tell Log4Net to send certain log rows to Butler SOS as UDP messages.</p></blockquote>
 <p>We also have to specify in the log appender file what host/IP address and port Butler SOS listens to, i.e. where the UDP messages should be sent.<br>
 Finally we have to make sure firewalls are open and allow UDP traffic from the Sense server(s) to Butler SOS.</p>
 <p>If everything is set up correctly UDP messages will arrive at Butler SOS within seconds after the actual event taking place in Qlik Sense, i.e. close to real-time.</p>
@@ -431,7 +430,7 @@ Note that the file <strong>must</strong> be called <code>LocalLogConfig.xml</cod
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>

@@ -1,19 +1,18 @@
 ---
-title: 'Day 2 operations'
-linkTitle: 'Day 2 operations'
+title: "Day 2 operations"
+linkTitle: "Day 2 operations"
 weight: 70
 description: >
-    Options for running Butler SOS.
+  Options for running Butler SOS.
 ---
 
 ## Running Butler SOS
 
 How to start and keep Butler SOS running varies depending on whether you are using Docker or a native Node.js approach.
 
-
 ### Docker
 
-Starting Butler SOS using Docker is easy.  
+Starting Butler SOS using Docker is easy.
 
 First configure the `docker-compose.yml` file as needed, then start the Docker container in interactive mode (=with output sent to the screen).  
 This is useful to ensure everything works as intended when first setting up Butler SOS.
@@ -21,15 +20,15 @@ This is useful to ensure everything works as intended when first setting up Butl
     docker-compose up
 
 Once Butler SOS has been verified to work as intended, hit `ctrl-c` to stop it.  
-Then start it again in deameon (background) mode:
+Then start it again in daemon (background) mode:
 
     docker-compose up -d
 
-From here on the Docker enviromment will make sure Butler SOS is always running, including restarting it if it for some reason stops, when server reboots etc.
+From here on the Docker environment will make sure Butler SOS is always running, including restarting it if it for some reason stops, when server reboots etc.
 
 ### Pre-built, standalone binaries
 
-Starting Butler SOS using the pre-built binaries could look like this on Windows:  
+Starting Butler SOS using the pre-built binaries could look like this on Windows:
 
     d:
     cd \node\butler-sos
@@ -37,9 +36,9 @@ Starting Butler SOS using the pre-built binaries could look like this on Windows
 
 It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.
 
-As Butler SOS is the kind of service that (probably) should always be running on a server, it makes sense running it as a Windows service (or similar mechanism in Linix).
+As Butler SOS is the kind of service that (probably) should always be running on a server, it makes sense running it as a Windows service (or similar mechanism in Linux).
 
-On Windows you can use the excellent Nssm tool (https://nssm.cc) to achieve this, with all the benefits that follow (the service can be monitored using operations tools, automatic restarts etc).  
+On Windows you can use the excellent Nssm tool (https://nssm.cc) to achieve this, with all the benefits that follow (the service can be monitored using operations tools, automatic restarts etc).
 
 A step-by-step tutorial for running Butler SOS as a Windows service using NSSM is available over at [ptarmiganlabs.com](https://ptarmiganlabs.com/running-butler-tools-as-windows-services/).
 
@@ -47,7 +46,7 @@ On Linux both PM2 (https://github.com/Unitech/pm2) and Forever (https://github.c
 
 ### Native Node.js
 
-Starting Butler SOS as a Node.js on Windows could look like this:  
+Starting Butler SOS as a Node.js on Windows could look like this:
 
     d:
     cd \node\butler-sos\src

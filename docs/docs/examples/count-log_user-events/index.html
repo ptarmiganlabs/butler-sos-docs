@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="alternate" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/examples/count-log_user-events/printview/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/examples/count-log_user-events/index.xml">
 <meta name="robots" content="index, follow">
@@ -36,6 +36,7 @@
 
   <meta itemprop="name" content="Count user and log events">
   <meta itemprop="description" content="This example shows how to use Butler SOS to count user and log events received from one or more Qlik Sense servers.">
+  <meta itemprop="dateModified" content="2024-09-24T09:03:08+02:00">
   <meta itemprop="wordCount" content="806">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Count user and log events">
@@ -44,8 +45,8 @@
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -145,7 +146,7 @@
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupconfig-file-verification-li">
   <a href="/docs/getting_started/setup/config-file-verification/" title="Config file verification" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupconfig-file-verification"><span class="">Verify config file</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupconfig-file-visualisation-li">
-  <a href="/docs/getting_started/setup/config-file-visualisation/" title="Visualise the config file" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupconfig-file-visualisation"><span class="">Config file visualisation</span></a>
+  <a href="/docs/getting_started/setup/config-file-visualisation/" title="Visualise the config file" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetupconfig-file-visualisation"><span class="">Config file visualization</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetuplogging-li">
   <a href="/docs/getting_started/setup/logging/" title="Configuring Butler SOS logging" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting_startedsetuplogging"><span class="">Log files</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting_startedsetupheartbeats-li">
@@ -207,7 +208,7 @@
   <a href="/docs/concepts/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconcepts"><span class="">Concepts</span></a>
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsapp-metrics-li">
-  <a href="/docs/concepts/app-metrics/" title="App nmetrics" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsapp-metrics"><span class="">App metrics</span></a>
+  <a href="/docs/concepts/app-metrics/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsapp-metrics"><span class="">App metrics</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptssessions-connections-li">
   <a href="/docs/concepts/sessions-connections/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptssessions-connections"><span class="">Sessions &amp; Connections</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsconceptslog-events-li">
@@ -218,7 +219,7 @@
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptslog-eventserrors-warnings-li">
   <a href="/docs/concepts/log-events/errors-warnings/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptslog-eventserrors-warnings"><span class="">Errors &amp; Warnings</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptslog-eventscatgorising-log-events-li">
-  <a href="/docs/concepts/log-events/catgorising-log-events/" title="Getting rid of Sense log noise" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptslog-eventscatgorising-log-events"><span class="">Categorising log events</span></a>
+  <a href="/docs/concepts/log-events/catgorising-log-events/" title="Getting rid of Sense log noise" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptslog-eventscatgorising-log-events"><span class="">Categorizing log events</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptslog-eventsapp-object-performance-monitoring-li">
   <a href="/docs/concepts/log-events/app-object-performance-monitoring/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptslog-eventsapp-object-performance-monitoring"><span class="">App performance monitoring</span></a>
 </li>
@@ -231,9 +232,9 @@
   <a href="/docs/examples/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamples"><span class="">Examples</span></a>
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesnew-relic-dashboards-li">
-  <a href="/docs/examples/new-relic-dashboards/" title="Visualising Butler SOS metrics in New Relic" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesnew-relic-dashboards"><span class="">New Relic dashboards</span></a>
+  <a href="/docs/examples/new-relic-dashboards/" title="Visualizing Butler SOS metrics in New Relic" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesnew-relic-dashboards"><span class="">New Relic dashboards</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsexamplesgrafana-dashboards-li">
-  <a href="/docs/examples/grafana-dashboards/" title="Visualising Butler SOS metrics in Grafana" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesgrafana-dashboards"><span class="">Grafana dashboards</span></a>
+  <a href="/docs/examples/grafana-dashboards/" title="Visualizing Butler SOS metrics in Grafana" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesgrafana-dashboards"><span class="">Grafana dashboards</span></a>
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesgrafana-dashboardsqliksense_monitoring_grafana9-li">
   <a href="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana9/" title="Qlik Sense monitoring using Butler SOS v9.2 and Grafana v9.1" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesgrafana-dashboardsqliksense_monitoring_grafana9"><span class="">Grafana 9 dashboard</span></a>
@@ -292,9 +293,9 @@
           </aside>
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/ptarmiganlabs/butler-sos-docs/tree/main/content/en/docs/examples/count%20log_user%20events/_index.md" class="td-page-meta--view td-page-meta__view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
-  <a href="https://github.com/ptarmiganlabs/butler-sos-docs/edit/main/content/en/docs/examples/count%20log_user%20events/_index.md" class="td-page-meta--edit td-page-meta__edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
-  <a href="https://github.com/ptarmiganlabs/butler-sos-docs/new/main/content/en/docs/examples/count%20log_user%20events?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child td-page-meta__child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
+<a href="https://github.com/ptarmiganlabs/butler-sos-docs/tree/main/content/en/docs/Examples/count%20log_user%20events/_index.md" class="td-page-meta--view td-page-meta__view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
+  <a href="https://github.com/ptarmiganlabs/butler-sos-docs/edit/main/content/en/docs/Examples/count%20log_user%20events/_index.md" class="td-page-meta--edit td-page-meta__edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/ptarmiganlabs/butler-sos-docs/new/main/content/en/docs/Examples/count%20log_user%20events?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child td-page-meta__child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
   <a href="https://github.com/ptarmiganlabs/butler-sos-docs/issues/new?title=Count%20user%20and%20log%20events" class="td-page-meta--issue td-page-meta__issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/ptarmiganlabs/butler-sos/issues/new" class="td-page-meta--project td-page-meta__project-issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create project issue</a>
   <a id="print" href="/docs/examples/count-log_user-events/printview/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
@@ -350,15 +351,15 @@
   </header>
 	<h2 id="overview">Overview</h2>
 <h3 id="goal">Goal</h3>
-<p>The goal is to count how many  user and log events are received from one or more Qlik Sense servers.</p>
+<p>The goal is to count how many user and log events are received from one or more Qlik Sense servers.</p>
 <p>This can be useful for several reasons:</p>
 <ul>
 <li>To get a general feeling if the Qlik Sense environment is healthy or not. A sudden increase in the number of warnings, errors or fatals can be an early warning sign that something is wrong. The event counters can be seen as a kind of heart beat of the Qlik Sense environment. Too fast - or too slow - can be a sign of trouble.</li>
-<li>The counters count <strong>all</strong> log and user events sent from the Qlik Sense servers to Butler SOS. They can be used to confirm tha the Qlik Sense servers are indeed sending events to Butler SOS at all. Other, more detailed event data can then be used to drill down into the details of what is happening in the Qlik Sense environment.</li>
+<li>The counters count <strong>all</strong> log and user events sent from the Qlik Sense servers to Butler SOS. They can be used to confirm that the Qlik Sense servers are indeed sending events to Butler SOS at all. Other, more detailed event data can then be used to drill down into the details of what is happening in the Qlik Sense environment.</li>
 </ul>
 <p>A Grafana dashboard is used to visualize the event counters:</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-2_hu10693273927315327799.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-2_hu_9bc0c5528dbe8efd.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -375,7 +376,7 @@ A set of Grafana panels showing the number of user and log events received from 
 <li>Store the data collected by Butler SOS in an InfluxDB v1 or v2 database. Setup instructions <a href="/docs/getting_started/setup/influxdb/">here</a></li>
 <li>XML appender files deployed on the Sense servers you want to monitor. The appender files tell Sense to send log events to Butler SOS via UDP messages. Setup instructions <a href="/docs/getting_started/setup/qlik-sense-events/#log-appender-xml-files">here</a>.</li>
 <li>A reasonably recent version of <a href="https://grafana.com/grafana/download">Grafana</a>. At the time of writing, Grafana 11.2 is the latest version.</li>
-<li>Data connetions set up in Grafana to the InfluxDB database where Butler SOS stores its data.</li>
+<li>Data connections set up in Grafana to the InfluxDB database where Butler SOS stores its data.</li>
 </ul>
 <h2 id="configure-butler-sos">Configure Butler SOS</h2>
 <style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
@@ -387,7 +388,7 @@ It is configured elsewhere in the YAML config file, more info <a href="/docs/get
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">qlikSenseEvents</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Shared settings for user and log events (see below)</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">influxdb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Should summary (counter) of user/log events, and rejected events be stored in InfluxDB?</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">writeFrequency</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">20000</span><span style="color:#f8f8f8;text-decoration:underline">         </span><span style="color:#8f5902;font-style:italic"># How often (milliseconds) should event counts be written to InfluxDB?  </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">writeFrequency</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">20000</span><span style="color:#f8f8f8;text-decoration:underline">         </span><span style="color:#8f5902;font-style:italic"># How often (milliseconds) should event counts be written to InfluxDB?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Log events are used to capture Sense warnings, errors and fatals in real time</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -395,10 +396,10 @@ It is configured elsewhere in the YAML config file, more info <a href="/docs/get
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">qlikSenseEvents</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Shared settings for user and log events (see below)</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">influxdb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Should summary (counter) of user/log events, and rejected events be stored in InfluxDB?</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">writeFrequency</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">20000</span><span style="color:#f8f8f8;text-decoration:underline">         </span><span style="color:#8f5902;font-style:italic"># How often (milliseconds) should rejected event count be written to InfluxDB?  </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">writeFrequency</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">20000</span><span style="color:#f8f8f8;text-decoration:underline">         </span><span style="color:#8f5902;font-style:italic"># How often (milliseconds) should rejected event count be written to InfluxDB?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">eventCount</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                     </span><span style="color:#8f5902;font-style:italic"># Track how many log and user events are received from Sense.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                    </span><span style="color:#8f5902;font-style:italic"># Some events are valid, some are not. Of the valid events, some are rejected by Butler SOS</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                    </span><span style="color:#8f5902;font-style:italic"># based on the configuration in this file. </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                    </span><span style="color:#8f5902;font-style:italic"># based on the configuration in this file.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Should event count be stored in InfluxDB?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">influxdb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">measurementName</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">event_count</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Name of the InfluxDB measurement where event count is stored</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -413,7 +414,7 @@ It is configured elsewhere in the YAML config file, more info <a href="/docs/get
 <p>Note the two-layered query.<br>
 It is needed to get the data from the InfluxDB database in a format that Grafana can use.</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-3_hu18243676432921914016.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-3_hu_9c577824131a6bdf.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -426,12 +427,12 @@ Total count of user and log events received from two Qlik Sense servers.
 
 <p>There are also a couple of transformations applied to the data:</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-4_hu8897393316518555030.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-4_hu_49b9724ceabf0c6a.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
 
-Transformations applied to the data before it's displayed in the Grafana panel. The sorting is done to make sure the data is displayed in the correct order. Renaming/reorder is not used in this exampe.
+Transformations applied to the data before it's displayed in the Grafana panel. The sorting is done to make sure the data is displayed in the correct order. Renaming/reorder is not used in this example.
 
 </p>
 </figcaption>
@@ -441,7 +442,7 @@ Transformations applied to the data before it's displayed in the Grafana panel. 
 <p>The center left panel of the Grafana dashboard at the top of this page is defined as below.<br>
 The query is very similar to the one above, but with a different grouping.</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-5_hu2769291879494600123.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-5_hu_96821a5a0b08b4a7.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -454,7 +455,7 @@ Count of user and log events per host.
 
 <p>Transformations&hellip;</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-6_hu3705325994257669103.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-6_hu_a173cb324a5496d4.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -468,7 +469,7 @@ Transformations applied to the data before it's displayed in the Grafana panel.
 <h3 id="count-of-user-and-log-events-per-event-type">Count of user and log events per event type</h3>
 <p>The lower left panel of the Grafana dashboard at the top of this page is defined as below.</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-7_hu11325435770694038668.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-7_hu_f5e011d4e46a87df.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -481,7 +482,7 @@ Count of user and log events per event type.
 
 <p>Transformations&hellip;</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-8_hu4082807156671315878.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-8_hu_10991b534d74653b.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -495,7 +496,7 @@ Transformations applied to the data before it's displayed in the Grafana panel.
 <h3 id="table-of-received-events">Table of received events</h3>
 <p>The table at the right of the Grafana dashboard at the top of this page is defined as below.</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-9_hu11516450337949741540.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-9_hu_2a3e4fcf19b6035c.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -508,7 +509,7 @@ Table of received events and event count per event type, host, Sense service/sou
 
 <p>Transformations&hellip;</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-10_hu7529729705310448847.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-10_hu_4f01cc70a2c7fbc6.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -525,6 +526,9 @@ Transformations applied to the data before it's displayed in the Grafana panel.
     
     
     </div>
+<div class="td-page-meta__lastmod">
+  Last modified September 24, 2024: <a href="https://github.com/ptarmiganlabs/butler-sos-docs/commit/8a490d7806a754455ea79ab82588e6f95e2ef842">Add more examples wrt 11.0 (8a490d7)</a>
+</div>
 </div>
 
           </main>
@@ -575,7 +579,7 @@ Transformations applied to the data before it's displayed in the Grafana panel.
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>

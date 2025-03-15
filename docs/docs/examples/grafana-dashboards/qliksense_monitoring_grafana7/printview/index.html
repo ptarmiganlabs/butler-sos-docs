@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -25,27 +25,28 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>Qlik Sense monitoring using Grafana 7 | Butler SOS</title>
-<meta name="description" content="Grafana 7 is a big update when it comes to visualisations. Grafana was excellent already in version 6, but with v7 things are taken to a new level. 
+<meta name="description" content="Grafana 7 is a big update when it comes to visualizations. Grafana was excellent already in version 6, but with v7 things are taken to a new level.
 ">
 <meta property="og:url" content="https://butler-sos.ptarmiganlabs.com/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/">
   <meta property="og:site_name" content="Butler SOS">
   <meta property="og:title" content="Qlik Sense monitoring using Grafana 7">
-  <meta property="og:description" content="Grafana 7 is a big update when it comes to visualisations. Grafana was excellent already in version 6, but with v7 things are taken to a new level. ">
+  <meta property="og:description" content="Grafana 7 is a big update when it comes to visualizations. Grafana was excellent already in version 6, but with v7 things are taken to a new level.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Qlik Sense monitoring using Grafana 7">
-  <meta itemprop="description" content="Grafana 7 is a big update when it comes to visualisations. Grafana was excellent already in version 6, but with v7 things are taken to a new level. ">
+  <meta itemprop="description" content="Grafana 7 is a big update when it comes to visualizations. Grafana was excellent already in version 6, but with v7 things are taken to a new level.">
+  <meta itemprop="dateModified" content="2024-09-24T09:03:08+02:00">
   <meta itemprop="wordCount" content="471">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qlik Sense monitoring using Grafana 7">
-  <meta name="twitter:description" content="Grafana 7 is a big update when it comes to visualisations. Grafana was excellent already in version 6, but with v7 things are taken to a new level. ">
+  <meta name="twitter:description" content="Grafana 7 is a big update when it comes to visualizations. Grafana was excellent already in version 6, but with v7 things are taken to a new level.">
 
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -100,7 +101,7 @@ This is the multi-page printable view of this section.
 
 
 <h1 class="title">Qlik Sense monitoring using Grafana 7</h1>
-<div class="lead">Grafana 7 is a big update when it comes to visualisations. Grafana was excellent already in version 6, but with v7 things are taken to a new level.</div>
+<div class="lead">Grafana 7 is a big update when it comes to visualizations. Grafana was excellent already in version 6, but with v7 things are taken to a new level.</div>
 
 
 
@@ -126,12 +127,12 @@ This is the multi-page printable view of this section.
 
 </div>
 
-<p>A concept that has proven useful many times is to use an overview dashboard to monitors high-level metrics for the entire Sense cluster. A separate, parameterised dashboard then drill into the details for each server.</p>
+<p>A concept that has proven useful many times is to use an overview dashboard to monitors high-level metrics for the entire Sense cluster. A separate, parameterized dashboard then drill into the details for each server.</p>
 <p>Sample dashboards are available in the <a href="https://github.com/ptarmiganlabs/butler-sos/tree/master/docs/grafana">Git repository</a>.
 Before importing these to Grafana you should create a Grafana data source called &ldquo;SenseOps&rdquo;, and point it to your InfluxDB database. When you then import the dashboards they should find your database straight away.</p>
 <h2 id="overview-metrics">Overview metrics</h2>
-<p>This view gives high level insights into the 3 virtual proxies (/sales, /sourcing, /finance) in this particlar Sense environment, as well as top-level numbers on users and sessions.</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_main_metrics.png" title="Top level metrics">
+<p>This view gives high level insights into the 3 virtual proxies (/sales, /sourcing, /finance) in this particular Sense environment, as well as top-level numbers on users and sessions.</p>
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_main_metrics.png" alt="Grafana dashboard" title="Top level metrics">
 <em>Top level metrics</em></p>
 <p>Low memory alerts can be set (using Grafana&rsquo;s alert feature). Such alerts can be sent (using features built into Grafana) as notifications to Slack, Teams, Pager Duty, as email etc.
 To keep the dashboard nice and clean it&rsquo;s usually a good idea to put alert charts in their own section (see below for an example).</p>
@@ -139,28 +140,28 @@ To keep the dashboard nice and clean it&rsquo;s usually a good idea to put alert
 <p>From a sysadmin perspective it&rsquo;s often interesting to know what apps are loaded into memory on each Sense server.</p>
 <p>Here you get the details broken down by regular apps and session apps.<br>
 You can also use Grafana&rsquo;s standard filtering features to narrow down on the server(s) of interest.</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_apps_in_memory.png" title="Apps loaded into memory">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_apps_in_memory.png" alt="Grafana dashboard" title="Apps loaded into memory">
 <em>Apps loaded into memory</em></p>
 <h2 id="users--sessions-per-server">Users &amp; sessions per server</h2>
 <p>If things really go wrong wrong in a Qlik Sense Enterprise environment there connected users might be kicked out. It is therefore important to know at any given time how many users are connected, and be able to detect sudden drops in user count.</p>
 <p>Another use case could be for maintenance windows: You then want to know how many - and which - users are connected, so you can send them a message that maintenance is about to start.</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_users_sessions.png" title="Users and sessions per server">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_users_sessions.png" alt="Grafana dashboard" title="Users and sessions per server">
 <em>Users and sessions per server</em></p>
 <h2 id="warnings--errors">Warnings &amp; Errors</h2>
 <p>This information is available in the standard Operations Monitor app in Qlik Sense Enterprise, but only in a retrospective way.<br>
 Having access to it in close to real time makes it possible to act on developing issues quicker.</p>
 <p>Charts provide overview while tables then give the actual messages, as they appear in the log files.</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_errors_warnings_charts.png" title="Error and warning charts">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_errors_warnings_charts.png" alt="Grafana dashboard" title="Error and warning charts">
 <em>Error and warning charts</em></p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_errors_warnings_table.png" title="Error and warning tables">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_errors_warnings_table.png" alt="Grafana dashboard" title="Error and warning tables">
 <em>Error and warning tables</em></p>
 <h2 id="butler-sos-metrics">Butler SOS metrics</h2>
 <p>Butler SOS is very robust indeed, but it may still be of interest to track its memory use, to make sure there aren&rsquo;t any memory leaks etc.</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_butlersos_memory.png" title="Butler SOS memory usage">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_butlersos_memory.png" alt="Grafana dashboard" title="Butler SOS memory usage">
 <em>Butler SOS memory usage</em></p>
 <h2 id="alerts">Alerts</h2>
 <p>While it&rsquo;s perfectly possible to include alerts in almost any Grafana chart, sometimes its nice to tuck the alert-enabled charts away, out of sight. They will do their job and alert when needed.</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_alerts.png" title="Butler SOS memory usage">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_alerts.png" alt="Grafana dashboard" title="Butler SOS memory usage">
 <em>Alerts</em></p>
 
 </div>
@@ -227,7 +228,7 @@ Having access to it in close to real time makes it possible to act on developing
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/qlik-sense-server-settings/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/setup/qlik-sense-server-settings/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -45,8 +45,8 @@
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -152,7 +152,7 @@ They must exist in the config file and be correctly set for Butler SOS to work.
 </span></span></span></code></pre></div><h2 id="qlik-sense-certificates">Qlik Sense certificates</h2>
 <p>Butler SOS uses certificates to authenticate with Qlik Sense.<br>
 These certificates must be exported from the Qlik Management Console (QMC).</p>
-<p><img alt="Qlik Sense certificate export" src="/docs/getting_started/setup/qlik-sense-server-settings/qmc-certexport-1.png" title="Exporting certificates from Qlik"></p>
+<p><img src="/docs/getting_started/setup/qlik-sense-server-settings/qmc-certexport-1.png" alt="Qlik Sense certificate export" title="Exporting certificates from Qlik"></p>
 <p>To export certificates you need to provide a few pieces of information:</p>
 <ol>
 <li>The IP or full host name that Butler SOS&rsquo; will use when calling Butler SOS APIs.
@@ -162,9 +162,9 @@ For example, if Butler SOS get data from <code>server1.my.domain</code> (i.e. th
 <li>Check the &ldquo;Include secret key&rdquo; check box.</li>
 <li>Export certificates in PEM format.</li>
 </ol>
-<p><img alt="Qlik Sense certificate export" src="/docs/getting_started/setup/qlik-sense-server-settings/qmc-certexport-2.png" title="Exporting certificates from Qlik, step 2"></p>
+<p><img src="/docs/getting_started/setup/qlik-sense-server-settings/qmc-certexport-2.png" alt="Qlik Sense certificate export" title="Exporting certificates from Qlik, step 2"></p>
 <p>Then click the &ldquo;Export certificates&rdquo; button. If all goes well the certificates are now exported to a folder on the Sense server to which you are connected (i.e. the server hosting the virtual proxy you are connected to):</p>
-<p><img alt="Qlik Sense certificate export" src="/docs/getting_started/setup/qlik-sense-server-settings/qmc-certexport-3.png" title="Exporting certificates from Qlik - all done!"></p>
+<p><img src="/docs/getting_started/setup/qlik-sense-server-settings/qmc-certexport-3.png" alt="Qlik Sense certificate export" title="Exporting certificates from Qlik - all done!"></p>
 <p>The exported certificate files will be used when <a href="/docs/reference/config_file_format/">configuring Butler SOS</a>.</p>
 
 </div>
@@ -231,7 +231,7 @@ For example, if Butler SOS get data from <code>server1.my.domain</code> (i.e. th
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>

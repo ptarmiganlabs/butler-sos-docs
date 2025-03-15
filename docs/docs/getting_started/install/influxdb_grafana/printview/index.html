@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/influxdb_grafana/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/install/influxdb_grafana/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -37,7 +37,7 @@
   <meta itemprop="name" content="InfluxDB & Grafana">
   <meta itemprop="description" content="How to use Butler SOS with InfluxDB and Grafana using Docker.">
   <meta itemprop="dateModified" content="2024-08-22T18:44:05+02:00">
-  <meta itemprop="wordCount" content="1193">
+  <meta itemprop="wordCount" content="1194">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="InfluxDB & Grafana">
   <meta name="twitter:description" content="How to use Butler SOS with InfluxDB and Grafana using Docker.">
@@ -45,8 +45,8 @@
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -127,7 +127,7 @@ This is the multi-page printable view of this section.
 <p>If you already have InfluxDB and/or Grafana running you can skip this section.</p>
 <h2 id="running-in-docker-using-docker-compose">Running in Docker using docker-compose</h2>
 <p>The easiest way to get started is to run these tools in Docker containers, controlled by docker-compose files.<br>
-Running them under Kubernetes will give you a whole other level of fault tolerance, scalability etc - but this also requries much more when it comes to Kubernetes skills. Use the setup that&rsquo;s relevant to your use case.</p>
+Running them under Kubernetes will give you a whole other level of fault tolerance, scalability etc - but this also requires much more when it comes to Kubernetes skills. Use the setup that&rsquo;s relevant to your use case.</p>
 <p>You can use a single docker-compose file for Butler SOS, InfluxDB and Grafana - or separate docker-compose files for each tool.</p>
 <p>The advantage of using a single docker-compose file is that the entire stack of tools will be launched in unison. You can create dependencies between the tools if needed etc - very convenient.
 On the other hand, having separate docker-compose files makes it easier to restart (or upgrade or in other ways change) a single service without affecting other services.</p>
@@ -263,16 +263,16 @@ On the other hand, having separate docker-compose files makes it easier to resta
 </span></span></code></pre></div><p>That&rsquo;s great, we now have a single command (<code>docker-compose -f docker-compose_fullstack_influxdb.yml up -d</code> for background/daemon mode) to bring up all the tools needed to monitor a Qlik Sense cluster!</p>
 <p>Now, let&rsquo;s see if any data has arrived in InfluxDB.<br>
 Let&rsquo;s check this by going into Grafana, which is available on port 3000.</p>
-<p>First time logging into a new Grafana instance you can use the default admin acount (username=admin, password=admin).<br>
+<p>First time logging into a new Grafana instance you can use the default admin account (username=admin, password=admin).<br>
 You will be asked to change that password during first login.</p>
 <p>First add a data source in Grafana, pointing it to the local InfluxDB server.</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
-<img class="card-img-top" src="/docs/getting_started/install/influxdb_grafana/grafana-influxdb-datasource-1_hu16195411686734643213.png" width="800" height="918">
+<img class="card-img-top" src="/docs/getting_started/install/influxdb_grafana/grafana-influxdb-datasource-1_hu_853634b1ec668f8f.png" width="800" height="918">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
 
-Adding an InfluxDB datasource in Grafana
+Adding an InfluxDB data source in Grafana
 
 </p>
 </figcaption>
@@ -281,12 +281,12 @@ Adding an InfluxDB datasource in Grafana
 <p>Now we can create a basic chart in Grafana, showing for example Butler SOS&rsquo; own memory usage.<br>
 After a while we should see some data in the chart:</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1034px">
-<img class="card-img-top" src="/docs/getting_started/install/influxdb_grafana/grafana-chart-1_hu1621247098358868806.png" width="1024" height="587">
+<img class="card-img-top" src="/docs/getting_started/install/influxdb_grafana/grafana-chart-1_hu_aa7f8d873ecff50c.png" width="1024" height="587">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
 
-Butler SOS' own memory usage, stored in InfluxDB and visualised in Grafana
+Butler SOS' own memory usage, stored in InfluxDB and visualized in Grafana
 
 </p>
 </figcaption>
@@ -369,7 +369,7 @@ Easy - just run <code>docker-compose -f docker-compose_fullstack_influxdb.yml do
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>

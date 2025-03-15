@@ -1,12 +1,12 @@
 ---
-title: "Visualising Butler SOS metrics in New Relic"
+title: "Visualizing Butler SOS metrics in New Relic"
 linkTitle: "New Relic dashboards"
 weight: 100
 description: >
-  New Relic is a complete SaaS product that offers both data storage and powerful, yet easy to set up and use visualisations.
+  New Relic is a complete SaaS product that offers both data storage and powerful, yet easy to set up and use visualizations.
 ---
 
-In this dashboard most of the data comes from Butler SOS, but the failed reload pie chart and table at the top are created using data from the [Butler](https://butler.ptarmiganlabs.com) tool.  
+In this dashboard most of the data comes from Butler SOS, but the failed reload pie chart and table at the top are created using data from the [Butler](https://butler.ptarmiganlabs.com) tool.
 
 New Relic does not give you nearly the same level control as Grafana does, for example when it comes to fine-tuning visual details of charts, tables etc.
 

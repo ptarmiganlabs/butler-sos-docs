@@ -2,7 +2,8 @@
 title: Butler SOS
 ---
 
-{{< blocks/cover title="Butler SOS: Realtime monitoring for Qlik Sense" image_anchor="top" height="full" >}}
+{{< blocks/cover title="Butler SOS: Real-time monitoring for Qlik Sense" image_anchor="top" height="full" >}}
+
 <div class="mx-auto">
  <a class="btn btn-lg btn-primary mr-3 mb-4" href="/docs/">
   Learn More <i class="fas fa-arrow-alt-circle-right ml-2"></i>
@@ -12,7 +13,6 @@ title: Butler SOS
  </a>
  <p class="lead mt-5">Warnings lead to errors ➡️ Errors lead to unhappy users ➡️ Unhappy users call you. Ouch 👎.</p>
  <p class="lead mt-2">Wouldn't you rather get the warnings yourself, before anyone else?</p>
- 
 
  <p class="lead mt-5"></p>
  <p class="-bg-primary p-2 display-4">If you don't measure it, you can't improve it. </p>
@@ -23,7 +23,6 @@ title: Butler SOS
 </div>
 {{< /blocks/cover >}}
 
-
 {{% blocks/lead color="primary" %}}
 Butler SOS is an open source (free!!) tool that provides real-time monitoring of Qlik Sense Enterprise environments.<br>
 One server or 40? No problem.
@@ -33,30 +32,26 @@ Runs on Windows, Linux, Mac OS, in Docker or as a Kubernetes service.
 Eager to try it out? The [getting started](docs/getting_started/) pages will tell you everything you need.
 {{% /blocks/lead %}}
 
-
 {{% blocks/lead color="dark" %}}
 **--- Why is monitoring important? ---**
 
 Good question!
 
 For starters, if you are responsible for a Sense environment and hear about issues from your end users - that's a bad position to be in.
-You should be the first to know when something breaks. Only then are you able to fix things quickly, ideally even before end users realise there has been an incident.
+You should be the first to know when something breaks. Only then are you able to fix things quickly, ideally even before end users realize there has been an incident.
 
-Additionally, having access to real-time metrics makes it much easier to incrementally tweak and tune your Sense environment. 
+Additionally, having access to real-time metrics makes it much easier to incrementally tweak and tune your Sense environment.
 {{% /blocks/lead %}}
-
-
 
 {{% blocks/lead color="orange" %}}
 **--- Can I get alerts when some metric go out of bounds? ---**
 
-Yes! Butler SOS stores all data in an InfluxDB and/or Prometheus database, from where it is visualised using Grafana.
+Yes! Butler SOS stores all data in an InfluxDB and/or Prometheus database, from where it is visualized using Grafana.
 
-Both are best-in-class, open source products for storing and visualising time-series data.
+Both are best-in-class, open source products for storing and visualizing time-series data.
 
-Grafana is increadibly feature rich, including a powerful alerting feature that can send alerts to email, IM tools (Slack etc), PagerDuty and more.
+Grafana is incredibly feature rich, including a powerful alerting feature that can send alerts to email, IM tools (Slack etc), PagerDuty and more.
 {{% /blocks/lead %}}
-
 
 {{% blocks/lead color="info" %}}
 **--- Can I get alerts when errors or warnings occur in Qlik Sense? ---**
@@ -69,9 +64,8 @@ The same concept also works for user events. Need to track sessions over time or
 
 Butler SOS version 9 takes this concept even further, enabling forwarding of select log and user events to the New Relic monitoring service.
 
-With version 10.2, Butler SOS can also categorise according to your specific needs, making it ***much*** easier to understand what is happening in your Sense environment - as it happens.
+With version 10.2, Butler SOS can also categorize according to your specific needs, making it **_much_** easier to understand what is happening in your Sense environment - as it happens.
 {{% /blocks/lead %}}
-
 
 {{% blocks/lead color="success" %}}
 **--- What operating systems and browsers are used to access my Qlik Sense environment ? ---**
@@ -85,11 +79,8 @@ accessing your Sense environment.<br>
 This data is stored in InfluxDB, NewRelic and is sent as MQTT messages.
 {{% /blocks/lead %}}
 
-
-
-
 {{% blocks/lead color="primary" %}}
-**--- We use system \<*our-preferred-monitoring–tool*\> for monitoring. Can it be used with Butler SOS? ---**
+**--- We use system \<_our-preferred-monitoring–tool_\> for monitoring. Can it be used with Butler SOS? ---**
 
 Yes, most likely. Butler SOS supports both InfluxDB, Prometheus and New Relic, but also optionally sends metrics as MQTT messages.  
 If your main monitoring tool can use either of these as a data source, it can read data extracted by Butler SOS.
@@ -98,29 +89,25 @@ If not natively supporting InfluxDB, Prometheus, New Relic or MQTT, it is usuall
 
 {{% /blocks/lead %}}
 
-
 {{< blocks/section type="row" color="light">}}
 
 {{% blocks/feature icon="fa-server" title="Scalability?" %}}
 Butler SOS handles very large Sense clusters - or just a single node.
 {{% /blocks/feature %}}
 
-
 {{% blocks/feature icon="fa-bell" title="Alerts and notifications?" %}}
 Built into Grafana. Email, Slack, Teams, New Relic, PagerDuty and more.  
 Prometheus offers even more integrations with various alerting tools.
 {{% /blocks/feature %}}
 
-
 {{% blocks/feature icon="fa-users" title="Who, when, where?" %}}
 Detailed info is available about what users are (and were!) connected to which virtual proxies.<br>
 
-Example: Easy to see which users will be affectd by a server restart. Connect this data to your IM tool and notify users before restarts happen.
+Example: Easy to see which users will be affected by a server restart. Connect this data to your IM tool and notify users before restarts happen.
 {{% /blocks/feature %}}
 
-
 {{% blocks/feature icon="fa-archive" title="Logging revisited" %}}
-The Sense log database is gone as of second half of 2021, but with log events forwarded to Butler SOS - then visualised in Grafana or New Relic - you get real-time insight into errors and warnings as they happen.
+The Sense log database is gone as of second half of 2021, but with log events forwarded to Butler SOS - then visualized in Grafana or New Relic - you get real-time insight into errors and warnings as they happen.
 
 No more digging around in log files on the server!
 {{% /blocks/feature %}}
@@ -129,24 +116,20 @@ No more digging around in log files on the server!
 Butler SOS can monitor the performance of individual charts and tables in your apps, as well as the performance of the actual data model itself.  
 {{% /blocks/feature %}}
 
-
 {{% blocks/feature icon="fa-frown" title="Know - don't guess what your users experience" %}}
 Are users reporting that an app is slow to open?  
 Get actual numbers - in real-time - on how long the app usually takes to open, and what the outliers are.  
 {{% /blocks/feature %}}
 
-
 {{% blocks/feature icon="fa-volume-down" title="Manage Sense log noise" %}}
 Getting thousands of warnings and errors in your Sense logs?
 
-Butler SOS can categorise log entries into any number of categories, making it much easier to understand what is happening in your Sense environment.
+Butler SOS can categorize log entries into any number of categories, making it much easier to understand what is happening in your Sense environment.
 
 Suddenly it's easy to find the important log entries among all those non-critical events.
 {{% /blocks/feature %}}
 
 {{% /blocks/section %}}
-
-
 
 {{< blocks/section type="row">}}
 

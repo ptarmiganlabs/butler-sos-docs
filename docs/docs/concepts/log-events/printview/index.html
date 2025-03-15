@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/concepts/log-events/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/concepts/log-events/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -35,6 +35,7 @@
 
   <meta itemprop="name" content="Log events">
   <meta itemprop="description" content="Butler SOS documentation">
+  <meta itemprop="dateModified" content="2024-09-20T20:34:54+02:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Log events">
   <meta name="twitter:description" content="Butler SOS documentation">
@@ -42,8 +43,8 @@
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -114,7 +115,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-2ae9fb434c46b5449cad62d4badcec06">Log events overview</a></li>
+<li>1: <a href="#pg-d3f37fe9a34c2b149d9d7ce755fbd78f">Log events overview</a></li>
 
 
     
@@ -133,7 +134,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-2145d528d24c6e37b4b900c70639ddbf">Errors &amp; Warnings</a></li>
+<li>2: <a href="#pg-8d45847027bddbbd36322ad7244ac7e7">Errors &amp; Warnings</a></li>
 
 
     
@@ -152,7 +153,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-00541e69743da8be92e0c01e55611487">Getting rid of Sense log noise</a></li>
+<li>3: <a href="#pg-1aa41e71096e07870129f911369bead9">Getting rid of Sense log noise</a></li>
 
 
     
@@ -171,7 +172,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-61505fb6ade3581adfe706febc513ffe">App performance monitoring</a></li>
+<li>4: <a href="#pg-55b0693567350907dbecdefe43bcfa17">App performance monitoring</a></li>
 
 
     
@@ -213,7 +214,7 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-2ae9fb434c46b5449cad62d4badcec06">1 - Log events overview</h1>
+	<h1 id="pg-d3f37fe9a34c2b149d9d7ce755fbd78f">1 - Log events overview</h1>
     <div class="lead"><p>Butler SOS can capture <em>very</em> detailed information about individual charts in apps - or just the high-level information about the apps themselves.</p>
 <p>This page explains the different levels of engine performance data that Butler SOS can provide.</p>
 </div>
@@ -237,7 +238,7 @@ The counters are configured in the <code>Butler-SOS.qlikSenseEvents.eventCount</
 <p>These counters can be used to get a general idea of which servers generate the most log events, which Windows services generate the most events, and so on.</p>
 <p>A Grafana dashboard can look like this:</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-event-counter-1_hu16061839809196349061.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-event-counter-1_hu_fcee4e78804e4a90.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -254,7 +255,7 @@ Butler SOS event counter charts in Grafana.
 <p>As both app id/name and the engine method (for example <code>Global::OpenApp</code>) are included as a dimension in the InfluxDB data, it&rsquo;s possible to create Grafana dashboards that show how long time each app takes to open.</p>
 <p>A Grafana dashboard can look like this:</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-rejected-performance-log-events-1_hu1857499667583998736.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-rejected-performance-log-events-1_hu_267930e72fc17f12.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -274,7 +275,7 @@ Might be a good idea to investigate why the app &ldquo;Training - Field indexing
 The metrics are described in the <a href="/docs/reference/available_metrics/influxdb/#accepted-performance-log-events">reference section</a>.</p>
 <p>An example Grafana dashboard can look like this:</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-accepted-performance-log-events-1_hu5798062072126743298.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-accepted-performance-log-events-1_hu_a1990af2966acc68.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -296,7 +297,7 @@ The chart tells us that two app objects take on the order of 5 seconds each to c
 Turns out it&rsquo;s the two tables (object 10 and 11) that take a long time to update - that&rsquo;s expected (but not ideal!) as they contain a lot of complex data that takes time to index.</p>
 <p>If the update times get even longer, it might be a good idea to look into the data model and see if it can be optimized.</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-accepted-performance-log-events-8_hu18194695238874105630.png" width="1200" height="684">
+<img class="card-img-top" src="/docs/concepts/log-events/log-events-overview/butler-sos-accepted-performance-log-events-8_hu_4388b051d6560684.png" width="1200" height="684">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -334,7 +335,7 @@ The "Add Sense for Chrome" extension showing the object ID for objects on a shee
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-2145d528d24c6e37b4b900c70639ddbf">2 - Errors &amp; Warnings</h1>
+	<h1 id="pg-8d45847027bddbbd36322ad7244ac7e7">2 - Errors &amp; Warnings</h1>
     <div class="lead"><p>Warnings lead to errors.<br>
 Errors lead to unhappy users.<br>
 Unhappy users call you.</p>
@@ -354,19 +355,19 @@ It is therefore possible to create Grafana dashboards that combine both operatio
 50-60 warnings arriving in bursts every few minutes - something is not right.<br>
 There is also a single error during this time period - what&rsquo;s going on there?</p>
 <p>We can then look at the actual warnings (=log events) to see what&rsquo;s going on.</p>
-<p>In this case it turns out to be circular references in the Active Directory data used in Qlik Sense.  Not a problem with Sense per se, but still something worth looking into:</p>
-<p><img alt="Warnings and errors from Qlik Sense in Grafana dashboard" src="/docs/concepts/log-events/errors-warnings/butler-sos-warnings-errors-graph-1.png" title="Warnings and errors from Qlik Sense in Grafana dashboard"></p>
-<p><img alt="Warnings from Qlik Sense in Grafana table" src="/docs/concepts/log-events/errors-warnings/butler-sos-warnings-table-1.png" title="Warnings from Qlik Sense in Grafana table"></p>
+<p>In this case it turns out to be circular references in the Active Directory data used in Qlik Sense. Not a problem with Sense per se, but still something worth looking into:</p>
+<p><img src="/docs/concepts/log-events/errors-warnings/butler-sos-warnings-errors-graph-1.png" alt="Warnings and errors from Qlik Sense in Grafana dashboard" title="Warnings and errors from Qlik Sense in Grafana dashboard"></p>
+<p><img src="/docs/concepts/log-events/errors-warnings/butler-sos-warnings-table-1.png" alt="Warnings from Qlik Sense in Grafana table" title="Warnings from Qlik Sense in Grafana table"></p>
 <p>Looking at that single error then, it turns out it&rsquo;s caused by a task already running when it was scheduled to start:</p>
-<p><img alt="Errors from Qlik Sense in Grafana table" src="/docs/concepts/log-events/errors-warnings/butler-sos-errors-table-1.png" title="Errors from Qlik Sense in Grafana table"></p>
+<p><img src="/docs/concepts/log-events/errors-warnings/butler-sos-errors-table-1.png" alt="Errors from Qlik Sense in Grafana table" title="Errors from Qlik Sense in Grafana table"></p>
 <h3 id="example-2-session-bursts-causing-proxy-overload">Example 2: Session bursts causing proxy overload</h3>
 <p>This example is would have been hard or impossible to investigate without Butler SOS.</p>
 <p>The problem was that the Sense environment from time to time became very slow or even unresponsive. A restart solved the problem.</p>
-<p>Grafana was set up to send alerts when session count increase very rapidly. Thanks to this actions could be taken within minutes from the incident occuring.</p>
+<p>Grafana was set up to send alerts when session count increase very rapidly. Thanks to this actions could be taken within minutes from the incident occurring.</p>
 <p>Looking in the Grafana dashboard could then show something like below.<br>
 New sessions started every few seconds, all coming from a single client. The effect for this Sense user was that Sense was unresponsive.</p>
 <p>The log events section of the Grafana dashboard showed that this user had been given 5 proxy sessions, after which further access to Sense internal resources (engine etc) was denied.</p>
-<p><img alt="Sessions increasing very quickly" src="/docs/concepts/log-events/errors-warnings/butler-sos-session-runaway-1.png" title="Qlik Sense sessions increasing very quickly"></p>
+<p><img src="/docs/concepts/log-events/errors-warnings/butler-sos-session-runaway-1.png" alt="Sessions increasing very quickly" title="Qlik Sense sessions increasing very quickly"></p>
 <p>In this case the problem was caused by a mashup using iframes that when recovering from session timeouts caused race conditions, trying to re-establish a session to Sense over and over again.</p>
 <h2 id="alerts">Alerts</h2>
 <p>Both New Relic and Grafana includes a set of built-in alert features that can be used to set up alerts as well as forward them to destinations such as Slack, MS Teams, email, Discord, Kafka, Webhooks, PagerDuty and others.</p>
@@ -399,10 +400,10 @@ New Relic alerts described <a href="https://docs.newrelic.com/docs/alerts-applie
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-00541e69743da8be92e0c01e55611487">3 - Getting rid of Sense log noise</h1>
+	<h1 id="pg-1aa41e71096e07870129f911369bead9">3 - Getting rid of Sense log noise</h1>
     <div class="lead"><p>Let&rsquo;s say Butler SOS is configured to receive log events from Qlik Sense Enterprise, specifically warnings and errors.</p>
 <p>In the best of worlds there will be few such events, but in reality there are usually more than expected. It&rsquo;s not uncommon for a Sense cluster to generate hundreds or even thousands of error and warning events per hour.</p>
-<p>By categorising these events, Butler SOS can help you focus on the most important ones, and ignore the rest.</p>
+<p>By categorizing these events, Butler SOS can help you focus on the most important ones, and ignore the rest.</p>
 </div>
 	<h2 id="what-kind-of-log-events-are-there">What kind of log events are there?</h2>
 <p>Log events originate from the Qlik Sense logging framework, which is called Log4Net.</p>
@@ -413,41 +414,40 @@ This is done by deploying XML files in well defined folders on the Sense servers
 <p>So, what Butler SOS receives is a stream of log events, with a log level of either <code>WARN</code> or <code>ERROR</code>, from the repository, proxy, engine, and scheduler services in Qlik Sense.</p>
 <p>That&rsquo;s all fine, but it&rsquo;s not uncommon for a Sense cluster to generate way more warnings and errors than expected by the Sense admin person.<br>
 The challenge then becomes to focus on the most important events, and ignore the rest.</p>
-<h2 id="how-to-categorise-log-events">How to categorise log events</h2>
+<h2 id="how-to-categorize-log-events">How to categorize log events</h2>
 <p>Let&rsquo;s say there are 1000 log events per hour.</p>
 <p>When looking at the log events, it turns out that 95% of them are either about</p>
 <ul>
 <li>people getting https certificate warnings when accessing the Qlik Sense Hub&hellip;</li>
 <li>&hellip;people getting access denied errors when trying to open an app&hellip;</li>
-<li>&hellip;or that Sense has detected something unusual (like a ciruclar reference) in an Active Directory user directory.</li>
+<li>&hellip;or that Sense has detected something unusual (like a circular reference) in an Active Directory user directory.</li>
 </ul>
 <p>Those events are not good, but they are not critical either.<br>
 They are things that can be fixed in a controlled way, and they won&rsquo;t bring the Sense cluster to its knees.</p>
 <p>But there may also be a few log events that are related to the Sense central node not being able to connect to one of the rim nodes.
 Maybe the events occur at irregular intervals and therefore more difficult to detect.</p>
-<p>These events <em><strong>are</strong></em> critical, and should be investigated immediately.</p>
-<p>If Butler SOS is configured to categorise the certificate warnings as &ldquo;user-certificate, the Active Directory warnings as &ldquo;active-directory&rdquo; and the access-denied warnings as &ldquo;access-denied&rdquo;, <em>that information is then added as tags to the event data that is stored in InfluxDB</em>.</p>
+<p>These events <strong><em>are</em></strong> critical, and should be investigated immediately.</p>
+<p>If Butler SOS is configured to categorize the certificate warnings as &ldquo;user-certificate, the Active Directory warnings as &ldquo;active-directory&rdquo; and the access-denied warnings as &ldquo;access-denied&rdquo;, <em>that information is then added as tags to the event data that is stored in InfluxDB</em>.</p>
 <p>This means that when creating Grafana dashboards, it&rsquo;s possible to create a table that show the number of &ldquo;user-certificate&rdquo; events and the number of &ldquo;active-directory&rdquo; events - and the number of &ldquo;other&rdquo; events.</p>
 <p>Another Grafana panel can show detailed event info for the &ldquo;other&rdquo; events, making it easy to investigate what they are about.</p>
 <blockquote>
-<p>By categorising log events it is possible to get rid of the log noise that hides the important events.</p>
-</blockquote>
+<p>By categorizing log events it is possible to get rid of the log noise that hides the important events.</p></blockquote>
 <h2 id="sample-grafana-dashboard">Sample Grafana dashboard</h2>
 <p>A few charts and tables give a good overview of the log events.</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/catgorising-log-events/butler-sos-grafana-log-event-categorise-1_hu13832150241284820544.png" width="1200" height="423">
+<img class="card-img-top" src="/docs/concepts/log-events/catgorising-log-events/butler-sos-grafana-log-event-categorise-1_hu_8faf7b9731c7683f.png" width="1200" height="423">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
 
-Butler SOS log events dashboard in Grafana. Uncategorised events by the yellow arrows, and in table/charts to the right.
+Butler SOS log events dashboard in Grafana. Uncategorized events by the yellow arrows, and in table/charts to the right.
 
 </p>
 </figcaption>
 </figure>
 
 <h3 id="butler-sos-configuration">Butler SOS Configuration</h3>
-<p>The following settings in the Butler SOS config file were used to categorise the log events that were used in the Grafana dashboard above.</p>
+<p>The following settings in the Butler SOS config file were used to categorize the log events that were used in the Grafana dashboard above.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">Butler-SOS</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -480,7 +480,7 @@ Butler SOS log events dashboard in Grafana. Uncategorised events by the yellow a
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#000">WARN</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#000">ERROR</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">action</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">categorise          </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Action to take on matched log events. Possible values are categorise, drop</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">category</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Category to assign to matched log events. Name/value pairs. </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">category</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Category to assign to matched log events. Name/value pairs.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                       </span><span style="color:#8f5902;font-style:italic"># Will be added to InfluxDB datapoints as tags.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qs_log_category</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">access-denied</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -494,7 +494,7 @@ Butler SOS log events dashboard in Grafana. Uncategorised events by the yellow a
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#000">ERROR</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#000">WARN</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">action</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">categorise          </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Action to take on matched log events. Possible values are categorise, drop</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">category</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Category to assign to matched log events. Name/value pairs. </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">category</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Category to assign to matched log events. Name/value pairs.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                       </span><span style="color:#8f5902;font-style:italic"># Will be added to InfluxDB datapoints as tags.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qs_log_category</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">user-directory</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -505,7 +505,7 @@ Butler SOS log events dashboard in Grafana. Uncategorised events by the yellow a
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">logLevel</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Log events of this Log level will be matched. WARN, ERROR, FATAL. Case insensitive.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#000">WARN</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">action</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">categorise          </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Action to take on matched log events. Possible values are categorise, drop</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">category</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Category to assign to matched log events. Name/value pairs. </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">category</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Category to assign to matched log events. Name/value pairs.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                       </span><span style="color:#8f5902;font-style:italic"># Will be added to InfluxDB datapoints as tags.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qs_log_category</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qs-service</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -519,7 +519,7 @@ Butler SOS log events dashboard in Grafana. Uncategorised events by the yellow a
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#000">WARN</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#000">ERROR</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">action</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">categorise          </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Action to take on matched log events. Possible values are categorise, drop</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">category</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Category to assign to matched log events. Name/value pairs. </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">category</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Category to assign to matched log events. Name/value pairs.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># Will be added to InfluxDB datapoints as tags.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qs_log_category</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">reload-failed</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -564,7 +564,7 @@ Butler SOS log events dashboard in Grafana. Uncategorised events by the yellow a
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-61505fb6ade3581adfe706febc513ffe">4 - App performance monitoring</h1>
+	<h1 id="pg-55b0693567350907dbecdefe43bcfa17">4 - App performance monitoring</h1>
     <div class="lead"><p>Users complain about an app being slow to open.<br>
 Or that a certain chart is slow to update.</p>
 <p>Butler SOS can help you understand what&rsquo;s going on by providing very detailed, real-time performance metrics for all apps or just a few.</p>
@@ -576,7 +576,7 @@ If you don&rsquo;t know what&rsquo;s going on, you&rsquo;re guessing.</p>
 <p>And if you&rsquo;re guessing, you&rsquo;re not in control.</p>
 <p>If you&rsquo;re not in control, well - that&rsquo;s a bad place to be..</p>
 <h3 id="qliks-performance-analysis-apps">Qlik&rsquo;s performance analysis apps</h3>
-<p>Qlik has a couple of apps that can be used to analyse performance data from Qlik Sense Enterprise on Windows.</p>
+<p>Qlik has a couple of apps that can be used to analyze performance data from Qlik Sense Enterprise on Windows.</p>
 <p>First, the <strong>Operations Monitor</strong> app ships with every instance of Qlik Sense Enterprise on Windows.<br>
 This app is the go-to tool for retrospective analysis of what&rsquo;s going on in a Sense environment.</p>
 <p>The app puts all the great features of Qlik Sense to good use on top of the Sense logs it has access to.<br>
@@ -584,7 +584,7 @@ What apps were reloaded when, which reload tasks failed most, which users are mo
 <p>Then there&rsquo;s the <strong>Telemetry Dashboard</strong> app.</p>
 <p>It uses the same data as Butler SOS, but as it&rsquo;s a Sense app it must be reloaded in order to get updated data.<br>
 Butler SOS on the other hand uses real-time delivery of the events from Sense&rsquo;s Log4Net logging framework.</p>
-<p>If you want to do retrospective analysis of detailed performance data, the <a href="https://adminplaybook.qlik-poc.com/docs/tooling/telemetry_dashboard.html">Telemtry Dashboard app</a> is an excellent choice.</p>
+<p>If you want to do retrospective analysis of detailed performance data, the <a href="https://adminplaybook.qlik-poc.com/docs/tooling/telemetry_dashboard.html">Telemetry Dashboard app</a> is an excellent choice.</p>
 <p><a href="https://help.qlik.com/en-US/sense-admin/May2024/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/telemetry-logging.htm">This page</a> provides additional info about the telemetry logging available in Qlik Sense.</p>
 <style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
 <div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice info" >
@@ -595,7 +595,7 @@ I.e. saving disk space and getting real-time data instead of data that&rsquo;s h
 <p>Which is better? That depends on your use case and what you want to achieve.</p></div>
 
 <h2 id="lots-of-use-cases">Lots of use cases</h2>
-<p>Categorisation of events can be done in different ways depending on what you want to achieve.<br>
+<p>Categorization of events can be done in different ways depending on what you want to achieve.<br>
 Here are some examples of what can be done using Butler SOS:</p>
 <ul>
 <li>You want high level insights into how long various app actions take for all apps.
@@ -658,17 +658,16 @@ This feature can be enabled/disabled in the Butler SOS config file. More info <a
 <p>The full set of data stored for accepted events is described in the <a href="/docs/reference/available_metrics/influxdb/#source-engine-service-performance-related-events">reference section</a>.</p>
 <h2 id="suggested-workflows-for-different-use-cases">Suggested workflows for different use cases</h2>
 <p>For some use high-level cases, such as identifying apps that are slow to load, the data for rejected events may be sufficient.</p>
-<p>Other uses cases, such as monitoring the behaviour of specfic app objects (charts, tables etc), require the detailed data stored for accepted events.</p>
+<p>Other uses cases, such as monitoring the behavior of specific app objects (charts, tables etc), require the detailed data stored for accepted events.</p>
 <p>The recommended, general principle is:</p>
 <blockquote>
 <p>Start with the data captured via rejected events (counter and process_time), and then add detailed monitoring.<br>
 The detailed monitoring involves setting up filters to capture specific events for specific apps and/or app objects and/or engine methods.</p>
-<p>Also: make sure to have a reasonably short retention period (10-14 days are usually enough) for the InfluxDB database, as the performance log events can generate a lot of data that can easily affect the performance of the InfluxDB instance.</p>
-</blockquote>
+<p>Also: make sure to have a reasonably short retention period (10-14 days are usually enough) for the InfluxDB database, as the performance log events can generate a lot of data that can easily affect the performance of the InfluxDB instance.</p></blockquote>
 <h2 id="grafana-dashboard-examples">Grafana dashboard examples</h2>
 <h3 id="high-level-monitoring-of-app-performance-rejected-events">High-level monitoring of app performance (rejected events)</h3>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-rejected-performance-log-events-1_hu1857499667583998736.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-rejected-performance-log-events-1_hu_267930e72fc17f12.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -680,7 +679,7 @@ High level metrics (counters and process_time) for apps in a Sense environment.
 </figure>
 
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-rejected-performance-log-events-2_hu12309776204135664758.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-rejected-performance-log-events-2_hu_42ae7e8d19208df8.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -692,7 +691,7 @@ Average time opening apps in a Sense environment. Note the long time for the app
 </figure>
 
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-rejected-performance-log-events-3_hu10527530034873754350.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-rejected-performance-log-events-3_hu_f756a43dbd814933.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -704,7 +703,7 @@ Total time spent on different engine operations, across all apps that were acces
 </figure>
 
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-rejected-performance-log-events-4_hu3293885500055907692.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-rejected-performance-log-events-4_hu_bd9c3e44431d9d23.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -718,7 +717,7 @@ Min, medium and max time spent opening apps in a Sense environment. Here we agai
 <h3 id="detailed-monitoring-of-app-object-performance-accepted-events">Detailed monitoring of app object performance (accepted events)</h3>
 <p>A large set of metrics are stored for accepted performance log events, the examples below highlight just a few of them.</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-accepted-performance-log-events-1_hu5798062072126743298.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-accepted-performance-log-events-1_hu_a1990af2966acc68.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -730,7 +729,7 @@ Detailed performance metrics for app objects in two different Sense apps. "Work 
 </figure>
 
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-accepted-performance-log-events-2_hu9729186242394880109.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-accepted-performance-log-events-2_hu_827de846ab2571b.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -742,7 +741,7 @@ Work time per per app. The chart shows that one app dominates the work time.
 </figure>
 
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-accepted-performance-log-events-3_hu3202660476028227012.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-accepted-performance-log-events-3_hu_3ae04b4833973367.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -754,7 +753,7 @@ Work time per object type, for all apps accessed during the chosen time interval
 </figure>
 
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-accepted-performance-log-events-4_hu12689183606720335394.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-accepted-performance-log-events-4_hu_67bb9e84afbeb5d.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -766,7 +765,7 @@ Detailed information about the various engine performance events that have been 
 </figure>
 
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-accepted-performance-log-events-5_hu16150553100314148823.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-accepted-performance-log-events-5_hu_66a8407b05076f34.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -778,7 +777,7 @@ It is possible to inspect any value in the table, and easily copy it to the clip
 </figure>
 
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-accepted-performance-log-events-6_hu10738520980784633211.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-accepted-performance-log-events-6_hu_9201f046f59fff99.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -790,7 +789,7 @@ Work time per app object in the "Test data - Meetup.com DEV" app. Nothing stands
 </figure>
 
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-accepted-performance-log-events-7_hu16088525549253033788.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-accepted-performance-log-events-7_hu_18978b43b47c7a64.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -802,7 +801,7 @@ Work time per app object in the "Training - Field indexing" app. The chart shows
 </figure>
 
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-accepted-performance-log-events-8_hu18194695238874105630.png" width="1200" height="684">
+<img class="card-img-top" src="/docs/concepts/log-events/app-object-performance-monitoring/butler-sos-accepted-performance-log-events-8_hu_4388b051d6560684.png" width="1200" height="684">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -884,7 +883,7 @@ Looking at the app sheet where the two slow objects above are located, we can se
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>

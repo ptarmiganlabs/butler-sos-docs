@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/examples/count-log_user-events/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/examples/count-log_user-events/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -36,6 +36,7 @@
 
   <meta itemprop="name" content="Count user and log events">
   <meta itemprop="description" content="This example shows how to use Butler SOS to count user and log events received from one or more Qlik Sense servers.">
+  <meta itemprop="dateModified" content="2024-09-24T09:03:08+02:00">
   <meta itemprop="wordCount" content="806">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Count user and log events">
@@ -44,8 +45,8 @@
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -120,15 +121,15 @@ This is the multi-page printable view of this section.
 <div class="content">
       <h2 id="overview">Overview</h2>
 <h3 id="goal">Goal</h3>
-<p>The goal is to count how many  user and log events are received from one or more Qlik Sense servers.</p>
+<p>The goal is to count how many user and log events are received from one or more Qlik Sense servers.</p>
 <p>This can be useful for several reasons:</p>
 <ul>
 <li>To get a general feeling if the Qlik Sense environment is healthy or not. A sudden increase in the number of warnings, errors or fatals can be an early warning sign that something is wrong. The event counters can be seen as a kind of heart beat of the Qlik Sense environment. Too fast - or too slow - can be a sign of trouble.</li>
-<li>The counters count <strong>all</strong> log and user events sent from the Qlik Sense servers to Butler SOS. They can be used to confirm tha the Qlik Sense servers are indeed sending events to Butler SOS at all. Other, more detailed event data can then be used to drill down into the details of what is happening in the Qlik Sense environment.</li>
+<li>The counters count <strong>all</strong> log and user events sent from the Qlik Sense servers to Butler SOS. They can be used to confirm that the Qlik Sense servers are indeed sending events to Butler SOS at all. Other, more detailed event data can then be used to drill down into the details of what is happening in the Qlik Sense environment.</li>
 </ul>
 <p>A Grafana dashboard is used to visualize the event counters:</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-2_hu10693273927315327799.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-2_hu_9bc0c5528dbe8efd.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -145,7 +146,7 @@ A set of Grafana panels showing the number of user and log events received from 
 <li>Store the data collected by Butler SOS in an InfluxDB v1 or v2 database. Setup instructions <a href="/docs/getting_started/setup/influxdb/">here</a></li>
 <li>XML appender files deployed on the Sense servers you want to monitor. The appender files tell Sense to send log events to Butler SOS via UDP messages. Setup instructions <a href="/docs/getting_started/setup/qlik-sense-events/#log-appender-xml-files">here</a>.</li>
 <li>A reasonably recent version of <a href="https://grafana.com/grafana/download">Grafana</a>. At the time of writing, Grafana 11.2 is the latest version.</li>
-<li>Data connetions set up in Grafana to the InfluxDB database where Butler SOS stores its data.</li>
+<li>Data connections set up in Grafana to the InfluxDB database where Butler SOS stores its data.</li>
 </ul>
 <h2 id="configure-butler-sos">Configure Butler SOS</h2>
 <style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
@@ -157,7 +158,7 @@ It is configured elsewhere in the YAML config file, more info <a href="/docs/get
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">qlikSenseEvents</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Shared settings for user and log events (see below)</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">influxdb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Should summary (counter) of user/log events, and rejected events be stored in InfluxDB?</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">writeFrequency</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">20000</span><span style="color:#f8f8f8;text-decoration:underline">         </span><span style="color:#8f5902;font-style:italic"># How often (milliseconds) should event counts be written to InfluxDB?  </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">writeFrequency</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">20000</span><span style="color:#f8f8f8;text-decoration:underline">         </span><span style="color:#8f5902;font-style:italic"># How often (milliseconds) should event counts be written to InfluxDB?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Log events are used to capture Sense warnings, errors and fatals in real time</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -165,10 +166,10 @@ It is configured elsewhere in the YAML config file, more info <a href="/docs/get
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">qlikSenseEvents</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Shared settings for user and log events (see below)</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">influxdb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Should summary (counter) of user/log events, and rejected events be stored in InfluxDB?</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">writeFrequency</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">20000</span><span style="color:#f8f8f8;text-decoration:underline">         </span><span style="color:#8f5902;font-style:italic"># How often (milliseconds) should rejected event count be written to InfluxDB?  </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">writeFrequency</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">20000</span><span style="color:#f8f8f8;text-decoration:underline">         </span><span style="color:#8f5902;font-style:italic"># How often (milliseconds) should rejected event count be written to InfluxDB?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">eventCount</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                     </span><span style="color:#8f5902;font-style:italic"># Track how many log and user events are received from Sense.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                    </span><span style="color:#8f5902;font-style:italic"># Some events are valid, some are not. Of the valid events, some are rejected by Butler SOS</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                    </span><span style="color:#8f5902;font-style:italic"># based on the configuration in this file. </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                    </span><span style="color:#8f5902;font-style:italic"># based on the configuration in this file.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Should event count be stored in InfluxDB?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">influxdb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">measurementName</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">event_count</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Name of the InfluxDB measurement where event count is stored</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -183,7 +184,7 @@ It is configured elsewhere in the YAML config file, more info <a href="/docs/get
 <p>Note the two-layered query.<br>
 It is needed to get the data from the InfluxDB database in a format that Grafana can use.</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-3_hu18243676432921914016.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-3_hu_9c577824131a6bdf.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -196,12 +197,12 @@ Total count of user and log events received from two Qlik Sense servers.
 
 <p>There are also a couple of transformations applied to the data:</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-4_hu8897393316518555030.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-4_hu_49b9724ceabf0c6a.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
 
-Transformations applied to the data before it's displayed in the Grafana panel. The sorting is done to make sure the data is displayed in the correct order. Renaming/reorder is not used in this exampe.
+Transformations applied to the data before it's displayed in the Grafana panel. The sorting is done to make sure the data is displayed in the correct order. Renaming/reorder is not used in this example.
 
 </p>
 </figcaption>
@@ -211,7 +212,7 @@ Transformations applied to the data before it's displayed in the Grafana panel. 
 <p>The center left panel of the Grafana dashboard at the top of this page is defined as below.<br>
 The query is very similar to the one above, but with a different grouping.</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-5_hu2769291879494600123.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-5_hu_96821a5a0b08b4a7.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -224,7 +225,7 @@ Count of user and log events per host.
 
 <p>Transformations&hellip;</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-6_hu3705325994257669103.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-6_hu_a173cb324a5496d4.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -238,7 +239,7 @@ Transformations applied to the data before it's displayed in the Grafana panel.
 <h3 id="count-of-user-and-log-events-per-event-type">Count of user and log events per event type</h3>
 <p>The lower left panel of the Grafana dashboard at the top of this page is defined as below.</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-7_hu11325435770694038668.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-7_hu_f5e011d4e46a87df.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -251,7 +252,7 @@ Count of user and log events per event type.
 
 <p>Transformations&hellip;</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-8_hu4082807156671315878.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-8_hu_10991b534d74653b.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -265,7 +266,7 @@ Transformations applied to the data before it's displayed in the Grafana panel.
 <h3 id="table-of-received-events">Table of received events</h3>
 <p>The table at the right of the Grafana dashboard at the top of this page is defined as below.</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-9_hu11516450337949741540.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-9_hu_2a3e4fcf19b6035c.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -278,7 +279,7 @@ Table of received events and event count per event type, host, Sense service/sou
 
 <p>Transformations&hellip;</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-10_hu7529729705310448847.png" width="1200" height="688">
+<img class="card-img-top" src="/docs/examples/count-log_user-events/butler-sos-event-counter-10_hu_4f01cc70a2c7fbc6.png" width="1200" height="688">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -355,7 +356,7 @@ Transformations applied to the data before it's displayed in the Grafana panel.
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>

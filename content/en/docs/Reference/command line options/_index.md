@@ -67,7 +67,7 @@ To avoid that, you can specify the New Relic credentials on the command line usi
 ### --new-relic-account-name
 
 List of New Relic account names. Used within Butler SOS to differentiate between different target New Relic accounts to which data can be sent. This name has nothing to do with the account name used in New Relic - it's purely for Butler SOS' internal use.  
-Specifically, it's at multiple places in the config file where you can specificy to which New Relic account to send data.
+Specifically, it's at multiple places in the config file where you can specify to which New Relic account to send data.
 
 Enclose account names in quotes if they contain spaces.  
 Separate multiple account names with a space.

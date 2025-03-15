@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/examples/grafana-dashboards/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/examples/grafana-dashboards/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -24,31 +24,32 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Visualising Butler SOS metrics in Grafana | Butler SOS</title>
+<title>Visualizing Butler SOS metrics in Grafana | Butler SOS</title>
 <meta name="description" content="Grafana is a powerful tool for creating dashboards that visualise data from various sources. 
 This page shows examples of Grafana dashboards that visualise data from Butler SOS.
 ">
 <meta property="og:url" content="https://butler-sos.ptarmiganlabs.com/docs/examples/grafana-dashboards/">
   <meta property="og:site_name" content="Butler SOS">
-  <meta property="og:title" content="Visualising Butler SOS metrics in Grafana">
+  <meta property="og:title" content="Visualizing Butler SOS metrics in Grafana">
   <meta property="og:description" content="Grafana is a powerful tool for creating dashboards that visualise data from various sources. 
 This page shows examples of Grafana dashboards that visualise data from Butler SOS.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
-  <meta itemprop="name" content="Visualising Butler SOS metrics in Grafana">
+  <meta itemprop="name" content="Visualizing Butler SOS metrics in Grafana">
   <meta itemprop="description" content="Grafana is a powerful tool for creating dashboards that visualise data from various sources. 
 This page shows examples of Grafana dashboards that visualise data from Butler SOS.">
+  <meta itemprop="dateModified" content="2024-09-24T09:03:08+02:00">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Visualising Butler SOS metrics in Grafana">
+  <meta name="twitter:title" content="Visualizing Butler SOS metrics in Grafana">
   <meta name="twitter:description" content="Grafana is a powerful tool for creating dashboards that visualise data from various sources. 
 This page shows examples of Grafana dashboards that visualise data from Butler SOS.">
 
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -102,7 +103,7 @@ This is the multi-page printable view of this section.
 
 
 
-<h1 class="title">Visualising Butler SOS metrics in Grafana</h1>
+<h1 class="title">Visualizing Butler SOS metrics in Grafana</h1>
 <div class="lead">Grafana is a powerful tool for creating dashboards that visualise data from various sources.
 This page shows examples of Grafana dashboards that visualise data from Butler SOS.</div>
 
@@ -120,7 +121,7 @@ This page shows examples of Grafana dashboards that visualise data from Butler S
     
     
 	
-<li>1: <a href="#pg-d276435919012d2395704b297c1c3a3f">Qlik Sense monitoring using Butler SOS v9.2 and Grafana v9.1</a></li>
+<li>1: <a href="#pg-5b4fef8689c43e39f0e77e055c0e5ac6">Qlik Sense monitoring using Butler SOS v9.2 and Grafana v9.1</a></li>
 
 
     
@@ -139,7 +140,7 @@ This page shows examples of Grafana dashboards that visualise data from Butler S
     
     
 	
-<li>2: <a href="#pg-9022d7b199474c3a4993ebb78850ed74">Qlik Sense monitoring using Butler SOS v7 and Grafana v8</a></li>
+<li>2: <a href="#pg-6c457bbd56ae80802408b24a9a435763">Qlik Sense monitoring using Butler SOS v7 and Grafana v8</a></li>
 
 
     
@@ -158,7 +159,7 @@ This page shows examples of Grafana dashboards that visualise data from Butler S
     
     
 	
-<li>3: <a href="#pg-7b4993b4d4a78205f9e749b06d82bc0b">Qlik Sense monitoring using Grafana 7</a></li>
+<li>3: <a href="#pg-9435a4964452cecf6115601ce6500800">Qlik Sense monitoring using Grafana 7</a></li>
 
 
     
@@ -177,7 +178,7 @@ This page shows examples of Grafana dashboards that visualise data from Butler S
     
     
 	
-<li>4: <a href="#pg-dee00daaac5aa63d7ba30b6490728750">Qlik Sense monitoring using Grafana 6</a></li>
+<li>4: <a href="#pg-edd1984019ac3d9f0eec8b15ca829eb0">Qlik Sense monitoring using Grafana 6</a></li>
 
 
     
@@ -219,8 +220,8 @@ This page shows examples of Grafana dashboards that visualise data from Butler S
 
 <div class="td-content" style="">
     
-	<h1 id="pg-d276435919012d2395704b297c1c3a3f">1 - Qlik Sense monitoring using Butler SOS v9.2 and Grafana v9.1</h1>
-    <div class="lead">Grafana 9 adds some interesting features around alerting as well as serveral new and improved chart types.</div>
+	<h1 id="pg-5b4fef8689c43e39f0e77e055c0e5ac6">1 - Qlik Sense monitoring using Butler SOS v9.2 and Grafana v9.1</h1>
+    <div class="lead">Grafana 9 adds some interesting features around alerting as well as several new and improved chart types.</div>
 	<p>A sample Grafana 9 dashboard is <a href="https://github.com/ptarmiganlabs/butler-sos/tree/master/docs/grafana">available in the Github repository</a>.</p>
 <p>The visual appearance is quite similar to previous versions, but line charts, tables etc have been replaced with the updated variants that arrived with Grafana 9.</p>
 
@@ -250,24 +251,24 @@ This page shows examples of Grafana dashboards that visualise data from Butler S
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-9022d7b199474c3a4993ebb78850ed74">2 - Qlik Sense monitoring using Butler SOS v7 and Grafana v8</h1>
-    <div class="lead">With version 8 Grafana further establishes its position as the leadning open source platform for obervability and real-time dashboards.<br>
+	<h1 id="pg-6c457bbd56ae80802408b24a9a435763">2 - Qlik Sense monitoring using Butler SOS v7 and Grafana v8</h1>
+    <div class="lead">With version 8 Grafana further establishes its position as the leading open source platform for observability and real-time dashboards.<br>
 Butler SOS takes advantage of this, below a sample dashboard is shown.</div>
 	<style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
 <div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice tip" >
 <p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>The screen shots below are taken from the Grafana 8 demo dashboard that&rsquo;s <a href="https://github.com/ptarmiganlabs/butler-sos/blob/master/docs/grafana/senseops_v7_0_dashboard.json">included in the Butler SOS repository</a>.</p>
 <p>Feel free to modify it to your specific needs.</p></div>
 
-<p>A concept that has proven useful many times is to use an overview dashboard to monitors high-level metrics for the entire Sense cluster. A separate, parameterised dashboard then drill into the details for each server.<br>
+<p>A concept that has proven useful many times is to use an overview dashboard to monitors high-level metrics for the entire Sense cluster. A separate, parameterized dashboard then drill into the details for each server.<br>
 Grafana variables make this both easy to set up, scalable and very powerful.</p>
 <p>Sample dashboards are available in the <a href="https://github.com/ptarmiganlabs/butler-sos/tree/master/docs/grafana">Git repository</a>.<br>
 Before importing these to Grafana you should create a Grafana data source called &ldquo;senseops&rdquo;, and point it to your InfluxDB database. When you then import the dashboards they should find your database straight away.</p>
 <h2 id="dashboard-installation">Dashboard installation</h2>
-<p>The dashboard file <code>senseops_v7_0_dashboard.json</code> was created using Butler SOS 7.0 and Grafana 8. It thus usees the new chart, data transformation and alerting features that were introduced in Grafana 8.</p>
+<p>The dashboard file <code>senseops_v7_0_dashboard.json</code> was created using Butler SOS 7.0 and Grafana 8. It thus uses the new chart, data transformation and alerting features that were introduced in Grafana 8.</p>
 <h2 id="overview-metrics">Overview metrics</h2>
 <p>The dashboard has a top section that&rsquo;s always expanded.<br>
 A set of (by default) collapsed sections contain different kinds of metrics and log events.</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana8/butlersos_7_0_main_metrics.png" title="Top level metrics">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana8/butlersos_7_0_main_metrics.png" alt="Grafana dashboard" title="Top level metrics">
 <em>Top level metrics</em></p>
 <p>Low memory alerts can be set (using Grafana&rsquo;s alert feature). Such alerts can be sent (using features built into Grafana) as notifications to Slack, Teams, Pager Duty, as email etc.
 To keep the dashboard nice and clean it&rsquo;s usually a good idea to put alert charts in their own section at the bottom, or in a separate dashboard dedicated to alerts.</p>
@@ -276,12 +277,12 @@ To keep the dashboard nice and clean it&rsquo;s usually a good idea to put alert
 For example, when a server is quickly loosing RAM it&rsquo;s extremely useful to be able to zoom in to the very minute when the RAM drop occurs, then look at what apps were present in memory. One of those apps is probably not well designed, or is at least using a lot of memory.</p>
 <p>The dashboard separates regular apps and session apps.<br>
 You can also use Grafana&rsquo;s standard filtering features to narrow down on the server(s) of interest.</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana8/butlersos_7_0_apps_in_memory.png" title="Apps loaded into memory">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana8/butlersos_7_0_apps_in_memory.png" alt="Grafana dashboard" title="Apps loaded into memory">
 <em>Apps loaded into memory</em></p>
 <h2 id="users--sessions-per-server">Users &amp; sessions per server</h2>
 <p>If things really go wrong wrong in a Qlik Sense Enterprise environment there connected users might be kicked out. It is therefore important to know at any given time how many users are connected, and be able to detect sudden drops in user count.</p>
 <p>Another use case could be for maintenance windows: You then want to know how many - and which - users are connected, so you can send them a message that maintenance is about to start.</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana8/butlersos_7_0_users_sessions.png" title="Users and sessions per server">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana8/butlersos_7_0_users_sessions.png" alt="Grafana dashboard" title="Users and sessions per server">
 <em>Users and sessions per server</em></p>
 <h2 id="user-events">User events</h2>
 <p>If Butler SOS has been configured to handle user level events coming from Sense, these are shown here.</p>
@@ -294,7 +295,7 @@ You can also use Grafana&rsquo;s standard filtering features to narrow down on t
 <li>closed a connection to an app (for example closed a browser tab)</li>
 <li>&hellip; and more</li>
 </ul>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana8/butlersos_7_0_users_events.png" title="Users and sessions per server">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana8/butlersos_7_0_users_events.png" alt="Grafana dashboard" title="Users and sessions per server">
 <em>User events</em></p>
 <h2 id="warnings--errors">Warnings &amp; Errors</h2>
 <p>In previous Butler SOS demo dashboards this information came from log db.<br>
@@ -302,16 +303,16 @@ Starting with Butler SOS 7 the source of this data is instead the log events int
 <p>Some of this information is also available in the standard Operations Monitor app in Qlik Sense Enterprise, but only in a retrospective way.<br>
 Having access to it in close to real time makes it possible to act on developing issues quicker.</p>
 <p>Charts provide overview while tables then give the actual messages, as they appear in the log files.</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana8/butlersos_7_0_errors_warnings_charts.png" title="Error and warning charts">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana8/butlersos_7_0_errors_warnings_charts.png" alt="Grafana dashboard" title="Error and warning charts">
 <em>Error and warning charts</em></p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana8/butlersos_7_0_errors_warnings_table.png" title="Error and warning tables">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana8/butlersos_7_0_errors_warnings_table.png" alt="Grafana dashboard" title="Error and warning tables">
 <em>Error and warning tables</em></p>
 <p>It&rsquo;s also possible to drill down into individual warnings and errors to get very detailed information about what happened:</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana8/butlersos_7_0_errors_warnings_table_details.png" title="Error and warning tables">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana8/butlersos_7_0_errors_warnings_table_details.png" alt="Grafana dashboard" title="Error and warning tables">
 <em>Detailed view into errors and warnings</em></p>
 <h2 id="butler-sos-metrics">Butler SOS metrics</h2>
 <p>Butler SOS is very robust indeed, but it may still be of interest to track its memory use, to make sure there aren&rsquo;t any memory leaks etc.</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana8/butlersos_7_0_butlersos_memory.png" title="Butler SOS memory usage">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana8/butlersos_7_0_butlersos_memory.png" alt="Grafana dashboard" title="Butler SOS memory usage">
 <em>Butler SOS memory usage</em></p>
 
 </div>
@@ -340,8 +341,8 @@ Having access to it in close to real time makes it possible to act on developing
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-7b4993b4d4a78205f9e749b06d82bc0b">3 - Qlik Sense monitoring using Grafana 7</h1>
-    <div class="lead">Grafana 7 is a big update when it comes to visualisations. Grafana was excellent already in version 6, but with v7 things are taken to a new level.</div>
+	<h1 id="pg-9435a4964452cecf6115601ce6500800">3 - Qlik Sense monitoring using Grafana 7</h1>
+    <div class="lead">Grafana 7 is a big update when it comes to visualizations. Grafana was excellent already in version 6, but with v7 things are taken to a new level.</div>
 	
 
 <div class="pageinfo pageinfo-primary">
@@ -350,12 +351,12 @@ Having access to it in close to real time makes it possible to act on developing
 
 </div>
 
-<p>A concept that has proven useful many times is to use an overview dashboard to monitors high-level metrics for the entire Sense cluster. A separate, parameterised dashboard then drill into the details for each server.</p>
+<p>A concept that has proven useful many times is to use an overview dashboard to monitors high-level metrics for the entire Sense cluster. A separate, parameterized dashboard then drill into the details for each server.</p>
 <p>Sample dashboards are available in the <a href="https://github.com/ptarmiganlabs/butler-sos/tree/master/docs/grafana">Git repository</a>.
 Before importing these to Grafana you should create a Grafana data source called &ldquo;SenseOps&rdquo;, and point it to your InfluxDB database. When you then import the dashboards they should find your database straight away.</p>
 <h2 id="overview-metrics">Overview metrics</h2>
-<p>This view gives high level insights into the 3 virtual proxies (/sales, /sourcing, /finance) in this particlar Sense environment, as well as top-level numbers on users and sessions.</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_main_metrics.png" title="Top level metrics">
+<p>This view gives high level insights into the 3 virtual proxies (/sales, /sourcing, /finance) in this particular Sense environment, as well as top-level numbers on users and sessions.</p>
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_main_metrics.png" alt="Grafana dashboard" title="Top level metrics">
 <em>Top level metrics</em></p>
 <p>Low memory alerts can be set (using Grafana&rsquo;s alert feature). Such alerts can be sent (using features built into Grafana) as notifications to Slack, Teams, Pager Duty, as email etc.
 To keep the dashboard nice and clean it&rsquo;s usually a good idea to put alert charts in their own section (see below for an example).</p>
@@ -363,28 +364,28 @@ To keep the dashboard nice and clean it&rsquo;s usually a good idea to put alert
 <p>From a sysadmin perspective it&rsquo;s often interesting to know what apps are loaded into memory on each Sense server.</p>
 <p>Here you get the details broken down by regular apps and session apps.<br>
 You can also use Grafana&rsquo;s standard filtering features to narrow down on the server(s) of interest.</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_apps_in_memory.png" title="Apps loaded into memory">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_apps_in_memory.png" alt="Grafana dashboard" title="Apps loaded into memory">
 <em>Apps loaded into memory</em></p>
 <h2 id="users--sessions-per-server">Users &amp; sessions per server</h2>
 <p>If things really go wrong wrong in a Qlik Sense Enterprise environment there connected users might be kicked out. It is therefore important to know at any given time how many users are connected, and be able to detect sudden drops in user count.</p>
 <p>Another use case could be for maintenance windows: You then want to know how many - and which - users are connected, so you can send them a message that maintenance is about to start.</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_users_sessions.png" title="Users and sessions per server">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_users_sessions.png" alt="Grafana dashboard" title="Users and sessions per server">
 <em>Users and sessions per server</em></p>
 <h2 id="warnings--errors">Warnings &amp; Errors</h2>
 <p>This information is available in the standard Operations Monitor app in Qlik Sense Enterprise, but only in a retrospective way.<br>
 Having access to it in close to real time makes it possible to act on developing issues quicker.</p>
 <p>Charts provide overview while tables then give the actual messages, as they appear in the log files.</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_errors_warnings_charts.png" title="Error and warning charts">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_errors_warnings_charts.png" alt="Grafana dashboard" title="Error and warning charts">
 <em>Error and warning charts</em></p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_errors_warnings_table.png" title="Error and warning tables">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_errors_warnings_table.png" alt="Grafana dashboard" title="Error and warning tables">
 <em>Error and warning tables</em></p>
 <h2 id="butler-sos-metrics">Butler SOS metrics</h2>
 <p>Butler SOS is very robust indeed, but it may still be of interest to track its memory use, to make sure there aren&rsquo;t any memory leaks etc.</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_butlersos_memory.png" title="Butler SOS memory usage">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_butlersos_memory.png" alt="Grafana dashboard" title="Butler SOS memory usage">
 <em>Butler SOS memory usage</em></p>
 <h2 id="alerts">Alerts</h2>
 <p>While it&rsquo;s perfectly possible to include alerts in almost any Grafana chart, sometimes its nice to tuck the alert-enabled charts away, out of sight. They will do their job and alert when needed.</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_alerts.png" title="Butler SOS memory usage">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana7/butlersos_5_4_alerts.png" alt="Grafana dashboard" title="Butler SOS memory usage">
 <em>Alerts</em></p>
 
 </div>
@@ -413,12 +414,12 @@ Having access to it in close to real time makes it possible to act on developing
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-dee00daaac5aa63d7ba30b6490728750">4 - Qlik Sense monitoring using Grafana 6</h1>
+	<h1 id="pg-edd1984019ac3d9f0eec8b15ca829eb0">4 - Qlik Sense monitoring using Grafana 6</h1>
     <div class="lead">Probably the most obvious and common use case for Butler SOS. View Qlik Sense and Windows operational metrics in great looking Grafana dashboards.</div>
 	
 
 <div class="pageinfo pageinfo-primary">
-<p>Grafana is an increadibly capable tool for showing time series data.</p>
+<p>Grafana is an incredibly capable tool for showing time series data.</p>
 <p>The dashboards shown here are thus just examples and inspiration - feel free to extend and adapt these to meet your particular needs. There are also plenty of sample Grafana dashboards out there to get inspiration from.</p>
 <p>If you experience issues with the Grafana dashboards included in the Butler SOS release on Github, you might want to try upgrading to a later/latest Grafana version.</p>
 
@@ -433,26 +434,26 @@ These kind of dashboards give you detailed insights into several important metri
 <li>Success rate of the Qlik engine&rsquo;s cache</li>
 <li>Number of loaded apps in the Qlik engine</li>
 </ul>
-<p>A concept that has proven useful many times is to use an overview dashboard to monitors high-level metrics for the entire Sense cluster. A separate, parameterised dashboard then drill into the details for each server.</p>
+<p>A concept that has proven useful many times is to use an overview dashboard to monitors high-level metrics for the entire Sense cluster. A separate, parameterized dashboard then drill into the details for each server.</p>
 <p>Sample dashboards are available in the <a href="https://github.com/ptarmiganlabs/butler-sos/tree/master/docs/grafana">Git repository</a>.
 Before importing these to Grafana you should create a Grafana data source called &ldquo;SenseOps&rdquo;, and point it to your InfluxDB database. When you then import the dashboards they should find your database straight away.</p>
 <h2 id="overview-dashboard">Overview dashboard</h2>
 <p>An overview dashboard could look something like this:</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana6/senseops_overview_ram_usage.png" title="RAM usage in Grafana dashboard">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana6/senseops_overview_ram_usage.png" alt="Grafana dashboard" title="RAM usage in Grafana dashboard">
 <em>RAM usage for each server</em></p>
 <p>Low memory alerts can be set (using Grafana&rsquo;s alert feature). Such alerts can be sent (using features built into Grafana) as notifications to Slack, Teams, Pager Duty, as email etc.</p>
 <br>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana6/senseops_overview_sessions_general.png" title="General sessions info in Grafana dashboard">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana6/senseops_overview_sessions_general.png" alt="Grafana dashboard" title="General sessions info in Grafana dashboard">
 <em>General/high level user sessions info for both whole system and each server</em></p>
 <br>
 <p>You can also get very detailed sessions metrics, down to the level of individual sessions per server and virtual proxy.</p>
 <p>One possible use case for this information is to see what users will be affected by a pending server reboot. You could even use this information to send a chat message to these users, informing them that their connection to Sense will be lost in x minutes. This feature is not available in Butler SOS out of the box, but is quite possible to implement if needed.</p>
-<p>As of Butler SOS v5.0.0, detailed user session metrics stored in a fairly comprehensive way in InfluxDB. The visualisation of these metrics is still kind of rough though. The charts below can serve as inspiration, but can surely be improved upon..</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana6/senseops_detailed_sessions.png" title="Detailed sessions info in Grafana dashboard">
+<p>As of Butler SOS v5.0.0, detailed user session metrics stored in a fairly comprehensive way in InfluxDB. The visualization of these metrics is still kind of rough though. The charts below can serve as inspiration, but can surely be improved upon..</p>
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana6/senseops_detailed_sessions.png" alt="Grafana dashboard" title="Detailed sessions info in Grafana dashboard">
 <em>Detailed user sessions info per server and virtual proxy</em></p>
 <br>
 <p>When something breaks in a Qlik Sense environment the logs immediately fill up with warning and/or error messages. By keeping track of these it&rsquo;s easy to quickly spot (and get notified) issues when they first occur:</p>
-<p><img alt="Grafana dashboard" src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana6/senseops_logs.png" title="SenseOps dashboard showing errors and warnings, using Grafana">
+<p><img src="/docs/examples/grafana-dashboards/qliksense_monitoring_grafana6/senseops_logs.png" alt="Grafana dashboard" title="SenseOps dashboard showing errors and warnings, using Grafana">
 <em>Detailed user sessions info per server and virtual proxy</em></p>
 <p>Note how there are <strong>lots</strong> of INFO level messages generated (note the y axis scales in the diagram above!).
 In a production setting it&rsquo;s usually a good idea to turn off extraction of INFO level log messages into InfluxDB.</p>
@@ -528,7 +529,7 @@ In a production setting it&rsquo;s usually a good idea to turn off extraction of
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>

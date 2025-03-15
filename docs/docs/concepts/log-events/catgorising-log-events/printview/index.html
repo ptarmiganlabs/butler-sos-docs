@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/concepts/log-events/catgorising-log-events/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/concepts/log-events/catgorising-log-events/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -29,7 +29,7 @@
 
 In the best of worlds there will be few such events, but in reality there are usually more than expected. It&#39;s not uncommon for a Sense cluster to generate hundreds or even thousands of error and warning events per hour.
 
-By categorising these events, Butler SOS can help you focus on the most important ones, and ignore the rest.
+By categorizing these events, Butler SOS can help you focus on the most important ones, and ignore the rest.
 ">
 <meta property="og:url" content="https://butler-sos.ptarmiganlabs.com/docs/concepts/log-events/catgorising-log-events/">
   <meta property="og:site_name" content="Butler SOS">
@@ -38,7 +38,7 @@ By categorising these events, Butler SOS can help you focus on the most importan
 
 In the best of worlds there will be few such events, but in reality there are usually more than expected. It&#39;s not uncommon for a Sense cluster to generate hundreds or even thousands of error and warning events per hour.
 
-By categorising these events, Butler SOS can help you focus on the most important ones, and ignore the rest.">
+By categorizing these events, Butler SOS can help you focus on the most important ones, and ignore the rest.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
@@ -47,7 +47,8 @@ By categorising these events, Butler SOS can help you focus on the most importan
 
 In the best of worlds there will be few such events, but in reality there are usually more than expected. It&#39;s not uncommon for a Sense cluster to generate hundreds or even thousands of error and warning events per hour.
 
-By categorising these events, Butler SOS can help you focus on the most important ones, and ignore the rest.">
+By categorizing these events, Butler SOS can help you focus on the most important ones, and ignore the rest.">
+  <meta itemprop="dateModified" content="2024-09-20T20:34:54+02:00">
   <meta itemprop="wordCount" content="1220">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Getting rid of Sense log noise">
@@ -55,13 +56,13 @@ By categorising these events, Butler SOS can help you focus on the most importan
 
 In the best of worlds there will be few such events, but in reality there are usually more than expected. It&#39;s not uncommon for a Sense cluster to generate hundreds or even thousands of error and warning events per hour.
 
-By categorising these events, Butler SOS can help you focus on the most important ones, and ignore the rest.">
+By categorizing these events, Butler SOS can help you focus on the most important ones, and ignore the rest.">
 
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -118,7 +119,7 @@ This is the multi-page printable view of this section.
 <h1 class="title">Getting rid of Sense log noise</h1>
 <div class="lead"><p>Let&rsquo;s say Butler SOS is configured to receive log events from Qlik Sense Enterprise, specifically warnings and errors.</p>
 <p>In the best of worlds there will be few such events, but in reality there are usually more than expected. It&rsquo;s not uncommon for a Sense cluster to generate hundreds or even thousands of error and warning events per hour.</p>
-<p>By categorising these events, Butler SOS can help you focus on the most important ones, and ignore the rest.</p>
+<p>By categorizing these events, Butler SOS can help you focus on the most important ones, and ignore the rest.</p>
 </div>
 
 
@@ -146,41 +147,40 @@ This is done by deploying XML files in well defined folders on the Sense servers
 <p>So, what Butler SOS receives is a stream of log events, with a log level of either <code>WARN</code> or <code>ERROR</code>, from the repository, proxy, engine, and scheduler services in Qlik Sense.</p>
 <p>That&rsquo;s all fine, but it&rsquo;s not uncommon for a Sense cluster to generate way more warnings and errors than expected by the Sense admin person.<br>
 The challenge then becomes to focus on the most important events, and ignore the rest.</p>
-<h2 id="how-to-categorise-log-events">How to categorise log events</h2>
+<h2 id="how-to-categorize-log-events">How to categorize log events</h2>
 <p>Let&rsquo;s say there are 1000 log events per hour.</p>
 <p>When looking at the log events, it turns out that 95% of them are either about</p>
 <ul>
 <li>people getting https certificate warnings when accessing the Qlik Sense Hub&hellip;</li>
 <li>&hellip;people getting access denied errors when trying to open an app&hellip;</li>
-<li>&hellip;or that Sense has detected something unusual (like a ciruclar reference) in an Active Directory user directory.</li>
+<li>&hellip;or that Sense has detected something unusual (like a circular reference) in an Active Directory user directory.</li>
 </ul>
 <p>Those events are not good, but they are not critical either.<br>
 They are things that can be fixed in a controlled way, and they won&rsquo;t bring the Sense cluster to its knees.</p>
 <p>But there may also be a few log events that are related to the Sense central node not being able to connect to one of the rim nodes.
 Maybe the events occur at irregular intervals and therefore more difficult to detect.</p>
-<p>These events <em><strong>are</strong></em> critical, and should be investigated immediately.</p>
-<p>If Butler SOS is configured to categorise the certificate warnings as &ldquo;user-certificate, the Active Directory warnings as &ldquo;active-directory&rdquo; and the access-denied warnings as &ldquo;access-denied&rdquo;, <em>that information is then added as tags to the event data that is stored in InfluxDB</em>.</p>
+<p>These events <strong><em>are</em></strong> critical, and should be investigated immediately.</p>
+<p>If Butler SOS is configured to categorize the certificate warnings as &ldquo;user-certificate, the Active Directory warnings as &ldquo;active-directory&rdquo; and the access-denied warnings as &ldquo;access-denied&rdquo;, <em>that information is then added as tags to the event data that is stored in InfluxDB</em>.</p>
 <p>This means that when creating Grafana dashboards, it&rsquo;s possible to create a table that show the number of &ldquo;user-certificate&rdquo; events and the number of &ldquo;active-directory&rdquo; events - and the number of &ldquo;other&rdquo; events.</p>
 <p>Another Grafana panel can show detailed event info for the &ldquo;other&rdquo; events, making it easy to investigate what they are about.</p>
 <blockquote>
-<p>By categorising log events it is possible to get rid of the log noise that hides the important events.</p>
-</blockquote>
+<p>By categorizing log events it is possible to get rid of the log noise that hides the important events.</p></blockquote>
 <h2 id="sample-grafana-dashboard">Sample Grafana dashboard</h2>
 <p>A few charts and tables give a good overview of the log events.</p>
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 1210px">
-<img class="card-img-top" src="/docs/concepts/log-events/catgorising-log-events/butler-sos-grafana-log-event-categorise-1_hu13832150241284820544.png" width="1200" height="423">
+<img class="card-img-top" src="/docs/concepts/log-events/catgorising-log-events/butler-sos-grafana-log-event-categorise-1_hu_8faf7b9731c7683f.png" width="1200" height="423">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
 
-Butler SOS log events dashboard in Grafana. Uncategorised events by the yellow arrows, and in table/charts to the right.
+Butler SOS log events dashboard in Grafana. Uncategorized events by the yellow arrows, and in table/charts to the right.
 
 </p>
 </figcaption>
 </figure>
 
 <h3 id="butler-sos-configuration">Butler SOS Configuration</h3>
-<p>The following settings in the Butler SOS config file were used to categorise the log events that were used in the Grafana dashboard above.</p>
+<p>The following settings in the Butler SOS config file were used to categorize the log events that were used in the Grafana dashboard above.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">Butler-SOS</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -213,7 +213,7 @@ Butler SOS log events dashboard in Grafana. Uncategorised events by the yellow a
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#000">WARN</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#000">ERROR</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">action</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">categorise          </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Action to take on matched log events. Possible values are categorise, drop</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">category</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Category to assign to matched log events. Name/value pairs. </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">category</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Category to assign to matched log events. Name/value pairs.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                       </span><span style="color:#8f5902;font-style:italic"># Will be added to InfluxDB datapoints as tags.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qs_log_category</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">access-denied</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -227,7 +227,7 @@ Butler SOS log events dashboard in Grafana. Uncategorised events by the yellow a
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#000">ERROR</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#000">WARN</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">action</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">categorise          </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Action to take on matched log events. Possible values are categorise, drop</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">category</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Category to assign to matched log events. Name/value pairs. </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">category</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Category to assign to matched log events. Name/value pairs.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                       </span><span style="color:#8f5902;font-style:italic"># Will be added to InfluxDB datapoints as tags.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qs_log_category</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">user-directory</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -238,7 +238,7 @@ Butler SOS log events dashboard in Grafana. Uncategorised events by the yellow a
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">logLevel</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Log events of this Log level will be matched. WARN, ERROR, FATAL. Case insensitive.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#000">WARN</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">action</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">categorise          </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Action to take on matched log events. Possible values are categorise, drop</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">category</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Category to assign to matched log events. Name/value pairs. </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">category</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Category to assign to matched log events. Name/value pairs.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                       </span><span style="color:#8f5902;font-style:italic"># Will be added to InfluxDB datapoints as tags.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qs_log_category</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qs-service</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -252,7 +252,7 @@ Butler SOS log events dashboard in Grafana. Uncategorised events by the yellow a
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#000">WARN</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#000">ERROR</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">action</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">categorise          </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Action to take on matched log events. Possible values are categorise, drop</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">category</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Category to assign to matched log events. Name/value pairs. </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">category</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Category to assign to matched log events. Name/value pairs.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                        </span><span style="color:#8f5902;font-style:italic"># Will be added to InfluxDB datapoints as tags.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qs_log_category</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">reload-failed</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -335,7 +335,7 @@ Butler SOS log events dashboard in Grafana. Uncategorised events by the yellow a
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>

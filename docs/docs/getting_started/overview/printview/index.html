@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/overview/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler-sos.ptarmiganlabs.com/docs/getting_started/overview/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -31,24 +31,25 @@
   <meta property="og:site_name" content="Butler SOS">
   <meta property="og:title" content="Overview">
   <meta property="og:description" content="SenseOps monitoring - what&#39;s that? This page provides the general steps to get started with Butler SOS.
-It also explains how Butler SOS relates to other tools and services that collectively make up the SenseOps concept. ">
+It also explains how Butler SOS relates to other tools and services that collectively make up the SenseOps concept.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Overview">
   <meta itemprop="description" content="SenseOps monitoring - what&#39;s that? This page provides the general steps to get started with Butler SOS.
-It also explains how Butler SOS relates to other tools and services that collectively make up the SenseOps concept. ">
+It also explains how Butler SOS relates to other tools and services that collectively make up the SenseOps concept.">
+  <meta itemprop="dateModified" content="2024-09-20T20:34:54+02:00">
   <meta itemprop="wordCount" content="676">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Overview">
   <meta name="twitter:description" content="SenseOps monitoring - what&#39;s that? This page provides the general steps to get started with Butler SOS.
-It also explains how Butler SOS relates to other tools and services that collectively make up the SenseOps concept. ">
+It also explains how Butler SOS relates to other tools and services that collectively make up the SenseOps concept.">
 
 
 
 
-<link rel="preload" href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" as="style">
-<link href="/scss/main.min.5118d334f4d49e78b43432d75232dda13144ff70fc9d784048f9c31c8751ea0f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" as="style">
+<link href="/scss/main.min.6d989a9411ddd3f0dfc5b7b9fba65f18fa70fbdc118cf2e07a3d961ac89f6bc5.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -128,13 +129,13 @@ This is the multi-page printable view of this section.
 
 </div>
  -->
-<p><img alt="Butler SOS" src="/butler-sos-overview-1.png"></p>
+<p><img src="/butler-sos-overview-1.png" alt="Butler SOS"></p>
 <h2 id="qlik-sense--devops--senseops">Qlik Sense + DevOps = SenseOps</h2>
 <p>Butler SenseOps Stats (&ldquo;Butler SOS&rdquo;) is a monitoring tool for <a href="https://www.qlik.com/us/products/qlik-sense">Qlik Sense</a>, built with DevOps workflows in mind.</p>
-<p>It publishes operational, close to real-time Qlik Sense Enterprise metrics to <a href="https://www.influxdata.com/time-series-platform/influxdb/">InfluxDB</a>, <a href="https://prometheus.io">Prometheus</a>, <a href="https://newrelic.com">New Relic</a> and <a href="https://en.wikipedia.org/wiki/MQTT">MQTT</a>. From there it can be visualised using tools like <a href="https://grafana.com/">Grafana</a>, New Relic or acted on by downstream systems that listen to the MQTT topics used by Butler SOS.</p>
+<p>It publishes operational, close to real-time Qlik Sense Enterprise metrics to <a href="https://www.influxdata.com/time-series-platform/influxdb/">InfluxDB</a>, <a href="https://prometheus.io">Prometheus</a>, <a href="https://newrelic.com">New Relic</a> and <a href="https://en.wikipedia.org/wiki/MQTT">MQTT</a>. From there it can be visualized using tools like <a href="https://grafana.com/">Grafana</a>, New Relic or acted on by downstream systems that listen to the MQTT topics used by Butler SOS.</p>
 <p>Butler SOS gathers operational metrics from several sources, including the <a href="https://help.qlik.com/en-US/sense-developer/May2021/Subsystems/EngineAPI/Content/Sense_EngineAPI/GettingSystemInformation/HealthCheckStatus.htm">Sense healthcheck API</a> and <a href="https://help.qlik.com/en-US/sense-developer/May2021/Subsystems/ProxyServiceAPI/Content/Sense_ProxyServiceAPI/ProxyServiceAPI-Session-Module-API.htm">Session API</a> and the <a href="https://help.qlik.com/en-US/sense-admin/May2024/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging.htm">Sense logs</a>.</p>
 <h2 id="do-i-really-need-a-tool-like-this">Do I really need a tool like this?</h2>
-<p>Let&rsquo;s say you are somehow involved in (or maybe even responsible for) your company&rsquo;s client-managed Qlik Sense Enterprise on Windows (QSEoW) environemnt.</p>
+<p>Let&rsquo;s say you are somehow involved in (or maybe even responsible for) your company&rsquo;s client-managed Qlik Sense Enterprise on Windows (QSEoW) environment.</p>
 <p>Let&rsquo;s also assume you have more than 5-10 users in your Sense environment. Maybe you even have business critical data in your Sense apps.</p>
 <p>Given the above, the answer is almost certainly &ldquo;yes&rdquo; : You can simplify your workday and provide a better analytics experience to your end users by using a tool like Butler SOS.</p>
 <p>Looking at companies using Butler SOS, they range from small companies with a single Sense server to large enterprises with dozens of Sense servers and (many!) thousands of users.</p>
@@ -144,15 +145,15 @@ This is the multi-page printable view of this section.
 The Ops Monitor app is great for retrospective analysis of what happened in a Qlik Sense environment, but for a real-time understanding of what&rsquo;s going on in a Sense environment something else is needed - enter Butler SOS.</p>
 <p>The most common way of using Butler SOS is for creating real-time dashboards based on the data in the InfluxDB or Prometheus database, showing operational metrics for a Qlik Sense Enterprise environment.</p>
 <p>Sample screen shots of some basic <a href="https://grafana.com/">Grafana</a> dashboards created using data extracted by Butler SOS:</p>
-<p><img alt="Grafana dashboard" src="/docs/getting_started/overview/butlersos_5_4_main_metrics.png" title="SenseOps dashboard showing errors and warnings, using Grafana 7"></p>
-<p><img alt="Grafana dashboard" src="/docs/getting_started/overview/senseOps_dashboard_3.png" title="SenseOps dashboard showing errors and warnings, using Grafana 6"></p>
-<p><img alt="Grafana dashboard" src="/docs/getting_started/overview/senseOps_dashboard_4.png" title="SenseOps dashboard showing Qlik Sense metrics, using Grafana 6"></p>
+<p><img src="/docs/getting_started/overview/butlersos_5_4_main_metrics.png" alt="Grafana dashboard" title="SenseOps dashboard showing errors and warnings, using Grafana 7"></p>
+<p><img src="/docs/getting_started/overview/senseOps_dashboard_3.png" alt="Grafana dashboard" title="SenseOps dashboard showing errors and warnings, using Grafana 6"></p>
+<p><img src="/docs/getting_started/overview/senseOps_dashboard_4.png" alt="Grafana dashboard" title="SenseOps dashboard showing Qlik Sense metrics, using Grafana 6"></p>
 <p>As mentioned above, Butler SOS can also send data to <a href="https://en.wikipedia.org/wiki/MQTT">MQTT</a> for use in any MQTT enabled tool or system.</p>
 <h2 id="known-limitations--improvement-ideas">Known limitations &amp; improvement ideas</h2>
 <p>Things can always be improved, of course. Here are some ideas on things for future versions:</p>
 <ul>
 <li>The MQTT messages are kind of basic, at least when it comes to data from the Sense logs and for detailed user sessions. In both those cases a single text string is sent to MQTT. That&rsquo;s fine, but assumes the downstream consumer of the MQTT message can parse the string and extract the information of interest.<br>
-A better approach would be to send more detailed MQTT messages. Those would be easier to consume and act upon for downstream systems, but it would on the other mean  <strong>lots</strong> more MQTT messages being sent.</li>
+A better approach would be to send more detailed MQTT messages. Those would be easier to consume and act upon for downstream systems, but it would on the other mean <strong>lots</strong> more MQTT messages being sent.</li>
 <li>Send data as Kafka messages. Same basic idea as for MQTT messages, but having the Sense operational data in Kafka would make it easier to process/use it in (big) data pipelines.</li>
 </ul>
 <p>If you have ideas or suggestions on new features, please feel free to add them in the <a href="https://github.com/ptarmiganlabs/butler-sos/issues/new/choose">Butler SOS Github project</a>.</p>
@@ -236,7 +237,7 @@ Project lead is <a href="https://www.linkedin.com/in/gorsan">Göran Sander</a> f
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/about/">About Butler SOS</a></p>
       </div>
     </div>
