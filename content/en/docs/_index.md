@@ -9,9 +9,9 @@ menu:
 
 {{% pageinfo %}}
 
-{{< notice tip >}}
+{{% alert title="Tip" color="primary" %}}
 Starting with version 9.3, the [GitHub releases page](https://github.com/ptarmiganlabs/butler-sos/releases) is the place where release notes are found.
-{{< /notice >}}
+{{% /alert %}}
 
 Release notes for older versions are found below.
 

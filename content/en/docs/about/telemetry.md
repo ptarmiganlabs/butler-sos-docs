@@ -59,6 +59,19 @@ On the other hand - **with** access to telemetry data a lot of possibilities ope
 
 Instructions [here](/docs/getting_started/setup/telemetry/).
 
+### System information dependency
+
+{{% alert title="Important" color="warning" %}}
+**Butler SOS telemetry requires system information gathering to be enabled.**
+
+Starting with Butler SOS 11.2, there is a configuration option `Butler-SOS.systemInfo.enable` that controls whether detailed system information is gathered. This information is required for telemetry to function properly.
+
+- If you enable telemetry (`anonTelemetry: true`) but disable system information gathering (`systemInfo.enable: false`), Butler SOS will show an error and refuse to start.
+- If your organization's security policies prevent OS command execution, you must disable both telemetry and system information gathering.
+
+More details about the systemInfo setting can be found in the [configuration file documentation](/docs/reference/config_file_format/#butler-sossysteminfo).
+{{% /alert %}}
+
 ## The details
 
 {{% alert title="What's shared" color="primary" %}}
@@ -176,6 +189,12 @@ The ID field is created as follows:
 
 See above for an example of what the `id` field looks like.  
 The `id` field is always shown during Butler startup.
+
+#### System information fields
+
+The `system` section in the telemetry data contains information about Butler SOS's execution environment. This data is collected using the `systeminformation` npm package, which executes various OS commands to gather detailed host information.
+
+**Important**: The collection of this system information can be controlled via the `Butler-SOS.systemInfo.enable` configuration setting. If system information gathering is disabled for security reasons, telemetry cannot function and must also be disabled. Butler SOS will refuse to start if telemetry is enabled but system information gathering is disabled.
 
 ## Telemetry FAQ
 
