@@ -35,6 +35,25 @@ If you discover a serious bug with Butler SOS that may pose a security problem, 
 
   Butler SOS is continuously checked for security vulnerabilities by using GitHub security audit, [Snyk](https://snyk.io/), npm audit and other tools.
 
+## Butler SOS system information gathering
+
+Butler SOS can optionally gather detailed system information about the host it's running on. This is controlled by the `Butler-SOS.systemInfo.enable` configuration setting.
+
+When enabled (which is the default), Butler SOS uses the `systeminformation` npm package to collect host information. This package executes various operating system commands to gather data such as:
+
+- **System information:** `wmic` commands on Windows, `/proc` file reads on Linux
+- **CPU details:** Hardware detection commands like `dmidecode`, `lscpu`
+- **Memory information:** Memory layout and usage commands
+- **Network interfaces:** Network configuration queries
+- **Disk information:** Storage device enumeration and statistics
+
+**Security implications:**
+- These commands may be flagged by enterprise security monitoring tools as potentially suspicious activity
+- In security-sensitive environments, you may want to disable system information gathering by setting `Butler-SOS.systemInfo.enable: false`
+- Note that telemetry functionality requires system information to be enabled - Butler SOS will refuse to start if telemetry is enabled but systemInfo is disabled
+
+**Recommendation:** Review your organization's security policies regarding automated system command execution before deploying Butler SOS in production environments.
+
 ## Butler SOS talking to Qlik Sense
 
 Butler SOS uses https for all communication with Sense, using Sense's certificates for authentication.
