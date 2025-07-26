@@ -87,6 +87,22 @@ They are sent to Butler SOS as UDP messages, just like regular log events (using
 The performance log events have `INFO` log level in the Sense logs but still provide _very_ detailed information about what the engine is doing.
 
 {{< notice warning >}}
+**QIX Performance Log Level Requirement**
+
+For Butler SOS to receive detailed app object performance monitoring data, the **QIX performance log level** setting in the Qlik Management Console (QMC) must be set to **`debug`**.
+
+This requirement is the same for other tools that use this performance data, such as Qlik's Telemetry Dashboard app.
+
+To configure this setting:
+1. Open the QMC
+2. Go to Engines > [Your Engine Node] > Logging
+3. Set "QIX performance log level" to "debug"
+4. Apply the changes
+
+Without this setting, Butler SOS will not receive the performance log events needed for detailed app object monitoring.
+{{< /notice >}}
+
+{{< notice warning >}}
 The XML appender files that ship with Butler SOS don't do any filtering of log events.
 
 This means that all events from the "QixPerformance.Engine.Engine" subsystem are sent to Butler SOS, regardless of what they are about.  
