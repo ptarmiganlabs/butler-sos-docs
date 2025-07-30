@@ -64,7 +64,7 @@ Instructions [here](/docs/getting_started/setup/telemetry/).
 {{% alert title="Important" color="warning" %}}
 **Butler SOS telemetry requires system information gathering to be enabled.**
 
-Starting with Butler SOS 11.2, there is a configuration option `Butler-SOS.systemInfo.enable` that controls whether detailed system information is gathered. This information is required for telemetry to function properly.
+Starting with Butler SOS 12.0.0, there is a configuration option `Butler-SOS.systemInfo.enable` that controls whether detailed system information is gathered. This information is required for telemetry to function properly.
 
 - If you enable telemetry (`anonTelemetry: true`) but disable system information gathering (`systemInfo.enable: false`), Butler SOS will show an error and refuse to start.
 - If your organization's security policies prevent OS command execution, you must disable both telemetry and system information gathering.

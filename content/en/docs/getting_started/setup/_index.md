@@ -6,9 +6,9 @@ description: >
   Everything you wanted to know about Butler SOS configuration but never dared to ask.
 ---
 
-## New in Butler SOS 11.2
+## Butler SOS 12.0.0 Features
 
-Butler SOS 11.2 introduces important new configuration options for enhanced security and operational flexibility:
+Butler SOS 12.0.0 includes important configuration options for enhanced security and operational flexibility:
 
 ### systemInfo Configuration Setting
 
@@ -23,5 +23,5 @@ For detailed configuration information, see the [Configuration File Format](/doc
 
 ### Conditional Validation
 
-Butler SOS 11.2 also introduces conditional validation, meaning that configuration settings for disabled features are no longer validated. This allows you to leave placeholder values from production templates for features you have disabled without encountering validation errors.
+Butler SOS 12.0.0 also introduces conditional validation, meaning that configuration settings for disabled features are no longer validated. This allows you to leave placeholder values from production templates for features you have disabled without encountering validation errors.
 

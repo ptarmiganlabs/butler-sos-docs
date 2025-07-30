@@ -23,7 +23,7 @@ A few things to keep in mind:
 - Topic names (e.g. "Butler-SOS.logLevel") are case sensitive.
 - First time Butler SOS is started, a new check is done if the specified InfluxDB database already exists.
   If it doesn't exist it will be created together with a default InfluxDB retention policy. The retention policy is based on the time period set in the config file.
-- **Conditional validation**: Starting with Butler SOS 11.2, configuration settings for disabled features are not validated for format or types. This means you can leave placeholder values (like those in the production template) for features you have disabled without getting validation errors.
+- **Conditional validation**: Starting with Butler SOS 12.0.0, configuration settings for disabled features are not validated for format or types. This means you can leave placeholder values (like those in the production template) for features you have disabled without getting validation errors.
 
 #### Top level
 
