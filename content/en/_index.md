@@ -133,7 +133,7 @@ Suddenly it's easy to find the important log entries among all those non-critica
 
 {{< blocks/section type="row">}}
 
-{{% blocks/feature icon="fa-lightbulb" title="Latest release: 12.0.1" %}}
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 12.0" %}}
 
 New systemInfo configuration setting for enhanced security control.  
 Conditional validation - disabled features no longer validate their config settings.
