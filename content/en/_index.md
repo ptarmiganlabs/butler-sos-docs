@@ -133,10 +133,11 @@ Suddenly it's easy to find the important log entries among all those non-critica
 
 {{< blocks/section type="row">}}
 
-{{% blocks/feature icon="fa-lightbulb" title="Latest release: 12.0.0" %}}
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 12.0.1" %}}
 
 New systemInfo configuration setting for enhanced security control.  
 Conditional validation - disabled features no longer validate their config settings.
+Enhanced security scanning and SBOM features for better supply chain security.
 
 Plus all the existing features: detailed performance metrics for individual apps, sheets and charts, real-time alerts for slow apps and charts, and data model performance monitoring.
 

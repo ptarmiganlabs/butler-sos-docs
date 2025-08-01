@@ -35,6 +35,23 @@ If you discover a serious bug with Butler SOS that may pose a security problem, 
 
   Butler SOS is continuously checked for security vulnerabilities by using GitHub security audit, [Snyk](https://snyk.io/), npm audit and other tools.
 
+## Security scanning and SBOM features
+
+Starting with Butler SOS 12.0.0, enhanced security features have been added to improve transparency and security monitoring:
+
+**Security scanning:**
+- Automated vulnerability scanning is performed on every release using multiple security tools
+- Dependencies are continuously monitored for known security vulnerabilities
+- Security scan results are made available with each release
+
+**Software Bill of Materials (SBOM):**
+- A comprehensive SBOM is generated for each Butler SOS release
+- The SBOM provides a detailed inventory of all components, dependencies, and their versions
+- This enables organizations to track and assess the security posture of all components in Butler SOS
+- SBOM files are available in standard formats for integration with enterprise security tools
+
+These features help organizations maintain better visibility into their Butler SOS deployments and meet compliance requirements for software supply chain security.
+
 ## Butler SOS system information gathering
 
 Butler SOS can optionally gather detailed system information about the host it's running on. This is controlled by the `Butler-SOS.systemInfo.enable` configuration setting.
