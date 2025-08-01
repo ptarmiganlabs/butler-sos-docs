@@ -35,6 +35,42 @@ If you discover a serious bug with Butler SOS that may pose a security problem, 
 
   Butler SOS is continuously checked for security vulnerabilities by using GitHub security audit, [Snyk](https://snyk.io/), npm audit and other tools.
 
+## Security scanning and SBOM features
+
+Starting with Butler SOS 12.0.0, enhanced security features have been added to improve transparency and security monitoring:
+
+**Security scanning:**
+- Automated vulnerability scanning is performed on every release using multiple security tools
+- Dependencies are continuously monitored for known security vulnerabilities
+- Security scan results are made available with each release
+
+**Software Bill of Materials (SBOM):**
+- A comprehensive SBOM is generated for each Butler SOS release
+- The SBOM provides a detailed inventory of all components, dependencies, and their versions
+- This enables organizations to track and assess the security posture of all components in Butler SOS
+- SBOM files are available in standard formats for integration with enterprise security tools
+
+These features help organizations maintain better visibility into their Butler SOS deployments and meet compliance requirements for software supply chain security.
+
+## Butler SOS system information gathering
+
+Butler SOS can optionally gather detailed system information about the host it's running on. This is controlled by the `Butler-SOS.systemInfo.enable` configuration setting.
+
+When enabled (which is the default), Butler SOS uses the `systeminformation` npm package to collect host information. This package executes various operating system commands to gather data such as:
+
+- **System information:** `wmic` commands on Windows, `/proc` file reads on Linux
+- **CPU details:** Hardware detection commands like `dmidecode`, `lscpu`
+- **Memory information:** Memory layout and usage commands
+- **Network interfaces:** Network configuration queries
+- **Disk information:** Storage device enumeration and statistics
+
+**Security implications:**
+- These commands may be flagged by enterprise security monitoring tools as potentially suspicious activity
+- In security-sensitive environments, you may want to disable system information gathering by setting `Butler-SOS.systemInfo.enable: false`
+- Note that telemetry functionality requires system information to be enabled - Butler SOS will refuse to start if telemetry is enabled but systemInfo is disabled
+
+**Recommendation:** Review your organization's security policies regarding automated system command execution before deploying Butler SOS in production environments.
+
 ## Butler SOS talking to Qlik Sense
 
 Butler SOS uses https for all communication with Sense, using Sense's certificates for authentication.

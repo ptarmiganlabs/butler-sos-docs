@@ -6,12 +6,12 @@ description: >
   Everything you ever wanted to know about the Butler SOS configuration file.
 ---
 
-{{< notice tip >}}
+{{% alert title="Tip" color="primary" %}}
 
 The config file uses YAML notation, with file extensions of .yaml or .yml.  
 The .yaml extension is recommended.
 
-{{< /notice >}}
+{{% /alert %}}
 
 The config file is the heart of Butler SOS.  
 All setting must be defined in the config file - run time errors are likely to occur otherwise.
@@ -23,6 +23,7 @@ A few things to keep in mind:
 - Topic names (e.g. "Butler-SOS.logLevel") are case sensitive.
 - First time Butler SOS is started, a new check is done if the specified InfluxDB database already exists.
   If it doesn't exist it will be created together with a default InfluxDB retention policy. The retention policy is based on the time period set in the config file.
+- **Conditional validation**: Starting with Butler SOS 12.0.0, configuration settings for disabled features are not validated for format or types. This means you can leave placeholder values (like those in the production template) for features you have disabled without getting validation errors.
 
 #### Top level
 
@@ -43,6 +44,16 @@ A few things to keep in mind:
 | host      | Hostname or IP address where the web server will listen. Should be localhost or the host's IP address in most cases. |
 | port      | Port where the web server will listen. Change if port 3100 is already in use.                                        |
 | obfuscate | Should the config file shown in the web UI be obfuscated? true/false                                                 |
+
+#### Butler-SOS.systemInfo
+
+Control whether Butler SOS gathers detailed system information about the host it's running on.  
+When enabled, Butler SOS uses the underlying `systeminformation` npm package which executes various OS commands to gather detailed host information. In some enterprise environments, these commands may be flagged as suspicious by security monitoring tools.
+
+| Parameter | Description                                                                                                                                                                                                                                                                                                                                       |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| enable    | Should Butler SOS gather detailed system information? true/false. **Default: true**. Set to false in security-sensitive environments where OS command execution is restricted. Note that [telemetry](/docs/about/telemetry/) requires system information to be enabled - Butler SOS will refuse to start if telemetry is enabled but systemInfo is disabled. |
+|           |                                                                                                                                                                                                                                                                                                                                                   |
 
 #### Butler-SOS.heartbeat
 

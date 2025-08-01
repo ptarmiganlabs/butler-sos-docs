@@ -8,9 +8,9 @@ description: >
   It's where data and logic is kept in the Qlik Sense system.
 ---
 
-{{< notice tip >}}
+{{% alert title="Tip" color="primary" %}}
 The [use cases](/docs/about/usecases/) page contains related information that may be of interest.
-{{< /notice >}}
+{{% /alert %}}
 
 ## App metrics
 
