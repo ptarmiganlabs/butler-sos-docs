@@ -139,8 +139,6 @@ New systemInfo configuration setting for enhanced security control.
 Conditional validation - disabled features no longer validate their config settings.
 Enhanced security scanning and SBOM features for better supply chain security.
 
-Plus all the existing features: detailed performance metrics for individual apps, sheets and charts, real-time alerts for slow apps and charts, and data model performance monitoring.
-
 {{% /blocks/feature %}}
 
 {{% blocks/feature icon="fa-download" title="Download" %}}
