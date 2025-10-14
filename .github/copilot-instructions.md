@@ -36,6 +36,7 @@ Always reference these instructions first and fallback to search or bash command
 - Custom components will be in `/vitepress-site/docs/.vitepress/components/`
 - Theme customization will be in `/vitepress-site/docs/.vitepress/theme/`
 - **Source code repository**: The main Butler SOS project is at github.com/ptarmiganlabs/butler-sos. The doc site shall correctly reflect the current state of that project, i.e. create content that describes the current features, configuration options, and behavior of Butler SOS.
+- Reference Butler docs migration for similar structure and scripts. Available locally at `/Users/goran/code/butler-docs/vitepress-migration-docs` if you have access, otherwise online at https://github.com/ptarmiganlabs/butler-docs/tree/main/vitepress-migration-docs
 
 ### Hugo System (Current - Legacy)
 
@@ -196,6 +197,7 @@ butler-sos-docs/
 │ │ │ ├── examples/
 │ │ │ ├── reference/
 │ │ │ ├── about/
+│ │ │ ├── legal-stuff.md
 │ │ │ └── security.md
 │ │ └── public/ # Static assets
 │ │ ├── img/ # Images
