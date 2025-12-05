@@ -174,10 +174,11 @@ export default withMermaid({
               text: 'Data Destinations',
               collapsed: true,
               items: [
-                { text: 'InfluxDB', link: '/docs/concepts/influxdb/' },
-                { text: 'Prometheus', link: '/docs/concepts/prometheus/' },
-                { text: 'New Relic', link: '/docs/concepts/new-relic/' },
-                { text: 'MQTT', link: '/docs/concepts/mqtt/' }
+                { text: 'Overview', link: '/docs/concepts/data-destinations/' },
+                { text: 'InfluxDB', link: '/docs/concepts/data-destinations/influxdb' },
+                { text: 'Prometheus', link: '/docs/concepts/data-destinations/prometheus' },
+                { text: 'New Relic', link: '/docs/concepts/data-destinations/new-relic' },
+                { text: 'MQTT', link: '/docs/concepts/data-destinations/mqtt' }
               ]
             },
             {
