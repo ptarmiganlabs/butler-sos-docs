@@ -1,4 +1,4 @@
-```instructions
+````instructions
 ---
 applyTo: '**'
 ---
@@ -98,6 +98,45 @@ Always reference these instructions first and fallback to search or bash command
 - Preview production build: `npm run serve` to test the built site
 - Check console for any errors or warnings during development
 - Validate images and static assets load correctly from `/vitepress-site/docs/public/`
+- Always use lower case paths and file names for images and assets in VitePress
+
+**VitePress images (Target):**
+
+- ALWAYS use the `<ResponsiveImage>` component for including images with captions and zoom functionality, for example:
+   ```markdown
+   <ResponsiveImage
+   src="./unblock-butler-sos-windows-1.png"
+   alt="Unblocking the Butler SOS zip file on Windows Server"
+   caption="Unblocking the Butler SOS zip file on Windows Server"
+   maxWidth="450px"
+   />
+   ```
+
+**VitePress alerts (Target):**
+- VitePress uses `::: info`, `::: tip`, `::: warning`, `::: danger` blocks for callouts, where Hugo uses shortcodes.
+  For example:
+   ```markdown
+   ::: info
+   This is an informational message.
+   :::
+   ```
+   ``` markdown
+   :::tip
+   This is a tip message.
+   :::
+   ```
+   ```markdown
+   ::: warning
+   This is a warning message.
+   :::
+   ```
+   ```markdown
+   ::: danger
+   This is a danger message.
+   :::
+   ```
+
+
 
 ## Build Details
 
@@ -175,7 +214,7 @@ Always reference these instructions first and fallback to search or bash command
 
 ### Repository Structure (During Migration)
 
-```
+````
 
 butler-sos-docs/
 ├── README.md

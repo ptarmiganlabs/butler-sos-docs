@@ -1,12 +1,11 @@
 ---
-title: "Docker"
-linkTitle: "Docker"
-weight: 40
-description: >
-  Running Butler SOS in Docker. Installation and configuration.
+title: Docker
+description: Running Butler SOS in Docker. Installation and configuration.
 ---
 
-{{< notice tip >}}
+<!-- TODO Review Docker getting-started steps -->
+
+::: tip
 Butler SOS Docker images are automatically built for several architectures:
 
 - amd64: This is by far the most common platform - your typical Intel based server use amd64.
@@ -14,11 +13,13 @@ Butler SOS Docker images are automatically built for several architectures:
 - arm/v7: An older Arm architecture found in previous-gen Raspberry Pis, for example.
 
 All images are available on [Docker Hub](https://hub.docker.com/r/ptarmiganlabs/butler-sos/tags?page=1&ordering=last_updated).
-{{< /notice >}}
+:::
 
 Docker is great in that it runs on many different platforms.  
 This means that as long as the Docker runtime environment is installed, you can run Butler SOS on your Mac laptop, on a Linux server or on a Windows server.  
 Or in a Kubernetes cluster to get enterprise grade process monitoring of Butler SOS.
+
+As for Raspberry Pi - yes, it works. But it's not in any shape or form recommended for production use. Fun to try out, though! 😎
 
 ## Installation
 
@@ -90,6 +91,8 @@ drwxr-xr-x  4 goran  staff   128 Aug 21 19:08 ..
 
 What does the docker-compose.yml file look like?
 
+<!-- TODO verify this compose file works -->
+
 ```bash
 ➜  butler-sos-docker cat docker-compose.yml
 # docker-compose.yml
@@ -98,6 +101,11 @@ services:
         image: ptarmiganlabs/butler-sos:latest
         container_name: butler-sos
         restart: always
+        command:
+          - "node"
+          - "src/butler-sos.js"
+          - "--configfile"
+          - "/nodeapp/config/production.yaml"
         volumes:
             # Make config file and log files accessible outside of container
             - "./config:/nodeapp/config"
@@ -109,20 +117,16 @@ services:
             options:
                 max-file: "5"
                 max-size: "5m"
-        networks:
-            - senseops
-
-networks:
-    senseops:
-        driver: bridge
 
 ➜  butler-sos-docker
 ```
 
 Ok, all good. Let's start the container using docker-compose (the exact output will depend on what version of Butler SOS you are using and what features you have enabled in its YAML config file).
 
+<!-- TODO create new docker compose example -->
+
 ```bash
-➜  butler-sos-docker docker-compose up
+➜  butler-sos-docker docker compose up
 Creating network "butler-sos-docker_senseops" with driver "bridge"
 Creating butler-sos ... done
 Attaching to butler-sos
