@@ -6,11 +6,9 @@ outline: deep
 
 User events provide real-time tracking of user activity in your Qlik Sense environment.
 
-Unlike polling-based [user sessions](./user-sessions) data, user events are pushed to Butler SOS as they happen, giving you near-instant visibility into user activity.
+Unlike polling-based [user sessions](./user-sessions) data, user events are pushed to Butler SOS as they happen via UDP messages.
 
-## What are user events?
-
-User events capture two types of activities:
+## Event types
 
 | Event Type                | Description                                 |
 | ------------------------- | ------------------------------------------- |
@@ -39,7 +37,7 @@ Each user event includes:
 - **User information** - User directory and user ID
 - **Origin** - What caused the event (e.g., AppAccess)
 - **App information** - App ID and name (when applicable)
-- **User agent** - Browser and OS information
+- **User agent** - Browser and OS information (see below)
 
 ## Configuration
 
@@ -123,8 +121,19 @@ User events can be sent to:
 - **New Relic** - For cloud-based monitoring
 - **MQTT** - For integration with other systems
 
-## Related concepts
+## User agent tracking
 
-- [User Sessions](./user-sessions) - Polling-based session tracking
-- [User Agents](./user-agents) - Browser and OS tracking
-- [Sessions & Connections](/docs/concepts/sessions%20connections/) - Session concepts explained
+User events include the browser's user agent string, which Butler SOS parses to extract:
+
+| Field           | Example |
+| --------------- | ------- |
+| Browser name    | Chrome  |
+| Browser version | 119     |
+| OS name         | Windows |
+| OS version      | 10      |
+
+This data is stored as InfluxDB tags (`qs_uaBrowserName`, `qs_uaBrowserMajorVersion`, `qs_uaOsName`, `qs_uaOsVersion`) and can be used to:
+
+- Track which browsers access your Sense environment
+- Identify outdated browsers that may have security issues
+- Understand mobile vs desktop usage patterns

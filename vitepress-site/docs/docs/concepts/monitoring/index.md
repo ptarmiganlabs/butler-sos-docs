@@ -8,10 +8,9 @@ Butler SOS provides comprehensive monitoring capabilities for Qlik Sense Enterpr
 
 This section covers the key monitoring features:
 
-- **[Health Metrics](./health-metrics)** - Real-time health metrics from Qlik Sense servers including CPU, memory, cache status, and app states.
-- **[User Sessions](./user-sessions)** - Track active user sessions across virtual proxies.
-- **[User Events](./user-events)** - Monitor session start/stop and connection open/close events in real-time.
-- **[User Agents](./user-agents)** - Track what operating systems and browsers are used to access your Sense environment.
+- **[Health Metrics](./health-metrics)** - Real-time server metrics (CPU, memory, cache, app states).
+- **[User Sessions](./user-sessions)** - Periodic snapshots of active sessions per virtual proxy.
+- **[User Events](./user-events)** - Real-time session and connection events, including browser/OS tracking.
 
 ## Log Events
 

@@ -150,7 +150,6 @@ export default withMermaid({
             { text: 'Overview', link: '/docs/concepts/' },
             { text: 'App Metrics', link: '/docs/concepts/app%20metrics/' },
             { text: 'Sessions & Connections', link: '/docs/concepts/sessions%20connections/' },
-            { text: 'Visualise Config File', link: '/docs/concepts/visualise%20config%20file/' },
             {
               text: 'Monitoring',
               collapsed: true,
@@ -159,7 +158,6 @@ export default withMermaid({
                 { text: 'Health Metrics', link: '/docs/concepts/monitoring/health-metrics' },
                 { text: 'User Sessions', link: '/docs/concepts/monitoring/user-sessions' },
                 { text: 'User Events', link: '/docs/concepts/monitoring/user-events' },
-                { text: 'User Agents', link: '/docs/concepts/monitoring/user-agents' },
                 {
                   text: 'Log Events',
                   collapsed: true,
@@ -188,7 +186,8 @@ export default withMermaid({
               items: [
                 { text: 'Heartbeats', link: '/docs/concepts/heartbeats/' },
                 { text: 'Uptime Monitor', link: '/docs/concepts/uptime-monitor/' },
-                { text: 'Anonymous Telemetry', link: '/docs/concepts/telemetry/' }
+                { text: 'Anonymous Telemetry', link: '/docs/concepts/telemetry/' },
+                { text: 'Visualise Config File', link: '/docs/concepts/visualise%20config%20file/' }
               ]
             }
           ]
