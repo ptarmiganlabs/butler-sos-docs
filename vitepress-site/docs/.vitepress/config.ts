@@ -185,10 +185,10 @@ export default withMermaid({
               text: 'Features',
               collapsed: true,
               items: [
-                { text: 'Heartbeats', link: '/docs/concepts/heartbeats/' },
-                { text: 'Uptime Monitor', link: '/docs/concepts/uptime-monitor/' },
-                { text: 'Anonymous Telemetry', link: '/docs/concepts/telemetry/' },
-                { text: 'Visualise Config File', link: '/docs/concepts/visualise%20config%20file/' }
+                { text: 'Heartbeats', link: '/docs/concepts/features/heartbeats' },
+                { text: 'Uptime Monitor', link: '/docs/concepts/features/uptime-monitor' },
+                { text: 'Telemetry', link: '/docs/concepts/features/telemetry' },
+                { text: 'Config Visualization', link: '/docs/concepts/features/config-visualization' }
               ]
             }
           ]
