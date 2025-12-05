@@ -33,12 +33,12 @@ Butler-SOS:
     obfuscate: true
 ```
 
-| Setting | Description |
-|---------|-------------|
-| `enable` | Enable/disable the web server |
-| `host` | IP address or hostname to bind to (use `localhost` for local-only access) |
-| `port` | Port number for the web server |
-| `obfuscate` | Hide sensitive values like passwords, tokens, IP addresses |
+| Setting     | Description                                                               |
+| ----------- | ------------------------------------------------------------------------- |
+| `enable`    | Enable/disable the web server                                             |
+| `host`      | IP address or hostname to bind to (use `localhost` for local-only access) |
+| `port`      | Port number for the web server                                            |
+| `obfuscate` | Hide sensitive values like passwords, tokens, IP addresses                |
 
 ## Accessing the web page
 

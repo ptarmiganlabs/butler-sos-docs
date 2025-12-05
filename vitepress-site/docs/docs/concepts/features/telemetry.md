@@ -41,15 +41,15 @@ No sensitive information is ever collected - no IP addresses, hostnames, usernam
 ```yaml
 Butler-SOS:
   systemInfo:
-    enable: true          # Required for telemetry to work
+    enable: true # Required for telemetry to work
 
-  anonTelemetry: true     # Enable/disable anonymous telemetry
+  anonTelemetry: true # Enable/disable anonymous telemetry
 ```
 
-| Setting | Description |
-|---------|-------------|
-| `anonTelemetry` | `true` to enable telemetry, `false` to disable |
-| `systemInfo.enable` | Must be `true` for telemetry to function |
+| Setting             | Description                                    |
+| ------------------- | ---------------------------------------------- |
+| `anonTelemetry`     | `true` to enable telemetry, `false` to disable |
+| `systemInfo.enable` | Must be `true` for telemetry to function       |
 
 ::: warning Important dependency
 Telemetry requires `Butler-SOS.systemInfo.enable` to be `true`.

@@ -57,18 +57,18 @@ Butler-SOS:
 
 ### Core settings
 
-| Setting | Description |
-|---------|-------------|
-| `enable` | Enable/disable uptime monitoring |
+| Setting     | Description                                                                                            |
+| ----------- | ------------------------------------------------------------------------------------------------------ |
+| `enable`    | Enable/disable uptime monitoring                                                                       |
 | `frequency` | How often to log uptime. Uses [later.js text parser](https://bunkat.github.io/later/parsers.html#text) |
-| `logLevel` | Minimum log level for uptime messages (`silly`, `debug`, `verbose`, `info`, `warn`, `error`) |
+| `logLevel`  | Minimum log level for uptime messages (`silly`, `debug`, `verbose`, `info`, `warn`, `error`)           |
 
 ### InfluxDB storage
 
-| Setting | Description |
-|---------|-------------|
-| `storeInInfluxdb.butlerSOSMemoryUsage` | Store memory usage in InfluxDB |
-| `storeInInfluxdb.instanceTag` | Tag to identify this Butler SOS instance (useful when running multiple instances) |
+| Setting                                | Description                                                                       |
+| -------------------------------------- | --------------------------------------------------------------------------------- |
+| `storeInInfluxdb.butlerSOSMemoryUsage` | Store memory usage in InfluxDB                                                    |
+| `storeInInfluxdb.instanceTag`          | Tag to identify this Butler SOS instance (useful when running multiple instances) |
 
 ::: info
 InfluxDB storage requires `Butler-SOS.influxdbConfig.enable` to be `true`.
@@ -76,12 +76,12 @@ InfluxDB storage requires `Butler-SOS.influxdbConfig.enable` to be `true`.
 
 ### New Relic
 
-| Setting | Description |
-|---------|-------------|
-| `storeNewRelic.enable` | Send uptime metrics to New Relic |
+| Setting                            | Description                                |
+| ---------------------------------- | ------------------------------------------ |
+| `storeNewRelic.enable`             | Send uptime metrics to New Relic           |
 | `storeNewRelic.destinationAccount` | Which New Relic account(s) to send data to |
-| `metric.dynamic.butlerMemoryUsage` | Include memory usage |
-| `metric.dynamic.butlerUptime` | Include uptime duration |
+| `metric.dynamic.butlerMemoryUsage` | Include memory usage                       |
+| `metric.dynamic.butlerUptime`      | Include uptime duration                    |
 
 #### Attributes
 

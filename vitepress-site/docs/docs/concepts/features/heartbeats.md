@@ -32,9 +32,9 @@ If the monitoring tool doesn't receive a heartbeat within the expected timeframe
 
 Popular tools that work with Butler SOS heartbeats:
 
-| Tool | Description |
-|------|-------------|
-| **[Healthchecks.io](https://healthchecks.io/)** | Open source, self-hosted or SaaS |
+| Tool                                                       | Description                         |
+| ---------------------------------------------------------- | ----------------------------------- |
+| **[Healthchecks.io](https://healthchecks.io/)**            | Open source, self-hosted or SaaS    |
 | **[Uptime Kuma](https://github.com/louislam/uptime-kuma)** | Open source, self-hosted, modern UI |
 
 Both tools can send alerts via email, Slack, Teams, and many other channels.
@@ -49,18 +49,18 @@ Butler-SOS:
     frequency: every 1 hour
 ```
 
-| Setting | Description |
-|---------|-------------|
-| `enable` | Enable/disable heartbeat feature |
-| `remoteURL` | URL to ping (provided by your monitoring tool) |
+| Setting     | Description                                                                                                        |
+| ----------- | ------------------------------------------------------------------------------------------------------------------ |
+| `enable`    | Enable/disable heartbeat feature                                                                                   |
+| `remoteURL` | URL to ping (provided by your monitoring tool)                                                                     |
 | `frequency` | How often to send heartbeats. Uses [later.js text parser](https://bunkat.github.io/later/parsers.html#text) syntax |
 
 ### Frequency examples
 
-| Setting | Meaning |
-|---------|---------|
-| `every 1 hour` | Once per hour |
-| `every 5 minutes` | Every 5 minutes |
+| Setting            | Meaning          |
+| ------------------ | ---------------- |
+| `every 1 hour`     | Once per hour    |
+| `every 5 minutes`  | Every 5 minutes  |
 | `every 30 seconds` | Every 30 seconds |
 
 ::: tip
