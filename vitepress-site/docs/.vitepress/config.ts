@@ -198,11 +198,28 @@ export default withMermaid({
           collapsed: true,
           items: [
             { text: 'Overview', link: '/docs/examples/' },
-            { text: 'Grafana Dashboards', link: '/docs/examples/grafana/' },
-            { text: 'InfluxDB Queries', link: '/docs/examples/influxdb-queries/' },
-            { text: 'Prometheus Queries', link: '/docs/examples/prometheus-queries/' },
-            { text: 'MQTT Integration', link: '/docs/examples/mqtt/' },
-            { text: 'Troubleshooting', link: '/docs/examples/troubleshooting' }
+            { text: 'New Relic Dashboards', link: '/docs/examples/new-relic-dashboards' },
+            { text: 'Count User/Log Events', link: '/docs/examples/count-user-log-events' },
+            {
+              text: 'Grafana Dashboards',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/docs/examples/grafana/' },
+                { text: 'Grafana 9', link: '/docs/examples/grafana/grafana-9' },
+                { text: 'Grafana 8', link: '/docs/examples/grafana/grafana-8' },
+                { text: 'Grafana 7', link: '/docs/examples/grafana/grafana-7' },
+                { text: 'Grafana 6', link: '/docs/examples/grafana/grafana-6' }
+              ]
+            },
+            {
+              text: 'Engine Performance',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/docs/examples/engine-performance/' },
+                { text: 'App Open Time', link: '/docs/examples/engine-performance/app-open-time' },
+                { text: 'Find Slow Charts', link: '/docs/examples/engine-performance/find-slow-charts' }
+              ]
+            }
           ]
         },
         {
