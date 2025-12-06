@@ -210,11 +210,18 @@ export default withMermaid({
           collapsed: true,
           items: [
             { text: 'Overview', link: '/docs/reference/' },
-            { text: 'Config File', link: '/docs/reference/config-file/' },
             { text: 'Command Line Options', link: '/docs/reference/command-line-options' },
-            { text: 'InfluxDB Information', link: '/docs/reference/influxdb' },
-            { text: 'Prometheus Metrics', link: '/docs/reference/prometheus' },
-            { text: 'Test Cases', link: '/docs/reference/test-cases' }
+            { text: 'Config File Format', link: '/docs/reference/config-file-format' },
+            {
+              text: 'Available Metrics',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/docs/reference/available-metrics/' },
+                { text: 'InfluxDB Metrics', link: '/docs/reference/available-metrics/influxdb' },
+                { text: 'Prometheus Metrics', link: '/docs/reference/available-metrics/prometheus' },
+                { text: 'New Relic', link: '/docs/reference/available-metrics/new-relic' }
+              ]
+            }
           ]
         },
         {
