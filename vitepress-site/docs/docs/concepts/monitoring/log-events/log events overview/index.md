@@ -31,7 +31,7 @@ The counters are configured in the `Butler-SOS.qlikSenseEvents.eventCount` secti
 
 When enabled, Butler SOS will count the number of log and user events that are received from Qlik Sense via UDP messages.
 
-The counters are split across several dimensions, described in the [reference section](/docs/reference/available_metrics/influxdb/#event-counters). TODO
+The counters are split across several dimensions, described in the [reference section](/docs/reference/available-metrics/influxdb#event-counters).
 
 These counters can be used to get a general idea of which servers generate the most log events, which Windows services generate the most events, and so on.
 
@@ -48,7 +48,7 @@ A Grafana dashboard can look like this:
 
 If an event with `source=qseow-qix-perf` _does not_ meet the include filter criteria in the config file, it is considered a "rejected" event.
 
-For rejected events a set of counters are kept, broken down by dimensions described in the [reference section](/docs/reference/available_metrics/influxdb/#rejected-performance-log-events). TODO
+For rejected events a set of counters are kept, broken down by dimensions described in the [reference section](/docs/reference/available-metrics/influxdb#rejected-performance-events).
 
 As both app id/name and the engine method (for example `Global::OpenApp`) are included as a dimension in the InfluxDB data, it's possible to create Grafana dashboards that show how long time each app takes to open.
 
@@ -64,14 +64,14 @@ A Grafana dashboard can look like this:
 In the upper right chart above we can see that all apps except one open quickly.  
 Might be a good idea to investigate why the app "Training - Field indexing DEV" takes so long to open.
 
-More Grafana examples in the [app object performance monitoring](/docs/concepts/Log%20events/app%20object%20performance%20monitoring/) section. TODO
+More Grafana examples in the [app object performance monitoring](/docs/concepts/monitoring/log-events/app%20object%20performance%20monitoring/) section.
 
 ### Detailed: Accepted performance log events
 
 If an event with `source=qseow-qix-perf` _does_ meet the include filter criteria in the config file, it is considered an "accepted" event.
 
 All accepted events will result in a set of detailed performance metrics being stored in InfluxDB.  
-The metrics are described in the [reference section](/docs/reference/available_metrics/influxdb/#accepted-performance-log-events). TODO
+The metrics are described in the [reference section](/docs/reference/available-metrics/influxdb#accepted-performance-events).
 
 An example Grafana dashboard can look like this:
 

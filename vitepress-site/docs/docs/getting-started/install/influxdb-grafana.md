@@ -84,7 +84,7 @@ networks:
 ➜  butler-sos-docker
 ```
 
-Assuming you've already completed the [setup of Butler SOS](/docs/getting-started/setup/), the result of running the `docker-compose_fullstack_influxdb.yml` file above is something like this:
+Assuming you've already completed the [configuration of Butler SOS](/docs/reference/config-file-format), the result of running the `docker-compose_fullstack_influxdb.yml` file above is something like this:
 
 ```bash
 ➜  butler-sos-docker docker-compose -f docker-compose_fullstack_influxdb.yml up

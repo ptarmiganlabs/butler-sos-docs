@@ -95,7 +95,7 @@ The filtering is then done (if configured) by Butler SOS.
 For large Sense environments, there can therefore be a lot of UDP messages sent to Butler SOS.  
 This is usually not a problem, but at some point Butler SOS may become overwhelmed and start dropping messages.
 
-Use the [log message counter](/docs/getting_started/setup/qliksense-events/#counters-for-user-and-log-events) feature in Butler SOS to keep track of how many messages are received - this can be a good indicator of how close Butler SOS is to its limits.
+Use the log message counter feature in Butler SOS to keep track of how many messages are received - this can be a good indicator of how close Butler SOS is to its limits.
 :::
 
 ### Accepted vs rejected performance log events
@@ -105,14 +105,14 @@ Due to the potential high volume of performance log events sent by Qlik Sense, B
 Events that meet the filtering criteria are called "accepted" events, and events that don't are "rejected" events.
 
 Accepted events are stored in InfluxDB, including detailed performance metrics for the event.  
-Details on what is stored for accepted events can be found in the [reference section](/docs/reference/available_metrics/influxdb/#source-engine-service-performance-related-events). TODO
+Details on what is stored for accepted events can be found in the [reference section](/docs/reference/available-metrics/influxdb#accepted-performance-events).
 
 Rejected events are not stored in InfluxDB, but are still _counted_ by Butler SOS.  
-This feature can be enabled/disabled in the Butler SOS config file. More info in the [Qlik Sense events setup guide](/docs/getting_started/setup/qliksense-events/#rejected-events). TODO
+This feature can be enabled/disabled in the Butler SOS config file. More info is available in the [config file reference](/docs/reference/config-file-format).
 
 ### Data available for accepted and rejected events
 
-The full set of data stored for accepted events is described in the [reference section](/docs/reference/available_metrics/influxdb/#source-engine-service-performance-related-events). TODO
+The full set of data stored for accepted events is described in the [reference section](/docs/reference/available-metrics/influxdb#accepted-performance-events).
 
 ## Suggested workflows for different use cases
 

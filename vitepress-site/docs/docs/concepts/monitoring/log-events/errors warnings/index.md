@@ -17,7 +17,7 @@ Those logs track more or less everything - from extensions being installed, user
 
 Butler SOS monitors select parts of these logs and provides a way to get an aggregated, close-to-real-time view into warnings and errors.
 
-The [log events setup page](/docs/getting_started/setup/log-events/) TODO has more info on this.
+The [log events overview page](/docs/concepts/monitoring/log-events/log%20events%20overview/) has more info on this.
 
 ## Grafana dashboards
 

@@ -67,7 +67,7 @@ The concept is identical to how Butler SOS gets metrics and log events from Sens
 A blacklist in the main config file provides a way to exclude some users (e.g. system accounts) from the user event monitoring.
 
 Configuration of user events monitoring is done in the main config file's `Butler-SOS.userEvents` section.  
-More info about the config file is available [here](/docs/reference/config_file_format/). (TODO)
+More info about the config file is available [here](/docs/reference/config-file-format).
 
 On an aggregated level, this information is useful to understand how often users log in/out, when peak hours are etc.  
 On a detailed level, this information is extremely useful when trying to understand which users had active sessions when some error occurred.  

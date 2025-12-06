@@ -55,12 +55,15 @@ On Linux both [PM2](https://github.com/Unitech/pm2) and [Forever](https://github
 
 ## Monitoring Butler SOS
 
-For information about monitoring Butler SOS itself, see the [Monitoring Butler SOS](/docs/getting-started/operations/monitoring-butler-sos/) section.
+Butler SOS can be monitored via its uptime messages, Docker health checks, and metrics it publishes about itself.
+
+The uptime monitor feature writes periodic messages to the console log and log files, indicating that Butler SOS is running.  
+It can also store its own memory usage in InfluxDB for visualization in Grafana dashboards.
 
 ## Next Steps
 
 After setting up operations, you might want to:
 
-- Learn about [upgrading Butler SOS](/docs/getting-started/upgrade/)
-- Explore [configuration options](/docs/getting-started/setup/)
+- Learn about [upgrading Butler SOS](/docs/getting-started/upgrade)
+- Explore [configuration options](/docs/reference/config-file-format)
 - Review [examples and dashboards](/docs/examples/)

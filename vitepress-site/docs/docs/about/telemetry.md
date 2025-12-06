@@ -51,7 +51,7 @@ On the other hand - **with** access to telemetry data a lot of possibilities ope
 
 ## Configuration
 
-Instructions for configuring Butler SOS' telemetry can be found in the [setup section](/docs/getting-started/setup/telemetry/).
+Telemetry can be enabled/disabled in the Butler SOS configuration file using the `Butler-SOS.anonTelemetry` setting. See the [configuration file format reference](/docs/reference/config-file-format) for details.
 
 ### System Information Dependency
 
@@ -63,7 +63,7 @@ Starting with Butler SOS 12.0.0, there is a configuration option `Butler-SOS.sys
 - If you enable telemetry (`anonTelemetry: true`) but disable system information gathering (`systemInfo.enable: false`), Butler SOS will show an error and refuse to start.
 - If your organization's security policies prevent OS command execution, you must disable both telemetry and system information gathering.
 
-More details about the systemInfo setting can be found in the [configuration file documentation](/docs/reference/config-file/).
+More details about the systemInfo setting can be found in the [configuration file documentation](/docs/reference/config-file-format).
 :::
 
 ## The Details
@@ -100,7 +100,7 @@ The data is stored in the EU.
 
 Even though no-one (not even Ptarmigan Labs who runs the telemetry database!) has any way of ever connecting the data sent by _your_ Butler SOS instance to _you_ (it's all anonymized, remember?), there can be cases where telemetry data must be deleted.
 
-The [legal page](/docs/legal-stuff/#telemetry-data) has more information about this.
+The [legal page](/docs/legal-stuff#telemetry-data) has more information about this.
 
 ## Field Level Description
 

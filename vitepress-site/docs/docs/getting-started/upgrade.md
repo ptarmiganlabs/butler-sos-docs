@@ -93,8 +93,8 @@ A consequence of this is that all settings are now mandatory, even if you don't 
     This comparison is a manual process and can be a bit tedious, but knowing your config file is really needed in order to make full and correct use of Butler SOS.
 
    - That file is also included in the Butler SOS ZIP file available on the [download page](https://github.com/ptarmiganlabs/butler-sos/releases).
-   <!-- TODO fix link -->
-   - A more in-depth description of the config file is available in the [Reference docs > Config file format](/docs/reference/config-file/) section of the documentation.
+
+   - A more in-depth description of the config file is available in the [Reference docs > Config file format](/docs/reference/config-file-format) section of the documentation.
 
 4. **Identify changes**: The result of the comparison will show you what parts of the config file are new (for minor upgrades) and which parts have changed in a significant way (for major upgrades).
 
@@ -140,6 +140,6 @@ By sharing your installation and upgrade challenges/issues you enable future imp
 
 After a successful upgrade:
 
-- Review the [configuration reference](/docs/reference/config-file/)
+- Review the [configuration reference](/docs/reference/config-file-format)
 - Check out new features in the [release notes](https://github.com/ptarmiganlabs/butler-sos/releases)
 - Explore [examples and dashboards](/docs/examples/)

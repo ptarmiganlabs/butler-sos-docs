@@ -61,7 +61,7 @@ First we must recognize that Sense uses [self signed certificates](https://en.wi
 
 This means that the easiest option for getting Butler SOS up and running is usually to install it on one of your Sense servers.
 
-That said, it is probably better system design to run Butler SOS (and maybe other members of the [Butler family](/docs/about/butler-family/)) on their own server, maybe using some flavour of Linux (lower cost compared to Windows). Windows servers work equally well though.
+That said, it is probably better system design to run Butler SOS (and maybe other members of the [Butler family](/docs/about/butler-family)) on their own server, maybe using some flavour of Linux (lower cost compared to Windows). Windows servers work equally well though.
 
 In this case you might want to consider exporting the Sense CA certificate from one of your Sense servers, and then install it on the Linux server.
 This _should_ technically not be needed for Butler SOS to work correctly - as long as you specify the correct `root.pem` file in the Butler SOS config file, you should be ok.
@@ -103,14 +103,14 @@ If you specify a server name of "myserver.company.com" while exporting certifica
 
 Choose your installation platform:
 
-- [Docker Installation](/docs/getting-started/install/docker/)
-- [Native/Standalone Installation](/docs/getting-started/install/native/)
-- [InfluxDB & Grafana Setup](/docs/getting-started/install/influxdb_grafana/)
-- [Prometheus & Grafana Setup](/docs/getting-started/install/prometheus_grafana/)
+- [Docker Installation](/docs/getting-started/install/docker)
+- [Windows, Linux, macOS Installation](/docs/getting-started/install/windows)
+- [InfluxDB & Grafana Setup](/docs/getting-started/install/influxdb-grafana)
+- [Prometheus & Grafana Setup](/docs/getting-started/install/prometheus-grafana)
 
 ## Next Steps
 
 After installation, proceed to:
 
-- [Setup & Configuration](/docs/getting-started/setup/)
 - [Day 2 Operations](/docs/getting-started/operations/)
+- [Configuration Reference](/docs/reference/config-file-format)
