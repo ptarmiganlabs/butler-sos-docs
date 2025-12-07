@@ -25,6 +25,6 @@
   },
   "dependencies": {
     "medium-zoom": "^1.1.0",
-    "vitepress-openapi": "^0.1.9"
+    "vitepress-openapi": "^0.1.12"
   }
 }
