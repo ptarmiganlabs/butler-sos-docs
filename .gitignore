@@ -1,6 +1,17 @@
 # Dependency directories
-# themes/
-public/
-resources/
 node_modules/
-tech-doc-hugo
+
+# VitePress build output and cache
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+
+# Hugo archive resources (if running Hugo locally)
+hugo-archive/resources/
+
+# OS files
+.DS_Store
+
+# Legacy Hugo paths (for reference)
+# public/
+# resources/
+# tech-doc-hugo

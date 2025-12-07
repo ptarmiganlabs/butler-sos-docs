@@ -1,5 +1,0 @@
-{{ $type := .Get 0 | default "info" }}
-{{ $class := printf "alert alert-%s" $type }}
-<div class="{{ $class }}" role="alert">
-  <strong>{{ title $type }}:</strong> {{ .Inner | markdownify }}
-</div>
