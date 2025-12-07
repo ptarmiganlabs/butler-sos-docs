@@ -41,6 +41,8 @@ Butler-SOS:
 
 Butler SOS uses certificates to authenticate with Qlik Sense. These certificates must be exported from the Qlik Management Console (QMC).
 
+![Qlik Sense certificate export](/img/setup/qmc-certexport-1.png "Exporting certificates from Qlik")
+
 To export certificates you need to provide a few pieces of information:
 
 1. **Machine name**: The IP or full host name that Butler SOS will use when calling Qlik Sense APIs.
@@ -54,7 +56,11 @@ To export certificates you need to provide a few pieces of information:
 
 5. **PEM format**: Export certificates in PEM format.
 
+![Qlik Sense certificate export](/img/setup/qmc-certexport-2.png "Exporting certificates from Qlik, step 2")
+
 Then click the "Export certificates" button. If all goes well the certificates are now exported to a folder on the Sense server to which you are connected (i.e. the server hosting the virtual proxy you are connected to).
+
+![Qlik Sense certificate export](/img/setup/qmc-certexport-3.png "Exporting certificates from Qlik - all done!")
 
 The exported certificate files will be used when [configuring Butler SOS](/docs/reference/config-file-format).
 

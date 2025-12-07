@@ -146,6 +146,8 @@ The below works for Qlik Sense 2024-May - your mileage may vary for other versio
 2. Right click the chart and select "Share". Click "Embed".
 3. The object ID is shown under the preview image of the chart. It is also available in the Iframe URL as the `obj` parameter.
 
+![Get the object ID from the Share dialog](/img/setup/butler-sos-get-object-id-1.png "Get the object ID from the Share dialog within the Sense app itself")
+
 ##### Use a Chrome Extension
 
 This works if you are using Chrome and have the [Add Sense](https://upper88.com/addsensechrome.html) extension installed.
@@ -153,6 +155,8 @@ This works if you are using Chrome and have the [Add Sense](https://upper88.com/
 1. Open the app, then move to the sheet the chart is on.
 2. Click the Add Sense icon in the Chrome toolbar, then "Show" in the menu that appears.
 3. Popup windows will appear with information - including the object ID - about all UI objects on the sheet.
+
+![Get the object ID from Add Sense extension](/img/setup/butler-sos-get-object-id-2.png "Get the object ID from the Add Sense extension in Chrome")
 
 ##### Use the "Single Configurator" in the Qlik Sense Dev Hub
 
@@ -163,6 +167,8 @@ Still, if you are using a version of Sense that has the Dev Hub, you can get the
 1. Open the Dev Hub, then the "Single configurator" tool.
 2. Select the app and the object you want to get the ID for in the drop-down to the left.
 3. Select the chart or table you are interested in. The object ID is found in the URL.
+
+![Get the object ID from Dev Hub](/img/setup/butler-sos-get-object-id-3.png "Get the object ID from the URL in the Single configurator tool in the Dev Hub")
 
 The concepts for filtering by app object are the same as for other filter types.
 
