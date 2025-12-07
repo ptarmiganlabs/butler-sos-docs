@@ -139,6 +139,41 @@ export default withMermaid({
                 { text: 'Prometheus & Grafana', link: '/docs/getting-started/install/prometheus-grafana' }
               ]
             },
+            {
+              text: 'Setup',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/docs/getting-started/setup/' },
+                { text: 'Which Config File', link: '/docs/getting-started/setup/which-config-file' },
+                { text: 'Verify Config File', link: '/docs/getting-started/setup/verify-config-file' },
+                { text: 'Config Visualization', link: '/docs/getting-started/setup/config-visualization' },
+                { text: 'Logging', link: '/docs/getting-started/setup/logging' },
+                { text: 'Heartbeats', link: '/docs/getting-started/setup/heartbeats' },
+                { text: 'Docker Healthcheck', link: '/docs/getting-started/setup/docker-healthcheck' },
+                { text: 'Uptime Monitor', link: '/docs/getting-started/setup/uptime-monitor' },
+                { text: 'Credentials', link: '/docs/getting-started/setup/credentials' },
+                { text: 'Sense Server Settings', link: '/docs/getting-started/setup/sense-server-settings' },
+                {
+                  text: 'Qlik Sense Events',
+                  collapsed: true,
+                  items: [
+                    { text: 'Overview', link: '/docs/getting-started/setup/qlik-sense-events/' },
+                    { text: 'Log Events', link: '/docs/getting-started/setup/qlik-sense-events/log-events' },
+                    { text: 'Performance Log Events', link: '/docs/getting-started/setup/qlik-sense-events/performance-log-events' },
+                    { text: 'User Events', link: '/docs/getting-started/setup/qlik-sense-events/user-events' }
+                  ]
+                },
+                { text: 'MQTT', link: '/docs/getting-started/setup/mqtt' },
+                { text: 'Prometheus', link: '/docs/getting-started/setup/prometheus' },
+                { text: 'InfluxDB', link: '/docs/getting-started/setup/influxdb' },
+                { text: 'New Relic', link: '/docs/getting-started/setup/new-relic' },
+                { text: 'App Names', link: '/docs/getting-started/setup/app-names' },
+                { text: 'User Sessions', link: '/docs/getting-started/setup/user-sessions' },
+                { text: 'Servers to Monitor', link: '/docs/getting-started/setup/servers-to-monitor' },
+                { text: 'Telemetry', link: '/docs/getting-started/setup/telemetry' },
+                { text: 'Log DB (Deprecated)', link: '/docs/getting-started/setup/log-db' }
+              ]
+            },
             { text: 'Operations', link: '/docs/getting-started/operations/' },
             { text: 'Upgrade', link: '/docs/getting-started/upgrade' }
           ]
@@ -198,8 +233,6 @@ export default withMermaid({
           collapsed: true,
           items: [
             { text: 'Overview', link: '/docs/examples/' },
-            { text: 'New Relic Dashboards', link: '/docs/examples/new-relic-dashboards' },
-            { text: 'Count User/Log Events', link: '/docs/examples/count-user-log-events' },
             {
               text: 'Grafana Dashboards',
               collapsed: true,
@@ -211,6 +244,8 @@ export default withMermaid({
                 { text: 'Grafana 6', link: '/docs/examples/grafana/grafana-6' }
               ]
             },
+            { text: 'New Relic Dashboards', link: '/docs/examples/new-relic-dashboards' },
+            { text: 'Count User/Log Events', link: '/docs/examples/count-user-log-events' },
             {
               text: 'Engine Performance',
               collapsed: true,
