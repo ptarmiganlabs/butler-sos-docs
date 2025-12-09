@@ -11,6 +11,7 @@ This section covers the key monitoring features:
 - **[Health Metrics](./health-metrics)** - Real-time server metrics (CPU, memory, cache, app states).
 - **[User Sessions](./user-sessions)** - Periodic snapshots of active sessions per virtual proxy.
 - **[User Events](./user-events)** - Real-time session and connection events, including browser/OS tracking.
+- **[UDP Queue Metrics](./udp-queue-metrics)** - Monitor Butler SOS internal message queue health and performance. *New in v13.1*
 
 ## Log Events
 

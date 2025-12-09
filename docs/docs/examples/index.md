@@ -26,6 +26,7 @@ That said, earlier Butler SOS versions included some nice demo dashboards too, t
 Learn how to visualize Butler SOS metrics using Grafana dashboards. We provide sample dashboards for different Grafana versions, from v6 to v9+.
 
 - [Grafana Dashboard Overview](/docs/examples/grafana/) - Introduction to Grafana dashboards for Butler SOS
+- [UDP Queue Monitoring](/docs/examples/grafana/udp-queue-monitoring) - Monitor internal message queue health with Flux queries. _New in v13.1_
 - Version-specific dashboards with different features and capabilities
 
 ### New Relic Dashboards

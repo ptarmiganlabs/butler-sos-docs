@@ -193,6 +193,7 @@ export default withMermaid({
                 { text: 'Health Metrics', link: '/docs/concepts/monitoring/health-metrics' },
                 { text: 'User Sessions', link: '/docs/concepts/monitoring/user-sessions' },
                 { text: 'User Events', link: '/docs/concepts/monitoring/user-events' },
+                { text: 'UDP Queue Metrics', link: '/docs/concepts/monitoring/udp-queue-metrics' },
                 {
                   text: 'Log Events',
                   collapsed: true,
@@ -238,6 +239,7 @@ export default withMermaid({
               collapsed: true,
               items: [
                 { text: 'Overview', link: '/docs/examples/grafana/' },
+                { text: 'UDP Queue Monitoring', link: '/docs/examples/grafana/udp-queue-monitoring' },
                 { text: 'Grafana 9', link: '/docs/examples/grafana/grafana-9' },
                 { text: 'Grafana 8', link: '/docs/examples/grafana/grafana-8' },
                 { text: 'Grafana 7', link: '/docs/examples/grafana/grafana-7' },

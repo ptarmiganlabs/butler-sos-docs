@@ -439,3 +439,93 @@ Metrics about Butler SOS' own resource usage. More info on these metrics is avai
 | `heap_total`     | float | Total size of the allocated heap                  |
 | `heap_used`      | float | Actual memory used during execution of Butler SOS |
 | `process_memory` | float | Total memory allocated for Butler SOS execution   |
+
+---
+
+## UDP Queue Metrics
+
+::: tip New in v13.1
+UDP queue metrics were introduced in Butler SOS v13.1 to provide visibility into message queue health and performance.
+:::
+
+Butler SOS uses internal message queues to handle incoming UDP messages from Qlik Sense. These queues provide protection against message flooding, enable backpressure detection, and ensure stable message processing under high load.
+
+Queue metrics are stored in separate measurements for user events and log events.
+
+### Measurement: user_events_queue
+
+Metrics about Butler SOS' UDP message queue for user activity events.
+
+The measurement name is configurable via `Butler-SOS.userEvents.udpServerConfig.queueMetrics.influxdb.measurementName`.
+
+#### Tags
+
+| Tag Key      | Type   | Description                                    |
+| ------------ | ------ | ---------------------------------------------- |
+| `queue_type` | string | Queue identifier, always `user_events`         |
+| `host`       | string | Butler SOS hostname where the queue is running |
+| Custom tags  | string | Additional tags from config file `tags` array  |
+
+#### Fields
+
+**Queue Status**
+
+| Field Key               | Type    | Description                                 |
+| ----------------------- | ------- | ------------------------------------------- |
+| `queue_size`            | integer | Current number of messages waiting in queue |
+| `queue_max_size`        | integer | Maximum queue capacity (from config)        |
+| `queue_utilization_pct` | float   | Queue utilization percentage (0-100)        |
+| `queue_pending`         | integer | Messages currently being processed          |
+
+**Message Counters**
+
+| Field Key            | Type    | Description                                        |
+| -------------------- | ------- | -------------------------------------------------- |
+| `messages_received`  | integer | Total messages received (since last metrics write) |
+| `messages_queued`    | integer | Messages successfully added to queue               |
+| `messages_processed` | integer | Messages successfully processed                    |
+| `messages_failed`    | integer | Messages that failed during processing             |
+
+**Dropped Messages**
+
+| Field Key                     | Type    | Description                               |
+| ----------------------------- | ------- | ----------------------------------------- |
+| `messages_dropped_total`      | integer | Total dropped messages (all reasons)      |
+| `messages_dropped_rate_limit` | integer | Dropped due to rate limiting              |
+| `messages_dropped_queue_full` | integer | Dropped because queue was full            |
+| `messages_dropped_size`       | integer | Dropped due to exceeding max message size |
+
+**Performance**
+
+| Field Key                | Type  | Description                                    |
+| ------------------------ | ----- | ---------------------------------------------- |
+| `processing_time_avg_ms` | float | Average message processing time (milliseconds) |
+| `processing_time_p95_ms` | float | 95th percentile processing time (milliseconds) |
+| `processing_time_max_ms` | float | Maximum processing time (milliseconds)         |
+
+**Rate Limiting**
+
+| Field Key             | Type    | Description                                         |
+| --------------------- | ------- | --------------------------------------------------- |
+| `rate_limit_current`  | integer | Current message rate (messages received per minute) |
+| `backpressure_active` | integer | Backpressure status (0=inactive, 1=active)          |
+
+---
+
+### Measurement: log_events_queue
+
+Metrics about Butler SOS' UDP message queue for log events.
+
+The measurement name is configurable via `Butler-SOS.logEvents.udpServerConfig.queueMetrics.influxdb.measurementName`.
+
+#### Tags
+
+| Tag Key      | Type   | Description                                    |
+| ------------ | ------ | ---------------------------------------------- |
+| `queue_type` | string | Queue identifier, always `log_events`          |
+| `host`       | string | Butler SOS hostname where the queue is running |
+| Custom tags  | string | Additional tags from config file `tags` array  |
+
+#### Fields
+
+The fields are identical to `user_events_queue`. See above for the complete field reference.

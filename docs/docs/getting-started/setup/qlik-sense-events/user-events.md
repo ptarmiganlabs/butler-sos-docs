@@ -90,6 +90,25 @@ Butler-SOS:
     udpServerConfig:
       serverHost: <IP or FQDN>      # Host/IP where user event server will listen for events from Sense
       portUserActivityEvents: 9997  # Port on which user event server will listen for events from Sense
+      # Message queue settings (New in v13.1)
+      messageQueue:
+        maxConcurrent: 10           # Max messages processed simultaneously
+        maxSize: 200                # Max queue size before messages are dropped
+        backpressureThreshold: 80   # Warn when queue utilization reaches this %
+      # Rate limiting (New in v13.1)
+      rateLimit:
+        enable: false               # Enable rate limiting
+        maxMessagesPerMinute: 600   # Max messages per minute (~10/sec)
+      maxMessageSize: 65507         # Max UDP message size in bytes (New in v13.1)
+      # Queue metrics storage (New in v13.1)
+      queueMetrics:
+        influxdb:
+          enable: false             # Store queue metrics in InfluxDB
+          writeFrequency: 20000     # How often to write metrics (ms)
+          measurementName: user_events_queue
+          tags:                     # Optional tags for queue metrics
+            # - name: env
+            #   value: prod
     tags:                           # Tags are added to the data before it's stored in InfluxDB
       - tag: env
         value: DEV
@@ -124,6 +143,54 @@ Butler-SOS:
   ...
   ...
 ```
+
+## UDP Message Queue Settings
+
+::: tip New in v13.1
+UDP message queue configuration was introduced in Butler SOS v13.1.
+:::
+
+::: warning Breaking Change
+These settings are **required** starting with Butler SOS v13.1. Existing configuration files must be updated to include the `messageQueue`, `rateLimit`, `maxMessageSize`, and `queueMetrics` sections.
+:::
+
+Butler SOS uses message queues to handle incoming UDP messages, providing protection against message flooding and ensuring stable operation under high load.
+
+### messageQueue
+
+Controls how messages are queued and processed.
+
+| Parameter               | Default | Description                                                    |
+| ----------------------- | ------- | -------------------------------------------------------------- |
+| `maxConcurrent`         | 10      | Maximum messages processed simultaneously. Range: 5-20 typical |
+| `maxSize`               | 200     | Maximum queue size before new messages are dropped             |
+| `backpressureThreshold` | 80      | Queue utilization % that triggers warning logs                 |
+
+### rateLimit
+
+Optional protection against message flooding.
+
+| Parameter              | Default | Description                                   |
+| ---------------------- | ------- | --------------------------------------------- |
+| `enable`               | false   | Enable rate limiting                          |
+| `maxMessagesPerMinute` | 600     | Maximum messages allowed per minute (~10/sec) |
+
+### maxMessageSize
+
+| Parameter        | Default | Description                                     |
+| ---------------- | ------- | ----------------------------------------------- |
+| `maxMessageSize` | 65507   | Maximum UDP message size in bytes (UDP maximum) |
+
+### queueMetrics
+
+Store queue health metrics in InfluxDB for monitoring. See [UDP Queue Metrics](/docs/concepts/monitoring/udp-queue-metrics) for details on available metrics.
+
+| Parameter                  | Default           | Description                       |
+| -------------------------- | ----------------- | --------------------------------- |
+| `influxdb.enable`          | false             | Store queue metrics in InfluxDB   |
+| `influxdb.writeFrequency`  | 20000             | How often to write metrics (ms)   |
+| `influxdb.measurementName` | user_events_queue | InfluxDB measurement name         |
+| `influxdb.tags`            | []                | Additional tags for queue metrics |
 
 ## Log Appender XML Files
 
