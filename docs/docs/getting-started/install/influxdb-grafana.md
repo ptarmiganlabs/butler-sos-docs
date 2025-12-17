@@ -3,10 +3,10 @@ title: InfluxDB & Grafana
 description: How to use Butler SOS with InfluxDB and Grafana using Docker.
 ---
 
-::: warning
-Butler SOS supports InfluxDB version 1.x and 2x.
+::: info InfluxDB Version Support
+Butler SOS supports InfluxDB version 1.x, 2.x, and 3.x.
 
-InfluxDB v3.x is not yet supported.
+This guide shows examples using InfluxDB 1.x and 3.x. For InfluxDB 2.x examples, adapt the configuration accordingly.
 :::
 
 If you already have InfluxDB and/or Grafana running you can skip this section.
@@ -23,9 +23,9 @@ You can use a single docker-compose file for Butler SOS, InfluxDB and Grafana - 
 The advantage of using a single docker-compose file is that the entire stack of tools will be launched in unison. You can create dependencies between the tools if needed etc - very convenient.
 On the other hand, having separate docker-compose files makes it easier to restart (or upgrade or in other ways change) a single service without affecting other services.
 
-### Full stack docker-compose file
+### Full stack docker-compose file (InfluxDB 1.x)
 
-Let's start Butler SOS, InfluxDB and Grafana from a single `docker-compose_fullstack_influxdb.yml` file:
+Let's start Butler SOS, InfluxDB 1.x and Grafana from a single `docker-compose_fullstack_influxdb.yml` file:
 
 ```bash
 ➜  butler-sos-docker cat docker-compose_fullstack_influxdb.yml
@@ -206,3 +206,98 @@ Removing network butler-sos-docker_senseops
 ➜  butler-sos-docker
 ➜
 ```
+
+### Full stack docker-compose file (InfluxDB 3.x)
+
+::: tip New in Butler SOS 13.1
+InfluxDB v3 support was added in Butler SOS version 13.1.
+:::
+
+Here's an example `docker-compose_fullstack_influxdb_v3.yml` file for InfluxDB 3.x:
+
+```yaml
+# docker-compose_fullstack_influxdb_v3.yml
+services:
+  butler-sos:
+    image: ptarmiganlabs/butler-sos:latest
+    container_name: butler-sos
+    restart: always
+    volumes:
+      # Make config file and log files accessible outside of container
+      - "./config:/nodeapp/config"
+      - "./log:/nodeapp/log"
+    environment:
+      - "NODE_ENV=production_influxdb_v3" # Use v3-specific config file
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "5m"
+    networks:
+      - senseops
+
+  influxdb:
+    image: influxdb:3-community
+    container_name: influxdb-v3
+    restart: always
+    volumes:
+      - ./influxdb-v3/data:/var/lib/influxdb3
+    ports:
+      # The API for InfluxDB v3 is served on port 8086
+      - "8086:8086"
+    environment:
+      - "INFLUXDB_TOKEN=mytoken"
+      - "INFLUXDB_DATABASE=butler-sos"
+    networks:
+      - senseops
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/data:/var/lib/grafana
+    networks:
+      - senseops
+
+networks:
+  senseops:
+    driver: bridge
+```
+
+**Key differences for InfluxDB v3:**
+
+- Uses `influxdb:3-community` image
+- Environment variables: `INFLUXDB_TOKEN` and `INFLUXDB_DATABASE` instead of v1's approach
+- Butler SOS config file should use `NODE_ENV=production_influxdb_v3`
+- Data directory: `/var/lib/influxdb3` instead of `/var/lib/influxdb`
+
+**Configuration file for InfluxDB v3:**
+
+Your `production_influxdb_v3.yaml` should include:
+
+```yaml
+Butler-SOS:
+  influxdbConfig:
+    enable: true
+    host: influxdb-v3 # Container name from docker-compose
+    port: 8086
+    version: 3 # Set to 3 for InfluxDB v3
+    v3Config:
+      database: butler-sos
+      token: mytoken
+      description: Butler SOS metrics
+      retentionDuration: 10d
+      timeout: 10000
+      queryTimeout: 60000
+```
+
+**Default credentials:**
+
+- InfluxDB token: `mytoken`
+- InfluxDB database: `butler-sos`
+- Grafana: admin/admin (change on first login)
+
+For more details on InfluxDB v3 configuration and migration, see the [InfluxDB v3 Migration Guide](/docs/getting-started/upgrade/influxdb-v3-migration).

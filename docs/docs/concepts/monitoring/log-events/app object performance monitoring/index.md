@@ -70,7 +70,7 @@ They are sent to Butler SOS as UDP messages, just like regular log events (using
 The performance log events have `INFO` log level in the Sense logs but still provide _very_ detailed information about what the engine is doing.
 
 ::: warning QIX Performance Log Level Requirement
-For Butler SOS to receive detailed app object performance monitoring data, the **QIX performance log level** setting in the Qlik Management Console (QMC) must be set to **`debug`**.
+For Butler SOS to receive detailed app object performance monitoring data, the **QIX performance log level** setting in the Qlik Management Console (QMC) must be set to **`info`** or **`debug`**. `info` is sufficient for most use cases, so no reason to set it to `debug` unless you need to debug something very specific.
 
 This requirement is the same for other tools that use this performance data, such as Qlik's Telemetry Dashboard app.
 

@@ -165,7 +165,13 @@ export default withMermaid({
                 },
                 { text: 'MQTT', link: '/docs/getting-started/setup/mqtt' },
                 { text: 'Prometheus', link: '/docs/getting-started/setup/prometheus' },
-                { text: 'InfluxDB', link: '/docs/getting-started/setup/influxdb' },
+                {
+                  text: 'InfluxDB',
+                  collapsed: true,
+                  items: [
+                    { text: 'Overview', link: '/docs/getting-started/setup/influxdb' }
+                  ]
+                },
                 { text: 'New Relic', link: '/docs/getting-started/setup/new-relic' },
                 { text: 'App Names', link: '/docs/getting-started/setup/app-names' },
                 { text: 'User Sessions', link: '/docs/getting-started/setup/user-sessions' },
@@ -175,7 +181,15 @@ export default withMermaid({
               ]
             },
             { text: 'Operations', link: '/docs/getting-started/operations/' },
-            { text: 'Upgrade', link: '/docs/getting-started/upgrade' }
+            {
+              text: 'Upgrade',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/docs/getting-started/upgrade/' },
+                { text: 'Upgrade to v15', link: '/docs/getting-started/upgrade/v15' },
+                { text: 'InfluxDB v3 Migration', link: '/docs/getting-started/upgrade/influxdb-v3-migration' }
+              ]
+            }
           ]
         },
         {

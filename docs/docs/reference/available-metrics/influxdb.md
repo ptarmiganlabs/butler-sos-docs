@@ -10,6 +10,60 @@ Metrics retrieved from Qlik Sense servers can be stored in [InfluxDB](https://ww
 
 **Fields** are the actual values being measured. Fields can be strings, integers, floats, or booleans. Fields are not indexed, so queries on field values are slower than tag queries.
 
+## InfluxDB v3 Schema Differences
+
+::: warning Important for v3 Users
+InfluxDB 3.x has a different architecture than v1/v2. **Tags and fields cannot have the same name** within a measurement. Butler SOS automatically handles this by appending `_field` to conflicting field names in v3.
+:::
+
+### Affected Measurements
+
+The following measurements have field name changes in InfluxDB v3:
+
+**user_events** - User activity events:
+
+- `userId` → `userId_field`
+- `userFull` → `userFull_field`
+- `appId` → `appId_field`
+- `appName` → `appName_field`
+
+**log_event** - Log events (field changes vary by source):
+
+- Engine, Proxy, Repository: `result_code` → `result_code_field`
+- Scheduler: `app_id` → `app_id_field`, `app_name` → `app_name_field`
+- QIX Performance: `app_id` → `app_id_field`
+
+::: tip
+**Tags remain unchanged.** You can still filter by the original tag names in WHERE clauses:
+
+```sql
+-- This still works in v3
+WHERE userId = 'tom' AND appName = 'Sales'
+```
+
+Only SELECT statements need to reference the `_field` variants:
+
+```sql
+-- v3 query
+SELECT userId_field, appName_field FROM user_events WHERE userId = 'tom'
+```
+
+:::
+
+For detailed migration information, see the [InfluxDB v3 Migration Guide](/docs/getting-started/upgrade/influxdb-v3-migration).
+
+### Measurements Not Affected
+
+The following measurements have **no schema differences** between v1/v2 and v3:
+
+- Health metrics (`sense_server`, `mem`, `apps`, `cpu`, `session`, `users`, `cache`, `saturated`)
+- Session metrics (`user_session_summary`, `user_session_list`, `user_session_details`)
+- Butler SOS memory (`butlersos_memory_usage`)
+- Event counters (`event_count`)
+- Queue metrics (`user_events_queue`, `log_events_queue`)
+
+---
+
 ## Common Tags
 
 All measurements share these common tags:
@@ -213,11 +267,22 @@ Detailed per-session data.
 
 ### Measurement: event_count
 
-Aggregated event counters.
+Aggregated event counters for both log and user events received from Qlik Sense servers.
 
-| Field Key     | Type    | Description                                          |
-| ------------- | ------- | ---------------------------------------------------- |
-| `event_count` | integer | Number of events counted in the measurement interval |
+#### Tags
+
+| Tag Key      | Description                                                                                                                         |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `event_type` | Type of event: `log` (warnings, errors, fatals from Sense services) or `user` (user activity events)                                |
+| `source`     | Source system within Sense that generated the event. Examples: `qseow-scheduler`, `qseow-proxy`, `qseow-engine`, `qseow-repository` |
+| `host`       | Host name of the Sense server generating the event                                                                                  |
+| `subsystem`  | Subsystem where the event originated, more granular than `source`. Example: `System.Scheduler.Scheduler.Master.Task.TaskSession`    |
+
+#### Fields
+
+| Field Key | Type    | Description                                          |
+| --------- | ------- | ---------------------------------------------------- |
+| `counter` | integer | Number of events counted in the measurement interval |
 
 ---
 
@@ -240,11 +305,15 @@ Real-time user activity events (requires log appender configuration on Sense ser
 
 #### Fields
 
-| Field Key       | Type   | Description                                      |
-| --------------- | ------ | ------------------------------------------------ |
-| `userFull`      | string | User identification in `DIRECTORY\userid` format |
-| `userDirectory` | string | User's directory                                 |
-| `userId`        | string | User's ID                                        |
+| Field Key        | Type   | Description                                           |
+| ---------------- | ------ | ----------------------------------------------------- |
+| `userFull_field` | string | User identification in `DIRECTORY\userid` format (v3) |
+| `userDirectory`  | string | User's directory                                      |
+| `userId_field`   | string | User's ID (v3)                                        |
+
+::: tip InfluxDB v3
+In InfluxDB v3, field names that conflict with tag names use the `_field` suffix. Tags remain unchanged for filtering purposes. See [v3 Schema Differences](#influxdb-v3-schema-differences).
+:::
 
 ---
 

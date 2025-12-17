@@ -16,12 +16,12 @@ By far the most common use case is to store the metrics in InfluxDB. If you alre
 Using InfluxDB is enabled by default in the config file.
 :::
 
-::: warning InfluxDB Version Support
-Butler SOS supports InfluxDB 1.x and 2.x.
+::: info InfluxDB Version Support
+Butler SOS supports InfluxDB 1.x, 2.x, and 3.x.
 
 There are reports that InfluxDB's cloud product also works with Butler SOS, but that has not been tested by the Butler SOS team.
 
-Version 3 is not supported.
+**Version 3.x is now supported** (Butler SOS 15+). See the [migration guide](/docs/getting-started/upgrade/influxdb-v3-migration) for details on upgrading from v1 or v2.
 :::
 
 ## What's This?
@@ -58,7 +58,14 @@ Butler-SOS:
     # Items below are mandatory if influxdbConfig.enable=true
     host: influxdb.mycompany.com    # InfluxDB host, hostname, FQDN or IP address
     port: 8086                      # Port where InfluxDB is listening, usually 8086
-    version: 1                      # Is the InfluxDB instance version 1.x or 2.x? Valid values are 1 or 2
+    version: 1                      # InfluxDB version: 1, 2, or 3
+    v3Config:                       # Settings for InfluxDB v3.x only, i.e. Butler-SOS.influxdbConfig.version=3
+      database: butler-sos          # Database name
+      token: mytoken                # Authentication token
+      description: Butler SOS metrics
+      retentionDuration: 10d        # Data retention period
+      timeout: 10000                # Optional: Socket timeout in ms (default: 10000)
+      queryTimeout: 60000           # Optional: Query timeout in ms (default: 60000)
     v2Config:                       # Settings for InfluxDB v2.x only, i.e. Butler-SOS.influxdbConfig.version=2
       org: myorg
       bucket: mybucket

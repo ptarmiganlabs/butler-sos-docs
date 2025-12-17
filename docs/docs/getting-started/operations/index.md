@@ -64,6 +64,6 @@ It can also store its own memory usage in InfluxDB for visualization in Grafana 
 
 After setting up operations, you might want to:
 
-- Learn about [upgrading Butler SOS](/docs/getting-started/upgrade)
+- Learn about [upgrading Butler SOS](/docs/getting-started/upgrade/)
 - Explore [configuration options](/docs/reference/config-file-format)
 - Review [examples and dashboards](/docs/examples/)

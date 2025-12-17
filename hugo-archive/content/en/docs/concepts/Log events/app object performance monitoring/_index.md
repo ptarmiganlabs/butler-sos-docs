@@ -79,7 +79,7 @@ The performance log events have `INFO` log level in the Sense logs but still pro
 {{< notice warning >}}
 **QIX Performance Log Level Requirement**
 
-For Butler SOS to receive detailed app object performance monitoring data, the **QIX performance log level** setting in the Qlik Management Console (QMC) must be set to **`debug`**.
+For Butler SOS to receive detailed app object performance monitoring data, the **QIX performance log level** setting in the Qlik Management Console (QMC) must be set to **`info`** or **`debug`**.
 
 This requirement is the same for other tools that use this performance data, such as Qlik's Telemetry Dashboard app.
 

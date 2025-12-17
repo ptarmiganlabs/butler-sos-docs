@@ -1,7 +1,7 @@
 # Documentation
 
 ::: tip Upgrading from an earlier version of Butler SOS?
-General guidance on how to do this is found [here](/docs/getting-started/upgrade).
+General guidance on how to do this is found [here](/docs/getting-started/upgrade/).
 :::
 
 ::: tip Release Notes
