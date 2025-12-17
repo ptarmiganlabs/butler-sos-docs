@@ -96,7 +96,7 @@ v3Config:
   token: mytoken
   description: Butler SOS metrics
   retentionDuration: 10d
-  timeout: 10000 # Optional
+  writeTimeout: 10000 # Optional
   queryTimeout: 60000 # Optional
 ```
 
@@ -151,7 +151,7 @@ Butler-SOS:
       description: Butler SOS metrics
       retentionDuration: 10d
       # Optional settings:
-      timeout: 10000 # Socket timeout in ms (default: 10000)
+      writeTimeout: 10000 # Socket timeout in ms (default: 10000)
       queryTimeout: 60000 # gRPC timeout in ms (default: 60000)
 ```
 
@@ -334,7 +334,7 @@ Keep your old InfluxDB instance running until you're confident v3 is working cor
 
 ```yaml
 v3Config:
-  timeout: 30000 # Increase to 30 seconds
+  writeTimeout: 30000 # Increase to 30 seconds
   queryTimeout: 120000 # Increase to 2 minutes
 ```
 

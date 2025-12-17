@@ -69,7 +69,7 @@ Butler-SOS:
       token: mytoken
       description: Butler SOS metrics
       retentionDuration: 10d
-      timeout: 10000 # Optional: Socket timeout in ms (default: 10000)
+      writeTimeout: 10000 # Optional: Socket timeout in ms (default: 10000)
       queryTimeout: 60000 # Optional: Query timeout in ms (default: 60000)
 
     # InfluxDB 2.x settings
@@ -122,11 +122,11 @@ Butler-SOS:
 | `token`             | Authentication token                                       |
 | `description`       | Optional description of the database                       |
 | `retentionDuration` | How long to keep data (e.g., 10d, 30d, 365d)               |
-| `timeout`           | Socket timeout for write operations in ms (default: 10000) |
+| `writeTimeout`      | Socket timeout for write operations in ms (default: 10000) |
 | `queryTimeout`      | gRPC timeout for query operations in ms (default: 60000)   |
 
 ::: tip Timeout Configuration in InfluxDB 3.x
-If you experience timeout errors, you can increase the `timeout` value. The default of 10 seconds (10000ms) should work for most environments, but slow networks or overloaded InfluxDB instances may require higher values (e.g., 30000ms = 30 seconds).
+If you experience timeout errors, you can increase the `writeTimeout` value. The default of 10 seconds (10000ms) should work for most environments, but slow networks or overloaded InfluxDB instances may require higher values (e.g., 30000ms = 30 seconds).
 
 Butler SOS automatically retries failed writes with exponential backoff (up to 3 retry attempts).
 :::

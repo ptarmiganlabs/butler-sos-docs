@@ -301,7 +301,7 @@ If you are using InfluxDB v1, you can leave the `v2Config` and `v3Config` sectio
 | `v3Config.description`              | Description of the InfluxDB database                                                                                                             |
 | `v3Config.token`                    | Token for InfluxDB v3                                                                                                                            |
 | `v3Config.retentionDuration`        | Retention duration for data in InfluxDB v3 (e.g., `10d`)                                                                                         |
-| `v3Config.timeout`                  | Socket timeout for write operations in milliseconds. Default: 10000                                                                              |
+| `v3Config.writeTimeout`             | Socket timeout for write operations in milliseconds. Default: 10000                                                                              |
 | `v3Config.queryTimeout`             | Query timeout in milliseconds. Default: 60000                                                                                                    |
 | `v2Config.org`                      | Organization name for InfluxDB v2                                                                                                                |
 | `v2Config.bucket`                   | Bucket name for InfluxDB v2                                                                                                                      |

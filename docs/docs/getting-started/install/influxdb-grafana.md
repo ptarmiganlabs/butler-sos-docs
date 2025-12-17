@@ -290,7 +290,7 @@ Butler-SOS:
       token: mytoken
       description: Butler SOS metrics
       retentionDuration: 10d
-      timeout: 10000
+      writeTimeout: 10000
       queryTimeout: 60000
 ```
 

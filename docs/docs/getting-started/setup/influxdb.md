@@ -65,7 +65,7 @@ Butler-SOS:
       token: mytoken                # Authentication token
       description: Butler SOS metrics
       retentionDuration: 10d        # Data retention period
-      timeout: 10000                # Optional: Socket timeout in ms (default: 10000)
+      writeTimeout: 10000           # Optional: Socket timeout in ms (default: 10000)
       queryTimeout: 60000           # Optional: Query timeout in ms (default: 60000)
     v2Config:                       # Settings for InfluxDB v2.x only, i.e. Butler-SOS.influxdbConfig.version=2
       org: myorg
