@@ -111,8 +111,8 @@ If you are _not_ running Butler SOS in Docker you can disable this feature.
 
 Track individual users opening/closing apps and starting/stopping sessions. Requires log appender XML file(s) to be added to Sense server(s).
 
-::: warning Breaking Change in v13.1
-Starting with Butler SOS v13.1, the `udpServerConfig` section requires additional settings for `messageQueue`, `rateLimit`, `maxMessageSize`, and `queueMetrics`. Existing configuration files must be updated to include these new sections.
+::: warning Breaking Change in v13
+Starting with Butler SOS v13, the `udpServerConfig` section requires additional settings for `messageQueue`, `rateLimit`, `maxMessageSize`, and `queueMetrics`. Existing configuration files must be updated to include these new sections.
 :::
 
 | Parameter                                               | Description                                                                                              |
@@ -121,16 +121,16 @@ Starting with Butler SOS v13.1, the `udpServerConfig` section requires additiona
 | `excludeUser`                                           | Array of users (directory/userId pairs) that should be disregarded when user events arrive from Sense    |
 | `udpServerConfig.serverHost`                            | IP/host where the user event UDP server should listen. Using `0.0.0.0` will listen on all available IPs  |
 | `udpServerConfig.portUserActivityEvents`                | Port on which the user event UDP server will listen. Should match the port in the log appender           |
-| `udpServerConfig.messageQueue.maxConcurrent`            | Max messages processed simultaneously. Default: 10. _New in v13.1_                                       |
-| `udpServerConfig.messageQueue.maxSize`                  | Max queue size before messages are dropped. Default: 200. _New in v13.1_                                 |
-| `udpServerConfig.messageQueue.backpressureThreshold`    | Queue utilization % that triggers warnings. Default: 80. _New in v13.1_                                  |
-| `udpServerConfig.rateLimit.enable`                      | Enable rate limiting to prevent message flooding. Default: false. _New in v13.1_                         |
-| `udpServerConfig.rateLimit.maxMessagesPerMinute`        | Max messages allowed per minute. Default: 600. _New in v13.1_                                            |
-| `udpServerConfig.maxMessageSize`                        | Max UDP message size in bytes. Default: 65507 (UDP max). _New in v13.1_                                  |
-| `udpServerConfig.queueMetrics.influxdb.enable`          | Store queue metrics in InfluxDB. Default: false. _New in v13.1_                                          |
-| `udpServerConfig.queueMetrics.influxdb.writeFrequency`  | How often to write metrics (ms). Default: 20000. _New in v13.1_                                          |
-| `udpServerConfig.queueMetrics.influxdb.measurementName` | InfluxDB measurement name. Default: user_events_queue. _New in v13.1_                                    |
-| `udpServerConfig.queueMetrics.influxdb.tags`            | Array of name/value pairs added as tags to queue metrics. _New in v13.1_                                 |
+| `udpServerConfig.messageQueue.maxConcurrent`            | Max messages processed simultaneously. Default: 10.                                                      |
+| `udpServerConfig.messageQueue.maxSize`                  | Max queue size before messages are dropped. Default: 200.                                                |
+| `udpServerConfig.messageQueue.backpressureThreshold`    | Queue utilization % that triggers warnings. Default: 80.                                                 |
+| `udpServerConfig.rateLimit.enable`                      | Enable rate limiting to prevent message flooding. Default: false.                                        |
+| `udpServerConfig.rateLimit.maxMessagesPerMinute`        | Max messages allowed per minute. Default: 600.                                                           |
+| `udpServerConfig.maxMessageSize`                        | Max UDP message size in bytes. Default: 65507 (UDP max).                                                 |
+| `udpServerConfig.queueMetrics.influxdb.enable`          | Store queue metrics in InfluxDB. Default: false.                                                         |
+| `udpServerConfig.queueMetrics.influxdb.writeFrequency`  | How often to write metrics (ms). Default: 20000.                                                         |
+| `udpServerConfig.queueMetrics.influxdb.measurementName` | InfluxDB measurement name. Default: user_events_queue.                                                   |
+| `udpServerConfig.queueMetrics.influxdb.tags`            | Array of name/value pairs added as tags to queue metrics.                                                |
 | `tags`                                                  | Array of tags (tagName/tagValue pairs) added to each user event before sending to InfluxDB               |
 | `sendToMQTT.enable`                                     | Should user events be sent to MQTT? `true`/`false`                                                       |
 | `sendToMQTT.postTo.everythingTopic.enable`              | Should **all** user event messages be sent to an MQTT topic? `true`/`false`                              |
@@ -156,24 +156,24 @@ Log events are used to capture Sense warnings, errors, and fatals in real time. 
 
 Note that log events can be enabled/disabled per source (repository, proxy, scheduler, etc.).
 
-::: warning Breaking Change in v13.1
-Starting with Butler SOS v13.1, the `udpServerConfig` section requires additional settings for `messageQueue`, `rateLimit`, `maxMessageSize`, and `queueMetrics`. Existing configuration files must be updated to include these new sections.
+::: warning Breaking Change in v13
+Starting with Butler SOS v13, the `udpServerConfig` section requires additional settings for `messageQueue`, `rateLimit`, `maxMessageSize`, and `queueMetrics`. Existing configuration files must be updated to include these new sections.
 :::
 
 | Parameter                                               | Description                                                                                            |
 | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `udpServerConfig.serverHost`                            | IP/host where the log event UDP server should listen. Using `0.0.0.0` will listen on all available IPs |
 | `udpServerConfig.portLogEvents`                         | Port on which the log event UDP server will listen. Should match the port in the log appender          |
-| `udpServerConfig.messageQueue.maxConcurrent`            | Max messages processed simultaneously. Default: 10. _New in v13.1_                                     |
-| `udpServerConfig.messageQueue.maxSize`                  | Max queue size before messages are dropped. Default: 200. _New in v13.1_                               |
-| `udpServerConfig.messageQueue.backpressureThreshold`    | Queue utilization % that triggers warnings. Default: 80. _New in v13.1_                                |
-| `udpServerConfig.rateLimit.enable`                      | Enable rate limiting to prevent message flooding. Default: false. _New in v13.1_                       |
-| `udpServerConfig.rateLimit.maxMessagesPerMinute`        | Max messages allowed per minute. Default: 600. _New in v13.1_                                          |
-| `udpServerConfig.maxMessageSize`                        | Max UDP message size in bytes. Default: 65507 (UDP max). _New in v13.1_                                |
-| `udpServerConfig.queueMetrics.influxdb.enable`          | Store queue metrics in InfluxDB. Default: false. _New in v13.1_                                        |
-| `udpServerConfig.queueMetrics.influxdb.writeFrequency`  | How often to write metrics (ms). Default: 20000. _New in v13.1_                                        |
-| `udpServerConfig.queueMetrics.influxdb.measurementName` | InfluxDB measurement name. Default: log_events_queue. _New in v13.1_                                   |
-| `udpServerConfig.queueMetrics.influxdb.tags`            | Array of name/value pairs added as tags to queue metrics. _New in v13.1_                               |
+| `udpServerConfig.messageQueue.maxConcurrent`            | Max messages processed simultaneously. Default: 10.                                                    |
+| `udpServerConfig.messageQueue.maxSize`                  | Max queue size before messages are dropped. Default: 200.                                              |
+| `udpServerConfig.messageQueue.backpressureThreshold`    | Queue utilization % that triggers warnings. Default: 80.                                               |
+| `udpServerConfig.rateLimit.enable`                      | Enable rate limiting to prevent message flooding. Default: false.                                      |
+| `udpServerConfig.rateLimit.maxMessagesPerMinute`        | Max messages allowed per minute. Default: 600.                                                         |
+| `udpServerConfig.maxMessageSize`                        | Max UDP message size in bytes. Default: 65507 (UDP max).                                               |
+| `udpServerConfig.queueMetrics.influxdb.enable`          | Store queue metrics in InfluxDB. Default: false.                                                       |
+| `udpServerConfig.queueMetrics.influxdb.writeFrequency`  | How often to write metrics (ms). Default: 20000.                                                       |
+| `udpServerConfig.queueMetrics.influxdb.measurementName` | InfluxDB measurement name. Default: log*events_queue. \_New in v13.1*                                  |
+| `udpServerConfig.queueMetrics.influxdb.tags`            | Array of name/value pairs added as tags to queue metrics.                                              |
 | `tags`                                                  | Array of tags (tagName/tagValue pairs) added to each log event before sending to InfluxDB              |
 | `source.engine.enable`                                  | Should log events from the engine service be handled? `true`/`false`                                   |
 | `source.proxy.enable`                                   | Should log events from the proxy service be handled? `true`/`false`                                    |
@@ -286,14 +286,23 @@ If enabled, select Butler SOS metrics will be exposed on a Prometheus compatible
 
 ### Butler-SOS.influxdbConfig
 
-InfluxDB config parameters. These must be correctly defined for any other InfluxDB features in Butler SOS to work.
+InfluxDB config parameters. These must be correctly defined for any InfluxDB features in Butler SOS to work.
+
+If you are using InfluxDB v1, you can leave the `v2Config` and `v3Config` sections at their defaults. Similar for v2 and v3.
 
 | Parameter                           | Description                                                                                                                                      |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `enable`                            | Should health metrics be stored in InfluxDB? `true`/`false`                                                                                      |
 | `host`                              | IP or FQDN of InfluxDB server                                                                                                                    |
 | `port`                              | Port where InfluxDB server is listening. **NOTE:** Must be set to a value (e.g., 8086)                                                           |
-| `version`                           | InfluxDB version. Valid values: `1` and `2`                                                                                                      |
+| `version`                           | InfluxDB version. Valid values: `1`, `2`, or `3`                                                                                                 |
+| `maxBatchSize`                      | Maximum number of data points to write in a single batch. Valid range: 1-10000. Default: 1000                                                    |
+| `v3Config.database`                 | Database name for InfluxDB v3                                                                                                                    |
+| `v3Config.description`              | Description of the InfluxDB database                                                                                                             |
+| `v3Config.token`                    | Token for InfluxDB v3                                                                                                                            |
+| `v3Config.retentionDuration`        | Retention duration for data in InfluxDB v3 (e.g., `10d`)                                                                                         |
+| `v3Config.timeout`                  | Socket timeout for write operations in milliseconds. Default: 10000                                                                              |
+| `v3Config.queryTimeout`             | Query timeout in milliseconds. Default: 60000                                                                                                    |
 | `v2Config.org`                      | Organization name for InfluxDB v2                                                                                                                |
 | `v2Config.bucket`                   | Bucket name for InfluxDB v2                                                                                                                      |
 | `v2Config.description`              | Description of the InfluxDB bucket                                                                                                               |

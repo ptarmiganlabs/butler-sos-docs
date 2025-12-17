@@ -22,6 +22,10 @@ InfluxDB is the most commonly used destination for Butler SOS metrics. It's a ti
 | InfluxDB 3.x   | ✅ Supported                               |
 | InfluxDB Cloud | ⚠️ Reported to work, not officially tested |
 
+::: tip Migrating to InfluxDB v3?
+Check out the [migration guide](/docs/getting-started/upgrade/influxdb-v3-migration) for details on breaking changes and new features.
+:::
+
 ## Data retention
 
 Butler SOS stores data in full detail without aggregation. Consider:
@@ -34,6 +38,20 @@ Butler SOS stores data in full detail without aggregation. Consider:
 The retention policy in the config file only applies when Butler SOS creates a new database. Existing databases keep their current settings.
 :::
 
+## Reliability & Performance
+
+Butler SOS includes robust features to ensure your metrics are delivered reliably to InfluxDB (v1, v2, and v3).
+
+### Progressive Retry Strategy
+
+When writing data, Butler SOS uses a smart retry mechanism. If a batch of data fails to write:
+
+1. It retries with the full batch.
+2. If that fails, it splits the batch into smaller chunks (e.g., 500, 250, 100 points).
+3. It continues reducing the chunk size down to single points if necessary.
+
+This ensures that a single malformed data point doesn't prevent the rest of your metrics from being recorded.
+
 ## Configuration
 
 ```yaml
@@ -43,6 +61,7 @@ Butler-SOS:
     host: influxdb.mycompany.com
     port: 8086
     version: 1 # 1, 2, or 3
+    maxBatchSize: 1000 # Optional: Max points per batch (default: 1000)
 
     # InfluxDB 3.x settings
     v3Config:
@@ -88,6 +107,12 @@ Butler-SOS:
 | `port`          | InfluxDB port (usually 8086)                         |
 | `version`       | Set to `1` for InfluxDB 1.x, `2` for 2.x, `3` for v3 |
 | `includeFields` | Control which document lists are stored              |
+
+### Advanced Settings
+
+| Setting        | Description                                                                                 |
+| :------------- | :------------------------------------------------------------------------------------------ |
+| `maxBatchSize` | Maximum number of data points to send in a single batch. Default is `1000`. Range: 1-10000. |
 
 ### InfluxDB 3.x specific
 

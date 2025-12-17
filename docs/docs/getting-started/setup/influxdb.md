@@ -59,6 +59,7 @@ Butler-SOS:
     host: influxdb.mycompany.com    # InfluxDB host, hostname, FQDN or IP address
     port: 8086                      # Port where InfluxDB is listening, usually 8086
     version: 1                      # InfluxDB version: 1, 2, or 3
+    maxBatchSize: 1000              # Maximum number of data points to write in a single batch. If a batch fails, progressive retry with smaller sizes (1000→500→250→100→10→1) will be attempted. Valid range: 1-10000.
     v3Config:                       # Settings for InfluxDB v3.x only, i.e. Butler-SOS.influxdbConfig.version=3
       database: butler-sos          # Database name
       token: mytoken                # Authentication token

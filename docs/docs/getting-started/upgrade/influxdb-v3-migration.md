@@ -18,9 +18,15 @@ InfluxDB 3.x represents a major architectural change:
 
 ## Breaking Changes
 
+### Data Types
+
+**CPU Metrics:** In InfluxDB v3, CPU metrics are stored as integers (0-100) rather than floats. No significant loss of precision, but saving some bytes and gaining some performance. Negligible precision loss compared to v1/v2.
+
 ### Tag/Field Name Conflicts
 
-**Critical:** InfluxDB v3 does not allow the same name to be used for both tags and fields within a measurement. Butler SOS automatically handles this by using the `_field` suffix for conflicting field names.
+**Critical:** InfluxDB v3 does not allow the same name to be used for both tags and fields within a measurement. Butler SOS automatically handles this by using the `_field` suffix for conflicting field names when saving data to InfluxDB v3.
+
+Described below are the specific field name changes.
 
 #### User Events
 
@@ -244,7 +250,7 @@ influx backup -b mybucket /path/to/backup
 For most operational monitoring use cases, starting fresh with v3 is simpler than migrating historical data.
 :::
 
-## Queue Metrics (New Feature)
+## Queue Metrics
 
 InfluxDB v3 support includes new queue metrics for monitoring Butler SOS event processing:
 
