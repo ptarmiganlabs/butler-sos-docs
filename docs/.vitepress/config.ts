@@ -233,6 +233,7 @@ export default withMermaid({
           collapsed: true,
           items: [
             { text: 'Overview', link: '/docs/examples/' },
+            { text: 'Docker Compose Stack', link: '/docs/examples/docker-compose-stack' },
             {
               text: 'Grafana Dashboards',
               collapsed: true,

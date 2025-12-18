@@ -34,6 +34,10 @@ Instead we (in this case) use a docker-compose file to define how Butler SOS sho
 
 Configuration of Butler specific settings is then done using Butler's own JSON/YAML config file.
 
+::: tip Full Stack Example
+If you want to quickly bring up a complete stack with Butler SOS, InfluxDB, and Grafana to see it in action, check out the [Docker Compose Stack Example](/docs/examples/docker-compose-stack).
+:::
+
 ### Install & configure - walkthrough
 
 Create a directory for Butler SOS. Config files and logs will be stored here.  
