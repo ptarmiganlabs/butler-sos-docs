@@ -60,6 +60,23 @@ Butler SOS can be monitored via its uptime messages, Docker health checks, and m
 The uptime monitor feature writes periodic messages to the console log and log files, indicating that Butler SOS is running.  
 It can also store its own memory usage in InfluxDB for visualization in Grafana dashboards.
 
+### Error Tracking
+
+Butler SOS includes built-in error tracking that monitors and reports API call failures. You'll see error summary messages in the logs like:
+
+```
+2025-12-17T08:36:18.824Z info: ERROR TRACKER: Error counts today (UTC): Total=1, Details={"PROXY_API":{"total":1,"servers":{"sense1":1}}}
+```
+
+These messages help you:
+- Track the frequency of errors per API type (HEALTH_API, PROXY_API, etc.)
+- Identify which servers are experiencing issues
+- Monitor error trends over time
+
+Error counters reset automatically at midnight UTC each day.
+
+**Important:** If you see frequent timeout errors, refer to the [Troubleshooting Guide](/docs/reference/troubleshooting) for detailed guidance on diagnosing and resolving API timeout issues.
+
 ## Next Steps
 
 After setting up operations, you might want to:
@@ -67,3 +84,4 @@ After setting up operations, you might want to:
 - Learn about [upgrading Butler SOS](/docs/getting-started/upgrade)
 - Explore [configuration options](/docs/reference/config-file-format)
 - Review [examples and dashboards](/docs/examples/)
+- Check the [Troubleshooting Guide](/docs/reference/troubleshooting) if you encounter issues

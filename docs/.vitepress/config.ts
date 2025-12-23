@@ -265,6 +265,7 @@ export default withMermaid({
             { text: 'Overview', link: '/docs/reference/' },
             { text: 'Command Line Options', link: '/docs/reference/command-line-options' },
             { text: 'Config File Format', link: '/docs/reference/config-file-format' },
+            { text: 'Troubleshooting', link: '/docs/reference/troubleshooting' },
             {
               text: 'Available Metrics',
               collapsed: true,
