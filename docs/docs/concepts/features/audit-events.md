@@ -92,7 +92,7 @@ You can use Grafana to build a forensic trail of user activity.
 
 This query retrieves all audit events for a specific selection transaction, showing the sequence from selection to validation to screenshot.
 
-```flux
+```txt
 from(bucket: "butler-audit")
   |> range(start: -24h)
   |> filter(fn: (r) => r["_measurement"] == "audit_event")

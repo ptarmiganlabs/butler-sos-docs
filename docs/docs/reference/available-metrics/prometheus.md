@@ -119,31 +119,31 @@ Here are some useful PromQL queries for Grafana dashboards:
 
 ### CPU Usage
 
-```promql
+```txt
 butlersos_cpu_total{server_name="Production Server"}
 ```
 
 ### Memory Usage
 
-```promql
+```txt
 butlersos_mem_committed{server_name=~".*"}
 ```
 
 ### Active Users Over Time
 
-```promql
+```txt
 rate(butlersos_users_active[5m])
 ```
 
 ### Session Count by Server
 
-```promql
+```txt
 sum by (server_name) (butlersos_session_total)
 ```
 
 ### Engine Saturation Alerts
 
-```promql
+```txt
 butlersos_cache_saturated == 1
 ```
 
