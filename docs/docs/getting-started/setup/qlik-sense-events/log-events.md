@@ -177,7 +177,7 @@ Butler-SOS:
   # Log events are used to capture Sense warnings, errors and fatals in real time
   logEvents:
     udpServerConfig:
-      serverHost: <IP or FQDN>         # Host/IP where log event server will listen for events from Sense
+      serverHost: butler-sos.mycompany.net         # Host/IP where log event server will listen for events from Sense
       portLogEvents: 9996              # Port on which log event server will listen for events from Sense
     tags:
       # - name: env

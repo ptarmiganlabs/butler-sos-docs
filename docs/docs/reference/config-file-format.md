@@ -107,32 +107,122 @@ If you are _not_ running Butler SOS in Docker you can disable this feature.
 
 ---
 
+### Butler-SOS.auditEvents
+
+Audit events can be received from a Qlik Sense extension (Enterprise on Windows) over HTTP and (optionally) stored in a dedicated destination.
+
+This feature is documented in more detail in the [Audit Events](/docs/concepts/features/audit-events) page.
+
+::: tip
+Audit events have their own destination config under `Butler-SOS.auditEvents.destination.*`.
+
+This is separate from destinations for other event types (for example `Butler-SOS.userEvents.sendToInfluxdb.*`, `Butler-SOS.logEvents.sendToInfluxdb.*`) and also separate from metrics destinations such as `Butler-SOS.influxdbConfig`.
+
+While InfluxDB is currently the only supported destination for audit data, support for other destinations (such as PostgreSQL, MongoDB, MQTT, or generic HTTP webhooks) may be added in the future.
+:::
+
+| Parameter  | Description                                                                                                                                 |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enable`   | Enable/disable the audit events API server                                                                                                  |
+| `host`     | Hostname or IP where the audit events API server will listen. Using a specific FQDN (e.g. `butler-sos-audit.mycompany.net`) is recommended. |
+| `port`     | Port where the audit events API server will listen                                                                                          |
+| `apiToken` | Required bearer token for the audit events API (must match the token in the Qlik Sense extension)                                           |
+
+#### Butler-SOS.auditEvents.destination.influxdb
+
+| Parameter                 | Description                                                                       |
+| ------------------------- | --------------------------------------------------------------------------------- |
+| `enable`                  | Enable/disable writing received audit events to InfluxDB                          |
+| `host`                    | InfluxDB host for audit events (separate from `Butler-SOS.influxdbConfig`)        |
+| `port`                    | InfluxDB port for audit events                                                    |
+| `version`                 | InfluxDB version for audit events (`1`, `2`, or `3`)                              |
+| `maxBatchSize`            | Flush immediately when this many audit events are buffered                        |
+| `writeFrequency`          | Flush buffered audit events this often (ms). Use 0 to write immediately per event |
+| `measurementName`         | Measurement name for audit events (default: `audit_event`)                        |
+| `auditEventSchemaVersion` | Written as tag `auditEventSchemaVersion` (low-cardinality selector)               |
+| `staticTags`              | Optional static tags added to all audit points (`name`/`value` pairs)             |
+| `v1Config.*`              | InfluxDB v1 settings used when `destination.influxdb.version: 1`                  |
+| `v2Config.*`              | InfluxDB v2 settings used when `destination.influxdb.version: 2`                  |
+| `v3Config.*`              | InfluxDB v3 settings used when `destination.influxdb.version: 3`                  |
+
+#### Butler-SOS.auditEvents.tls
+
+| Parameter | Description                            |
+| --------- | -------------------------------------- |
+| `enable`  | Enable/disable HTTPS for the audit API |
+| `cert`    | Path to the server certificate file    |
+| `key`     | Path to the server private key file    |
+
+#### Butler-SOS.auditEvents.queue
+
+| Parameter                               | Description                                           |
+| --------------------------------------- | ----------------------------------------------------- |
+| `messageQueue.maxConcurrent`            | Max number of messages being processed simultaneously |
+| `messageQueue.maxSize`                  | Max queue size before messages are dropped            |
+| `messageQueue.backpressureThreshold`    | Warn when queue utilization reaches this %            |
+| `rateLimit.enable`                      | Enable/disable rate limiting for incoming events      |
+| `rateLimit.maxMessagesPerMinute`        | Max messages per minute allowed                       |
+| `queueMetrics.influxdb.enable`          | Store queue metrics in InfluxDB                       |
+| `queueMetrics.influxdb.writeFrequency`  | How often to write queue metrics (ms)                 |
+| `queueMetrics.influxdb.measurementName` | InfluxDB measurement name for queue metrics           |
+| `queueMetrics.influxdb.tags`            | Optional static tags for queue metrics                |
+
+#### Butler-SOS.auditEvents.screenshots
+
+| Parameter                           | Description                                                       |
+| ----------------------------------- | ----------------------------------------------------------------- |
+| `enable`                            | Enable/disable downloading screenshots referenced in audit events |
+| `downloadTimeoutMs`                 | Timeout for screenshot downloads                                  |
+| `addInImageMetadata.date`           | Burn UTC and server-local time into the image                     |
+| `addInImageMetadata.eventId`        | Burn the audit event ID into the image                            |
+| `addInImageMetadata.correlationId`  | Burn the correlation ID into the image                            |
+| `addInImageMetadata.selectionTxnId` | Burn the selection transaction ID into the image                  |
+| `addInImageMetadata.userId`         | Burn the user ID into the image                                   |
+| `addInImageMetadata.appId`          | Burn the app ID into the image                                    |
+| `addInImageMetadata.appName`        | Burn the app name into the image                                  |
+| `addInImageMetadata.sheetName`      | Burn the sheet name into the image                                |
+| `auth.mode`                         | Authentication mode for downloads (`none` or `qpsTicket`)         |
+| `auth.qps.host`                     | Qlik Proxy Service host for ticket requests                       |
+| `auth.qps.port`                     | Qlik Proxy Service port (default: 4243)                           |
+| `auth.qps.userDirectory`            | User directory for the ticket request                             |
+| `auth.qps.userId`                   | User ID for the ticket request                                    |
+| `auth.qps.ticketTimeoutMs`          | Timeout for the ticket request                                    |
+| `storageTargets`                    | Array of storage targets (type `flat` supported)                  |
+
+#### Butler-SOS.auditEvents.cors
+
+| Parameter        | Description                                          |
+| ---------------- | ---------------------------------------------------- |
+| `allowedOrigins` | Array of allowed origins for CORS preflight requests |
+
+---
+
 ### Butler-SOS.userEvents
 
 Track individual users opening/closing apps and starting/stopping sessions. Requires log appender XML file(s) to be added to Sense server(s).
 
-| Parameter                                       | Description                                                                                              |
-| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `enable`                                        | Should Butler SOS track detailed user events (session start/stop, connection open/close)? `true`/`false` |
-| `excludeUser`                                   | Array of users (directory/userId pairs) that should be disregarded when user events arrive from Sense    |
-| `udpServerConfig.serverHost`                    | IP/host where the user event UDP server should listen. Using `0.0.0.0` will listen on all available IPs  |
-| `udpServerConfig.portUserActivityEvents`        | Port on which the user event UDP server will listen. Should match the port in the log appender           |
-| `tags`                                          | Array of tags (tagName/tagValue pairs) added to each user event before sending to InfluxDB               |
-| `sendToMQTT.enable`                             | Should user events be sent to MQTT? `true`/`false`                                                       |
-| `sendToMQTT.postTo.everythingTopic.enable`      | Should **all** user event messages be sent to an MQTT topic? `true`/`false`                              |
-| `sendToMQTT.postTo.everythingTopic.topic`       | MQTT topic to which **all** user event messages will be sent                                             |
-| `sendToMQTT.postTo.sessionStartTopic.enable`    | Should **session start** messages be sent to an MQTT topic? `true`/`false`                               |
-| `sendToMQTT.postTo.sessionStartTopic.topic`     | MQTT topic for **session start** messages                                                                |
-| `sendToMQTT.postTo.sessionStopTopic.enable`     | Should **session stop** messages be sent to an MQTT topic? `true`/`false`                                |
-| `sendToMQTT.postTo.sessionStopTopic.topic`      | MQTT topic for **session stop** messages                                                                 |
-| `sendToMQTT.postTo.connectionOpenTopic.enable`  | Should **connection open** messages be sent to an MQTT topic? `true`/`false`                             |
-| `sendToMQTT.postTo.connectionOpenTopic.topic`   | MQTT topic for **connection open** messages                                                              |
-| `sendToMQTT.postTo.connectionCloseTopic.enable` | Should **connection close** messages be sent to an MQTT topic? `true`/`false`                            |
-| `sendToMQTT.postTo.connectionCloseTopic.topic`  | MQTT topic for **connection close** messages                                                             |
-| `sendToInfluxdb.enable`                         | Should user events be saved in InfluxDB? `true`/`false`                                                  |
-| `sendToNewRelic.enable`                         | Should user events be saved in New Relic? `true`/`false`                                                 |
-| `sendToNewRelic.destinationAccount`             | Array of New Relic account names to which user events will be sent                                       |
-| `sendToNewRelic.scramble`                       | Should user directory and user ID fields be scrambled before sending to New Relic? `true`/`false`        |
+| Parameter                                       | Description                                                                                                                           |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `enable`                                        | Should Butler SOS track detailed user events (session start/stop, connection open/close)? `true`/`false`                              |
+| `excludeUser`                                   | Array of users (directory/userId pairs) that should be disregarded when user events arrive from Sense                                 |
+| `udpServerConfig.serverHost`                    | Hostname or IP where the user event UDP server should listen. Using a specific FQDN (e.g. `butler-sos.mycompany.net`) is recommended. |
+| `udpServerConfig.portUserActivityEvents`        | Port on which the user event UDP server will listen. Should match the port in the log appender                                        |
+| `tags`                                          | Array of tags (tagName/tagValue pairs) added to each user event before sending to InfluxDB                                            |
+| `sendToMQTT.enable`                             | Should user events be sent to MQTT? `true`/`false`                                                                                    |
+| `sendToMQTT.postTo.everythingTopic.enable`      | Should **all** user event messages be sent to an MQTT topic? `true`/`false`                                                           |
+| `sendToMQTT.postTo.everythingTopic.topic`       | MQTT topic to which **all** user event messages will be sent                                                                          |
+| `sendToMQTT.postTo.sessionStartTopic.enable`    | Should **session start** messages be sent to an MQTT topic? `true`/`false`                                                            |
+| `sendToMQTT.postTo.sessionStartTopic.topic`     | MQTT topic for **session start** messages                                                                                             |
+| `sendToMQTT.postTo.sessionStopTopic.enable`     | Should **session stop** messages be sent to an MQTT topic? `true`/`false`                                                             |
+| `sendToMQTT.postTo.sessionStopTopic.topic`      | MQTT topic for **session stop** messages                                                                                              |
+| `sendToMQTT.postTo.connectionOpenTopic.enable`  | Should **connection open** messages be sent to an MQTT topic? `true`/`false`                                                          |
+| `sendToMQTT.postTo.connectionOpenTopic.topic`   | MQTT topic for **connection open** messages                                                                                           |
+| `sendToMQTT.postTo.connectionCloseTopic.enable` | Should **connection close** messages be sent to an MQTT topic? `true`/`false`                                                         |
+| `sendToMQTT.postTo.connectionCloseTopic.topic`  | MQTT topic for **connection close** messages                                                                                          |
+| `sendToInfluxdb.enable`                         | Should user events be saved in InfluxDB? `true`/`false`                                                                               |
+| `sendToNewRelic.enable`                         | Should user events be saved in New Relic? `true`/`false`                                                                              |
+| `sendToNewRelic.destinationAccount`             | Array of New Relic account names to which user events will be sent                                                                    |
+| `sendToNewRelic.scramble`                       | Should user directory and user ID fields be scrambled before sending to New Relic? `true`/`false`                                     |
 
 ---
 
@@ -142,45 +232,45 @@ Log events are used to capture Sense warnings, errors, and fatals in real time. 
 
 Note that log events can be enabled/disabled per source (repository, proxy, scheduler, etc.).
 
-| Parameter                                         | Description                                                                                            |
-| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `udpServerConfig.serverHost`                      | IP/host where the log event UDP server should listen. Using `0.0.0.0` will listen on all available IPs |
-| `udpServerConfig.portLogEvents`                   | Port on which the log event UDP server will listen. Should match the port in the log appender          |
-| `tags`                                            | Array of tags (tagName/tagValue pairs) added to each log event before sending to InfluxDB              |
-| `source.engine.enable`                            | Should log events from the engine service be handled? `true`/`false`                                   |
-| `source.proxy.enable`                             | Should log events from the proxy service be handled? `true`/`false`                                    |
-| `source.repository.enable`                        | Should log events from the repository service be handled? `true`/`false`                               |
-| `source.scheduler.enable`                         | Should log events from the scheduler service be handled? `true`/`false`                                |
-| `categorise.enable`                               | Should categorization of log events be enabled? `true`/`false`                                         |
-| `categorise.rules`                                | Array of rules used to categorise log events                                                           |
-| `categorise.rules[].description`                  | Description of the rule                                                                                |
-| `categorise.rules[].logLevel[]`                   | Array of log levels to match against this rule                                                         |
-| `categorise.rules[].action`                       | Action to take if matched. Values: `categorise`, `drop`                                                |
-| `categorise.rules[].category[]`                   | Array of name-value pairs added to the log event if matched                                            |
-| `categorise.rules[].filter[]`                     | Array of type-value pairs used to match log events                                                     |
-| `categorise.rules[].filter[].type`                | Filter type. Values: `sw` (starts with), `ew` (ends with), `so` (substring of)                         |
-| `categorise.ruleDefault`                          | Default values for categorization if no other rule matches                                             |
-| `categorise.ruleDefault.enable`                   | Should the default rule be used? `true`/`false`                                                        |
-| `categorise.ruleDefault.category[]`               | Array of name-value pairs added if no other rule matches                                               |
-| `sendToMQTT.enable`                               | Should log events be sent to MQTT? `true`/`false`                                                      |
-| `sendToMQTT.baseTopic`                            | Root MQTT topic for all log event messages                                                             |
-| `sendToMQTT.postTo.baseTopic`                     | Should all log events be posted to the root topic? `true`/`false`                                      |
-| `sendToMQTT.postTo.subsystemTopics`               | Should log events be posted to subsystem-specific topics? `true`/`false`                               |
-| `sendToInfluxdb.enable`                           | Should log events be saved in InfluxDB? `true`/`false`                                                 |
-| `sendToNewRelic.enable`                           | Should log events be sent to New Relic? `true`/`false`                                                 |
-| `sendToNewRelic.destinationAccount`               | Array of New Relic account names to which log events will be sent                                      |
-| `sendToNewRelic.source.engine.enable`             | Should log events from the engine service be handled?                                                  |
-| `sendToNewRelic.source.engine.logLevel.error`     | Should ERROR log events from the engine service be handled?                                            |
-| `sendToNewRelic.source.engine.logLevel.warn`      | Should WARN log events from the engine service be handled?                                             |
-| `sendToNewRelic.source.proxy.enable`              | Should log events from the proxy service be handled?                                                   |
-| `sendToNewRelic.source.proxy.logLevel.error`      | Should ERROR log events from the proxy service be handled?                                             |
-| `sendToNewRelic.source.proxy.logLevel.warn`       | Should WARN log events from the proxy service be handled?                                              |
-| `sendToNewRelic.source.repository.enable`         | Should log events from the repository service be handled?                                              |
-| `sendToNewRelic.source.repository.logLevel.error` | Should ERROR log events from the repository service be handled?                                        |
-| `sendToNewRelic.source.repository.logLevel.warn`  | Should WARN log events from the repository service be handled?                                         |
-| `sendToNewRelic.source.scheduler.enable`          | Should log events from the scheduler service be handled?                                               |
-| `sendToNewRelic.source.scheduler.logLevel.error`  | Should ERROR log events from the scheduler service be handled?                                         |
-| `sendToNewRelic.source.scheduler.logLevel.warn`   | Should WARN log events from the scheduler service be handled?                                          |
+| Parameter                                         | Description                                                                                                                          |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `udpServerConfig.serverHost`                      | Hostname or IP where the log event UDP server should listen. Using a specific FQDN (e.g. `butler-sos.mycompany.net`) is recommended. |
+| `udpServerConfig.portLogEvents`                   | Port on which the log event UDP server will listen. Should match the port in the log appender                                        |
+| `tags`                                            | Array of tags (tagName/tagValue pairs) added to each log event before sending to InfluxDB                                            |
+| `source.engine.enable`                            | Should log events from the engine service be handled? `true`/`false`                                                                 |
+| `source.proxy.enable`                             | Should log events from the proxy service be handled? `true`/`false`                                                                  |
+| `source.repository.enable`                        | Should log events from the repository service be handled? `true`/`false`                                                             |
+| `source.scheduler.enable`                         | Should log events from the scheduler service be handled? `true`/`false`                                                              |
+| `categorise.enable`                               | Should categorization of log events be enabled? `true`/`false`                                                                       |
+| `categorise.rules`                                | Array of rules used to categorise log events                                                                                         |
+| `categorise.rules[].description`                  | Description of the rule                                                                                                              |
+| `categorise.rules[].logLevel[]`                   | Array of log levels to match against this rule                                                                                       |
+| `categorise.rules[].action`                       | Action to take if matched. Values: `categorise`, `drop`                                                                              |
+| `categorise.rules[].category[]`                   | Array of name-value pairs added to the log event if matched                                                                          |
+| `categorise.rules[].filter[]`                     | Array of type-value pairs used to match log events                                                                                   |
+| `categorise.rules[].filter[].type`                | Filter type. Values: `sw` (starts with), `ew` (ends with), `so` (substring of)                                                       |
+| `categorise.ruleDefault`                          | Default values for categorization if no other rule matches                                                                           |
+| `categorise.ruleDefault.enable`                   | Should the default rule be used? `true`/`false`                                                                                      |
+| `categorise.ruleDefault.category[]`               | Array of name-value pairs added if no other rule matches                                                                             |
+| `sendToMQTT.enable`                               | Should log events be sent to MQTT? `true`/`false`                                                                                    |
+| `sendToMQTT.baseTopic`                            | Root MQTT topic for all log event messages                                                                                           |
+| `sendToMQTT.postTo.baseTopic`                     | Should all log events be posted to the root topic? `true`/`false`                                                                    |
+| `sendToMQTT.postTo.subsystemTopics`               | Should log events be posted to subsystem-specific topics? `true`/`false`                                                             |
+| `sendToInfluxdb.enable`                           | Should log events be saved in InfluxDB? `true`/`false`                                                                               |
+| `sendToNewRelic.enable`                           | Should log events be sent to New Relic? `true`/`false`                                                                               |
+| `sendToNewRelic.destinationAccount`               | Array of New Relic account names to which log events will be sent                                                                    |
+| `sendToNewRelic.source.engine.enable`             | Should log events from the engine service be handled?                                                                                |
+| `sendToNewRelic.source.engine.logLevel.error`     | Should ERROR log events from the engine service be handled?                                                                          |
+| `sendToNewRelic.source.engine.logLevel.warn`      | Should WARN log events from the engine service be handled?                                                                           |
+| `sendToNewRelic.source.proxy.enable`              | Should log events from the proxy service be handled?                                                                                 |
+| `sendToNewRelic.source.proxy.logLevel.error`      | Should ERROR log events from the proxy service be handled?                                                                           |
+| `sendToNewRelic.source.proxy.logLevel.warn`       | Should WARN log events from the proxy service be handled?                                                                            |
+| `sendToNewRelic.source.repository.enable`         | Should log events from the repository service be handled?                                                                            |
+| `sendToNewRelic.source.repository.logLevel.error` | Should ERROR log events from the repository service be handled?                                                                      |
+| `sendToNewRelic.source.repository.logLevel.warn`  | Should WARN log events from the repository service be handled?                                                                       |
+| `sendToNewRelic.source.scheduler.enable`          | Should log events from the scheduler service be handled?                                                                             |
+| `sendToNewRelic.source.scheduler.logLevel.error`  | Should ERROR log events from the scheduler service be handled?                                                                       |
+| `sendToNewRelic.source.scheduler.logLevel.warn`   | Should WARN log events from the scheduler service be handled?                                                                        |
 
 ---
 
@@ -248,17 +338,22 @@ Note that New Relic destination accounts for events are defined in `Butler-SOS.u
 
 If enabled, select Butler SOS metrics will be exposed on a Prometheus compatible URL from where they can be scraped by Prometheus.
 
-| Parameter | Description                                                                                               |
-| --------- | --------------------------------------------------------------------------------------------------------- |
-| `enable`  | Should health metrics be made available on a Prometheus compatible endpoint? `true`/`false`               |
-| `host`    | IP on which the Prometheus endpoint should be available. Using `0.0.0.0` will listen on all available IPs |
-| `port`    | Port on which the Prometheus endpoint will be available. Default 9842                                     |
+| Parameter | Description                                                                                                                                  |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enable`  | Should health metrics be made available on a Prometheus compatible endpoint? `true`/`false`                                                  |
+| `host`    | Hostname or IP on which the Prometheus endpoint should be available. Using a specific FQDN (e.g. `butler-sos.mycompany.net`) is recommended. |
+| `port`    | Port on which the Prometheus endpoint will be available. Default 9842                                                                        |
 
 ---
 
 ### Butler-SOS.influxdbConfig
 
 InfluxDB config parameters. These must be correctly defined for any other InfluxDB features in Butler SOS to work.
+
+::: tip
+Audit events stored in InfluxDB are configured separately under `Butler-SOS.auditEvents.destination.influxdb`.
+This is intentional so audit data can be sent to a different InfluxDB instance/bucket/database than Butler SOS metrics.
+:::
 
 | Parameter                           | Description                                                                                                                                      |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |

@@ -38,15 +38,15 @@ Unlike InfluxDB (where Butler SOS pushes data), Prometheus works by pulling metr
 Butler-SOS:
   prometheus:
     enable: true
-    host: 0.0.0.0 # IP/FQDN to expose metrics on
+    host: butler-sos.mycompany.net # IP/FQDN to expose metrics on
     port: 9842 # Port for Prometheus endpoint
 ```
 
-| Setting  | Description                                                                  |
-| -------- | ---------------------------------------------------------------------------- |
-| `enable` | Enable/disable the Prometheus endpoint                                       |
-| `host`   | IP address or hostname to bind to. Use `0.0.0.0` to listen on all interfaces |
-| `port`   | Port number for the metrics endpoint                                         |
+| Setting  | Description                                                                                                |
+| -------- | ---------------------------------------------------------------------------------------------------------- |
+| `enable` | Enable/disable the Prometheus endpoint                                                                     |
+| `host`   | IP address or hostname to bind to. Use `butler-sos.mycompany.net` or `0.0.0.0` to listen on all interfaces |
+| `port`   | Port number for the metrics endpoint                                                                       |
 
 ### Prometheus scrape config
 

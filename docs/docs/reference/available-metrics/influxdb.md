@@ -2,6 +2,13 @@
 
 Metrics retrieved from Qlik Sense servers can be stored in [InfluxDB](https://www.influxdata.com/products/influxdb-overview/). You don't have to be an InfluxDB expert to use Butler SOS, but understanding some basic concepts is helpful.
 
+::: tip
+This page documents **metrics** stored in InfluxDB using `Butler-SOS.influxdbConfig`.
+
+If you are looking for **audit events** stored in InfluxDB (from the Butler SOS Audit Qlik Sense extension for Enterprise on Windows), those settings are configured separately under `Butler-SOS.auditEvents.destination.influxdb`.
+See [Audit Events](/docs/concepts/features/audit-events).
+:::
+
 ## InfluxDB Concepts
 
 **Measurements** are containers for related data points—similar to tables in relational databases.

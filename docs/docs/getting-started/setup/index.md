@@ -76,6 +76,7 @@ The setup section is organized into the following topics:
 - [Log Events](/docs/getting-started/setup/qlik-sense-events/log-events) - Capture log events
 - [Performance Log Events](/docs/getting-started/setup/qlik-sense-events/performance-log-events) - Detailed engine performance data
 - [User Events](/docs/getting-started/setup/qlik-sense-events/user-events) - Track user activity
+- [Audit Events](/docs/getting-started/setup/audit-events) - Configure the audit events API and storage
 
 ### Other Settings
 

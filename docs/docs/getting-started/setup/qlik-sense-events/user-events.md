@@ -88,7 +88,7 @@ Butler-SOS:
       - directory: LAB
         userId: testuser2
     udpServerConfig:
-      serverHost: <IP or FQDN>      # Host/IP where user event server will listen for events from Sense
+      serverHost: butler-sos.mycompany.net      # Host/IP where user event server will listen for events from Sense
       portUserActivityEvents: 9997  # Port on which user event server will listen for events from Sense
     tags:                           # Tags are added to the data before it's stored in InfluxDB
       - tag: env

@@ -66,7 +66,7 @@ See the [config file format reference](/docs/reference/config-file-format) for d
   # Log events configuration
   logEvents:
     udpServerConfig:
-      serverHost: 0.0.0.0
+      serverHost: butler-sos.mycompany.net
       portLogEvents: 9996
     tags:
       - name: qs_tag1

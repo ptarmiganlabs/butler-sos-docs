@@ -160,7 +160,8 @@ export default withMermaid({
                     { text: 'Overview', link: '/docs/getting-started/setup/qlik-sense-events/' },
                     { text: 'Log Events', link: '/docs/getting-started/setup/qlik-sense-events/log-events' },
                     { text: 'Performance Log Events', link: '/docs/getting-started/setup/qlik-sense-events/performance-log-events' },
-                    { text: 'User Events', link: '/docs/getting-started/setup/qlik-sense-events/user-events' }
+                    { text: 'User Events', link: '/docs/getting-started/setup/qlik-sense-events/user-events' },
+                    { text: 'Audit Events', link: '/docs/getting-started/setup/audit-events' }
                   ]
                 },
                 { text: 'MQTT', link: '/docs/getting-started/setup/mqtt' },
@@ -223,7 +224,8 @@ export default withMermaid({
                 { text: 'Heartbeats', link: '/docs/concepts/features/heartbeats' },
                 { text: 'Uptime Monitor', link: '/docs/concepts/features/uptime-monitor' },
                 { text: 'Telemetry', link: '/docs/concepts/features/telemetry' },
-                { text: 'Config Visualization', link: '/docs/concepts/features/config-visualization' }
+                { text: 'Config Visualization', link: '/docs/concepts/features/config-visualization' },
+                { text: 'Audit Events', link: '/docs/concepts/features/audit-events' }
               ]
             }
           ]

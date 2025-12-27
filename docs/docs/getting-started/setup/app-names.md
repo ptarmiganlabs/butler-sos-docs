@@ -36,7 +36,7 @@ Butler-SOS:
   appNames:
     enableAppNameExtract: true    # Extract app names in addition to app IDs (true/false)?
     extractInterval: 60000        # How often (milliseconds) should app names be extracted?
-    hostIP: <IP or FQDN>          # What Sense server should be queried for app names?
+    hostIP: qseow-server.mycompany.net          # What Sense server should be queried for app names?
   ...
   ...
 ```
