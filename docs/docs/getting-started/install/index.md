@@ -3,9 +3,7 @@
 The steps needed for installing and configuring vary slightly depending on what platform you use.
 
 :::warning InfluxDB Version Support
-Butler SOS can store data in InfluxDB 1.x or 2.x databases.
-
-**InfluxDB 3.x is currently not supported.**
+Butler SOS can store data in InfluxDB 1.x, 2.x or 3.x databases.
 :::
 
 <!-- TODO Make sure the contents of the target page is up-to-date -->

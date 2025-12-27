@@ -169,25 +169,30 @@ While InfluxDB is currently the only supported destination for audit data, suppo
 
 #### Butler-SOS.auditEvents.screenshots
 
-| Parameter                           | Description                                                       |
-| ----------------------------------- | ----------------------------------------------------------------- |
-| `enable`                            | Enable/disable downloading screenshots referenced in audit events |
-| `downloadTimeoutMs`                 | Timeout for screenshot downloads                                  |
-| `addInImageMetadata.date`           | Burn UTC and server-local time into the image                     |
-| `addInImageMetadata.eventId`        | Burn the audit event ID into the image                            |
-| `addInImageMetadata.correlationId`  | Burn the correlation ID into the image                            |
-| `addInImageMetadata.selectionTxnId` | Burn the selection transaction ID into the image                  |
-| `addInImageMetadata.userId`         | Burn the user ID into the image                                   |
-| `addInImageMetadata.appId`          | Burn the app ID into the image                                    |
-| `addInImageMetadata.appName`        | Burn the app name into the image                                  |
-| `addInImageMetadata.sheetName`      | Burn the sheet name into the image                                |
-| `auth.mode`                         | Authentication mode for downloads (`none` or `qpsTicket`)         |
-| `auth.qps.host`                     | Qlik Proxy Service host for ticket requests                       |
-| `auth.qps.port`                     | Qlik Proxy Service port (default: 4243)                           |
-| `auth.qps.userDirectory`            | User directory for the ticket request                             |
-| `auth.qps.userId`                   | User ID for the ticket request                                    |
-| `auth.qps.ticketTimeoutMs`          | Timeout for the ticket request                                    |
-| `storageTargets`                    | Array of storage targets (type `flat` supported)                  |
+| Parameter                            | Description                                                       |
+| ------------------------------------ | ----------------------------------------------------------------- |
+| `enable`                             | Enable/disable downloading screenshots referenced in audit events |
+| `downloadTimeoutMs`                  | Timeout for screenshot downloads                                  |
+| `addInImageMetadata.date`            | Burn UTC and server-local time into the image                     |
+| `addInImageMetadata.eventId`         | Burn the audit event ID into the image                            |
+| `addInImageMetadata.correlationId`   | Burn the correlation ID into the image                            |
+| `addInImageMetadata.selectionTxnId`  | Burn the selection transaction ID into the image                  |
+| `addInImageMetadata.userId`          | Burn the user ID into the image                                   |
+| `addInImageMetadata.appId`           | Burn the app ID into the image                                    |
+| `addInImageMetadata.appName`         | Burn the app name into the image                                  |
+| `addInImageMetadata.sheetName`       | Burn the sheet name into the image                                |
+| `addInImageMetadata.viewingDuration` | Burn the viewing duration (seconds) into the image                |
+| `auth.mode`                          | Authentication mode for downloads (`none` or `qpsTicket`)         |
+| `auth.qps.host`                      | Qlik Proxy Service host for ticket requests                       |
+| `auth.qps.port`                      | Qlik Proxy Service port (default: 4243)                           |
+| `auth.qps.userDirectory`             | User directory for the ticket request                             |
+| `auth.qps.userId`                    | User ID for the ticket request                                    |
+| `auth.qps.ticketTimeoutMs`           | Timeout for the ticket request                                    |
+| `storageTargets`                     | Array of storage targets (type `flat` supported)                  |
+
+::: tip
+See the [Audit Events concepts page](../concepts/features/audit-events#metadata-field-definitions) for detailed definitions of these metadata fields.
+:::
 
 #### Butler-SOS.auditEvents.cors
 
@@ -360,7 +365,13 @@ This is intentional so audit data can be sent to a different InfluxDB instance/b
 | `enable`                            | Should health metrics be stored in InfluxDB? `true`/`false`                                                                                      |
 | `host`                              | IP or FQDN of InfluxDB server                                                                                                                    |
 | `port`                              | Port where InfluxDB server is listening. **NOTE:** Must be set to a value (e.g., 8086)                                                           |
-| `version`                           | InfluxDB version. Valid values: `1` and `2`                                                                                                      |
+| `version`                           | InfluxDB version. Valid values: `1`, `2` and `3`                                                                                                 |
+| `v3Config.database`                 | Database name for InfluxDB v3                                                                                                                    |
+| `v3Config.description`              | Description of the InfluxDB database                                                                                                             |
+| `v3Config.token`                    | Token for InfluxDB v3                                                                                                                            |
+| `v3Config.retentionDuration`        | Retention duration for the InfluxDB database                                                                                                     |
+| `v3Config.writeTimeout`             | Optional: Socket timeout in milliseconds (writing to InfluxDB) (default: 10000)                                                                  |
+| `v3Config.queryTimeout`             | Optional: Query timeout in milliseconds (default: 60000)                                                                                         |
 | `v2Config.org`                      | Organization name for InfluxDB v2                                                                                                                |
 | `v2Config.bucket`                   | Bucket name for InfluxDB v2                                                                                                                      |
 | `v2Config.description`              | Description of the InfluxDB bucket                                                                                                               |

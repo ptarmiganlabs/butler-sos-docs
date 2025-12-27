@@ -52,15 +52,37 @@ The `correlationId` in the filename usually matches the `selectionTxnId`, making
 
 ## Screenshot Examples
 
-Butler SOS can optionally burn metadata directly into the downloaded screenshots. This makes the images self-documenting and tamper-evident.
+Butler SOS can optionally burn metadata directly into the downloaded screenshots. This makes the images self-documenting.  
+Each metadata field can be individually enabled/disabled in the YAML configuration file.
 
 ### Without Metadata
 
-![Screenshot without metadata](/img/audit/20251227T054606.919Z_db277423-1291-456e-8333-aa772e50703b_0346f48f-0abb-4786-b1ce-52f8672f6a1b.png)
+![Screenshot without metadata](/img/audit/20251227T161458.492Z_e011246f-6250-4f6b-8575-cdadec4655f4_b7d3eaee-08af-4544-a3b7-af5eefc7755c.png)
 
 ### With Metadata
 
-![Screenshot with metadata](/img/audit/20251227T054606.919Z_db277423-1291-456e-8333-aa772e50703b_0346f48f-0abb-4786-b1ce-52f8672f6a1b_metadata.png)
+![Screenshot with metadata](/img/audit/20251227T161458.492Z_e011246f-6250-4f6b-8575-cdadec4655f4_b7d3eaee-08af-4544-a3b7-af5eefc7755c_metadata.png)
+
+### Metadata Field Definitions
+
+When metadata enhancement is enabled, the following fields can be burned into the screenshot image:
+
+| Field                  | Description                                                                                                             |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `DATE (UTC)`           | The UTC timestamp when the audit event was generated.                                                                   |
+| `DATE (LOCAL)`         | The server-local timestamp when the audit event was generated.                                                          |
+| `EVENT ID`             | Unique identifier for the audit event.                                                                                  |
+| `CORRELATION ID`       | Identifier used to group related events (e.g., a selection and its resulting screenshot).                               |
+| `SELECTION TXN ID`     | The unique ID of the selection transaction that triggered the state change.                                             |
+| `USER ID`              | The Qlik Sense user identifier (e.g., `DOMAIN\user`).                                                                   |
+| `APP ID`               | The Qlik Sense app GUID.                                                                                                |
+| `APP NAME`             | The name of the Qlik Sense app.                                                                                         |
+| `SHEET NAME`           | The name of the sheet where the object is located.                                                                      |
+| `VIEWING DURATION (S)` | The duration (in seconds) the object had been visible in the user's browser at the moment the screenshot was finalized. |
+
+::: info
+The `VIEWING DURATION (S)` is calculated by the audit extension at the moment Qlik Sense returns the screenshot URL. It represents the total time from when the object entered the viewport until the screenshot was ready.
+:::
 
 ## Visualizing Audit Data in Grafana
 
@@ -128,7 +150,12 @@ Butler-SOS:
           token: "replace-with-token"
           retentionDuration: 0s
 
-        # v1Config/v3Config are used when version is 1/3
+        v3Config:
+          database: butler-audit
+          token: "replace-with-token"
+          retentionDuration: 0s
+
+        # v1Config is used when version is 1
 ```
 
 | Setting                                           | Description                                                           |

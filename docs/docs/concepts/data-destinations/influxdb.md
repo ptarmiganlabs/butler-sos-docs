@@ -20,7 +20,11 @@ InfluxDB is the most commonly used destination for Butler SOS metrics. It's a ti
 | InfluxDB 1.x   | ✅ Supported                               |
 | InfluxDB 2.x   | ✅ Supported                               |
 | InfluxDB Cloud | ⚠️ Reported to work, not officially tested |
-| InfluxDB 3.x   | ❌ Not supported                           |
+| InfluxDB 3.x   | ✅ Supported                               |
+
+::: warning InfluxDB v3 Naming Constraints
+InfluxDB v3 does not allow a tag and a field to have the same name in the same measurement. Butler SOS ensures this by default, but keep this in mind if you customize the schema.
+:::
 
 ## Data retention
 
@@ -42,7 +46,13 @@ Butler-SOS:
     enable: true
     host: influxdb.mycompany.com
     port: 8086
-    version: 1 # 1 or 2
+    version: 1 # 1, 2 or 3
+
+    # InfluxDB 3.x settings
+    v3Config:
+      database: mydatabase
+      token: mytoken
+      retentionDuration: 10d
 
     # InfluxDB 2.x settings
     v2Config:
@@ -72,13 +82,21 @@ Butler-SOS:
 
 ### Key settings
 
-| Setting         | Description                                       |
-| --------------- | ------------------------------------------------- |
-| `enable`        | Enable/disable InfluxDB storage                   |
-| `host`          | InfluxDB hostname or IP address                   |
-| `port`          | InfluxDB port (usually 8086)                      |
-| `version`       | Set to `1` for InfluxDB 1.x, `2` for InfluxDB 2.x |
-| `includeFields` | Control which document lists are stored           |
+| Setting         | Description                                             |
+| --------------- | ------------------------------------------------------- |
+| `enable`        | Enable/disable InfluxDB storage                         |
+| `host`          | InfluxDB hostname or IP address                         |
+| `port`          | InfluxDB port (usually 8086)                            |
+| `version`       | Set to `1` for InfluxDB 1.x, `2` for 2.x or `3` for 3.x |
+| `includeFields` | Control which document lists are stored                 |
+
+### InfluxDB 3.x specific
+
+| Setting             | Description            |
+| ------------------- | ---------------------- |
+| `database`          | Your InfluxDB database |
+| `token`             | Authentication token   |
+| `retentionDuration` | How long to keep data  |
 
 ### InfluxDB 2.x specific
 

@@ -4,9 +4,7 @@ description: How to use Butler SOS with InfluxDB and Grafana using Docker.
 ---
 
 ::: warning
-Butler SOS supports InfluxDB version 1.x and 2x.
-
-InfluxDB v3.x is not yet supported.
+Butler SOS supports InfluxDB version 1.x, 2.x and 3.x.
 :::
 
 If you already have InfluxDB and/or Grafana running you can skip this section.
