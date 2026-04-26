@@ -50,7 +50,7 @@ Using a pre-defined token in a text file on disk is **not recommended for produc
 
 Once the stack is up and running, you can access Grafana in your web browser:
 
-- **URL**: [http://localhost:3000](http://localhost:3000)
+- **URL**: http://localhost:3000
 
 No login is required as anonymous access is enabled for this example.
 
@@ -58,7 +58,7 @@ No login is required as anonymous access is enabled for this example.
 
 Grafana is pre-provisioned with a dashboard showing Butler SOS metrics.
 
-1.  Open Grafana at [http://localhost:3000](http://localhost:3000).
+1.  Open Grafana at http://localhost:3000.
 2.  Navigate to **Dashboards**.
 3.  Select the **Butler SOS** dashboard.
 
