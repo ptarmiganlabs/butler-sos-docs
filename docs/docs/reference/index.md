@@ -8,9 +8,8 @@ This section provides detailed technical reference documentation for Butler SOS 
 - **[Config File Format](./config-file-format)** - Comprehensive documentation of the YAML configuration file
 
 ::: tip
-Different features use different destination configs:
+Different event types use different destination configs:
 
-- **Audit events**: `Butler-SOS.auditEvents.destination.*`
 - **User events**: `Butler-SOS.userEvents.sendToInfluxdb.*` and `Butler-SOS.userEvents.sendToNewRelic.*`
 - **Log events**: `Butler-SOS.logEvents.sendToInfluxdb.*` and `Butler-SOS.logEvents.sendToNewRelic.*`
 

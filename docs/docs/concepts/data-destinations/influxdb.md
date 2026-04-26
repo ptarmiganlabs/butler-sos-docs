@@ -4,14 +4,22 @@ outline: deep
 
 # InfluxDB
 
-InfluxDB is the most commonly used destination for Butler SOS metrics. It's a time-series database optimized for storing measurements and metrics.
+InfluxDB is the recommended destination for Butler SOS operational metrics.
 
 ## Why InfluxDB?
 
-- **Purpose-built for metrics** - Optimized for time-stamped data
-- **Pairs with Grafana** - Create powerful dashboards
-- **Data retention policies** - Automatically purge old data
-- **Aggregation** - Summarize historical data to save space
+- **Purpose-built for metrics** - Optimized for time-stamped data.
+- **Pairs with Grafana** - Create powerful dashboards for real-time monitoring.
+- **Data retention policies** - Automatically purge old data to manage disk space.
+- **Aggregation** - Summarize historical data to save space while keeping long-term trends.
+
+## Configuration
+
+Butler SOS uses `Butler-SOS.influxdbConfig` for storing metrics.
+
+| Config Block            | Purpose                         | YAML Path                                     |
+| ----------------------- | ------------------------------- | --------------------------------------------- |
+| **Operational Metrics** | Health metrics, user/log events | `Butler-SOS.influxdbConfig`                   |
 
 ## Supported versions
 
@@ -30,15 +38,17 @@ InfluxDB v3 does not allow a tag and a field to have the same name in the same m
 
 Butler SOS stores data in full detail without aggregation. Consider:
 
-- **Storage growth** - More servers + frequent polling + long retention = lots of data
-- **Recommended retention** - 10-14 days is usually sufficient for operational monitoring
-- **Extended history** - Use InfluxDB's aggregation features for longer-term trends
+- **Storage growth** - More servers + frequent polling + long retention = lots of data.
+- **Recommended retention** - 10-14 days is usually sufficient for operational monitoring. Audit data retention depends on your organization's compliance requirements.
+- **Extended history** - Use InfluxDB's aggregation features for longer-term trends.
 
 ::: tip
-The retention policy in the config file only applies when Butler SOS creates a new database. Existing databases keep their current settings.
+The retention policy in the config file only applies when Butler SOS creates a new database/bucket. Existing databases keep their current settings.
 :::
 
-## Configuration
+## Configuration: Operational Metrics
+
+This section configures where general health metrics, user events, and log events are stored.
 
 ```yaml
 Butler-SOS:
@@ -46,18 +56,19 @@ Butler-SOS:
     enable: true
     host: influxdb.mycompany.com
     port: 8086
-    version: 1 # 1, 2 or 3
+    version: 2 # 1, 2 or 3
+    maxBatchSize: 1000 # Max points per write batch
 
     # InfluxDB 3.x settings
     v3Config:
-      database: mydatabase
+      database: butler-metrics
       token: mytoken
       retentionDuration: 10d
 
     # InfluxDB 2.x settings
     v2Config:
       org: myorg
-      bucket: mybucket
+      bucket: butler-metrics
       description: Butler SOS metrics
       token: mytoken
       retentionDuration: 10d
@@ -80,49 +91,17 @@ Butler-SOS:
       inMemoryDocs: false # Can generate lots of data
 ```
 
-### Key settings
+### Document lists
 
-| Setting         | Description                                             |
-| --------------- | ------------------------------------------------------- |
-| `enable`        | Enable/disable InfluxDB storage                         |
-| `host`          | InfluxDB hostname or IP address                         |
-| `port`          | InfluxDB port (usually 8086)                            |
-| `version`       | Set to `1` for InfluxDB 1.x, `2` for 2.x or `3` for 3.x |
-| `includeFields` | Control which document lists are stored                 |
-
-### InfluxDB 3.x specific
-
-| Setting             | Description            |
-| ------------------- | ---------------------- |
-| `database`          | Your InfluxDB database |
-| `token`             | Authentication token   |
-| `retentionDuration` | How long to keep data  |
-
-### InfluxDB 2.x specific
-
-| Setting             | Description                |
-| ------------------- | -------------------------- |
-| `org`               | Your InfluxDB organization |
-| `bucket`            | Bucket to store data in    |
-| `token`             | Authentication token       |
-| `retentionDuration` | How long to keep data      |
-
-### InfluxDB 1.x specific
-
-| Setting           | Description                                |
-| ----------------- | ------------------------------------------ |
-| `dbName`          | Database name                              |
-| `auth.enable`     | Whether authentication is required         |
-| `retentionPolicy` | Default retention policy for new databases |
-
-## Document lists
-
-The `includeFields` settings control whether lists of active, loaded, and in-memory documents are stored:
+The `includeFields` settings in `influxdbConfig` control whether lists of active, loaded, and in-memory documents are stored:
 
 ::: warning Caution
 Enabling `activeDocs`, `loadedDocs`, or `inMemoryDocs` can generate significant data volume, especially in environments with many apps.
 :::
 
-- **activeDocs** - Apps where users are currently working
-- **loadedDocs** - Apps loaded in memory with active sessions
-- **inMemoryDocs** - Apps in memory but without active sessions
+- **activeDocs** - Apps where users are currently working.
+- **loadedDocs** - Apps loaded in memory with active sessions.
+- **inMemoryDocs** - Apps in memory but without active sessions.
+```
+
+## Key Settings

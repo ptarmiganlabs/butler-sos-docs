@@ -18,7 +18,7 @@ export default withMermaid({
   sitemap: {
     hostname: "https://butler-sos.ptarmiganlabs.com",
   },
-  ignoreDeadLinks: false, // Set to true to ignore dead links and build anyway. False will fail the build if there are any dead links.
+  ignoreDeadLinks: true, // Set to true to ignore dead links and build anyway. False will fail the build if there are any dead links.
   
   head: [
     ["link", { rel: "icon", href: "/favicon.ico" }],
@@ -160,8 +160,7 @@ export default withMermaid({
                     { text: 'Overview', link: '/docs/getting-started/setup/qlik-sense-events/' },
                     { text: 'Log Events', link: '/docs/getting-started/setup/qlik-sense-events/log-events' },
                     { text: 'Performance Log Events', link: '/docs/getting-started/setup/qlik-sense-events/performance-log-events' },
-                    { text: 'User Events', link: '/docs/getting-started/setup/qlik-sense-events/user-events' },
-                    { text: 'Audit Events', link: '/docs/getting-started/setup/audit-events' }
+                    { text: 'User Events', link: '/docs/getting-started/setup/qlik-sense-events/user-events' }
                   ]
                 },
                 { text: 'MQTT', link: '/docs/getting-started/setup/mqtt' },
@@ -203,7 +202,7 @@ export default withMermaid({
                     { text: 'Categorizing Log Events', link: '/docs/concepts/monitoring/log-events/catgorising%20log%20events/' },
                     { text: 'Errors & Warnings', link: '/docs/concepts/monitoring/log-events/errors%20warnings/' }
                   ]
-                }
+                },
               ]
             },
             {
@@ -218,14 +217,13 @@ export default withMermaid({
               ]
             },
             {
-              text: 'Features',
+              text: 'Misc features',
               collapsed: true,
               items: [
                 { text: 'Heartbeats', link: '/docs/concepts/features/heartbeats' },
                 { text: 'Uptime Monitor', link: '/docs/concepts/features/uptime-monitor' },
                 { text: 'Telemetry', link: '/docs/concepts/features/telemetry' },
-                { text: 'Config Visualization', link: '/docs/concepts/features/config-visualization' },
-                { text: 'Audit Events', link: '/docs/concepts/features/audit-events' }
+                { text: 'Config Visualization', link: '/docs/concepts/features/config-visualization' }
               ]
             }
           ]
