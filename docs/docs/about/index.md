@@ -26,7 +26,7 @@ Butler SOS works with client-managed Sense environments. Qlik Sense Cloud is not
 
 Butler SOS extracts more than 30 metrics on both server health (CPU load, free memory) and Qlik Sense specifics (sessions, users, log entries, cache status etc).
 
-These metrics are stored in a time-series database ([InfluxDB](https://www.influxdata.com/products/influxdb-overview/) and [Prometheus](https://prometheus.io) both supported) and optionally also sent to other services such as New Relic, or sent as MQTT messages.
+These metrics and events are stored in a time-series database ([InfluxDB](https://www.influxdata.com/products/influxdb-overview/) and [Prometheus](https://prometheus.io) both supported) and optionally also sent to other services such as New Relic, or sent as MQTT messages.
 
 Once the metrics are stored in the database/service of choice, [Grafana](https://grafana.com/) or [New Relic](https://newrelic.com/) (if data is stored there) can be used to create real-time visualizations and alerts.
 

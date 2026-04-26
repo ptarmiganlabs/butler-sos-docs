@@ -9,6 +9,10 @@ description: Running Butler SOS in Linux and Mac OS. Installation and configurat
 
 The pre-built binaries are available from the [releases page](https://github.com/ptarmiganlabs/butler-sos/releases).
 
+::: info Note
+For macOS, only ARM64 (Apple Silicon) binaries are available. The x64 binaries have been discontinued.
+:::
+
 1. Download the Linux/macOS binary
 2. Move the extracted `butler-sos` file to desired location.
 3. Use the process monitor of choice (see below) to make sure Butler SOS is always running

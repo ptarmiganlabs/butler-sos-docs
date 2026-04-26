@@ -47,7 +47,7 @@ features:
     details: Get actual numbers - in real-time - on how long apps take to open, and what the outliers are. Know what your users experience - don't guess.
   - icon: 🔗
     title: Multiple Data Destinations
-    details: Supports InfluxDB, Prometheus and New Relic for metrics storage. Also sends metrics as MQTT messages for integration with other monitoring tools.
+    details: Supports InfluxDB, Prometheus and New Relic for metrics storage. Also sends metrics as MQTT messages.
   - icon: 🔐
     title: Supply Chain Security
     details: Security scanning and SBOM (Software Bill of Materials) features for better supply chain security and transparency.
@@ -55,12 +55,9 @@ features:
     title: Cross-Platform
     details: Runs on Windows, Linux, Mac OS, in Docker or as a Kubernetes service. Deploy where it makes sense given your infrastructure.
   - icon: 🚀
-    title: Latest Release 13.0
-    details: Robust UDP message handling with queuing, rate limiting, and comprehensive metrics. Enhanced security and conditional configuration validation.
+    title: Latest Release v14
+    details: New queue system for incoming log and user events improves reliability under load. Also includes enhanced logging and bug fixes.
   - icon: 💝
     title: Free and Open Source
     details: Butler SOS is an open source project, using the MIT license. All source code, documentation etc is available as-is, at no cost.
-  - icon: 🤝
-    title: Contributions Welcome
-    details: Pull requests welcome on GitHub. Submit feature suggestions or bug reports. New developers are always welcome!
 ---

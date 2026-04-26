@@ -156,3 +156,5 @@ Red = User closing connection to Sense
 From [YouTube](https://www.youtube.com/watch?v=T_IxQYdoqJA):
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/T_IxQYdoqJA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Operational Monitoring
