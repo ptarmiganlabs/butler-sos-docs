@@ -59,6 +59,12 @@ A chart that takes too long to render, an app that opens slowly, a sheet that is
 Butler SOS also tracks user agents of all users accessing your Sense environment.
 This means you get real-time insights into what operating systems and browsers are used to access your Sense environment.
 
+## Audit.qs Integration
+
+Butler SOS now serves as the backend for **Audit.qs** - a comprehensive auditing solution for both Qlik Sense Enterprise on Windows and Qlik Sense Cloud.
+
+Audit.qs captures detailed user activity including sheet navigation, selections, and visualizations. This information is sent to Butler SOS for storage and analysis. [Contact Ptarmigan Labs](mailto:info@ptarmiganlabs.com) for more information about Audit.qs.
+
 ## Configurability
 
 There is a clear goal that Butler SOS should be very configurable.

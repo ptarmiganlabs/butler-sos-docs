@@ -158,3 +158,14 @@ From [YouTube](https://www.youtube.com/watch?v=T_IxQYdoqJA):
 <iframe width="560" height="315" src="https://www.youtube.com/embed/T_IxQYdoqJA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Operational Monitoring
+
+## Audit.qs - User Activity Auditing
+
+Butler SOS serves as a backend for **Audit.qs** - a comprehensive auditing solution for both Qlik Sense Enterprise on Windows and Qlik Sense Cloud.
+
+Audit.qs captures what users do in Sense apps: sheet navigation, selections, and visualizations.  
+"Who has seen what when", basically. This data is crucial for compliance, user behavior analysis, and troubleshooting.
+
+The audit data can be sent to several destinations, including InfluxDB, images/screenshots showing actual chart objects, JSON files that include the actual data behind the charts, and more.
+
+[Contact Ptarmigan Labs](mailto:info@ptarmiganlabs.com) for more information about Audit.qs.

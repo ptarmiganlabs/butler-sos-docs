@@ -79,4 +79,5 @@ The setup section is organized into the following topics:
 
 ### Other Settings
 
+- [Error Tracking](/docs/getting-started/setup/error-tracking) - Track and log errors across Butler SOS
 - [Telemetry](/docs/getting-started/setup/telemetry) - Anonymous telemetry configuration

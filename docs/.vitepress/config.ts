@@ -69,12 +69,12 @@ export default withMermaid({
     }
   },
 
-  // Vite configuration
-  vite: {
-    optimizeDeps: {
-      include: ['vitepress-openapi']
-    }
-  },
+   // Vite configuration
+   vite: {
+     optimizeDeps: {
+       include: ['vitepress-openapi']
+     }
+   },
 
   themeConfig: {
     // https://vitepress.vuejs.org/config/theme-configs
@@ -171,6 +171,7 @@ export default withMermaid({
                 { text: 'User Sessions', link: '/docs/getting-started/setup/user-sessions' },
                 { text: 'Servers to Monitor', link: '/docs/getting-started/setup/servers-to-monitor' },
                 { text: 'Telemetry', link: '/docs/getting-started/setup/telemetry' },
+                { text: 'Error Tracking', link: '/docs/getting-started/setup/error-tracking' },
                 { text: 'Log DB (Deprecated)', link: '/docs/getting-started/setup/log-db' }
               ]
             },
@@ -185,6 +186,7 @@ export default withMermaid({
             { text: 'Overview', link: '/docs/concepts/' },
             { text: 'App Metrics', link: '/docs/concepts/app%20metrics/' },
             { text: 'Sessions & Connections', link: '/docs/concepts/sessions%20connections/' },
+            { text: 'Audit.qs', link: '/docs/concepts/audit-qs' },
             {
               text: 'Monitoring',
               collapsed: true,
@@ -203,6 +205,7 @@ export default withMermaid({
                     { text: 'Errors & Warnings', link: '/docs/concepts/monitoring/log-events/errors%20warnings/' }
                   ]
                 },
+                { text: 'Audit.qs Events', link: '/docs/concepts/monitoring/audit-qs-events' },
               ]
             },
             {
@@ -223,7 +226,8 @@ export default withMermaid({
                 { text: 'Heartbeats', link: '/docs/concepts/features/heartbeats' },
                 { text: 'Uptime Monitor', link: '/docs/concepts/features/uptime-monitor' },
                 { text: 'Telemetry', link: '/docs/concepts/features/telemetry' },
-                { text: 'Config Visualization', link: '/docs/concepts/features/config-visualization' }
+                { text: 'Config Visualization', link: '/docs/concepts/features/config-visualization' },
+                { text: 'Error Tracking', link: '/docs/concepts/features/error-tracking' }
               ]
             }
           ]

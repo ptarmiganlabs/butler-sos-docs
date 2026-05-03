@@ -291,6 +291,7 @@ InfluxDB config parameters. These must be correctly defined for any other Influx
 | `host`                              | IP or FQDN of InfluxDB server                                                                                                                    |
 | `port`                              | Port where InfluxDB server is listening. **NOTE:** Must be set to a value (e.g., 8086)                                                           |
 | `version`                           | InfluxDB version. Valid values: `1`, `2` and `3`                                                                                                 |
+| `maxBatchSize`                     | Maximum number of data points to write in a single batch. If a batch fails, progressive retry with smaller sizes will be attempted (default: 1000) |
 | `v3Config.database`                 | Database name for InfluxDB v3                                                                                                                    |
 | `v3Config.description`              | Description of the InfluxDB database                                                                                                             |
 | `v3Config.token`                    | Token for InfluxDB v3                                                                                                                            |
@@ -311,6 +312,21 @@ InfluxDB config parameters. These must be correctly defined for any other Influx
 | `includeFields.activeDocs`          | Should a list of currently active Sense apps be stored? `true`/`false`                                                                           |
 | `includeFields.loadedDocs`          | Should a list of Sense apps opened in a user session be stored? `true`/`false`                                                                   |
 | `includeFields.inMemoryDocs`        | Should a list of Sense apps loaded into memory be stored? `true`/`false`                                                                         |
+
+---
+
+### Butler-SOS.errorTracking
+
+Track errors that occur when communicating with Qlik Sense servers or writing to destination systems (InfluxDB, MQTT, New Relic).
+
+The `errorTracking.enable` setting is a **master switch** — when `false`, all error tracking is disabled (in-memory counting, daily summary logging, and InfluxDB writes).
+
+| Parameter | Description |
+|-----------|-------------|
+| `enable` | Master switch for all error tracking. `true`/`false` |
+| `logSummary.enable` | Log daily error summary to console at midnight UTC. `true`/`false` |
+| `influxdb.enable` | Write individual error events to InfluxDB. `true`/`false` |
+| `influxdb.measurementName` | InfluxDB measurement name for error events (default: `butler_sos_errors`) |
 
 ---
 

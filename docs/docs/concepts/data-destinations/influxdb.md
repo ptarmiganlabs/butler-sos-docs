@@ -102,6 +102,58 @@ Enabling `activeDocs`, `loadedDocs`, or `inMemoryDocs` can generate significant 
 - **activeDocs** - Apps where users are currently working.
 - **loadedDocs** - Apps loaded in memory with active sessions.
 - **inMemoryDocs** - Apps in memory but without active sessions.
+
+## Understanding InfluxDB Write Log Messages
+
+When Butler SOS writes data to InfluxDB, you may see log messages like:
+
+```
+2026-05-01T05:07:50.412Z info: INFLUXDB V3 RETRY: Health metrics for 192.168.100.109:4747 (chunk 1/1, points 0-7) - Write succeeded on attempt 2/4
+2026-05-01T05:24:46.942Z warn: INFLUXDB V3 RETRY: Health metrics for 192.168.100.109:4747 (chunk 1/1, points 0-7) - Retryable error (r) on attempt 1/4, retrying in 1000ms...
 ```
 
-## Key Settings
+The chunk and points notation applies to **all InfluxDB versions** (1.x, 2.x, 3.x). The only difference is the log prefix:
+
+| InfluxDB Version | Log Prefix |
+|-----------------|-------------|
+| InfluxDB 1.x | `INFLUXDB V1 BATCH` / `INFLUXDB V1 RETRY` |
+| InfluxDB 2.x | `INFLUXDB V2 BATCH` / `INFLUXDB V2 RETRY` |
+| InfluxDB 3.x | `INFLUXDB V3 BATCH` / `INFLUXDB V3 RETRY` |
+
+### What are "points"?
+
+Points are individual data measurements being written to InfluxDB. Each point represents a single metric (e.g., CPU usage, memory, session count, log event).
+
+`points 0-7` refers to the **array index range** within the current chunk — here, 8 data points at indices 0 through 7.
+
+### What are "chunks"?
+
+Butler SOS batches points for efficient writing. The `maxBatchSize` setting (default: 1000) controls the maximum points per batch.
+
+When there are more points than `maxBatchSize`, the array is split into **chunks**:
+- `chunk 1/3` = chunk 1 of 3 total chunks
+- If all points fit in `maxBatchSize`, you'll see `chunk 1/1`
+
+### Retry Logic
+
+The `RETRY` tag means the initial write failed and Butler SOS is retrying. There is a two-level retry system:
+
+1. **Per-chunk retry**: Each chunk retries on retryable errors (timeout, network issues) up to 3 times with exponential backoff (1000ms initial, doubling up to 10s max).
+2. **Progressive batch size reduction**: If a chunk fails after all retries, the batch size reduces: `maxBatchSize` → 500 → 250 → 100 → 10 → 1.
+
+### Example Log Messages
+
+| Log Message | Meaning |
+|-------------|---------|
+| `INFLUXDB V3 RETRY: ... (chunk 1/1, points 0-7) - Write succeeded on attempt 2/4` | Write succeeded on 2nd retry (v3) |
+| `INFLUXDB V2 RETRY: ... (chunk 1/3, points 0-999) - Retryable error on attempt 1/4, retrying...` | First retry after timeout (v2) |
+| `INFLUXDB V1 BATCH: ... - Successfully wrote all data using batch size 500 (reduced from 1000)` | Batch size reduced and succeeded (v1) |
+| `INFLUXDB V3 RETRY: ... (chunk 1/1, points 0-0) - Write succeeded on attempt 2/4` | Empty or single-point chunk (v3) |
+
+::: tip
+`points 0-0` in logs means the chunk contained either no data points or a single point at index 0. This is normal for event queues (user events, log events) that may have no new events during a polling interval.
+:::
+
+::: warning
+The retry logic only applies to retryable errors (timeouts, `ETIMEDOUT`, `ECONNREFUSED`, `ENOTFOUND`, `ECONNRESET`). Non-retryable errors (e.g., authentication failures) fail immediately without retries.
+:::

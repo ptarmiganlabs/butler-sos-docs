@@ -439,3 +439,36 @@ Metrics about Butler SOS' own resource usage. More info on these metrics is avai
 | `heap_total`     | float | Total size of the allocated heap                  |
 | `heap_used`      | float | Actual memory used during execution of Butler SOS |
 | `process_memory` | float | Total memory allocated for Butler SOS execution   |
+
+---
+
+### Measurement: butler_sos_errors
+
+Error events tracked by Butler SOS's ErrorTracker. One data point is written per error event (when enabled).
+
+More details in the [Error Tracking concept docs](/docs/concepts/features/error-tracking).
+
+#### Tags
+
+| Tag | Always present | Value |
+|-----|---------------|-------|
+| `error_type` | Yes | Error type code (e.g. `HEALTH_API`, `INFLUXDB_V3_WRITE`) |
+| `server_name` | Yes | Configured Qlik Sense server name, or `''` if not applicable |
+| `host` | When provided | Hostname/IP of the Qlik Sense server or MQTT broker |
+| `virtual_proxy` | Proxy APIs only | Virtual proxy prefix (e.g. `/`, `/hdr`) |
+| `destination_host` | Destination write errors | Target URL for InfluxDB, New Relic etc. |
+| `module` | When provided | Butler SOS subsystem (e.g. `HEALTH_METRICS`, `PROXY_SESSIONS`) |
+
+#### Fields
+
+| Field | Type | Always present | Description |
+|-------|------|---------------|-------------|
+| `error_count` | integer | Yes | Always `1` — one point per error event |
+| `error_category` | string | Yes | Human-readable category (e.g. `timeout`, `connection_refused`, `auth_error`) |
+| `error_code` | string | When present | OS/library error code (e.g. `ECONNREFUSED`, `ETIMEDOUT`) |
+| `http_status` | integer | HTTP errors only | HTTP response status code (e.g. `401`, `503`) |
+| `request_url` | string | Axios errors only | Sanitized request URL — query string stripped to avoid leaking secrets |
+| `request_timeout_ms` | integer | Axios timeout errors | Configured Axios timeout in milliseconds |
+| `remote_address` | string | TCP connection errors | Remote IP that was dialled (from `err.cause.address`) |
+| `remote_port` | integer | TCP connection errors | Remote port that was dialled (from `err.cause.port`) |
+| `syscall` | string | TCP connection errors | OS syscall that failed (e.g. `connect`) |

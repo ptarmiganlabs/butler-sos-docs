@@ -6,7 +6,7 @@ description: Running Butler SOS in Docker. Installation and configuration.
 <!-- TODO Review Docker getting-started steps -->
 
 ::: tip
-Butler SOS Docker images are automatically built for several architectures:
+Butler SOS Docker images are automatically built for several architectures, using Debian 12 as the base OS:
 
 - amd64: This is by far the most common platform - your typical Intel based server use amd64.
 - arm64: Arm servers are now available from most cloud providers and offer very competitive price/performance. Apple's M-series CPUs also use arm64, as does the newer Raspberry Pi models.
