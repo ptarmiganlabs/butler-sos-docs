@@ -195,11 +195,12 @@ export default withMermaid({
                 { text: 'Health Metrics', link: '/docs/concepts/monitoring/health-metrics' },
                 { text: 'User Sessions', link: '/docs/concepts/monitoring/user-sessions' },
                 { text: 'User Events', link: '/docs/concepts/monitoring/user-events' },
+                { text: 'UDP Message Queue', link: '/docs/concepts/monitoring/udp-queue' },
                 {
                   text: 'Log Events',
                   collapsed: true,
                   items: [
-                    { text: 'Overview', link: '/docs/concepts/monitoring/log-events/log%20events%20overview/' },
+                    { text: 'Overview', link: '/docs/concepts/monitoring/log-events/' },
                     { text: 'App Performance Monitoring', link: '/docs/concepts/monitoring/log-events/app%20object%20performance%20monitoring/' },
                     { text: 'Categorizing Log Events', link: '/docs/concepts/monitoring/log-events/catgorising%20log%20events/' },
                     { text: 'Errors & Warnings', link: '/docs/concepts/monitoring/log-events/errors%20warnings/' }
@@ -269,6 +270,7 @@ export default withMermaid({
             { text: 'Overview', link: '/docs/reference/' },
             { text: 'Command Line Options', link: '/docs/reference/command-line-options' },
             { text: 'Config File Format', link: '/docs/reference/config-file-format' },
+            { text: 'UDP Payload Format', link: '/docs/reference/udp-payload-format' },
             {
               text: 'Available Metrics',
               collapsed: true,

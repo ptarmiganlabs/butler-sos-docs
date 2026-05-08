@@ -71,6 +71,10 @@ There is a clear goal that Butler SOS should be very configurable.
 
 In practice this means that features can be turned on/off as needed, improving security and lowering memory usage.
 
+## Security
+
+Butler SOS takes a [security-first approach](/docs/about/security) throughout its development lifecycle. This includes code signing for macOS and Windows binaries, Docker security hardening, and supply chain protection measures.
+
 ## Cross-Platform
 
 Butler SOS is written in [Node.js](https://nodejs.org/en/) and runs on most modern operating systems.

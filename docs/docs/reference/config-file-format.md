@@ -298,11 +298,20 @@ InfluxDB config parameters. These must be correctly defined for any other Influx
 | `v3Config.retentionDuration`        | Retention duration for the InfluxDB database                                                                                                     |
 | `v3Config.writeTimeout`             | Optional: Socket timeout in milliseconds (writing to InfluxDB) (default: 10000)                                                                  |
 | `v3Config.queryTimeout`             | Optional: Query timeout in milliseconds (default: 60000)                                                                                         |
+| `v3Config.maxBatchSize`             | Max data points per write batch (default: 1000, range: 1-10000). If a batch fails, progressive retry with smaller sizes will be attempted.      |
 | `v2Config.org`                      | Organization name for InfluxDB v2                                                                                                                |
 | `v2Config.bucket`                   | Bucket name for InfluxDB v2                                                                                                                      |
 | `v2Config.description`              | Description of the InfluxDB bucket                                                                                                               |
 | `v2Config.token`                    | Token for InfluxDB v2                                                                                                                            |
 | `v2Config.retentionDuration`        | Retention duration for the InfluxDB bucket                                                                                                       |
+| `v2Config.maxBatchSize`             | Max data points per write batch (default: 1000, range: 1-10000). If a batch fails, progressive retry with smaller sizes will be attempted.      |
+| `v1Config.auth.enable`              | Enable if using a password-protected InfluxDB v1 database                                                                                        |
+| `v1Config.auth.username`            | InfluxDB username                                                                                                                                |
+| `v1Config.auth.password`            | InfluxDB password                                                                                                                                |
+| `v1Config.dbName`                   | Name of InfluxDB v1 database to use                                                                                                              |
+| `v1Config.retentionPolicy.name`     | Name of default retention policy created when database is first created                                                                          |
+| `v1Config.retentionPolicy.duration` | Duration during which metrics are kept. See [InfluxDB docs](https://docs.influxdata.com/influxdb/v1.8/query_language/spec/#durations) for syntax |
+| `v1Config.maxBatchSize`             | Max data points per write batch (default: 1000, range: 1-10000). If a batch fails, progressive retry with smaller sizes will be attempted.      |
 | `v1Config.auth.enable`              | Enable if using a password-protected InfluxDB v1 database                                                                                        |
 | `v1Config.auth.username`            | InfluxDB username                                                                                                                                |
 | `v1Config.auth.password`            | InfluxDB password                                                                                                                                |

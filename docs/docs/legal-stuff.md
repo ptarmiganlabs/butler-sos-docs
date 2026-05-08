@@ -9,7 +9,7 @@ Butler SOS is distributed under the [MIT license](https://en.wikipedia.org/wiki/
 ```
 MIT License
 
-Copyright (c) 2016-2025 Göran Sander
+Copyright (c) 2016-2026 Göran Sander
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

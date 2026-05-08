@@ -39,6 +39,20 @@ Each user event includes:
 - **App information** - App ID and name (when applicable)
 - **User agent** - Browser and OS information (see below)
 
+## UDP Message Format
+
+User events are received as semicolon-separated UDP messages with the following format:
+
+```text
+message_type;host;command;user_directory;user_id;origin;context;message
+```
+
+The full field specification, including field types, maximum lengths, and example payloads, is available in the [UDP Payload Format Reference](/docs/reference/udp-payload-format#user-events-udp-payload).
+
+## Message Queue
+
+Butler SOS uses a managed queue to handle incoming user event UDP messages. The queue provides controlled concurrency, optional rate limiting, message size validation, and backpressure detection. Queue health metrics can optionally be stored in InfluxDB for monitoring. See the [UDP Message Queue](/docs/concepts/monitoring/udp-queue) documentation for details.
+
 ## Configuration
 
 ### Butler SOS config file

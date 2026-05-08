@@ -45,6 +45,14 @@ Support for additional modules is reasonably easy to add, please [create a ticke
 
 The underlying mechanism is the same as described on the [user events page](/docs/getting-started/setup/qlik-sense-events/user-events#tech-deep-dive).
 
+## UDP Message Format
+
+Log events use different message formats for each source (engine, proxy, repository, scheduler, QIX performance). See the [UDP Payload Format Reference](/docs/reference/udp-payload-format#log-events-udp-payload) for the complete field specifications and example payloads for each event type.
+
+## Message Queue
+
+Butler SOS uses a managed queue to handle incoming log event messages. The queue provides controlled concurrency, optional rate limiting, and message size validation. Queue health metrics can optionally be stored in InfluxDB. See the [UDP Message Queue](/docs/concepts/monitoring/udp-queue) documentation for configuration details.
+
 ## Tagging of Data
 
 ### Categorizing Log Events

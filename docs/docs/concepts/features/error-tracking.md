@@ -4,13 +4,13 @@ outline: deep
 
 # Error Tracking
 
-Butler SOS tracks errors that occur when communicating with Qlik Sense servers and when writing data to destination systems (InfluxDB, MQTT, New Relic), and when processing incoming UDP events.
+Butler SOS automatically monitors and records errors that occur when:
 
-The `ErrorTracker` class provides a single, unified mechanism for:
+- Communicating with Qlik Sense servers (health checks, proxy sessions, app metadata)
+- Writing metrics to destination systems (InfluxDB, MQTT, New Relic)
+- Processing incoming UDP events from Qlik Sense
 
-- **In-memory cumulative error counting** with daily UTC reset
-- **Optional InfluxDB time-series logging** of individual error events
-- **Console summary logging** (optional) at midnight UTC
+Error tracking helps you identify communication failures, misconfigurations, and connectivity issues across your Qlik Sense environment.
 
 ## Master Switch
 
@@ -38,23 +38,13 @@ sequenceDiagram
     end
 ```
 
-1. **Error detection**: When any operation fails, catch blocks call:
+1. **Error detection**: When Butler SOS fails to communicate with a Qlik Sense server or write data to a destination system, the error is captured automatically.
 
-    ```javascript
-    await globals.errorTracker.incrementError(apiType, serverName, metadata, err)
-    ```
+2. **In-memory tracking**: Errors are counted and grouped by error type and server name. This running count is visible in the console logs.
 
-    All four parameters are accepted:
-    - `apiType` — string code identifying the error category (e.g. `'HEALTH_API'`)
-    - `serverName` — name of the Qlik Sense server involved, or `''` if not applicable
-    - `metadata` — optional object with additional context: `{ host, virtualProxy, destinationHost, module }`
-    - `err` — optional original `Error` object; used to derive `error_category` for InfluxDB
+3. **Daily summary**: At midnight UTC, Butler SOS logs a summary of all errors that occurred during the day and resets the counters (if `logSummary.enable` is true).
 
-2. **In-memory tracking**: The ErrorTracker increments its counter and maintains error statistics grouped by API type and server.
-
-3. **Daily summary**: At midnight UTC, the tracker logs a summary and resets counters (if `logSummary.enable` is true).
-
-4. **InfluxDB write (optional)**: If `errorTracking.influxdb.enable` is true, each error generates a single data point in InfluxDB with tags identifying the error type, server, host, virtual proxy, destination host, and originating module, plus an `error_category` field derived from the error object.
+4. **InfluxDB write (optional)**: If `errorTracking.influxdb.enable` is true, each error is written as a separate data point in InfluxDB. Each point includes tags identifying the error type, server, host, virtual proxy, destination host, and module, plus an `error_category` field that categorizes the error (e.g., timeout, connection refused, auth error).
 
 ## Configuration
 
@@ -78,25 +68,27 @@ Butler-SOS:
 
 ## Error Types
 
-| Error Type | Description | Source Module(s) |
-|------------|-------------|-----------------|
-| `HEALTH_API` | Health check API failures | `healthmetrics.js` |
-| `PROXY_API` | Proxy session API failures | `proxysessionmetrics.js` |
-| `APP_NAMES_EXTRACT` | App name extraction failures | `appnamesextract.js` |
-| `INFLUXDB_V1_WRITE` | InfluxDB v1 write failures | `influxdb/v1/*.js` |
-| `INFLUXDB_V2_WRITE` | InfluxDB v2 write failures | `influxdb/v2/*.js` via `writeToInfluxWithRetry` |
-| `INFLUXDB_V3_WRITE` | InfluxDB v3 write failures | `influxdb/v3/*.js` |
-| `MQTT_PUBLISH` | MQTT publish failures | `post-to-mqtt.js` |
-| `NEW_RELIC_POST` | New Relic API post failures | `post-to-new-relic.js` |
-| `UDP_USER_EVENT` | UDP user event processing failures | `udp_handlers/user_events/message-event.js` |
-| `UDP_LOG_EVENT` | UDP log event processing failures | `udp_handlers/log_events/message-event.js` |
+These error type codes appear as the `error_type` tag in InfluxDB and in console log messages.
+
+| Error Type | Description |
+|------------|-------------|
+| `HEALTH_API` | Health check API failures |
+| `PROXY_API` | Proxy session API failures |
+| `APP_NAMES_EXTRACT` | App name extraction failures |
+| `INFLUXDB_V1_WRITE` | InfluxDB v1 write failures |
+| `INFLUXDB_V2_WRITE` | InfluxDB v2 write failures |
+| `INFLUXDB_V3_WRITE` | InfluxDB v3 write failures |
+| `MQTT_PUBLISH` | MQTT publish failures |
+| `NEW_RELIC_POST` | New Relic API post failures |
+| `UDP_USER_EVENT` | UDP user event processing failures |
+| `UDP_LOG_EVENT` | UDP log event processing failures |
 
 ## Module Context Values
 
-The `module` field in the `metadata` argument identifies which part of Butler SOS generated the error. This is stored as the `module` tag in InfluxDB.
+When viewing errors in InfluxDB or Grafana, the `module` tag identifies which part of Butler SOS generated the error. This helps you pinpoint which subsystem is experiencing issues.
 
-| Module value | Description |
-|---|---|
+| Module Value | Description |
+|--------------|-------------|
 | `HEALTH_METRICS` | Qlik Sense engine health data write |
 | `PROXY_SESSIONS` | Qlik Sense proxy session data write |
 | `LOG_EVENTS` | Log event data write |
@@ -111,6 +103,7 @@ The `module` field in the `metadata` argument identifies which part of Butler SO
 | `LOG_EVENTS_MQTT` | MQTT publish for log events |
 | `HEALTH_METRICS_NEW_RELIC` | New Relic post for health metrics |
 | `PROXY_SESSIONS_NEW_RELIC` | New Relic post for proxy sessions |
+| `UPTIME_NEW_RELIC` | New Relic post for Butler SOS uptime |
 | `UDP_USER_EVENTS` | UDP handler for user events |
 | `UDP_LOG_EVENTS` | UDP handler for log events |
 
@@ -139,8 +132,8 @@ Every error event written to InfluxDB produces one data point with a mix of **ta
 | `http_status` | integer | HTTP errors only | HTTP response status code (e.g. `401`, `503`) |
 | `request_url` | string | Axios errors only | Sanitized request URL — scheme + host + path, **query string stripped** |
 | `request_timeout_ms` | integer | Axios errors with timeout | Configured Axios timeout in milliseconds (e.g. `5000`) |
-| `remote_address` | string | TCP connection errors | Remote IP that was dialled (from `err.cause.address`) |
-| `remote_port` | integer | TCP connection errors | Remote port that was dialled (from `err.cause.port`) |
+| `remote_address` | string | TCP connection errors | Remote IP that was dialled |
+| `remote_port` | integer | TCP connection errors | Remote port that was dialled |
 | `syscall` | string | TCP connection errors | OS syscall that failed (e.g. `connect`) |
 
 > `request_url` has query parameters stripped to avoid leaking secrets (e.g. `Xrfkey` values) into InfluxDB.
@@ -166,37 +159,31 @@ butler_sos_errors,error_type=UDP_USER_EVENT,server_name=,module=UDP_USER_EVENTS 
 
 ## Error Categorization
 
-The `error_category` field is derived by `getErrorCategory()` in `src/lib/error-categorizer.js` from the original `Error` object passed to `incrementError`.
-
-`getErrorMetadata()` in the same file additionally extracts Axios-specific fields (`request_url`, `request_timeout_ms`) and network-level fields from `err.cause` (`remote_address`, `remote_port`, `syscall`).
+The `error_category` field helps you quickly understand the nature of each error. Categories are automatically assigned based on the error details (HTTP status code, network error code, error message).
 
 ### Categories
 
-| Category | Trigger condition |
+| Category | Description |
 |---|---|
-| `timeout` | `err.code === 'ETIMEDOUT'` or `'ECONNABORTED'`, message contains `'timeout'`, or `err.name === 'RequestTimedOutError'` |
-| `connection_refused` | `err.code === 'ECONNREFUSED'` |
-| `host_not_found` | `err.code === 'ENOTFOUND'` |
-| `connection_reset` | `err.code === 'ECONNRESET'` |
-| `auth_error` | HTTP status 401 or 403 |
-| `not_found` | HTTP status 404 |
-| `rate_limited` | HTTP status 429 |
-| `http_5xx` | HTTP status ≥ 500 |
-| `http_4xx` | HTTP status 400–499 (other than 401, 403, 404, 429) |
-| `certificate_error` | Error message contains `'cert'`, `'TLS'`, or `'SSL'` |
-| `mqtt_error` | Error message contains `'mqtt'` |
-| `new_relic_error` | Error message contains `'new relic'` |
-| `unknown` | No `err` object passed, or none of the above matched |
-
-### Axios errors (ECONNREFUSED, ETIMEDOUT etc.)
-
-For Axios-originated errors, `err.code` reflects the outer Axios wrapper (`ECONNREFUSED`, `ECONNABORTED`, `ETIMEDOUT`). The actual TCP-level cause is in `err.cause`, which holds the raw `Error` from Node's net layer with `.address`, `.port`, and `.syscall` properties. Both levels are captured.
+| `timeout` | Request timed out before receiving a response |
+| `connection_refused` | Target server refused the connection (not listening or firewall blocking) |
+| `host_not_found` | DNS lookup failed — the hostname could not be resolved |
+| `connection_reset` | Connection was forcibly closed by the remote server |
+| `auth_error` | Authentication or authorization failure (HTTP 401 or 403) |
+| `not_found` | Resource not found (HTTP 404) |
+| `rate_limited` | Too many requests — rate limit exceeded (HTTP 429) |
+| `http_5xx` | Server error responses (HTTP 500–599) |
+| `http_4xx` | Client error responses (HTTP 400–499, excluding common ones above) |
+| `certificate_error` | SSL/TLS certificate problem |
+| `mqtt_error` | Error related to MQTT communication |
+| `new_relic_error` | Error related to New Relic API communication |
+| `unknown` | Error could not be categorized |
 
 ## Console Logging
 
 ### Per-error summary (on every error)
 
-When `Butler-SOS.errorTracking.logSummary.enable: true` (the default), every call to `incrementError` logs a running cumulative total at `info` level:
+When `Butler-SOS.errorTracking.logSummary.enable: true` (the default), Butler SOS logs a running cumulative total at `info` level each time an error occurs:
 
 ```
 2026-05-03T16:10:09.420Z info: ERROR TRACKER: Error counts today (UTC): Total=3, Details={"PROXY_API":{"total":2,"servers":{"sense1":2}},"HEALTH_API":{"total":1,"servers":{"sense1":1}}}
@@ -228,49 +215,7 @@ ERROR TRACKER: Error writing error event to InfluxDB: <message>   ← only on In
 
 ### InfluxDB write failures (non-blocking)
 
-InfluxDB writes are dispatched via `setImmediate` so they never block the error tracking path. Failures are logged at `debug` level only and do not affect in-memory counting or console summary logging.
-
-## Usage Examples
-
-### In Catch Blocks (Qlik Sense API Calls)
-
-```javascript
-} catch (err) {
-    await globals.errorTracker.incrementError(
-        'HEALTH_API',
-        serverName,
-        { host, module: 'HEALTH_METRICS' },
-        err
-    );
-    logError('HEALTH METRICS: Failed polling server', err);
-}
-```
-
-### In Catch Blocks (Destination Write Errors)
-
-```javascript
-} catch (err) {
-    await globals.errorTracker.incrementError(
-        'INFLUXDB_V3_WRITE',
-        serverName,
-        { module: 'HEALTH_METRICS' },
-        err
-    );
-    logError('HEALTH METRICS V3: Error saving health data', err);
-}
-```
-
-### Via writeToInfluxWithRetry (v2 modules)
-
-```javascript
-await writeToInfluxWithRetry(
-    () => writePointsToInfluxV2(globals.influx, org, bucket, points),
-    `Health metrics from ${serverName}`,
-    'v2',
-    serverName,
-    { module: 'HEALTH_METRICS' }  // metadata passed through to incrementError on failure
-);
-```
+InfluxDB writes are done asynchronously, meaning they never block the error tracking path. Failures are logged at `debug` level only and do not affect in-memory counting or console summary logging.
 
 ## Grafana Usage Examples
 

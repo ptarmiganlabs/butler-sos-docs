@@ -56,6 +56,18 @@ These almost certainly require changes to the config files, sometimes even signi
 
 If **very** major rework has been done to Butler SOS, this may also result in a major version bump even if no breaking changes were introduced.
 
+::: warning Config file breaking changes
+Major Butler SOS releases can introduce breaking changes to the config file structure.
+
+If you are upgrading from an earlier version, the safest approach is to:
+
+1. Back up your current config file
+2. Start fresh from the `production_template.yaml` included in the release ZIP
+3. Re-apply your custom settings from the backed-up config
+
+Alternatively, use the template as a reference and add any missing sections to your existing config.
+:::
+
 ### Know Your Config File
 
 Butler SOS is entirely driven by its YAML-formatted configuration file, with an [example file](https://raw.githubusercontent.com/ptarmiganlabs/butler-sos/master/src/config/production_template.yaml) serving as a good starting point.

@@ -472,3 +472,69 @@ More details in the [Error Tracking concept docs](/docs/concepts/features/error-
 | `remote_address` | string | TCP connection errors | Remote IP that was dialled (from `err.cause.address`) |
 | `remote_port` | integer | TCP connection errors | Remote port that was dialled (from `err.cause.port`) |
 | `syscall` | string | TCP connection errors | OS syscall that failed (e.g. `connect`) |
+
+---
+
+## Queue Metrics
+
+Metrics about the UDP message queues used for processing User Events and Log Events. These measurements are written only when `queueMetrics.influxdb.enable` is `true` in the config file.
+
+Two separate measurements exist for the two UDP servers:
+
+- `user_events_queue` (configurable measurement name)
+- `log_events_queue` (configurable measurement name)
+
+More details in the [UDP Message Queue concept docs](/docs/concepts/monitoring/udp-queue).
+
+### Tags
+
+| Tag | Type | Description |
+|-----|------|-------------|
+| `queue_type` | string | Queue identifier — `user_events` or `log_events` |
+| `host` | string | Butler SOS hostname |
+
+Custom tags from the config file's `tags` array are also added.
+
+### Fields
+
+#### Queue Status
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `queue_size` | integer | Current number of messages in queue |
+| `queue_max_size` | integer | Maximum queue capacity |
+| `queue_utilization_pct` | float | Queue utilization percentage (0-100) |
+| `queue_running` | integer | Messages currently being processed |
+
+#### Message Counters
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `messages_received` | integer | Total messages received (since last write) |
+| `messages_queued` | integer | Messages added to queue |
+| `messages_processed` | integer | Messages successfully processed |
+| `messages_failed` | integer | Messages that failed processing |
+
+#### Dropped Messages
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `messages_dropped_total` | integer | Total dropped messages |
+| `messages_dropped_rate_limit` | integer | Dropped due to rate limit |
+| `messages_dropped_queue_full` | integer | Dropped due to full queue |
+| `messages_dropped_size` | integer | Dropped due to size validation |
+
+#### Performance
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `processing_time_avg_ms` | float | Average processing time (milliseconds) |
+| `processing_time_p95_ms` | float | 95th percentile processing time |
+| `processing_time_max_ms` | float | Maximum processing time |
+
+#### Rate Limit & Backpressure
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `rate_limit_current` | integer | Current message rate (messages/minute) |
+| `backpressure_active` | integer | Backpressure status (0=inactive, 1=active) |

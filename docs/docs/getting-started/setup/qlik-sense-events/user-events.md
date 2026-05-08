@@ -40,6 +40,14 @@ Finally we have to make sure firewalls are open and allow UDP traffic from the S
 
 If everything is set up correctly UDP messages will arrive at Butler SOS within seconds after the actual event taking place in Qlik Sense, i.e. close to real-time.
 
+## UDP Message Format
+
+User events use a semicolon-separated message format with 8 fields. See the [UDP Payload Format Reference](/docs/reference/udp-payload-format#user-events-udp-payload) for the complete field specification and example payloads.
+
+## Message Queue
+
+Butler SOS uses a managed queue to handle incoming user event messages. The queue provides controlled concurrency, optional rate limiting, and message size validation. Queue health metrics can optionally be stored in InfluxDB. See the [UDP Message Queue](/docs/concepts/monitoring/udp-queue) documentation for configuration details.
+
 ## Tagging of Data
 
 ### InfluxDB
