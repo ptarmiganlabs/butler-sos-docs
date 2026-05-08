@@ -13,6 +13,18 @@ InfluxDB is the recommended destination for Butler SOS operational metrics.
 - **Data retention policies** - Automatically purge old data to manage disk space.
 - **Aggregation** - Summarize historical data to save space while keeping long-term trends.
 
+## Architecture Overview
+
+Butler SOS supports three InfluxDB versions, each with a different API style:
+
+| Version | Query language | Client library | Write style | Tag/field name reuse |
+|---------|---------------|----------------|-------------|---------------------|
+| **InfluxDB 1.x** | InfluxQL | `node-influx` | Plain objects, batch writes | ✅ Same name allowed |
+| **InfluxDB 2.x** | Flux | `@influxdata/influxdb-client` | Builder pattern (`Point`) | ✅ Same name allowed |
+| **InfluxDB 3.x** | SQL | `@influxdata/influxdb3-client` | Builder pattern (`Point3`), line protocol | ❌ Same name not allowed |
+
+The underlying metrics stored are the same across all three versions — only the write API and query syntax differ.
+
 ## Configuration
 
 Butler SOS uses `Butler-SOS.influxdbConfig` for storing metrics.
@@ -32,6 +44,23 @@ Butler SOS uses `Butler-SOS.influxdbConfig` for storing metrics.
 
 ::: warning InfluxDB v3 Naming Constraints
 InfluxDB v3 does not allow a tag and a field to have the same name in the same measurement. Butler SOS ensures this by default, but keep this in mind if you customize the schema.
+:::
+
+::: warning v3 CPU Precision
+InfluxDB v3 stores CPU percentage metrics as integers rather than floats. Values like 45.7% are truncated to 45. If you use CPU percentage thresholds in Grafana alerts, review them after switching to v3.
+:::
+
+::: warning v2 → v3 Dashboard Migration Required
+If you switch from InfluxDB v2 to v3, existing Grafana dashboards and InfluxDB queries may break because several field names change:
+
+| Data source | v2 field name | v3 field name |
+|-------------|--------------|---------------|
+| User events | `userFull` | `userFull_field` |
+| User events | `userId` | `userId_field` |
+| Scheduler log events | `app_name` | `app_name_field` |
+| Scheduler log events | `app_id` | `app_id_field` |
+
+Update all queries and dashboard panels to use the new field names before switching to v3.
 :::
 
 ## Data retention
@@ -54,41 +83,45 @@ This section configures where general health metrics, user events, and log event
 Butler-SOS:
   influxdbConfig:
     enable: true
-    host: influxdb.mycompany.com
-    port: 8086
-    version: 2 # 1, 2 or 3
-    maxBatchSize: 1000 # Max points per write batch
+    # Items below are mandatory if influxdbConfig.enable=true
+    host: influxdb.mycompany.com   # InfluxDB host, hostname, FQDN or IP address
+    port: 8086                      # Port where InfluxDB is listening, usually 8086
+    version: 3                      # 1, 2 or 3 — which InfluxDB version is being used
+    maxBatchSize: 1000              # Max data points per batch. On failure: 1000→500→250→100→10→1. Valid range: 1-10000
 
-    # InfluxDB 3.x settings
+    # InfluxDB 3.x settings (used when version: 3)
     v3Config:
-      database: butler-metrics
+      database: mydatabase
+      description: Butler SOS metrics
       token: mytoken
       retentionDuration: 10d
+      writeTimeout: 10000           # Socket timeout when writing (ms). Default: 10000
+      queryTimeout: 60000            # Socket timeout when querying (ms). Default: 60000
 
-    # InfluxDB 2.x settings
+    # InfluxDB 2.x settings (used when version: 2)
     v2Config:
       org: myorg
-      bucket: butler-metrics
+      bucket: mybucket
       description: Butler SOS metrics
       token: mytoken
       retentionDuration: 10d
 
-    # InfluxDB 1.x settings
+    # InfluxDB 1.x settings (used when version: 1)
     v1Config:
       auth:
-        enable: false
-        username: <username>
-        password: <password>
-      dbName: SenseOps
+        enable: false               # Does InfluxDB require authentication?
+        username: <username>        # Mandatory if auth.enable=true
+        password: <password>        # Mandatory if auth.enable=true
+      dbName: senseops
       retentionPolicy:
         name: 10d
-        duration: 10d
+        duration: 10d                # Duration units: https://docs.influxdata.com/influxdb/v1.8/query_language/spec/#durations
 
     # Control what data is stored
     includeFields:
-      activeDocs: false # Can generate lots of data
-      loadedDocs: false # Can generate lots of data
-      inMemoryDocs: false # Can generate lots of data
+      activeDocs: false            # Can generate lots of data
+      loadedDocs: false             # Can generate lots of data
+      inMemoryDocs: false           # Can generate lots of data
 ```
 
 ### Document lists
