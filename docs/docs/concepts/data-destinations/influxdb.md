@@ -124,6 +124,8 @@ Butler-SOS:
       inMemoryDocs: false           # Can generate lots of data
 ```
 
+`maxBatchSize` (default: 1000, range: 1–10000) controls how many data points are sent to InfluxDB in a single write operation. Larger values are more efficient; if a batch fails, Butler SOS automatically reduces the batch size progressively: 1000 → 500 → 250 → 100 → 10 → 1 until the write succeeds or all retries are exhausted.
+
 ### Document lists
 
 The `includeFields` settings in `influxdbConfig` control whether lists of active, loaded, and in-memory documents are stored:
@@ -164,6 +166,7 @@ Points are individual data measurements being written to InfluxDB. Each point re
 Butler SOS batches points for efficient writing. The `maxBatchSize` setting (default: 1000) controls the maximum points per batch.
 
 When there are more points than `maxBatchSize`, the array is split into **chunks**:
+
 - `chunk 1/3` = chunk 1 of 3 total chunks
 - If all points fit in `maxBatchSize`, you'll see `chunk 1/1`
 
