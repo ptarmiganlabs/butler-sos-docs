@@ -22,15 +22,17 @@ All messages flow through the queue — it cannot be disabled.
 
 ```mermaid
 flowchart TD
-    A["UDP Socket Receive"] --> B["Size Validation\nmaxMessageSize"]
-    B -->|"OK"| C["Rate Limit Check\n(if enabled)"]
-    B -->|"Too large"| D["Drop & count\nmessages_dropped_size"]
-    C -->|"OK"| E["Input Sanitization\n(control chars removed)"]
-    C -->|"Rate exceeded"| F["Drop & count\nmessages_dropped_rate_limit"]
-    E --> G["Message Queue"]
-    G -->|"Full"| H["Drop & count\nmessages_dropped_queue_full"]
-    G --> I["Concurrent Processing\nmaxConcurrent"]
-    I --> J["Forward to Destinations\n(MQTT, InfluxDB, New Relic)"]
+    A["UDP Socket Receive"] --> B["Source IP Validation\n(enableSourceValidation)"]
+    B -->|"Unauthorized"| C["Reject & log\n(warning)"]
+    B -->|"OK"| D["Size Validation\nmaxMessageSize"]
+    D -->|"OK"| E["Rate Limit Check\n(if enabled)"]
+    D -->|"Too large"| F["Drop & count\nmessages_dropped_size"]
+    E -->|"OK"| G["Input Sanitization\n(control chars removed)"]
+    E -->|"Rate exceeded"| H["Drop & count\nmessages_dropped_rate_limit"]
+    G --> I["Message Queue"]
+    I -->|"Full"| J["Drop & count\nmessages_dropped_queue_full"]
+    I --> K["Concurrent Processing\nmaxConcurrent"]
+    K --> L["Forward to Destinations\n(MQTT, InfluxDB, New Relic)"]
 ```
 
 ### Components
@@ -50,6 +52,9 @@ Butler-SOS:
     udpServerConfig:
       serverHost: <IP or FQDN> # Host/IP where user event server will listen for events from Sense
       portUserActivityEvents: 9997 # Port on which user event server will listen for events from Sense
+      # Source IP validation for incoming UDP messages
+      enableSourceValidation: false # Set to true to restrict sources to allowedSources list
+      allowedSources: [] # List of allowed IPv4 addresses or hostnames
       # Message queue settings for handling incoming UDP messages
       messageQueue:
         maxConcurrent: 10 # Max number of messages being processed simultaneously (default: 10)
@@ -79,6 +84,9 @@ Butler-SOS:
     udpServerConfig:
       serverHost: <IP or FQDN> # Host/IP where log event server will listen for events from Sense
       portLogEvents: 9996 # Port on which log event server will listen for events from Sense
+      # Source IP validation for incoming UDP messages
+      enableSourceValidation: false # Set to true to restrict sources to allowedSources list
+      allowedSources: [] # List of allowed IPv4 addresses or hostnames
       # Message queue settings for handling incoming UDP messages
       messageQueue:
         maxConcurrent: 10 # Max number of messages being processed simultaneously (default: 10)
@@ -123,6 +131,13 @@ Butler-SOS:
 |----------|---------|-------------|
 | `maxMessageSize` | 65507 | Maximum UDP message size in bytes. The default is the UDP maximum datagram size. Messages exceeding this are rejected and counted in `messages_dropped_size`. |
 
+#### Source IP Validation
+
+| Property | Default | Description |
+|----------|---------|-------------|
+| `enableSourceValidation` | false | Enable source IP validation for incoming UDP messages. When `true`, only messages from IPs in `allowedSources` are processed. |
+| `allowedSources` | [] | List of allowed IPv4 addresses or hostnames. Hostnames are resolved to IPv4 at startup. |
+
 #### queueMetrics.influxdb
 
 | Property | Default | Description |
@@ -131,6 +146,66 @@ Butler-SOS:
 | `writeFrequency` | 20000 | How often to write metrics in milliseconds. Lower values = more frequent updates but more InfluxDB writes. |
 | `measurementName` | varies | InfluxDB measurement name. Defaults: `user_events_queue` or `log_events_queue`. |
 | `tags` | [] | Optional static tags added to all queue metrics data points in InfluxDB. |
+
+### Source IP Validation
+
+Butler SOS can restrict which Qlik Sense servers are permitted to send UDP messages. When enabled, any message from a source IP not in the approved list is silently rejected and a warning is logged.
+
+**How it works:**
+
+1. At startup, Butler SOS parses `allowedSources` and resolves any hostnames to IPv4 addresses via DNS
+2. When a UDP message arrives, the sender's IP address is checked against the allowed list
+3. Messages from unauthorized sources are rejected with a warning log entry
+4. If `allowedSources` is empty while validation is enabled, all messages are denied
+
+**Supported formats:**
+
+- **IPv4 addresses**: Exact match (e.g., `192.168.1.100`)
+- **Hostnames**: Resolved to IPv4 at startup (e.g., `qlik-sense-1.company.internal`)
+
+IPv6 addresses are not supported — use IPv4 addresses or hostnames that resolve to IPv4.
+
+**Notes:**
+
+- Disabled by default (`enableSourceValidation: false`) for backward compatibility
+- Hostnames are resolved once at startup, not on each message
+- Should be used together with firewall rules for defense in depth
+
+**Security benefit:** Since UDP lacks built-in authentication, source IP validation prevents unauthorized hosts from sending messages to Butler SOS. This is critical when Butler SOS is exposed to the network in production environments.
+
+**Fail-open behavior:** If `enableSourceValidation: true` but `allowedSources` is empty, or if all entries fail DNS resolution, validation is automatically disabled and all sources are accepted. This avoids accidental self-lockout during incremental deployment.
+
+#### Example: Allow specific Sense servers
+
+```yaml
+Butler-SOS:
+  userEvents:
+    udpServerConfig:
+      enableSourceValidation: true
+      allowedSources:
+        - 192.168.10.50
+        - qlik-sense-1.company.internal
+  logEvents:
+    udpServerConfig:
+      enableSourceValidation: true
+      allowedSources:
+        - 192.168.10.50
+        - qlik-sense-1.company.internal
+```
+
+#### Example: Disable validation (default)
+
+```yaml
+Butler-SOS:
+  userEvents:
+    udpServerConfig:
+      enableSourceValidation: false
+      allowedSources: []
+  logEvents:
+    udpServerConfig:
+      enableSourceValidation: false
+      allowedSources: []
+```
 
 ## Performance Tuning
 

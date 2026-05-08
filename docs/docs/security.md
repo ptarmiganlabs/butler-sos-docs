@@ -37,3 +37,7 @@ The macOS executable binary is signed and notarized by Apple's standard process.
 A warning may still be shown first time the app is started. This is expected and normal.
 
 The Windows executable binary is signed by "Open Source Developer, Göran Sander".
+
+## How Butler SOS is built securely
+
+Butler SOS uses a security-first development process backed by multiple automated tools. Trivy, Snyk, CodeQL, Dependabot, zizmor, and VirusTotal all play a role in keeping the project secure. For full details on Docker image scanning, supply chain protection, code signing, and more, see [Build Security](/docs/concepts/build-security).

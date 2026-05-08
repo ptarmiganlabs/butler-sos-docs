@@ -228,7 +228,8 @@ export default withMermaid({
                 { text: 'Uptime Monitor', link: '/docs/concepts/features/uptime-monitor' },
                 { text: 'Telemetry', link: '/docs/concepts/features/telemetry' },
                 { text: 'Config Visualization', link: '/docs/concepts/features/config-visualization' },
-                { text: 'Error Tracking', link: '/docs/concepts/features/error-tracking' }
+                { text: 'Error Tracking', link: '/docs/concepts/features/error-tracking' },
+                { text: 'Build Security', link: '/docs/concepts/build-security' }
               ]
             }
           ]

@@ -258,6 +258,8 @@ Butler-SOS:
     udpServerConfig:
       serverHost: '<IP or FQDN>'
       portUserActivityEvents: 9997
+      enableSourceValidation: false
+      allowedSources: []
       messageQueue:
         maxConcurrent: 10
         maxSize: 200
@@ -277,6 +279,8 @@ Butler-SOS:
     udpServerConfig:
       serverHost: '<IP or FQDN>'
       portLogEvents: 9996
+      enableSourceValidation: false
+      allowedSources: []
       messageQueue:
         maxConcurrent: 10
         maxSize: 200

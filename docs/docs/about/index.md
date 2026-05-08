@@ -73,7 +73,7 @@ In practice this means that features can be turned on/off as needed, improving s
 
 ## Security
 
-Butler SOS takes a [security-first approach](/docs/about/security) throughout its development lifecycle. This includes code signing for macOS and Windows binaries, Docker security hardening, and supply chain protection measures.
+Butler SOS takes a [security-first approach](/docs/concepts/build-security) throughout its development lifecycle. This includes code signing for macOS and Windows binaries, Docker security hardening, and supply chain protection measures.
 
 ## Cross-Platform
 
