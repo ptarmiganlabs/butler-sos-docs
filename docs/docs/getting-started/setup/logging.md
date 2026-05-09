@@ -20,6 +20,8 @@ Log level can also be set on the command line when starting Butler SOS, using th
 
 Log files are kept for 30 days, after which they are automatically deleted.
 
+For information on crash dump files that Butler SOS can create when it encounters unrecoverable errors, see [Crash Dump](/docs/getting-started/setup/crash-dump).
+
 ## Understanding Log Messages
 
 Butler SOS produces various log messages during operation. Messages containing `(chunk X/Y, points A-B)` relate to InfluxDB write operations. The chunk/points notation and retry logic apply to **all InfluxDB versions** (1.x, 2.x, 3.x).

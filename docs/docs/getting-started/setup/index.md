@@ -48,6 +48,7 @@ The setup section is organized into the following topics:
 - [Verify Config File](/docs/getting-started/setup/verify-config-file) - How to validate your configuration
 - [Config Visualization](/docs/getting-started/setup/config-visualization) - Visualize the active configuration
 - [Logging](/docs/getting-started/setup/logging) - Configure Butler SOS logging
+- [Crash Dump](/docs/getting-started/setup/crash-dump) - Configure crash dump file creation
 
 ### Monitoring & Health
 

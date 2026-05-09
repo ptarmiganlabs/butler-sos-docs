@@ -28,6 +28,19 @@ A sample config file is included in the release ZIP files, and also [available o
 
 ---
 
+### Butler-SOS.crashFile
+
+Controls whether Butler SOS creates crash dump files when it encounters unrecoverable errors. See [Crash Dump](/docs/getting-started/setup/crash-dump) for full details.
+
+| Parameter | Default | Description |
+|---|---|---|
+| `crashFile.enable` | `true` | Master switch — set to `false` to disable crash dump creation entirely |
+| `crashFile.crashFileDirectory` | `./crash_dumps` | Directory where crash files are written. Relative paths are resolved from Butler SOS's working directory; absolute paths are supported |
+| `crashFile.crashFileCreateJson` | `true` | When `true`, creates a machine-readable JSON crash dump file |
+| `crashFile.crashFileCreateText` | `true` | When `true`, creates a human-readable plain-text crash dump file |
+
+---
+
 ### Butler-SOS.configVisualisation
 
 Settings for Butler SOS' web-based configuration visualization feature.

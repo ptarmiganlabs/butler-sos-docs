@@ -148,6 +148,7 @@ export default withMermaid({
                 { text: 'Verify Config File', link: '/docs/getting-started/setup/verify-config-file' },
                 { text: 'Config Visualization', link: '/docs/getting-started/setup/config-visualization' },
                 { text: 'Logging', link: '/docs/getting-started/setup/logging' },
+                { text: 'Crash Dump', link: '/docs/getting-started/setup/crash-dump' },
                 { text: 'Heartbeats', link: '/docs/getting-started/setup/heartbeats' },
                 { text: 'Docker Healthcheck', link: '/docs/getting-started/setup/docker-healthcheck' },
                 { text: 'Uptime Monitor', link: '/docs/getting-started/setup/uptime-monitor' },
@@ -229,6 +230,7 @@ export default withMermaid({
                 { text: 'Telemetry', link: '/docs/concepts/features/telemetry' },
                 { text: 'Config Visualization', link: '/docs/concepts/features/config-visualization' },
                 { text: 'Error Tracking', link: '/docs/concepts/features/error-tracking' },
+                { text: 'Crash Dump', link: '/docs/concepts/features/crash-dump' },
                 { text: 'Build Security', link: '/docs/concepts/build-security' }
               ]
             }
