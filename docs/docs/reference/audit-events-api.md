@@ -35,8 +35,10 @@ Use this endpoint to send audit event envelopes from Audit.qs to Butler SOS.
 | `timestamp` | string | Yes | ISO 8601 timestamp |
 | `type` | string | Yes | Audit event type |
 | `payload` | object | Yes | Event-specific payload |
-| `correlationId` | string | No | Used to connect related events |
+| `correlationId` | string | No | Opaque grouping key used to connect related events |
 | `source` | object | No | Client metadata such as source kind and name |
+
+Audit.qs treats `correlationId` as an opaque string. When a selection transaction is active it usually matches `payload.event.selectionTxnId`. Otherwise, such as for `navigation.sheet.loaded`, it falls back to the stringified `currentDataStateId`. Butler SOS does not require UUID format for this field; it only enforces the documented maximum length.
 
 ### Accepted Response
 

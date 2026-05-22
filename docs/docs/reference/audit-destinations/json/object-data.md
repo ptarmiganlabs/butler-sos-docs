@@ -67,8 +67,10 @@ JSON object-data files use the same correlation keys as the rest of the audit pi
 The file name is based on the event timestamp, `eventId`, and `correlationId`, for example:
 
 ```text
-20260308T164626.181Z_165c9558-abcd-1234-a1b2-cc12e5aa9f01_cc12e5aa-beef-4321-9876-abcdef012345.json
+20260308T164626.181Z_165c9558-abcd-1234-a1b2-cc12e5aa9f01_1777868693436.json
 ```
+
+`correlationId` is an opaque string, not a UUID-only field. Audit.qs uses `selectionTxnId` when present and otherwise the stringified `currentDataStateId`.
 
 This makes it easy to match the JSON file with:
 
@@ -95,7 +97,7 @@ The file contains event metadata plus the raw object payload.
 ```json
 {
   "eventId": "165c9558-abcd-1234-a1b2-cc12e5aa9f01",
-  "correlationId": "cc12e5aa-beef-4321-9876-abcdef012345",
+  "correlationId": "1777868693436",
   "timestamp": "2026-03-08T16:46:26.181Z",
   "eventType": "screenshot.url.received",
   "appId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
