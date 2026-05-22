@@ -64,6 +64,10 @@ Then click the "Export certificates" button. If all goes well the certificates a
 
 The exported certificate files will be used when [configuring Butler SOS](/docs/reference/config-file-format).
 
+They are also used by Audit.qs screenshot downloads when `Butler-SOS.auditEvents.destination.screenshots.auth.mode` is set to `userTicket`. In that mode, Butler SOS calls QPS over mutual TLS to create end-user tickets before fetching the screenshot URL.
+
+If Audit screenshot downloads fail during QPS ticket creation, re-check the certificate export, machine name used during export, and the configured certificate paths.
+
 ## Common Certificate Errors
 
 If you see errors related to certificates when starting Butler SOS, check the following:

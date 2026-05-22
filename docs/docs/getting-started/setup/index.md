@@ -59,6 +59,7 @@ The setup section is organized into the following topics:
 ### Qlik Sense Connection
 
 - [Sense Server Settings](/docs/getting-started/setup/sense-server-settings) - Connect to Qlik Sense
+- [Audit Screenshots](/docs/getting-started/setup/audit-screenshots) - Configure Audit.qs screenshot downloads, ticket auth, and allowed hosts
 - [Servers to Monitor](/docs/getting-started/setup/servers-to-monitor) - Configure which servers to monitor
 - [App Names](/docs/getting-started/setup/app-names) - Configure app name extraction
 - [User Sessions](/docs/getting-started/setup/user-sessions) - Configure user session monitoring

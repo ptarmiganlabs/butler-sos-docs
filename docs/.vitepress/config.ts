@@ -154,6 +154,7 @@ export default withMermaid({
                 { text: 'Uptime Monitor', link: '/docs/getting-started/setup/uptime-monitor' },
                 { text: 'Credentials', link: '/docs/getting-started/setup/credentials' },
                 { text: 'Sense Server Settings', link: '/docs/getting-started/setup/sense-server-settings' },
+                { text: 'Audit Screenshots', link: '/docs/getting-started/setup/audit-screenshots' },
                 {
                   text: 'Qlik Sense Events',
                   collapsed: true,
@@ -274,6 +275,41 @@ export default withMermaid({
             { text: 'Command Line Options', link: '/docs/reference/command-line-options' },
             { text: 'Config File Format', link: '/docs/reference/config-file-format' },
             { text: 'UDP Payload Format', link: '/docs/reference/udp-payload-format' },
+            {
+              text: 'Audit Events',
+              collapsed: true,
+              items: [
+                { text: 'API', link: '/docs/reference/audit-events-api' },
+                { text: 'Rate Limiting', link: '/docs/reference/audit-events-rate-limiting' },
+                { text: 'Version Compatibility', link: '/docs/reference/audit-qs-version-compatibility' },
+                {
+                  text: 'Destinations',
+                  collapsed: true,
+                  items: [
+                    { text: 'Overview', link: '/docs/reference/audit-destinations/' },
+                    { text: 'InfluxDB', link: '/docs/reference/audit-destinations/influxdb/' },
+                    {
+                      text: 'JSON',
+                      collapsed: true,
+                      items: [
+                        { text: 'Overview', link: '/docs/reference/audit-destinations/json/' },
+                        { text: 'Object Data', link: '/docs/reference/audit-destinations/json/object-data' }
+                      ]
+                    },
+                    { text: 'Parquet', link: '/docs/reference/audit-destinations/parquet/' },
+                    {
+                      text: 'PNG',
+                      collapsed: true,
+                      items: [
+                        { text: 'Overview', link: '/docs/reference/audit-destinations/png/' },
+                        { text: 'Screenshot Downloads', link: '/docs/reference/audit-destinations/png/downloads' }
+                      ]
+                    },
+                    { text: 'QVD', link: '/docs/reference/audit-destinations/qvd/' }
+                  ]
+                }
+              ]
+            },
             {
               text: 'Available Metrics',
               collapsed: true,

@@ -41,6 +41,32 @@ Controls whether Butler SOS creates crash dump files when it encounters unrecove
 
 ---
 
+### Butler-SOS.auditEvents
+
+Selected settings for the Audit.qs ingest API and its destination writers.
+
+See these pages for full behavior details:
+
+- [Audit Events API](/docs/reference/audit-events-api)
+- [Audit.qs Version Compatibility](/docs/reference/audit-qs-version-compatibility)
+- [Audit Event Destinations](/docs/reference/audit-destinations/)
+- [JSON Object Data](/docs/reference/audit-destinations/json/object-data)
+- [Screenshot Downloads](/docs/reference/audit-destinations/png/downloads)
+
+| Parameter | Default | Description |
+| --- | --- | --- |
+| `auditEvents.enable` | — | Enable the Audit.qs HTTP ingest API |
+| `auditEvents.apiToken` | — | Optional bearer token required by `POST /api/v1/audit-event` and `GET /api/v1/test-connection` when configured |
+| `auditEvents.destination.enable` | — | Enable writing accepted audit events to configured destinations |
+| `auditEvents.destination.type` | — | Comma-delimited list of active audit destination writers. Implemented values include `influxdb`, `parquet`, `qvd`, and `json` |
+| `auditEvents.destination.json.objectdata.enable` | — | Enable dedicated per-event JSON files for `payload.event.objectData` |
+| `auditEvents.destination.json.objectdata.exportDirectory` | `audit-events/json` | Directory where JSON object-data files are written |
+| `auditEvents.destination.json.objectdata.staticTags` | `null` | Optional static tags added to each JSON object-data file |
+
+The JSON `objectdata` destination writes each event immediately. It does not use `maxBatchSize` or `writeFrequency` settings.
+
+---
+
 ### Butler-SOS.configVisualisation
 
 Settings for Butler SOS' web-based configuration visualization feature.

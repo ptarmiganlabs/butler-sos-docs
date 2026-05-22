@@ -26,6 +26,9 @@ Audit data can be stored in:
 - **InfluxDB**: For real-time analysis in Grafana
 - **QVD Files**: For direct loading into Qlik Sense
 - **Parquet Files**: For long-term storage and data lake integration
+- **Screenshots**: Image files downloaded by Butler SOS when Audit.qs emits screenshot events
+
+If you enable screenshot downloads, Butler SOS can fetch image URLs emitted by Audit.qs and store the resulting files server-side. For configuration and runtime details, see [Audit Screenshots](/docs/getting-started/setup/audit-screenshots) and [Screenshot Downloads](/docs/reference/audit-destinations/png/downloads).
 
 ## Coming Soon
 
