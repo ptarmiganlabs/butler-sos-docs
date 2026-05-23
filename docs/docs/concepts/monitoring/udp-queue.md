@@ -131,12 +131,12 @@ Butler-SOS:
 |----------|---------|-------------|
 | `maxMessageSize` | 65507 | Maximum UDP message size in bytes. The default is the UDP maximum datagram size. Messages exceeding this are rejected and counted in `messages_dropped_size`. |
 
-#### Source IP Validation
+#### Source Validation Settings
 
 | Property | Default | Description |
 |----------|---------|-------------|
-| `enableSourceValidation` | false | Enable source IP validation for incoming UDP messages. When `true`, only messages from IPs in `allowedSources` are processed. |
-| `allowedSources` | [] | List of allowed IPv4 addresses or hostnames. Hostnames are resolved to IPv4 at startup. |
+| `enableSourceValidation` | false | Enable source IP validation for incoming UDP messages. When `true`, Butler SOS resolves `allowedSources` at startup and rejects non-matching sender IPs before queueing or payload parsing. If the allow-list is empty or nothing resolves, validation is disabled at startup. |
+| `allowedSources` | [] | List of allowed IPv4 addresses or hostnames. Hostnames are resolved once at startup, and all resolved IPv4 addresses are added to the allow-list. |
 
 #### queueMetrics.influxdb
 
@@ -149,14 +149,15 @@ Butler-SOS:
 
 ### Source IP Validation
 
-Butler SOS can restrict which Qlik Sense servers are permitted to send UDP messages. When enabled, any message from a source IP not in the approved list is silently rejected and a warning is logged.
+Butler SOS can restrict which Qlik Sense servers are permitted to send UDP messages. When enabled, Butler SOS checks the sender IP before any other UDP processing. Unauthorized packets are dropped immediately. The first rejection from a given source IP is logged at `warn` level, while repeated rejections within one minute are logged at `debug` level to avoid flooding the logs.
 
 **How it works:**
 
-1. At startup, Butler SOS parses `allowedSources` and resolves any hostnames to IPv4 addresses via DNS
-2. When a UDP message arrives, the sender's IP address is checked against the allowed list
-3. Messages from unauthorized sources are rejected with a warning log entry
-4. If `allowedSources` is empty while validation is enabled, all messages are denied
+1. At startup, Butler SOS parses `allowedSources`. Literal IPv4 addresses are kept as-is and hostnames are resolved to IPv4 addresses in parallel.
+2. If a hostname resolves to multiple IPv4 addresses, all of them are added to the active allow-list.
+3. Entries that cannot be resolved are logged and skipped; successfully resolved entries remain active.
+4. If validation is enabled but `allowedSources` is empty, or none of the configured entries resolve, Butler SOS disables source validation at startup and accepts all sources.
+5. When a UDP message arrives, the sender IP is checked before size validation, rate limiting, queueing, or payload parsing.
 
 **Supported formats:**
 
@@ -169,11 +170,12 @@ IPv6 addresses are not supported — use IPv4 addresses or hostnames that resolv
 
 - Disabled by default (`enableSourceValidation: false`) for backward compatibility
 - Hostnames are resolved once at startup, not on each message
+- Rejection warnings are throttled to once per source IP per minute; repeated drops in the same window are logged at `debug`
 - Should be used together with firewall rules for defense in depth
 
 **Security benefit:** Since UDP lacks built-in authentication, source IP validation prevents unauthorized hosts from sending messages to Butler SOS. This is critical when Butler SOS is exposed to the network in production environments.
 
-**Fail-open behavior:** If `enableSourceValidation: true` but `allowedSources` is empty, or if all entries fail DNS resolution, validation is automatically disabled and all sources are accepted. This avoids accidental self-lockout during incremental deployment.
+**Fail-open behavior:** If `enableSourceValidation: true` but `allowedSources` is empty, or if all entries fail DNS resolution, validation is automatically disabled and all sources are accepted. This is a startup safeguard to avoid accidental self-lockout during incremental deployment.
 
 #### Example: Allow specific Sense servers
 
@@ -254,7 +256,7 @@ rateLimit:
 
 **Memory usage:** Each queued message uses approximately 1-5 KB. At `maxSize: 200`, each queue uses about 200-1000 KB. Two queues (user + log events) use 400-2000 KB total.
 
-**CPU usage:** Higher `maxConcurrent` values utilize more CPU cores. It is recommended to set `maxConcurrent` to at most the number of available CPU cores.
+**CPU usage:** Higher `maxConcurrent` values will use more CPU. Usually not a bottleneck unless processing time per message is high or the server is under heavy load. Monitor CPU usage when tuning concurrency.
 
 **InfluxDB load:** Each queue writes metrics at the configured `writeFrequency` interval. At the default 20 seconds, each queue writes 3 times per minute (6 writes/minute total). Increase the interval if InfluxDB is under load.
 

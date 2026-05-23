@@ -48,6 +48,26 @@ User events use a semicolon-separated message format with 8 fields. See the [UDP
 
 Butler SOS uses a managed queue to handle incoming user event messages. The queue provides controlled concurrency, optional rate limiting, and message size validation. Queue health metrics can optionally be stored in InfluxDB. See the [UDP Message Queue](/docs/concepts/monitoring/udp-queue) documentation for configuration details.
 
+## Restrict Allowed Senders
+
+If the Butler SOS UDP listener is reachable by hosts other than the Qlik Sense nodes that should send user events, enable source validation so only approved senders can reach the `userEvents` UDP server.
+
+```yaml
+Butler-SOS:
+  userEvents:
+    udpServerConfig:
+      serverHost: butler-sos.mycompany.net
+      portUserActivityEvents: 9997
+      enableSourceValidation: true
+      allowedSources:
+        - 192.168.100.109
+        - sense-proxy-1.company.internal
+```
+
+`allowedSources` accepts literal IPv4 addresses and hostnames. Hostnames are resolved once at startup to IPv4 addresses. If validation is enabled but the list is empty, or none of the entries resolve, Butler SOS logs a warning and disables source validation at startup. Unauthorized packets are dropped before queueing, and repeated reject messages from the same source IP are rate-limited to avoid log flooding.
+
+See the [UDP Message Queue](../../../concepts/monitoring/udp-queue#source-ip-validation) page for the full runtime behavior shared by both `userEvents` and `logEvents`.
+
 ## Tagging of Data
 
 ### InfluxDB

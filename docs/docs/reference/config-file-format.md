@@ -164,8 +164,8 @@ Butler SOS uses an internal message queue to handle incoming user events. This e
 | `udpServerConfig.rateLimit.enable`            | Enable rate limiting to prevent message flooding (default: false)                                                                        |
 | `udpServerConfig.rateLimit.maxMessagesPerMinute` | Max messages per minute allowed (default: 600)                                                                               |
 | `udpServerConfig.maxMessageSize`               | Max UDP message size in bytes (default: 65507, UDP max)                                                                              |
-| `udpServerConfig.enableSourceValidation`       | Enable source IP validation for incoming UDP messages. When `true`, only messages from IPs in `allowedSources` are processed. Default: `false` |
-| `udpServerConfig.allowedSources`               | List of allowed IPv4 addresses or hostnames. Hostnames are resolved to IPv4 at startup. Required when `enableSourceValidation` is `true` |
+| `udpServerConfig.enableSourceValidation`       | Enable source IP validation for incoming UDP messages. When `true`, Butler SOS resolves `allowedSources` at startup and rejects non-matching sender IPs. If no sources are configured or resolved, validation is disabled at startup. Default: `false` |
+| `udpServerConfig.allowedSources`               | List of allowed IPv4 addresses or hostnames. Hostnames are resolved to IPv4 at startup; unresolved entries are skipped. |
 | `udpServerConfig.queueMetrics.influxdb.enable` | Store queue metrics in InfluxDB (default: false)                                                                              |
 | `udpServerConfig.queueMetrics.influxdb.writeFrequency` | How often to write queue metrics in ms (default: 20000)                                                                    |
 | `udpServerConfig.queueMetrics.influxdb.measurementName` | InfluxDB measurement name for queue metrics (default: user_events_queue)                                                  |
@@ -207,8 +207,8 @@ Butler SOS uses an internal message queue to handle incoming log events. This en
 | `udpServerConfig.rateLimit.enable`            | Enable rate limiting to prevent message flooding (default: false)                                                                        |
 | `udpServerConfig.rateLimit.maxMessagesPerMinute` | Max messages per minute allowed (default: 600)                                                                               |
 | `udpServerConfig.maxMessageSize`               | Max UDP message size in bytes (default: 65507, UDP max)                                                                              |
-| `udpServerConfig.enableSourceValidation`       | Enable source IP validation for incoming UDP messages. When `true`, only messages from IPs in `allowedSources` are processed. Default: `false` |
-| `udpServerConfig.allowedSources`               | List of allowed IPv4 addresses or hostnames. Hostnames are resolved to IPv4 at startup. Required when `enableSourceValidation` is `true` |
+| `udpServerConfig.enableSourceValidation`       | Enable source IP validation for incoming UDP messages. When `true`, Butler SOS resolves `allowedSources` at startup and rejects non-matching sender IPs. If no sources are configured or resolved, validation is disabled at startup. Default: `false` |
+| `udpServerConfig.allowedSources`               | List of allowed IPv4 addresses or hostnames. Hostnames are resolved to IPv4 at startup; unresolved entries are skipped. |
 | `udpServerConfig.queueMetrics.influxdb.enable` | Store queue metrics in InfluxDB (default: false)                                                                              |
 | `udpServerConfig.queueMetrics.influxdb.writeFrequency` | How often to write queue metrics in ms (default: 20000)                                                                    |
 | `udpServerConfig.queueMetrics.influxdb.measurementName` | InfluxDB measurement name for queue metrics (default: log_events_queue)                                                   |

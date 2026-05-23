@@ -67,7 +67,7 @@ Butler SOS supports 5 types of log events from QSEoW services. Each type has a d
 
 ### Common Validations
 
-- **Source validation**: Only process messages of types that match the enabled sources in the config file.
+- **Configured source-type validation**: User events only accept supported proxy session/connection payloads. Log events only process payload types that match the enabled source settings in the config file.
 - **Date validation**: ISO 8601 timestamps are validated. Invalid dates are set to empty string.
 - **UUID validation**: UUID fields are validated. Invalid UUIDs are set to empty string.
 - **Field sanitization**: All string fields have control characters removed and are truncated to their maximum length.
@@ -240,6 +240,8 @@ flowchart TD
 **Rate limiting (optional):** Controlled by `rateLimit.enable` (default: false) and `rateLimit.maxMessagesPerMinute` (default: 600). Uses a fixed 1-minute window. Messages exceeding the rate are dropped and counted in `messages_dropped_rate_limit`.
 
 **Queue management:** Controlled by `messageQueue.maxConcurrent` (default: 10), `messageQueue.maxSize` (default: 200), and `messageQueue.backpressureThreshold` (default: 80%). When the queue is full, messages are dropped and counted in `messages_dropped_queue_full`.
+
+**Network source IP validation (optional):** Controlled by `enableSourceValidation` and `allowedSources`. This check is applied before size validation, rate limiting, queueing, and payload parsing. Hostnames in `allowedSources` are resolved to IPv4 at startup. If validation is enabled but no entries are configured or resolved, Butler SOS disables source validation at startup. See [UDP Message Queue](../concepts/monitoring/udp-queue#source-ip-validation) for full details.
 
 **Source/type validation:** User events only accept `/qseow-proxy-connection/` and `/qseow-proxy-session/`. Log events must match the enabled sources in the config file (`Butler-SOS.logEvents.source.<type>.enable`).
 
