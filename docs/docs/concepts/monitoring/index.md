@@ -9,6 +9,7 @@ Butler SOS provides comprehensive monitoring capabilities for Qlik Sense Enterpr
 This section covers the key monitoring features:
 
 - **[Health Metrics](./health-metrics)** - Real-time server metrics (CPU, memory, cache, app states).
+- **[Failed Polls](./failed-polls)** - Explicit InfluxDB events when health, proxy-session, or app-name polling fails.
 - **[User Sessions](./user-sessions)** - Periodic snapshots of active sessions per virtual proxy.
 - **[User Events](./user-events)** - Real-time session and connection events, including browser/OS tracking.
 

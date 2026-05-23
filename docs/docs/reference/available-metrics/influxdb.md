@@ -447,6 +447,7 @@ Metrics about Butler SOS' own resource usage. More info on these metrics is avai
 Error events tracked by Butler SOS's ErrorTracker. One data point is written per error event (when enabled).
 
 More details in the [Error Tracking concept docs](/docs/concepts/features/error-tracking).
+For the failed Qlik Sense polling subset of this measurement, see [Failed Poll Metrics](./failed-polls).
 
 #### Tags
 

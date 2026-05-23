@@ -56,6 +56,7 @@ Metrics about Butler SOS itself:
 
 - Memory usage (heap, process)
 - Uptime information
+- Failed poll events written to InfluxDB when Qlik Sense polling fails
 
 ## Data Model Comparison
 
@@ -94,5 +95,6 @@ Custom tags defined in the config file are also added to all metrics.
 ## Next Steps
 
 - [InfluxDB Metrics](./influxdb) - Complete InfluxDB measurement reference
+- [Failed Poll Metrics](./failed-polls) - Filter the error-tracking measurement down to failed health, proxy-session, and app-name polls
 - [Prometheus Metrics](./prometheus) - Prometheus endpoint metrics
 - [New Relic](./new-relic) - New Relic integration details

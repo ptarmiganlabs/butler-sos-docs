@@ -195,6 +195,7 @@ export default withMermaid({
               items: [
                 { text: 'Overview', link: '/docs/concepts/monitoring/' },
                 { text: 'Health Metrics', link: '/docs/concepts/monitoring/health-metrics' },
+                { text: 'Failed Polls', link: '/docs/concepts/monitoring/failed-polls' },
                 { text: 'User Sessions', link: '/docs/concepts/monitoring/user-sessions' },
                 { text: 'User Events', link: '/docs/concepts/monitoring/user-events' },
                 { text: 'UDP Message Queue', link: '/docs/concepts/monitoring/udp-queue' },
@@ -316,6 +317,7 @@ export default withMermaid({
               items: [
                 { text: 'Overview', link: '/docs/reference/available-metrics/' },
                 { text: 'InfluxDB Metrics', link: '/docs/reference/available-metrics/influxdb' },
+                { text: 'Failed Polls', link: '/docs/reference/available-metrics/failed-polls' },
                 { text: 'Prometheus Metrics', link: '/docs/reference/available-metrics/prometheus' },
                 { text: 'New Relic', link: '/docs/reference/available-metrics/new-relic' }
               ]

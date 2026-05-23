@@ -56,7 +56,7 @@ features:
     details: Runs on Windows, Linux, Mac OS, in Docker or as a Kubernetes service. Deploy where it makes sense given your infrastructure.
   - icon: 🚀
     title: Latest Release v15
-    details: New InfluxDB v3 support and improved configuration validation. Butler SOS now serves as backend for Audit.qs.
+    details: New InfluxDB v3 support, failed-poll tracking for Qlik Sense servers, and improved configuration validation. Butler SOS now serves as backend for Audit.qs.
   - icon: 💝
     title: Free and Open Source
     details: Butler SOS is an open source project, using the MIT license. All source code, documentation etc is available as-is, at no cost.

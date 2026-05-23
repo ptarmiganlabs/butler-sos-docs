@@ -29,6 +29,7 @@ These are separate from the **metrics** destination configs such as `Butler-SOS.
 Butler SOS collects metrics from Qlik Sense and can store them in various destinations. Each destination has its own metric structure:
 
 - **[InfluxDB Metrics](./available-metrics/)** - Complete reference of InfluxDB measurements, tags, and fields
+- **[Failed Poll Metrics](./available-metrics/failed-polls)** - InfluxDB error events generated when Qlik Sense polling fails
 - **[Prometheus Metrics](./available-metrics/prometheus)** - Prometheus endpoint metrics and labels
 - **[New Relic](./available-metrics/new-relic)** - New Relic integration overview
 
