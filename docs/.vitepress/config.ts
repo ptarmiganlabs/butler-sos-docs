@@ -2,9 +2,6 @@ import { defineConfig } from 'vitepress'
 import { withMermaid } from "vitepress-plugin-mermaid";
 
 
-// Generated at build time by scripts/fetch-butler-sos-version.mjs
-import { version as butlerSOSVersion } from "./version.js";
-
 
 
 // https://vitepress.vuejs.org/config/app-configs
@@ -82,9 +79,16 @@ export default withMermaid({
   logo: '/logo.svg',
     
     nav: [
-      { text: 'Guide', link: '/docs/' },
-      { 
-        text: butlerSOSVersion,
+      { text: 'Guide', link: '/v14.0/' },
+      {
+        text: 'Version',
+        items: [
+          { text: 'v15.0 (latest)', link: '/v15.0/' },
+          { text: 'v14.0', link: '/v14.0/' },
+        ]
+      },
+      {
+        text: 'Resources',
         items: [
           {
             text: "Downloads",
@@ -107,133 +111,133 @@ export default withMermaid({
     ],
 
     sidebar: {
-      '/docs/': [
+      '/v14.0/': [
         {
           text: 'About',
           collapsed: false,
           items: [
-            { text: 'Butler SOS', link: '/docs/about/' },
-            { text: 'Butler Family', link: '/docs/about/butler-family' },
-            { text: 'Use Cases', link: '/docs/about/use-cases/' },
-            { text: 'Versioning', link: '/docs/about/versioning' },
-            { text: 'Contributing', link: '/docs/about/contributing' },
-            { text: 'Telemetry', link: '/docs/about/telemetry' },
-            { text: 'Security Considerations', link: '/docs/security' }
+            { text: 'Butler SOS', link: '/v14.0/about/' },
+            { text: 'Butler Family', link: '/v14.0/about/butler-family' },
+            { text: 'Use Cases', link: '/v14.0/about/use-cases/' },
+            { text: 'Versioning', link: '/v14.0/about/versioning' },
+            { text: 'Contributing', link: '/v14.0/about/contributing' },
+            { text: 'Telemetry', link: '/v14.0/about/telemetry' },
+            { text: 'Security Considerations', link: '/v14.0/security' }
           ]
         },
         {
           text: 'Getting Started',
           collapsed: true,
           items: [
-            { text: 'Overview', link: '/docs/getting-started/' },
+            { text: 'Overview', link: '/v14.0/getting-started/' },
             {
               text: 'Installation',
               collapsed: true,
               items: [
-                { text: 'Overview', link: '/docs/getting-started/install/' },
-                { text: 'Choose Platform', link: '/docs/getting-started/install/choose-platform' },
-                { text: 'Docker', link: '/docs/getting-started/install/docker' },
-                { text: 'Windows', link: '/docs/getting-started/install/windows' },
-                { text: 'Linux & macOS', link: '/docs/getting-started/install/linux-macos' },
-                { text: 'InfluxDB & Grafana', link: '/docs/getting-started/install/influxdb-grafana' },
-                { text: 'Prometheus & Grafana', link: '/docs/getting-started/install/prometheus-grafana' }
+                { text: 'Overview', link: '/v14.0/getting-started/install/' },
+                { text: 'Choose Platform', link: '/v14.0/getting-started/install/choose-platform' },
+                { text: 'Docker', link: '/v14.0/getting-started/install/docker' },
+                { text: 'Windows', link: '/v14.0/getting-started/install/windows' },
+                { text: 'Linux & macOS', link: '/v14.0/getting-started/install/linux-macos' },
+                { text: 'InfluxDB & Grafana', link: '/v14.0/getting-started/install/influxdb-grafana' },
+                { text: 'Prometheus & Grafana', link: '/v14.0/getting-started/install/prometheus-grafana' }
               ]
             },
             {
               text: 'Setup',
               collapsed: true,
               items: [
-                { text: 'Overview', link: '/docs/getting-started/setup/' },
-                { text: 'Which Config File', link: '/docs/getting-started/setup/which-config-file' },
-                { text: 'Verify Config File', link: '/docs/getting-started/setup/verify-config-file' },
-                { text: 'Config Visualization', link: '/docs/getting-started/setup/config-visualization' },
-                { text: 'Logging', link: '/docs/getting-started/setup/logging' },
-                { text: 'Crash Dump', link: '/docs/getting-started/setup/crash-dump' },
-                { text: 'Heartbeats', link: '/docs/getting-started/setup/heartbeats' },
-                { text: 'Docker Healthcheck', link: '/docs/getting-started/setup/docker-healthcheck' },
-                { text: 'Uptime Monitor', link: '/docs/getting-started/setup/uptime-monitor' },
-                { text: 'Credentials', link: '/docs/getting-started/setup/credentials' },
-                { text: 'Sense Server Settings', link: '/docs/getting-started/setup/sense-server-settings' },
-                { text: 'Audit Screenshots', link: '/docs/getting-started/setup/audit-screenshots' },
+                { text: 'Overview', link: '/v14.0/getting-started/setup/' },
+                { text: 'Which Config File', link: '/v14.0/getting-started/setup/which-config-file' },
+                { text: 'Verify Config File', link: '/v14.0/getting-started/setup/verify-config-file' },
+                { text: 'Config Visualization', link: '/v14.0/getting-started/setup/config-visualization' },
+                { text: 'Logging', link: '/v14.0/getting-started/setup/logging' },
+                { text: 'Crash Dump', link: '/v14.0/getting-started/setup/crash-dump' },
+                { text: 'Heartbeats', link: '/v14.0/getting-started/setup/heartbeats' },
+                { text: 'Docker Healthcheck', link: '/v14.0/getting-started/setup/docker-healthcheck' },
+                { text: 'Uptime Monitor', link: '/v14.0/getting-started/setup/uptime-monitor' },
+                { text: 'Credentials', link: '/v14.0/getting-started/setup/credentials' },
+                { text: 'Sense Server Settings', link: '/v14.0/getting-started/setup/sense-server-settings' },
+                { text: 'Audit Screenshots', link: '/v14.0/getting-started/setup/audit-screenshots' },
                 {
                   text: 'Qlik Sense Events',
                   collapsed: true,
                   items: [
-                    { text: 'Overview', link: '/docs/getting-started/setup/qlik-sense-events/' },
-                    { text: 'Log Events', link: '/docs/getting-started/setup/qlik-sense-events/log-events' },
-                    { text: 'Performance Log Events', link: '/docs/getting-started/setup/qlik-sense-events/performance-log-events' },
-                    { text: 'User Events', link: '/docs/getting-started/setup/qlik-sense-events/user-events' }
+                    { text: 'Overview', link: '/v14.0/getting-started/setup/qlik-sense-events/' },
+                    { text: 'Log Events', link: '/v14.0/getting-started/setup/qlik-sense-events/log-events' },
+                    { text: 'Performance Log Events', link: '/v14.0/getting-started/setup/qlik-sense-events/performance-log-events' },
+                    { text: 'User Events', link: '/v14.0/getting-started/setup/qlik-sense-events/user-events' }
                   ]
                 },
-                { text: 'MQTT', link: '/docs/getting-started/setup/mqtt' },
-                { text: 'Prometheus', link: '/docs/getting-started/setup/prometheus' },
-                { text: 'InfluxDB', link: '/docs/getting-started/setup/influxdb' },
-                { text: 'New Relic', link: '/docs/getting-started/setup/new-relic' },
-                { text: 'App Names', link: '/docs/getting-started/setup/app-names' },
-                { text: 'User Sessions', link: '/docs/getting-started/setup/user-sessions' },
-                { text: 'Servers to Monitor', link: '/docs/getting-started/setup/servers-to-monitor' },
-                { text: 'Telemetry', link: '/docs/getting-started/setup/telemetry' },
-                { text: 'Error Tracking', link: '/docs/getting-started/setup/error-tracking' },
-                { text: 'Log DB (Deprecated)', link: '/docs/getting-started/setup/log-db' }
+                { text: 'MQTT', link: '/v14.0/getting-started/setup/mqtt' },
+                { text: 'Prometheus', link: '/v14.0/getting-started/setup/prometheus' },
+                { text: 'InfluxDB', link: '/v14.0/getting-started/setup/influxdb' },
+                { text: 'New Relic', link: '/v14.0/getting-started/setup/new-relic' },
+                { text: 'App Names', link: '/v14.0/getting-started/setup/app-names' },
+                { text: 'User Sessions', link: '/v14.0/getting-started/setup/user-sessions' },
+                { text: 'Servers to Monitor', link: '/v14.0/getting-started/setup/servers-to-monitor' },
+                { text: 'Telemetry', link: '/v14.0/getting-started/setup/telemetry' },
+                { text: 'Error Tracking', link: '/v14.0/getting-started/setup/error-tracking' },
+                { text: 'Log DB (Deprecated)', link: '/v14.0/getting-started/setup/log-db' }
               ]
             },
-            { text: 'Operations', link: '/docs/getting-started/operations/' },
-            { text: 'Upgrade', link: '/docs/getting-started/upgrade' }
+            { text: 'Operations', link: '/v14.0/getting-started/operations/' },
+            { text: 'Upgrade', link: '/v14.0/getting-started/upgrade' }
           ]
         },
         {
           text: 'Concepts',
           collapsed: true,
           items: [
-            { text: 'Overview', link: '/docs/concepts/' },
-            { text: 'App Metrics', link: '/docs/concepts/app%20metrics/' },
-            { text: 'Sessions & Connections', link: '/docs/concepts/sessions%20connections/' },
-            { text: 'Audit.qs', link: '/docs/concepts/audit-qs' },
+            { text: 'Overview', link: '/v14.0/concepts/' },
+            { text: 'App Metrics', link: '/v14.0/concepts/app%20metrics/' },
+            { text: 'Sessions & Connections', link: '/v14.0/concepts/sessions%20connections/' },
+            { text: 'Audit.qs', link: '/v14.0/concepts/audit-qs' },
             {
               text: 'Monitoring',
               collapsed: true,
               items: [
-                { text: 'Overview', link: '/docs/concepts/monitoring/' },
-                { text: 'Health Metrics', link: '/docs/concepts/monitoring/health-metrics' },
-                { text: 'Failed Polls', link: '/docs/concepts/monitoring/failed-polls' },
-                { text: 'User Sessions', link: '/docs/concepts/monitoring/user-sessions' },
-                { text: 'User Events', link: '/docs/concepts/monitoring/user-events' },
-                { text: 'UDP Message Queue', link: '/docs/concepts/monitoring/udp-queue' },
+                { text: 'Overview', link: '/v14.0/concepts/monitoring/' },
+                { text: 'Health Metrics', link: '/v14.0/concepts/monitoring/health-metrics' },
+                { text: 'Failed Polls', link: '/v14.0/concepts/monitoring/failed-polls' },
+                { text: 'User Sessions', link: '/v14.0/concepts/monitoring/user-sessions' },
+                { text: 'User Events', link: '/v14.0/concepts/monitoring/user-events' },
+                { text: 'UDP Message Queue', link: '/v14.0/concepts/monitoring/udp-queue' },
                 {
                   text: 'Log Events',
                   collapsed: true,
                   items: [
-                    { text: 'Overview', link: '/docs/concepts/monitoring/log-events/' },
-                    { text: 'App Performance Monitoring', link: '/docs/concepts/monitoring/log-events/app%20object%20performance%20monitoring/' },
-                    { text: 'Categorizing Log Events', link: '/docs/concepts/monitoring/log-events/catgorising%20log%20events/' },
-                    { text: 'Errors & Warnings', link: '/docs/concepts/monitoring/log-events/errors%20warnings/' }
+                    { text: 'Overview', link: '/v14.0/concepts/monitoring/log-events/' },
+                    { text: 'App Performance Monitoring', link: '/v14.0/concepts/monitoring/log-events/app%20object%20performance%20monitoring/' },
+                    { text: 'Categorizing Log Events', link: '/v14.0/concepts/monitoring/log-events/catgorising%20log%20events/' },
+                    { text: 'Errors & Warnings', link: '/v14.0/concepts/monitoring/log-events/errors%20warnings/' }
                   ]
                 },
-                { text: 'Audit.qs Events', link: '/docs/concepts/monitoring/audit-qs-events' },
+                { text: 'Audit.qs Events', link: '/v14.0/concepts/monitoring/audit-qs-events' },
               ]
             },
             {
               text: 'Data Destinations',
               collapsed: true,
               items: [
-                { text: 'Overview', link: '/docs/concepts/data-destinations/' },
-                { text: 'InfluxDB', link: '/docs/concepts/data-destinations/influxdb' },
-                { text: 'Prometheus', link: '/docs/concepts/data-destinations/prometheus' },
-                { text: 'New Relic', link: '/docs/concepts/data-destinations/new-relic' },
-                { text: 'MQTT', link: '/docs/concepts/data-destinations/mqtt' }
+                { text: 'Overview', link: '/v14.0/concepts/data-destinations/' },
+                { text: 'InfluxDB', link: '/v14.0/concepts/data-destinations/influxdb' },
+                { text: 'Prometheus', link: '/v14.0/concepts/data-destinations/prometheus' },
+                { text: 'New Relic', link: '/v14.0/concepts/data-destinations/new-relic' },
+                { text: 'MQTT', link: '/v14.0/concepts/data-destinations/mqtt' }
               ]
             },
             {
               text: 'Misc features',
               collapsed: true,
               items: [
-                { text: 'Heartbeats', link: '/docs/concepts/features/heartbeats' },
-                { text: 'Uptime Monitor', link: '/docs/concepts/features/uptime-monitor' },
-                { text: 'Telemetry', link: '/docs/concepts/features/telemetry' },
-                { text: 'Config Visualization', link: '/docs/concepts/features/config-visualization' },
-                { text: 'Error Tracking', link: '/docs/concepts/features/error-tracking' },
-                { text: 'Crash Dump', link: '/docs/concepts/features/crash-dump' },
-                { text: 'Build Security', link: '/docs/concepts/build-security' }
+                { text: 'Heartbeats', link: '/v14.0/concepts/features/heartbeats' },
+                { text: 'Uptime Monitor', link: '/v14.0/concepts/features/uptime-monitor' },
+                { text: 'Telemetry', link: '/v14.0/concepts/features/telemetry' },
+                { text: 'Config Visualization', link: '/v14.0/concepts/features/config-visualization' },
+                { text: 'Error Tracking', link: '/v14.0/concepts/features/error-tracking' },
+                { text: 'Crash Dump', link: '/v14.0/concepts/features/crash-dump' },
+                { text: 'Build Security', link: '/v14.0/concepts/build-security' }
               ]
             }
           ]
@@ -242,28 +246,28 @@ export default withMermaid({
           text: 'Examples',
           collapsed: true,
           items: [
-            { text: 'Overview', link: '/docs/examples/' },
-            { text: 'Docker Compose Stack', link: '/docs/examples/docker-compose-stack' },
+            { text: 'Overview', link: '/v14.0/examples/' },
+            { text: 'Docker Compose Stack', link: '/v14.0/examples/docker-compose-stack' },
             {
               text: 'Grafana Dashboards',
               collapsed: true,
               items: [
-                { text: 'Overview', link: '/docs/examples/grafana/' },
-                { text: 'Grafana 9', link: '/docs/examples/grafana/grafana-9' },
-                { text: 'Grafana 8', link: '/docs/examples/grafana/grafana-8' },
-                { text: 'Grafana 7', link: '/docs/examples/grafana/grafana-7' },
-                { text: 'Grafana 6', link: '/docs/examples/grafana/grafana-6' }
+                { text: 'Overview', link: '/v14.0/examples/grafana/' },
+                { text: 'Grafana 9', link: '/v14.0/examples/grafana/grafana-9' },
+                { text: 'Grafana 8', link: '/v14.0/examples/grafana/grafana-8' },
+                { text: 'Grafana 7', link: '/v14.0/examples/grafana/grafana-7' },
+                { text: 'Grafana 6', link: '/v14.0/examples/grafana/grafana-6' }
               ]
             },
-            { text: 'New Relic Dashboards', link: '/docs/examples/new-relic-dashboards' },
-            { text: 'Count User/Log Events', link: '/docs/examples/count-user-log-events' },
+            { text: 'New Relic Dashboards', link: '/v14.0/examples/new-relic-dashboards' },
+            { text: 'Count User/Log Events', link: '/v14.0/examples/count-user-log-events' },
             {
               text: 'Engine Performance',
               collapsed: true,
               items: [
-                { text: 'Overview', link: '/docs/examples/engine-performance/' },
-                { text: 'App Open Time', link: '/docs/examples/engine-performance/app-open-time' },
-                { text: 'Find Slow Charts', link: '/docs/examples/engine-performance/find-slow-charts' }
+                { text: 'Overview', link: '/v14.0/examples/engine-performance/' },
+                { text: 'App Open Time', link: '/v14.0/examples/engine-performance/app-open-time' },
+                { text: 'Find Slow Charts', link: '/v14.0/examples/engine-performance/find-slow-charts' }
               ]
             }
           ]
@@ -272,41 +276,41 @@ export default withMermaid({
           text: 'Reference',
           collapsed: true,
           items: [
-            { text: 'Overview', link: '/docs/reference/' },
-            { text: 'Command Line Options', link: '/docs/reference/command-line-options' },
-            { text: 'Config File Format', link: '/docs/reference/config-file-format' },
-            { text: 'UDP Payload Format', link: '/docs/reference/udp-payload-format' },
+            { text: 'Overview', link: '/v14.0/reference/' },
+            { text: 'Command Line Options', link: '/v14.0/reference/command-line-options' },
+            { text: 'Config File Format', link: '/v14.0/reference/config-file-format' },
+            { text: 'UDP Payload Format', link: '/v14.0/reference/udp-payload-format' },
             {
               text: 'Audit Events',
               collapsed: true,
               items: [
-                { text: 'API', link: '/docs/reference/audit-events-api' },
-                { text: 'Rate Limiting', link: '/docs/reference/audit-events-rate-limiting' },
-                { text: 'Version Compatibility', link: '/docs/reference/audit-qs-version-compatibility' },
+                { text: 'API', link: '/v14.0/reference/audit-events-api' },
+                { text: 'Rate Limiting', link: '/v14.0/reference/audit-events-rate-limiting' },
+                { text: 'Version Compatibility', link: '/v14.0/reference/audit-qs-version-compatibility' },
                 {
                   text: 'Destinations',
                   collapsed: true,
                   items: [
-                    { text: 'Overview', link: '/docs/reference/audit-destinations/' },
-                    { text: 'InfluxDB', link: '/docs/reference/audit-destinations/influxdb/' },
+                    { text: 'Overview', link: '/v14.0/reference/audit-destinations/' },
+                    { text: 'InfluxDB', link: '/v14.0/reference/audit-destinations/influxdb/' },
                     {
                       text: 'JSON',
                       collapsed: true,
                       items: [
-                        { text: 'Overview', link: '/docs/reference/audit-destinations/json/' },
-                        { text: 'Object Data', link: '/docs/reference/audit-destinations/json/object-data' }
+                        { text: 'Overview', link: '/v14.0/reference/audit-destinations/json/' },
+                        { text: 'Object Data', link: '/v14.0/reference/audit-destinations/json/object-data' }
                       ]
                     },
-                    { text: 'Parquet', link: '/docs/reference/audit-destinations/parquet/' },
+                    { text: 'Parquet', link: '/v14.0/reference/audit-destinations/parquet/' },
                     {
                       text: 'PNG',
                       collapsed: true,
                       items: [
-                        { text: 'Overview', link: '/docs/reference/audit-destinations/png/' },
-                        { text: 'Screenshot Downloads', link: '/docs/reference/audit-destinations/png/downloads' }
+                        { text: 'Overview', link: '/v14.0/reference/audit-destinations/png/' },
+                        { text: 'Screenshot Downloads', link: '/v14.0/reference/audit-destinations/png/downloads' }
                       ]
                     },
-                    { text: 'QVD', link: '/docs/reference/audit-destinations/qvd/' }
+                    { text: 'QVD', link: '/v14.0/reference/audit-destinations/qvd/' }
                   ]
                 }
               ]
@@ -315,11 +319,11 @@ export default withMermaid({
               text: 'Available Metrics',
               collapsed: true,
               items: [
-                { text: 'Overview', link: '/docs/reference/available-metrics/' },
-                { text: 'InfluxDB Metrics', link: '/docs/reference/available-metrics/influxdb' },
-                { text: 'Failed Polls', link: '/docs/reference/available-metrics/failed-polls' },
-                { text: 'Prometheus Metrics', link: '/docs/reference/available-metrics/prometheus' },
-                { text: 'New Relic', link: '/docs/reference/available-metrics/new-relic' }
+                { text: 'Overview', link: '/v14.0/reference/available-metrics/' },
+                { text: 'InfluxDB Metrics', link: '/v14.0/reference/available-metrics/influxdb' },
+                { text: 'Failed Polls', link: '/v14.0/reference/available-metrics/failed-polls' },
+                { text: 'Prometheus Metrics', link: '/v14.0/reference/available-metrics/prometheus' },
+                { text: 'New Relic', link: '/v14.0/reference/available-metrics/new-relic' }
               ]
             }
           ]
@@ -328,7 +332,232 @@ export default withMermaid({
           text: 'Legal Stuff',
           collapsed: true,
           items: [
-            { text: 'Legal Information', link: '/docs/legal-stuff' }
+            { text: 'Legal Information', link: '/v14.0/legal-stuff' }
+          ]
+        }
+      ],
+      '/v15.0/': [
+        {
+          text: 'About',
+          collapsed: false,
+          items: [
+            { text: 'Butler SOS', link: '/v15.0/about/' },
+            { text: 'Butler Family', link: '/v15.0/about/butler-family' },
+            { text: 'Use Cases', link: '/v15.0/about/use-cases/' },
+            { text: 'Versioning', link: '/v15.0/about/versioning' },
+            { text: 'Contributing', link: '/v15.0/about/contributing' },
+            { text: 'Telemetry', link: '/v15.0/about/telemetry' },
+            { text: 'Security Considerations', link: '/v15.0/security' }
+          ]
+        },
+        {
+          text: 'Getting Started',
+          collapsed: true,
+          items: [
+            { text: 'Overview', link: '/v15.0/getting-started/' },
+            {
+              text: 'Installation',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/v15.0/getting-started/install/' },
+                { text: 'Choose Platform', link: '/v15.0/getting-started/install/choose-platform' },
+                { text: 'Docker', link: '/v15.0/getting-started/install/docker' },
+                { text: 'Windows', link: '/v15.0/getting-started/install/windows' },
+                { text: 'Linux & macOS', link: '/v15.0/getting-started/install/linux-macos' },
+                { text: 'InfluxDB & Grafana', link: '/v15.0/getting-started/install/influxdb-grafana' },
+                { text: 'Prometheus & Grafana', link: '/v15.0/getting-started/install/prometheus-grafana' }
+              ]
+            },
+            {
+              text: 'Setup',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/v15.0/getting-started/setup/' },
+                { text: 'Which Config File', link: '/v15.0/getting-started/setup/which-config-file' },
+                { text: 'Verify Config File', link: '/v15.0/getting-started/setup/verify-config-file' },
+                { text: 'Config Visualization', link: '/v15.0/getting-started/setup/config-visualization' },
+                { text: 'Logging', link: '/v15.0/getting-started/setup/logging' },
+                { text: 'Crash Dump', link: '/v15.0/getting-started/setup/crash-dump' },
+                { text: 'Heartbeats', link: '/v15.0/getting-started/setup/heartbeats' },
+                { text: 'Docker Healthcheck', link: '/v15.0/getting-started/setup/docker-healthcheck' },
+                { text: 'Uptime Monitor', link: '/v15.0/getting-started/setup/uptime-monitor' },
+                { text: 'Credentials', link: '/v15.0/getting-started/setup/credentials' },
+                { text: 'Sense Server Settings', link: '/v15.0/getting-started/setup/sense-server-settings' },
+                { text: 'Audit Screenshots', link: '/v15.0/getting-started/setup/audit-screenshots' },
+                {
+                  text: 'Qlik Sense Events',
+                  collapsed: true,
+                  items: [
+                    { text: 'Overview', link: '/v15.0/getting-started/setup/qlik-sense-events/' },
+                    { text: 'Log Events', link: '/v15.0/getting-started/setup/qlik-sense-events/log-events' },
+                    { text: 'Performance Log Events', link: '/v15.0/getting-started/setup/qlik-sense-events/performance-log-events' },
+                    { text: 'User Events', link: '/v15.0/getting-started/setup/qlik-sense-events/user-events' }
+                  ]
+                },
+                { text: 'MQTT', link: '/v15.0/getting-started/setup/mqtt' },
+                { text: 'Prometheus', link: '/v15.0/getting-started/setup/prometheus' },
+                { text: 'InfluxDB', link: '/v15.0/getting-started/setup/influxdb' },
+                { text: 'New Relic', link: '/v15.0/getting-started/setup/new-relic' },
+                { text: 'App Names', link: '/v15.0/getting-started/setup/app-names' },
+                { text: 'User Sessions', link: '/v15.0/getting-started/setup/user-sessions' },
+                { text: 'Servers to Monitor', link: '/v15.0/getting-started/setup/servers-to-monitor' },
+                { text: 'Telemetry', link: '/v15.0/getting-started/setup/telemetry' },
+                { text: 'Error Tracking', link: '/v15.0/getting-started/setup/error-tracking' },
+                { text: 'Log DB (Deprecated)', link: '/v15.0/getting-started/setup/log-db' }
+              ]
+            },
+            { text: 'Operations', link: '/v15.0/getting-started/operations/' },
+            { text: 'Upgrade', link: '/v15.0/getting-started/upgrade' }
+          ]
+        },
+        {
+          text: 'Concepts',
+          collapsed: true,
+          items: [
+            { text: 'Overview', link: '/v15.0/concepts/' },
+            { text: 'App Metrics', link: '/v15.0/concepts/app%20metrics/' },
+            { text: 'Sessions & Connections', link: '/v15.0/concepts/sessions%20connections/' },
+            { text: 'Audit.qs', link: '/v15.0/concepts/audit-qs' },
+            {
+              text: 'Monitoring',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/v15.0/concepts/monitoring/' },
+                { text: 'Health Metrics', link: '/v15.0/concepts/monitoring/health-metrics' },
+                { text: 'Failed Polls', link: '/v15.0/concepts/monitoring/failed-polls' },
+                { text: 'User Sessions', link: '/v15.0/concepts/monitoring/user-sessions' },
+                { text: 'User Events', link: '/v15.0/concepts/monitoring/user-events' },
+                { text: 'UDP Message Queue', link: '/v15.0/concepts/monitoring/udp-queue' },
+                {
+                  text: 'Log Events',
+                  collapsed: true,
+                  items: [
+                    { text: 'Overview', link: '/v15.0/concepts/monitoring/log-events/' },
+                    { text: 'App Performance Monitoring', link: '/v15.0/concepts/monitoring/log-events/app%20object%20performance%20monitoring/' },
+                    { text: 'Categorizing Log Events', link: '/v15.0/concepts/monitoring/log-events/catgorising%20log%20events/' },
+                    { text: 'Errors & Warnings', link: '/v15.0/concepts/monitoring/log-events/errors%20warnings/' }
+                  ]
+                },
+                { text: 'Audit.qs Events', link: '/v15.0/concepts/monitoring/audit-qs-events' },
+              ]
+            },
+            {
+              text: 'Data Destinations',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/v15.0/concepts/data-destinations/' },
+                { text: 'InfluxDB', link: '/v15.0/concepts/data-destinations/influxdb' },
+                { text: 'Prometheus', link: '/v15.0/concepts/data-destinations/prometheus' },
+                { text: 'New Relic', link: '/v15.0/concepts/data-destinations/new-relic' },
+                { text: 'MQTT', link: '/v15.0/concepts/data-destinations/mqtt' }
+              ]
+            },
+            {
+              text: 'Misc features',
+              collapsed: true,
+              items: [
+                { text: 'Heartbeats', link: '/v15.0/concepts/features/heartbeats' },
+                { text: 'Uptime Monitor', link: '/v15.0/concepts/features/uptime-monitor' },
+                { text: 'Telemetry', link: '/v15.0/concepts/features/telemetry' },
+                { text: 'Config Visualization', link: '/v15.0/concepts/features/config-visualization' },
+                { text: 'Error Tracking', link: '/v15.0/concepts/features/error-tracking' },
+                { text: 'Crash Dump', link: '/v15.0/concepts/features/crash-dump' },
+                { text: 'Build Security', link: '/v15.0/concepts/build-security' }
+              ]
+            }
+          ]
+        },
+        {
+          text: 'Examples',
+          collapsed: true,
+          items: [
+            { text: 'Overview', link: '/v15.0/examples/' },
+            { text: 'Docker Compose Stack', link: '/v15.0/examples/docker-compose-stack' },
+            {
+              text: 'Grafana Dashboards',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/v15.0/examples/grafana/' },
+                { text: 'Grafana 9', link: '/v15.0/examples/grafana/grafana-9' },
+                { text: 'Grafana 8', link: '/v15.0/examples/grafana/grafana-8' },
+                { text: 'Grafana 7', link: '/v15.0/examples/grafana/grafana-7' },
+                { text: 'Grafana 6', link: '/v15.0/examples/grafana/grafana-6' }
+              ]
+            },
+            { text: 'New Relic Dashboards', link: '/v15.0/examples/new-relic-dashboards' },
+            { text: 'Count User/Log Events', link: '/v15.0/examples/count-user-log-events' },
+            {
+              text: 'Engine Performance',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/v15.0/examples/engine-performance/' },
+                { text: 'App Open Time', link: '/v15.0/examples/engine-performance/app-open-time' },
+                { text: 'Find Slow Charts', link: '/v15.0/examples/engine-performance/find-slow-charts' }
+              ]
+            }
+          ]
+        },
+        {
+          text: 'Reference',
+          collapsed: true,
+          items: [
+            { text: 'Overview', link: '/v15.0/reference/' },
+            { text: 'Command Line Options', link: '/v15.0/reference/command-line-options' },
+            { text: 'Config File Format', link: '/v15.0/reference/config-file-format' },
+            { text: 'UDP Payload Format', link: '/v15.0/reference/udp-payload-format' },
+            {
+              text: 'Audit Events',
+              collapsed: true,
+              items: [
+                { text: 'API', link: '/v15.0/reference/audit-events-api' },
+                { text: 'Rate Limiting', link: '/v15.0/reference/audit-events-rate-limiting' },
+                { text: 'Version Compatibility', link: '/v15.0/reference/audit-qs-version-compatibility' },
+                {
+                  text: 'Destinations',
+                  collapsed: true,
+                  items: [
+                    { text: 'Overview', link: '/v15.0/reference/audit-destinations/' },
+                    { text: 'InfluxDB', link: '/v15.0/reference/audit-destinations/influxdb/' },
+                    {
+                      text: 'JSON',
+                      collapsed: true,
+                      items: [
+                        { text: 'Overview', link: '/v15.0/reference/audit-destinations/json/' },
+                        { text: 'Object Data', link: '/v15.0/reference/audit-destinations/json/object-data' }
+                      ]
+                    },
+                    { text: 'Parquet', link: '/v15.0/reference/audit-destinations/parquet/' },
+                    {
+                      text: 'PNG',
+                      collapsed: true,
+                      items: [
+                        { text: 'Overview', link: '/v15.0/reference/audit-destinations/png/' },
+                        { text: 'Screenshot Downloads', link: '/v15.0/reference/audit-destinations/png/downloads' }
+                      ]
+                    },
+                    { text: 'QVD', link: '/v15.0/reference/audit-destinations/qvd/' }
+                  ]
+                }
+              ]
+            },
+            {
+              text: 'Available Metrics',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/v15.0/reference/available-metrics/' },
+                { text: 'InfluxDB Metrics', link: '/v15.0/reference/available-metrics/influxdb' },
+                { text: 'Failed Polls', link: '/v15.0/reference/available-metrics/failed-polls' },
+                { text: 'Prometheus Metrics', link: '/v15.0/reference/available-metrics/prometheus' },
+                { text: 'New Relic', link: '/v15.0/reference/available-metrics/new-relic' }
+              ]
+            }
+          ]
+        },
+        {
+          text: 'Legal Stuff',
+          collapsed: true,
+          items: [
+            { text: 'Legal Information', link: '/v15.0/legal-stuff' }
           ]
         }
       ]
