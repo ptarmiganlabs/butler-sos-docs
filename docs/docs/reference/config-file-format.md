@@ -146,6 +146,22 @@ If you are _not_ running Butler SOS in Docker you can disable this feature.
 
 ---
 
+### Butler-SOS.qlikSenseEvents
+
+Shared settings for user and log events, including InfluxDB write frequency and event counter configuration.
+
+| Parameter | Description |
+| --------- | ----------- |
+| `influxdb.enable` | Should summary (counter) of user/log events, and rejected events be stored in InfluxDB? `true`/`false` |
+| `influxdb.writeFrequency` | How often (milliseconds) should event counts be written to InfluxDB? |
+| `eventCount.enable` | Should event count be stored in InfluxDB? `true`/`false` |
+| `eventCount.influxdb.measurementName` | Name of the InfluxDB measurement where event count is stored (default: `event_count`) |
+| `eventCount.influxdb.tags` | Tags added to the data before it's stored in InfluxDB |
+| `rejectedEventCount.enable` | Should rejected events be counted and stored in InfluxDB? `true`/`false` |
+| `rejectedEventCount.influxdb.measurementName` | Name of the InfluxDB measurement where rejected event count is stored (default: `rejected_event_count`) |
+
+---
+
 ### Butler-SOS.userEvents
 
 Track individual users opening/closing apps and starting/stopping sessions. Requires log appender XML file(s) to be added to Sense server(s).
@@ -227,9 +243,33 @@ Butler SOS uses an internal message queue to handle incoming log events. This en
 | `categorise.rules[].category[]`                   | Array of name-value pairs added to the log event if matched                                                                          |
 | `categorise.rules[].filter[]`                     | Array of type-value pairs used to match log events                                                                                   |
 | `categorise.rules[].filter[].type`                | Filter type. Values: `sw` (starts with), `ew` (ends with), `so` (substring of)                                                       |
+| `categorise.rules[].filter[].value`               | The string value to match against the filter type                                                                                  |
 | `categorise.ruleDefault`                          | Default values for categorization if no other rule matches                                                                           |
 | `categorise.ruleDefault.enable`                   | Should the default rule be used? `true`/`false`                                                                                      |
 | `categorise.ruleDefault.category[]`               | Array of name-value pairs added if no other rule matches                                                                             |
+| `enginePerformanceMonitor.enable`                 | Should app performance data be extracted from log events? `true`/`false`                                                               |
+| `enginePerformanceMonitor.appNameLookup.enable`   | Should app names be looked up based on app IDs? `true`/`false`                                                                         |
+| `enginePerformanceMonitor.trackRejectedEvents.enable` | Should events rejected by the app performance monitor be tracked? `true`/`false`                                                   |
+| `enginePerformanceMonitor.trackRejectedEvents.tags` | Tags added to rejected event data before storing in InfluxDB                                                                         |
+| `enginePerformanceMonitor.monitorFilter.allApps.enable` | Should all apps be monitored? `true`/`false`                                                                                     |
+| `enginePerformanceMonitor.monitorFilter.allApps.appExclude` | Array of apps to exclude from monitoring (by `appId` and/or `appName`)                                                       |
+| `enginePerformanceMonitor.monitorFilter.allApps.objectType.allObjectTypes` | Should all object types be monitored? `true`/`false`                                                          |
+| `enginePerformanceMonitor.monitorFilter.allApps.objectType.allObjectTypesExclude` | Array of object types to exclude when `allObjectTypes` is `true`                                         |
+| `enginePerformanceMonitor.monitorFilter.allApps.objectType.someObjectTypesInclude` | Array of object types to include when `allObjectTypes` is `false`                                       |
+| `enginePerformanceMonitor.monitorFilter.allApps.method.allMethods` | Should all methods be monitored? `true`/`false`                                                           |
+| `enginePerformanceMonitor.monitorFilter.allApps.method.allMethodsExclude` | Array of methods to exclude when `allMethods` is `true`                                                  |
+| `enginePerformanceMonitor.monitorFilter.allApps.method.someMethodsInclude` | Array of methods to include when `allMethods` is `false`                                                |
+| `enginePerformanceMonitor.monitorFilter.appSpecific.enable` | Should app-specific monitoring be done? `true`/`false`                                                                       |
+| `enginePerformanceMonitor.monitorFilter.appSpecific.app[].include` | Array of apps to monitor (by `appId` and/or `appName`)                                                                    |
+| `enginePerformanceMonitor.monitorFilter.appSpecific.app[].objectType.allObjectTypes` | Should all object types be monitored for these apps? `true`/`false`                                   |
+| `enginePerformanceMonitor.monitorFilter.appSpecific.app[].objectType.allObjectTypesExclude` | Array of object types to exclude                                                                         |
+| `enginePerformanceMonitor.monitorFilter.appSpecific.app[].objectType.someObjectTypesInclude` | Array of object types to include                                                                        |
+| `enginePerformanceMonitor.monitorFilter.appSpecific.app[].appObject.allAppObjects` | Should all app objects be monitored? `true`/`false`                                                     |
+| `enginePerformanceMonitor.monitorFilter.appSpecific.app[].appObject.allAppObjectsExclude` | Array of app objects to exclude                                                                        |
+| `enginePerformanceMonitor.monitorFilter.appSpecific.app[].appObject.someAppObjectsInclude` | Array of app objects to include                                                                         |
+| `enginePerformanceMonitor.monitorFilter.appSpecific.app[].method.allMethods` | Should all methods be monitored? `true`/`false`                                                         |
+| `enginePerformanceMonitor.monitorFilter.appSpecific.app[].method.allMethodsExclude` | Array of methods to exclude                                                                            |
+| `enginePerformanceMonitor.monitorFilter.appSpecific.app[].method.someMethodsInclude` | Array of methods to include                                                                           |
 | `sendToMQTT.enable`                               | Should log events be sent to MQTT? `true`/`false`                                                                                    |
 | `sendToMQTT.baseTopic`                            | Root MQTT topic for all log event messages                                                                                           |
 | `sendToMQTT.postTo.baseTopic`                     | Should all log events be posted to the root topic? `true`/`false`                                                                    |
@@ -282,7 +322,7 @@ MQTT config parameters. These must be correctly defined for any other MQTT featu
 
 If enabled, select Butler SOS metrics and events will be sent to New Relic.
 
-Note that New Relic destination accounts for events are defined in `Butler-SOS.userEvent` and `Butler-SOS.logEvent` sections, whereas destination accounts for metrics are defined in this section.
+Note that New Relic destination accounts for events are defined in `Butler-SOS.userEvents` and `Butler-SOS.logEvents` sections, whereas destination accounts for metrics are defined in this section.
 
 | Parameter                                          | Description                                                                                                                                  |
 | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -334,27 +374,18 @@ InfluxDB config parameters. These must be correctly defined for any other Influx
 | `host`                              | IP or FQDN of InfluxDB server                                                                                                                    |
 | `port`                              | Port where InfluxDB server is listening. **NOTE:** Must be set to a value (e.g., 8086)                                                           |
 | `version`                           | InfluxDB version. Valid values: `1`, `2` and `3`                                                                                                 |
-| `maxBatchSize`                     | Maximum number of data points to write in a single batch. If a batch fails, progressive retry with smaller sizes will be attempted (default: 1000) |
+| `maxBatchSize`                      | Maximum number of data points to write in a single batch. If a batch fails, progressive retry with smaller sizes will be attempted (default: 1000) |
 | `v3Config.database`                 | Database name for InfluxDB v3                                                                                                                    |
 | `v3Config.description`              | Description of the InfluxDB database                                                                                                             |
 | `v3Config.token`                    | Token for InfluxDB v3                                                                                                                            |
 | `v3Config.retentionDuration`        | Retention duration for the InfluxDB database                                                                                                     |
 | `v3Config.writeTimeout`             | Optional: Socket timeout in milliseconds (writing to InfluxDB) (default: 10000)                                                                  |
 | `v3Config.queryTimeout`             | Optional: Query timeout in milliseconds (default: 60000)                                                                                         |
-| `v3Config.maxBatchSize`             | Max data points per write batch (default: 1000, range: 1-10000). If a batch fails, progressive retry with smaller sizes will be attempted.      |
 | `v2Config.org`                      | Organization name for InfluxDB v2                                                                                                                |
 | `v2Config.bucket`                   | Bucket name for InfluxDB v2                                                                                                                      |
 | `v2Config.description`              | Description of the InfluxDB bucket                                                                                                               |
 | `v2Config.token`                    | Token for InfluxDB v2                                                                                                                            |
 | `v2Config.retentionDuration`        | Retention duration for the InfluxDB bucket                                                                                                       |
-| `v2Config.maxBatchSize`             | Max data points per write batch (default: 1000, range: 1-10000). If a batch fails, progressive retry with smaller sizes will be attempted.      |
-| `v1Config.auth.enable`              | Enable if using a password-protected InfluxDB v1 database                                                                                        |
-| `v1Config.auth.username`            | InfluxDB username                                                                                                                                |
-| `v1Config.auth.password`            | InfluxDB password                                                                                                                                |
-| `v1Config.dbName`                   | Name of InfluxDB v1 database to use                                                                                                              |
-| `v1Config.retentionPolicy.name`     | Name of default retention policy created when database is first created                                                                          |
-| `v1Config.retentionPolicy.duration` | Duration during which metrics are kept. See [InfluxDB docs](https://docs.influxdata.com/influxdb/v1.8/query_language/spec/#durations) for syntax |
-| `v1Config.maxBatchSize`             | Max data points per write batch (default: 1000, range: 1-10000). If a batch fails, progressive retry with smaller sizes will be attempted.      |
 | `v1Config.auth.enable`              | Enable if using a password-protected InfluxDB v1 database                                                                                        |
 | `v1Config.auth.username`            | InfluxDB username                                                                                                                                |
 | `v1Config.auth.password`            | InfluxDB password                                                                                                                                |
@@ -417,6 +448,6 @@ Extract user session data per virtual proxy.
 | `servers[].serverDescription`           | Human friendly server description                                                                                                                                         |
 | `servers[].userSessions.enable`         | Control whether user session data should be retrieved for this server                                                                                                     |
 | `servers[].userSessions.host`           | Host and port from which to retrieve user session data. Usually `servername.mydomain.net:4243`                                                                            |
-| `servers[].userSessions.virtualProxies` | A list of key-value pairs specifying which virtual proxies on this server to retrieve user session data from                                                              |
+| `servers[].userSessions.virtualProxies` | An array of objects specifying which virtual proxies on this server to retrieve user session data from. Each object has a `virtualProxy` property (e.g. `/`, `/hdr`, `/sales`) |
 | `servers[].serverTags`                  | A list of key-value pairs providing metadata for servers. Can be used in Grafana dashboards                                                                               |
 | `servers[].headers`                     | A list of key-value pairs. Headers specified here will be used when retrieving metrics from this Sense server                                                             |
