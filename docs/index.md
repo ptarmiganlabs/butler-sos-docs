@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: Learn More
-      link: /docs/about/
+      link: /v14.0/about/
     - theme: alt
       text: Download
       link: https://github.com/ptarmiganlabs/butler-sos/releases/latest
@@ -20,7 +20,7 @@ features:
   - icon: 🔍
     title: Real-time Monitoring
     details: Provides real-time monitoring of Qlik Sense Enterprise environments. One server or 40? No problem. Runs on Windows, Linux, Mac OS, in Docker or as a Kubernetes service.
-    link: /docs/getting_started/
+    link: /v14.0/getting_started/
   - icon: 📊
     title: Scalability
     details: Butler SOS handles very large Sense clusters - or just a single node. Designed to scale with your environment.
@@ -55,8 +55,8 @@ features:
     title: Cross-Platform
     details: Runs on Windows, Linux, Mac OS, in Docker or as a Kubernetes service. Deploy where it makes sense given your infrastructure.
   - icon: 🚀
-    title: Latest Release v14
-    details: New queue system for incoming log and user events improves reliability under load. Also includes enhanced logging and bug fixes.
+    title: Latest Release v15
+    details: New InfluxDB v3 support, failed-poll tracking for Qlik Sense servers, and improved configuration validation. Butler SOS now serves as backend for Audit.qs.
   - icon: 💝
     title: Free and Open Source
     details: Butler SOS is an open source project, using the MIT license. All source code, documentation etc is available as-is, at no cost.

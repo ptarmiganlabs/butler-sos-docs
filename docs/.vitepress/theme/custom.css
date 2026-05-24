@@ -116,3 +116,25 @@
     rgba(26, 26, 26, 0.55) 50%, 
     rgba(26, 26, 26, 0.75) 100%);
 }
+
+/* Page title with inline icon */
+.page-title-row {
+  margin-bottom: 1.5rem;
+}
+
+.page-title-icon {
+  width: 200px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark .page-title-icon {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .page-title-icon {
+    width: 120px;
+  }
+}
