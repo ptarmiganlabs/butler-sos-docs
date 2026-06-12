@@ -35,6 +35,12 @@ Grafana is an open source, world-class visualization tool for time series data. 
 If you don't fancy InfluxDB or Prometheus, Qlik Sense metrics and events can also be sent to New Relic for storage and visualization.  
 They offer a free tier that will go a long way towards testing out a cloud-based visualization solution for Butler SOS.
 
+<ResponsiveImage
+  src="/butler-sos-architecture.png"
+  alt="Butler SOS architecture diagram"
+  caption="Butler SOS data flow from Qlik Sense to monitoring destinations"
+/>
+
 ## Log Events
 
 Metrics are a major component of operational monitoring, but it's also important to keep on top of what errors and warning occur in the system.
