@@ -20,31 +20,8 @@ npm run build
 
 # Preview the production build
 npm run serve
-
-# Trigger deployment via GitHub Actions (requires GitHub CLI)
-npm run deploy
 ```
 
 ## Deployment
 
-The site is automatically deployed to GitHub Pages via GitHub Actions when changes are pushed to the `master` branch.
-
-**Manual deployment options:**
-
-1. **Using npm command** (requires [GitHub CLI](https://cli.github.com/)):
-
-   ```bash
-   npm run deploy
-   ```
-
-   This triggers the GitHub Actions workflow on your current branch.
-
-2. **Using GitHub CLI directly**:
-
-   ```bash
-   gh workflow run deploy-vitepress.yml
-   ```
-
-3. **Via GitHub web interface**: Go to Actions → Deploy VitePress site to Pages → Run workflow
-
-All methods use the same GitHub Actions workflow, ensuring consistent deployments.
+The site is automatically deployed to Cloudflare Pages when changes are pushed to the `master` branch.
