@@ -48,11 +48,3 @@ The site is automatically deployed to GitHub Pages via GitHub Actions when chang
 3. **Via GitHub web interface**: Go to Actions → Deploy VitePress site to Pages → Run workflow
 
 All methods use the same GitHub Actions workflow, ensuring consistent deployments.
-
-## Hugo Archive
-
-The previous Hugo-based documentation site has been archived in the `hugo-archive/` directory for reference and historical purposes. See the [Hugo Archive README](hugo-archive/README.md) for information on how to run the archived Hugo site if needed.
-
-## Migration Documentation
-
-Documentation about the VitePress migration process can be found in the `vitepress-migration-docs/` directory.

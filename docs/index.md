@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: Learn More
-      link: /v14.0/about/
+      link: /latest/about/
     - theme: alt
       text: Download
       link: https://github.com/ptarmiganlabs/butler-sos/releases/latest
@@ -20,7 +20,7 @@ features:
   - icon: 🔍
     title: Real-time Monitoring
     details: Provides real-time monitoring of Qlik Sense Enterprise environments. One server or 40? No problem. Runs on Windows, Linux, Mac OS, in Docker or as a Kubernetes service.
-    link: /v14.0/getting_started/
+    link: /latest/getting-started/
   - icon: 📊
     title: Scalability
     details: Butler SOS handles very large Sense clusters - or just a single node. Designed to scale with your environment.
