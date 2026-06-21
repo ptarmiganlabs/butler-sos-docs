@@ -1,3 +1,2 @@
-/docs/reference/available-metrics/prometheus / 301
-/docs/ / 301
+/docs/* /latest/:splat 301
 /themes/hugo-notice/README / 301
