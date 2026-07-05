@@ -262,6 +262,13 @@ export default withMermaid({
       },
     ],
     [
+      "meta",
+      {
+        property: "og:image",
+        content: "https://butler-sos.ptarmiganlabs.com/og-banner.png",
+      },
+    ],
+    [
       "script",
       {
         defer: "",
