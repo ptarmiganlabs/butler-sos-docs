@@ -246,7 +246,7 @@ export default withMermaid({
     transformItems: (items) =>
       items.filter((item) => item.url === '' || item.url.startsWith('latest/')),
   },
-  ignoreDeadLinks: true, // Set to true to ignore dead links and build anyway. False will fail the build if there are any dead links.
+  ignoreDeadLinks: 'localhostLinks', // Ignore localhost links (examples), fail on other dead links.
   
   head: [
     ["meta", { property: "og:type", content: "website" }],
