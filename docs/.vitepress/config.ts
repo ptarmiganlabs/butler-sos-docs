@@ -240,13 +240,15 @@ export default withMermaid({
   base: '/',
   lang: "en-US",
   cleanUrls: true,
+  lastUpdated: true,
   sitemap: {
     hostname: "https://butler-sos.ptarmiganlabs.com",
+    transformItems: (items) =>
+      items.filter((item) => item.url === '' || item.url.startsWith('latest/')),
   },
   ignoreDeadLinks: true, // Set to true to ignore dead links and build anyway. False will fail the build if there are any dead links.
   
   head: [
-    ["link", { rel: "icon", href: "/favicon.ico" }],
     ["meta", { property: "og:type", content: "website" }],
     [
       "meta",
@@ -257,6 +259,13 @@ export default withMermaid({
       {
         property: "og:description",
         content: "Real-time monitoring for Qlik Sense Enterprise on Windows",
+      },
+    ],
+    [
+      "meta",
+      {
+        property: "og:image",
+        content: "https://butler-sos.ptarmiganlabs.com/og-banner.png",
       },
     ],
     [
@@ -351,7 +360,7 @@ export default withMermaid({
 
   footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2018–2025 Ptarmigan Labs AB'
+      copyright: `Copyright © 2018–${new Date().getFullYear()} Ptarmigan Labs AB`
     },
 
     search: {
@@ -361,8 +370,8 @@ export default withMermaid({
     lastUpdated: {
       text: "Updated at",
       formatOptions: {
-        dateStyle: "full",
-        timeStyle: "medium",
+        dateStyle: "long",
+        timeStyle: "short",
       },
     },
 
