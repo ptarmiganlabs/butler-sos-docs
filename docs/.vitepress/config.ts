@@ -240,6 +240,7 @@ export default withMermaid({
   base: '/',
   lang: "en-US",
   cleanUrls: true,
+  lastUpdated: true,
   sitemap: {
     hostname: "https://butler-sos.ptarmiganlabs.com",
   },
