@@ -92,4 +92,4 @@ logEvents:
 
 - [Count User/Log Events](/v14.0/examples/count-user-log-events) - Event counting fundamentals
 - [Grafana Dashboards](/v14.0/examples/grafana/) - Visualization examples
-- [Log Events Overview](/v14.0/concepts/monitoring/log-events/log%20events%20overview/) - Understanding log events
+- [Log Events Overview](/v14.0/concepts/monitoring/log-events/) - Understanding log events

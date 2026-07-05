@@ -17,10 +17,10 @@ This section covers the key monitoring features:
 
 Butler SOS can capture detailed log events from Qlik Sense services:
 
-- **[Log Events Overview](./log-events/log%20events%20overview/)** - Understanding the three levels of log event data.
-- **[App Performance Monitoring](./log-events/app%20object%20performance%20monitoring/)** - Deep-dive into chart and object performance.
-- **[Categorizing Log Events](./log-events/catgorising%20log%20events/)** - How to filter and categorize events.
-- **[Errors & Warnings](./log-events/errors%20warnings/)** - Tracking error and warning events.
+- **[Log Events Overview](/v15.0/concepts/monitoring/log-events/)** - Understanding the three levels of log event data.
+- **[App Performance Monitoring](/v15.0/concepts/monitoring/log-events/app%20object%20performance%20monitoring/)** - Deep-dive into chart and object performance.
+- **[Categorizing Log Events](/v15.0/concepts/monitoring/log-events/catgorising%20log%20events/)** - How to filter and categorize events.
+- **[Errors & Warnings](/v15.0/concepts/monitoring/log-events/errors%20warnings/)** - Tracking error and warning events.
 
 ## Why monitoring matters
 
