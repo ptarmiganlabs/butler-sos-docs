@@ -15,6 +15,9 @@ hero:
     - theme: alt
       text: Discussion Forum
       link: https://github.com/ptarmiganlabs/butler-sos/discussions
+    - theme: alt
+      text: Codebase Wiki
+      link: https://github.com/ptarmiganlabs/butler-sos/blob/master/openwiki/quickstart.md
 
 features:
   - icon: 🔍
