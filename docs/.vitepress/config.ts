@@ -171,6 +171,7 @@ function createSidebar(p: string) {
         { text: 'Command Line Options', link: `${p}/reference/command-line-options` },
         { text: 'Config File Format', link: `${p}/reference/config-file-format` },
         { text: 'UDP Payload Format', link: `${p}/reference/udp-payload-format` },
+        ...(p !== '/v14.0' ? [{ text: 'Codebase Wiki', link: `${p}/reference/codebase-wiki` }] : []),
         {
           text: 'Audit Events',
           collapsed: true,
