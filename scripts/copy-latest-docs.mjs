@@ -85,16 +85,29 @@ async function main() {
     return;
   }
 
-  const sourceDir = path.join(docsDir, majorVersion);
-  const latestDir = path.join(docsDir, "latest");
+  // Docs folders exist per major version (v14.0, v15.0). A minor release such as v15.1.0
+  // has no folder of its own, so fall back to its major version's folder.
+  const candidateFolders = [...new Set([majorVersion, `${majorVersion.split(".")[0]}.0`])];
+  let sourceVersion = null;
+  for (const candidate of candidateFolders) {
+    try {
+      await fs.access(path.join(docsDir, candidate));
+      sourceVersion = candidate;
+      break;
+    } catch {
+      // Try the next candidate
+    }
+  }
 
-  // Check if source directory exists
-  try {
-    await fs.access(sourceDir);
-  } catch {
-    console.log(`[copy-latest] Source directory ${sourceDir} not found, skipping`);
+  if (!sourceVersion) {
+    console.log(
+      `[copy-latest] No docs folder for ${version} (tried ${candidateFolders.join(", ")}), skipping`
+    );
     return;
   }
+
+  const sourceDir = path.join(docsDir, sourceVersion);
+  const latestDir = path.join(docsDir, "latest");
 
   // Remove existing latest directory if it exists
   try {
@@ -103,11 +116,11 @@ async function main() {
     // Ignore if it doesn't exist
   }
 
-  console.log(`[copy-latest] Copying ${majorVersion} to latest`);
+  console.log(`[copy-latest] Copying ${sourceVersion} to latest (latest release: ${version})`);
   await copyDir(sourceDir, latestDir);
 
-  console.log(`[copy-latest] Rewriting links from /${majorVersion}/ to /latest/`);
-  await rewriteLinks(latestDir, majorVersion, "latest");
+  console.log(`[copy-latest] Rewriting links from /${sourceVersion}/ to /latest/`);
+  await rewriteLinks(latestDir, sourceVersion, "latest");
 
   console.log("[copy-latest] Done");
 }
