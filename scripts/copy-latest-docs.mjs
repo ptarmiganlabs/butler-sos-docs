@@ -11,6 +11,15 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const docsDir = path.resolve(__dirname, "../docs");
 const versionFile = path.resolve(__dirname, "../docs/.vitepress/version.js");
 
+// Stop the build. Without /latest/ the site would deploy with the Guide link, the version
+// menu and the unversioned-URL redirects all leading to 404 pages; a failed build instead
+// leaves the previous deploy in place.
+function fail(message) {
+  console.error(`[copy-latest] ERROR: ${message}`);
+  console.error("[copy-latest] Not building /latest/, so stopping the build.");
+  process.exit(1);
+}
+
 // Extract major version from full version string (e.g., "v15.0.1" -> "v15.0")
 function extractMajorVersion(version) {
   const match = version.match(/^(v\d+\.\d+)/);
@@ -75,14 +84,12 @@ async function rewriteLinks(dir, oldVersion, newVersion) {
 async function main() {
   const version = await readVersion();
   if (!version) {
-    console.log("[copy-latest] No version found, skipping");
-    return;
+    fail(`No version found in ${versionFile}. Run "npm run pre:version" to generate it.`);
   }
 
   const majorVersion = extractMajorVersion(version);
   if (!majorVersion) {
-    console.log(`[copy-latest] Could not extract major version from ${version}, skipping`);
-    return;
+    fail(`Could not extract a major version from "${version}" in ${versionFile}.`);
   }
 
   // Docs folders exist per major version (v14.0, v15.0). A minor release such as v15.1.0
@@ -100,10 +107,11 @@ async function main() {
   }
 
   if (!sourceVersion) {
-    console.log(
-      `[copy-latest] No docs folder for ${version} (tried ${candidateFolders.join(", ")}), skipping`
+    fail(
+      `No docs folder for the latest Butler SOS release ${version} (looked for ` +
+        `${candidateFolders.map((f) => `docs/${f}`).join(" and ")}). If this is a new major ` +
+        `version, create its folder as described under "Adding a New Version" in README.md.`
     );
-    return;
   }
 
   const sourceDir = path.join(docsDir, sourceVersion);
@@ -125,4 +133,4 @@ async function main() {
   console.log("[copy-latest] Done");
 }
 
-main();
+main().catch((err) => fail(err.message));
