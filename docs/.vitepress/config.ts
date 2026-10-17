@@ -342,6 +342,10 @@ export default withMermaid({
             link: "https://github.com/ptarmiganlabs/butler-sos/discussions",
           },
           {
+            text: "Butler SOS at ptarmiganlabs.com",
+            link: "https://ptarmiganlabs.com/products/butler-sos/",
+          },
+          {
             text: "Ptarmigan Labs main site",
             link: "https://ptarmiganlabs.com",
           },

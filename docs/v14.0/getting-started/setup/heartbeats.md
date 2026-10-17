@@ -28,7 +28,7 @@ Butler SOS (and most other tools in the Butler family) has a **heartbeat** featu
 
 [Uptime Kuma](https://github.com/louislam/uptime-kuma) is another great tool that can be used. It has a somewhat slicker UI than Healthchecks.io - but it's really a matter of personal preference which one to use.
 
-More info on using Healthchecks.io with Butler tools can be found [in this blog post](https://ptarmiganlabs.com/blog/2020/07/26/black-box-monitoring-of-butler-tools-monitoring-the-monitor/).
+More info on using Healthchecks.io with Butler tools can be found [in this blog post](https://ptarmiganlabs.com/black-box-monitoring-of-butler-tools-monitoring-the-monitor/).
 
 ## Settings in Main Config File
 
