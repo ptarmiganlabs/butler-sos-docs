@@ -34,7 +34,7 @@ Butler-SOS:
   errorTracking:
     enable: true                    # Master switch — disables all tracking when false
     logSummary:
-      enable: true                  # Log daily error summary to console at midnight UTC
+      enable: true                  # Log error counts to console: running totals at most once a minute while errors occur, and a final daily summary at midnight UTC
     influxdb:
       enable: true                  # Write individual error events to InfluxDB
       measurementName: butler_sos_errors
@@ -45,7 +45,7 @@ Butler-SOS:
 | Parameter | Description |
 |-----------|-------------|
 | `enable` | Master switch for all error tracking. `true`/`false` |
-| `logSummary.enable` | Log daily error summary to console. `true`/`false` |
+| `logSummary.enable` | Log the running error totals to the console (at most once a minute while errors occur) and a final summary at midnight UTC. When `false`, no summary is logged. `true`/`false` |
 | `influxdb.enable` | Write individual error events to InfluxDB. `true`/`false` |
 | `influxdb.measurementName` | InfluxDB measurement name (default: `butler_sos_errors`) |
 
