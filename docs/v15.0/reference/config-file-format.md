@@ -402,12 +402,12 @@ InfluxDB config parameters. These must be correctly defined for any other Influx
 
 Track errors that occur when communicating with Qlik Sense servers or writing to destination systems (InfluxDB, MQTT, New Relic).
 
-The `errorTracking.enable` setting is a **master switch** — when `false`, all error tracking is disabled (in-memory counting, daily summary logging, and InfluxDB writes).
+The `errorTracking.enable` setting is a **master switch** — when `false`, all error tracking is disabled (in-memory counting, summary logging, and InfluxDB writes).
 
 | Parameter | Description |
 |-----------|-------------|
 | `enable` | Master switch for all error tracking. `true`/`false` |
-| `logSummary.enable` | Log daily error summary to console at midnight UTC. `true`/`false` |
+| `logSummary.enable` | Log the running error totals to the console (at most once a minute while errors occur) and a final summary at midnight UTC. When `false`, no summary is logged. `true`/`false` |
 | `influxdb.enable` | Write individual error events to InfluxDB. `true`/`false` |
 | `influxdb.measurementName` | InfluxDB measurement name for error events (default: `butler_sos_errors`) |
 

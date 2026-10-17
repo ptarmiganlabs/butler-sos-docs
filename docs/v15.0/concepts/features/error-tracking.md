@@ -14,7 +14,7 @@ Error tracking helps you identify communication failures, misconfigurations, and
 
 ## Master Switch
 
-`Butler-SOS.errorTracking.enable: false` disables **all** error tracking — in-memory counting, daily summary logging, and InfluxDB writes are all skipped. When set to `true` (the default), individual feature flags (`logSummary.enable`, `influxdb.enable`) control each sub-feature independently.
+`Butler-SOS.errorTracking.enable: false` disables **all** error tracking — in-memory counting, summary logging, and InfluxDB writes are all skipped. When set to `true` (the default), individual feature flags (`logSummary.enable`, `influxdb.enable`) control each sub-feature independently.
 
 ## How It Works
 
@@ -27,24 +27,25 @@ sequenceDiagram
 
     M->>ET: incrementError(apiType, serverName, metadata, err)
     ET->>ET: Increment in-memory counter
-    ET->>C: Log running total (if logSummary enabled)
+    ET->>C: Log running total (if logSummary enabled, at most once a minute)
 
-    Note over ET: At midnight UTC
-    ET->>C: Log final summary
+    Note over ET: At midnight UTC, or at the first error after midnight if that comes first
+    ET->>C: Log final summary for the day (if logSummary enabled)
     ET->>ET: Reset all counters
 
     alt InfluxDB enabled
         ET->>I: Write error event (via setImmediate, non-blocking)
+        Note over ET,I: A failed error-event write is logged, but not counted as a new error
     end
 ```
 
 1. **Error detection**: When Butler SOS fails to communicate with a Qlik Sense server or write data to a destination system, the error is captured automatically.
 
-2. **In-memory tracking**: Errors are counted and grouped by error type and server name. This running count is visible in the console logs.
+2. **In-memory tracking**: Errors are counted and grouped by error type and server name. While errors occur, the running totals are logged to the console at most once a minute (if `logSummary.enable` is true).
 
-3. **Daily summary**: At midnight UTC, Butler SOS logs a summary of all errors that occurred during the day and resets the counters (if `logSummary.enable` is true).
+3. **Daily summary**: At midnight UTC the counters are reset. If `logSummary.enable` is true, Butler SOS first logs a final summary of all errors counted during the day.
 
-4. **InfluxDB write (optional)**: If `errorTracking.influxdb.enable` is true, each error is written as a separate data point in InfluxDB. Each point includes tags identifying the error type, server, host, virtual proxy, destination host, and module, plus an `error_category` field that categorizes the error (e.g., timeout, connection refused, auth error).
+4. **InfluxDB write (optional)**: If `errorTracking.influxdb.enable` is true, each error is written as a separate data point in InfluxDB. Each point includes tags identifying the error type, server, host, virtual proxy, destination host, and module, plus an `error_category` field that categorizes the error (e.g., timeout, connection refused, auth error). If an error event cannot be written, that failure is logged but not counted as a new error. See [InfluxDB write failures](#influxdb-write-failures) below.
 
 ## Configuration
 
@@ -53,7 +54,7 @@ Butler-SOS:
   errorTracking:
     enable: true                          # Master switch — disables all tracking when false
     logSummary:
-      enable: true                        # Log daily error summary to console
+      enable: true                        # Log running error totals and a daily summary to console
     influxdb:
       enable: true                        # Write individual error events to InfluxDB
       measurementName: butler_sos_errors  # InfluxDB measurement name
@@ -62,7 +63,7 @@ Butler-SOS:
 | Parameter | Description |
 |-----------|-------------|
 | `enable` | Master switch for all error tracking. `true`/`false` |
-| `logSummary.enable` | Log daily error summary to console. `true`/`false` |
+| `logSummary.enable` | Log the running error totals to the console (at most once a minute while errors occur) and a final summary at midnight UTC. When `false`, no summary is logged. `true`/`false` |
 | `influxdb.enable` | Write individual error events to InfluxDB. `true`/`false` |
 | `influxdb.measurementName` | InfluxDB measurement name (default: `butler_sos_errors`) |
 
@@ -82,6 +83,10 @@ These error type codes appear as the `error_type` tag in InfluxDB and in console
 | `NEW_RELIC_POST` | New Relic API post failures |
 | `UDP_USER_EVENT` | UDP user event processing failures |
 | `UDP_LOG_EVENT` | UDP log event processing failures |
+
+::: info InfluxDB write errors in 15.1.1 and later
+From Butler SOS 15.1.1, `INFLUXDB_V1_WRITE`, `INFLUXDB_V2_WRITE` and `INFLUXDB_V3_WRITE` count failed writes of regular data only: health metrics, sessions, user and log events, queue metrics and so on. A failed write of an error event itself is logged, but not counted. See [InfluxDB write failures](#influxdb-write-failures).
+:::
 
 ## Module Context Values
 
@@ -185,9 +190,9 @@ Butler SOS captures error details at two levels. Axios wraps Node's net layer, s
 
 ## Console Logging
 
-### Per-error summary (on every error)
+### Running summary (at most once a minute)
 
-When `Butler-SOS.errorTracking.logSummary.enable: true` (the default), Butler SOS logs a running cumulative total at `info` level each time an error occurs:
+When `Butler-SOS.errorTracking.logSummary.enable: true` (the default), Butler SOS logs the day's running error totals at `info` level:
 
 ```
 2026-05-03T16:10:09.420Z info: ERROR TRACKER: Error counts today (UTC): Total=3, Details={"PROXY_API":{"total":2,"servers":{"sense1":2}},"HEALTH_API":{"total":1,"servers":{"sense1":1}}}
@@ -195,9 +200,22 @@ When `Butler-SOS.errorTracking.logSummary.enable: true` (the default), Butler SO
 
 The `Details` JSON is grouped by error type → `{ total, servers: { serverName: count } }`. For errors with no server context the key `_no_server_context` is used.
 
+The running summary is written:
+
+- **at once** for the first error after a quiet minute, so a new problem shows up in the log straight away
+- **at most once a minute** while errors keep occurring. Errors that occur in between are counted, and the next summary line includes them. When errors stop, one last running summary is written once the minute is up, provided Butler SOS is still running then.
+
+::: info Changed in 15.1.1
+Before Butler SOS 15.1.1, the running summary was logged on every single error. During an outage that could mean many lines per second, each one longer than the last.
+:::
+
+::: tip Restarts
+If Butler SOS stops or restarts less than a minute after the last running summary line (for example a service restart, `docker stop`, or an exit after a crash), the errors counted since that line do not appear in a summary line. The counts are kept in memory only, so a restart also starts them from zero. The warnings and errors logged when each failure happened are not affected.
+:::
+
 ### Daily midnight reset
 
-At midnight UTC the tracker logs a final summary then resets all counters:
+At midnight UTC the counters are reset. If `logSummary.enable` is true, the tracker first logs the day's final summary. It includes every error counted that day, including any that were still waiting for a running summary line:
 
 ```
 ERROR TRACKER: Midnight UTC reached, resetting error counters
@@ -205,6 +223,14 @@ ERROR TRACKER: Error counts today (UTC): Total=47, Details={...}
 ERROR TRACKER: Reset all error counters
 ERROR TRACKER: Scheduled next error counter reset at 2026-05-04T00:00:00.000Z (in 1440 minutes)
 ```
+
+The first error after midnight is logged at once, as the first error of the new day.
+
+Midnight works the same way when Butler SOS is busy at that moment. If an error arrives in the first moments after midnight, before the midnight reset has run, that error ends the previous day itself: it logs the final summary and resets the counters, and is then counted as the new day's first error. When the midnight reset runs a moment later, it finds nothing left to do. Either way, each day's final summary is logged exactly once, and it contains only that day's errors.
+
+::: info Changed in 15.1.1
+Before Butler SOS 15.1.1, the midnight summary was logged even when `logSummary.enable` was `false`. Now `logSummary.enable` controls all summary lines. The counters are reset at midnight either way.
+:::
 
 ### Debug-level messages
 
@@ -214,12 +240,51 @@ At `debug` log level, individual counter increments are also logged:
 ERROR TRACKER: Adding first error count for PROXY_API/sense1
 ERROR TRACKER: Incremented error count for PROXY_API/sense1, new count: 2
 ERROR TRACKER: Date changed from 2026-05-03 to 2026-05-04, resetting counters
-ERROR TRACKER: Error writing error event to InfluxDB: <message>   ← only on InfluxDB write failure
+ERROR TRACKER: Error counters already reset for 2026-05-04, nothing to do   ← midnight reset ran after the new day's first error
+ERROR TRACKER: InfluxDB write failed: <message>   ← only when an error event could not be written to InfluxDB
 ```
 
-### InfluxDB write failures (non-blocking)
+### InfluxDB write failures
 
-InfluxDB writes are done asynchronously, meaning they never block the error tracking path. Failures are logged at `debug` level only and do not affect in-memory counting or console summary logging.
+Error events are written to InfluxDB asynchronously, so writing them never blocks the error tracking path.
+
+Writing an error event can fail like any other InfluxDB write. This is most likely when InfluxDB is down or unreachable, or when it rejects the data, for example because of a permissions problem, a missing bucket or database, or a field type conflict in the error measurement.
+
+From Butler SOS 15.1.1, such a failure is logged but **not** counted as a new error, and no new error event is written for it. Failures of regular data writes are counted, logged in the summary and written as error events, as before.
+
+A failed error-event write is easy to recognise in the log: the message contains `Error event:`, followed by the error type and server name of the error that was being recorded. For example, an InfluxDB v2 server rejecting the error event for a failed health check:
+
+```
+warn: INFLUXDB V2 WRITE: Error event: HEALTH_API/sense1 (chunk 1/1, points 0-0) - Non-retryable error (HttpError), not retrying: ...
+error: INFLUXDB V2 BATCH: Error event: HEALTH_API/sense1 - Chunk 1 of 1 (points 0-0) failed: ...
+```
+
+If InfluxDB cannot be reached at all, Butler SOS retries the write a few times before giving up:
+
+```
+warn: INFLUXDB V2 RETRY: Error event: HEALTH_API/sense1 (chunk 1/1, points 0-0) - Retryable error (Error) on attempt 1/4, retrying in 1000ms...
+error: INFLUXDB V2 RETRY: Error event: HEALTH_API/sense1 (chunk 1/1, points 0-0) - All 4 attempts failed. Last error: connect ECONNREFUSED ...
+```
+
+A single failed error event can produce several such lines. That number is fixed; it does not grow over time.
+
+As an extra safeguard, Butler SOS never starts a new error-event write from inside another one. If that safeguard is ever triggered, this is logged at `debug` level. The error is still counted, just not written to InfluxDB:
+
+```
+ERROR TRACKER: Not writing error event INFLUXDB_V2_WRITE/sense1 to InfluxDB, as it was raised while writing another error event
+```
+
+::: warning Versions before 15.1.1
+Before 15.1.1, a failed error-event write was counted as a new InfluxDB write error. Counting it started another error-event write, which failed in the same way and was counted again, so the writes multiplied quickly. The log filled with `Error event:` warnings, CPU and memory use climbed, and the Butler SOS process could run out of memory. If you see this on an older version, upgrade to 15.1.1 or later, or set `errorTracking.influxdb.enable: false` until you can.
+:::
+
+If you see these messages, Butler SOS cannot store error events in InfluxDB. Check that:
+
+- InfluxDB is running and reachable from the Butler SOS server
+- the database (InfluxDB v1 and v3) or the organisation and bucket (InfluxDB v2) set in `Butler-SOS.influxdbConfig` exist
+- the credentials Butler SOS uses are allowed to write to them
+
+If you do not need error events in InfluxDB, set `Butler-SOS.errorTracking.influxdb.enable` to `false`.
 
 ## Grafana Usage Examples
 
