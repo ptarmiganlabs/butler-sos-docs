@@ -41,6 +41,7 @@ docs/
 - `/docs/latest/` is generated at build time - don't edit directly
 - Version is fetched from GitHub releases API - update `docs/.vitepress/version.js` after new Butler SOS releases
 - Nav "Guide" link and homepage "Learn More" both point to `/latest/about/`
+- `pre:latest` builds `/latest/` from the `vX.Y` folder of the latest Butler SOS release, or `vX.0` if there is none. If neither exists it fails the build on purpose, so a new major version needs its `docs/vX.0/` folder before the site can build again
 
 ---
 

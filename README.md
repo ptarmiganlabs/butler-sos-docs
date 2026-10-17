@@ -57,11 +57,13 @@ Two scripts run automatically before every `dev`, `build`, and `serve` command:
 
 1. **`fetch-butler-sos-version.mjs`**: Queries the GitHub releases API to get the latest Butler SOS version and writes it to `docs/.vitepress/version.js`.
 
-2. **`copy-latest-docs.mjs`**: Reads the version from `version.js`, copies the corresponding version folder (e.g., `v15.0/`) to `latest/`, and rewrites all internal links from version-specific paths to `/latest/` paths.
+2. **`copy-latest-docs.mjs`**: Reads the version from `version.js`, copies the corresponding version folder to `latest/`, and rewrites all internal links from version-specific paths to `/latest/` paths. It uses the `vX.Y` folder when there is one, and otherwise `vX.0`, so a minor release such as v15.1.1 reuses `v15.0/`. If neither folder exists, or `version.js` cannot be read, the script **stops the build with an error** instead of building a site without `/latest/`. Cloudflare Pages then keeps serving the previous deploy.
 
 ## Adding a New Version
 
 When Butler SOS releases a new major version (e.g., v16.0), follow this workflow:
+
+> **Note:** Create the new version folder as soon as the new major version is released, or before. Until `docs/v16.0/` exists, every build of this site fails with `No docs folder for the latest Butler SOS release`, including pull request previews. The live site is not affected meanwhile; it keeps the last successful deploy.
 
 ```mermaid
 graph TD
